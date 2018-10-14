@@ -2,7 +2,7 @@
 
 <p align="center">一个Material Design风格的主题，灵感来源 @creative-tim的<a href="https://github.com/creativetimofficial/material-kit">Material-Kit</a></p>
 
-!(screenshot-index)[https://github.com/invom/Material-T/raw/master/screenshot-index.png]
+![screenshot-index](https://github.com/invom/Material-T/raw/master/screenshot-index.png)
 
 
 # 在线预览 Live Preview
