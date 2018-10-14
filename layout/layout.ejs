@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- partial('_partial/head') %>
+
+<% if(page.title == "about") { %>
+<% var body_class = "profile-page" %>
+<% } %>
+<body class="<%- body_class %> sidebar-collapse">
+<%- partial('_partial/nav') %>
+
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('<%- theme.index_top_pic %>')">
+    <% if(theme.if_subtitle) { %>
+      <% if(page.title != "about") { %>
+        <div class="container">
+          <h1 class="title text-center"><%= config.subtitle %></h1>
+        </div>
+      <% } %>
+    <% } %>
+  </div>
+
+<% if(page.title == "about") { %>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <%- body %>
+      </div>
+    </div>
+  </div>  
+<% } else { %>
+  <div class="main main-raised">
+    <div class="container">
+      <div class="section">
+        <%- body %>
+      </div>
+    </div>
+  </div>
+<% } %>
+
+<%- partial('_partial/footer') %>
+</body>
+</html>

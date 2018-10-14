@@ -1,0 +1,39 @@
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="<%- url_for() %>">
+                <%= config.title %></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <% if(theme.if_nav) { %>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <% if(theme.if_menu) { %>
+                        <% for(var i in theme.menu) { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<%- url_for(theme.menu[i]) %>">
+                                    <%= i %>
+                                </a>
+                            </li>
+                        <% } %>
+                    <% } %>
+                    <% if(theme.if_social_icons) { %>
+                        <% for(var j in theme.social_icons) { %>
+                            <li class="nav-item">
+                                <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="<%- theme.social_icons[j] %>" target="_blank" data-original-title="Follow me on <%= j %>">
+                                    <i class="fa fa-<%= j %>"></i>
+                                </a>
+                            </li>
+                        <% } %>
+                    <% } %>
+                </ul>
+            </div>
+        <% } %>
+    </div>
+</nav>
+    

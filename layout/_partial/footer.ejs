@@ -1,0 +1,31 @@
+<footer class="footer footer-default">
+        <div class="container">
+          <nav class="float-left">
+            <ul>
+              <li>
+                <%- theme.footer %>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright float-right">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>&nbsp;code with <i class="material-icons">favorite</i> by
+            <a href="#" target="_blank">Material-T</a>
+          </div>
+        </div>
+</footer>
+      <!--   Core JS Files   -->
+      <%- js("/js/core/jquery.min.js") %>
+      <%- js("/js/core/popper.min.js") %>
+      <%- js("/js/core/bootstrap-material-design.min.js") %>
+      <%- js("/js/plugins/moment.min.js") %>
+      <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+      <%- js("/js/plugins/bootstrap-datetimepicker.js") %>
+      <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+      <%- js("/js/plugins/nouislider.min.js") %>
+      <!--	Plugin for Sharrre btn -->
+      <%- js("/js/plugins/jquery.sharrre.js") %>
+      <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+      <%- js("/js/material-kit.js") %>

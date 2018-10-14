@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <% page.posts.each(function (post) { %>
+        <div class="row post-card">
+            <% var col_num = "col-md-11" %>
+            <% if(post.index_pic != null) { %>
+                <% col_num = "col-md-7" %>
+                <div class="col-md-4">
+                    <img src="<%- post.index_pic %>" alt="img" class="card-img">
+                </div>
+            <% } %>
+                <div class="<%- col_num %>">
+                    <a href="<%- url_for(post.path) %>" class="h3 title"><%= post.title %></a>
+                    <p><%- post.excerpt %></p>
+                    <p class="h6">
+                        <% if(post.categories.length) { %>
+                            <i class="material-icons">bookmark_border</i>
+                                <% post.categories.each(function(categorie){ %>
+                                    <a href="<%- url_for('categories/'+categorie.name) %>"><%= categorie.name %></a>
+                                <% }) %>
+                        <% } %>
+                        <i class="material-icons">date_range</i><%- date(post.date,"YYYY-MM-DD") %>
+                    </p>
+                </div>
+            
+        </div>
+        <br><br>
+        <% }) %> 
+
+        <%- partial('_partial/paginator_center') %>
+    </div>
+</div>

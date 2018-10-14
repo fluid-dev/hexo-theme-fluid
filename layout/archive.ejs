@@ -1,0 +1,14 @@
+<div class="row">
+        <div class="col-md-10 offset-md-1">
+            <% page.posts.each(function (post) { %>
+            <div class="row">
+                <div class="col-md-11">
+                    
+                    <p class="h6"><%- date(post.date,"YYYY-MM-DD") %>&nbsp;--&nbsp;<a href="<%- url_for(post.path) %>" class="h3 title"><%= post.title %></a></p>
+                </div>
+            </div>
+            <% }) %> 
+            <br><br>
+            <%- partial('_partial/paginator_center') %>
+        </div>
+    </div>
