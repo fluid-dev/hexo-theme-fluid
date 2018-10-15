@@ -11,6 +11,7 @@
 
 ## 配置 Configuration
 
+[wiki](https://github.com/invom/Material-T/wiki)
 
 
 
