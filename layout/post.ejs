@@ -2,17 +2,10 @@
 <div class="row">
     <div class="col-md-10 offset-md-1">
         <p><%- page.content %></p>
-
         <br><br>
-        <p>分类：
-            <% page.categories.each(function(cate) { %>
-                <a href="<%- url_for('categories/'+cate.name) %>" class="btn btn-outline-secondary" aria-pressed="true"><%- cate.name %></a>
-                &nbsp;
-            <% }) %>
-        </p>
         <p>标签：
             <% page.tags.each(function(tag) { %>
-                <a href="<%- url_for('tags/'+tag.name) %>" class="btn btn-outline-secondary" aria-pressed="true"><%- tag.name %></a>
+                <%- tag.name %>
                 &nbsp;
             <% }) %>    
         </p>

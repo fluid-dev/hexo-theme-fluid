@@ -17,16 +17,14 @@
 
 ## TODO
 
-- [ ] Categories页
-- [ ] Tags页
 - [ ] Projects页
 - [ ] Friends页
-- [ ] Archives页优化
+- [x] Archives页优化
 - [ ] 每个页面配置不同header-img 
 - [ ] 顶部导航icons提示框自定义
 - [ ] 底部信息自定义
 - [ ] 文章页TOC
-- [ ] 文章页大标题显示
+- [x] 文章页大标题显示
 - [ ] 文章页支持Disqus、Gitment
 - [ ] 文章页底部标签分类图标优化
 - [ ] 分享

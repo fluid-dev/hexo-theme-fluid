@@ -10,8 +10,8 @@
 #站点信息
 #Site Infomation
 #---------------------------
-if_subtitle: true # 内容在网站根目录的_config.yml中配置
-index_top_pic: https://i.loli.net/2018/10/13/5bc1af44bb064.jpg # 首页大图
+if_subtitle: true
+index_top_pic: 
 
 #---------------------------
 #导航栏
@@ -24,19 +24,17 @@ if_menu: true
 menu:
   #Home: /
   archives: /archives/
-  #categories: /categories/
   #Projects: /projects/
   about: /about/
   
 
 if_social_icons: true
-social_icons: # 从此处搜索http://www.fontawesome.com.cn/faicons/
-  github: https://github.com/invom
+social_icons: 
+  github: 
   #Facebook: 
   twitter:
   telegram:
   #Weibo: 
-  #Zhihu:
   
 
 #---------------------------
@@ -52,17 +50,16 @@ toc: true
 #About Page
 #---------------------------
 about:
-  avatar: https://i.loli.net/2018/10/12/5bc074d44218b.jpg  # url引入或上传后使用相对路径
-  name: invom
-  job:  Student
-  introduce: 一个信仰material design的小菜鸡
+  avatar: 
+  name: 
+  job:  
+  introduce: 
   extension: # 留空供大佬们自由发挥
 
-about_icons:  # 从此处搜索http://www.fontawesome.com.cn/faicons/
-  #ins: 
+about_icons: 
   facebook: https://facebook.com
   weibo: https://weibo.com
-  weixin: aaaaa
+  weixin: 
 
 
 #---------------------------
