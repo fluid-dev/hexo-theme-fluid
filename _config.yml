@@ -17,9 +17,6 @@ index_top_pic:
 #导航栏
 #Top Navbar
 #---------------------------
-if_nav: true
-
-
 if_menu: true
 menu:
   #Home: /
@@ -41,7 +38,9 @@ social_icons:
 #文章页
 #Post Page
 #---------------------------
-
+comments_type: ''
+disqus: 
+  shortname: 
 
 
 
