@@ -1,11 +1,13 @@
 
 <div class="row">
-    <div class="col-md-10 offset-md-1">
-        <p><%- page.content %></p>
+    <div class="col-md-8 offset-md-2">
+        <div class="post_content">
+            <%- page.content %>
+        </div>
         <br><br>
-        <p>标签：
-            <% page.tags.each(function(tag) { %>
-                <%- tag.name %>
+        <p>
+            <% page.tags.each(function(tag) { %>     
+                <span class="badge badge-default">#&nbsp;<%- tag.name %></span>
                 &nbsp;
             <% }) %>    
         </p>
