@@ -26,7 +26,8 @@
 - [ ] 底部信息自定义
 - [ ] 文章页TOC
 - [x] 文章页大标题显示
-- [ ] 支持Disqus、Gitment
+- [x] 支持Disqus
+- [ ] 支持Gitment,valine
 - [x] 文章页底部tag图标优化
 - [ ] 分享
 - [ ] 打赏
