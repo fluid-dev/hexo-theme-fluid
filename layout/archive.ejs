@@ -3,13 +3,15 @@
         <div class="card">
             <div class="card-body">
                 <ul class="nav nav-pills nav-pills-rose">
-                    <li class="nav-item"><a class="nav-link active" href="#all" data-toggle="tab">All</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#all" data-toggle="tab">All </a></li>
                     <% site.tags.each(function(tag) { %>
                         <li class="nav-item"><a class="nav-link" href="#<%- tag.name %>" data-toggle="tab"><%- tag.name %></a></li>
                     <% }) %>
                 </ul>
                 <div class="tab-content tab-space">
                     <div class="tab-pane active" id="all">
+                        <p class="h3">Total: <%= site.posts.length %></p>
+                        <hr>
                         <% page.posts.each(function (post) { %>
                             <div class="row">
                                 <div class="col-md-11">
@@ -17,8 +19,6 @@
                                 </div>
                             </div>
                         <% }) %> 
-                        <br><br>
-                        <%- partial('_partial/paginator_center') %> 
                     </div>
                     <% site.tags.each(function(tag) { %>
                         <div class="tab-pane" id="<%- tag.name %>">
@@ -40,4 +40,3 @@
         </div>
     </div>
 </div>
-
