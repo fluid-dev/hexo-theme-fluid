@@ -3,10 +3,10 @@
         <% page.posts.each(function (post) { %>
         <div class="row post-card">
             <% var col_num = "col-md-11" %>
-            <% if(post.index_pic != null) { %>
+            <% if(post.index_img != null) { %>
                 <% col_num = "col-md-7" %>
                 <div class="col-md-4">
-                    <img src="<%- post.index_pic %>" alt="img" class="card-img">
+                    <img src="<%- post.index_img %>" alt="img" class="card-img">
                 </div>
             <% } %>
                 <div class="<%- col_num %>">

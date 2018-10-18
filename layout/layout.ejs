@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <% if(is_home()) { %>
 <%    page_type = 'Home' %>
-<%    if(theme.if_subtitle) { var subtitle = config.subtitle }%>
+<%    if(theme.subtitle.enable) { var subtitle = config.subtitle }%>
 <% } else if (page.title == 'about'){ %>
 <%    var subtitle = '' %>
 <%    var page_type = 'About' %>
@@ -18,7 +18,7 @@
 
 <body class="<%- body_class %> sidebar-collapse">
 <%- partial('_partial/nav') %>
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('<%- theme.index_top_pic %>')">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('<%- theme.index_head_img %>')">
     <% if(is_post()) { %>
       <div class="container">
         <h1 class="title text-center"><%- page.title %></h1>
