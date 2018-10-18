@@ -21,11 +21,10 @@
 - [ ] Projects页
 - [ ] Friends页
 - [x] Archives页优化
-- [ ] 每个页面配置不同header-img 
+- [x] 每个页面配置不同head-img 
 - [ ] 顶部导航icons提示框自定义
 - [ ] 底部信息自定义
 - [ ] 文章页TOC
-- [x] 文章页大标题显示
 - [x] 支持Disqus
 - [ ] 支持Gitment,valine
 - [x] 文章页底部tag图标优化

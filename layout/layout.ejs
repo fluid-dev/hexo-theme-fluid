@@ -2,23 +2,27 @@
 <html lang="zh-CN">
 <% if(is_home()) { %>
 <%    page_type = 'Home' %>
-<%    if(theme.subtitle.enable) { var subtitle = config.subtitle }%>
+<%    var head_img = theme.index_head_img %>
+<%    if(theme.subtitle.enable) { var subtitle = config.subtitle } %>
 <% } else if (page.title == 'about'){ %>
+<%    var head_img = theme.about.head_img || theme.index_head_img %>
 <%    var subtitle = '' %>
 <%    var page_type = 'About' %>
-<%    var body_class = "profile-page"%>
+<%    var body_class = "profile-page" %>
 <% } else if(is_archive) { %>
 <%    var page_type = 'Archive' %>
+<%    var head_img = theme.archive_head_img || theme.index_head_img %>
 <%    var subtitle = 'Archive' %>
 <% } else { %>
 <%    var subtitle = page.title %>
+<%    var head_img = theme.index_head_img %>
 <% } %>
 
 <%- partial('_partial/head',{page_type}) %>
 
 <body class="<%- body_class %> sidebar-collapse">
 <%- partial('_partial/nav') %>
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('<%- theme.index_head_img %>')">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('<%- head_img %>')">
     <% if(is_post()) { %>
       <div class="container">
         <h1 class="title text-center"><%- page.title %></h1>
