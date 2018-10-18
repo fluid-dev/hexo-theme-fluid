@@ -23,7 +23,7 @@
 - [x] Archives页优化
 - [x] 每个页面配置不同head-img 
 - [ ] 顶部导航icons提示框自定义
-- [ ] 底部信息自定义
+- [x] 底部信息自定义
 - [ ] 文章页TOC
 - [x] 支持Disqus
 - [ ] 支持Gitment,valine
