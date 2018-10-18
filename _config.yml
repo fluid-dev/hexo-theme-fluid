@@ -7,40 +7,41 @@
 
 
 #---------------------------
-#站点信息
-#Site Infomation
+# 首页
+# Index Page
 #---------------------------
-if_subtitle: true
-index_top_pic: 
+subtitle:
+  enable: true
+
+index_head_img: https://i.loli.net/2018/10/13/5bc1af44bb064.jpg 
 
 #---------------------------
-#导航栏
-#Top Navbar
+# 导航栏
+# Head Navbar
 #---------------------------
-if_menu: true
 menu:
-  #Home: /
-  archives: /archives/
-  #Projects: /projects/
-  about: /about/
+  enable: true
+  list:
+    archives: /archives/
+    #Projects: /projects/
+    about: /about/
   
 
-if_social_icons: true
-social_icons: 
-  github: 
-  #Facebook: 
-  twitter:
-  telegram:
-  #Weibo: 
+social_icons:
+  enable: true
+  list: 
+    github: https://github.com/invom
+    twitter:
+    telegram: 
   
 
 #---------------------------
 #文章页
 #Post Page
 #---------------------------
-comments_type: ''
+comments_type: 'disqus'
 disqus: 
-  shortname: 
+  shortname:
 
 
 
@@ -49,16 +50,16 @@ disqus:
 #About Page
 #---------------------------
 about:
-  avatar: 
-  name: 
-  job:  
-  introduce: 
-  extension: # 留空供大佬们自由发挥
+  avatar: https://i.loli.net/2018/10/12/5bc074d44218b.jpg 
+  name: MyName
+  job:  MyJob
+  introduce: '我还是个孩子啊。'
+  extension:
 
 about_icons: 
   facebook: https://facebook.com
   weibo: https://weibo.com
-  weixin: 
+  weixin: aaaa
 
 
 #---------------------------
