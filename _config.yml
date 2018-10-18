@@ -36,20 +36,27 @@ social_icons:
   
 
 #---------------------------
-#文章页
-#Post Page
+# 文章页
+# Post Page
 #---------------------------
 comments_type: 'disqus'
 disqus: 
   shortname:
 
 
+#---------------------------
+# 归档页
+# Archive Page
+#---------------------------
+archive_head_img: https://i.loli.net/2018/10/18/5bc8833e92370.jpg
+
 
 #---------------------------
-#关于页
-#About Page
+# 关于页
+# About Page
 #---------------------------
 about:
+  head_img: https://i.loli.net/2018/10/18/5bc8833e75953.jpg
   avatar: https://i.loli.net/2018/10/12/5bc074d44218b.jpg 
   name: MyName
   job:  MyJob
@@ -63,7 +70,7 @@ about_icons:
 
 
 #---------------------------
-#底部信息
-#footer
+# 底部信息
+# Footer
 #---------------------------
 footer: <a href="https://hexo.io/zh-cn/">HEXO</a>
