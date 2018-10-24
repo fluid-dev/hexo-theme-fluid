@@ -13,20 +13,20 @@
                     <a href="<%- url_for(post.path) %>" class="h3 title"><%= post.title %></a>
                     <p><%- post.excerpt %></p>
                     <p class="h6">
-                        <% if(post.categories.length) { %>
+                        <i class="material-icons">date_range</i><%- date(post.date,"YYYY-MM-DD") %>
+                        <% if(post.tags.length) { %>
                             <i class="material-icons">bookmark_border</i>
-                                <% post.categories.each(function(categorie){ %>
-                                    <a href="<%- url_for('categories/'+categorie.name) %>"><%= categorie.name %></a>
+                                <% post.tags.each(function(tag){ %>
+                                    <%= tag.name %> &nbsp;
                                 <% }) %>
                         <% } %>
-                        <i class="material-icons">date_range</i><%- date(post.date,"YYYY-MM-DD") %>
                     </p>
                 </div>
             
         </div>
-        <br><br>
+       
         <% }) %> 
-
+        <br><br>
         <%- partial('_partial/paginator_center') %>
     </div>
 </div>

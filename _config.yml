@@ -5,6 +5,13 @@
 # Github: https://github.com/invom/Material-T
 #---------------------------
 
+#---------------------------
+# 全局
+# Site
+#---------------------------
+favicon: ../img/favicon.png
+apple_touch_icon: ../img/apple-icon.png
+
 
 #---------------------------
 # 首页
@@ -29,10 +36,10 @@ menu:
 
 social_icons:
   enable: true
+  tips: 'See me here'
   list: 
-    github: https://github.com/invom
-    twitter:
-    telegram: 
+    github: 
+    twitter: 
   
 
 #---------------------------
@@ -42,7 +49,6 @@ social_icons:
 comments_type: 'disqus'
 disqus: 
   shortname:
-
 
 #---------------------------
 # 归档页
@@ -58,15 +64,14 @@ archive_head_img: https://i.loli.net/2018/10/18/5bc8833e92370.jpg
 about:
   head_img: https://i.loli.net/2018/10/18/5bc8833e75953.jpg
   avatar: https://i.loli.net/2018/10/12/5bc074d44218b.jpg 
-  name: MyName
-  job:  MyJob
-  introduce: '我还是个孩子啊。'
-  extension:
+  name: 
+  job:  
+  introduce: 
+  extension: 
 
 about_icons: 
-  facebook: https://facebook.com
-  weibo: https://weibo.com
-  weixin: aaaa
+  github: 
+  twitter: 
 
 
 #---------------------------
