@@ -1,6 +1,6 @@
 <h1 align="center">Material-T</h1>
 
-<p align="center">一个Material Design风格的主题，灵感来源于 @creative-tim的<a href="https://github.com/creativetimofficial/material-kit">Material-Kit</a></p>
+<p align="center">一款Material Design风格的主题，灵感来源于 @creative-tim的<a href="https://github.com/creativetimofficial/material-kit">Material-Kit</a></p>
 
 ![screenshot-index](https://github.com/invom/Material-T/raw/master/screenshot-index.png)
 
@@ -28,9 +28,12 @@ archive_generator:
 hexo new page about
 ```
 
+修改`source/about/index.md`，添加`type: "about"`
+
 4. 在博客配置文件中启用`Material-T`
 
-
+## 更新
+`git pull`
 
 
 ## 配置 Configuration
@@ -45,7 +48,7 @@ hexo new page about
 - [ ] Friends页
 - [x] Archives页优化
 - [x] 每个页面配置不同head-img 
-- [ ] 顶部导航icons提示框自定义
+- [x] 顶部导航icons提示框自定义
 - [x] 底部信息自定义
 - [ ] TOC
 - [x] 支持Disqus

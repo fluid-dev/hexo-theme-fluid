@@ -24,7 +24,7 @@
                     <% if(theme.social_icons.enable) { %>
                         <% for(var j in theme.social_icons.list) { %>
                             <li class="nav-item">
-                                <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="<%- theme.social_icons.list[j] %>" target="_blank" data-original-title="Follow me on <%= j %>">
+                                <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="<%- theme.social_icons.list[j] %>" target="_blank" data-original-title="<%= theme.social_icons.tips %>">
                                     <i class="fa fa-<%= j %>"></i>
                                 </a>
                             </li>
