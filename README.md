@@ -10,7 +10,13 @@
 [我的版本](https://invom.github.io/Material-T/)
 
 ## 安装 Installation
-1. 从GitHub下载最新版本
+以下操作默认在hexo根目录。
+
+1. 克隆最新版本
+```
+cd theme/Material-T
+git clone -b master https://github.com/invom/Material-T.git Material-T
+```
 
 2. 关闭归档页的分页：在博客配置文件中配置
 ```
@@ -33,6 +39,7 @@ hexo new page about
 4. 在博客配置文件中启用`Material-T`
 
 ## 更新
+
 `git pull`
 
 
@@ -54,7 +61,6 @@ hexo new page about
 - [x] 支持Disqus
 - [ ] 支持Gitment,valine
 - [x] 文章页底部tag图标优化
-- [ ] 分享
 - [ ] css去冗
 
 ## 贡献 Contributing
