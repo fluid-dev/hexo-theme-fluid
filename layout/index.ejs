@@ -11,7 +11,7 @@
             <% } %>
                 <div class="<%- col_num %>">
                     <a href="<%- url_for(post.path) %>" class="h3 title"><%= post.title %></a>
-                    <p><%- post.excerpt %></p>
+                    <p><%- strip_html(post.excerpt) %></p>
                     <p class="h6">
                         <i class="material-icons">date_range</i><%- date(post.date,"YYYY-MM-DD") %>
                         <% if(post.tags.length) { %>
