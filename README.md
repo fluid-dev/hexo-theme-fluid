@@ -14,7 +14,8 @@
 
 1. 克隆最新版本
 ```
-cd theme/Material-T
+cd theme
+mkdir Material-T
 git clone -b master https://github.com/invom/Material-T.git Material-T
 ```
 
