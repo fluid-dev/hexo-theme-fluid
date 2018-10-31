@@ -7,7 +7,7 @@
 
 ## 在线预览 Live Preview
 
-[我的版本](https://invom.github.io/Material-T/)
+[invom's blog](https://invom.cc)
 
 ## 安装 Installation
 以下操作默认在hexo根目录。
