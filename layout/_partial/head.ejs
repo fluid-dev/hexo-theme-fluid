@@ -20,4 +20,7 @@
     <!-- <%- css('css/font-awesome.css') %> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <%- css('css/style.css') %>
+    <% if(is_post()){ %>
+    <%- css('css/post.css') %>
+    <% } %>
 </head>
