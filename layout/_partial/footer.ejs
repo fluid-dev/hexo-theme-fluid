@@ -14,14 +14,37 @@
 </footer>
       <!--   Core JS Files   -->
       <%- js("/js/core/jquery.min.js") %>
+      <% if(is_post()) { %>
+        <%- js("/js/main.js") %>
+      <% } %> 
       <%- js("/js/core/popper.min.js") %>
       <%- js("/js/core/bootstrap-material-design.min.js") %>
       <%- js("/js/plugins/moment.min.js") %>
       <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-      <%- js("/js/plugins/bootstrap-datetimepicker.js") %>
+      <!-- <%- js("/js/plugins/bootstrap-datetimepicker.js") %> -->
       <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
       <%- js("/js/plugins/nouislider.min.js") %>
       <!--	Plugin for Sharrre btn -->
       <%- js("/js/plugins/jquery.sharrre.js") %>
       <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
       <%- js("/js/material-kit.js") %>
+      
+      <% if(is_post()){ %>
+        <%- js('/js/plugins/prettify.js') %>
+        <script>
+            $(window).on('load',function(){
+                $('pre').addClass('prettyprint linenums');
+                prettyPrint();
+            })
+        </script>
+        <% if(theme.toc.enable){ %>
+          <%- js("js/plugins/tocbot.min.js") %>  
+          <script>
+              tocbot.init({
+              tocSelector: '.tocbot',
+              contentSelector: '.tocbot-content',
+              headingSelector: 'h1, h2, h3, h4, h5, h6'
+              });
+          </script>
+        <% } %>
+      <% } %>
