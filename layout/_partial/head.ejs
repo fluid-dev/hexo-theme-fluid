@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <%- css('css/style.css') %>
     <% if(is_post()){ %>
-    <%- css('css/post.css') %>
+        <%- css('css/post.css') %>
+        <% if(theme.highlight.enable){ %>
+            <%- css('css/Prettify/'+theme.highlight.theme+'.min.css') %>
+        <% } %>
+        <% if(theme.toc.enable){ %>
+            <%- css('css/tocbot.css') %>
+        <% } %>
     <% } %>
 </head>

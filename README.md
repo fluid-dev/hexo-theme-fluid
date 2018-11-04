@@ -13,14 +13,16 @@
 以下操作默认在hexo根目录。
 
 1. 克隆最新版本
-```
+```bash
 cd theme
 mkdir Material-T
 git clone -b master https://github.com/invom/Material-T.git Material-T
 ```
 
-2. 关闭归档页的分页：在博客配置文件中配置
-```
+2. 关闭归档页的分页：
+
+   博客配置文件：
+```yml
 archive_generator:
   per_page: 0  
   yearly: true
@@ -30,8 +32,20 @@ archive_generator:
 ```
 如果没安装`hexo-generator-archive`,使用`npm install hexo-generator-archive --save`安装。
 
+1. 关闭默认代码高亮
+
+   博客配置文件：
+
+   ```yml
+   highlight:
+     enable: false
+     line_number: false
+     auto_detect: false
+     tab_replace:
+   ```
+
 3. 创建About Page
-```
+```bash
 hexo new page about
 ```
 
@@ -58,7 +72,7 @@ hexo new page about
 - [x] 每个页面配置不同head-img 
 - [x] 顶部导航icons提示框自定义
 - [x] 底部信息自定义
-- [ ] TOC
+- [x] TOC
 - [x] 支持Disqus
 - [ ] 支持Gitment,valine
 - [x] 文章页底部tag图标优化
