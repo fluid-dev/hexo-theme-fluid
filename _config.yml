@@ -50,6 +50,16 @@ comments_type: 'disqus'
 disqus: 
   shortname:
 
+toc: 
+  enable: true
+
+# Code Highlight
+# Theme available: github | tomorrow | tomorrow-night | tomorrow-night-eighties
+highlight:
+  enable: true
+  theme: tomorrow-night-eighties
+
+  
 #---------------------------
 # 归档页
 # Archive Page
