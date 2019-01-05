@@ -1,6 +1,6 @@
 #---------------------------
 # Material-T
-# 一个基于Material Design风格的主题
+# 一款Material Design风格的HEXO主题
 # Author: invom
 # Github: https://github.com/invom/Material-T
 #---------------------------
@@ -30,7 +30,6 @@ menu:
   enable: true
   list:
     archives: /archives/
-    #Projects: /projects/
     about: /about/
   
 
@@ -64,7 +63,7 @@ highlight:
 # 归档页
 # Archive Page
 #---------------------------
-archive_head_img: https://i.loli.net/2018/10/18/5bc8833e92370.jpg
+archive_head_img: ../img/post-head.jpg
 
 
 #---------------------------
