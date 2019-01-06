@@ -58,21 +58,10 @@ hexo new page about
 `git pull`
 
 
-## 配置 Configuration
+## [配置 Configuration](https://github.com/invom/Material-T/wiki)
 
-[wiki](https://github.com/invom/Material-T/wiki)
+## [TODO](https://github.com/invom/Material-T/projects)
 
-
-
-## TODO
-
-- [ ] Projects Page
-- [ ] Friends Page
-- [x] 配置不同head-img
-- [x] TOC
-- [x] 支持Disqus
-- [ ] 支持Gitment,valine
-- [ ] css去冗
 
 ## 贡献 Contributing
 
