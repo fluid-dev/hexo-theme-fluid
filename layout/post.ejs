@@ -36,7 +36,16 @@
                     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>                                
                 </div>
             <% } %>
+    </div>
+    <!-- TOC -->
+    <% if(theme.toc.enable){ %>
+        <div class="col-md-3">
+            <%- toc(page.content,{
+                list_number:false
+            }) %>
+        </div>
+    <% } %>
+</div>
         <% } %>
     </div>
-    <div class="toc tocbot"></div>
 </div>
