@@ -11,45 +11,41 @@
 
 ## 安装 Installation
 
-1. 获取最新版本
+**1.** 获取最新版本
+
 ```bash
 cd themes
 git clone -b master https://github.com/invom/Material-T.git Material-T
-```
+  ```
 
-2. 关闭归档页的分页：
+**2.** 修改`/_config.yml`
 
-  修改`/_config.yml`
 ```yml
+// 关闭归档页的默认分页：
 archive_generator:
   per_page: 0  
   yearly: true
   monthly: true
   daily: false
   order_by: -date
+
+// 关闭默认代码高亮
+highlight:
+  enable: false
+  line_number: false
+  auto_detect: false
+  tab_replace:
 ```
-如果没有`hexo-generator-archive`插件,使用`npm install hexo-generator-archive --save`安装。
 
-3. 关闭默认代码高亮
+**3.** 创建About Page
 
-   修改`/_config.yml`
-
-   ```yml
-   highlight:
-     enable: false
-     line_number: false
-     auto_detect: false
-     tab_replace:
-   ```
-
-4. 创建About Page
 ```bash
 hexo new page about
 ```
 
-修改`/source/about/index.md`，添加`type: "about"`
+修改`/source/about/index.md`，添加属性`type: "about"`
 
-5. 在`/_config.yml`中启用`Material-T`
+**4.** 在`/_config.yml`中启用`Material-T`
 
 ## 更新
 
