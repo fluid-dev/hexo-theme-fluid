@@ -10,18 +10,16 @@
 [invom's blog](https://invom.cc)
 
 ## 安装 Installation
-以下操作默认在hexo根目录。
 
 1. 获取最新版本
 ```bash
-cd theme
-mkdir Material-T
+cd themes
 git clone -b master https://github.com/invom/Material-T.git Material-T
 ```
 
 2. 关闭归档页的分页：
 
-   博客配置文件：
+  修改`/_config.yml`
 ```yml
 archive_generator:
   per_page: 0  
@@ -30,11 +28,11 @@ archive_generator:
   daily: false
   order_by: -date
 ```
-如果没安装`hexo-generator-archive`,使用`npm install hexo-generator-archive --save`安装。
+如果没有`hexo-generator-archive`插件,使用`npm install hexo-generator-archive --save`安装。
 
 3. 关闭默认代码高亮
 
-   博客配置文件：
+   修改`/_config.yml`
 
    ```yml
    highlight:
@@ -49,9 +47,9 @@ archive_generator:
 hexo new page about
 ```
 
-修改`source/about/index.md`，添加`type: "about"`
+修改`/source/about/index.md`，添加`type: "about"`
 
-5. 在博客配置文件中启用`Material-T`
+5. 在`/_config.yml`中启用`Material-T`
 
 ## 更新
 
