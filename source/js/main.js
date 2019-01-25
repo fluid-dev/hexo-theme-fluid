@@ -1,4 +1,4 @@
-$(window).on('load', function(){  
+$(document).ready(function(){  
     // for Toc
     var navHeight = $(".navbar").height();
     var toc = $("#toc");
