@@ -6,11 +6,11 @@
             <% if(post.index_img != null) { %>
                 <% col_num = "col-md-7" %>
                 <div class="col-md-4">
-                    <img src="<%- post.index_img %>" alt="img" class="card-img">
+                    <a href="<%- url_for(post.path) %>" style="display:block;" target="_blank"><img src="<%- post.index_img %>" alt="img" class="card-img"></a> 
                 </div>
             <% } %>
                 <div class="<%- col_num %>">
-                    <a href="<%- url_for(post.path) %>" class="h3 title"><%= post.title %></a>
+                    <a href="<%- url_for(post.path) %>" class="h3 title" target="_blank"><%= post.title %></a>
                     <p><%- strip_html(post.excerpt) %></p>
                     <p class="h6">
                         <i class="material-icons">date_range</i><%- date(post.date,"YYYY-MM-DD") %>
