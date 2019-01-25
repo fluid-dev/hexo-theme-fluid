@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<% if(is_home()) { %>
-<%    var head_img = theme.index_head_img %>
-<%    if(theme.subtitle.enable) { var subtitle = config.subtitle } %>
+<% if(is_post()) { %>
+<%    head_img = page.head_img || theme.post.head_img || theme.index.head_img %>
+<%    var subtitle = page.title %>
+<% } else if(is_home()) { %>
+<%    var head_img = theme.index.head_img %>
+<%    if(theme.index.subtitle.enable) { var subtitle = config.subtitle } %>
 <% } else if (page.type == 'about'){ %>
-<%    var head_img = theme.about.head_img || theme.index_head_img %>
+<%    var head_img = theme.about.head_img || theme.index.head_img %>
 <%    var subtitle = '' %>
 <%    var body_class = "profile-page" %>
 <% } else if(is_archive) { %>
-<%    var head_img = theme.archive_head_img || theme.index_head_img %>
+<%    var head_img = theme.archive.head_img || theme.index.head_img %>
 <%    var subtitle = 'Archive' %>
 <% } else { %>
 <%    var subtitle = page.title %>
-<%    var head_img = theme.index_head_img %>
+<%    var head_img = theme.index.head_img %>
 <% } %>
 
 <%- partial('_partial/head') %>

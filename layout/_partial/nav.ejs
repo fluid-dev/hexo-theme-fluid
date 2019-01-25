@@ -12,19 +12,19 @@
         </div>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <% if(theme.menu.enable) { %>
-                        <% for(var i in theme.menu.list) { %>
+                    <% if(theme.navbar.menu.enable) { %>
+                        <% for(var i in theme.navbar.menu.list) { %>
                             <li class="nav-item">
-                                <a class="nav-link" href="<%- url_for(theme.menu.list[i]) %>">
+                                <a class="nav-link" href="<%- url_for(theme.navbar.menu.list[i]) %>">
                                     <%= i %>
                                 </a>
                             </li>
                         <% } %>
                     <% } %>
-                    <% if(theme.social_icons.enable) { %>
-                        <% for(var j in theme.social_icons.list) { %>
+                    <% if(theme.navbar.icons.enable) { %>
+                        <% for(var j in theme.navbar.icons.list) { %>
                             <li class="nav-item">
-                                <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="<%- theme.social_icons.list[j] %>" target="_blank" data-original-title="<%= theme.social_icons.tips %>">
+                                <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="<%- theme.navbar.icons.list[j] %>" target="_blank" data-original-title="<%= theme.navbar.icons.tips %>">
                                     <i class="fa fa-<%= j %>"></i>
                                 </a>
                             </li>
