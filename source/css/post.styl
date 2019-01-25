@@ -2,15 +2,16 @@
     font-size: 18px;
 }
 
-.post_content h1:before,h2:before,h3:before,h4:before,h5:before,h6:before{
+.post_content h1::before,h2::before,h3::before,h4::before,h5::before,h6::before{
     content: "# ";
     color: #0e5796;
 }
 
 .post_content h1,h2,h3,h4,h5,h6{
     font-weight: 600;
+    padding-top: 70px;
+    margin-top: -70px;
 }
-
 
 .toc{
     font-size: 14px;
@@ -25,3 +26,8 @@
     color: #89229b;
 }
 
+@media (max-width: 768px) {
+  #toc {
+    display: none;
+  }
+}
