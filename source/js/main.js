@@ -1,13 +1,32 @@
-// init post_toc powered by tocbot
-$(function(){  
-    var tocH = $(".toc").offset().top;
-    var right = window.innerWidth - $(".toc").offset().left;
+$(window).on('load', function(){  
+    // for Toc
+    var navHeight = $(".navbar").height();
+    var toc = $("#toc");
+    var tocL = toc.offset().left;
+    var tocT = navHeight + $(".material-icons").height();
+    var HHH = $(".main").offset().top;
     $(window).scroll(function(){  
-        var scroH = $(this).scrollTop(); 
-        if(scroH >= tocH){  
-            $(".toc").addClass("toc_fixed");
-        }else if( scroH < tocH ) {  
-            $(".toc").removeClass("toc_fixed");
+        var scroH = toc.scrollTop(); 
+        //var scroH;  
+        // if(document.body.scrollTop){  
+        //     scroH = document.body.scrollTop;  
+        // }  
+        // else{  
+        //     scroH = document.documentElement.scrollTop;  
+        // }  
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+        if(scroH >= HHH){  
+            toc.css({
+                "position": "fixed",
+                "left": tocL,
+                "top": tocT
+            });
+        }else if( scroH < HHH ) {  
+            toc.css({
+                "position": "",
+                "left": '',
+                "top": ''
+            });
         }  
-    })  
+    }) 
 }) 
