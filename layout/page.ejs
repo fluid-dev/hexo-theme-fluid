@@ -3,7 +3,7 @@
       <div class="col-md-6 ml-auto mr-auto">
         <div class="profile">
           <div class="avatar">
-            <img src="<%= theme.about.avatar %>" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+            <img src="<%- url_for(theme.about.avatar) %>" alt="Circle Image" class="img-raised rounded-circle img-fluid">
           </div>
           <div class="name">
             <h3 class="title"><%= theme.about.name %></h3>
@@ -17,7 +17,7 @@
     </div>
     <div class="description text-center">
       <p><%= theme.about.introduce %></p>
-      <%- theme.about.extension%>
+      <%- theme.about.extension %>
     </div>
     <br><br>
 <% } %>
