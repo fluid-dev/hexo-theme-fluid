@@ -1,6 +1,5 @@
 #---------------------------
 # Material-T
-# 一款Material Design风格的HEXO主题
 # Author: invom
 # Github: https://github.com/invom/Material-T
 #---------------------------
@@ -17,40 +16,40 @@ apple_touch_icon: ../img/apple-icon.png
 # 首页
 # Index Page
 #---------------------------
-subtitle:
-  enable: true
-
-index_head_img: https://i.loli.net/2018/10/13/5bc1af44bb064.jpg 
+index: 
+  subtitle:
+    enable: true
+  head_img: ../img/index-head.jpg
 
 #---------------------------
 # 导航栏
 # Head Navbar
 #---------------------------
-menu:
-  enable: true
-  list:
-    archives: /archives/
-    about: /about/
-  
-
-social_icons:
-  enable: true
-  tips: 'See me here'
-  list: 
-    github: 
-    twitter: 
+navbar:
+  menu:
+    enable: true
+    list:
+      archives: /archives/
+      about: /about/
+  icons:
+    enable: true
+    tips: 'See me here'
+    list: 
+      github: https://github.com/invom
+      twitter: https://twitter.com/faultymach1ne
   
 
 #---------------------------
 # 文章页
 # Post Page
 #---------------------------
-comments_type: 'disqus'
-disqus: 
-  shortname:
-
-toc: 
-  enable: true
+post: 
+  head_img: ../img/post-head.jpg
+  comments_type: 'disqus'
+  disqus: 
+    shortname:
+  toc: 
+    enable: true
 
 # Code Highlight
 # Theme available: github | tomorrow | tomorrow-night | tomorrow-night-eighties
@@ -58,29 +57,28 @@ highlight:
   enable: true
   theme: tomorrow-night-eighties
 
-  
+
 #---------------------------
 # 归档页
 # Archive Page
 #---------------------------
-archive_head_img: ../img/post-head.jpg
-
+archive: 
+  head_img: ../img/archive-head.jpg
 
 #---------------------------
 # 关于页
 # About Page
 #---------------------------
 about:
-  head_img: https://i.loli.net/2018/10/18/5bc8833e75953.jpg
-  avatar: https://i.loli.net/2018/10/12/5bc074d44218b.jpg 
-  name: 
-  job:  
-  introduce: 
+  head_img: ../img/about-head.jpg
+  avatar: ../img/avatar.jpg 
+  name: myname
+  job: myjob
+  introduce: my info
   extension: 
-
-about_icons: 
-  github: 
-  twitter: 
+  icons: 
+    github: https://github.com
+    twitter: https://twitter.com
 
 
 #---------------------------
