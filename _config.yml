@@ -8,8 +8,8 @@
 # 全局
 # Site
 #---------------------------
-favicon: ../img/favicon.png
-apple_touch_icon: ../img/apple-icon.png
+favicon: /favicon.png
+apple_touch_icon: /apple-touch-icon.png
 
 
 #---------------------------
@@ -19,7 +19,7 @@ apple_touch_icon: ../img/apple-icon.png
 index: 
   subtitle:
     enable: true
-  head_img: ../img/index-head.jpg
+  head_img: /img/index-head.jpg
 
 #---------------------------
 # 导航栏
@@ -35,8 +35,8 @@ navbar:
     enable: true
     tips: 'See me here'
     list: 
-      github: https://github.com/invom
-      twitter: https://twitter.com/faultymach1ne
+      github: https://github.com/
+      twitter: https://twitter.com/
   
 
 #---------------------------
@@ -44,7 +44,7 @@ navbar:
 # Post Page
 #---------------------------
 post: 
-  head_img: ../img/post-head.jpg
+  head_img: /img/post-head.jpg
   comments_type: 'disqus'
   disqus: 
     shortname:
@@ -63,15 +63,15 @@ highlight:
 # Archive Page
 #---------------------------
 archive: 
-  head_img: ../img/archive-head.jpg
+  head_img: /img/archive-head.jpg
 
 #---------------------------
 # 关于页
 # About Page
 #---------------------------
 about:
-  head_img: ../img/about-head.jpg
-  avatar: ../img/avatar.jpg 
+  head_img: /img/about-head.jpg
+  avatar: /img/avatar.jpg 
   name: myname
   job: myjob
   introduce: my info
