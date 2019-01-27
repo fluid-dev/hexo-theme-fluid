@@ -17,7 +17,9 @@ apple_touch_icon: /apple-touch-icon.png
 # Index Page
 #---------------------------
 index: 
-  head_img: /img/index-head.jpg
+  banner_img: /img/index-banner.jpg
+  # available: 0 - 100
+  banner_img_height: 100
   subtitle:
     enable: true
   auto_excerpt:
@@ -25,6 +27,7 @@ index:
     length: 175
   # available: _blank | _self
   post_url_target: _self
+
 
 #---------------------------
 # 导航栏
@@ -49,7 +52,9 @@ navbar:
 # Post Page
 #---------------------------
 post: 
-  head_img: /img/post-head.jpg
+  banner_img: /img/post-banner.jpg
+  # available: 0 - 100
+  banner_img_height: 80
   comments_type: 'disqus'
   disqus: 
     shortname:
@@ -68,14 +73,18 @@ highlight:
 # Archive Page
 #---------------------------
 archive: 
-  head_img: /img/archive-head.jpg
+  banner_img: /img/archive-banner.jpg
+  # available: 0 - 100
+  banner_img_height: 70
 
 #---------------------------
 # 关于页
 # About Page
 #---------------------------
 about:
-  head_img: /img/about-head.jpg
+  banner_img: /img/about-banner.jpg
+  # available: 0 - 100
+  banner_img_height: 60
   avatar: /img/avatar.jpg 
   name: myname
   job: myjob
