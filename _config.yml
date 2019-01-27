@@ -17,9 +17,14 @@ apple_touch_icon: /apple-touch-icon.png
 # Index Page
 #---------------------------
 index: 
+  head_img: /img/index-head.jpg
   subtitle:
     enable: true
-  head_img: /img/index-head.jpg
+  auto_excerpt:
+    enable: true
+    length: 175
+  # available: _blank | _self
+  post_url_target: _self
 
 #---------------------------
 # 导航栏
