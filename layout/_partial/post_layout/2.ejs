@@ -1,0 +1,31 @@
+<div class="row" style="margin: 0 0 0; z-index: 999;">
+  <div class="col-md-8 offset-md-1">
+    <div class="main main-raised">
+      <div class="container">
+        <div class="section">
+          <div class="post_content">
+              <%- page.content %>
+          </div>
+          <br><br>
+          <div>
+              <p>
+                  <% page.tags.each(function(tag) { %>     
+                      <span class="badge badge-default">#&nbsp;<%- tag.name %></span>
+                      &nbsp;
+                  <% }) %>    
+              </p>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+  <!-- TOC -->
+  <% if(theme.post.toc.enable){ %>
+      <div class="">
+        <div id="toc">
+          <p class="toc-title"><i class="material-icons" style="vertical-align:middle">toc</i>Toc:</p> 
+          <div id="tocbot"></div>
+        </div>
+      </div>
+  <% } %>
+</div>

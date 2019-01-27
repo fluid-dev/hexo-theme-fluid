@@ -55,6 +55,8 @@ post:
   banner_img: /img/post-banner.jpg
   # available: 0 - 100
   banner_img_height: 80
+  # available: 1 | 2
+  layout: 1
   comments_type: 'disqus'
   disqus: 
     shortname:
