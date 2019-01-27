@@ -14,21 +14,17 @@
 </footer>
       <!--   Core JS Files   -->
       <%- js("/js/core/jquery.min.js?v=3.2.1") %>
-      <% if(is_post()) { %>
-        <%- js("/js/main.js") %>
-      <% } %> 
+      <%- js("/js/main.js") %>
       <%- js("/js/core/popper.min.js") %>
       <%- js("/js/core/bootstrap-material-design.min.js") %>
       <%- js("/js/plugins/moment.min.js") %>
-      <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-      <%- js("/js/plugins/nouislider.min.js") %>
       <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
       <%- js("/js/material-kit.min.js?v=2.0.5") %>
-      
       <% if(is_post()){ %>
+        <%- js("/js/post.js") %>
         <%- js('/js/plugins/prettify.js') %>
         <script>
-            $(window).on('load',function(){
+            $(document).ready(function(){
                 $('pre').addClass('prettyprint linenums');
                 prettyPrint();
             })
