@@ -6,12 +6,16 @@
             <% if(post.index_img != null) { %>
                 <% col_num = "col-md-7" %>
                 <div class="col-md-4">
-                    <a href="<%- url_for(post.path) %>" style="display:block;" target="_blank"><img src="<%- post.index_img %>" alt="img" class="card-img"></a> 
+                    <a href="<%- url_for(post.path) %>" style="background-image: url(<%- post.index_img %>)" class="post-index-img" target="<%- theme.index.post_url_target %>"></a> 
                 </div>
             <% } %>
                 <div class="<%- col_num %>">
-                    <a href="<%- url_for(post.path) %>" class="h3 title" target="_blank"><%= post.title %></a>
-                    <p><%- strip_html(post.excerpt) %></p>
+                    <a href="<%- url_for(post.path) %>" class="h3 title" target="<%- theme.index.post_url_target %>"><%= post.title %></a>
+                    <% if(post.excerpt.length > 0) { %>
+                    <p><%- strip_html(post.excerpt) %>...</p>
+                    <% } else if(theme.index.auto_excerpt.enable){ %>
+                    <p><%- strip_html(post.content).substring(0,theme.index.auto_excerpt.length) %>...</p>
+                    <% } %>
                     <p class="h6">
                         <i class="material-icons">date_range</i><%- date(post.date,"YYYY-MM-DD") %>
                         <% if(post.tags.length) { %>
