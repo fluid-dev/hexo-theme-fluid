@@ -1,31 +1,8 @@
-<% if(theme.post.toc.enable){ %>
-<%     var col_num = 7 %>
-<% }else { var col_num = 8 } %>
-<div class="row">
-    <div class="col-md-<%- col_num %> offset-md-2">
-        <div class="post_content">
-            <%- page.content %>
-        </div>
-        <br><br>
-        <div>
-            <p>
-                <% page.tags.each(function(tag) { %>     
-                    <span class="badge badge-default">#&nbsp;<%- tag.name %></span>
-                    &nbsp;
-                <% }) %>    
-            </p>
-        </div>
-    </div>
-    <!-- TOC -->
-    <% if(theme.post.toc.enable){ %>
-        <div class="col-md-3" id="toc">
-            <i class="material-icons" style="vertical-align:middle">toc</i>Toc:
-            <%- toc(page.content,{
-                list_number:false
-            }) %>
-        </div>
-    <% } %>
-</div>
+<% if(theme.post.layout == '1') { %>
+    <%- partial('_partial/post_layout/1', page) %>
+<% } else { %>
+    <%- partial('_partial/post_layout/2', page) %>
+<% } %>
 
 <!-- Comments -->
 <div class="row">

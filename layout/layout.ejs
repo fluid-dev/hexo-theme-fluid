@@ -40,21 +40,22 @@
     <% } %>
   </div>
 
-<% if(page.type == "about") { %>
-  <div class="main main-raised">
-    <div class="container">
-      <%- body %>
-    </div>
-  </div>  
-<% } else { %>
-  <div class="main main-raised">
-    <div class="container">
-      <div class="section">
-        <%- body %>
+  
+  <% if(is_post()) { %>
+  <%- body %>
+  <% } else { %>
+    <div class="main main-raised">
+      <div class="container">
+      <% if(page.type == "about") { %>
+          <%- body %>
+      <% } else { %>
+          <div class="section">
+            <%- body %>
+          </div>
+      <% } %>
       </div>
     </div>
-  </div>
-<% } %>
+  <% } %>
 
 <%- partial('_partial/footer') %>
 </body>
