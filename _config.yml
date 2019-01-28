@@ -27,6 +27,8 @@ index:
     length: 175
   # available: _blank | _self
   post_url_target: _self
+  post_info:
+    enable: true
 
 
 #---------------------------
@@ -54,9 +56,9 @@ navbar:
 post: 
   banner_img: /img/post-banner.jpg
   # available: 0 - 100
-  banner_img_height: 80
+  banner_img_height: 70
   # available: 1 | 2
-  layout: 1
+  layout: 2
   comments_type: 'disqus'
   disqus: 
     shortname:
