@@ -16,6 +16,7 @@
                     <% } else if(theme.index.auto_excerpt.enable){ %>
                     <p><%- strip_html(post.content).substring(0,theme.index.auto_excerpt.length) %>...</p>
                     <% } %>
+                    <% if(theme.index.post_info.enable){ %>
                     <p class="h6">
                         <i class="material-icons">date_range</i><%- date(post.date,"YYYY-MM-DD") %>
                         <% if(post.tags.length) { %>
@@ -25,6 +26,7 @@
                                 <% }) %>
                         <% } %>
                     </p>
+                    <% } %>
                 </div>
         </div>
        
