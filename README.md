@@ -62,6 +62,14 @@ hexo new page about
 ## [文档 Document](https://github.com/invom/Material-T/wiki)
 
 ## [TODO](https://github.com/invom/Material-T/projects)
+- [ ] Support Valine
+- [ ] support Gitment
+- [ ] Friends Page
+- [ ] Project Page
+- [ ] CSS Optimization
+- [ ] Optimize Render Implementation
+- [X] Optimize TOC
+
 
 
 ## 贡献 Contributing
