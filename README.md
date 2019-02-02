@@ -14,6 +14,8 @@
 
 ## 在线预览 Live Preview
 
+[![Join the chat at https://gitter.im/Material-T/community](https://badges.gitter.im/Material-T/community.svg)](https://gitter.im/Material-T/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [invom's blog](https://invom.cc)
 
 ## 安装 Installation
