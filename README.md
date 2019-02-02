@@ -3,10 +3,10 @@
 <p align="center">一款Material Design风格的主题，灵感来源于 <a href="https://github.com/creativetimofficial/material-kit">Material-Kit</a></p>
 
 <p align="center">
-  <a href="https://t.me/hexoMaterialT"><img alt="license" src="https://img.shields.io/badge/telegram-follow-brightgreen.svg?style=social&logo=telegram"></a>
-  <a href="https://github.com/invom/Material-T/issues?q=is%3Aopen+is%3Aissue+label%3Anotification"><img alt="notification" src="https://img.shields.io/github/issues-raw/invom/Material-T/notification.svg?label=notification&style=flat-square"></a>
-  <img alt="contributors" src="https://img.shields.io/github/contributors/invom/Material-T.svg?style=flat-square">
-  <img alt="license" src="https://img.shields.io/github/license/invom/Material-T.svg?style=flat-square">
+  <a href="https://gitter.im/Material-T/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/Material-T/community.svg"></a>
+  <a href="https://github.com/invom/Material-T/issues?q=is%3Aopen+is%3Aissue+label%3Anotification"><img alt="notification" src="https://img.shields.io/github/issues-raw/invom/Material-T/notification.svg?label=notification&style=flat"></a>
+  <img alt="contributors" src="https://img.shields.io/github/contributors/invom/Material-T.svg?style=flat">
+  <img alt="license" src="https://img.shields.io/github/license/invom/Material-T.svg?style=flat">
 </p>
 
 ![screenshot-index](https://github.com/invom/Material-T/raw/master/screenshot-index.png)
