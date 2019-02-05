@@ -59,18 +59,18 @@ post:
   banner_img_height: 70
   # available: 1 | 2
   layout: 2
-  comments_type: 'disqus'
-  disqus: 
-    shortname:
   toc: 
     enable: true
+  # Code Highlight Theme available: github | tomorrow | tomorrow-night | tomorrow-night-eighties
+  highlight:
+    enable: true
+    theme: tomorrow-night-eighties
+  comments: 
+    enable: true
+    type: disqus
 
-# Code Highlight
-# Theme available: github | tomorrow | tomorrow-night | tomorrow-night-eighties
-highlight:
-  enable: true
-  theme: tomorrow-night-eighties
-
+disqus:
+  shortname:
 
 #---------------------------
 # 归档页

@@ -20,14 +20,7 @@
                 </div>
             </div>
             <!-- TOC -->
-            <% if(theme.post.toc.enable){ %>
-                <div class="">
-                    <div id="toc">
-                    <p class="toc-title"><i class="material-icons" style="vertical-align:middle">toc</i>Toc:</p> 
-                    <div id="tocbot"></div>
-                    </div>
-                </div>
-            <% } %>
+            <%- partial('../toc') %>
         </div>
     </div>
   </div>
