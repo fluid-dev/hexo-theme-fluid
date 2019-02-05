@@ -1,56 +1,28 @@
-$(document).ready(function(){  
-    // // for Toc
-    // var navHeight = $(".navbar").height();
-    // var toc = $("#toc");
-    // var tocL = toc.offset().left;
-    // var tocT = navHeight + $(".material-icons").height();
-    // var HHH = $(".main").offset().top;
-    // $(window).scroll(function(){  
-    //     var scroH = toc.scrollTop(); 
-    //     //var scroH;  
-    //     // if(document.body.scrollTop){  
-    //     //     scroH = document.body.scrollTop;  
-    //     // }  
-    //     // else{  
-    //     //     scroH = document.documentElement.scrollTop;  
-    //     // }  
-    //     var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-    //     if(scroH >= HHH){  
-    //         toc.css({
-    //             "position": "fixed",
-    //             "left": tocL,
-    //             "top": tocT
-    //         });
-    //     }else if( scroH < HHH ) {  
-    //         toc.css({
-    //             "position": "",
-    //             "left": '',
-    //             "top": ''
-    //         });
-    //     }  
-    // }) 
-
+$(document).ready(function(){
     var navHeight = $(".navbar").height();
     var toc = $("#toc");
     var tocL = toc.offset().left;
     var tocT = navHeight + $(".material-icons").height();
-    var HHH = $(".main").offset().top;
-    $(window).scroll(function(){  
-        var scroH = toc.scrollTop(); 
+    var tocLimMin = $(".main").offset().top;
+    var tocLimMax = $("#comments").offset().top - navHeight;
+    $(window).scroll(function(){
         var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-        if(scroH >= HHH){  
+        if(tocLimMin <= scroH && scroH <= tocLimMax){  
             toc.css({
+                "display": "block",
                 "position": "fixed",
                 "left": tocL,
                 "top": tocT
-            });
-        }else if( scroH < HHH ) {  
+            })
+        }else if(scroH <= tocLimMin){  
             toc.css({
                 "position": "",
                 "left": '',
                 "top": ''
-            });
-        }  
+            })
+        } else if(scroH > tocLimMax){
+            toc.css("display","none")
+        }
     }) 
     tocbot.init({
         tocSelector: '#tocbot',

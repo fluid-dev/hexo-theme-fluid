@@ -4,13 +4,11 @@
     <%- partial('_partial/post_layout/2', page) %>
 <% } %>
 
+<br>
 <!-- Comments -->
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-    <% if(page.comments) { %>
-        <% if(theme.post.comments_type == 'disqus') { %>
-            <%- partial('_partial/comments/disqus') %>
-        <% } %>
-    <% } %>
-    </div>
+<div class="comments" id="comments">
+<% if(page.comments && theme.post.comments.enable) { %>
+    <% var type = '_partial/comments/' + theme.post.comments.type %>
+    <%- partial(type) %>
+<% } %>
 </div>
