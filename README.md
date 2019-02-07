@@ -16,6 +16,8 @@
 
 [invom's blog](https://invom.cc)
 
+## [文档 Document](http://invom.github.io/Material-T-docs)
+
 ## 安装 Installation
 
 **1.** 获取最新版本
@@ -58,8 +60,6 @@ hexo new page about
 
 `git pull`
 
-
-## [文档 Document](https://github.com/invom/Material-T/wiki)
 
 ## [TODO](https://github.com/invom/Material-T/projects)
 
