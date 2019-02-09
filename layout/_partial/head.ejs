@@ -17,7 +17,6 @@
     <meta name="keywords" content="<%= config.keywords %>">
     <title><%= title %></title>
     <%- css('css/Material_Icons.css') %>
-    <!-- <%- css('css/font-awesome.css') %> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <%- css('css/main.css') %>
     <% if(is_post()){ %>
@@ -25,9 +24,5 @@
         <% if(theme.post.highlight.enable){ %>
             <%- css('css/Prettify/'+theme.post.highlight.theme+'.min.css') %>
         <% } %>
-    <% } %>
-    <% if theme.valine.enable and theme.valine.appid and theme.valine.appkey{ $>
-        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>   
     <% } %>
 </head>

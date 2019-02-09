@@ -54,7 +54,7 @@ hexo new page about
 
 修改 `/source/about/index.md`，添加属性 `type: "about"`
 
-**4.** 在H exo 的 `_config.yml` 中启用 `Material-T`
+**4.** 在 Hexo 的 `_config.yml` 中启用 `Material-T`
 
 ## 更新
 
