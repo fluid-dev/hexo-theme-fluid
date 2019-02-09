@@ -1,0 +1,21 @@
+<div id="vcomments"></div>
+<script>
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = '<%= theme.valine.guest_info %>';
+    guest = guest.split(',').filter(function(item) {
+        return GUEST.indexOf(item) > -1;
+    });
+    new Valine({
+        el: '#vcomments',
+        appId: '<%= theme.valine.appid %>',
+        appKey: '<%= theme.valine.appKey %>',
+        verify: <%= theme.valine.verify %>,
+        notify: <%= theme.valine.notify %>,  
+        placeholder: '<%= theme.valine.placeholder %>',
+        avatar: '<%= theme.valine.avatar %>',
+        meta: guest,
+        pageSize: '<%= theme.valine.pageSize %>',
+        visitor: <%= theme.valine.visitor %>
+    });
+    <noscript>Please enable JavaScript to view the <a href="https://valine.js.org">comments powered by Valine.</a></noscript>                                
+</script>
