@@ -1,0 +1,24 @@
+<% if(theme.valine.enable && theme.valine.appid && theme.valine.appkey){ %>
+<div id="vcomments" style="width: 80%;margin: 0 auto;"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = '<%= theme.valine.notify %>' == true ? true : false;
+   var verify = '<%= theme.valine.verify %>' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomments',
+            notify: notify,
+            verify: verify,
+            app_id: "<%= theme.valine.appid %>",
+            app_key: "<%= theme.valine.appkey %>",
+            placeholder: "<%= theme.valine.placeholder %>",
+            avatar:"<%= theme.valine.avatar %>",
+            meta: ['nick','mail','link'],
+            pageSize: "<%= theme.valine.pageSize %>",
+            visitor: "<%= theme.valine.visitor %>"
+        });
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://valine.js.org">comments powered by Valine.</a></noscript>
+<% } %>
