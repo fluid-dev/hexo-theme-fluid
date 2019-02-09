@@ -3,7 +3,7 @@
 <p align="center">一款 Material Design 风格的主题，灵感来源于 <a href="https://github.com/creativetimofficial/material-kit">Material-Kit</a></p>
 
 <p align="center">
-  <a href="https://gitter.im/Material-T/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/Material-T/community.svg"></a>
+  <a href="https://join.slack.com/t/material-t/shared_invite/enQtNTQ2NjA3OTAzOTQwLWIyNGZlYWE2N2U2ZWEzMzBlNDZlYjQxNmI3NGM2Njk4ODUzYTY2MTdmNzRhYjgyYTY5NGZlOTc2YTk1YTMzNDg"><img src="https://img.shields.io/badge/chat-on%20slack-blueviolet.svg"></a>
   <a href="https://github.com/invom/Material-T/issues?q=is%3Aopen+is%3Aissue+label%3Anotification"><img alt="notification" src="https://img.shields.io/github/issues-raw/invom/Material-T/notification.svg?label=notification&style=flat"></a>
   <img alt="contributors" src="https://img.shields.io/github/contributors/invom/Material-T.svg?style=flat">
   <img alt="license" src="https://img.shields.io/github/license/invom/Material-T.svg?style=flat">
