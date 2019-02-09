@@ -1,6 +1,6 @@
 <h1 align="center">Material-T</h1>
 
-<p align="center">一款Material Design风格的主题，灵感来源于 <a href="https://github.com/creativetimofficial/material-kit">Material-Kit</a></p>
+<p align="center">一款 Material Design 风格的主题，灵感来源于 <a href="https://github.com/creativetimofficial/material-kit">Material-Kit</a></p>
 
 <p align="center">
   <a href="https://gitter.im/Material-T/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/Material-T/community.svg"></a>
@@ -27,7 +27,7 @@ cd themes
 git clone -b master https://github.com/invom/Material-T.git Material-T
   ```
 
-**2.** 修改Hexo的`_config.yml`
+**2.** 修改 Hexo 的`_config.yml`
 
 ```yml
 // 关闭归档页的默认分页：
@@ -46,15 +46,15 @@ highlight:
   tab_replace:
 ```
 
-**3.** 创建About Page
+**3.** 创建 About Page
 
 ```bash
 hexo new page about
 ```
 
-修改`/source/about/index.md`，添加属性`type: "about"`
+修改 `/source/about/index.md`，添加属性 `type: "about"`
 
-**4.** 在Hexo的`_config.yml`中启用`Material-T`
+**4.** 在H exo 的 `_config.yml` 中启用 `Material-T`
 
 ## 更新
 
@@ -66,7 +66,7 @@ hexo new page about
 
 ## 贡献 Contributing
 
-项目会持续更新，期待您的Pull Request
+项目会持续更新，期待您的 Pull Request
 
 
 ## License
