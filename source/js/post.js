@@ -35,4 +35,7 @@ $(document).ready(function(){
         collapsibleClass: 'tocbot-is-collapsible',
         scrollSmooth: true,
     });
+
+    // add Materia-T's class to hexo
+    $("blockquote").addClass("blockquote");
 }) 
