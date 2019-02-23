@@ -22,7 +22,7 @@
                         <% if(post.tags.length) { %>
                             <i class="material-icons">bookmark_border</i>
                                 <% post.tags.each(function(tag){ %>
-                                    <%= tag.name %> &nbsp;
+                                    <a href="/archives/#<%- tag.name %>"><%= tag.name %></a>&nbsp;
                                 <% }) %>
                         <% } %>
                     </p>

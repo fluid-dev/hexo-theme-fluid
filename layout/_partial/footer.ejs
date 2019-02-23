@@ -30,4 +30,29 @@
                 prettyPrint();
             })
         </script>
+      <% } else if (is_archive()){ %>
+        <script>
+          $(document).ready(function () {
+            const hash = window.location.hash;
+            const pathname = window.location.pathname;
+            if (pathname.includes('archives') && hash){
+                $('.card-body .tab-pane').each(function(){
+                    let ele = $(this);
+                    if ('#' + ele.attr('id') === hash){
+                        ele.addClass('active show');
+                    }else{
+                        ele.removeClass('active show');
+                    }
+                });
+                $('.card-body .nav-link').each(function(){
+                    let ele = $(this);
+                    if (ele.attr('href') === hash){
+                        ele.addClass('active show');
+                    }else{
+                        ele.removeClass('active show');
+                    }
+                });
+            }
+          })
+        </script>
       <% } %>
