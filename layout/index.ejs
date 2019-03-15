@@ -1,37 +1,33 @@
-<div class="row">
-    <div class="col-md-10 offset-md-1">
-        <% page.posts.each(function (post) { %>
-        <div class="row post-card">
-            <% var col_num = "col-md-11" %>
-            <% if(post.index_img != null) { %>
-                <% col_num = "col-md-7" %>
-                <div class="col-md-4">
-                    <a href="<%- url_for(post.path) %>" style="background-image: url(<%- post.index_img %>)" class="post-index-img" target="<%- theme.index.post_url_target %>"></a> 
-                </div>
-            <% } %>
-                <div class="<%- col_num %>">
-                    <a href="<%- url_for(post.path) %>" class="h3 title" target="<%- theme.index.post_url_target %>"><%= post.title %></a>
-                    <% if(post.excerpt.length > 0) { %>
-                    <p><%- strip_html(post.excerpt) %>...</p>
-                    <% } else if(theme.index.auto_excerpt.enable){ %>
-                    <p><%- strip_html(post.content).substring(0,theme.index.auto_excerpt.length) %>...</p>
-                    <% } %>
-                    <% if(theme.index.post_info.enable){ %>
-                    <p class="h6">
-                        <i class="material-icons">date_range</i><%- date(post.date,"YYYY-MM-DD") %>
-                        <% if(post.tags.length) { %>
-                            <i class="material-icons">bookmark_border</i>
-                                <% post.tags.each(function(tag){ %>
-                                    <%= tag.name %> &nbsp;
-                                <% }) %>
-                        <% } %>
-                    </p>
-                    <% } %>
-                </div>
-        </div>
-       
-        <% }) %> 
-        <br><br>
-        <%- partial('_partial/paginator') %>
-    </div>
+<% var offset = '' %>
+<% page.posts.each(function (post) { %>
+<div class="row mb-3">
+<% if(post.index_img != null){ %>
+<div class="col-12 col-md-4 mb-3">
+    <a href="<%- url_for(post.path) %>" style="background-image: url(<%- post.index_img %>);" class="img-fluid rounded z-depth-3 post-thumbnails" target="<%- theme.index.post_url_target %>"></a>
 </div>
+<% } else { var offset = 'offset-md-2' } %>
+<div class="col-12 col-md-8 <%= offset %>">
+    <a href="<%- url_for(post.path) %>" class="h4" style="font-weight: 700;"><%= post.title %></a>
+    <% if(post.excerpt.length > 0) { %>
+      <p class="mb-1"><%- strip_html(post.excerpt) %>...</p>
+    <% } else if(theme.index.auto_excerpt.enable){ %>
+      <p class="mb-1"><%- strip_html(post.content).substring(0,theme.index.auto_excerpt.length) %>...</p>
+    <% } %>
+    <% if(theme.index.post_info.enable){ %>
+      <p>
+        <i class="iconfont icon-riqi2"></i>&nbsp;<%- date(post.date,"YYYY-MM-DD") %>
+        &nbsp;
+        <% if(post.tags.length) { %>
+            <i class="iconfont icon-cc-tag-more"></i>
+            <% post.tags.each(function(tag){ %>
+                <%= tag.name %>&nbsp;
+            <% }) %>
+        <% } %>
+      </p>
+    <% } %>
+</div>
+</div>
+<% }) %> 
+<br><br>
+
+<%- partial('_partial/paginator') %>

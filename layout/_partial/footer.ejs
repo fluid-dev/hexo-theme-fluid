@@ -1,33 +1,29 @@
-<footer class="footer footer-default">
-        <div class="container">
-          <div class="float-left" style="padding: 15px 0;">
-              <%- theme.footer %>
-          </div>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>&nbsp;<a href="https://hexo.io/zh-cn/" target="_blank">HEXO</a>&nbsp;<i class="material-icons">favorite_border</i>
-            <a href="https://github.com/invom/Material-T" target="_blank">Material-T</a>
-          </div>
-        </div>
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/invom/Material-T" target="_blank"> <b>Material-T</b></a>
+  </div>
 </footer>
-      <!--   Core JS Files   -->
-      <%- js("/js/core/jquery.min.js?v=3.2.1") %>
-      <%- js("/js/main.js") %>
-      <%- js("/js/core/popper.min.js") %>
-      <%- js("/js/core/bootstrap-material-design.min.js") %>
-      <%- js("/js/plugins/moment.min.js") %>
-      <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-      <%- js("/js/material-kit.min.js?v=2.0.5") %>
-      <% if(is_post()){ %>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-        <%- js("/js/post.js") %>
-        <%- js('/js/plugins/prettify.js') %>
-        <script>
-            $(document).ready(function(){
-                $('pre').addClass('prettyprint linenums');
-                prettyPrint();
-            })
-        </script>
-      <% } %>
+
+  <!-- SCRIPTS -->
+  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js") %>
+  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js") %>
+  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js") %>
+  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js") %>
+  <%- js("js/main.js") %>
+  <% if(is_post()){ %>
+    <% if(theme.post.toc.enable){ %>
+      <%- js("https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js") %>
+    <% } %>
+    <%- js("/js/post.js") %>
+    <% if(theme.post.highlight.enable){ %>
+      <%- js("js/plugins/prettify.js") %>
+      <script>
+          $(document).ready(function(){
+              $('pre').addClass('prettyprint linenums');
+              prettyPrint();
+          })
+      </script>
+    <% } %>
+  <% } %>

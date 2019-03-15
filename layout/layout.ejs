@@ -8,12 +8,11 @@
 <%    var banner_img = theme.index.banner_img %>
 <%    var banner_img_height = theme.index.banner_img_height %>
 <%    if(theme.index.subtitle.enable) { var subtitle = config.subtitle } %>
-<% } else if (page.type == 'about'){ %>
+<% } else if (page.type == 'about') { %>
 <%    var banner_img = theme.about.banner_img || theme.index.banner_img %>
 <%    var banner_img_height = theme.about.banner_img_height %>
 <%    var subtitle = '' %>
-<%    var body_class = "profile-page" %>
-<% } else if(is_archive) { %>
+<% } else if(is_archive()) { %>
 <%    var banner_img = theme.archive.banner_img || theme.index.banner_img %>
 <%    var banner_img_height = theme.archive.banner_img_height %>
 <%    var subtitle = 'Archive' %>
@@ -25,37 +24,46 @@
 
 <%- partial('_partial/head') %>
 
-<body class="<%- body_class %> sidebar-collapse">
-<%- partial('_partial/nav') %>
-  <div class="page-header header-filter" data-parallax="false" style="background-image: url('<%- url_for(banner_img) %>'); height: <%- banner_img_height %>vh;">
-    <% if(is_post()) { %>
-      <div class="container">
-        <h1 class="title text-center post_title"><%- page.title %></h1>
-        <p class="text-center"><b><%- full_date(page.date, 'dddd, MMMM Do YYYY, h:mm a') %></b></p>
-      </div>
-    <% } else { %>
-      <div class="container">
-        <h1 class="title text-center"><%- subtitle %></h1>
-      </div>
-    <% } %>
-  </div>
+<body>
+  <header style="height: <%- banner_img_height %>vh;">
+    <%- partial('_partial/nav') %>
+    <div class="view intro-2" style='background: url("<%- banner_img %>")no-repeat center center;background-size: cover;'>
+    <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+            <p class="h2"><%- subtitle %></p>
+            <br>
+            <% if(is_post()) { %>
+            <p><%- full_date(page.date, 'dddd, MMMM Do YYYY, h:mm a') %></p>
+            <% } %>
+        </div>
+        </div>
+    </div>
+    </div>
+  </header>
 
-  
+  <main>
   <% if(is_post()) { %>
   <%- body %>
-  <% } else { %>
-    <div class="main main-raised">
+  <% } else { %>  
+  <div class="container">
+    <div class="py-5 z-depth-3 main">
+      <% if(page.type == 'about') { %>
+        <div class="about-avatar">
+          <img src="<%- url_for(theme.about.avatar) %>" class="img-fluid z-depth-1 rounded-circle" alt="avatar">
+        </div>
+      <% } %>
       <div class="container">
-      <% if(page.type == "about") { %>
-          <%- body %>
-      <% } else { %>
-          <div class="section">
+        <div class="row">
+          <div class="col-10 offset-1">
             <%- body %>
           </div>
-      <% } %>
+        </div>
       </div>
     </div>
+  </div>
   <% } %>
+  </main>
 
 <%- partial('_partial/footer') %>
 </body>

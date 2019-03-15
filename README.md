@@ -1,24 +1,24 @@
 <h1 align="center">Material-T</h1>
 
-<p align="center">一款 Material Design 风格的主题，灵感来源于 <a href="https://github.com/creativetimofficial/material-kit">Material-Kit</a></p>
+<p align="center">一款 Material Design 风格的主题</p>
 
 <p align="center">
-  <a href="https://join.slack.com/t/material-t/shared_invite/enQtNTQ2NjA3OTAzOTQwLWIyNGZlYWE2N2U2ZWEzMzBlNDZlYjQxNmI3NGM2Njk4ODUzYTY2MTdmNzRhYjgyYTY5NGZlOTc2YTk1YTMzNDg"><img src="https://img.shields.io/badge/chat-on%20slack-blueviolet.svg"></a>
+  <img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/invom/Material-T.svg">
   <a href="https://github.com/invom/Material-T/issues?q=is%3Aopen+is%3Aissue+label%3Anotification"><img alt="notification" src="https://img.shields.io/github/issues-raw/invom/Material-T/notification.svg?label=notification&style=flat"></a>
   <img alt="contributors" src="https://img.shields.io/github/contributors/invom/Material-T.svg?style=flat">
   <img alt="license" src="https://img.shields.io/github/license/invom/Material-T.svg?style=flat">
 </p>
 
-![screenshot-index](https://github.com/invom/Material-T/raw/master/screenshot-index.png)
+![ScreenShot](https://i.imgur.com/mMHoZJE.png)
 
 
-## 在线预览 Live Preview
+## Demo
 
-[invom's blog](https://invom.cc)
+[invom's blog](https://invom.github.io)
 
-## [文档 Document](http://invom.github.io/Material-T-docs)
+## [文档 Docs](http://invom.github.io/Material-T-docs)
 
-## 安装 Installation
+## 快速开始 Quick Start
 
 **1.** 获取最新版本
 
@@ -56,18 +56,20 @@ hexo new page about
 
 **4.** 在 Hexo 的 `_config.yml` 中启用 `Material-T`
 
-## 更新
+## 更新 Update
 
-`git pull`
+> `v0.9` 向上升级时，建议先备份，然后直接用新版本替换，以免 `git pull` 时出现过多冲突。
 
+```bash
+cd /themes/Material-T
+git pull
+```
+
+## Contributors
+
+@zhugaoqi, @ChungZH
 
 ## [TODO](https://github.com/invom/Material-T/projects)
-
-
-## 贡献 Contributing
-
-项目会持续更新，期待您的 Pull Request
-
 
 ## License
 

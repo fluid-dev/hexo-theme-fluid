@@ -10,19 +10,18 @@
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="<%- url_for(theme.apple_touch_icon) %>">
     <link rel="icon" type="image/png" href="<%- url_for(theme.favicon) %>">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="<%= config.description %>">
     <meta name="author" content="<%= config.author %>">
     <meta name="keywords" content="<%= config.keywords %>">
     <title><%= title %></title>
-    <%- css('css/Material_Icons.css') %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <%- css('css/main.css') %>
-    <% if(is_post()){ %>
-        <%- css('css/post.css') %>
-        <% if(theme.post.highlight.enable){ %>
-            <%- css('css/Prettify/'+theme.post.highlight.theme+'.min.css') %>
-        <% } %>
+    <%- css("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css") %>
+    <%- css('https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css') %>
+    <%- css('https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css') %>
+    <%- css('css/style.css') %>
+    <%- css("https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css") %>
+    <% if(is_post() && theme.post.highlight.enable){ %>
+        <%- css('css/Prettify/'+theme.post.highlight.theme+'.min.css') %>
     <% } %>
 </head>

@@ -1,37 +1,23 @@
-<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-    <div class="container">
-        <div class="navbar-translate">
-            <a class="navbar-brand" href="<%- url_for() %>">
-                <%= config.title %></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    <% if(theme.navbar.menu.enable) { %>
-                        <% for(var i in theme.navbar.menu.list) { %>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<%- url_for(theme.navbar.menu.list[i]) %>">
-                                    <%= i %>
-                                </a>
-                            </li>
-                        <% } %>
-                    <% } %>
-                    <% if(theme.navbar.icons.enable) { %>
-                        <% for(var j in theme.navbar.icons.list) { %>
-                            <li class="nav-item">
-                                <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="<%- theme.navbar.icons.list[j] %>" target="_blank" data-original-title="<%= theme.navbar.icons.tips %>">
-                                    <i class="fa fa-<%= j %>"></i>
-                                </a>
-                            </li>
-                        <% } %>
-                    <% } %>
-                </ul>
-            </div>
+<nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="<%- url_for() %>"><strong><%= config.title %></strong></a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            <% for(var i in theme.navbar.menu) { %>
+            <li class="nav-item">
+                <a class="nav-link" href="<%- url_for(theme.navbar.menu[i]) %>"><%= i %></a>
+            </li>
+            <% } %>
+        </ul>
     </div>
+</div>
+
+
 </nav>
-    

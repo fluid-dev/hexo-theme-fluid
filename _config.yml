@@ -17,16 +17,14 @@ apple_touch_icon: /apple-touch-icon.png
 # Index Page
 #---------------------------
 index: 
-  banner_img: /img/index-banner.jpg
-  # available: 0 - 100
-  banner_img_height: 100
+  banner_img: https://i.imgur.com/OLJxbaR.jpg
+  banner_img_height: 100  # available: 0 - 100
   subtitle:
     enable: true
   auto_excerpt:
     enable: true
-    length: 175
-  # available: _blank | _self
-  post_url_target: _self
+    length: 300
+  post_url_target: _self  # available: _blank | _self
   post_info:
     enable: true
 
@@ -37,40 +35,33 @@ index:
 #---------------------------
 navbar:
   menu:
-    enable: true
-    list:
-      archives: /archives/
-      about: /about/
-  icons:
-    enable: true
-    tips: 'See me here'
-    list: 
-      github: https://github.com/
-      twitter: https://twitter.com/
-  
+    Home: /
+    Archives: /archives/
+    About: /about/
+
 
 #---------------------------
 # 文章页
 # Post Page
 #---------------------------
 post: 
-  banner_img: /img/post-banner.jpg
-  # available: 0 - 100
-  banner_img_height: 70
-  # available: 1 | 2
-  layout: 2
+  banner_img: https://i.imgur.com/oADD1Ip.jpg
+  banner_img_height: 70  # available: 0 - 100
   toc: 
     enable: true
-  # Code Highlight Theme available: github | tomorrow | tomorrow-night | tomorrow-night-eighties
   highlight:
     enable: true
-    theme: tomorrow-night-eighties
-  comments: 
+    theme: tomorrow-night-eighties # available: github | tomorrow | tomorrow-night | tomorrow-night-eighties
+  copyright:
     enable: true
-    type: disqus
+    content: 本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">CC BY-SA 3.0协议</a> 。转载请注明出处！
+  comments: 
+    enable: false
+    type: disqus  # available: disqus | valine
 
+# Disqus
 disqus:
-  shortname:
+  shortname: # your shortname
 
 # Valine
 # You can get your appid and appkey from https://leancloud.cn
@@ -92,30 +83,19 @@ valine:
 # Archive Page
 #---------------------------
 archive: 
-  banner_img: /img/archive-banner.jpg
-  # available: 0 - 100
-  banner_img_height: 70
+  banner_img: https://i.imgur.com/FNwWK1Y.jpg
+  banner_img_height: 80  # available: 0 - 100
 
 #---------------------------
 # 关于页
 # About Page
 #---------------------------
 about:
-  banner_img: /img/about-banner.jpg
-  # available: 0 - 100
-  banner_img_height: 60
-  avatar: /img/avatar.jpg 
+  banner_img: https://i.imgur.com/rVtDsho.png
+  banner_img_height: 80  # available: 0 - 100
+  avatar: https://i.imgur.com/ME3xK6V.jpg
   name: myname
-  job: myjob
-  introduce: my info
-  extension: 
+  introduce: info / info / info
   icons: 
     github: https://github.com
     twitter: https://twitter.com
-
-
-#---------------------------
-# 底部信息
-# Footer
-#---------------------------
-footer: <b>多喝热水</b>
