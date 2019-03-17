@@ -64,10 +64,19 @@ hexo new page about
 cd /themes/Material-T
 git pull
 ```
+# Changelog
+
+2019/3/15
+- 重新设计基本完成，特别感谢 @zhugaoqi 同学的设计指导；
+- 将所有第三方库、图片替换为 CDN 引用，极大精简仓库大小；
+- 重新设计 archive 渲染逻辑；
+- 统一文章页布局，新增文章版权声明；
+- 精简页面，配置项;
+- 老版本停止维护，代码暂时归档在 v0.9 分支，如有需要请 fork 备份；
 
 ## Contributors
 
-@zhugaoqi, @ChungZH
+感谢：@zhugaoqi, @ChungZH
 
 ## [TODO](https://github.com/invom/Material-T/projects)
 
