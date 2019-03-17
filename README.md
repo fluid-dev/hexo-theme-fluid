@@ -64,7 +64,7 @@ hexo new page about
 cd /themes/Material-T
 git pull
 ```
-# Changelog
+## Changelog
 
 2019/3/15
 - 重新设计基本完成，特别感谢 @zhugaoqi 同学的设计指导；
