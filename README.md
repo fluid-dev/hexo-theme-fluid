@@ -3,10 +3,10 @@
 <p align="center">一款 Material Design 风格的主题</p>
 
 <p align="center">
-  <img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/invom/Material-T.svg">
-  <a href="https://github.com/invom/Material-T/issues?q=is%3Aopen+is%3Aissue+label%3Anotification"><img alt="notification" src="https://img.shields.io/github/issues-raw/invom/Material-T/notification.svg?label=notification&style=flat"></a>
-  <img alt="contributors" src="https://img.shields.io/github/contributors/invom/Material-T.svg?style=flat">
-  <img alt="license" src="https://img.shields.io/github/license/invom/Material-T.svg?style=flat">
+  <img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/0x2e/Material-T.svg">
+  <a href="https://github.com/0x2e/Material-T/issues?q=is%3Aopen+is%3Aissue+label%3Anotification"><img alt="notification" src="https://img.shields.io/github/issues-raw/0x2e/Material-T/notification.svg?label=notification&style=flat"></a>
+  <img alt="contributors" src="https://img.shields.io/github/contributors/0x2e/Material-T.svg?style=flat">
+  <img alt="license" src="https://img.shields.io/github/license/0x2e/Material-T.svg?style=flat">
 </p>
 
 ![ScreenShot](https://i.imgur.com/mMHoZJE.png)
@@ -14,9 +14,9 @@
 
 ## Demo
 
-[invom's blog](https://invom.github.io)
+[rook1e's blog](https://0x2e.github.io)
 
-## [文档 Docs](http://invom.github.io/Material-T-docs)
+## [文档 Docs](http://0x2e.github.io/Material-T-docs)
 
 ## 快速开始 Quick Start
 
@@ -24,7 +24,7 @@
 
 ```bash
 cd themes
-git clone -b master https://github.com/invom/Material-T.git Material-T
+git clone -b master https://github.com/0x2e/Material-T.git Material-T
   ```
 
 **2.** 修改 Hexo 的`_config.yml`
@@ -78,7 +78,7 @@ git pull
 
 感谢：@zhugaoqi, @ChungZH
 
-## [TODO](https://github.com/invom/Material-T/projects)
+## [TODO](https://github.com/0x2e/Material-T/projects)
 
 ## License
 
