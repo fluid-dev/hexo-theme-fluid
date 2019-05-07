@@ -2,7 +2,6 @@ $(document).ready(function(){
     var navHeight = $("#navbar").height();
     var toc = $("#toc");
     var main = $("main");
-    var tocL = toc.offset().left;
     var tocT = navHeight + (toc.offset().top - main.offset().top);
     var tocLimMin = main.offset().top - navHeight;
     var tocLimMax = $("#comments").offset().top - navHeight;
@@ -12,13 +11,11 @@ $(document).ready(function(){
             toc.css({
                 "display": "block",
                 "position": "fixed",
-                "left": tocL,
                 "top": tocT
             })
         }else if(scroH <= tocLimMin){  
             toc.css({
                 "position": "",
-                "left": '',
                 "top": ''
             })
         } else if(scroH > tocLimMax){
