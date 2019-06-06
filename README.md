@@ -14,7 +14,7 @@
 
 ## Demo
 
-[rook1e's blog](https://0x2e.github.io)
+[Rook1e's blog](https://0x2e.github.io)
 
 ## [文档 Docs](http://0x2e.github.io/Material-T-docs)
 
@@ -65,6 +65,9 @@ cd /themes/Material-T
 git pull
 ```
 ## Changelog
+
+2019/6/6
+- 完善 archive 渲染逻辑
 
 2019/3/15
 - 重新设计基本完成，特别感谢 @zhugaoqi 同学的设计指导；
