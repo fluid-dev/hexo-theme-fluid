@@ -11,11 +11,29 @@
 favicon: /favicon.png
 apple_touch_icon: /apple-touch-icon.png
 
-beian:
-  enable: false
-  icp_text: 京ICP证123456号 # ICP证号
-  police_text: 京公网安备12345678号 # 公安备案号
-  police_code: 12345678 # 公安备案的编号，用于URL跳转查询
+
+#---------------------------
+# 导航栏
+# Head Navbar
+#---------------------------
+navbar:
+  menu:
+    Home: /
+    Archives: /archives/
+    About: /about/
+
+
+#---------------------------
+# 页脚
+# Footer
+#---------------------------
+footer:
+  beian:  # The footer of China's website policy, other areas keep disable
+    enable: false
+    icp_text: 京ICP证123456号 # ICP证号
+    police_text: 京公网安备12345678号 # 公安备案号，不填则只显示ICP
+    police_code: 12345678 # 公安备案的编号，用于URL跳转查询
+
 
 #---------------------------
 # 首页
@@ -32,17 +50,6 @@ index:
   post_url_target: _self  # available: _blank | _self
   post_info:
     enable: true
-
-
-#---------------------------
-# 导航栏
-# Head Navbar
-#---------------------------
-navbar:
-  menu:
-    Home: /
-    Archives: /archives/
-    About: /about/
 
 
 #---------------------------
