@@ -11,6 +11,11 @@
 favicon: /favicon.png
 apple_touch_icon: /apple-touch-icon.png
 
+beian:
+  enable: false
+  icp_text: 京ICP证123456号 # ICP证号
+  police_text: 京公网安备12345678号 # 公安备案号
+  police_code: 12345678 # 公安备案的编号，用于URL跳转查询
 
 #---------------------------
 # 首页
@@ -54,7 +59,7 @@ post:
     theme: tomorrow-night-eighties # available: github | tomorrow | tomorrow-night | tomorrow-night-eighties
   copyright:
     enable: true
-    content: 本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">CC BY-SA 3.0协议</a> 。转载请注明出处！
+    content: 本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow">CC BY-SA 3.0协议</a> 。转载请注明出处！
   comments: 
     enable: false
     type: disqus  # available: disqus | valine

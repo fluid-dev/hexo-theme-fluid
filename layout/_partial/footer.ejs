@@ -1,8 +1,15 @@
 <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
+    <a href="https://hexo.io" target="_blank" rel="nofollow"><b>HEXO</b></a>
     <i class="iconfont icon-love"></i>
-    <a href="https://github.com/0x2e/Material-T" target="_blank"> <b>Material-T</b></a>
+    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow"> <b>Material-T</b></a>
+    <br>
+    <% if(theme.beian.enable) { %>
+      <a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow"><%- theme.beian.icp_text %></a>
+      <% if(theme.beian.police_text && theme.beian.police_code) { %>
+        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<%- theme.beian.police_code %>" target="_blank" rel="nofollow"> | <%- theme.beian.police_text %></a>
+      <% } %>
+    <% } %>
   </div>
 </footer>
 
