@@ -3,21 +3,21 @@
 <% if(is_post()) { %>
 <%    banner_img = page.banner_img || theme.post.banner_img || theme.index.banner_img %>
 <%    var banner_img_height = theme.post.banner_img_height %>
-<%    var subtitle = page.title %>
+<%    var title = page.title %>
 <% } else if(is_home()) { %>
 <%    var banner_img = theme.index.banner_img %>
 <%    var banner_img_height = theme.index.banner_img_height %>
-<%    if(theme.index.subtitle.enable) { var subtitle = config.subtitle } %>
+<%    if(theme.index.subtitle.enable) { var title = config.subtitle } %>
 <% } else if (page.type == 'about') { %>
 <%    var banner_img = theme.about.banner_img || theme.index.banner_img %>
 <%    var banner_img_height = theme.about.banner_img_height %>
-<%    var subtitle = '' %>
+<%    var title = 'About' %>
 <% } else if(is_archive()) { %>
 <%    var banner_img = theme.archive.banner_img || theme.index.banner_img %>
 <%    var banner_img_height = theme.archive.banner_img_height %>
-<%    var subtitle = 'Archive' %>
+<%    var title = 'Archives' %>
 <% } else { %>
-<%    var subtitle = page.title %>
+<%    var title = page.title %>
 <%    var banner_img = theme.index.banner_img %>
 <%    var banner_img_height = theme.index.banner_img_height %>
 <% } %>
@@ -31,10 +31,10 @@
     <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
         <div class="container text-center white-text wow fadeInUp">
-            <p class="h2"><%- subtitle %></p>
+            <p class="h2"><%- title %></p>
             <br>
             <% if(is_post()) { %>
-            <p><%- full_date(page.date, 'dddd, MMMM Do YYYY, h:mm a') %></p>
+            <p><%- full_date(page.date, theme.post.date_format) %></p>
             <% } %>
         </div>
         </div>

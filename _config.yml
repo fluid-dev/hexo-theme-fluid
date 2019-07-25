@@ -10,7 +10,7 @@
 #---------------------------
 favicon: /favicon.png
 apple_touch_icon: /apple-touch-icon.png
-
+title_join_string: ' ~ '
 
 #---------------------------
 # 导航栏
@@ -39,7 +39,7 @@ footer:
 # 首页
 # Index Page
 #---------------------------
-index: 
+index:
   banner_img: https://i.imgur.com/OLJxbaR.jpg
   banner_img_height: 100  # available: 0 - 100
   subtitle:
@@ -59,14 +59,17 @@ index:
 post: 
   banner_img: https://i.imgur.com/oADD1Ip.jpg
   banner_img_height: 70  # available: 0 - 100
+  date_format: dddd, MMMM Do YYYY, h:mm a
+  header_label:
+    enable: true
   toc: 
     enable: true
   highlight:
     enable: true
-    theme: tomorrow-night-eighties # available: github | tomorrow | tomorrow-night | tomorrow-night-eighties
+    theme: tomorrow-night-eighties # available: github | tomorrow | tomorrow-night | tomorrow-night-eighties , you can download more from https://jmblog.github.io/color-themes-for-google-code-prettify/ then save `*.min.css` in `source/css/Prettify`
   copyright:
     enable: true
-    content: 本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow">CC BY-SA 3.0协议</a> 。转载请注明出处！
+    content: 本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！
   comments: 
     enable: false
     type: disqus  # available: disqus | valine
@@ -94,7 +97,7 @@ valine:
 # 归档页
 # Archive Page
 #---------------------------
-archive: 
+archive:
   banner_img: https://i.imgur.com/FNwWK1Y.jpg
   banner_img_height: 80  # available: 0 - 100
 
