@@ -1,0 +1,48 @@
+.row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header {
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.excerpt {
+    margin: 10px 0 10px 0;
+    height: 100px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.excerpt .text {
+    float: right;
+    margin-left: -5px;
+    width: 100%;
+    word-break: break-word;
+}
+
+.excerpt::before {
+    float: left;
+    width: 5px;
+    content: '';
+    height: 40px;
+}
+
+.excerpt::after {
+    float: right;
+    content: "...";
+    height: 20px;
+    line-height: 20px;
+    /* 为三个省略号的宽度 */
+    width: 3em;
+    /* 使盒子不占位置 */
+    margin-left: -3em;
+    /* 移动省略号位置 */
+    position: relative;
+    left: 100%;
+    top: -20px;
+    padding-right: 5px;
+}

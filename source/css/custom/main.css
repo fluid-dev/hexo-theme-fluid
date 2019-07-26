@@ -38,13 +38,15 @@ body a:hover {
 }
 
 .post-content img {
-    max-width: 100%;
+    max-width: 90%;
+    margin: 32px auto;
+    display: block;
 }
 
 .post-content {
     box-sizing: border-box;
-    min-width: 200px;
-    padding: 45px;
+    min-width: 480px;
+    padding: 10%;
 }
 
 .post-content hr {
