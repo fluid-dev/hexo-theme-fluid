@@ -1,8 +1,8 @@
 <% var join = theme.title_join_string %>
 <% if(page.title) { %>
-<% var title = page.title + ' ' + join + ' ' + config.title %>
+<% var title = [page.title, config.title].concat(' ' + join + ' ') %>
 <% } else if(is_archive()){ %>
-<% var title = 'Archives' + ' ' + join + ' ' + config.title %>
+<% var title = ['Archives', config.title].concat(' ' + join + ' ') %>
 <% } else { %>
 <% var title = config.title %>
 <% } %>

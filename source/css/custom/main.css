@@ -45,7 +45,6 @@ body a:hover {
 
 .post-content {
     box-sizing: border-box;
-    min-width: 480px;
     padding: 10%;
 }
 
