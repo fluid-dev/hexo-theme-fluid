@@ -1,0 +1,55 @@
+.row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.index-header {
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.index-excerpt {
+    margin: 10px 0 10px 0;
+    height: auto;
+    max-height: 100px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.index-excerpt .index-text {
+    float: right;
+    margin-left: -5px;
+    width: 100%;
+    word-break: break-word;
+}
+
+.index-excerpt::before {
+    float: left;
+    width: 5px;
+    content: '';
+    height: 40px;
+}
+
+.index-excerpt::after {
+    float: right;
+    content: "...";
+    height: 20px;
+    line-height: 20px;
+    /* 为三个省略号的宽度 */
+    width: 3em;
+    /* 使盒子不占位置 */
+    margin-left: -3em;
+    /* 移动省略号位置 */
+    position: relative;
+    left: 100%;
+    top: -20px;
+    padding-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .index-excerpt {
+        max-height: 200px;
+    }
+}

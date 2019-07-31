@@ -11,11 +11,11 @@
 <% } else if (page.type == 'about') { %>
 <%    var banner_img = theme.about.banner_img || theme.index.banner_img %>
 <%    var banner_img_height = theme.about.banner_img_height %>
-<%    var subtitle = '' %>
+<%    var subtitle = 'About' %>
 <% } else if(is_archive()) { %>
 <%    var banner_img = theme.archive.banner_img || theme.index.banner_img %>
 <%    var banner_img_height = theme.archive.banner_img_height %>
-<%    var subtitle = 'Archive' %>
+<%    var subtitle = 'Archives' %>
 <% } else { %>
 <%    var subtitle = page.title %>
 <%    var banner_img = theme.index.banner_img %>
@@ -27,14 +27,14 @@
 <body>
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
-    <div class="view intro-2" style='background: url("<%- banner_img %>")no-repeat center center;background-size: cover;'>
+    <div class="view intro-2" style="background: url('<%- banner_img %>')no-repeat center center;background-size: cover;">
     <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
         <div class="container text-center white-text wow fadeInUp">
             <p class="h2"><%- subtitle %></p>
             <br>
             <% if(is_post()) { %>
-            <p><%- full_date(page.date, 'dddd, MMMM Do YYYY, h:mm a') %></p>
+            <p><%- full_date(page.date, theme.post.date_format) %></p>
             <% } %>
         </div>
         </div>

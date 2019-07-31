@@ -1,7 +1,8 @@
+<% var join = theme.title_join_string %>
 <% if(page.title) { %>
-<% var title = page.title + ' ~ ' + config.title %>
+<% var title = page.title + join + config.title %>
 <% } else if(is_archive()){ %>
-<% var title = 'Archive' + ' ~ ' + config.title %>
+<% var title = 'Archives' + join + config.title %>
 <% } else { %>
 <% var title = config.title %>
 <% } %>
@@ -15,13 +16,15 @@
     <meta name="description" content="<%= config.description %>">
     <meta name="author" content="<%= config.author %>">
     <meta name="keywords" content="<%= config.keywords %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %></title>
     <%- css("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css") %>
     <%- css('https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css') %>
     <%- css('https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css') %>
-    <%- css('css/style.css') %>
-    <%- css("https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css") %>
+    <%- css('css/github-markdown.css') %>
+    <%- css("https://at.alicdn.com/t/font_1067060_l7tuu6qerl9.css") %>
     <% if(is_post() && theme.post.highlight.enable){ %>
         <%- css('css/Prettify/'+theme.post.highlight.theme+'.min.css') %>
     <% } %>
+    <%- css('css/custom/main.css') %>
 </head>

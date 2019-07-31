@@ -1,15 +1,15 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 offset-md-2 ">
-            <div class="post-content py-5 z-depth-3 main">
+            <div class="post-content markdown-body py-5 z-depth-3 main">
                 <%- page.content %>
                 <hr>
                 <div>
                     <p>
-                    <% page.tags.each(function(tag) { %>     
+                    <% page.tags.each(function(tag) { %>
                         <span class="badge badge-light">#&nbsp;<%- tag.name %></span>
                         &nbsp;
-                    <% }) %>    
+                    <% }) %>
                     </p>
                 </div>
                 <br>
@@ -21,15 +21,14 @@
         <div class="d-none d-md-block col-md-2">
             <%- partial('_partial/toc') %>
         </div>
-    </div>        
+    </div>
 </div>
-
-<br><br><br>
 
 <!-- Comments -->
 <div class="comments" id="comments">
 <% if(page.comments && theme.post.comments.enable) { %>
+    <br><br>
     <% var type = '_partial/comments/' + theme.post.comments.type %>
     <%- partial(type) %>
-<% } %> 
+<% } %>
 </div>
