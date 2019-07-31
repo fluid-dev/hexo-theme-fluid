@@ -3,35 +3,36 @@
     padding-bottom: 10px;
 }
 
-.header {
+.index-header {
     font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.excerpt {
+.index-excerpt {
     margin: 10px 0 10px 0;
-    height: 100px;
+    height: auto;
+    max-height: 100px;
     line-height: 20px;
     overflow: hidden;
 }
 
-.excerpt .text {
+.index-excerpt .index-text {
     float: right;
     margin-left: -5px;
     width: 100%;
     word-break: break-word;
 }
 
-.excerpt::before {
+.index-excerpt::before {
     float: left;
     width: 5px;
     content: '';
     height: 40px;
 }
 
-.excerpt::after {
+.index-excerpt::after {
     float: right;
     content: "...";
     height: 20px;
@@ -45,4 +46,10 @@
     left: 100%;
     top: -20px;
     padding-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .index-excerpt {
+        max-height: 200px;
+    }
 }

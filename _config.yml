@@ -1,6 +1,6 @@
 #---------------------------
 # Material-T
-# Author: rook1e
+# Author: Rook1e
 # Github: https://github.com/0x2e/Material-T
 #---------------------------
 
@@ -10,7 +10,7 @@
 #---------------------------
 favicon: /favicon.png
 apple_touch_icon: /apple-touch-icon.png
-title_join_string: ' ~ '
+title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
 
 #---------------------------
 # 导航栏
@@ -46,7 +46,6 @@ index:
     enable: true
   auto_excerpt:
     enable: true
-    length: 300
   post_url_target: _self  # available: _blank | _self
   post_info:
     enable: true
@@ -60,8 +59,6 @@ post:
   banner_img: https://i.imgur.com/oADD1Ip.jpg
   banner_img_height: 70  # available: 0 - 100
   date_format: dddd, MMMM Do YYYY, h:mm a
-  header_label:
-    enable: true
   toc: 
     enable: true
   highlight:
@@ -111,6 +108,6 @@ about:
   avatar: https://i.imgur.com/ME3xK6V.jpg
   name: myname
   introduce: info / info / info
-  icons: 
+  icons: # 更多图标可从 https://fontawesome.com/icons 搜索，并以 "图标名: url" 的格式排列在下方
     github: https://github.com
     twitter: https://twitter.com

@@ -37,27 +37,26 @@ body a:hover {
     background-position: center;
 }
 
+.post-content {
+    box-sizing: border-box;
+    padding: 10%;
+}
+
+.post-content h1::before,h2::before,h3::before,h4::before,h5::before,h6::before {
+    content: "";
+    display: block;
+    margin-top: -50px;
+    height: 50px;
+    width: 1px;
+}
+
 .post-content img {
     max-width: 90%;
     margin: 32px auto;
     display: block;
 }
 
-.post-content {
-    box-sizing: border-box;
-    padding: 10%;
-}
-
-.post-content hr {
-    margin: 50px 0;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid #dfe2e5;
-    height: 0;
-    overflow: hidden;
-}
-
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .post-content {
         padding: 15px;
     }

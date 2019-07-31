@@ -4,7 +4,6 @@
 
 <p align="center">
   <img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/0x2e/Material-T.svg">
-  <a href="https://github.com/0x2e/Material-T/issues?q=is%3Aopen+is%3Aissue+label%3Anotification"><img alt="notification" src="https://img.shields.io/github/issues-raw/0x2e/Material-T/notification.svg?label=notification&style=flat"></a>
   <img alt="contributors" src="https://img.shields.io/github/contributors/0x2e/Material-T.svg?style=flat">
   <img alt="license" src="https://img.shields.io/github/license/0x2e/Material-T.svg?style=flat">
 </p>
@@ -60,11 +59,21 @@ hexo new page about
 
 > `v0.9` 向上升级时，建议先备份，然后直接用新版本替换，以免 `git pull` 时出现过多冲突。
 
+
+建议更新前备份 _config.yml。
+
 ```bash
 cd /themes/Material-T
 git pull
 ```
+
 ## Changelog
+2019/7/31
+结合 @zkqiang 的优化建议：
+- 文章页样式更换为 Github 风格
+- 增加页脚备案信息
+- 优化配置文件结构
+- 页面细节优化
 
 2019/6/6
 - 完善 archive 渲染逻辑
@@ -79,7 +88,7 @@ git pull
 
 ## Contributors
 
-感谢：@zhugaoqi, @ChungZH
+按首次 commit 的时间排序，感谢：@zhugaoqi, @ChungZH, @aptend, @zkqiang
 
 ## [TODO](https://github.com/0x2e/Material-T/projects)
 

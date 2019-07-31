@@ -1,8 +1,8 @@
 <% var join = theme.title_join_string %>
 <% if(page.title) { %>
-<% var title = [page.title, config.title].concat(' ' + join + ' ') %>
+<% var title = page.title + join + config.title %>
 <% } else if(is_archive()){ %>
-<% var title = ['Archives', config.title].concat(' ' + join + ' ') %>
+<% var title = 'Archives' + join + config.title %>
 <% } else { %>
 <% var title = config.title %>
 <% } %>
@@ -22,12 +22,9 @@
     <%- css('https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css') %>
     <%- css('https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css') %>
     <%- css('css/github-markdown.css') %>
-    <%- css("https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css") %>
+    <%- css("https://at.alicdn.com/t/font_1067060_l7tuu6qerl9.css") %>
     <% if(is_post() && theme.post.highlight.enable){ %>
         <%- css('css/Prettify/'+theme.post.highlight.theme+'.min.css') %>
     <% } %>
     <%- css('css/custom/main.css') %>
-    <% if(is_post() && theme.post.header_label.enable){ %>
-        <%- css('css/custom/post-header-label.css') %>
-    <% } %>
 </head>
