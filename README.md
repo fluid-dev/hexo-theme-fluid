@@ -45,15 +45,7 @@ highlight:
   tab_replace:
 ```
 
-**3.** 创建 About Page
-
-```bash
-hexo new page about
-```
-
-修改 `/source/about/index.md`，添加属性 `type: "about"`
-
-**4.** 在 Hexo 的 `_config.yml` 中启用 `Material-T`
+**3.** 在 Hexo 的 `_config.yml` 中启用 `Material-T`
 
 ## 更新 Update
 
@@ -69,7 +61,12 @@ git pull
 
 ## Changelog
 2019/7/31
+- 自动创建 about 页面
+
+2019/7/31
+
 结合 @zkqiang 的优化建议：
+
 - 文章页样式更换为 Github 风格
 - 增加页脚备案信息
 - 优化配置文件结构
