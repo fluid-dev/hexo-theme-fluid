@@ -4,6 +4,7 @@
 # Github: https://github.com/0x2e/Material-T
 #---------------------------
 
+
 #---------------------------
 # 全局
 # Site
@@ -11,6 +12,22 @@
 favicon: /favicon.png
 apple_touch_icon: /apple-touch-icon.png
 title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
+highlight:
+  enable: true
+  theme: tomorrow-night-eighties # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties , you can download more from https://jmblog.github.io/color-themes-for-google-code-prettify/ then save `*.min.css` in `source/lib/prettify`
+fun_features:
+  typing: # 为 subtitle 添加打字机效果
+    enable: true
+    typeSpeed: 70 # 打印速度
+    cursorChar: "_" # 游标字符
+    loop: false # 是否循环播放效果
+  anchorjs: # 为文章内容中的标题添加锚图标
+    enable: true
+    element: h1,h2,h3,h4,h5,h6
+    placement: right # icon放置的位置： left | right
+    visible: false # true：一直可见，false：鼠标悬停时出现
+    icon: "" # 例如：§ | # | ❡ 等，留空则为默认效果
+
 
 #---------------------------
 # 导航栏
@@ -58,15 +75,15 @@ index:
 post: 
   banner_img: https://i.imgur.com/oADD1Ip.jpg
   banner_img_height: 70  # available: 0 - 100
-  date_format: dddd, MMMM Do YYYY, h:mm a
+  date_format: "dddd, MMMM Do YYYY, h:mm a"
   toc: 
     enable: true
-  highlight:
-    enable: true
-    theme: tomorrow-night-eighties # available: github | tomorrow | tomorrow-night | tomorrow-night-eighties , you can download more from https://jmblog.github.io/color-themes-for-google-code-prettify/ then save `*.min.css` in `source/css/Prettify`
   copyright:
     enable: true
-    content: 本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！
+    content: '本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！'
+  custom:
+    enable: false
+    content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
   comments: 
     enable: false
     type: disqus  # available: disqus | valine
@@ -108,6 +125,6 @@ about:
   avatar: https://i.imgur.com/ME3xK6V.jpg
   name: myname
   introduce: info / info / info
-  icons: # 更多图标可从 https://fontawesome.com/icons 搜索，并以 "图标名: url" 的格式排列在下方
+  icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
     github: https://github.com
     twitter: https://twitter.com

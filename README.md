@@ -4,6 +4,7 @@
 
 <p align="center">
   <img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/0x2e/Material-T.svg">
+  <img alt="Hexo version" src="https://img.shields.io/badge/Hexo-3%2B-orange">
   <img alt="contributors" src="https://img.shields.io/github/contributors/0x2e/Material-T.svg?style=flat">
   <img alt="license" src="https://img.shields.io/github/license/0x2e/Material-T.svg?style=flat">
 </p>
@@ -26,7 +27,9 @@ cd themes
 git clone -b master https://github.com/0x2e/Material-T.git Material-T
   ```
 
-**2.** 修改 Hexo 的`_config.yml`
+**2.** 修改 Hexo 默认配置
+
+按如下内容修改根目录中的 `_config.yml` 
 
 ```yml
 // 关闭归档页的默认分页：
@@ -37,7 +40,7 @@ archive_generator:
   daily: false
   order_by: -date
 
-// 关闭默认代码高亮
+// 关闭默认的代码高亮
 highlight:
   enable: false
   line_number: false
@@ -45,7 +48,7 @@ highlight:
   tab_replace:
 ```
 
-**3.** 在 Hexo 的 `_config.yml` 中启用 `Material-T`
+**3.** 在根目录中的 `_config.yml` 中启用 `Material-T`
 
 ## 更新 Update
 
@@ -60,6 +63,13 @@ git pull
 ```
 
 ## Changelog
+
+2019/8/1
+- 新增 subtitle 打字机效果
+- 优化文章页中锚的效果
+- 文章页底部新增支持 HTML 的 custom 区域，可自定义展示赞赏码等内容
+- 优化配置文件和目录结构
+
 2019/7/31
 - 自动创建 about 页面
 
@@ -86,8 +96,6 @@ git pull
 ## Contributors
 
 按首次 commit 的时间排序，感谢：@zhugaoqi, @ChungZH, @aptend, @zkqiang
-
-## [TODO](https://github.com/0x2e/Material-T/projects)
 
 ## License
 

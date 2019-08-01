@@ -21,10 +21,11 @@
     <%- css("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css") %>
     <%- css('https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css') %>
     <%- css('https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css') %>
-    <%- css('css/github-markdown.css') %>
+    <!-- <%- css('https://cdn.jsdelivr.net/npm/github-markdown-css@3.0.1/github-markdown.min.css') %> -->
+    <%- css('lib/github-markdown/github-markdown.css') %>
     <%- css("https://at.alicdn.com/t/font_1067060_l7tuu6qerl9.css") %>
-    <% if(is_post() && theme.post.highlight.enable){ %>
-        <%- css('css/Prettify/'+theme.post.highlight.theme+'.min.css') %>
+    <% if(is_post() && theme.highlight.enable){ %>
+        <%- css('lib/prettify/'+theme.highlight.theme+'.min.css') %>
     <% } %>
-    <%- css('css/custom/main.css') %>
+    <%- css('css/main.css') %>
 </head>

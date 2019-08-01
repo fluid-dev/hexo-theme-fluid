@@ -24,6 +24,13 @@
     </div>
 </div>
 
+<!-- custom -->
+<% if(theme.post.custom.enable) { %>
+    <div class="custom">
+    <%- theme.post.custom.content %>
+    </div>
+<% } %>
+
 <!-- Comments -->
 <div class="comments" id="comments">
 <% if(page.comments && theme.post.comments.enable) { %>
