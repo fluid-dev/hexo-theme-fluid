@@ -14,14 +14,14 @@
 </footer>
 
   <!-- SCRIPTS -->
-  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js") %>
-  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js") %>
-  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js") %>
-  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js") %>
+  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.8.7/js/jquery-3.4.1.min.js") %>
+  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.8.7/js/popper.min.js") %>
+  <%- js("https://cdn.jsdelivr.net/npm/mdbootstrap@4.8.7/js/bootstrap.min.js") %>
+  <%- js("https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js") %>
   <%- js("js/main.js") %>
   <% if(is_post()){ %>
     <% if(theme.post.toc.enable){ %>
-      <%- js("https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js") %>
+      <%- js("https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.7.0/tocbot.min.js") %>
     <% } %>
     <%- js("js/post.js") %>
     <% if(theme.highlight.enable){ %>
