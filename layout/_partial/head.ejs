@@ -18,10 +18,9 @@
     <meta name="keywords" content="<%= config.keywords %>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %></title>
-    <%- css("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css") %>
-    <%- css('https://cdn.jsdelivr.net/npm/mdbootstrap@4.8.7/css/bootstrap.min.css') %>
-    <%- css('https://cdn.jsdelivr.net/npm/mdbootstrap@4.8.7/css/mdb.min.css') %>
-    <!-- <%- css('https://cdn.jsdelivr.net/npm/github-markdown-css@3.0.1/github-markdown.min.css') %> -->
+    <%- css("/lib/font-awesome/css/all.min.css?v=5.7.2") %>
+    <%- css("/lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1") %>
+    <%- css("/lib/mdbootstrap/css/mdb.min.css?v=4.8.7") %>
     <%- css('lib/github-markdown/github-markdown.css') %>
     <%- css("https://at.alicdn.com/t/font_1067060_l7tuu6qerl9.css") %>
     <% if(is_post() && theme.highlight.enable){ %>

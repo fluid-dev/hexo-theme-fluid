@@ -1,7 +1,7 @@
 <% page['layout'] = "about" %>
 <div class="text-center">
   <p class="h3"><%= theme.about.name %></p>
-  <p><%= theme.about.introduce %></p>
+  <p><%- theme.about.introduce %></p>
   <% for(var i in theme.about.icons) { %>
     <a href="<%- theme.about.icons[i] %>" class="h4"><i class="fab fa-<%- i %>" aria-hidden="true"></i></a>
     &nbsp;&nbsp;

@@ -3,7 +3,6 @@
 <p align="center">一款 Material Design 风格的主题</p>
 
 <p align="center">
-  <img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/0x2e/Material-T.svg">
   <img alt="Hexo version" src="https://img.shields.io/badge/Hexo-3%2B-orange">
   <img alt="contributors" src="https://img.shields.io/github/contributors/0x2e/Material-T.svg?style=flat">
   <img alt="license" src="https://img.shields.io/github/license/0x2e/Material-T.svg?style=flat">

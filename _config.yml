@@ -57,7 +57,7 @@ footer:
 # Index Page
 #---------------------------
 index:
-  banner_img: https://i.imgur.com/OLJxbaR.jpg
+  banner_img: /img/index.jpg
   banner_img_height: 100  # available: 0 - 100
   subtitle:
     enable: true
@@ -73,7 +73,7 @@ index:
 # Post Page
 #---------------------------
 post: 
-  banner_img: https://i.imgur.com/oADD1Ip.jpg
+  banner_img: /img/post.jpg
   banner_img_height: 70  # available: 0 - 100
   date_format: "dddd, MMMM Do YYYY, h:mm a"
   toc: 
@@ -112,7 +112,7 @@ valine:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: https://i.imgur.com/FNwWK1Y.jpg
+  banner_img: /img/archive.jpg
   banner_img_height: 80  # available: 0 - 100
 
 #---------------------------
@@ -120,11 +120,11 @@ archive:
 # About Page
 #---------------------------
 about:
-  banner_img: https://i.imgur.com/rVtDsho.png
+  banner_img: /img/about.jpg
   banner_img_height: 80  # available: 0 - 100
-  avatar: https://i.imgur.com/ME3xK6V.jpg
+  avatar: /img/avatar.png # 头像
   name: myname
-  introduce: info / info / info
+  introduce: info / info / info # 支持 HTML
   icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
     github: https://github.com
     twitter: https://twitter.com
