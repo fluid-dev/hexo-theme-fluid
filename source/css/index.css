@@ -27,12 +27,6 @@
     overflow: hidden;
 }
 
-@media (max-width: 750px) {
-    .index-excerpt {
-        max-height: 0;
-    }
-}
-
 .index-excerpt .index-text {
     float: right;
     margin-left: -0.25rem;

@@ -1,11 +1,10 @@
 <% var joinStr = theme.title_join_string %>
-<% var title %>
-<% title = [config.title, config.subtitle].join(' | ') %>
+<% var title  = config.title %>
 <% if(page.title) { %>
 <% title = [page.title, title].join(joinStr) %>
 <% } else if(is_archive()){ %>
 <% title = ['Archives', title].join(joinStr) %>
-<% } %>
+<% } else if(page.layout == "about") { title = ['About', title].join(joinStr) }%>
 
 <head>
     <meta charset="UTF-8">
