@@ -27,6 +27,7 @@ fun_features:
     placement: right # icon放置的位置： left | right
     visible: false # true：一直可见，false：鼠标悬停时出现
     icon: "" # 例如：§ | # | ❡ 等，留空则为默认效果
+baidu_analytics:  # 百度统计的Key
 
 
 #---------------------------
@@ -59,8 +60,9 @@ footer:
 index:
   banner_img: /img/index.jpg
   banner_img_height: 100  # available: 0 - 100
-  subtitle:
-    enable: true
+  slogan:  # 首页副标题的独立设置
+    enable: true  # 为 false 则不显示任何内容
+    text:  # 为空则使用 config.subtitle
   auto_excerpt:
     enable: true
   post_url_target: _self  # available: _blank | _self
