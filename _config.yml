@@ -14,7 +14,7 @@ apple_touch_icon: /apple-touch-icon.png
 title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
 highlight:
   enable: true
-  theme: tomorrow-night-eighties # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties , you can download more from https://jmblog.github.io/color-themes-for-google-code-prettify/ then save `*.min.css` in `source/lib/prettify`
+  theme: tomorrow-night-eighties # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties，更多主题可从 https://jmblog.github.io/color-themes-for-google-code-prettify/ 获取，保存为 `*.min.css` 到 `source/lib/prettify/`，在其中 .prettyprint{ background: ***; ...} 的background 值后加上 !important，例如：.prettyprint{background:#fafbfc!important; ...}
 fun_features:
   typing: # 为 subtitle 添加打字机效果
     enable: true

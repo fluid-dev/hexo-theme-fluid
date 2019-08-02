@@ -24,15 +24,15 @@
       <%- js("/lib/tocbot/tocbot.min.js?v=4.7.0") %>
     <% } %>
     <%- js("js/post.js") %>
-    <% if(theme.highlight.enable){ %>
-      <%- js("/lib/prettify/prettify.min.js?v=0.1.0") %>
-      <script>
-        $(document).ready(function(){
-          $('pre').addClass('prettyprint linenums');
-          prettyPrint();
-        })
-      </script>
-    <% } %>
+  <% } %>
+  <% if(theme.highlight.enable){ %>
+    <%- js("/lib/prettify/prettify.min.js?v=0.1.0") %>
+    <script>
+      $(document).ready(function(){
+        $('pre').addClass('prettyprint linenums');
+        prettyPrint();
+      })
+    </script>
   <% } %>
   <% if(theme.fun_features.typing.enable){ %>
     <%- js("/lib/typed/typed.min.js?v=2.0.9") %>
