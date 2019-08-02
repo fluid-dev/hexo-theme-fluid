@@ -19,14 +19,14 @@
 
 ## 快速开始 Quick Start
 
-**1.** 获取最新版本
+**1. 获取最新版本**
 
 ```bash
 cd themes
 git clone -b master https://github.com/0x2e/Material-T.git Material-T
   ```
 
-**2.** 修改 Hexo 默认配置
+**2. 必要的配置**
 
 按如下内容修改根目录中的 `_config.yml` 
 
@@ -47,7 +47,7 @@ highlight:
   tab_replace:
 ```
 
-**3.** 在根目录中的 `_config.yml` 中启用 `Material-T`
+**3. 在根目录中的 `_config.yml` 中启用 `Material-T`**
 
 ## 更新 Update
 
@@ -62,6 +62,10 @@ git pull
 ```
 
 ## Changelog
+
+2019/8/2
+
+- 新增 about 页自定义功能
 
 2019/8/1
 - 新增 subtitle 打字机效果
