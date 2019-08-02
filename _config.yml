@@ -128,5 +128,5 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 /Material
   name: myname
   introduce: info / info / info # 支持 HTML
   icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
-    github: https://github.com
-    twitter: https://twitter.com
+    "fab fa-github": https://github.com
+    "fab fa-twitter": https://twitter.com

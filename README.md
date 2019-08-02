@@ -61,40 +61,7 @@ cd /themes/Material-T
 git pull
 ```
 
-## Changelog
-
-2019/8/2
-
-- 新增 about 页自定义功能
-
-2019/8/1
-- 新增 subtitle 打字机效果
-- 优化文章页中锚的效果
-- 文章页底部新增支持 HTML 的 custom 区域，可自定义展示赞赏码等内容
-- 优化配置文件和目录结构
-
-2019/7/31
-- 自动创建 about 页面
-
-2019/7/31
-
-结合 @zkqiang 的优化建议：
-
-- 文章页样式更换为 Github 风格
-- 增加页脚备案信息
-- 优化配置文件结构
-- 页面细节优化
-
-2019/6/6
-- 完善 archive 渲染逻辑
-
-2019/3/15
-- 重新设计基本完成，特别感谢 @zhugaoqi 同学的设计指导；
-- 将所有第三方库、图片替换为 CDN 引用，极大精简仓库大小；
-- 重新设计 archive 渲染逻辑；
-- 统一文章页布局，新增文章版权声明；
-- 精简页面，配置项;
-- 老版本停止维护，代码暂时归档在 v0.9 分支，如有需要请 fork 备份；
+## [Changelog](https://github.com/0x2E/Material-T/blob/master/Changelog.md)
 
 ## Contributors
 
