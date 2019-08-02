@@ -8,7 +8,9 @@
 <% } else if(is_home()) { %>
 <%    banner_img = theme.index.banner_img %>
 <%    banner_img_height = theme.index.banner_img_height %>
-<%    if(theme.index.subtitle.enable) { subtitle = config.subtitle } %>
+      <% if(theme.index.slogan.enable) {
+          subtitle = theme.index.slogan.text || config.subtitle || ''
+      } %>
 <% } else if (page.layout == 'about') { %>
 <%    banner_img = theme.about.banner_img || theme.index.banner_img %>
 <%    banner_img_height = theme.about.banner_img_height %>
@@ -46,11 +48,11 @@
     </div>
     </div>
   </header>
-  
+
   <main>
   <% if(is_post()) { %>
   <%- body %>
-  <% } else { %>  
+  <% } else { %>
   <div class="container">
     <div class="py-5 z-depth-3 main">
       <% if(page.layout == 'about') { %>
