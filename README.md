@@ -8,7 +8,7 @@
   <img alt="license" src="https://img.shields.io/github/license/0x2e/Material-T.svg?style=flat">
 </p>
 
-![ScreenShot](https://i.imgur.com/mMHoZJE.png)
+![ScreenShot](https://cdn.jsdelivr.net/gh/0x2E/CDN@master/Material-T/screenshots/index.png)
 
 
 ## Demo
