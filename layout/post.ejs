@@ -1,21 +1,26 @@
+<%- css('css/post.css') %>
+
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 offset-md-2 ">
-            <div class="post-content markdown-body py-5 z-depth-3 main">
-                <%- page.content %>
-                <hr>
-                <div>
-                    <p>
-                    <% page.tags.each(function(tag) { %>
-                        <span class="badge badge-light">#&nbsp;<%- tag.name %></span>
-                        &nbsp;
-                    <% }) %>
-                    </p>
+        <div class="d-none d-md-block col-md-2"></div>
+        <div class="col-md-8 m-auto board-cntr">
+            <div class="py-5 z-depth-3 board">
+                <div class="post-content markdown-body m-auto">
+                    <%- page.content %>
+                    <hr>
+                    <div>
+                        <p>
+                        <% page.tags.each(function(tag) { %>
+                            <span class="badge badge-light">#&nbsp;<%- tag.name %></span>
+                            &nbsp;
+                        <% }) %>
+                        </p>
+                    </div>
+                    <br>
+                    <% if(theme.post.copyright.enable) { %>
+                        <p class="note note-warning"><%- theme.post.copyright.content %></p>
+                    <% } %>
                 </div>
-                <br>
-                <% if(theme.post.copyright.enable) { %>
-                    <p class="note note-warning"><%- theme.post.copyright.content %></p>
-                <% } %>
             </div>
         </div>
         <div class="d-none d-md-block col-md-2">
