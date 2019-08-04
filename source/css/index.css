@@ -45,18 +45,18 @@
     height: 2rem;
 }
 
-.index-excerpt::after {
-    float: right;
-    content: "...";
-    height: 1rem;
-    line-height: 1rem;
-    /* 为三个省略号的宽度 */
-    width: 3em;
-    /* 使盒子不占位置 */
-    margin-left: -3em;
-    /* 移动省略号位置 */
-    position: relative;
-    left: 100%;
-    top: -1rem;
-    padding-right: 0.25rem;
-}
+/*.index-excerpt::after {*/
+/*    float: right;*/
+/*    content: "...";*/
+/*    height: 1rem;*/
+/*    line-height: 1rem;*/
+/*    !* 为三个省略号的宽度 *!*/
+/*    width: 3em;*/
+/*    !* 使盒子不占位置 *!*/
+/*    margin-left: -3em;*/
+/*    !* 移动省略号位置 *!*/
+/*    position: relative;*/
+/*    left: 100%;*/
+/*    top: -1rem;*/
+/*    padding-right: 0.25rem;*/
+/*}*/

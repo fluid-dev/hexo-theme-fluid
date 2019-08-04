@@ -1,10 +1,10 @@
 <%- css('css/index.css') %>
 
 <% page.posts.each(function (post) { %>
-  <div class="row mb-3">
+  <div class="row mb-4">
   <% var post_url = url_for(post.path) %>
   <% if(post.index_img != null) { %>
-    <div class="col-12 col-md-4 mb-3">
+    <div class="col-12 col-md-4 mb-3 m-auto">
       <a href="<%- post_url %>" style="background-image: url(<%- post.index_img %>);" class="img-fluid rounded z-depth-3 index-thumbnails" target="<%- theme.index.post_url_target %>"></a>
     </div>
   <% } %>
@@ -35,6 +35,5 @@
     </div>
   </div>
 <% }) %>
-<br>
 
 <%- partial('_partial/paginator') %>
