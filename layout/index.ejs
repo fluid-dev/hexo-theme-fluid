@@ -4,7 +4,7 @@
   <div class="row mb-4">
   <% var post_url = url_for(post.path) %>
   <% if(post.index_img != null) { %>
-    <div class="col-12 col-md-4 mb-3 m-auto">
+    <div class="col-12 col-md-4 m-auto">
       <a href="<%- post_url %>" style="background-image: url(<%- post.index_img %>);" class="img-fluid rounded z-depth-3 index-thumbnails" target="<%- theme.index.post_url_target %>"></a>
     </div>
   <% } %>
@@ -15,7 +15,7 @@
               <% if(post.excerpt.length > 0) { %>
                 <div class="index-text mb-1"><%- strip_html(post.excerpt) %>...</div>
               <% } else if(theme.index.auto_excerpt.enable){ %>
-                <div class="index-text mb-1"><%- strip_html(post.content) %></div>
+                <div class="index-text mb-1"><%- strip_html(post.content).substr(0,500) %></div>
               <% } %>
             </div>
         </a>

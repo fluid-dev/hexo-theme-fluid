@@ -35,7 +35,6 @@ baidu_analytics:  # 百度统计的Key
 # Head Navbar
 #---------------------------
 navbar:
-  blog_name:  # 为空则按 hexo config.title 显示
   menu:
     Home: /
     Archives: /archives/
