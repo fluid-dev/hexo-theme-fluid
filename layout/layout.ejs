@@ -53,8 +53,8 @@
   <% if(is_post()) { %>
   <%- body %>
   <% } else { %>
-  <div class="container">
-    <div class="py-5 z-depth-3 main">
+  <div class="container board-cntr">
+    <div class="py-5 z-depth-3 board">
       <% if(page.layout == 'about') { %>
         <div class="about-avatar">
           <img src="<%- url_for(theme.about.avatar) %>" class="img-fluid z-depth-1 rounded-circle" alt="avatar">
@@ -62,7 +62,7 @@
       <% } %>
       <div class="container">
         <div class="row">
-          <div class="col-10 offset-1">
+          <div class="col-10 m-auto">
             <%- body %>
           </div>
         </div>

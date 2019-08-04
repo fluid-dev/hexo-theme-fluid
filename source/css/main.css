@@ -19,13 +19,7 @@ body a:hover {
     color: #89229b;
 }
 
-@media (max-width: 750px){
-    header .h2 {
-        font-size: 1.5rem;
-    }
-}
-
-.main {
+.board {
     position: relative;
     margin-top: -3rem;
     background-color: #fff;
@@ -33,33 +27,20 @@ body a:hover {
     z-index: 3;
 }
 
-.post-thumbnails {
-    display: block;
-    width: 100%;
-    height: 10rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+@media (max-width: 768px){
+    header .h2 {
+        font-size: 1.5rem;
+    }
+    .board-cntr {
+        max-width: 100%;
+        flex: 0 0 100%;
+        padding: 0 0;
+    }
 }
 
-.post-content {
-    box-sizing: border-box;
-    padding: 10%;
-}
-
-.post-content h1::before,h2::before,h3::before,h4::before,h5::before,h6::before {
-    display: block;
-    content: "";
-    margin-top: -50px;
-    height: 50px;
-    width: 1px;
-    visibility: hidden;
-}
-
-.post-content img {
-    max-width: 90%;
-    margin: 1.5rem auto;
-    display: block;
+.row {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .custom, .comments {
@@ -67,48 +48,8 @@ body a:hover {
     margin: 0 auto;
 }
 
-.about-avatar {
-    position: relative;
-    margin: -8rem auto 1rem;
-    max-width: 10rem;
-    z-index: 3;
-}
-
-/*
-* toc 
-*/
-
-#toc {
-    padding: 0 1rem 0;
-}
-
-#tocbot ol {
-    list-style: none;
-    padding-inline-start: 0.5rem;
-}
-
-.tocbot-list ol {
-    list-style: none;
-    padding-left: 1rem;
-}
-
-.tocbot-link {
-    color: #34495e;
-}
-
-.tocbot-active-link {
-    font-weight: 600;
-    color: #89229b;
-}
-
-.tocbot-is-collapsible {
-    max-height: 1000px;
-    overflow: hidden;
-    transition: all 300ms ease-in-out;
-}
-
-.tocbot-is-collapsed {
-    max-height: 0;
+.hr {
+    height: .15rem;
 }
 
 /*
@@ -163,7 +104,7 @@ footer a {
     background-color: #563d7c;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
     .navbar {
         background-color: transparent;
     }

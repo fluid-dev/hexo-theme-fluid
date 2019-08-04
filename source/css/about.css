@@ -1,0 +1,6 @@
+.about-avatar {
+    position: relative;
+    margin: -8rem auto 1rem;
+    max-width: 10rem;
+    z-index: 3;
+}

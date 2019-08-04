@@ -35,6 +35,7 @@ baidu_analytics:  # 百度统计的Key
 # Head Navbar
 #---------------------------
 navbar:
+  blog_name:  # 为空则按 hexo config.title 显示
   menu:
     Home: /
     Archives: /archives/
@@ -62,7 +63,7 @@ index:
   banner_img_height: 100  # available: 0 - 100
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
-    text:  # 为空则使用 config.subtitle
+    text:  # 为空则按 hexo config.subtitle 显示
   auto_excerpt:
     enable: true
   post_url_target: _self  # available: _blank | _self
