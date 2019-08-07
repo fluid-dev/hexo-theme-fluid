@@ -1,16 +1,21 @@
-<% var joinStr = theme.title_join_string %>
-<% var title  = config.title %>
-<% if(page.title) { %>
-<% title = [page.title, title].join(joinStr) %>
-<% } else if(is_archive()){ %>
-<% title = ['Archives', title].join(joinStr) %>
-<% } else if(page.layout == "about") { title = ['About', title].join(joinStr) }%>
+<%
+var joinStr = theme.title_join_string
+var title = config.title
+if(page.title) {
+    title = [page.title, title].join(joinStr)
+} else if(is_archive()){
+    title = ['Archives', title].join(joinStr)
+} else if (page.layout == "about") {
+    title = ['About', title].join(joinStr)
+}
+%>
 
 <head>
     <meta charset="UTF-8">
     <link rel="apple-touch-icon" sizes="76x76" href="<%- url_for(theme.apple_touch_icon) %>">
     <link rel="icon" type="image/png" href="<%- url_for(theme.favicon) %>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="<%= config.description %>">
     <meta name="author" content="<%= config.author %>">
@@ -22,14 +27,14 @@
     <%- css("lib/github-markdown/github-markdown.min.css") %>
     <%- css("https://at.alicdn.com/t/font_1067060_l7tuu6qerl9.css") %>
     <% if(theme.highlight.enable){ %>
-        <%- css('lib/prettify/'+theme.highlight.theme+'.min.css') %>
+        <%- css('lib/prettify/' + theme.highlight.theme + '.min.css') %>
     <% } %>
     <%- css("css/main.css") %>
 
     <% if(theme.baidu_analytics) { %>
         <script>
             var _hmt = _hmt || [];
-            (function() {
+            (function () {
                 var hm = document.createElement("script");
                 hm.src = "https://hm.baidu.com/hm.js?<%= theme.baidu_analytics %>";
                 var s = document.getElementsByTagName("script")[0];

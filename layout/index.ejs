@@ -1,7 +1,7 @@
 <%- css('css/index.css') %>
 
 <% page.posts.each(function (post) { %>
-  <div class="row mb-4">
+  <div class="row mb-4 mx-auto">
   <% var post_url = url_for(post.path) %>
   <% if(post.index_img != null) { %>
     <div class="col-12 col-md-4 m-auto">

@@ -9,8 +9,8 @@
 # 全局
 # Site
 #---------------------------
-favicon: /favicon.png
-apple_touch_icon: /apple-touch-icon.png
+favicon: /img/favicon.png
+apple_touch_icon: /img/apple-touch-icon.png
 title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
 highlight:
   enable: true
@@ -39,7 +39,7 @@ navbar:
     Home: /
     Archives: /archives/
     About: /about/
-
+  blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
 
 #---------------------------
 # 页脚
