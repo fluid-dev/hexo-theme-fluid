@@ -12,8 +12,7 @@ page.banner_img_height = theme.index.banner_img_height
         <% var post_url = url_for(post.path) %>
         <% if(post.index_img != null) { %>
             <div class="col-12 col-md-4 m-auto">
-                <a href="<%- post_url %>" style="background-image: url(<%- post.index_img %>);"
-                   class="img-fluid rounded z-depth-3 index-thumbnails" target="<%- theme.index.post_url_target %>"></a>
+                <a href="<%- post_url %>" style="background-image: url(<%- post.index_img %>);" class="img-fluid rounded z-depth-3 index-thumbnails" target="<%- theme.index.post_url_target %>"></a>
             </div>
         <% } %>
         <div class="col-12 col-md-8 m-auto">

@@ -27,9 +27,9 @@ site.posts.each(function (post) {
     </li>
     <% Object.keys(mtags).forEach(function(tag) { %>
         <li class="nav-item mr-2">
-            <a class="nav-link" id="pills-<%- mtags[tag] %>-tab" data-toggle="pill" href="#pills-<%- mtags[tag] %>"
-               role="tab"
-               aria-controls="pills-<%- mtags[tag] %>" aria-selected="false"><%- tag %></a>
+            <a class="nav-link" id="pills-<%- mtags[tag] %>-tab" data-toggle="pill" href="#pills-<%- mtags[tag] %>" role="tab" aria-controls="pills-<%- mtags[tag] %>" aria-selected="false">
+                <%- tag %>
+            </a>
         </li>
     <% }) %>
 </ul>
@@ -58,8 +58,7 @@ site.posts.each(function (post) {
 </div>
 <% Object.keys(mtags).forEach(function(tag) { %>
     <% var date_cursor = 'xxx' %>
-    <div class="tab-pane fade" id="pills-<%- mtags[tag] %>" role="tabpanel"
-         aria-labelledby="pills-<%- mtags[tag] %>-tab">
+    <div class="tab-pane fade" id="pills-<%- mtags[tag] %>" role="tabpanel" aria-labelledby="pills-<%- mtags[tag] %>-tab">
         <% page.posts.each(function(post) { %>
             <% post.tags.each(function(item) { %>
                 <% if(item.name == tag) { %>
