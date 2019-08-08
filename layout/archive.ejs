@@ -1,27 +1,37 @@
 <%- css('css/archive.css') %>
+<%
+page.layout = "archive"
+page.title = "Archives"
+page.subtitle = "Archives"
+page.banner_img = theme.archive.banner_img
+page.banner_img_height= theme.archive.banner_img_height
+%>
 
-<% var mtags = {} %>
-<% site.posts.each(function(post) { %>
-    <% post.tags.each(function(tag) { %>
-        <% if(!(tag.name in mtags)) { %>
-            <% mtags[tag.name] = tag._id %>
-        <% } %>
-    <% }) %>
-<% }) %>
+<%
+var mtags = {}
+site.posts.each(function (post) {
+    post.tags.each(function (tag) {
+        if (!(tag.name in mtags)) {
+            mtags[tag.name] = tag._id
+        }
+    })
+})
+%>
 
 <% var date_cursor = 'xxx' %>
 
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-<li class="nav-item mr-2">
-    <a class="nav-link active" id="pills-All-tab" data-toggle="pill" href="#pills-All" role="tab"
-    aria-controls="pills-home" aria-selected="true">ALL</a>
-</li>
-<% Object.keys(mtags).forEach(function(tag) { %>
-<li class="nav-item mr-2">
-    <a class="nav-link" id="pills-<%- mtags[tag] %>-tab" data-toggle="pill" href="#pills-<%- mtags[tag] %>" role="tab"
-    aria-controls="pills-<%- mtags[tag] %>" aria-selected="false"><%- tag %></a>
-</li>
-<% }) %>
+    <li class="nav-item mr-2">
+        <a class="nav-link active" id="pills-All-tab" data-toggle="pill" href="#pills-All" role="tab"
+           aria-controls="pills-home" aria-selected="true">ALL</a>
+    </li>
+    <% Object.keys(mtags).forEach(function(tag) { %>
+        <li class="nav-item mr-2">
+            <a class="nav-link" id="pills-<%- mtags[tag] %>-tab" data-toggle="pill" href="#pills-<%- mtags[tag] %>"
+               role="tab"
+               aria-controls="pills-<%- mtags[tag] %>" aria-selected="false"><%- tag %></a>
+        </li>
+    <% }) %>
 </ul>
 <div class="tab-content pt-2 pl-1" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-All" role="tabpanel" aria-labelledby="pills-all-tab">
@@ -29,45 +39,46 @@
         <hr>
         <% if(site.posts.length > 0){ %>
             <% page.posts.each(function (post) { %>
-                <% if(date(post.date,"YYYY") != date_cursor){ %>
+                <% if(date(post.date, "YYYY") != date_cursor){ %>
                     <% if(date_cursor != 'xxx'){ %>
-                        </div>
-                    <% } %>
-                    <% date_cursor = date(post.date,"YYYY") %>
-                    <p class="h5"><%= date_cursor %></p>
-                    <div class="list-group">
-                <% } %>
-                <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
-                    <span class="archive-post-title"><%= post.title %></span>
-                    <span style="float: right;"><%- date(post.date,"MM-DD") %></span>
-                </a>
-            <% }) %>
-            </div>
-        <% } %>
-        <% var date_cursor = 'xxx' %>
     </div>
-    <% Object.keys(mtags).forEach(function(tag) { %>
-        <% var date_cursor = 'xxx' %>
-        <div class="tab-pane fade" id="pills-<%- mtags[tag] %>" role="tabpanel" aria-labelledby="pills-<%- mtags[tag] %>-tab">
-            <% page.posts.each(function(post) { %>                                
-                <% post.tags.each(function(item) { %>
-                    <% if(item.name == tag) { %>
-                        <% if(date(post.date,"YYYY") != date_cursor){ %>
-                            <% if(date_cursor != 'xxx'){ %>
-                                </div>
-                            <% } %>
-                            <% date_cursor = date(post.date,"YYYY") %>
-                            <p class="h5"><%= date_cursor %></p>
-                            <div class="list-group">
-                        <% } %>
-                        <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
-                            <span class="archive-post-title"><%= post.title %></span>
-                            <span style="float: right;"><%- date(post.date,"MM-DD") %></span>
-                        </a>
-                    <% } %>
-                <% }) %>
-            <% }) %>
-            </div>
-        </div>
-    <% }) %>
+    <% } %>
+    <% date_cursor = date(post.date, "YYYY") %>
+    <p class="h5"><%= date_cursor %></p>
+    <div class="list-group">
+        <% } %>
+        <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
+            <span class="archive-post-title"><%= post.title %></span>
+            <span style="float: right;"><%- date(post.date, "MM-DD") %></span>
+        </a>
+        <% }) %>
+    </div>
+    <% } %>
+    <% var date_cursor = 'xxx' %>
+</div>
+<% Object.keys(mtags).forEach(function(tag) { %>
+    <% var date_cursor = 'xxx' %>
+    <div class="tab-pane fade" id="pills-<%- mtags[tag] %>" role="tabpanel"
+         aria-labelledby="pills-<%- mtags[tag] %>-tab">
+        <% page.posts.each(function(post) { %>
+            <% post.tags.each(function(item) { %>
+                <% if(item.name == tag) { %>
+                    <% if(date(post.date, "YYYY") != date_cursor){ %>
+                        <% if(date_cursor != 'xxx'){ %>
+    </div>
+    <% } %>
+    <% date_cursor = date(post.date, "YYYY") %>
+    <p class="h5"><%= date_cursor %></p>
+    <div class="list-group">
+        <% } %>
+        <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
+            <span class="archive-post-title"><%= post.title %></span>
+            <span style="float: right;"><%- date(post.date, "MM-DD") %></span>
+        </a>
+        <% } %>
+        <% }) %>
+        <% }) %>
+    </div>
+    </div>
+<% }) %>
 </div>

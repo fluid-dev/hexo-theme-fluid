@@ -1,4 +1,4 @@
-const mdPath = 'themes/Material-T/about.md'
+const mdPath = 'themes/Material-T/pages/about.md';
 
 hexo.extend.generator.register('_about',function(locals){
     return {

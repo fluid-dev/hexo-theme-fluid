@@ -1,39 +1,47 @@
 <%- css('css/index.css') %>
+<%
+if (theme.index.slogan.enable) {
+    page.subtitle = theme.index.slogan.text || config.subtitle || ''
+}
+page.banner_img = theme.index.banner_img
+page.banner_img_height = theme.index.banner_img_height
+%>
 
 <% page.posts.each(function (post) { %>
-  <div class="row mb-4 mx-auto">
-  <% var post_url = url_for(post.path) %>
-  <% if(post.index_img != null) { %>
-    <div class="col-12 col-md-4 m-auto">
-      <a href="<%- post_url %>" style="background-image: url(<%- post.index_img %>);" class="img-fluid rounded z-depth-3 index-thumbnails" target="<%- theme.index.post_url_target %>"></a>
-    </div>
-  <% } %>
-    <div class="col-12 col-md-8 m-auto">
-        <a href="<%- post_url %>">
-            <p class="h4 index-header"><%= post.title %></p>
-            <div class="index-excerpt">
-              <% if(post.excerpt.length > 0) { %>
-                <div class="index-text mb-1"><%- strip_html(post.excerpt) %>...</div>
-              <% } else if(theme.index.auto_excerpt.enable){ %>
-                <div class="index-text mb-1"><%- strip_html(post.content).substr(0,500) %></div>
-              <% } %>
+    <div class="row mb-4 mx-auto">
+        <% var post_url = url_for(post.path) %>
+        <% if(post.index_img != null) { %>
+            <div class="col-12 col-md-4 m-auto">
+                <a href="<%- post_url %>" style="background-image: url(<%- post.index_img %>);"
+                   class="img-fluid rounded z-depth-3 index-thumbnails" target="<%- theme.index.post_url_target %>"></a>
             </div>
-        </a>
-      
-      <% if(theme.index.post_info.enable){ %>
-        <div>
-          <i class="iconfont icon-riqi2"></i>&nbsp;<%- date(post.date, config.date_format) %>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <% if(post.tags.length) { %>
-              <i class="iconfont icon-cc-tag-more"></i>
-              <% post.tags.each(function(tag){ %>
-                  <%= tag.name %>&nbsp;
-              <% }) %>
-          <% } %>
+        <% } %>
+        <div class="col-12 col-md-8 m-auto">
+            <a href="<%- post_url %>">
+                <p class="h4 index-header"><%= post.title %></p>
+                <div class="index-excerpt">
+                    <% if(post.excerpt.length > 0) { %>
+                        <div class="index-text mb-1"><%- strip_html(post.excerpt) %>...</div>
+                    <% } else if(theme.index.auto_excerpt.enable){ %>
+                        <div class="index-text mb-1"><%- strip_html(post.content).substr(0, 500) %></div>
+                    <% } %>
+                </div>
+            </a>
+
+            <% if(theme.index.post_info.enable){ %>
+                <div>
+                    <i class="iconfont icon-riqi2"></i>&nbsp;<%- date(post.date, config.date_format) %>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <% if(post.tags.length) { %>
+                        <i class="iconfont icon-cc-tag-more"></i>
+                        <% post.tags.each(function(tag){ %>
+                            <%= tag.name %>&nbsp;
+                        <% }) %>
+                    <% } %>
+                </div>
+            <% } %>
         </div>
-      <% } %>
     </div>
-  </div>
 <% }) %>
 
 <%- partial('_partial/paginator') %>

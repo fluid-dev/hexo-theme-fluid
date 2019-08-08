@@ -117,6 +117,7 @@ archive:
   banner_img: /img/archive.jpg
   banner_img_height: 80  # available: 0 - 100
 
+
 #---------------------------
 # 关于页
 # About Page
@@ -130,3 +131,13 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 /Material
   icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
     "fab fa-github": https://github.com
     "fab fa-twitter": https://twitter.com
+
+
+#---------------------------
+# 404页
+# 404 Page
+#---------------------------
+page404:
+  banner_img: /img/index.jpg
+  banner_img_height: 80  # available: 0 - 100
+  subtitle: 'Page not found'

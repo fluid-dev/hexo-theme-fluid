@@ -1,5 +1,12 @@
 <%- css('css/post.css') %>
 
+<%
+if (!page.banner_img) {
+    page.banner_img = theme.post.banner_img
+}
+page.banner_img_height= theme.post.banner_img_height
+%>
+
 <div class="container-fluid">
     <div class="row">
         <div class="d-none d-lg-block col-lg-2"></div>
