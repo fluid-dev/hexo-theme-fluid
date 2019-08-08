@@ -38,7 +38,7 @@
 
 #tocbot ol {
     list-style: none;
-    padding-inline-start: 0.5rem;
+    padding-inline-start: 1rem;
 }
 
 .tocbot-list ol {
