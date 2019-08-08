@@ -9,8 +9,8 @@
 # 全局
 # Site
 #---------------------------
-favicon: /favicon.png
-apple_touch_icon: /apple-touch-icon.png
+favicon: /img/favicon.png
+apple_touch_icon: /img/apple-touch-icon.png
 title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
 highlight:
   enable: true
@@ -39,7 +39,7 @@ navbar:
     Home: /
     Archives: /archives/
     About: /about/
-
+  blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
 
 #---------------------------
 # 页脚
@@ -117,6 +117,7 @@ archive:
   banner_img: /img/archive.jpg
   banner_img_height: 80  # available: 0 - 100
 
+
 #---------------------------
 # 关于页
 # About Page
@@ -130,3 +131,13 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 /Material
   icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
     "fab fa-github": https://github.com
     "fab fa-twitter": https://twitter.com
+
+
+#---------------------------
+# 404页
+# 404 Page
+#---------------------------
+page404:
+  banner_img: /img/index.jpg
+  banner_img_height: 80  # available: 0 - 100
+  subtitle: 'Page not found'

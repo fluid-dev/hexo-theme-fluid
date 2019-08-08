@@ -31,10 +31,9 @@ body a:hover {
     header .h2 {
         font-size: 1.5rem;
     }
-    .board-cntr {
-        max-width: 100%;
-        flex: 0 0 100%;
-        padding: 0 0;
+    .nopadding-md {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
 
@@ -46,10 +45,6 @@ body a:hover {
 .custom, .comments {
     width: 60%;
     margin: 0 auto;
-}
-
-.hr {
-    height: .15rem;
 }
 
 /*
@@ -106,15 +101,8 @@ footer a {
 
 @media (max-width: 768px) {
     .navbar {
-        background-color: transparent;
-    }
-
-    .top-nav-collapse {
-        background-color: #563d7c;
-    }
-
-    .navbar-col-show {
-        background-color: #563d7c;
+        font-size: 1rem;
+        line-height: 2.5rem;
     }
 }
 

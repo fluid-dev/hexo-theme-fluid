@@ -1,29 +1,38 @@
 <%- css('css/post.css') %>
 
+<%
+if (!page.banner_img) {
+    page.banner_img = theme.post.banner_img
+}
+page.banner_img_height= theme.post.banner_img_height
+%>
+
 <div class="container-fluid">
     <div class="row">
-        <div class="d-none d-md-block col-md-2"></div>
-        <div class="col-md-8 m-auto board-cntr">
-            <div class="py-5 z-depth-3 board">
-                <div class="post-content markdown-body m-auto">
-                    <%- page.content %>
-                    <hr>
-                    <div>
-                        <p>
-                        <% page.tags.each(function(tag) { %>
-                            <span class="badge badge-light">#&nbsp;<%- tag.name %></span>
-                            &nbsp;
-                        <% }) %>
-                        </p>
+        <div class="d-none d-lg-block col-lg-2"></div>
+        <div class="col-lg-8 nopadding-md">
+            <div class="container nopadding-md">
+                <div class="py-5 z-depth-3 board">
+                    <div class="post-content markdown-body m-auto">
+                        <%- page.content %>
+                        <hr>
+                        <div>
+                            <p>
+                                <% page.tags.each(function(tag) { %>
+                                    <span class="badge badge-light">#&nbsp;<%- tag.name %></span>
+                                    &nbsp;
+                                <% }) %>
+                            </p>
+                        </div>
+                        <br>
+                        <% if(theme.post.copyright.enable) { %>
+                            <p class="note note-warning"><%- theme.post.copyright.content %></p>
+                        <% } %>
                     </div>
-                    <br>
-                    <% if(theme.post.copyright.enable) { %>
-                        <p class="note note-warning"><%- theme.post.copyright.content %></p>
-                    <% } %>
                 </div>
             </div>
         </div>
-        <div class="d-none d-md-block col-md-2">
+        <div class="d-none d-lg-block col-lg-2">
             <%- partial('_partial/toc') %>
         </div>
     </div>
@@ -32,15 +41,15 @@
 <!-- custom -->
 <% if(theme.post.custom.enable) { %>
     <div class="custom">
-    <%- theme.post.custom.content %>
+        <%- theme.post.custom.content %>
     </div>
 <% } %>
 
 <!-- Comments -->
 <div class="comments" id="comments">
-<% if(page.comments && theme.post.comments.enable) { %>
-    <br><br>
-    <% var type = '_partial/comments/' + theme.post.comments.type %>
-    <%- partial(type) %>
-<% } %>
+    <% if(page.comments && theme.post.comments.enable) { %>
+        <br><br>
+        <% var type = '_partial/comments/' + theme.post.comments.type %>
+        <%- partial(type) %>
+    <% } %>
 </div>

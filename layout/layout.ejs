@@ -1,76 +1,61 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<% var subtitle = ""; var banner_img = ""; var banner_img_height = "" %>
-<% if(is_post()) { %>
-<%    banner_img = page.banner_img || theme.post.banner_img || theme.index.banner_img %>
-<%    banner_img_height = theme.post.banner_img_height %>
-<%    subtitle = page.title %>
-<% } else if(is_home()) { %>
-<%    banner_img = theme.index.banner_img %>
-<%    banner_img_height = theme.index.banner_img_height %>
-      <% if(theme.index.slogan.enable) {
-          subtitle = theme.index.slogan.text || config.subtitle || ''
-      } %>
-<% } else if (page.layout == 'about') { %>
-<%    banner_img = theme.about.banner_img || theme.index.banner_img %>
-<%    banner_img_height = theme.about.banner_img_height %>
-<%    subtitle = 'About' %>
-<% } else if(is_archive()) { %>
-<%    banner_img = theme.archive.banner_img || theme.index.banner_img %>
-<%    banner_img_height = theme.archive.banner_img_height %>
-<%    subtitle = 'Archives' %>
-<% } else { %>
-<%    subtitle = page.title %>
-<%    banner_img = theme.index.banner_img %>
-<%    banner_img_height = theme.index.banner_img_height %>
-<% } %>
+
+<%
+var subtitle = page.subtitle || page.title
+var banner_img = page.banner_img || theme.index.banner_img
+var banner_img_height = page.banner_img_height || theme.index.banner_img_height
+%>
 
 <%- partial('_partial/head') %>
 
 <body>
-  <header style="height: <%- banner_img_height %>vh;">
+<header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
-    <div class="view intro-2" style="background: url('<%- banner_img %>')no-repeat center center;background-size: cover;">
-    <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-        <div class="container text-center white-text wow fadeInUp">
-            <span class="h2" id="subtitle">
-              <% if(theme.fun_features.typing.enable == false) { %>
-                <%- subtitle %>
-              <% } %>
-            </span>
-            <br>
-            <% if(is_post()) { %>
-            <p><%- full_date(page.date, theme.post.date_format) %></p>
-            <% } %>
-        </div>
+    <div class="view intro-2"
+         style="background: url('<%- banner_img %>')no-repeat center center;background-size: cover;">
+        <div class="full-bg-img">
+            <div class="mask rgba-black-light flex-center">
+                <div class="container text-center white-text wow fadeInUp">
+                    <span class="h2" id="subtitle">
+                        <% if(theme.fun_features.typing.enable == false) { %>
+                            <%- subtitle %>
+                        <% } %>
+                    </span>
+                    <% if(is_post()) { %>
+                        <br>
+                        <p><%- full_date(page.date, theme.post.date_format) %></p>
+                    <% } %>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-  </header>
+</header>
 
-  <main>
-  <% if(is_post()) { %>
-  <%- body %>
-  <% } else { %>
-  <div class="container board-cntr">
-    <div class="py-5 z-depth-3 board">
-      <% if(page.layout == 'about') { %>
-        <div class="about-avatar">
-          <img src="<%- url_for(theme.about.avatar) %>" class="img-fluid z-depth-1 rounded-circle" alt="avatar">
+<main>
+    <% if(is_post() || page.layout == '404') { %>
+        <%- body %>
+    <% } else { %>
+        <div class="container nopadding-md">
+            <div class="py-5 z-depth-3 board">
+                <% if(page.layout == 'about') { %>
+                    <div class="about-avatar">
+                        <img src="<%- url_for(theme.about.avatar) %>"
+                             class="img-fluid z-depth-1 rounded-circle"
+                             alt="avatar">
+                    </div>
+                <% } %>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-10 m-auto">
+                            <%- body %>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      <% } %>
-      <div class="container">
-        <div class="row">
-          <div class="col-10 m-auto">
-            <%- body %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% } %>
-  </main>
+    <% } %>
+</main>
 
 <%- partial('_partial/footer', {data: {'subtitle': subtitle}}) %>
 </body>
