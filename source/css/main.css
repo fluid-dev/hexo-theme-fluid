@@ -19,11 +19,6 @@ body a:hover {
     color: #89229b;
 }
 
-hr {
-    height: .1em;
-    margin: 1.5em 0;
-}
-
 .board {
     position: relative;
     margin-top: -3rem;
