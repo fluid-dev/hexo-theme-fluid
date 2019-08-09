@@ -40,7 +40,7 @@
 */
 
 #toc {
-    padding: 0 1rem 0;
+    padding: 3rem 0 0 0;
 }
 
 #tocbot ol {
@@ -70,4 +70,11 @@
 
 .tocbot-is-collapsed {
     max-height: 0;
+}
+
+@media (max-width: 1024px){
+    .toc-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
