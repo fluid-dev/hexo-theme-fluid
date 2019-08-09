@@ -7,6 +7,13 @@
 
 @media (max-width: 768px){
     .post-content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media (max-width: 425px){
+    .post-content {
         padding-left: 1rem;
         padding-right: 1rem;
     }
@@ -33,12 +40,12 @@
 */
 
 #toc {
-    padding: 0 1rem 0;
+    padding: 3rem 0 0 0;
 }
 
 #tocbot ol {
     list-style: none;
-    padding-inline-start: 0.5rem;
+    padding-inline-start: 1rem;
 }
 
 .tocbot-list ol {
@@ -63,4 +70,11 @@
 
 .tocbot-is-collapsed {
     max-height: 0;
+}
+
+@media (max-width: 1024px){
+    .toc-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
