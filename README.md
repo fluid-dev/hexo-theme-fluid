@@ -65,7 +65,9 @@ git pull
 
 ## Contributors
 
-按首次 commit 的时间排序，感谢：@zhugaoqi, @ChungZH, @aptend, @zkqiang
+[![contributors](https://opencollective.com/Material-T/contributors.svg?width=890&button=false)](https://github.com/0x2E/Material-T/graphs/contributors)
+
+非代码贡献：@zhugaoqi
 
 ## License
 
