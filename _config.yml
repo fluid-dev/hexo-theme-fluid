@@ -122,7 +122,7 @@ archive:
 # 关于页
 # About Page
 #---------------------------
-about:  # 以下仅为页面顶部的基本信息，更多内容请在 /Material-T/about.md 中编辑，支持 markdown 和 HTML
+about:  # 以下仅为页面顶部的基本信息，更多内容请在 /Material-T/pages/about.md 中编辑，支持 markdown 和 HTML
   banner_img: /img/about.jpg
   banner_img_height: 80  # available: 0 - 100
   avatar: /img/avatar.png # 头像
