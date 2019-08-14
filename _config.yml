@@ -39,11 +39,14 @@ color:  # 主体颜色配置
 # Head Navbar
 #---------------------------
 navbar:
+  blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
   menu:
     Home: /
     Archives: /archives/
+    Categories: /categories/
+    Tags: /tags/
     About: /about/
-  blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
+    
 
 #---------------------------
 # 页脚
@@ -120,6 +123,30 @@ valine:
 archive:
   banner_img: /img/archive.jpg
   banner_img_height: 80  # available: 0 - 100
+
+
+#---------------------------
+# 分类归档页
+# Categories Page
+#---------------------------
+category:
+  banner_img: /img/archive.jpg
+  banner_img_height: 80  # available: 0 - 100
+
+
+#---------------------------
+# 标签归档页
+# Tags Page
+#---------------------------
+tag:
+  banner_img: /img/archive.jpg
+  banner_img_height: 80  # available: 0 - 100
+  tagcloud: # 标签云
+    min_font: 15
+    max_font: 30
+    unit: px  # 字号单位
+    start_color: "#BBBBEE"
+    end_color: "#337ab7"
 
 
 #---------------------------
