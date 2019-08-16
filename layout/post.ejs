@@ -8,28 +8,36 @@ page.banner_img_height= theme.post.banner_img_height
 <div class="container-fluid">
     <div class="row">
         <div class="d-none d-lg-block col-lg-2"></div>
-        <div class="col-lg-8 nopadding-md">
-            <div class="container nopadding-md">
+            <div class="col-lg-8 nopadding-md">
                 <div class="py-5 z-depth-3 board">
-                    <div class="post-content markdown-body m-auto">
-                        <%- page.content %>
-                        <hr>
+                    <div class="post-content ">
+                        <div class="markdown-body">
+                            <%- page.content %>
+                            <hr>
+                        </div>
+                        <br>
                         <div>
                             <p>
-                                <% page.tags.each(function(tag) { %>
-                                    <span class="badge badge-light">#&nbsp;<%- tag.name %></span>
+                                <i class="iconfont icon-inbox"></i>
+                                <% page.categories.each(function(cate) { %>
+                                    <a class="hover-with-bg" href="/categories/<%- encodeURI(cate.name) %>"><%= cate.name %></a>
                                     &nbsp;
                                 <% }) %>
                             </p>
+                            <p>
+                                <i class="iconfont icon-tag"></i>
+                                <% page.tags.each(function(tag) { %>
+                                    <a class="hover-with-bg" href="/tags/<%- encodeURI(tag.name) %>"><%= tag.name %></a>
+                                    &nbsp;
+                                <% }) %>
+                            </p>
+                            <% if(theme.post.copyright.enable) { %>
+                                <p class="note note-warning"><%- theme.post.copyright.content %></p>
+                            <% } %>
                         </div>
-                        <br>
-                        <% if(theme.post.copyright.enable) { %>
-                            <p class="note note-warning"><%- theme.post.copyright.content %></p>
-                        <% } %>
                     </div>
                 </div>
             </div>
-        </div>
         <div class="d-none d-lg-block col-lg-2 toc-container">
             <%- partial('_partial/toc') %>
         </div>

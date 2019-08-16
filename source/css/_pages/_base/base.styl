@@ -13,6 +13,12 @@ body
         &:hover
             color $link-hover-color
 
+.hover-with-bg
+    display inline-block
+    padding: .45rem
+    &:hover
+        background-color $link-hover-bg!important
+
 .board
     position relative
     margin-top -3rem
@@ -32,27 +38,8 @@ body
     padding-top 0.5rem
     padding-bottom 0.5rem
 
-.custom, .comments
-    width 90%
-    margin 0 auto
-
 
 // Rewrite mdb.css
-
-.nav-pills
-    .nav-item
-        a
-            &.active
-                color $pill-item-active-color
-    .nav-link
-        &:hover
-            background-color $pill-link-hover-bg-color
-        &.active
-            -webkit-box-shadow 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12)
-            box-shadow 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12)
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link
-    background-color $pill-link-active-bg-color
 
 .list-group-item
     border 0
@@ -74,6 +61,9 @@ body
     .navbar
         font-size 1rem
         line-height 2.5rem
+
+.nav-link:hover
+    background-color: rgba(0,0,0,0.1)
 
 .animated-icon
     width 30px
