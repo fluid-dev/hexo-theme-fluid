@@ -1,0 +1,25 @@
+<%
+page.layout = "tag"
+page.title = "Tag - " + page.tag
+page.subtitle = "Tag - " + page.tag
+page.banner_img = theme.archive.banner_img
+page.banner_img_height= theme.archive.banner_img_height
+
+var date_cursor = 'xxx'
+%>
+
+<div class="list-group">
+    <p class="h4">Total: <%= page.posts.length %></p>
+    <hr>
+    <% page.posts.each(function (post) { %>
+        <% if(date(post.date, "YYYY") != date_cursor) { %>
+            <% date_cursor = date(post.date, "YYYY") %>
+            <p class="h5"><%= date_cursor %></p>
+        <% } %>
+        <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
+            <span class="archive-post-title"><%= post.title %></span>
+            <span style="float: right;"><%- date(post.date, "MM-DD") %></span>
+        </a>
+    <% }) %>
+</div>
+

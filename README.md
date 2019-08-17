@@ -31,14 +31,6 @@ git clone -b master https://github.com/0x2e/Material-T.git Material-T
 按如下内容修改根目录中的 `_config.yml` 
 
 ```yml
-// 关闭归档页的默认分页：
-archive_generator:
-  per_page: 0  
-  yearly: true
-  monthly: true
-  daily: false
-  order_by: -date
-
 // 关闭默认的代码高亮
 highlight:
   enable: false
