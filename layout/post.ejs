@@ -28,7 +28,6 @@ page.banner_img_height= theme.post.banner_img_height
                                 <i class="iconfont icon-tag"></i>
                                 <% page.tags.each(function(tag) { %>
                                     <a class="hover-with-bg" href="/tags/<%- encodeURI(tag.name) %>"><%= tag.name %></a>
-                                    &nbsp;
                                 <% }) %>
                             </p>
                             <% if(theme.post.copyright.enable) { %>
@@ -46,13 +45,13 @@ page.banner_img_height= theme.post.banner_img_height
 
 <!-- custom -->
 <% if(theme.post.custom.enable) { %>
-    <div class="custom">
+    <div class="col-sm-11 col-md-8 m-auto">
         <%- theme.post.custom.content %>
     </div>
 <% } %>
 
 <!-- Comments -->
-<div class="comments" id="comments">
+<div class="col-sm-11 col-md-8 m-auto" id="comments">
     <% if(page.comments && theme.post.comments.enable) { %>
         <br><br>
         <% var type = '_partial/comments/' + theme.post.comments.type %>
