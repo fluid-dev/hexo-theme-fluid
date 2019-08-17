@@ -15,5 +15,10 @@ $(document).ready(function () {
   $('#navbar-toggler-btn').on('click', function () {
     $('.animated-icon').toggleClass('open');
     $('#navbar').toggleClass('navbar-col-show');
-  });
+	});
+	
+	NProgress.start();
+	window.onload = function () {
+		NProgress.done();
+};
 });
