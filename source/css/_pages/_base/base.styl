@@ -50,6 +50,16 @@ body
 .navbar
     background-color transparent
     font-size 0.875rem
+    color $navbar-text-color
+    a
+        color $navbar-text-color
+        &:hover
+            background-color rgba(0,0,0,0.1)
+
+.navbar-custom
+    color $navbar-text-color
+    a
+        color $navbar-text-color
 
 .top-nav-collapse
     background-color $navbar-bg-color
@@ -61,9 +71,6 @@ body
     .navbar
         font-size 1rem
         line-height 2.5rem
-
-.nav-link:hover
-    background-color: rgba(0,0,0,0.1)
 
 .animated-icon
     width 30px

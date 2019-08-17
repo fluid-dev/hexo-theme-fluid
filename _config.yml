@@ -31,10 +31,12 @@ baidu_analytics:  # 百度统计的Key
 color:  # 主体颜色配置
 color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdesignrankings.com/resources/lolcolors/
   body-bg-color: "#eee"
-  navbar-bg-color: "#004e66"
+  navbar-bg-color: "#2f4154"
+  navbar-text-color: "white"
   text-color: "#3c4858"
   link-color: "#3c4858"
-  link-hover-color: "#ff5f2e"
+  link-hover-color: "#1abc9c"
+
 #---------------------------
 # 导航栏
 # Head Navbar
