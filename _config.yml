@@ -28,7 +28,6 @@ fun_features:
     visible: false # true：一直可见，false：鼠标悬停时出现
     icon: "" # 例如：§ | # | ❡ 等，留空则为默认效果
 baidu_analytics:  # 百度统计的Key
-color:  # 主体颜色配置
 color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdesignrankings.com/resources/lolcolors/
   body-bg-color: "#eee"
   navbar-bg-color: "#2f4154"
