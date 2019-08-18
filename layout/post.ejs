@@ -2,7 +2,7 @@
 if (!page.banner_img) {
     page.banner_img = theme.post.banner_img
 }
-page.banner_img_height= theme.post.banner_img_height
+page.banner_img_height = theme.post.banner_img_height
 %>
 
 <div class="container-fluid">
@@ -10,7 +10,7 @@ page.banner_img_height= theme.post.banner_img_height
         <div class="d-none d-lg-block col-lg-2"></div>
             <div class="col-lg-8 nopadding-md">
                 <div class="py-5 z-depth-3 board">
-                    <div class="post-content ">
+                    <div class="post-content mx-auto">
                         <div class="markdown-body">
                             <%- page.content %>
                             <hr>
@@ -46,16 +46,20 @@ page.banner_img_height= theme.post.banner_img_height
 
 <!-- custom -->
 <% if(theme.post.custom.enable) { %>
-    <div class="custom">
-        <%- theme.post.custom.content %>
+    <div class="col-lg-7 mx-auto nopadding-md">
+        <div class="container custom post-content mx-auto">
+            <%- theme.post.custom.content %>
+        </div>
     </div>
 <% } %>
 
 <!-- Comments -->
-<div class="comments" id="comments">
-    <% if(page.comments && theme.post.comments.enable) { %>
-        <br><br>
-        <% var type = '_partial/comments/' + theme.post.comments.type %>
-        <%- partial(type) %>
-    <% } %>
+<div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container comments mx-auto" id="comments">
+        <% if(page.comments && theme.post.comments.enable) { %>
+            <br><br>
+            <% var type = '_partial/comments/' + theme.post.comments.type %>
+            <%- partial(type) %>
+        <% } %>
+    </div>
 </div>

@@ -64,5 +64,14 @@
         padding-right 0
 
 .custom, .comments
-    width 90%
-    margin 0 auto
+    margin-left: 2rem
+    margin-right: 2rem
+
+@media (max-width: 425px)
+    .custom, .comments
+        margin-left: 1rem
+        margin-right: 1rem
+
+@media (min-width: 64rem)
+    .custom, .comments
+        max-width: 64rem
