@@ -28,7 +28,6 @@ page.banner_img_height = theme.post.banner_img_height
                                 <i class="iconfont icon-tag"></i>
                                 <% page.tags.each(function(tag) { %>
                                     <a class="hover-with-bg" href="/tags/<%- encodeURI(tag.name) %>"><%= tag.name %></a>
-                                    &nbsp;
                                 <% }) %>
                             </p>
                             <% if(theme.post.copyright.enable) { %>
