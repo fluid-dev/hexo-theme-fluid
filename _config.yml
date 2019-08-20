@@ -35,6 +35,12 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   text-color: "#3c4858"
   link-color: "#3c4858"
   link-hover-color: "#1abc9c"
+search:
+  enable: true
+  path: /local-search.xml
+  field: post
+  content: true
+
 
 #---------------------------
 # 导航栏
@@ -48,7 +54,7 @@ navbar:
     Categories: /categories/
     Tags: /tags/
     About: /about/
-    
+  
 
 #---------------------------
 # 页脚

@@ -15,6 +15,11 @@
                 <a class="nav-link" href="<%- url_for(theme.navbar.menu[i]) %>"><%= i %></a>
             </li>
             <% } %>
+            <% if(theme.search.enable) { %>
+                <li class="nav-item" id="search-btn">
+                    <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+                </li>
+            <% } %>
         </ul>
     </div>
 </div>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  {% if posts %}
+  {% for post in posts.toArray() %}
+    {% if post.indexing == undefined or post.indexing %}
+    <entry>
+      <title>{{ post.title }}</title>
+      <link href="{{ (url + post.path) | uriencode }}"/>
+      <url>{{ (url + post.path) | uriencode }}</url>
+      {% if content %}
+        <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+      {% endif %}
+      {% if post.categories and post.categories.length>0 %}
+      <categories>
+          {% for cate in post.categories.toArray() %}
+          <category> {{ cate.name }} </category>
+          {% endfor %}
+      </categories>
+      {% endif %}
+      {% if post.tags and post.tags.length>0 %}
+        <tags>
+            {% for tag in post.tags.toArray() %}
+            <tag> {{ tag.name }} </tag>
+            {% endfor %}
+        </tags>
+      {% endif %}
+    </entry>
+    {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if pages %}
+    {% for page in pages.toArray() %}
+    {% if post.indexing == undefined or post.indexing %}
+    <entry>
+      <title>{{ page.title }}</title>
+      <link href="{{ (url + page.path) | uriencode }}"/>
+      <url>{{ (url + page.path) | uriencode }}</url>
+      {% if content %}
+        <content type="html"><![CDATA[{{ page.content | noControlChars | safe }}]]></content>
+      {% endif %}
+    </entry>
+    {% endif %}
+    {% endfor %}
+  {% endif %}
+</search>
