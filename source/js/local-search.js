@@ -38,7 +38,7 @@ var searchFunc = function (path, search_id, content_id) {
           };
         }).get();
         $resultContent.innerHTML = "";
-  
+        
         $input.addEventListener('input', function () {
           // 0x03. parse query to keywords list
           var str = '';
@@ -95,16 +95,17 @@ var searchFunc = function (path, search_id, content_id) {
                 if (start < 0) {
                   start = 0;
                 }
-  
+                
                 if (start == 0) {
                   end = 100;
                 }
-  
+                
                 if (end > content.length) {
                   end = content.length;
                 }
-                var match_content = content.substr(start, end);
-  
+                
+                var match_content = content.substring(start, end);
+                
                 // highlight all keywords
                 keywords.forEach(function (keyword) {
                   var regS = new RegExp(keyword, "gi");
