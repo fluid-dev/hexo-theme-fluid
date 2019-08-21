@@ -103,23 +103,22 @@ post:
 disqus:
   shortname: # your shortname
 
-
 # Gitalk
 # You can get yout ClientID and ClientSecret from https://github.com/settings/applications/new
-# More info available at https://github.com/gitalk/gitalk
+# More info available at https://github.com/gitalk/gitalk#options
 gitalk:
-  ClientID:                     # Your GitHub OAuth App ClientID
-  ClientSecret:                 # Your GitHub OAuth App ClientSecret
-  repo: gitalk                  # The repo to store comments
-  owner:                        # repo owner
-  adminUser:                    # Admin User, should be like "['admin']" or "['admin1','admin2']"
-  ID: location.pathname         # Learn more at https://github.com/gitalk/gitalk
-  labels: "['gitalk']"          # Learn more at https://github.com/gitalk/gitalk
-  perPage: 15                   # comments per page
-  pagerDirection: last          # Comment sorting direction, last or first.
-  createIssueManually: true     # Learn more at https://github.com/gitalk/gitalk
-  distractionFreeMode: false    #Facebook-like distraction free mode.
-
+  clientID:                     # GitHub Application Client ID
+  clientSecret:                 # GitHub Application Client Secret
+  repo:                         # The repo to store comments
+  owner:                        # GitHub repository owner. Can be personal user or organization.
+  admin:                        # GitHub repo owner and collaborators, only these guys can initialize github issues, should be like "['admin']" or "['admin1','admin2']"
+  id: location.pathname         # The unique id of the page. Length must less than 50.
+  language: zh-CN               # Localization language key, en, zh-CN and zh-TW are currently available.
+  labels: "['Gitalk']"          # GitHub issue labels.
+  perPage: 15                   # Pagination size, with maximum 100.
+  pagerDirection: last          # Comment sorting direction, available values are last and first.
+  distractionFreeMode: false    # Facebook-like distraction free mode.
+  createIssueManually: true     # By default, Gitalk will create a corresponding github issue for your every single page automatically when the logined user is belong to the admin users. You can create it manually by setting this option to true.
 
 # Valine
 # You can get your appid and appkey from https://leancloud.cn
