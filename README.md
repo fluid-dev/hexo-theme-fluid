@@ -23,6 +23,8 @@
 
 请优先下载 [最新 release 版本](https://github.com/0x2E/Material-T/releases)，master 分支无法保证稳定
 
+下载后解压到 themes 目录下
+
 #### 2. 必要的配置
 
 按如下内容修改 Hexo 根目录中的 `_config.yml`
@@ -61,7 +63,7 @@ theme: Material-T
 
 ## 文档 Docs
 
-[配置说明](https://0x2e.github.io/Material-T-docs/common/)
+[详细配置](https://0x2e.github.io/Material-T-docs/common/)
 
 [更新日志](https://github.com/0x2E/Material-T/blob/master/Changelog.md)
 
