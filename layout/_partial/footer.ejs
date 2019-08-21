@@ -61,6 +61,20 @@
         icon: "<%- theme.fun_features.anchorjs.icon %>" 
         <% } %>
       };
-      anchors.add(".post-content > <%- theme.fun_features.anchorjs.element %>");
+      var el = "<%- theme.fun_features.anchorjs.element || 'h1,h2,h3,h4,h5,h6' %>".split(",")
+      var res = []
+      for (item of el) {
+        res.push(".markdown-body > " + item)
+      }
+      anchors.add(res.join(", "))
+    </script>
+  <% } %>
+
+  <% if(theme.search.enable){ %>
+    <%- js("/js/local-search.js") %>
+    <script>
+      var path = "<%- theme.search.path || '/local-search.xml' %>";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function(){ getSearchFile(path); this.onclick = null }
     </script>
   <% } %>
