@@ -105,16 +105,19 @@ post:
     enable: false
     type: disqus  # available: disqus | valine | gitalk | utterances
 
+
+#---------------------------
+# 评论
+# Comments
+#---------------------------
+
 # utterances 
-# You can install utterances with https://utteranc.es/ and generate your configuration, the generated configuration looks like this: 
-# <script src="https://utteranc.es/client.js"
-#          Repo="[ENTER REPO HERE]"
-#          Issue-term="pathname"
-#          Theme="github-light"
-#          Crossorigin="anonymous"
-#          Async>
-# </script>
-# Then paste the configuration directly into Material-T/layout/_partial/comments/utterances.ejs.
+# You can install utterances with https://utteranc.es/ and generate your configuration
+utterances:
+  repo:
+  issue_term:
+  theme: github-light
+  crossorigin: anonymous
 
 # Disqus
 disqus:
@@ -141,7 +144,6 @@ gitalk:
 # You can get your appid and appkey from https://leancloud.cn
 # More info available at https://valine.js.org
 valine:
-  enable: false # When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.
   appid:  # your leancloud application appid
   appkey:  # your leancloud application appkey
   notify: false # mail notifier, See: https://github.com/xCss/Valine/wiki
