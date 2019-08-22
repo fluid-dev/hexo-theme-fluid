@@ -116,6 +116,7 @@ post:
 utterances:
   repo:
   issue_term:
+  label: utterances
   theme: github-light
   crossorigin: anonymous
 

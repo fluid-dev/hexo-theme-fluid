@@ -1,9 +1,12 @@
 <% if(theme.utterances.repo && theme.utterances.issue_term){ %>
     <script src="https://utteranc.es/client.js"
-            Repo="<%- theme.utterances.repo %>"
-            Issue-term="<%- theme.utterances.issue_term %>"
-            Theme="<%- theme.utterances.theme %>"
-            Crossorigin="<%- theme.utterances.crossorigin %>"
-            Async>
+            repo="<%- theme.utterances.repo %>"
+            issue-term="<%- theme.utterances.issue_term %>"
+            <% if(theme.utterances.label != null ){ %>
+            label="<%- theme.utterances.label %>"
+            <% } %>
+            theme="<%- theme.utterances.theme %>"
+            crossorigin="<%- theme.utterances.crossorigin %>"
+            async>
     </script>
 <% } %>
