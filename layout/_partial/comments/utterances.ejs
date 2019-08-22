@@ -1,0 +1,9 @@
+<% if(theme.utterances.repo && theme.utterances.issue_term){ %>
+    <script src="https://utteranc.es/client.js"
+            Repo="<%- theme.utterances.repo %>"
+            Issue-term="<%- theme.utterances.issue_term %>"
+            Theme="<%- theme.utterances.theme %>"
+            Crossorigin="<%- theme.utterances.crossorigin %>"
+            Async>
+    </script>
+<% } %>
