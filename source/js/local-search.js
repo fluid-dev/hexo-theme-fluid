@@ -85,7 +85,7 @@ var searchFunc = function (path, search_id, content_id) {
                     }
                     // 0x05. show search results
                     if (isMatch) {
-                        str += "<a href='" + data_url + "' class='list-group-item list-group-item-action font-weight-bolder search-list-title'>" + orig_data_title + "</a>";
+                        str += "<a href='/" + data_url + "' class='list-group-item list-group-item-action font-weight-bolder search-list-title'>" + orig_data_title + "</a>";
                         var content = orig_data_content;
                         if (first_occur >= 0) {
                             // cut out 100 characters
