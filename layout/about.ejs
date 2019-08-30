@@ -10,8 +10,12 @@ page.banner_img_height= theme.about.banner_img_height
     <p class="h3"><%= theme.about.name %></p>
     <p><%- theme.about.introduce %></p>
     <% for(var i in theme.about.icons) { %>
-        <a href="<%- theme.about.icons[i] %>" class="h4"><i class="<%- i %>" aria-hidden="true"></i></a>
-        &nbsp;&nbsp;
+	  <% if(i!="fas fa-rss"){ %>
+	    <a href="<%- theme.about.icons[i] %>" class="h4"><i class="<%- i %>" aria-hidden="true"></i></a>
+	    &nbsp;&nbsp;
+	  <% } else { %>
+	  	<i class="<%- i %>" aria-hidden="true" onclick="alert('复制以下链接到你的RSS阅读器添加订阅：\n<%- theme.RSS.link %>')"></i>
+    <% } %>
     <% } %>
 </div>
 <div class="mt-5 markdown-body">
