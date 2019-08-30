@@ -1,15 +1,15 @@
 <%
 page.layout = "category"
-page.title = "Category - " + page.category
-page.subtitle = "Category - " + page.category
-page.banner_img = theme.archive.banner_img
-page.banner_img_height= theme.archive.banner_img_height
+page.title = [__('category.title'),page.category].join(" - ")
+page.subtitle = [__('category.subtitle'),page.category].join(" - ")
+page.banner_img = theme.category.banner_img
+page.banner_img_height= theme.category.banner_img_height
 
 var date_cursor = 'xxx'
 %>
 
 <div class="list-group">
-    <p class="h4">Total: <%= page.posts.length %></p>
+    <p class="h4"><%= __('postTotal',page.posts.length) %></p>
     <hr>
     <% page.posts.each(function (post) { %>
         <% if(date(post.date, "YYYY") != date_cursor) { %>

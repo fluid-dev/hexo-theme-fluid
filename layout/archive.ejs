@@ -1,14 +1,14 @@
 <%
 page.layout = "archive"
-page.title = "Archives"
-page.subtitle = "Archives"
+page.title = __('archive.title')
+page.subtitle = __('archive.subtitle')
 page.banner_img = theme.archive.banner_img
 page.banner_img_height= theme.archive.banner_img_height
 var date_cursor = 'xxx'
 %>
 
 <div class="list-group">
-    <p class="h4">Total: <%= site.posts.length %></p>
+    <p class="h4"><%= __('postTotal',site.posts.length) %></p>
     <hr>
     <% page.posts.each(function (post) { %>
         <% if(date(post.date, "YYYY") != date_cursor) { %>
