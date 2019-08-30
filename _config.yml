@@ -211,3 +211,7 @@ page404:
   banner_img: /img/index.jpg
   banner_img_height: 80  # available: 0 - 100
   subtitle: 'Page not found'
+
+#RSS订阅链接
+RSS:
+  link:    #输入RSS订阅链接，如果没有添加RSS就空着
