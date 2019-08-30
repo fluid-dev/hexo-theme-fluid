@@ -21,9 +21,9 @@
 
 #### 1. 获取最新版本
 
-请优先下载 [最新 release 版本](https://github.com/0x2E/Material-T/releases)，master 分支无法保证稳定
+请优先下载 [最新 release 版本](https://github.com/0x2E/Material-T/releases)，master 分支无法保证稳定。
 
-下载后解压到 themes 目录下
+下载后解压到 themes 目录下。
 
 #### 2. 必要的配置
 
@@ -48,7 +48,7 @@ theme: Material-T
 
 ## 更新 Update
 
-建议每次更新前备份 `_config.xml`，以免覆盖自定义的配置项
+建议每次更新前备份 `_config.xml`，以免覆盖自定义的配置项。
 
 ## 常见问题 FAQ
 
@@ -66,6 +66,19 @@ theme: Material-T
 [详细配置](https://0x2e.github.io/Material-T-docs/common/)
 
 [更新日志](https://github.com/0x2E/Material-T/blob/master/Changelog.md)
+
+## 参与开发 Contributing
+
+如果您是初次贡献，可以先从 [help wanted](https://github.com/0x2E/Material-T/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) 列表中认领一个比较小的任务来快速参与社区贡献。您可以直接在相应 issue 中回复参与意愿，然后参照下面的 GitHub 工作流指引解决 issue 并按照规范提交 PR，通过 review 后就会被 merge 到 master 分支。
+
+推荐使用以下工作流参与贡献：
+
+1. 将仓库 fork 到自己的 GitHub，并 clone 到本地进行开发
+2. 创建新的分支，在新的分支上开发
+3. 保持分支与远程 develop 分支一致（通过 fetch 和 rebase 操作）
+4. 在本地提交变更（注意 commit log 保持简练、规范）
+5. 将提交 push 到 fork 的仓库下
+6. 创建一个 pull request 到 Material-T 的 develop 分支
 
 ## 贡献者 Contributors
 
