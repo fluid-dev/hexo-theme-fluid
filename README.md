@@ -29,12 +29,12 @@
 
 按如下内容修改 Hexo 根目录中的 `_config.yml`
 
-```yml
-// 设置语言
-// more：https://github.com/0x2E/Material-T/tree/master/languages
+```yaml
+# 设置语言，需要对应下面目录内的文件名，可以自定义文件内容
+# https://github.com/0x2E/Material-T/tree/master/languages
 language: zh-CN
 
-// 关闭默认的代码高亮
+# 关闭默认的代码高亮
 highlight:
   enable: false
 ```
@@ -42,7 +42,7 @@ highlight:
 #### 3. 启用主题
 
 依然是根目录中的 `_config.yml`，如下修改：
-```yml
+```yaml
 # Extensions
 theme: Material-T
 ```
