@@ -30,15 +30,16 @@
 按如下内容修改 Hexo 根目录中的 `_config.yml`
 
 ```yml
+// 设置语言
+// more：https://github.com/0x2E/Material-T/tree/master/languages
+language: zh-CN
+
 // 关闭默认的代码高亮
 highlight:
   enable: false
-  line_number: false
-  auto_detect: false
-  tab_replace:
 ```
 
-#### 3. 启动主题
+#### 3. 启用主题
 
 依然是根目录中的 `_config.yml`，如下修改：
 ```yml
