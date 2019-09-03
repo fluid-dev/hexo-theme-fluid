@@ -15,7 +15,7 @@ apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
 
 title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
 
-source_base_path: / # 静态资源目录，如使用了对象存储，可以修改成 url，其他非特殊情况请保持默认
+source_base_path: / # 静态资源目录，如使用 OSS 或 CDN（需要开启跨域），可修改成 url，其他非特殊情况请保持默认
 
 highlight: # 代码高亮
   enable: true

@@ -47,9 +47,11 @@ highlight:
 theme: Material-T
 ```
 
-## 更新 Update
+## 关于配置 Config
 
-建议每次更新前备份 `_config.xml`，以免覆盖自定义的配置项。
+v1.4.0 版本开始，可以在 Hexo 博客根目录的 source 目录下（不是主题的 source 目录），创建 `_data/material_t_config.yml`，然后将 `Material-T/_config.yml` 中自定义的配置项复制到 `material_t_config.yml` 中，可以覆盖主题配置，并且更新后不会丢失。
+
+其他情况，建议更新前备份 `Material-T/_config.yml`，以免覆盖自定义的配置项。
 
 ## 常见问题 FAQ
 
@@ -67,6 +69,8 @@ theme: Material-T
 [详细配置](https://0x2e.github.io/Material-T-docs/common/)
 
 [更新日志](https://github.com/0x2E/Material-T/blob/master/Changelog.md)
+
+[文章配置](https://hexo.io/zh-cn/docs/front-matter)
 
 ## 参与开发 Contributing
 
