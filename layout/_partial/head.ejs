@@ -16,16 +16,16 @@ if(page.title) {
     <meta name="author" content="<%= config.author %>">
     <meta name="keywords" content="<%= config.keywords %>">
     <title><%= title %></title>
-    <%- css("lib/font-awesome/css/all.min.css?v=5.7.2") %>
-    <%- css("lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1") %>
-    <%- css("lib/mdbootstrap/css/mdb.min.css?v=4.8.7") %>
-    <%- css("lib/github-markdown/github-markdown.min.css") %>
-    <%- css("lib/nprogress/nprogress.css?v=0.2.0") %>
-    <%- css("//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css") %>
+    <%- css_ex("lib/font-awesome/css/all.min.css?v=5.7.2") %>
+    <%- css_ex("lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1") %>
+    <%- css_ex("lib/mdbootstrap/css/mdb.min.css?v=4.8.7") %>
+    <%- css_ex("lib/github-markdown/github-markdown.min.css") %>
+    <%- css_ex("lib/nprogress/nprogress.css?v=0.2.0") %>
+    <%- css_ex("//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css") %>
     <% if(theme.highlight.enable){ %>
-        <%- css('lib/prettify/' + theme.highlight.theme + '.min.css') %>
+        <%- css_ex('lib/prettify/' + theme.highlight.theme + '.min.css') %>
     <% } %>
-    <%- css("css/main.css") %>
+    <%- css_ex("css/main.css") %>
 
     <%- partial('_partial/analytics.ejs') %>
 </head>

@@ -9,13 +9,19 @@
 # 全局
 # Site
 #---------------------------
-favicon: /img/favicon.png
-apple_touch_icon: /img/apple-touch-icon.png
+favicon: /img/favicon.png # 网站标签页的 icon
+
+apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
+
 title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
-highlight:
+
+source_base_path: / # 静态资源目录，如使用了对象存储，可以修改成 url，其他非特殊情况请保持默认
+
+highlight: # 代码高亮
   enable: true
   theme: tomorrow-night-eighties # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties，更多主题可从 https://jmblog.github.io/color-themes-for-google-code-prettify/ 获取，保存为 `*.min.css` 到 `source/lib/prettify/`，在其中 .prettyprint{ background: ***; ...} 的background 值后加上 !important，例如：.prettyprint{background:#fafbfc!important; ...}
-fun_features:
+
+fun_features: # 一些好玩的功能
   typing: # 为 subtitle 添加打字机效果
     enable: true
     typeSpeed: 70 # 打印速度
@@ -27,7 +33,7 @@ fun_features:
     placement: right # icon放置的位置： left | right
     visible: false # true：一直可见，false：鼠标悬停时出现
     icon: "" # 例如：§ | # | ❡ 等，留空则为默认效果
-baidu_analytics:  # 百度统计的Key
+
 color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdesignrankings.com/resources/lolcolors/
   body-bg-color: "#eee"
   navbar-bg-color: "#2f4154"
@@ -35,11 +41,14 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   text-color: "#3c4858"
   link-color: "#3c4858"
   link-hover-color: "#1abc9c"
-search:
+
+search: # 搜索栏
   enable: true
   path: /local-search.xml
   field: post
   content: true
+
+baidu_analytics:  # 百度统计的Key
 
 
 #---------------------------
@@ -54,7 +63,7 @@ navbar:
     Categories: /categories/
     Tags: /tags/
     About: /about/
-  
+
 
 #---------------------------
 # 页脚
