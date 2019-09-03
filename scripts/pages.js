@@ -26,7 +26,6 @@ hexo.extend.generator.register('_categories',function(locals){
 });
 
 // generator about page
-const mdPath = 'themes/Material-T/pages/about.md';
 hexo.extend.generator.register('_about',function(locals){
     return {
         path: 'about/index.html',
@@ -34,6 +33,8 @@ hexo.extend.generator.register('_about',function(locals){
         layout: 'about'
     };
 });
+const path = require('path');
 hexo.extend.helper.register('insertAbout', function(){
+    var mdPath = path.join(__dirname, '../pages/about.md');
     return hexo.render.renderSync({path: mdPath});
 });
