@@ -1,31 +1,32 @@
 <%
 var joinStr = theme.title_join_string
 var title = config.title
-if(page.title) {
-    title = [page.title, title].join(joinStr)
+if (page.title) {
+  title = [page.title, title].join(joinStr)
 }
 %>
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="<%- url_for(theme.apple_touch_icon) %>">
-    <link rel="icon" type="image/png" href="<%- url_for(theme.favicon) %>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="<%= config.description %>">
-    <meta name="author" content="<%= config.author %>">
-    <meta name="keywords" content="<%= config.keywords %>">
-    <title><%= title %></title>
-    <%- css_ex("lib/font-awesome/css/all.min.css?v=5.7.2") %>
-    <%- css_ex("lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1") %>
-    <%- css_ex("lib/mdbootstrap/css/mdb.min.css?v=4.8.7") %>
-    <%- css_ex("lib/github-markdown/github-markdown.min.css") %>
-    <%- css_ex("lib/nprogress/nprogress.css?v=0.2.0") %>
-    <%- css("https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css") %>
-    <% if(theme.highlight.enable){ %>
-        <%- css_ex('lib/prettify/' + theme.highlight.theme + '.min.css') %>
-    <% } %>
-    <%- css_ex("css/main.css") %>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="<%- url_for(theme.apple_touch_icon) %>">
+  <link rel="icon" type="image/png" href="<%- url_for(theme.favicon) %>">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="<%= config.description %>">
+  <meta name="author" content="<%= config.author %>">
+  <meta name="keywords" content="<%= config.keywords %>">
+  <title><%= title %></title>
+  <%- css_ex("lib/font-awesome/css/all.min.css?v=5.7.2") %>
+  <%- css_ex("lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1") %>
+  <%- css_ex("lib/mdbootstrap/css/mdb.min.css?v=4.8.7") %>
+  <%- css_ex("lib/github-markdown/github-markdown.min.css") %>
+  <%- css_ex("lib/nprogress/nprogress.css?v=0.2.0") %>
+  <%- css("https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css") %>
+  <% if(theme.highlight.enable){ %>
+    <%- css_ex('lib/prettify/' + theme.highlight.theme + '.min.css') %>
+  <% } %>
+  <%- css_ex("css/main.css") %>
 
-    <%- partial('_partial/analytics.ejs') %>
+  <%- partial('_partial/analytics.ejs') %>
 </head>

@@ -10,57 +10,57 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 <%- partial('_partial/head') %>
 
 <body>
-<header style="height: <%- banner_img_height %>vh;">
+  <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
     <div class="view intro-2"
          style="background: url('<%- banner_img %>')no-repeat center center;background-size: cover;">
-        <div class="full-bg-img">
-            <div class="mask rgba-black-light flex-center">
-                <div class="container text-center white-text wow fadeInUp">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text wow fadeInUp">
                     <span class="h2" id="subtitle">
-                        <% if(theme.fun_features.typing.enable == false) { %>
-                            <%- subtitle %>
-                        <% } %>
+                      <% if(theme.fun_features.typing.enable == false) { %>
+                        <%- subtitle %>
+                      <% } %>
                     </span>
-                    <% if(is_post()) { %>
-                        <br>
-                        <p><%- full_date(page.date, theme.post.date_format) %></p>
-                    <% } %>
-                </div>
-            </div>
+            <% if(is_post()) { %>
+              <br>
+              <p><%- full_date(page.date, theme.post.date_format) %></p>
+            <% } %>
+          </div>
         </div>
+      </div>
     </div>
-</header>
+  </header>
 
-<main>
+  <main>
     <% if(is_post() || page.layout == '404') { %>
-        <%- body %>
+      <%- body %>
     <% } else { %>
-        <div class="container nopadding-md">
-            <div class="py-5 z-depth-3 board">
-                <% if(page.layout == 'about') { %>
-                    <div class="about-avatar">
-                        <img src="<%- url_for(theme.about.avatar) %>"
-                             class="img-fluid z-depth-1 rounded-circle"
-                             alt="avatar">
-                    </div>
-                <% } %>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-md-10 m-auto">
-                            <%- body %>
-                        </div>
-                    </div>
-                </div>
+      <div class="container nopadding-md">
+        <div class="py-5 z-depth-3 board">
+          <% if(page.layout == 'about') { %>
+            <div class="about-avatar">
+              <img src="<%- url_for(theme.about.avatar) %>"
+                   class="img-fluid z-depth-1 rounded-circle"
+                   alt="avatar">
             </div>
+          <% } %>
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                <%- body %>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     <% } %>
-</main>
+  </main>
 
-<% if(theme.search.enable) { %>
+  <% if(theme.search.enable) { %>
     <%- partial('_partial/search') %>
-<% } %>
+  <% } %>
 
-<%- partial('_partial/footer', {data: {'subtitle': subtitle}}) %>
+  <%- partial('_partial/footer', { data: { 'subtitle': subtitle } }) %>
 </body>
 </html>

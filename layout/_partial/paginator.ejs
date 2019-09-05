@@ -1,16 +1,16 @@
 <% if (page.total > 1){ %>
-<nav aria-label="index posts navigation">
-<ul class="pagination pg-blue justify-content-center mt-5">
-    <% if(page.prev != 0) { %>
+  <nav aria-label="index posts navigation">
+    <ul class="pagination pg-blue justify-content-center mt-5">
+      <% if(page.prev != 0) { %>
         <li class="page-item">
-        <a class="page-link" href="<%- url_for(page.prev_link) %>"><%= __('paginator.pre') %></a>
+          <a class="page-link" href="<%- url_for(page.prev_link) %>"><%= __('paginator.pre') %></a>
         </li>
-    <% } %>
-    <% if(page.next != 0) { %>
+      <% } %>
+      <% if(page.next != 0) { %>
         <li class="page-item">
-        <a class="page-link" href="<%- url_for(page.next_link) %>"><%= __('paginator.next') %></a>
+          <a class="page-link" href="<%- url_for(page.next_link) %>"><%= __('paginator.next') %></a>
         </li>
-    <% } %>
-</ul>
-</nav>
+      <% } %>
+    </ul>
+  </nav>
 <% } %>

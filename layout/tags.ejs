@@ -3,7 +3,7 @@ page.layout = "tags"
 page.title = __('tag.title')
 page.subtitle = __('tag.subtitle')
 page.banner_img = theme.tag.banner_img
-page.banner_img_height= theme.tag.banner_img_height
+page.banner_img_height = theme.tag.banner_img_height
 
 var min_font = theme.tag.tagcloud.min_font || 15
 var max_font = theme.tag.tagcloud.max_font || 30
@@ -13,5 +13,13 @@ var end_color = theme.tag.tagcloud.end_color || '#337ab7'
 %>
 
 <div class="text-center tagcloud">
-    <%- tagcloud({min_font: min_font, max_font: max_font, amount: 999, unit: unit, color: true, start_color, end_color}) %>
+  <%- tagcloud({
+    min_font: min_font,
+    max_font: max_font,
+    amount: 999,
+    unit: unit,
+    color: true,
+    start_color,
+    end_color
+  }) %>
 </div>

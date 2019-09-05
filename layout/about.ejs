@@ -3,17 +3,17 @@ page.layout = "about"
 page.title = __('about.title')
 page.subtitle = __('about.subtitle')
 page.banner_img = theme.about.banner_img
-page.banner_img_height= theme.about.banner_img_height
+page.banner_img_height = theme.about.banner_img_height
 %>
 
 <div class="text-center">
-    <p class="h3"><%= theme.about.name %></p>
-    <p><%- theme.about.introduce %></p>
-    <% for(var i in theme.about.icons) { %>
-        <a href="<%- theme.about.icons[i] %>" class="h4"><i class="<%- i %>" aria-hidden="true"></i></a>
-        &nbsp;&nbsp;
-    <% } %>
+  <p class="h3"><%= theme.about.name %></p>
+  <p><%- theme.about.introduce %></p>
+  <% for(var i in theme.about.icons) { %>
+    <a href="<%- theme.about.icons[i] %>" class="h4"><i class="<%- i %>" aria-hidden="true"></i></a>
+    &nbsp;&nbsp;
+  <% } %>
 </div>
 <div class="mt-5 markdown-body">
-    <%- about_body() %>
+  <%- about_body() %>
 </div>

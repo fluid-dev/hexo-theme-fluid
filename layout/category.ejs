@@ -1,24 +1,24 @@
 <%
 page.layout = "category"
-page.title = [__('category.title'),page.category].join(" - ")
-page.subtitle = [__('category.subtitle'),page.category].join(" - ")
+page.title = [__('category.title'), page.category].join(" - ")
+page.subtitle = [__('category.subtitle'), page.category].join(" - ")
 page.banner_img = theme.category.banner_img
-page.banner_img_height= theme.category.banner_img_height
+page.banner_img_height = theme.category.banner_img_height
 
 var date_cursor = 'xxx'
 %>
 
 <div class="list-group">
-    <p class="h4"><%= __('postTotal',page.posts.length) %></p>
-    <hr>
-    <% page.posts.each(function (post) { %>
-        <% if(date(post.date, "YYYY") != date_cursor) { %>
-            <% date_cursor = date(post.date, "YYYY") %>
-            <p class="h5"><%= date_cursor %></p>
-        <% } %>
-        <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
-            <span class="archive-post-title"><%= post.title %></span>
-            <span style="float: right;"><%- date(post.date, "MM-DD") %></span>
-        </a>
-    <% }) %>
+  <p class="h4"><%= __('postTotal', page.posts.length) %></p>
+  <hr>
+  <% page.posts.each(function (post) { %>
+    <% if(date(post.date, "YYYY") != date_cursor) { %>
+      <% date_cursor = date(post.date, "YYYY") %>
+      <p class="h5"><%= date_cursor %></p>
+    <% } %>
+    <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
+      <span class="archive-post-title"><%= post.title %></span>
+      <span style="float: right;"><%- date(post.date, "MM-DD") %></span>
+    </a>
+  <% }) %>
 </div>
