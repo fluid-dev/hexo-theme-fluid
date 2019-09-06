@@ -90,8 +90,10 @@ index:
   auto_excerpt:
     enable: true
   post_url_target: _self  # available: _blank | _self
-  post_info:
-    enable: true
+  post_meta: # 是否显示文章信息（时间、分类、标签）
+    date: true
+    category: true
+    tag: true
 
 
 #---------------------------
