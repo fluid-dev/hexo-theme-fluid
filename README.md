@@ -26,7 +26,7 @@
 如打算升级 `v1.4.0`，建议按如下操作：
 1. 将 release 包解压后重命名为 `fluid` （使用 master 分支建议重新 clone）
 2. 将博客根目录 `_config.yml` 配置修改 `theme: fluid`
-3. 将原 Material-T 目录的 `_config.yml` 覆盖过来（可不修改内容)；或者参见下方「关于配置 Config」中配置的新功能。
+3. 将原 Material-T 的 `_config.yml` 被修改部分复制过来，或按「[关于配置 Config](https://github.com/fluid-dev/hexo-theme-fluid#%E5%85%B3%E4%BA%8E%E9%85%8D%E7%BD%AE-config)」使用覆盖配置功能。
 
 给各位带来的不便敬请谅解。
 
