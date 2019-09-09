@@ -17,6 +17,16 @@
 
 [zkqiang's blog](http://zkqiang.cn)
 
+## 公告 Notice
+
+:warning: 本公告面向老用户，新用户可忽略。
+
+从 `v1.4.0` 版本开始，本项目正式更名为 **Fluid** (原项目名：Material-T)，并将仓库和归属转移至 **Fluid-Dev** 组织，因此 git remote url、主题目录名、相关代码 会有变化。
+
+如打算升级 `v1.4.0`，建议将 release 解压新目录重命名为 `fluid` （使用 master 分支建议重新 clone），然后将根目录配置修改 `theme: fluid`，再讲原目录的 `_config.yml` 覆盖过来（可不修改内容)
+
+给各位带来的不便敬请谅解。
+
 ## 快速开始 Quick Start
 
 #### 1. 获取最新版本
@@ -51,7 +61,7 @@ theme: fluid
 
 v1.4.0 版本开始，可以在 Hexo 博客根目录的 source 目录下（不是主题的 source 目录），创建 `_data/fluid.yml`，然后将 `fluid/_config.yml` 中自定义的配置项复制到 `fluid.yml` 中，可以覆盖主题配置，并且更新后不会丢失。
 
-其他情况，建议更新前备份 `/theme/fliud/_config.yml`，以免覆盖自定义的配置项。
+其他情况，建议更新前备份 `/theme/fluid/_config.yml`，以免覆盖自定义的配置项。
 
 ## 常见问题 FAQ
 
