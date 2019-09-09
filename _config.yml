@@ -57,7 +57,7 @@ baidu_analytics:  # 百度统计的Key
 #---------------------------
 navbar:
   blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
-  menu:
+  menu:  # 可自行增减，若想减去某个入口，可以将值留空
     Home: /
     Archives: /archives/
     Categories: /categories/
@@ -100,11 +100,11 @@ index:
 # 文章页
 # Post Page
 #---------------------------
-post: 
+post:
   banner_img: /img/post.jpg
   banner_img_height: 70  # available: 0 - 100
   date_format: "dddd, MMMM Do YYYY, h:mm a"
-  toc: 
+  toc:
     enable: true
   copyright:
     enable: true
@@ -112,7 +112,7 @@ post:
   custom:
     enable: false
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
-  comments: 
+  comments:
     enable: false
     type: disqus  # available: disqus | valine | gitalk | utterances
 
@@ -122,7 +122,7 @@ post:
 # Comments
 #---------------------------
 
-# utterances 
+# utterances
 # You can install utterances with https://utteranc.es/ and generate your configuration
 utterances:
   repo:
