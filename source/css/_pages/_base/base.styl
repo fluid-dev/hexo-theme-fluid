@@ -22,7 +22,7 @@ body
   &:hover
     background-color $link-hover-bg!important
 
-.board
+#board
   position relative
   margin-top -3rem
   background-color $board-bg-color
@@ -93,6 +93,71 @@ body
     font-size 1rem
     line-height 2.5rem
 
+.scroll-down-bar
+  position absolute
+  width 100%
+  font-size 30px
+  height 5rem
+  text-align center
+  cursor pointer
+  bottom 0
+
+.scroll-down-arrow
+  position absolute
+  color #ff
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation scroll-down 1.5s infinite
+  animation scroll-down 1.5s infinite
+
+#scroll-top-button
+  position fixed
+  background #fff
+  border-radius 4px
+  width 40px
+  height 40px
+  bottom -60px
+  -webkit-transition bottom .3s ease
+  -moz-transform bottom .3s ease
+  -ms-transform bottom .3s ease
+  -o-transform bottom .3s ease
+  transition bottom .3s ease
+  outline none
+  display flex
+  display -webkit-flex
+  align-items center
+
+#scroll-top-button i
+  -webkit-transform translateZ(0)
+  -moz-transform translateZ(0)
+  -ms-transform translateZ(0)
+  -o-transform translateZ(0)
+  transform translateZ(0)
+
+#scroll-top-button:hover i, #scroll-top-button:active i
+  -webkit-animation-name scroll-top
+  animation-name scroll-top
+  -webkit-animation-duration .3s, 1.5s
+  animation-duration .3s, 1.5s
+  -webkit-animation-delay 0s, .3s
+  animation-delay 0s, .3s
+  -webkit-animation-timing-function ease-out, ease-in-out
+  animation-timing-function ease-out, ease-in-out
+  -webkit-animation-iteration-count 1, infinite
+  animation-iteration-count 1, infinite
+  -webkit-animation-fill-mode forwards
+  animation-fill-mode forwards
+  -webkit-animation-direction normal, alternate
+  animation-direction normal, alternate
+
+.scroll-top-arrow
+  margin auto
+  font-size 24px
+  color #8590AB
+
 .animated-icon
   width 30px
   height 20px
@@ -154,3 +219,26 @@ body
         -moz-transform rotate(-135deg)
         -o-transform rotate(-135deg)
         transform rotate(-135deg)
+
+
+@keyframes scroll-down
+  0%
+    opacity 0.8
+    top 0
+  50%
+    opacity 0.4
+    top -1em
+  100%
+    opacity 0.8
+    top 0
+
+@keyframes scroll-top
+  0%
+    -webkit-transform translateY(-6px)
+    transform translateY(-6px)
+  50%
+    -webkit-transform translateY(-2px)
+    transform translateY(-2px)
+  100%
+    -webkit-transform translateY(-6px)
+    transform translateY(-6px)

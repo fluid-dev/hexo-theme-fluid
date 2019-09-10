@@ -15,7 +15,7 @@ apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
 
 title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
 
-source_base_path: / # 静态资源目录，如使用 OSS 或 CDN（需要开启跨域），可修改成 url，其他非特殊情况请保持默认
+source_base_path: / # 第三方资源路径，若你是使用 OSS 或 CDN（需要开启跨域），可修改成 url，其他非特殊情况请保持默认
 
 highlight: # 代码高亮
   enable: true
@@ -42,18 +42,12 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   link-color: "#3c4858"
   link-hover-color: "#1abc9c"
 
-search: # 搜索栏
-  enable: true
-  path: /local-search.xml
-  field: post
-  content: true
-
 baidu_analytics:  # 百度统计的Key
 
 
 #---------------------------
-# 导航栏
-# Head Navbar
+# 页头
+# Header
 #---------------------------
 navbar:
   blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
@@ -64,6 +58,17 @@ navbar:
     Tags: /tags/
     About: /about/
 
+search: # 搜索栏
+  enable: true
+  path: /local-search.xml
+  field: post
+  content: true
+
+scroll_arrow:  # 向下滚动的箭头
+  enable: true
+  banner_height_limit: 90  # 头图高度不小于指定比例，才显示箭头
+
+banner_scroll: false  # 头图是否跟随页面滚动
 
 #---------------------------
 # 页脚
