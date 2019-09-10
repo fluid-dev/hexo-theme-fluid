@@ -79,7 +79,7 @@ v1.4.0 版本开始，可以在 Hexo 博客根目录的 source 目录下（不�
 
 ## 文档 Docs
 
-[详细配置](https://github.com/fluid-dev/hexo-fluid-docs)
+[详细配置](https://fluid-dev.github.io/hexo-fluid-docs/)
 
 [更新日志](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md)
 
