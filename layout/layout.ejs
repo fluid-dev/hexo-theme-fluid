@@ -31,7 +31,7 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
             <% } %>
           </div>
 
-          <% if (theme.scroll_arrow.enable && theme.scroll_arrow.banner_height_limit <= banner_img_height) { %>
+          <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height) { %>
             <div class="scroll-down-bar">
               <i class="fa fa-angle-down scroll-down-arrow"></i>
             </div>
@@ -45,7 +45,7 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
     <% if(is_post() || page.layout == '404') { %>
       <%- body %>
     <% } else { %>
-      <div class="container nopadding-md" id="main-view">
+      <div class="container nopadding-md">
         <div class="py-5 z-depth-3" id="board">
           <% if(page.layout == 'about') { %>
             <div class="about-avatar">
@@ -66,9 +66,11 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
     <% } %>
   </main>
 
-  <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-    <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-  </a>
+  <% if (theme.scroll_top_arrow.enable) { %>
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  <% } %>
 
   <% if(theme.search.enable) { %>
     <%- partial('_partial/search') %>

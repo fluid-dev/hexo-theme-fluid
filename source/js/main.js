@@ -1,3 +1,18 @@
+function scrollToElement(target, offset) {
+  var scroll_offset = $(target).offset();
+  $("body,html").animate({
+    scrollTop: scroll_offset.top + (offset || 0),
+    easing: 'swing'
+  })
+}
+
+function scrollToBoard() {
+  scrollToElement('#board', -$("#navbar").height());
+}
+
+document.getElementById('board').onload = scrollToBoard;
+
+
 $(document).ready(function () {
   var navbar = $("#navbar");
   if (navbar.offset().top > 0) {
@@ -23,17 +38,7 @@ $(document).ready(function () {
   };
 
   // 向下滚动箭头的点击
-  function scrollToElement(target, offset) {
-    var scroll_offset = $(target).offset();
-    $("body,html").animate({
-      scrollTop: scroll_offset.top + (offset || 0),
-      easing: 'swing'
-    })
-  }
-
-  $(".scroll-down-bar").on("click", function () {
-    scrollToElement('#main-view', -$("#navbar").height());
-  });
+  $(".scroll-down-bar").on("click", scrollToBoard);
 
   // 向顶部滚动箭头
   var topArrow = $("#scroll-top-button");

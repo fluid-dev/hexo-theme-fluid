@@ -62,9 +62,10 @@ search: # 搜索栏
   field: post
   content: true
 
-scroll_arrow:  # 向下滚动的箭头
+scroll_down_arrow:  # 向下滚动的箭头
   enable: true
   banner_height_limit: 90  # 头图高度不小于指定比例，才显示箭头
+  scroll_after_turning_page: true  # 翻页后自动滚动
 
 banner_scroll: false  # 头图是否跟随页面滚动
 
@@ -79,6 +80,8 @@ footer:
     police_text: 京公网安备12345678号 # 公安备案号，不填则只显示ICP
     police_code: 12345678 # 公安备案的编号，用于URL跳转查询
 
+scroll_top_arrow:  # 向顶部滚动的箭头
+  enable: true
 
 #---------------------------
 # 首页
