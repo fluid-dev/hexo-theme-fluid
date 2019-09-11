@@ -15,7 +15,7 @@ apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
 
 title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
 
-source_base_path: / # 静态资源目录，如使用 OSS 或 CDN（需要开启跨域），可修改成 url，其他非特殊情况请保持默认
+source_base_path: / # 第三方资源路径，若你是使用 OSS 或 CDN（需要开启跨域），可修改成 url，其他非特殊情况请保持默认
 
 highlight: # 代码高亮
   enable: true
@@ -42,28 +42,33 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   link-color: "#3c4858"
   link-hover-color: "#1abc9c"
 
-search: # 搜索栏
-  enable: true
-  path: /local-search.xml
-  field: post
-  content: true
-
 baidu_analytics:  # 百度统计的Key
 
 
 #---------------------------
-# 导航栏
-# Head Navbar
+# 页头
+# Header
 #---------------------------
 navbar:
   blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
-  menu:
+  menu:  # 可自行增减，若想减去某个入口，可以将值留空
     Home: /
     Archives: /archives/
     Categories: /categories/
     Tags: /tags/
     About: /about/
 
+search: # 搜索栏
+  enable: true
+  path: /local-search.xml
+  field: post
+  content: true
+
+scroll_arrow:  # 向下滚动的箭头
+  enable: true
+  banner_height_limit: 90  # 头图高度不小于指定比例，才显示箭头
+
+banner_scroll: false  # 头图是否跟随页面滚动
 
 #---------------------------
 # 页脚
@@ -100,11 +105,11 @@ index:
 # 文章页
 # Post Page
 #---------------------------
-post: 
+post:
   banner_img: /img/post.jpg
   banner_img_height: 70  # available: 0 - 100
   date_format: "dddd, MMMM Do YYYY, h:mm a"
-  toc: 
+  toc:
     enable: true
   copyright:
     enable: true
@@ -112,7 +117,7 @@ post:
   custom:
     enable: false
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
-  comments: 
+  comments:
     enable: false
     type: disqus  # available: disqus | valine | gitalk | utterances
 
@@ -122,7 +127,7 @@ post:
 # Comments
 #---------------------------
 
-# utterances 
+# utterances
 # You can install utterances with https://utteranc.es/ and generate your configuration
 utterances:
   repo:
