@@ -2,6 +2,7 @@
 
 - 增加 `_static_prefix.yml` 作为资源 URL 独立配置
 - 移除 `source_base_path` 配置项
+- 增加配置项 `about.md_path` 用于指定 about.md 的路径
 
 ### 2019/9/10
 

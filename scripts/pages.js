@@ -35,6 +35,7 @@ hexo.extend.generator.register('_about', function (locals) {
 });
 const path = require('path');
 hexo.extend.helper.register('about_body', function () {
-  var mdPath = path.join(__dirname, '../pages/about.md');
+  var rootPath = path.join(__dirname, '../');
+  var mdPath = path.join(rootPath, hexo.theme.config.about.md_path);
   return hexo.render.renderSync({ path: mdPath });
 });
