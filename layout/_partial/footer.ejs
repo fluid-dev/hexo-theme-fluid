@@ -16,20 +16,20 @@
 </footer>
 
 <!-- SCRIPTS -->
-<%- js_ex("/lib/mdbootstrap/js/jquery-3.4.1.min.js") %>
-<%- js_ex("/lib/mdbootstrap/js/popper.min.js") %>
-<%- js_ex("/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1") %>
-<%- js_ex("/lib/mdbootstrap/js/mdb.min.js?v=4.8.7") %>
-<%- js_ex("/lib/nprogress/nprogress.min.js?v=0.2.0") %>
-<%- js_ex("js/main.js") %>
+<%- js_ex(theme.static_prefix.jquery, "jquery.min.js") %>
+<%- js_ex(theme.static_prefix.popper, "popper.min.js") %>
+<%- js_ex(theme.static_prefix.bootstrap, "js/bootstrap.min.js") %>
+<%- js_ex(theme.static_prefix.mdbootstrap, "js/mdb.min.js") %>
+<%- js_ex(theme.static_prefix.nprogress, "nprogress.min.js") %>
+<%- js_ex(theme.static_prefix.internal_js, "main.js") %>
 <% if(is_post()){ %>
   <% if(theme.post.toc.enable){ %>
-    <%- js_ex("/lib/tocbot/tocbot.min.js?v=4.7.0") %>
+    <%- js_ex(theme.static_prefix.tocbot, "/tocbot.min.js") %>
   <% } %>
-  <%- js_ex("js/post.js") %>
+  <%- js_ex(theme.static_prefix.internal_js, "post.js") %>
 <% } %>
 <% if(theme.highlight.enable){ %>
-  <%- js_ex("/lib/prettify/prettify.min.js?v=0.1.0") %>
+  <%- js_ex(theme.static_prefix.prettify, "/prettify.min.js") %>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint linenums');
@@ -38,7 +38,7 @@
   </script>
 <% } %>
 <% if(theme.fun_features.typing.enable){ %>
-  <%- js_ex("/lib/typed/typed.min.js?v=2.0.9") %>
+  <%- js_ex(theme.static_prefix.typed, "/typed.min.js") %>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -57,7 +57,7 @@
   </script>
 <% } %>
 <% if(theme.fun_features.anchorjs.enable){ %>
-  <%- js_ex("/lib/anchor/anchor.min.js?v=4.2.0") %>
+  <%- js_ex(theme.static_prefix.anchor, "/anchor.min.js") %>
   <script>
     anchors.options = {
       placement: "<%- theme.fun_features.anchorjs.placement %>",
@@ -76,7 +76,7 @@
 <% } %>
 
 <% if(theme.search.enable){ %>
-  <%- js_ex("/js/local-search.js") %>
+  <%- js_ex(theme.static_prefix.internal_js, "local-search.js") %>
   <script>
     var path = "<%- theme.search.path || '/local-search.xml' %>";
     var inputArea = document.querySelector("#local-search-input");

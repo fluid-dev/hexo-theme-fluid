@@ -64,6 +64,8 @@ theme: fluid
 
 v1.4.0 版本开始，可以进入博客根目录的 source 目录下（不是主题的 source 目录），创建 `_data` 目录，在里面创建 `fluid_config.yml` 文件，将 `/theme/fluid/_config.yml` 中被修改的配置或者全部配置，复制到 `fluid_config.yml` 中。这样 `fluid_config.yml` 中配置项会在 `hexo g` 时自动覆盖，并且更新主题后不会丢失。
 
+v1.5.0 版本开始，所有资源 Url 也可以通过 `_static_prefix` 自定义配置，同样也支持覆盖配置，写入 `_data/fluid_static_prefix.yml` 即可。
+
 其他情况，建议更新前备份 `/theme/fluid/_config.yml`，以免覆盖自定义的配置项。
 
 ## 常见问题 FAQ

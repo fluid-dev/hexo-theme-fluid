@@ -1,0 +1,60 @@
+#---------------------------
+# Fluid
+# Author: Fluid-dev organization
+# Github: https://github.com/fluid-dev/hexo-theme-fluid
+#---------------------------
+
+#---------------------------
+# 这里是配置 JS CSS 静态资源的 URL 前缀，可以自定义成 CDN 地址，
+# 请注意，您最好使用与内部版本相同的版本，以避免潜在的问题，
+# 在站点上启用 https 时，请使用 CDN 地址的 https 协议，
+# 同样，这里的配置也支持覆盖功能
+# ** 如果你不知道如何设置，请不要做任何改动 **
+#
+# Here is the url prefix to configure JS and CSS static assets. Set CDN addresses you want to customize.
+# Be aware that you would better use the same version as internal ones to avoid potential problems.
+# Please use the https protocol of CDN files when you enable https on your site.
+# the configuration here supports overwrite
+# DO NOT EDIT THE FOLLOWING SETTINGS UNLESS YOU KNOW WHAT YOU ARE DOING
+#---------------------------
+
+#---------------------------
+# 内部静态
+# Internal static
+#---------------------------
+
+internal_js: /js
+internal_css: /css
+internal_img: /img
+
+
+#---------------------------
+# 第三方库
+# Third-party library
+#---------------------------
+
+anchor: /lib/anchor
+
+font_awesome: /lib/font-awesome
+
+github_markdown: /lib/github-markdown
+
+jquery: /lib/jquery
+
+bootstrap: /lib/bootstrap
+
+mdbootstrap: /lib/mdbootstrap
+
+# umd
+popper: /lib/popper
+
+nprogress: /lib/nprogress
+
+prettify: /lib/prettify
+# 其他高亮样式请自行添加，只支持 min.css，格式: `prettify_filename`，如 `prettify_github-v2` 对应 `github-v2.min.css`
+# more highlight css should be added by yourself, only supporting min.css, format: `prettify_filename', such as `prettify_github-v2' corresponding to `github-v2.min.css`
+prettify_github-v2: /lib/prettify
+
+tocbot: /lib/tocbot
+
+typed: /lib/typed
