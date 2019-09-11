@@ -62,7 +62,7 @@ theme: fluid
 
 ## 关于配置 Config
 
-v1.4.0 版本开始，可以在 Hexo 博客根目录的 source 目录下（不是主题的 source 目录），创建 `_data/fluid_config.yml`，然后将 `/theme/fluid/_config.yml` 中被修改的配置或者全部配置，复制到 `_data/fluid_config.yml` 中，生成时会自动覆盖主题配置，并且更新主题后不会丢失。
+v1.4.0 版本开始，可以进入博客根目录的 source 目录下（不是主题的 source 目录），创建 `_data` 目录，在里面创建 `fluid_config.yml` 文件，将 `/theme/fluid/_config.yml` 中被修改的配置或者全部配置，复制到 `fluid_config.yml` 中。这样 `fluid_config.yml` 中配置项会在 `hexo g` 时自动覆盖，并且更新主题后不会丢失。
 
 其他情况，建议更新前备份 `/theme/fluid/_config.yml`，以免覆盖自定义的配置项。
 
