@@ -32,9 +32,10 @@ $(document).ready(function () {
     $('#navbar').toggleClass('navbar-col-show');
   });
 
-  NProgress.start();
+  var oldLoad = window.onload;
   window.onload = function () {
     NProgress.done();
+    oldLoad && oldLoad();
   };
 
   // 向下滚动箭头的点击
