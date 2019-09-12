@@ -51,9 +51,9 @@ popper: /lib/popper
 nprogress: /lib/nprogress
 
 prettify: /lib/prettify
-# 其他高亮样式请自行添加，只支持 min.css，格式: `prettify_filename`，如 `prettify_github-v2` 对应 `github-v2.min.css`
-# more highlight css should be added by yourself, only supporting min.css, format: `prettify_filename', such as `prettify_github-v2' corresponding to `github-v2.min.css`
-prettify_github-v2: /lib/prettify
+# 高亮主题的路径，只支持 min.css，文件名需要与 _config.highlight.theme 对应
+# the path of highlight theme, only support `min.css` file，filename need to be the same as _config.highlight.theme
+prettify_theme: /lib/prettify
 
 tocbot: /lib/tocbot
 

@@ -24,9 +24,7 @@ if (page.title) {
   <%- css_ex(theme.static_prefix.nprogress, "nprogress.css") %>
   <%- css("https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css") %>
   <% if(theme.highlight.enable){ %>
-    <% var hl = theme.highlight.theme %>
-    <% var hlBase = theme.static_prefix["prettify_" + hl] || theme.static_prefix["prettify"]%>
-    <%- css_ex(hlBase, hl + '.min.css') %>
+    <%- css_ex(theme.static_prefix.prettify_theme, theme.highlight.theme + '.min.css') %>
   <% } %>
   <%- css_ex(theme.static_prefix.internal_css, "main.css") %>
 
