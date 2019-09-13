@@ -48,8 +48,6 @@ mdbootstrap: /lib/mdbootstrap
 # umd
 popper: /lib/popper
 
-nprogress: /lib/nprogress
-
 prettify: /lib/prettify
 # 高亮主题的路径，只支持 min.css，文件名需要与 _config.highlight.theme 对应
 # the path of highlight theme, only support `min.css` file，filename need to be the same as _config.highlight.theme

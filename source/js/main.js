@@ -34,7 +34,6 @@ $(document).ready(function () {
 
   var oldLoad = window.onload;
   window.onload = function () {
-    NProgress.done();
     oldLoad && oldLoad();
   };
 
