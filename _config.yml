@@ -88,7 +88,7 @@ scroll_top_arrow:  # 向顶部滚动的箭头
 # Index Page
 #---------------------------
 index:
-  banner_img: /img/index.jpg
+  banner_img: /img/default.png
   banner_img_height: 100  # available: 0 - 100
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
@@ -107,7 +107,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/post.jpg
+  banner_img: /img/default.png
   banner_img_height: 70  # available: 0 - 100
   date_format: "dddd, MMMM Do YYYY, h:mm a"
   toc:
@@ -177,7 +177,7 @@ valine:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/archive.jpg
+  banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
 
 
@@ -186,7 +186,7 @@ archive:
 # Categories Page
 #---------------------------
 category:
-  banner_img: /img/archive.jpg
+  banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
 
 
@@ -195,7 +195,7 @@ category:
 # Tags Page
 #---------------------------
 tag:
-  banner_img: /img/archive.jpg
+  banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   tagcloud: # 标签云
     min_font: 15
@@ -211,7 +211,7 @@ tag:
 #---------------------------
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
   md_path: ./pages/about.md  # 关于页文档的相对路径，可以按相对文档设置主题之外的路径，从而避免更新冲突
-  banner_img: /img/about.jpg
+  banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   avatar: /img/avatar.png # 头像
   name: myname
@@ -226,6 +226,6 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
 # 404 Page
 #---------------------------
 page404:
-  banner_img: /img/index.jpg
+  banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   subtitle: 'Page not found'
