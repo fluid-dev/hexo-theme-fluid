@@ -1,36 +1,39 @@
+<p align="right">中文简体 | <a title="English" href="README_en.md">English</a></p>
+
 <h1 align="center">Fluid</h1>
 
 <p align="center">一款 Material Design 风格的主题</p>
 
 <p align="center">
+  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid">
   <img alt="Hexo version" src="https://img.shields.io/badge/Hexo-3%2B-orange">
-  <img alt="contributors" src="https://img.shields.io/github/contributors/fluid-dev/hexo-theme-fluid.svg?style=flat">
-  <img alt="license" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat">
+  <img alt="Contributors" src="https://img.shields.io/github/contributors/fluid-dev/hexo-theme-fluid.svg?style=flat">
+  <img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat">
 </p>
 
 ![ScreenShot](https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/1.png)
 
 
-## 演示 Demo
+## 演示
 
 [Rook1e's blog](https://0x2e.github.io)
 
 [zkqiang's blog](http://zkqiang.cn)
 
-## 公告 Notice
+## 公告
 
 :warning: 本公告面向老用户，新用户可忽略。
 
 从 `v1.4.0` 版本开始，本项目正式更名为 **Fluid** (原项目名：Material-T)，并将仓库和归属转移至 **Fluid-dev** 组织，因此 git remote url、主题目录名、相关代码 会有变化。
 
-如打算升级 `v1.4.0`，建议按如下操作：
-1. 将 release 包解压后重命名为 `fluid` （使用 master 分支建议重新 clone）
+如果您要升级到 `v1.4.0`，建议按如下操作：
+1. 解压 release 包后重命名为 `fluid` （建议使用 master 分支的用户重新 clone）
 2. 将博客根目录 `_config.yml` 配置修改 `theme: fluid`
-3. 将原 Material-T 的 `_config.yml` 被修改部分复制过来，或按「[关于配置 Config](https://github.com/fluid-dev/hexo-theme-fluid#%E5%85%B3%E4%BA%8E%E9%85%8D%E7%BD%AE-config)」使用覆盖配置功能。
+3. 将原 Material-T 的 `_config.yml` 被修改部分复制过来，或按「[配置](https://github.com/fluid-dev/hexo-theme-fluid#%E5%85%B3%E4%BA%8E%E9%85%8D%E7%BD%AE-config)」使用覆盖配置功能。
 
 给各位带来的不便敬请谅解。
 
-## 快速开始 Quick Start
+## 快速开始
 
 #### 1. 获取最新版本
 
@@ -60,13 +63,15 @@ highlight:
 theme: fluid
 ```
 
-## 关于配置 Config
+## 配置
 
-v1.4.0 版本开始，可以进入博客根目录的 source 目录下（不是主题的 source 目录），创建 `_data` 目录，在里面创建 `fluid_config.yml` 文件，将 `/theme/fluid/_config.yml` 中被修改的配置或者全部配置，复制到 `fluid_config.yml` 中。这样 `fluid_config.yml` 中配置项会在 `hexo g` 时自动覆盖，并且更新主题后不会丢失。
+v1.4.0 版本开始，可以进入博客根目录的 source 目录下（不是主题的 source 目录），创建 `_data` 目录，在里面创建 `fluid_config.yml` 文件。将 `/theme/fluid/_config.yml` 中被修改的或者所有配置项复制到 `/source/_data/fluid_config.yml` 中。这样 `fluid_config.yml` 中配置项会在 `hexo g` 时自动覆盖，并且更新主题后不会丢失。
 
-其他情况，建议更新前备份 `/theme/fluid/_config.yml`，以免覆盖自定义的配置项。
+v1.5.0 版本开始，所有资源引用可以通过 `_static_prefix` 来自定义（这意味着您可以使用 cdnjs、jsDelivr 或您自己的 CDN 服务器加速资源加载）。同样也支持 `_data/fluid_static_prefix.yml` 自动覆盖 `/theme/fluid/_static_prefix.yml`。
 
-## 常见问题 FAQ
+其他情况，建议更新前备份 `/theme/fluid/_config.yml` 和您自定义的文件，以免更新后丢失。
+
+## 常见问题
 
 #### 代码高亮效果异常
 
@@ -77,7 +82,7 @@ v1.4.0 版本开始，可以进入博客根目录的 source 目录下（不是�
 
 - 请检查配置文件是否符合 yml 语法，如冒号后需要有空格，缩进需要 2 个空格等
 
-## 文档 Docs
+## 文档
 
 [详细配置](https://fluid-dev.github.io/hexo-fluid-docs/)
 
@@ -85,7 +90,7 @@ v1.4.0 版本开始，可以进入博客根目录的 source 目录下（不是�
 
 [文章配置](https://hexo.io/zh-cn/docs/front-matter)
 
-## 参与开发 Contributing
+## 参与开发
 
 如果您是初次贡献，可以先从 [help wanted](https://github.com/fluid-dev/hexo-theme-fluid/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) 列表中认领一个比较小的任务来快速参与社区贡献。您可以直接在相应 issue 中回复参与意愿，然后参照下面的 GitHub 工作流指引解决 issue 并按照规范提交 PR，通过 review 后就会被 merge 到 master 分支。
 
@@ -98,12 +103,12 @@ v1.4.0 版本开始，可以进入博客根目录的 source 目录下（不是�
 5. 将提交 push 到 fork 的仓库下
 6. 创建一个 pull request 到 fluid-dev/hexo-theme-fluid 的 develop 分支
 
-## 贡献者 Contributors
+## 贡献者
 
-https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors
+[![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
 
 非代码贡献：@zhugaoqi
 
-## 开源协议 License
+## 开源协议
 
 [MIT](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE)

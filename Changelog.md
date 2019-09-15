@@ -1,3 +1,9 @@
+### 2019/9/11
+
+- 增加 `_static_prefix.yml` 作为资源 URL 独立配置
+- 移除 `source_base_path` 配置项
+- 增加配置项 `about.md_path` 用于指定 about.md 的路径
+
 ### 2019/9/10
 
 - 增加向下滚屏与向顶部滚屏的按钮
@@ -8,7 +14,7 @@
 - 更名为 Fluid 并迁移至 Fluid-dev organization
 - 增加一组配置项 `post_meta`，可配置首页一些元素的可见性
 
-### 2019/09/03
+### 2019/9/03
 
 - 增加一个配置项 `source_base_path` ，可配置资源文件的父级路径
 - 增加覆盖配置功能，彻底解决升级时的配置冲突

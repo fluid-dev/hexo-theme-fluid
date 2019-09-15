@@ -1,0 +1,58 @@
+#---------------------------
+# Fluid
+# Author: Fluid-dev organization
+# Github: https://github.com/fluid-dev/hexo-theme-fluid
+#---------------------------
+
+#---------------------------
+# 这里是配置 JS CSS 静态资源的 URL 前缀，可以自定义成 CDN 地址，
+# 请注意，您最好使用与内部版本相同的版本，以避免潜在的问题，
+# 在站点上启用 https 时，请使用 CDN 地址的 https 协议，
+# 同样，这里的配置也支持覆盖功能
+# ** 如果你不知道如何设置，请不要做任何改动 **
+#
+# Here is the url prefix to configure JS and CSS static assets. Set CDN addresses you want to customize.
+# Be aware that you would better use the same version as internal ones to avoid potential problems.
+# Please use the https protocol of CDN files when you enable https on your site.
+# the configuration here supports overwrite
+# DO NOT EDIT THE FOLLOWING SETTINGS UNLESS YOU KNOW WHAT YOU ARE DOING
+#---------------------------
+
+#---------------------------
+# 内部静态
+# Internal static
+#---------------------------
+
+internal_js: /js
+internal_css: /css
+internal_img: /img
+
+
+#---------------------------
+# 第三方库
+# Third-party library
+#---------------------------
+
+anchor: /lib/anchor
+
+font_awesome: /lib/font-awesome
+
+github_markdown: /lib/github-markdown
+
+jquery: /lib/jquery
+
+bootstrap: /lib/bootstrap
+
+mdbootstrap: /lib/mdbootstrap
+
+# umd
+popper: /lib/popper
+
+prettify: /lib/prettify
+# 高亮主题的路径，只支持 min.css，文件名需要与 _config.highlight.theme 对应
+# the path of highlight theme, only support `min.css` file，filename need to be the same as _config.highlight.theme
+prettify_theme: /lib/prettify
+
+tocbot: /lib/tocbot
+
+typed: /lib/typed

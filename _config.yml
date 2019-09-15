@@ -15,8 +15,6 @@ apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
 
 title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
 
-source_base_path: / # 第三方资源路径，若你是使用 OSS 或 CDN（需要开启跨域），可修改成 url，其他非特殊情况请保持默认
-
 highlight: # 代码高亮
   enable: true
   theme: tomorrow-night-eighties # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties，更多主题可从 https://jmblog.github.io/color-themes-for-google-code-prettify/ 获取，保存为 `*.min.css` 到 `source/lib/prettify/`，在其中 .prettyprint{ background: ***; ...} 的background 值后加上 !important，例如：.prettyprint{background:#fafbfc!important; ...}
@@ -64,9 +62,10 @@ search: # 搜索栏
   field: post
   content: true
 
-scroll_arrow:  # 向下滚动的箭头
+scroll_down_arrow:  # 向下滚动的箭头
   enable: true
   banner_height_limit: 90  # 头图高度不小于指定比例，才显示箭头
+  scroll_after_turning_page: true  # 翻页后自动滚动
 
 banner_scroll: false  # 头图是否跟随页面滚动
 
@@ -81,13 +80,15 @@ footer:
     police_text: 京公网安备12345678号 # 公安备案号，不填则只显示ICP
     police_code: 12345678 # 公安备案的编号，用于URL跳转查询
 
+scroll_top_arrow:  # 向顶部滚动的箭头
+  enable: true
 
 #---------------------------
 # 首页
 # Index Page
 #---------------------------
 index:
-  banner_img: /img/index.jpg
+  banner_img: /img/default.png
   banner_img_height: 100  # available: 0 - 100
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
@@ -106,7 +107,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/post.jpg
+  banner_img: /img/default.png
   banner_img_height: 70  # available: 0 - 100
   date_format: "dddd, MMMM Do YYYY, h:mm a"
   toc:
@@ -176,7 +177,7 @@ valine:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/archive.jpg
+  banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
 
 
@@ -185,7 +186,7 @@ archive:
 # Categories Page
 #---------------------------
 category:
-  banner_img: /img/archive.jpg
+  banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
 
 
@@ -194,7 +195,7 @@ category:
 # Tags Page
 #---------------------------
 tag:
-  banner_img: /img/archive.jpg
+  banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   tagcloud: # 标签云
     min_font: 15
@@ -209,7 +210,8 @@ tag:
 # About Page
 #---------------------------
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
-  banner_img: /img/about.jpg
+  md_path: ./pages/about.md  # 关于页文档的相对路径，可以按相对文档设置主题之外的路径，从而避免更新冲突
+  banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   avatar: /img/avatar.png # 头像
   name: myname
@@ -224,6 +226,6 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
 # 404 Page
 #---------------------------
 page404:
-  banner_img: /img/index.jpg
+  banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   subtitle: 'Page not found'
