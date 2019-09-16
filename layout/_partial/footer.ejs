@@ -21,6 +21,9 @@
 <%- js_ex(theme.static_prefix.bootstrap, "js/bootstrap.min.js") %>
 <%- js_ex(theme.static_prefix.mdbootstrap, "js/mdb.min.js") %>
 <%- js_ex(theme.static_prefix.internal_js, "main.js") %>
+<% if(theme.lazyload.enable){ %>
+  <%- js_ex(theme.static_prefix.internal_js, "lazyload.js") %>
+<% } %>
 <% if(is_post()){ %>
   <% if(theme.post.toc.enable){ %>
     <%- js_ex(theme.static_prefix.tocbot, "/tocbot.min.js") %>
