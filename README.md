@@ -29,7 +29,7 @@
 如果您要升级到 `v1.4.0`，建议按如下操作：
 1. 解压 release 包后重命名为 `fluid` （建议使用 master 分支的用户重新 clone）
 2. 将博客根目录 `_config.yml` 配置修改 `theme: fluid`
-3. 将原 Material-T 的 `_config.yml` 被修改部分复制过来，或按「[配置](https://github.com/fluid-dev/hexo-theme-fluid#%E9%85%8D%E7%BD%AE)」使用覆盖配置功能。
+3. 修改主题配置文件，或使用「[平滑升级功能](https://github.com/fluid-dev/hexo-theme-fluid#%E5%AE%9E%E7%8E%B0%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7)」。
 
 给各位带来的不便敬请谅解。
 
@@ -63,13 +63,13 @@ highlight:
 theme: fluid
 ```
 
-## 配置
+## 实现平滑升级
 
-v1.4.0 版本开始，可以进入博客根目录的 source 目录下（不是主题的 source 目录），创建 `_data` 目录，在里面创建 `fluid_config.yml` 文件。将 `/theme/fluid/_config.yml` 中被修改的或者所有配置项复制到 `/source/_data/fluid_config.yml` 中。这样 `fluid_config.yml` 中配置项会在 `hexo g` 时自动覆盖，并且更新主题后不会丢失。
+从 v1.4.0 版本开始可以使用 Hexo 数据文件存放主题配置：
 
-v1.5.0 版本开始，所有资源引用可以通过 `_static_prefix` 来自定义（这意味着您可以使用 cdnjs、jsDelivr 或您自己的 CDN 服务器加速资源加载）。同样也支持 `_data/fluid_static_prefix.yml` 自动覆盖 `/theme/fluid/_static_prefix.yml`。
-
-其他情况，建议更新前备份 `/theme/fluid/_config.yml` 和您自定义的文件，以免更新后丢失。
+1. 进入博客根目录的 `/source/_data/` 目录（注意：不是主题的 source 目录），若 `_data` 文件夹不存在，请自行创建
+2. 创建 `fluid_config.yml` 文件，将主题配置文件中被修改的或者所有配置项复制到 `/source/_data/fluid_config.yml` 中。这样 `fluid_config.yml` 中配置项会在 `hexo g` 时自动覆盖主题配置，并且不会在更新主题后丢失。
+3. (v1.5.0 版本及以上)如果需要使用 CDN 或其他方式存放静态资源：将 `_static_prefix.yml` 复制到博客根目录的 `/source/_data/` 中，重命名为 `fluid_static_prefix.yml`并按自己的需求修改配置。若 `_data/fluid_static_prefix.yml` 存在则会自动覆盖 `/theme/fluid/_static_prefix.yml`。
 
 ## 常见问题
 
