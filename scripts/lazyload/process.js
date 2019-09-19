@@ -5,7 +5,7 @@ function lazyProcess(htmlContent) {
     if (/srcset=/gi.test(str)) {
       return str;
     }
-    return str.replace(p2, `${p2}" srcset="${loadingImage}"`);
+    return str.replace(p2, `${p2}" srcset="${loadingImage}`);
   });
 }
 
