@@ -3,10 +3,11 @@
 
 	function elementInViewport(el) {
 		var rect = el.getBoundingClientRect();
+		var height = window.innerHeight || document.documentElement.clientHeight;
 		return (
 			rect.top >= 0
 			&& rect.left >= 0
-			&& rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+			&& rect.top <= height * 1.5
 		);
 	}
 	function loadImage(el, fn) {
@@ -30,14 +31,14 @@
 					});
 				})(i);
 			}
-		};
+		}
 	}
 
 	function throttle(method, context) {
 		clearTimeout(method.tId);
 		method.tId = setTimeout(function () {
 				method.call(context);
-		}, 500);
+		}, 200);
 	}
 
 	processImages();
