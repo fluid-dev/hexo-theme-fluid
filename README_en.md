@@ -29,7 +29,7 @@ Starting with the `v1.4.0` version, the project was officially renamed to **Flui
 If you plan to upgrade `v1.4.0`, it is recommended to do the following:
 1. Unzip the release package and rename it to `fluid` (It is recommended that the user using the master branch re-clone the repository)
 2. Modify the blog root `_config.yml` configuration `theme: fluid`
-3. Copy the modified part of `_config.yml` of the original Material-T, or follow  [Configuration](https://github.com/fluid-dev/hexo-theme-fluid#Configuration) to use the configuration override feature.
+3. Copy the modified part of `_config.yml` of the original Material-T, or follow  [Smooth upgrade](#Smooth-upgrade) to use the configuration override feature.
 
 We apologize for the inconvenience caused by the change.
 
@@ -63,13 +63,16 @@ Still the `_config.yml` in the root directory, modified as follows:
 theme: fluid
 ```
 
-## Configuration
+## Smooth upgrade
 
-Starting with v1.4.0, you can go to the source directory of the blog root directory (not the source directory of the theme), create the `_data` directory, and create `fluid_config.yml` inside it. Copy the modified or all configuration items in `/theme/fluid/_config.yml` to `fluid_config.yml`. The configuration in `fluid_config.yml` will automatically overwrite `/theme/fluid/_config.yml` when `hexo g`, and will not be lost after updating the theme.
+Starting with v1.4.0, you can use Hexo [data files](https://hexo.io/docs/data-files.html) to host theme configurations:
 
-Starting with v1.5.0, all resource references can be configured with `_static_prefix` (this means you can use cdnjs, jsDelivr or your own CDN server to speed up resource loading). It also supports configuring automatic overrides by writing `_data/fluid_static_prefix.yml`.
+1. Go to the site's `/source/_data/` directory (note: not the `source` directory of the theme), create `_data` directory if it did not exist.
+2. Create `fluid_config.yml` and copy the modified or all configuration items from the theme configuration file into it. In this way, configuration item in `fluid_config.yml` will automatically override the theme's `_config.yml` when `hexo g` and will not be lost after updating the theme.
+3. Move your custom resource files (head_img, about.md, etc.) to site's `source` folder (don't forget to change the reference address for the resource in the configuration file)
+4. (v1.5.0 version and above) If you need to use a CDN or other means to store static resources: Copy theme's `_static_prefix.yml` to site's `/source/_data/`, rename it to `fluid_static_prefix.yml` and modify its configuration. If `_data/fluid_static_prefix.yml` exists, it will automatically overwrite theme's `_static_prefix.yml`.
 
-In other cases, it is recommended to back up `/theme/fluid/_config.yml` and your customized files before the update to avoid loss after the update.
+After completing the above steps, in the future update, you only need to overwrite the `theme/fluid` folder with the new release.
 
 ## FAQ
 
