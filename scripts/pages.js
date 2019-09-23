@@ -1,4 +1,4 @@
-// generator 404 page
+// generate 404 page
 hexo.extend.generator.register('_404', function (locals) {
   return {
     path: '404.html',
@@ -7,7 +7,7 @@ hexo.extend.generator.register('_404', function (locals) {
   };
 });
 
-// generator tags Page
+// generate tags Page
 hexo.extend.generator.register('_tags', function (locals) {
   return {
     path: 'tags/index.html',
@@ -16,7 +16,7 @@ hexo.extend.generator.register('_tags', function (locals) {
   };
 });
 
-// generator categories Page
+// generate categories Page
 hexo.extend.generator.register('_categories', function (locals) {
   return {
     path: 'categories/index.html',
@@ -25,7 +25,7 @@ hexo.extend.generator.register('_categories', function (locals) {
   };
 });
 
-// generator about page
+// generate about page
 hexo.extend.generator.register('_about', function (locals) {
   return {
     path: 'about/index.html',

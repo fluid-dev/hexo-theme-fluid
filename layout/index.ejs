@@ -11,19 +11,25 @@ page.banner_img_height = theme.index.banner_img_height
     <% var post_url = url_for(post.path) %>
     <% if(post.index_img != null) { %>
       <div class="col-12 col-md-4 m-auto">
-        <a href="<%- post_url %>" style="background-image: url(<%- post.index_img %>);"
-           class="img-fluid rounded z-depth-3 index-thumbnails" target="<%- theme.index.post_url_target %>"></a>
+        <a href="<%- post_url %>" target="<%- theme.index.post_url_target %>">
+          <img src="<%- post.index_img %>" alt="<%= post.title %>" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
       </div>
     <% } %>
     <div class="col-12 col-md-8 m-auto">
       <a href="<%- post_url %>">
         <p class="h4 index-header"><%= post.title %></p>
-        <div class="index-excerpt">
-          <% if(post.excerpt.length > 0) { %>
-            <div class="index-text mb-1"><%- strip_html(post.excerpt) %>...</div>
-          <% } else if(theme.index.auto_excerpt.enable){ %>
-            <div class="index-text mb-1"><%- strip_html(post.content).substr(0, 500) %></div>
-          <% } %>
+        <% var height_limit = '' %>
+        <% if(post.excerpt.length > 0) { %>
+          <% var excerpt = strip_html(post.excerpt) + "..." %>
+          <% var height_limit = 'style="max-height: none;"' %>
+        <% } else if(theme.index.auto_excerpt.enable){ %>
+          <% var excerpt = strip_html(post.content).substr(0, 500) %>
+        <% } else { %>
+          <% var excerpt = strip_html(post.content) %>
+        <% } %>
+        <div class="index-excerpt" <%- height_limit %>>
+          <div class="index-text mb-1"><%- excerpt %></div>
         </div>
       </a>
 
