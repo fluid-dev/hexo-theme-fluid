@@ -1,14 +1,16 @@
 <p align="right">English | <a title="Chinese" href="README.md">中文简体</a></p>
 
-<h1 align="center">Fluid</h1>
+<p align="center">
+  <img alt="Fluid Logo" src="https://avatars2.githubusercontent.com/t/3419353?s=280&v=4" width="128">
+</p>
 
 <p align="center">An elegant Material-Design theme for Hexo</p>
 
 <p align="center">
-  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid">
-  <img alt="Hexo version" src="https://img.shields.io/badge/Hexo-3%2B-orange">
-  <img alt="Contributors" src="https://img.shields.io/github/contributors/fluid-dev/hexo-theme-fluid.svg?style=flat">
-  <img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat">
+  <a href="https://github.com/fluid-dev/hexo-theme-fluid/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid"></a>
+  <a href="https://hexo.io"><img alt="Hexo version" src="https://img.shields.io/badge/Hexo-3%2B-orange"></a>
+  <a href="https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
+  <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
 </p>
 
 ![ScreenShot](https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/1.png)
@@ -19,6 +21,14 @@
 [Rook1e's blog](https://0x2e.github.io)
 
 [zkqiang's blog](http://zkqiang.cn)
+
+## Docs
+
+[Detailed configuration](https://fluid-dev.github.io/hexo-fluid-docs/)
+
+[Changelog](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md)
+
+[Article configuration](https://hexo.io/docs/front-matter)
 
 ## Notice
 
@@ -84,14 +94,6 @@ After completing the above steps, in the future update, you only need to overwri
 #### Configuration cannot take effect
 
 - Please check if the configuration file conforms to the yml syntax, such as spaces after the colon, 2 spaces for indentation, etc.
-
-## Docs
-
-[Detailed configuration](https://fluid-dev.github.io/hexo-fluid-docs/)
-
-[Changelog](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md)
-
-[Article configuration](https://hexo.io/docs/front-matter)
 
 ## Contributing
 

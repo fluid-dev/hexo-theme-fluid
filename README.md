@@ -1,14 +1,16 @@
 <p align="right">中文简体 | <a title="English" href="README_en.md">English</a></p>
 
-<h1 align="center">Fluid</h1>
+<p align="center">
+  <img alt="Fluid Logo" src="https://avatars2.githubusercontent.com/t/3419353?s=280&v=4" width="128">
+</p>
 
 <p align="center">一款 Material Design 风格的主题</p>
 
 <p align="center">
-  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid">
-  <img alt="Hexo version" src="https://img.shields.io/badge/Hexo-3%2B-orange">
-  <img alt="Contributors" src="https://img.shields.io/github/contributors/fluid-dev/hexo-theme-fluid.svg?style=flat">
-  <img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat">
+  <a href="https://github.com/fluid-dev/hexo-theme-fluid/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid"></a>
+  <a href="https://hexo.io/zh-cn/"><img alt="Hexo version" src="https://img.shields.io/badge/Hexo-3%2B-orange"></a>
+  <a href="https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
+  <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
 </p>
 
 ![ScreenShot](https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/1.png)
@@ -19,6 +21,15 @@
 [Rook1e's blog](https://0x2e.github.io)
 
 [zkqiang's blog](http://zkqiang.cn)
+
+
+## 文档
+
+[详细配置](https://fluid-dev.github.io/hexo-fluid-docs/)
+
+[更新日志](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md)
+
+[文章配置](https://hexo.io/zh-cn/docs/front-matter)
 
 ## 公告
 
@@ -84,14 +95,6 @@ theme: fluid
 #### 配置无效
 
 - 请检查配置文件是否符合 yml 语法，如冒号后需要有空格，缩进需要 2 个空格等
-
-## 文档
-
-[详细配置](https://fluid-dev.github.io/hexo-fluid-docs/)
-
-[更新日志](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md)
-
-[文章配置](https://hexo.io/zh-cn/docs/front-matter)
 
 ## 参与开发
 
