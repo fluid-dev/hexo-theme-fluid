@@ -118,3 +118,7 @@ theme: fluid
 ## 开源协议
 
 [MIT](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE)
+
+## 微信群
+
+[查看微信群二维码](https://github.com/fluid-dev/hexo-theme-fluid/issues/96)
