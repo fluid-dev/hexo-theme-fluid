@@ -42,7 +42,7 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
 
 baidu_analytics:  # 百度统计的Key
 
-lazyload: # 对页面中的图片进行懒加载处理，未在视口的图片不会加载
+lazyload: # 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
   enable: true
   onlypost: false
 
