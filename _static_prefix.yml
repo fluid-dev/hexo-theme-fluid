@@ -56,3 +56,5 @@ prettify_theme: /lib/prettify
 tocbot: /lib/tocbot
 
 typed: /lib/typed
+
+fancybox: /lib/fancybox

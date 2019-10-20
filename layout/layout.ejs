@@ -78,11 +78,5 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 
   <%- partial('_partial/footer', { data: { 'subtitle': subtitle } }) %>
 
-  <script>
-    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
-      $("#background").css("background-attachment", "scroll");
-    }
-  </script>
-
 </body>
 </html>

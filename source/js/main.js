@@ -14,6 +14,7 @@ document.getElementById('board').onload = scrollToBoard;
 
 
 $(document).ready(function () {
+  // 顶部菜单的动效
   var navbar = $("#navbar");
   if (navbar.offset().top > 0) {
     navbar.addClass("navbar-custom");
@@ -31,11 +32,6 @@ $(document).ready(function () {
     $('.animated-icon').toggleClass('open');
     $('#navbar').toggleClass('navbar-col-show');
   });
-
-  var oldLoad = window.onload;
-  window.onload = function () {
-    oldLoad && oldLoad();
-  };
 
   // 向下滚动箭头的点击
   $(".scroll-down-bar").on("click", scrollToBoard);
@@ -73,4 +69,9 @@ $(document).ready(function () {
       easing: 'swing'
     })
   });
+
+  // 因兼容问题，在 iOS 和 Safari 环境下不使用固定 Banner
+  if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
+    $("#background").css("background-attachment", "scroll");
+  }
 });

@@ -74,3 +74,16 @@
     }
   </script>
 <% } %>
+
+<% if (is_post && theme.post.image_zoom.enable) { %>
+  <%- js_ex(theme.static_prefix.fancybox, "jquery.fancybox.min.js") %>
+  <script>
+    $('#post').find('img').each(
+      function () {
+        var _this = $(this);
+        var _src = _this.attr("src");
+        _this.wrap('<a data-fancybox="images" href="' + _src + '" ></a>');
+      }
+    );
+  </script>
+<% } %>
