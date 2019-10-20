@@ -41,10 +41,11 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   link_hover_color: "#1abc9c"
 
 baidu_analytics:  # 百度统计的Key
+google_analytics:  # 谷歌统计的ID，如 UA-XXXXX-Y，注意使用谷歌统计可能会影响国内访问博客
 
 lazyload: # 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
   enable: true
-  onlypost: false
+  onlypost: false  # 仅在文章页使用懒加载
 
 
 #---------------------------
