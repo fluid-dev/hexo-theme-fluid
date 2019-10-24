@@ -58,3 +58,5 @@ tocbot: /lib/tocbot
 typed: /lib/typed
 
 fancybox: /lib/fancybox
+
+smooth_scroll: /lib/smooth-scroll

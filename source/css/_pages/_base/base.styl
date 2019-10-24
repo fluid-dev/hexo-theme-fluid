@@ -1,9 +1,13 @@
-html,
-body,
-header,
-.view
+html, body, header, .view
   height 100%
   overflow-wrap break-word
+
+html, body
+  scroll-behavior smooth
+
+@media screen and (prefers-reduced-motion: reduce)
+  html, body
+    scroll-behavior auto
 
 body
   background-color $body-bg-color

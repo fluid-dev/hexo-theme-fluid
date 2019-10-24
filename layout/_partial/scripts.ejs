@@ -87,3 +87,7 @@
     );
   </script>
 <% } %>
+
+<% if (theme.smooth_scroll.enable) { %>
+  <%- js_ex(theme.static_prefix.smooth_scroll, "smooth-scroll.min.js") %>
+<% } %>
