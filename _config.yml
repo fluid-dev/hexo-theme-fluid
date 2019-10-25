@@ -2,6 +2,8 @@
 # Fluid
 # Author: Fluid-dev organization
 # Github: https://github.com/fluid-dev/hexo-theme-fluid
+#
+# 本配置的详细指南请见：https://fluid-dev.github.io/hexo-fluid-docs/guide/
 #---------------------------
 
 
@@ -96,8 +98,8 @@ scroll_top_arrow:  # 向顶部滚动的箭头
 # Index Page
 #---------------------------
 index:
-  banner_img: /img/default.png
-  banner_img_height: 100  # available: 0 - 100
+  banner_img: /img/default.png  # 首页 Banner 头图，以下相同
+  banner_img_height: 100  # 头图高度，屏幕百分比，available: 0 - 100
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
     text:  # 为空则按 hexo config.subtitle 显示
@@ -127,8 +129,8 @@ post:
     enable: false
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
   comments:  # 评论
-    enable: false
-    type: disqus  # available: disqus | valine | gitalk | utterances
+    enable: false  # 开启评论
+    type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances
   image_zoom:  # 文章图片可点击放大
     enable: true
 
@@ -136,6 +138,8 @@ post:
 # 评论
 # Comments
 #---------------------------
+
+# 开启评论在上方的 post.comments 配置
 
 # utterances
 # You can install utterances with https://utteranc.es/ and generate your configuration
@@ -228,6 +232,7 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
   icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
     "fab fa-github": https://github.com
     "fab fa-twitter": https://twitter.com
+    "fab fa-weixin":  # 微信图标，这个是特殊图标，点击不会跳转而是悬浮二维码，所以链接需要对应二维码图片地址
 
 
 #---------------------------

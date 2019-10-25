@@ -10,9 +10,6 @@ function scrollToBoard() {
   scrollToElement('#board', -$("#navbar").height());
 }
 
-document.getElementById('board').onload = scrollToBoard;
-
-
 $(document).ready(function () {
   // 顶部菜单的动效
   var navbar = $("#navbar");

@@ -1,14 +1,15 @@
 <% if (page.total > 1){ %>
   <nav aria-label="index posts navigation">
     <ul class="pagination pg-blue justify-content-center mt-5">
+      <% var point = theme.scroll_down_arrow.scroll_after_turning_page ? '#board' : '' %>
       <% if(page.prev != 0) { %>
         <li class="page-item">
-          <a class="page-link" href="<%- url_for(page.prev_link) %>#board"><%= __('paginator.pre') %></a>
+          <a class="page-link" href="<%- url_for(page.prev_link) + point %>"><%= __('paginator.pre') %></a>
         </li>
       <% } %>
       <% if(page.next != 0) { %>
         <li class="page-item">
-          <a class="page-link" href="<%- url_for(page.next_link) %>#board"><%= __('paginator.next') %></a>
+          <a class="page-link" href="<%- url_for(page.next_link) + point %>"><%= __('paginator.next') %></a>
         </li>
       <% } %>
     </ul>

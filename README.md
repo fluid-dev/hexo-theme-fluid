@@ -16,7 +16,7 @@
 ![ScreenShot](https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/1.png)
 
 
-## 演示
+## 示例
 
 [Rook1e's blog](https://0x2e.github.io)
 
@@ -89,8 +89,14 @@ theme: fluid
 
 #### 代码高亮异常（比如出现多重行号）
 
-- 请确认已完成上述『关闭默认的代码高亮』步骤
-- 尝试清除命令 `hexo clean && hexo g`
+请确认 Hexo 根目录的 `_config.yml` 中高亮已关闭：
+
+```yaml
+highlight:
+  enable: false
+```
+
+修改后使用清除命令 `hexo clean && hexo g`
 
 #### 配置无效
 
@@ -122,3 +128,4 @@ theme: fluid
 ## 微信群
 
 [查看微信群二维码](https://github.com/fluid-dev/hexo-theme-fluid/issues/96)
+**

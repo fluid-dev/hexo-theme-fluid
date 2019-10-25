@@ -2,13 +2,6 @@ html, body, header, .view
   height 100%
   overflow-wrap break-word
 
-html, body
-  scroll-behavior smooth
-
-@media screen and (prefers-reduced-motion: reduce)
-  html, body
-    scroll-behavior auto
-
 body
   background-color $body-bg-color
   color $text-color
@@ -252,3 +245,21 @@ body
   100%
     -webkit-transform translateY(0)
     transform translateY(0)
+
+
+.wechat
+  cursor pointer
+  position relative
+
+  &:hover .wechat-qrcode
+    display block
+
+.wechat-qrcode
+  width 200px
+  height 300px
+  background url($about-wechat-qrcode) no-repeat
+  background-size 100%
+  position absolute
+  right -100px
+  z-index 99
+  display none
