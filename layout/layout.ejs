@@ -27,7 +27,19 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 
             <% if(is_post()) { %>
               <br>
-              <p class="mt-3"><%- full_date(page.date, theme.post.date_format) %></p>
+              <p class="mt-3">
+                <i class="fa fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                <%- full_date(page.date, theme.post.date_format) %>
+              </p>
+              <% if (theme.footer.statistics.post_pv) { %>
+                <!--不蒜子统计文章PV-->
+                <% var post_pv = theme.footer.statistics.post_pv.split('{}') %>
+                <p>
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv"><%- post_pv[0] %>
+                  <span id="busuanzi_value_page_pv"></span><%- post_pv[1] %></span>
+                </p>
+              <%  } %>
             <% } %>
           </div>
 

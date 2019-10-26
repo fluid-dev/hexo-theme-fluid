@@ -3,13 +3,6 @@
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
-  <% if (theme.valine.visitor) { %>
-    <script>
-      document.getElementById('visitors-text').innerText = '本文阅读数：';
-      document.getElementById('visitors-count').className = 'leancloud-visitors-count';
-    </script>
-  <% } %>
-
   <script>
     var notify = '<%= theme.valine.notify %>' == true ? true : false;
     var verify = '<%= theme.valine.verify %>' == true ? true : false;
@@ -25,7 +18,6 @@
         avatar: "<%= theme.valine.avatar %>",
         meta: ['nick', 'mail', 'link'],
         pageSize: "<%= theme.valine.pageSize %>",
-        visitor: "<%= theme.valine.visitor %>"
       });
       oldLoad && oldLoad();
     };

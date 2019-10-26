@@ -79,11 +79,19 @@ scroll_down_arrow:  # 向下滚动的箭头
 
 banner_scroll: false  # 头图是否跟随页面滚动
 
+
 #---------------------------
 # 页脚
 # Footer
 #---------------------------
 footer:
+  statistics:  # 统计网站 PV、UV，使用的是不蒜子，显示在页脚
+    enable: true
+    text_pv: 总访问量 {} 次  # 显示的文本，{}是数字的占位符（必须包含)，下同
+    text_uv: 总访客数 {} 人
+    post_pv: 阅读次数 {} 次
+
+
   beian:  # The footer of China's website policy, other areas keep disable
     enable: false
     icp_text: 京ICP证123456号 # ICP证号
@@ -92,6 +100,7 @@ footer:
 
 scroll_top_arrow:  # 向顶部滚动的箭头
   enable: true
+
 
 #---------------------------
 # 首页
@@ -182,7 +191,6 @@ valine:
   placeholder: 说点什么 # comment box placeholder
   avatar: retro # gravatar style https://valine.js.org/avatar.html
   pageSize: 10 # pagination size
-  visitor: false # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
 
 
 #---------------------------
