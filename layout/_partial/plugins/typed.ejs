@@ -1,0 +1,19 @@
+<% if(theme.fun_features.typing.enable){ %>
+  <%- js_ex(theme.static_prefix.typed, "/typed.min.js") %>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "<%- data.subtitle %>&nbsp;",
+      ],
+      cursorChar: "<%- theme.fun_features.typing.cursorChar %>",
+      typeSpeed: <%- theme.fun_features.typing.typeSpeed %>,
+      loop: <%- theme.fun_features.typing.loop %>,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+<% } %>

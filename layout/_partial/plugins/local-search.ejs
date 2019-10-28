@@ -1,0 +1,11 @@
+<% if(theme.search.enable){ %>
+  <%- js_ex(theme.static_prefix.internal_js, "local-search.js") %>
+  <script>
+    var path = "<%- theme.search.path || '/local-search.xml' %>";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+<% } %>

@@ -1,0 +1,9 @@
+<% if(theme.footer.beian.enable) { %>
+  <!-- 备案信息 -->
+  <a href="http://beian.miit.gov.cn/" target="_blank"
+     rel="nofollow noopener"><%- theme.footer.beian.icp_text %></a>
+  <% if(theme.footer.beian.police_text && theme.footer.beian.police_code) { %>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<%- theme.footer.beian.police_code %>"
+       target="_blank" rel="nofollow noopener"> | <%- theme.footer.beian.police_text %></a>
+  <% } %>
+<% } %>

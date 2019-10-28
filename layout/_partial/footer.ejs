@@ -4,30 +4,12 @@
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
     <br>
-    <% if(theme.footer.statistics.enable) { %>
-      <% if (theme.footer.statistics.text_pv) { %>
-        <!--不蒜子统计PV-->
-        <% var text_pv = theme.footer.statistics.text_pv.split('{}') %>
-        &nbsp;<span id="busuanzi_container_site_pv"><%- text_pv[0] %>
-          <span id="busuanzi_value_site_pv"></span><%- text_pv[1] %></span>&nbsp;
-      <% } %>
-      <% if (theme.footer.statistics.text_uv) { %>
-        <!--不蒜子统计UV-->
-        <% var text_uv = theme.footer.statistics.text_uv.split('{}') %>
-        &nbsp;<span id="busuanzi_container_site_uv"><%- text_uv[0] %>
-            <span id="busuanzi_value_site_uv"></span><%- text_uv[1] %></span>&nbsp;
-      <% } %>
-      <br>
-    <% } %>
-    <% if(theme.footer.beian.enable) { %>
-      <a href="http://beian.miit.gov.cn/" target="_blank"
-         rel="nofollow noopener"><%- theme.footer.beian.icp_text %></a>
-      <% if(theme.footer.beian.police_text && theme.footer.beian.police_code) { %>
-        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<%- theme.footer.beian.police_code %>"
-           target="_blank" rel="nofollow noopener"> | <%- theme.footer.beian.police_text %></a>
-      <% } %>
-    <% } %>
+
+    <%- partial('_partial/busuanzi.ejs') %>
+
+    <%- partial('_partial/beian.ejs') %>
   </div>
 </footer>
 
+<!-- SCRIPTS -->
 <%- partial('_partial/scripts.ejs') %>

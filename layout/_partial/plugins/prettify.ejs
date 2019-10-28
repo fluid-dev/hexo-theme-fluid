@@ -1,0 +1,9 @@
+<% if(theme.highlight.enable){ %>
+  <%- js_ex(theme.static_prefix.prettify, "/prettify.min.js") %>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  <%- config.highlight.line_number ? 'linenums' : '' %>');
+      prettyPrint();
+    })
+  </script>
+<% } %>
