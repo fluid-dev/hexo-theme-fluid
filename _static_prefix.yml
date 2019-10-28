@@ -60,3 +60,7 @@ typed: /lib/typed
 fancybox: /lib/fancybox
 
 smooth_scroll: /lib/smooth-scroll
+
+mathjax: /lib/mathjax
+
+katex: /lib/katex
