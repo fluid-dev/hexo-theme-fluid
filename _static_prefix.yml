@@ -61,6 +61,6 @@ fancybox: /lib/fancybox
 
 smooth_scroll: /lib/smooth-scroll
 
-mathjax: /lib/mathjax
+mathjax: https://cdn.staticfile.org/mathjax/2.7.6/
 
 katex: /lib/katex
