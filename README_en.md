@@ -112,7 +112,7 @@ The following workflows are recommended to participate in the contribution:
 
 [![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
 
-Contributors outside the code：@zhugaoqi
+Contributors outside the code：@zhugaoqi [@julydate](https://github.com/julydate)
 
 ## License
 
