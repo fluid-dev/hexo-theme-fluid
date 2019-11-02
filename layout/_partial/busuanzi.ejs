@@ -1,15 +1,15 @@
-<% if(theme.footer.statistics.enable) { %>
-  <% if (theme.footer.statistics.text_pv) { %>
+<% if(theme.footer.statistics.enable || theme.post.meta.views.enable) { %>
+  <% if (theme.footer.statistics.pv_format) { %>
     <!-- 不蒜子统计PV -->
-    <% var text_pv = theme.footer.statistics.text_pv.split('{}') %>
-    &nbsp;<span id="busuanzi_container_site_pv"><%- text_pv[0] %>
-          <span id="busuanzi_value_site_pv"></span><%- text_pv[1] %></span>&nbsp;
+    <% var pv_texts = theme.footer.statistics.pv_format.split('{}') %>
+    &nbsp;<span id="busuanzi_container_site_pv"><%= pv_texts[0] %>
+          <span id="busuanzi_value_site_pv"></span><%= pv_texts[1] %></span>&nbsp;
   <% } %>
-  <% if (theme.footer.statistics.text_uv) { %>
+  <% if (theme.footer.statistics.uv_format) { %>
     <!-- 不蒜子统计UV -->
-    <% var text_uv = theme.footer.statistics.text_uv.split('{}') %>
-    &nbsp;<span id="busuanzi_container_site_uv"><%- text_uv[0] %>
-            <span id="busuanzi_value_site_uv"></span><%- text_uv[1] %></span>&nbsp;
+    <% var uv_texts = theme.footer.statistics.uv_format.split('{}') %>
+    &nbsp;<span id="busuanzi_container_site_uv"><%= uv_texts[0] %>
+            <span id="busuanzi_value_site_uv"></span><%= uv_texts[1] %></span>&nbsp;
   <% } %>
   <br>
 <% } %>

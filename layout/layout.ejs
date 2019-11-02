@@ -27,25 +27,45 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 
             <% if(is_post()) { %>
               <br>
-              <p class="mt-3">
-                <i class="fa fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                <%- full_date(page.date, theme.post.date_format) %>
-              </p>
-              <% if (theme.footer.statistics.post_pv) { %>
-                <!-- 不蒜子统计文章PV -->
-                <% var post_pv = theme.footer.statistics.post_pv.split('{}') %>
-                <p>
-                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp;
-                  <span id="busuanzi_container_page_pv"><%- post_pv[0] %>
-                  <span id="busuanzi_value_page_pv"></span><%- post_pv[1] %></span>
+              <% if (theme.post.meta.date.enable) { %>
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  <%- full_date(page.date, theme.post.meta.date.format) %>
                 </p>
-              <%  } %>
+              <% } %>
+
+              <p>
+                <% if (theme.post.meta.wordcount.enable) { %>
+                  <% var wordcount_texts = theme.post.meta.wordcount.format.split('{}') %>
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    <%= wordcount_texts[0] %><%- wordcount(page.content) %><%= wordcount_texts[1] %>
+                  </span>&nbsp;
+                <% } %>
+
+                <% if (theme.post.meta.min2read.enable) { %>
+                  <% var min2read_texts = theme.post.meta.min2read.format.split('{}') %>
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      <%= min2read_texts[0] %><%- min2read(page.content) %><%= min2read_texts[1] %>
+                  </span>&nbsp;
+                <% } %>
+
+                <% if (theme.post.meta.views.enable) { %>
+                  <!-- 不蒜子统计文章PV -->
+                  <% var views_texts = theme.post.meta.views.format.split('{}') %>
+                  &nbsp;<i class="fas fa-user" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
+                  </span>&nbsp;
+                <% } %>
+              </p>
             <% } %>
           </div>
 
           <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height) { %>
             <div class="scroll-down-bar">
-              <i class="fa fa-angle-down scroll-down-arrow"></i>
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
             </div>
           <% } %>
         </div>

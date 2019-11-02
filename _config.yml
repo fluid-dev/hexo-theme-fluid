@@ -95,10 +95,8 @@ banner_scroll: false  # 头图是否跟随页面滚动
 footer:
   statistics:  # 统计网站 PV、UV，使用的是不蒜子，显示在页脚
     enable: true
-    text_pv: 总访问量 {} 次  # 显示的文本，{}是数字的占位符（必须包含)，下同
-    text_uv: 总访客数 {} 人
-    post_pv: 阅读次数 {} 次
-
+    pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
+    uv_format: "总访客数 {} 人"
 
   beian:  # The footer of China's website policy, other areas keep disable
     enable: false
@@ -136,7 +134,19 @@ index:
 post:
   banner_img: /img/default.png
   banner_img_height: 70  # available: 0 - 100
-  date_format: "dddd, MMMM Do YYYY, h:mm a"
+  meta:  # 文章标题下方的信息
+    date:  # 文章日期
+      enable: true
+      format: "dddd, MMMM Do YYYY, h:mm a"  # 格式参照 ISO-8601 日期格式化
+    wordcount:  # 字数统计
+      enable: true
+      format: "{} 字"  # 显示的文本，{}是数字的占位符（必须包含)，下同
+    min2read:  # 阅读时间
+      enable: true
+      format: "{} 分钟"
+    views:  # 阅读次数，统计基于不蒜子
+      enable: true
+      format: "{} 次"
   toc:  # 右侧导航条
     enable: true
   copyright:  # 版权声明
