@@ -17,20 +17,24 @@ page.banner_img_height = theme.post.banner_img_height
           </div>
           <br>
           <div>
-            <% if (page.categories.length != 0) { %>
-              <p>
+            <p>
+            <% if (page.categories.length > 0) { %>
+              <span>
                 <i class="iconfont icon-inbox"></i>
                 <% page.categories.each(function(cate) { %>
                   <a class="hover-with-bg" href="/categories/<%- encodeURI(cate.name) %>"><%= cate.name %></a>
                   &nbsp;
                 <% }) %>
-              </p>
+              </span>&nbsp;&nbsp;
             <% } %>
-            <p>
-              <i class="iconfont icon-tag"></i>
-              <% page.tags.each(function(tag) { %>
-                <a class="hover-with-bg" href="/tags/<%- encodeURI(tag.name) %>"><%= tag.name %></a>
-              <% }) %>
+            <% if (page.tags.length > 0 ) { %>
+              <span>
+                <i class="iconfont icon-tag"></i>
+                <% page.tags.each(function(tag) { %>
+                  <a class="hover-with-bg" href="/tags/<%- encodeURI(tag.name) %>"><%= tag.name %></a>
+                <% }) %>
+              </span>
+            <% } %>
             </p>
             <% if(theme.post.copyright.enable) { %>
               <p class="note note-warning"><%- theme.post.copyright.content %></p>
