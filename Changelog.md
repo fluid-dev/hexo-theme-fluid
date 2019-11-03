@@ -1,6 +1,6 @@
 ### 2019/11/03
 
-- 感谢 [@julydate](https://github.com/julydate
+- 感谢 [@julydate](https://github.com/julydate)
   提供了很多意见，以下均采纳自他的代码
 - 增加翻页的页码
 - 支持更多的网站统计

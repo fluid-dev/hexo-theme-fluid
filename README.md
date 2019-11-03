@@ -119,7 +119,7 @@ highlight:
 
 [![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
 
-非代码贡献：@zhugaoqi [@julydate](https://github.com/julydate)
+非 PR 贡献：@zhugaoqi [@julydate](https://github.com/julydate)
 
 ## 开源协议
 
