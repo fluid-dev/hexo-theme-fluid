@@ -33,4 +33,7 @@ hexo.on('generateBefore', function () {
    * Trigger action that requires configuration data.
    */
   require("./lazyload").lazyload(hexo);
+
+  this.log.info("Configs:\n", hexo.theme.config);
+
 });

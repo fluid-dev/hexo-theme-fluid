@@ -36,7 +36,7 @@ page.banner_img_height = theme.post.banner_img_height
               </span>
             <% } %>
             </p>
-            <% if(theme.post.copyright.enable) { %>
+            <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
               <p class="note note-warning"><%- theme.post.copyright.content %></p>
             <% } %>
           </div>

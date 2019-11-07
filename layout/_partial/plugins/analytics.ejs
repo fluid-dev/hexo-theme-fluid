@@ -6,7 +6,7 @@
       var _hmt = _hmt || [];
       (function () {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?<%= theme.baidu_analytics %>";
+        hm.src = "https://hm.baidu.com/hm.js?<%= theme.web_analytics.baidu %>";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
       })();
@@ -28,7 +28,7 @@
         m.parentNode.insertBefore(a, m)
       })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', '<%= theme.google_analytics %>', 'auto');
+      ga('create', '<%= theme.web_analytics.google %>', 'auto');
       ga('send', 'pageview');
     </script>
   <% } %>
@@ -55,9 +55,7 @@
 
   <% if(theme.web_analytics.cnzz) { %>
     <!-- cnzz Analytics -->
-    <style type="text/css">#cnzz_stat_icon_<%= theme.web_analytics.cnzz %> {
-        display: none;
-      }</style>
+    <style type="text/css"></style>
     <script
       type="text/javascript">var cnzz_protocol = (("https:" === document.location.protocol) ? "https://" : "http://");
       document.write(unescape("%3Cspan id='cnzz_stat_icon_<%= theme.web_analytics.cnzz %>'%3E%3C/span%3E%3Cscript src='"
