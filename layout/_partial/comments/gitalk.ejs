@@ -1,8 +1,8 @@
 <% if(theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
   <div id="gitalk-container"></div>
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
   <script type="text/javascript">
     var gitalk = new Gitalk({
       clientID: '<%- theme.gitalk.clientID %>',
