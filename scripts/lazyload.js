@@ -5,7 +5,7 @@ const joinPath = require('./utils/join-path');
 module.exports.lazyload = function (hexo) {
   var config = hexo.theme.config;
   let loadingImage = joinPath(config.static_prefix.internal_img, 'loading.gif');
-  if (!config.lazyload || !config.lazyload.enable) {
+  if (!config.lazyload || !config.lazyload.enable || !loadingImage) {
     return;
   }
   if (config.lazyload.onlypost) {
@@ -15,7 +15,7 @@ module.exports.lazyload = function (hexo) {
     });
   } else {
     hexo.extend.filter.register('after_render:html', function (str, data) {
-      return lazyProcess.call(this, str);
+      return lazyProcess.call(this, str, loadingImage);
     });
   }
 };
