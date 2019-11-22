@@ -15,7 +15,7 @@ module.exports.lazyload = function (hexo) {
     });
   } else {
     hexo.extend.filter.register('after_render:html', function (str, data) {
-      return lazyProcess.call(this, str);
+      return lazyProcess.call(this, str, loadingImage);
     });
   }
 };
