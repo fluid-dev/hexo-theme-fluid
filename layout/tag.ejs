@@ -9,7 +9,7 @@ var date_cursor = 'xxx'
 %>
 
 <div class="list-group">
-  <p class="h4"><%= __('postTotal', page.posts.length) %></p>
+  <p class="h4"><%= __('postTotal', site.posts.length) %></p>
   <hr>
   <% page.posts.each(function (post) { %>
     <% if(date(post.date, "YYYY") != date_cursor) { %>
@@ -22,4 +22,4 @@ var date_cursor = 'xxx'
     </a>
   <% }) %>
 </div>
-
+<%- partial('_partial/paginator') %>
