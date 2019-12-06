@@ -211,6 +211,26 @@ valine:
   avatar: retro # gravatar style https://valine.js.org/avatar.html
   pageSize: 10 # pagination size
 
+# Changyan
+# You can get your appid from http://changyan.kuaizhan.com/setting/common/isv-mgr
+# Install: http://changyan.kuaizhan.com/static/help/f-fitself.html
+changyan:
+  appid: ''            # your changyan application appid        # 畅言ID
+  conf: ''             # conf                                   # 畅言设置
+  notify: false        # beian warning message                  # 备案提示
+  libopen: true        # open laboratory                        # 畅言实验室功能开关
+  cyEmoji: true        # comments emoji                         # 评论表情
+  cyWallsplugin: true  # Hot text matching                      # 热文配图
+  cyReping: true       # hot comments                           # 热门评论
+  cyReward: true       # reward                                 # 打赏
+  cyQing: true         # Light comment                          # 轻评论
+  cyHotusers: true     # User evaluation                        # 热评用户
+  cyHotnews: true      # Hot news                               # 热门新闻
+  cyHotnewswall: true  # News wall                              # 新闻墙
+  cyPk: ''             # Topic debate                           # 辩论
+  cyPoll: true         # vote                                   # 投票
+  cyBarrage: true      # Picture barrage                        # 图片弹幕
+  cyTvbarrage: true    # Video barrage                          # 视频弹幕
 
 #---------------------------
 # 归档页
