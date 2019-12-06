@@ -127,4 +127,7 @@ highlight:
 
 ## 微信群
 
-[查看微信群二维码](https://github.com/fluid-dev/hexo-theme-fluid/issues/96)
+<p>
+  <img width="250" src="https://camo.githubusercontent.com/c4eecc5dcd28b9128d8af86b8fc80b526a605a1b/687474703a2f2f7374617469632e7a6b7169616e672e636e2f696d616765732f32303139313230363231313434342e6a7065672d736c696d">
+  <p>加好友后回复「fluid」自动拉群</p>
+</p>
