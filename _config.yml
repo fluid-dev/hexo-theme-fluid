@@ -232,6 +232,12 @@ changyan:
   cyBarrage: true      # Picture barrage                        # 图片弹幕
   cyTvbarrage: true    # Video barrage                          # 视频弹幕
 
+# Livere 来必力
+# You can get your uid from https://www.livere.com/my_Livere
+livere:
+  uid: ''            # your livere application uid        # 来必力ID
+  
+
 #---------------------------
 # 归档页
 # Archive Page
@@ -290,3 +296,14 @@ page404:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   subtitle: 'Page not found'
+
+#---------------------------
+# 鼠标点击样式
+# mouse click style
+#---------------------------
+
+mouse_click:
+  enable: false # 鼠标点击样式开启开关
+  style: values # 目前设置两个值：values love
+
+
