@@ -41,6 +41,7 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   text_color: "#3c4858"
   link_color: "#3c4858"
   link_hover_color: "#1abc9c"
+  board_color: "#fff"
 
 web_analytics:  # 网页访问统计
   enable: true
