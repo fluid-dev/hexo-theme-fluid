@@ -58,6 +58,9 @@ lazyload: # 对页面中的图片进行懒加载处理，可见范围外的图�
 smooth_scroll: # 平滑滚动效果
   enable: true
 
+daovoice:  # 在线客服 Daovoice 参考：http://dashboard.daovoice.io
+  enable: false # 是否开启在线客服聊天
+  appid: ''  # 应用ID设置
 
 #---------------------------
 # 页头
@@ -155,7 +158,7 @@ post:
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
   comments:  # 评论
     enable: false  # 开启评论
-    type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan
+    type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere
   image_zoom:  # 文章图片可点击放大
     enable: true
   math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见 https://fluid-dev.github.io/hexo-fluid-docs/guide/#数学公式
@@ -237,13 +240,6 @@ changyan:
 # You can get your uid from https://www.livere.com/my_Livere
 livere:
   uid: ''            # your livere application uid        # 来必力ID
-  
-# Daovoice get from http://dashboard.daovoice.io
-# 在线客服
-daovoice:
-  enable: false # 是否开启在线客服聊天
-  appid: ''     # 应用ID设置
-
 
 
 #---------------------------
@@ -313,5 +309,3 @@ page404:
 mouse_click:
   enable: false # 鼠标点击样式开启开关
   style: values # 目前设置两个值：values love
-
-
