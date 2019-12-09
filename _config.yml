@@ -238,6 +238,13 @@ changyan:
 livere:
   uid: ''            # your livere application uid        # 来必力ID
   
+# Daovoice get from http://dashboard.daovoice.io
+# 在线客服
+daovoice:
+  enable: false # 是否开启在线客服聊天
+  appid: ''     # 应用ID设置
+
+
 
 #---------------------------
 # 归档页
