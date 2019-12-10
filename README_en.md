@@ -74,5 +74,8 @@ After completing the above steps, in the future update, you only need to overwri
 
 [![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
 
-Contributors outside PR：@zhugaoqi
-[@julydate](https://github.com/julydate)
+Contributors outside PR：@zhugaoqi [@julydate](https://github.com/julydate)
+
+## Star chart
+
+[![Stargazers over time](https://starchart.cc/fluid-dev/hexo-theme-fluid.svg)](https://starchart.cc/fluid-dev/hexo-theme-fluid)
