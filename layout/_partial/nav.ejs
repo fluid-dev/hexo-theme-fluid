@@ -12,11 +12,12 @@
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
-        <% for(const i in theme.navbar.menu) { %>
-          <% var link = theme.navbar.menu[i] %>
+        <% for(const each in theme.navbar.menu) { %>
+          <% var link = theme.navbar.menu[each] %>
           <% if (!link) continue %>
+          <% var text = __(each + '.title') || each %>
           <li class="nav-item">
-            <a class="nav-link" href="<%- url_for(link) %>"><%= i %></a>
+            <a class="nav-link" href="<%- url_for(link) %>"><%= text %></a>
           </li>
         <% } %>
         <% if(theme.search.enable) { %>
@@ -28,6 +29,4 @@
       </ul>
     </div>
   </div>
-
-
 </nav>

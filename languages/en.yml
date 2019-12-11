@@ -2,7 +2,7 @@ search:
   title: Search
   keyword: keyword
   status:
-    success: v 
+    success: v
     error: x
 
 postTotal: "%d posts in total."
@@ -14,16 +14,19 @@ paginator:
 post:
   toc: TOC
 
+home:
+  title: Home
+
 archive:
-  title: Archive
+  title: Archives
   subtitle: Archive
 
 tag:
-  title: Tag
+  title: Tags
   subtitle: Tag
 
 category:
-  title: Category
+  title: Categories
   subtitle: Category
 
 about:

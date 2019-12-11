@@ -2,7 +2,7 @@ search:
   title: 搜索
   keyword: 关键词
   status:
-    success: v 
+    success: v
     error: x
 
 postTotal: 共计 %d 篇文章
@@ -13,6 +13,9 @@ paginator:
 
 post:
   toc: 目录
+
+home:
+  title: 首页
 
 archive:
   title: 归档

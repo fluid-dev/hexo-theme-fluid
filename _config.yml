@@ -68,12 +68,12 @@ daovoice:  # 在线客服 Daovoice 参考：http://dashboard.daovoice.io
 #---------------------------
 navbar:
   blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
-  menu:  # 可自行增减，若想减去某个入口，可以将值留空
-    Home: /
-    Archives: /archives/
-    Categories: /categories/
-    Tags: /tags/
-    About: /about/
+  menu:  # 可自行增减，若想减去某个入口，可以将值留空，显示文本关联 languages
+    home: /
+    archive: /archives/
+    category: /categories/
+    tag: /tags/
+    about: /about/
 
 search: # 搜索栏
   enable: true
