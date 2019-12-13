@@ -3,7 +3,15 @@
   <a href="http://beian.miit.gov.cn/" target="_blank"
      rel="nofollow noopener"><%- theme.footer.beian.icp_text %></a>
   <% if(theme.footer.beian.police_text && theme.footer.beian.police_code) { %>
-    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<%- theme.footer.beian.police_code %>"
-       target="_blank" rel="nofollow noopener"> | <%- theme.footer.beian.police_text %></a>
+    <a
+      href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<%- theme.footer.beian.police_code %>"
+      rel="nofollow noopener"
+      target="_blank"
+      class="police-beian"
+    >
+      <span class="police-beian-sep">&nbsp;|&nbsp;</span>
+      <img src="<%- theme.footer.beian.police_icon%>" />
+      <span><%- theme.footer.beian.police_text %></span>
+    </a>
   <% } %>
 <% } %>
