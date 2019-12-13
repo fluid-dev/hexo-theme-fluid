@@ -10,7 +10,9 @@
       target="_blank"
     >
       <span class="police-beian-sep">&nbsp;|&nbsp;</span>
-      <img src="<%- theme.footer.beian.police_icon%>" />
+      <% if(theme.footer.beian.police_icon) { %>
+        <img src="<%- theme.footer.beian.police_icon%>" />
+      <% } %>
       <span><%- theme.footer.beian.police_text %></span>
     </a>
   <% } %>
