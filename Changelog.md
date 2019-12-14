@@ -1,6 +1,11 @@
+### 2019/12/14
+
+- 感谢 [@KiritoXF](https://github.com/KiritoXF) 贡献主题日语配置
+- 感谢 [@ss-xiong](https://github.com/ss-xiong) 贡献公安备案图标
+
 ### 2019/12/08
 
-- 感谢 [@juukee](https://github.com/juukee)贡献以下功能代码
+- 感谢 [@juukee](https://github.com/juukee) 贡献以下功能代码
 - 增加畅言评论插件
 - 增加来必力（Livere）评论插件
 - 增加 daovoice 在线聊天功能
