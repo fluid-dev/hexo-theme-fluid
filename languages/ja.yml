@@ -1,0 +1,38 @@
+search:
+  title: 検索
+  keyword: キーワード
+  status:
+    success: v
+    error: x
+
+postTotal: 合計 %d 件のポスト
+
+paginator:
+  pre: 前のページ
+  next: 次のページ
+
+post:
+  toc: ディレクトリ
+
+home:
+  title: ホーム
+
+archive:
+  title: アーカイブ
+  subtitle: アーカイブ
+
+tag:
+  title: タグ
+  subtitle: タグ
+
+category:
+  title: カテゴリー
+  subtitle: カテゴリー
+
+about:
+  title: 本ブログ情報　
+  subtitle: 本ブログ情報
+
+page404:
+  title: ページが見つかりませんでした
+  subtitle: ページが見つかりませんでした
