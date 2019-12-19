@@ -82,7 +82,8 @@ navbar:
 
 search: # 搜索栏
   enable: true
-  path: /local-search.xml
+  path: /local-search.xml # 文件引用地址，默认是下方生成位置，也可以将生成后的 local-search.xml 上传到其它位置引用，如：https://www.example.com/local-search.xml
+  generate_path: /local-search.xml # 文件生成位置，必须为相对位置
   field: post
   content: true
 

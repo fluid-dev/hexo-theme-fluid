@@ -47,11 +47,11 @@ hexo.extend.generator.register('_hexo_generator_search', function (locals) {
     posts: posts,
     pages: pages,
     content: content,
-    url: config.root
+    url: hexo.config.root
   });
 
   return {
-    path: searchConfig.path,
+    path: searchConfig.generate_path || '/local-search.xml',
     data: xml
   };
 });

@@ -6,7 +6,7 @@
   <entry>
     <title>{{ post.title }}</title>
     <link href="{{ (url + post.path) | uriencode }}"/>
-    <url>{{ (post.path) | uriencode }}</url>
+    <url>{{ (url + post.path) | uriencode }}</url>
     {% if content %}
     <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
     {% endif %}
