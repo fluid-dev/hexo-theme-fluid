@@ -7,7 +7,7 @@
 		return (
 			rect.top >= 0
 			&& rect.left >= 0
-			&& rect.top <= height * 1.5
+			&& rect.top <= height * 3
 		);
 	}
 	function loadImage(el, fn) {
@@ -38,7 +38,7 @@
 		clearTimeout(method.tId);
 		method.tId = setTimeout(function () {
 				method.call(context);
-		}, 200);
+		}, 100);
 	}
 
 	processImages();
