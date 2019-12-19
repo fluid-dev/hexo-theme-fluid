@@ -55,6 +55,7 @@ web_analytics:  # 网页访问统计
   tencent:  # 腾讯统计的H5 App id，参见 https://mta.qq.com/h5/manage/ctr_app_manage
   woyaola:  # 51.la站点统计ID，参见 https://www.51.la/user/site/index
   cnzz:  # 友盟/cnzz站点统计web_id，参见 https://web.umeng.com/main.php?c=site&a=show
+  cnzz_icon: 'block' # 是否展示 cnzz 的图标，配置了cnzz才有效。 block 展示，none 隐藏
 
 lazyload: # 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
   enable: true
