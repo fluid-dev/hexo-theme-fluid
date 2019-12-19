@@ -53,14 +53,8 @@
     <script type="text/javascript" src="//js.users.51.la/<%= theme.web_analytics.woyaola %>.js"></script>
   <% } %>
 
+  <!-- cnzz Analytics -->
   <% if(theme.web_analytics.cnzz) { %>
-    <!-- cnzz Analytics -->
-    <style type="text/css"></style>
-    <script
-      type="text/javascript">var cnzz_protocol = (("https:" === document.location.protocol) ? "https://" : "http://");
-      document.write(unescape("%3Cspan id='cnzz_stat_icon_<%= theme.web_analytics.cnzz %>'%3E%3C/span%3E%3Cscript src='"
-        + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D<%= theme.web_analytics.cnzz %>' type='text/javascript'%3E%3C/script%3E"));
-    </script>
+    <script src="//s4.cnzz.com/z_stat.php?id=<%- theme.web_analytics.cnzz %>&show=pic" type="text/javascript"></script>
   <% } %>
-
 <% } %>
