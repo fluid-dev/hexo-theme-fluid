@@ -1,4 +1,4 @@
-var joinPath = function (base, relative) {
+const joinPath = function (base, relative) {
   return relative
     ? base.replace(/\/+$/, '') + '/' + relative.replace(/^\/+/, '')
     : base;
