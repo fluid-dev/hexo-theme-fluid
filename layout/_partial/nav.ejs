@@ -16,6 +16,9 @@
           <% var link = theme.navbar.menu[each] %>
           <% if (!link) continue %>
           <% var text = __(each + '.title') || each %>
+          <% if (text.indexOf('.title') !== -1) {
+            text = each
+          } %>
           <li class="nav-item">
             <a class="nav-link" href="<%- url_for(link) %>"><%- text %></a>
           </li>
