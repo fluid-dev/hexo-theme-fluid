@@ -34,6 +34,6 @@ hexo.on('generateBefore', function () {
    */
   require("./lazyload").lazyload(hexo);
 
-  this.log.info("Configs:\n", hexo.theme.config);
+  this.log.debug("Configs:\n", hexo.theme.config);
 
 });
