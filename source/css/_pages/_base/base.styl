@@ -57,6 +57,7 @@ body
   hr
     height .2em
     margin 2rem 0
+
   strong
     font-weight bold
 
@@ -290,11 +291,39 @@ a.police-beian
   display inline-flex
   align-items center
   justify-content center
+
   img
     margin 0 3px
     width 18px
     height 18px
+
 @media (max-width: 320px)
   a.police-beian
     span.police-beian-sep
       display none
+
+// 友链页
+@media (max-width: 768px)
+  .links
+    margin-left .5em
+    margin-right .5em
+
+.link-card
+  box-shadow none
+
+  &:hover
+    box-shadow: 0 0 25px 0 rgba(0,0,0,0.16);
+    z-index 1
+
+  &-title
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+  &-text
+    height: 3em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;

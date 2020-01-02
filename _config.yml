@@ -79,6 +79,7 @@ navbar:
     category: /categories/
     tag: /tags/
     about: /about/
+    #links: /links/  # 友链页，把前面#去掉即可展示
 
 search: # 搜索栏
   enable: true
@@ -307,3 +308,16 @@ page404:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   subtitle: 'Page not found'
+
+
+#---------------------------
+# 友链页
+# Links Page
+#---------------------------
+links:
+  banner_img: /img/default.png
+  banner_img_height: 80  # available: 0 - 100
+  items:
+    Fluid Docs: [https://fluid-dev.github.io/hexo-fluid-docs/, 主题使用指南]
+    Fluid Repo: [https://github.com/fluid-dev/hexo-theme-fluid, 主题 GitHub 仓库]
+    Fluid Changelog: [https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md, 主题更新日志]
