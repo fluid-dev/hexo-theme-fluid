@@ -33,8 +33,8 @@ fun_features: # 一些好玩的功能
     enable: true
     element: h1,h2,h3,h4,h5,h6
     placement: right # icon放置的位置： left | right
-    visible: false # true：一直可见，false：鼠标悬停时出现
-    icon: "" # 例如：§ | # | ❡ 等，留空则为默认效果
+    visible: false # 默认悬浮显示，可选：always（一会显示） | touch（移动端触摸显示）
+    icon: "" # 可选：§ | # | ❡ 等，留空则为默认效果
   mouse_click:  # 鼠标点击动效
     enable: false
     style: values # 目前设置两个值：values（价值观词汇） | love（爱心）
