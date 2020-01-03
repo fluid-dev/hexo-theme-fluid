@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const yaml = require('js-yaml');
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { safeLoad } from 'js-yaml';
 
 hexo.on('generateBefore', function () {
   if (hexo.locals.get) {
@@ -18,8 +18,8 @@ hexo.on('generateBefore', function () {
   /**
    * Merge configs in /source/_data/fluid_static_prefix.yml into hexo.theme.config.
    */
-  const configPath = path.join(__dirname, '../_static_prefix.yml');
-  const yamlDoc = yaml.safeLoad(fs.readFileSync(configPath, 'utf8'));
+  const configPath = join(__dirname, '../_static_prefix.yml');
+  const yamlDoc = safeLoad(readFileSync(configPath, 'utf8'));
   hexo.theme.config.static_prefix = Object.assign({}, yamlDoc, staticPrefix);
   this.log.debug("Fluid: theme static_prefix config merged");
 

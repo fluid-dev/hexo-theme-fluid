@@ -1,4 +1,4 @@
-const joinPath = require('./utils/join-path');
+import joinPath from './utils/join-path';
 
 hexo.extend.helper.register('css_ex', function (base, relative, ex = "") {
   return '<link rel="stylesheet" href="' + this.url_for(joinPath(base, relative)) + '" ' + ex + ' >';

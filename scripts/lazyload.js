@@ -1,8 +1,8 @@
 'use strict';
-const joinPath = require('./utils/join-path');
+import joinPath from './utils/join-path';
 
 
-module.exports.lazyload = function (hexo) {
+export function lazyload (hexo) {
   var config = hexo.theme.config;
   let loadingImage = joinPath(joinPath(hexo.config.root, config.static_prefix.internal_img), 'loading.gif');
   if (!config.lazyload || !config.lazyload.enable || !loadingImage) {
@@ -18,7 +18,7 @@ module.exports.lazyload = function (hexo) {
       return lazyProcess.call(this, str, loadingImage);
     });
   }
-};
+}
 
 function lazyProcess(htmlContent, loadingImage) {
   return htmlContent.replace(/<img(\s*?)src="(.*?)"(.*?)>/gi, (str, p1, p2) => {

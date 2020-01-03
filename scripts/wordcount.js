@@ -1,5 +1,5 @@
-let util = require('hexo-util');
-let stripHTML = util.stripHTML;
+import { stripHTML as _stripHTML } from 'hexo-util';
+let stripHTML = _stripHTML;
 
 let counter = function (content) {
   content = stripHTML(content);

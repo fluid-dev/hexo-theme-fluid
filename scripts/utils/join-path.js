@@ -4,4 +4,4 @@ const joinPath = function (base, relative) {
     : base;
 };
 
-module.exports = joinPath;
+export default joinPath;
