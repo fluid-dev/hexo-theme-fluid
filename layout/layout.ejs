@@ -12,90 +12,9 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 <body>
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
-    <div class="view intro-2" id="background"
-         style="background: url('<%- banner_img %>')no-repeat center center;
-           background-size: cover;
-           background-attachment: <%- theme.banner_scroll == true ? 'scroll' : 'fixed' %>;">
-      <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
-              <% if(theme.fun_features.typing.enable == false) { %>
-                <%- subtitle %>
-              <% } %>
-            </span>
-
-            <% if(is_post()) { %>
-              <br>
-              <% if (theme.post.meta.date.enable) { %>
-                <p class="mt-3">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  <%- full_date(page.date, theme.post.meta.date.format) %>
-                </p>
-              <% } %>
-
-              <p>
-                <% if (theme.post.meta.wordcount.enable) { %>
-                  <% var wordcount_texts = theme.post.meta.wordcount.format.split('{}') %>
-                  &nbsp;<i class="far fa-chart-bar"></i>
-                  <span class="post-count">
-                    <%= wordcount_texts[0] %><%- wordcount(page.content) %><%= wordcount_texts[1] %>
-                  </span>&nbsp;
-                <% } %>
-
-                <% if (theme.post.meta.min2read.enable) { %>
-                  <% var min2read_texts = theme.post.meta.min2read.format.split('{}') %>
-                  &nbsp;<i class="far fa-clock"></i>
-                  <span class="post-count">
-                      <%= min2read_texts[0] %><%- min2read(page.content) %><%= min2read_texts[1] %>
-                  </span>&nbsp;
-                <% } %>
-
-                <% if (theme.post.meta.views.enable) { %>
-                  <!-- 不蒜子统计文章PV -->
-                  <% var views_texts = theme.post.meta.views.format.split('{}') %>
-                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
-                  <span id="busuanzi_container_page_pv">
-                    <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
-                  </span>&nbsp;
-                <% } %>
-              </p>
-            <% } %>
-          </div>
-
-          <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height) { %>
-            <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
-            </div>
-          <% } %>
-        </div>
-      </div>
-    </div>
   </header>
 
   <main>
-    <% if(is_post() || page.layout == '404') { %>
-      <%- body %>
-    <% } else { %>
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          <% if(page.layout == 'about') { %>
-            <div class="about-avatar">
-              <img src="<%- url_for(theme.about.avatar) %>"
-                   class="img-fluid z-depth-1 rounded-circle"
-                   alt="avatar">
-            </div>
-          <% } %>
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                <%- body %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% } %>
   </main>
 
   <% if (theme.scroll_top_arrow.enable) { %>
