@@ -19,7 +19,7 @@
   <%- js_ex(theme.static_prefix.smooth_scroll, "smooth-scroll.min.js") %>
 <% } %>
 
-<% if (theme.footer.statistics.enable) { %>
+<% if (theme.footer.statistics.enable || theme.post.meta.views.enable) { %>
   <%- js_async("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js") %>
 <% } %>
 
