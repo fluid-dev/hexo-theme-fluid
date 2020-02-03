@@ -13,13 +13,12 @@ page.banner_img_height = theme.about.banner_img_height
     <% var href = theme.about.icons[i]; %>
     <% if (!href) continue; %>
     <a href="<%- i.search('weixin') == -1 ? href : 'javascript:;' %>"
-       class="h4 <%- i.search('weixin') == -1 ? '' : 'wechat' %>">
+       class="h4 px-1 <%- i.search('weixin') == -1 ? '' : 'wechat' %>">
       <i class="<%- i %>" aria-hidden="true"></i>
       <% if (i.search('weixin') != -1) { %>
         <div class="wechat-qrcode"></div>
       <% } %>
     </a>
-    &nbsp;&nbsp;
   <% } %>
 </div>
 <div class="mt-5 markdown-body">
