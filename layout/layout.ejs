@@ -12,10 +12,9 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 <body>
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
-    <div class="view intro-2" id="background"
+    <div class="view intro-2" id="background" <%- theme.banner_parallax && !is_post() && 'parallax=true' %>
          style="background: url('<%- banner_img %>')no-repeat center center;
-           background-size: cover;
-           background-attachment: <%- theme.banner_scroll == true ? 'scroll' : 'fixed' %>;">
+           background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
           <div class="container text-center white-text fadeInUp">

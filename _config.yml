@@ -93,7 +93,7 @@ scroll_down_arrow:  # 向下滚动的箭头
   banner_height_limit: 90  # 头图高度不小于指定比例，才显示箭头
   scroll_after_turning_page: true  # 翻页后自动滚动
 
-banner_scroll: false  # 头图是否跟随页面滚动
+banner_parallax: true  # 头图滚动视差
 
 
 #---------------------------
