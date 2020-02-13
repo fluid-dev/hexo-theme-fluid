@@ -13,14 +13,14 @@
   <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
 </p>
 
-![ScreenShot](https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/1.png)
+![ScreenShot](https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/index.png)
 
 
-## 示例
+## 预览
 
 [Rook1e's blog](https://0x2e.github.io)
 
-[zkqiang's blog](http://zkqiang.cn)
+[zkqiang's blog](https://zkqiang.cn)
 
 
 ## 文档
@@ -39,32 +39,31 @@
 
 下载后解压到 themes 目录下并重命名为 `fluid`。
 
-#### 2. 必要的配置
+#### 2. 必要的配置 :warning: :warning: :warning:
 
-必须修改 Hexo 根目录中的 `_config.yml`，关闭默认的代码高亮
+必须如下修改 Hexo 博客目录中的 `_config.yml`：
 
 ```yaml
 highlight:
-  enable: false
+  enable: false  # 关闭默认的代码高亮
+
+theme: fluid  # 指定主题
+
+language: zh-CN  # 指定语言，可不改
 ```
 
-#### 3. 指定主题
+## 功能特性
 
-依然是根目录中的 `_config.yml`，如下修改：
-```yaml
-# Extensions
-theme: fluid
-```
-
-## 常见问题
-
-#### 代码高亮异常（比如出现多重行号）
-
-- 没有按快速开始第二步关闭代码高亮
-
-#### 配置无效
-
-- 请检查配置文件是否符合 yml 语法，如冒号后需要有空格，缩进需要 2 个空格等
+- [x] 图片懒加载
+- [x] 自定义代码高亮方案
+- [x] 内置多语言
+- [x] 内置多款评论插件
+- [x] 外部覆盖配置
+- [x] 静态资源配置
+- [x] 文章搜索
+- [x] 页脚备案信息
+- [x] 网页访问统计
+- [x] 支持 KaTeX 数学公式
 
 ## 贡献者
 
