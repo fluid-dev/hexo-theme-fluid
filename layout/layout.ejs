@@ -38,7 +38,7 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
                   <% var wordcount_texts = theme.post.meta.wordcount.format.split('{}') %>
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    <%= wordcount_texts[0] %><%- wordcount(page.content) %><%= wordcount_texts[1] %>
+                    <%- wordcount_texts[0] %><%- wordcount(page.content) %><%- wordcount_texts[1] %>
                   </span>&nbsp;
                 <% } %>
 
@@ -46,7 +46,7 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
                   <% var min2read_texts = theme.post.meta.min2read.format.split('{}') %>
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      <%= min2read_texts[0] %><%- min2read(page.content) %><%= min2read_texts[1] %>
+                      <%- min2read_texts[0] %><%- min2read(page.content) %><%- min2read_texts[1] %>
                   </span>&nbsp;
                 <% } %>
 

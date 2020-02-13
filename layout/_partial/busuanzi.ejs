@@ -2,14 +2,14 @@
   <% if (theme.footer.statistics.pv_format) { %>
     <!-- 不蒜子统计PV -->
     <% var pv_texts = theme.footer.statistics.pv_format.split('{}') %>
-    &nbsp;<span id="busuanzi_container_site_pv"></span><%= pv_texts[0] %>
-          <span id="busuanzi_value_site_pv"></span><%= pv_texts[1] %>&nbsp;
+    &nbsp;<span id="busuanzi_container_site_pv"></span><%- pv_texts[0] %>
+          <span id="busuanzi_value_site_pv"></span><%- pv_texts[1] %>&nbsp;
   <% } %>
   <% if (theme.footer.statistics.uv_format) { %>
     <!-- 不蒜子统计UV -->
     <% var uv_texts = theme.footer.statistics.uv_format.split('{}') %>
-    &nbsp;<span id="busuanzi_container_site_uv"></span><%= uv_texts[0] %>
-            <span id="busuanzi_value_site_uv"></span><%= uv_texts[1] %>&nbsp;
+    &nbsp;<span id="busuanzi_container_site_uv"></span><%- uv_texts[0] %>
+            <span id="busuanzi_value_site_uv"></span><%- uv_texts[1] %>&nbsp;
   <% } %>
   <br>
 <% } %>
