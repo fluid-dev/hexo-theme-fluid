@@ -22,15 +22,4 @@ $(document).ready(function () {
       toc.css("display", "none")
     }
   });
-  tocbot.init({
-    tocSelector: '#tocbot',
-    contentSelector: '.post-content',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    linkClass: 'tocbot-link',
-    activeLinkClass: 'tocbot-active-link',
-    listClass: 'tocbot-list',
-    isCollapsedClass: 'tocbot-is-collapsed',
-    collapsibleClass: 'tocbot-is-collapsible',
-    scrollSmooth: true,
-  });
 });

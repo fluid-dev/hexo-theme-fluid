@@ -9,10 +9,25 @@
 <% } %>
 
 <% if(is_post()){ %>
+  <%- js_ex(theme.static_prefix.internal_js, "post.js") %>
   <% if(theme.post.toc.enable){ %>
     <%- js_ex(theme.static_prefix.tocbot, "/tocbot.min.js") %>
+    <script>
+      $(document).ready(function () {
+        tocbot.init({
+          tocSelector: '#tocbot',
+          contentSelector: '.post-content',
+          headingSelector: '<%- theme.post.toc.headingSelector %>',
+          linkClass: 'tocbot-link',
+          activeLinkClass: 'tocbot-active-link',
+          listClass: 'tocbot-list',
+          isCollapsedClass: 'tocbot-is-collapsed',
+          collapsibleClass: 'tocbot-is-collapsible',
+          scrollSmooth: true,
+        });
+      });
+    </script>
   <% } %>
-  <%- js_ex(theme.static_prefix.internal_js, "post.js") %>
 <% } %>
 
 <% if (theme.smooth_scroll.enable) { %>
