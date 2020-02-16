@@ -13,12 +13,12 @@
   <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
 </p>
 
-![ScreenShot](https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/1.png)
+![ScreenShot](https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/index.png)
 
 
 ## Live Preview
 
-[Rook1e's blog](https://0x2e.github.io)
+[Rook1e's blog](https://rook1e.com)
 
 [zkqiang's blog](http://zkqiang.cn)
 
@@ -59,6 +59,18 @@ Starting with v1.4.0, you can use Hexo [data files](https://hexo.io/docs/data-fi
 
 After completing the above steps, in the future update, you only need to overwrite the `theme/fluid` folder with the new release.
 
+## Features
+
+- [x] Img lazyload
+- [x] Custom code highlighting scheme
+- [x] Internationalization
+- [x] Support for multiple comment plugins
+- [x] Support for storing configuration in [Data Files](https://hexo.io/docs/data-files.html)
+- [x] Custom static resource CDN
+- [x] Built-in search plugin
+- [x] Website analysis
+- [x] Support for KaTeX
+
 ## FAQ
 
 #### Code highlighting exception
@@ -74,8 +86,12 @@ After completing the above steps, in the future update, you only need to overwri
 
 [![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
 
-Contributors outside PR：@zhugaoqi [@julydate](https://github.com/julydate)
+Contributors outside PR：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
 
-## Star chart
+## Feedback
+
+- WeChat: After the scan, add, **reply "fluid"** (in chat reply, not request note) automatically pull you into the group<details> <summary>Qr code</summary><img width="250" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.jpeg"></details>
+
+## Star trending
 
 [![Stargazers over time](https://starchart.cc/fluid-dev/hexo-theme-fluid.svg)](https://starchart.cc/fluid-dev/hexo-theme-fluid)

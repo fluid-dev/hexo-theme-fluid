@@ -33,7 +33,7 @@ fun_features: # 一些好玩的功能
     enable: true
     element: h1,h2,h3,h4,h5,h6
     placement: right # icon放置的位置： left | right
-    visible: false # 默认悬浮显示，可选：always（一会显示） | touch（移动端触摸显示）
+    visible: hover # 默认悬浮显示，可选：hover（鼠标在元素上悬浮时显示） | always（一直显示） | touch（移动端触摸显示）
     icon: "" # 可选：§ | # | ❡ 等，留空则为默认效果
   mouse_click:  # 鼠标点击动效
     enable: false
@@ -49,7 +49,7 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   board_color: "#fff"
 
 web_analytics:  # 网页访问统计
-  enable: true
+  enable: false
   baidu:  # 百度统计的Key，参见 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代码获取中 hm.js? 后边的字符串
   google:  # Google统计的Tracking ID，参见 https://analytics.google.com/analytics/web/
   tencent:  # 腾讯统计的H5 App id，参见 https://mta.qq.com/h5/manage/ctr_app_manage

@@ -18,7 +18,7 @@
 
 ## 预览
 
-[Rook1e's blog](https://0x2e.github.io)
+[Rook1e's blog](https://rook1e.com)
 
 [zkqiang's blog](https://zkqiang.cn)
 
@@ -57,10 +57,10 @@ language: zh-CN  # 指定语言，可不改
 - [x] 图片懒加载
 - [x] 自定义代码高亮方案
 - [x] 内置多语言
-- [x] 内置多款评论插件
-- [x] 外部覆盖配置
-- [x] 静态资源配置
-- [x] 文章搜索
+- [x] 支持多款评论插件
+- [x] 支持使用[数据文件](https://hexo.io/zh-cn/docs/data-files)存放配置
+- [x] 自定义静态资源 CDN
+- [x] 内置文章搜索
 - [x] 页脚备案信息
 - [x] 网页访问统计
 - [x] 支持 KaTeX 数学公式
@@ -69,17 +69,14 @@ language: zh-CN  # 指定语言，可不改
 
 [![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
 
-非 PR 贡献：@zhugaoqi [@julydate](https://github.com/julydate)
+非 PR 贡献：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
 
 如你也想贡献代码，可参照[贡献指南](https://fluid-dev.github.io/hexo-fluid-docs/contribute/)
 
-## 微信交流群
+## 反馈
 
-<p>
-  <p>扫描后添加好友，<strong>回复「fluid」</strong>（在聊天回复，不是加好友验证）自动拉群</p>
-  <img width="250" src="https://camo.githubusercontent.com/c4eecc5dcd28b9128d8af86b8fc80b526a605a1b/687474703a2f2f7374617469632e7a6b7169616e672e636e2f696d616765732f32303139313230363231313434342e6a7065672d736c696d">
-</p>
+- 微信群：扫描后添加好友，**回复「fluid」**（在聊天回复，不是加好友验证）自动拉群<details> <summary>二维码</summary><img width="250" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.jpeg"></details>
 
-## Star 走势图
+## Star 趋势
 
 [![Stargazers over time](https://starchart.cc/fluid-dev/hexo-theme-fluid.svg)](https://starchart.cc/fluid-dev/hexo-theme-fluid)
