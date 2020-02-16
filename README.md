@@ -1,10 +1,11 @@
-<p align="right">中文简体 | <a title="English" href="README_en.md">English</a></p>
-
 <p align="center">
   <img alt="Fluid Logo" src="https://avatars2.githubusercontent.com/t/3419353?s=280&v=4" width="128">
 </p>
 
 <p align="center">一款 Material Design 风格的主题</p>
+<p align="center">An elegant Material-Design theme for Hexo</p>
+
+![ScreenShot](https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/index.png)
 
 <p align="center">
   <a href="https://github.com/fluid-dev/hexo-theme-fluid/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid"></a>
@@ -13,23 +14,21 @@
   <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
 </p>
 
-![ScreenShot](https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/index.png)
+<p align="center">中文简体 | <a title="English" href="README_en.md">English</a></p>
 
+<p align="center">
+  <span>文档：</span>
+  <a href="https://fluid-dev.github.io/hexo-fluid-docs/">用户手册</a>&nbsp&nbsp
+  <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md">更新日志</a>&nbsp&nbsp
+  <a href="https://hexo.io/zh-cn/docs/front-matter">文章配置</a>
+</p>
 
-## 预览
-
-[Rook1e's blog](https://rook1e.com)
-
-[zkqiang's blog](https://zkqiang.cn)
-
-
-## 文档
-
-[使用指南](https://fluid-dev.github.io/hexo-fluid-docs/)
-
-[更新日志](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md)
-
-[文章配置](https://hexo.io/zh-cn/docs/front-matter)
+<p align="center">
+  <span>预览：</span>
+  <a href="https://rook1e.com">Rook1e's blog</a>&nbsp&nbsp
+  <a href="https://zkqiang.cn">zkqiang's blog</a>&nbsp&nbsp
+  <a href="https://eatrice.top">吃白饭的休伯利安号</a>
+</p>
 
 ## 快速开始
 
@@ -39,7 +38,7 @@
 
 下载后解压到 themes 目录下并重命名为 `fluid`。
 
-#### 2. 必要的配置 :warning: :warning: :warning:
+#### 2. :warning:必要的配置:warning:
 
 必须如下修改 Hexo 博客目录中的 `_config.yml`：
 
@@ -63,13 +62,15 @@ language: zh-CN  # 指定语言，可不改
 - [x] 内置文章搜索
 - [x] 页脚备案信息
 - [x] 网页访问统计
-- [x] 支持 KaTeX 数学公式
+- [x] 支持 LaTeX 数学公式
 
 ## 贡献者
 
 [![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
 
-非 PR 贡献：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
+英文文档翻译：[@EatRice](https://eatrice.top/)
+
+其他贡献：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
 
 如你也想贡献代码，可参照[贡献指南](https://fluid-dev.github.io/hexo-fluid-docs/contribute/)
 
