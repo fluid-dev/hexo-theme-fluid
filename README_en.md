@@ -30,13 +30,17 @@
 
 ## Quick Start
 
-#### 1. Get the latest version
+#### 1. Install Hexo
 
-Please download the [latest release](https://github.com/fluid-dev/hexo-theme-fluid/releases) first, and the master branch cannot guarantee stability.
+If you don't have a hexo blog, please follow [Hexo Docs](https://hexo.io/docs/) to install and initialize your blog。
+
+#### 2. Download Theme
+
+Please download the [latest release](https://github.com/fluid-dev/hexo-theme-fluid/releases) first, or the master branch can't guarantee stability.
 
 After downloading, extract it to the themes directory and rename it to `fluid`.
 
-#### 2. Necessary configuration
+#### 3. :warning:Necessary Configuration:warning:
 
 Modify `_config.yml` in the blog root directory as follows。
 

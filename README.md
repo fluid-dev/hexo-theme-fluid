@@ -32,13 +32,17 @@
 
 ## 快速开始
 
-#### 1. 获取最新版本
+#### 1. 搭建 Hexo 博客
+
+如果你还没有 Hexo 博客，请按照 [Hexo 官方文档](https://hexo.io/zh-cn/docs/) 进行安装、建站。
+
+#### 2. 获取主题最新版本
 
 请优先下载 [最新 release 版本](https://github.com/fluid-dev/hexo-theme-fluid/releases)，master 分支无法保证稳定。
 
 下载后解压到 themes 目录下并重命名为 `fluid`。
 
-#### 2. :warning:必要的配置:warning:
+#### 3. :warning:必要的配置:warning:
 
 必须如下修改 Hexo 博客目录中的 `_config.yml`：
 
