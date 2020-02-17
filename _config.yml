@@ -3,7 +3,7 @@
 # Author: Fluid-dev organization
 # Github: https://github.com/fluid-dev/hexo-theme-fluid
 #
-# 本配置的详细指南请见：https://fluid-dev.github.io/hexo-fluid-docs/guide/
+# 本配置的详细指南请见：https://hexo.fluid-dev.com/docs/guide/
 #---------------------------
 
 
@@ -170,7 +170,7 @@ post:
     type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere
   image_zoom:  # 文章图片可点击放大
     enable: true
-  math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见 https://fluid-dev.github.io/hexo-fluid-docs/guide/#数学公式
+  math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见 https://hexo.fluid-dev.com/docs/guide/#数学公式
     enable: false
     specific: false  # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
     engine: mathjax  # 公式引擎  available: mathjax | katex
@@ -319,6 +319,6 @@ links:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   items:
-    Fluid Docs: [https://fluid-dev.github.io/hexo-fluid-docs/, 主题使用指南]
+    Fluid Docs: [https://hexo.fluid-dev.com/docs/, 主题使用指南]
     Fluid Repo: [https://github.com/fluid-dev/hexo-theme-fluid, 主题 GitHub 仓库]
     Fluid Changelog: [https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md, 主题更新日志]

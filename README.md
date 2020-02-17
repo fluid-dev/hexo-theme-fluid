@@ -14,19 +14,19 @@
   <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
 </p>
 
-<p align="center">中文简体 | <a title="English" href="README_en.md">English</a></p>
+<p align="center">中文简体  |  <a title="English" href="README_en.md">English</a></p>
 
 <p align="center">
   <span>文档：</span>
-  <a href="https://fluid-dev.github.io/hexo-fluid-docs/">用户手册</a>&nbsp&nbsp
-  <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md">更新日志</a>&nbsp&nbsp
+  <a href="https://hexo.fluid-dev.com/docs/">用户手册</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md">更新日志</a>&nbsp&nbsp&nbsp&nbsp
   <a href="https://hexo.io/zh-cn/docs/front-matter">文章配置</a>
 </p>
 
 <p align="center">
   <span>预览：</span>
-  <a href="https://rook1e.com">Rook1e's blog</a>&nbsp&nbsp
-  <a href="https://zkqiang.cn">zkqiang's blog</a>&nbsp&nbsp
+  <a href="https://rook1e.com">Rook1e's blog</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://zkqiang.cn">zkqiang's blog</a>&nbsp&nbsp&nbsp&nbsp
   <a href="https://eatrice.top">吃白饭的休伯利安号</a>
 </p>
 
@@ -72,7 +72,7 @@ language: zh-CN  # 指定语言，可不改
 
 其他贡献：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
 
-如你也想贡献代码，可参照[贡献指南](https://fluid-dev.github.io/hexo-fluid-docs/contribute/)
+如你也想贡献代码，可参照[贡献指南](https://hexo.fluid-dev.com/docs/contribute/)
 
 ## 反馈
 

@@ -13,11 +13,11 @@
   <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
 </p>
 
-<p align="center">English | <a title="Chinese" href="README.md">中文简体</a></p>
+<p align="center"><a title="Chinese" href="README.md">中文简体</a>  |  English</p>
 
 <p align="center">
   <span>Docs：</span>
-  <a href="https://fluid-dev.github.io/hexo-fluid-docs/en/">Theme Guide</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.fluid-dev.com/docs/en/">Theme Guide</a>&nbsp&nbsp&nbsp&nbsp
   <a href="https://hexo.io/docs/front-matter">Post Front-matter</a>
 </p>
 
@@ -32,7 +32,7 @@
 
 #### 1. Get the latest version
 
-Please download the [latest release version](https://github.com/fluid-dev/hexo-theme-fluid/releases) first, and the master branch cannot guarantee stability.
+Please download the [latest release](https://github.com/fluid-dev/hexo-theme-fluid/releases) first, and the master branch cannot guarantee stability.
 
 After downloading, extract it to the themes directory and rename it to `fluid`.
 
@@ -45,19 +45,9 @@ Modify `_config.yml` in the blog root directory as follows。
 highlight:
   enable: false
 
+# set theme
 theme: fluid
 ```
-
-## Smooth upgrade
-
-Starting with v1.4.0, you can use Hexo [data files](https://hexo.io/docs/data-files.html) to host theme configurations:
-
-1. Go to the site's `/source/_data/` directory (note: not the `source` directory of the theme), create `_data` directory if it did not exist.
-2. Create `fluid_config.yml` and copy the modified or all configuration items from the theme configuration file into it. In this way, configuration item in `fluid_config.yml` will automatically override the theme's `_config.yml` when `hexo g` and will not be lost after updating the theme.
-3. Move your custom resource files (head_img, about.md, etc.) to site's `source` folder (don't forget to change the reference address for the resource in the configuration file)
-4. (v1.5.0 version and above) If you need to use a CDN or other means to store static resources: Copy theme's `_static_prefix.yml` to site's `/source/_data/`, rename it to `fluid_static_prefix.yml` and modify its configuration. If `_data/fluid_static_prefix.yml` exists, it will automatically overwrite theme's `_static_prefix.yml`.
-
-After completing the above steps, in the future update, you only need to overwrite the `theme/fluid` folder with the new release.
 
 ## Features
 
