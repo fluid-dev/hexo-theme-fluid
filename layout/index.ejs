@@ -23,13 +23,11 @@ page.banner_img_height = theme.index.banner_img_height
 
       <a href="<%- post_url %>">
         <% var height_limit = '', excerpt = '' %>
-        <% if(post.excerpt.length > 0) { %>
+        <% if(post.excerpt && post.excerpt.length > 0) { %>
           <% excerpt = strip_html(post.excerpt) + "..." %>
           <% height_limit = 'style="max-height: none;"' %>
         <% } else if(theme.index.auto_excerpt.enable){ %>
-          <% excerpt = strip_html(post.content).substr(0, 500) %>
-        <% } else { %>
-          <% excerpt = strip_html(post.content) %>
+          <% excerpt = strip_html(post.content).substr(0, 300) %>
         <% } %>
         <div class="index-excerpt" <%- height_limit %>>
           <div class="index-text mb-1"><%- excerpt %></div>
