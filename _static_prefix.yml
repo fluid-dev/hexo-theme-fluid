@@ -63,4 +63,4 @@ smooth_scroll: /lib/smoothscroll
 
 mathjax: https://cdn.staticfile.org/mathjax/2.7.6/
 
-katex: /lib/katex
+katex: https://cdn.staticfile.org/KaTeX/0.11.1/
