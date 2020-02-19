@@ -12,7 +12,7 @@ page.banner_img_height = theme.about.banner_img_height
   <% for(const i in theme.about.icons) { %>
     <% var href = theme.about.icons[i]; %>
     <% if (!href) continue; %>
-    <a href="<%- i.search('weixin') == -1 ? href : 'javascript:;' %>"
+    <a href="<%- i.search('weixin') == -1 ? url_for(href) : 'javascript:;' %>"
        class="h4 px-1 <%- i.search('weixin') == -1 ? '' : 'wechat' %>">
       <i class="<%- i %>" aria-hidden="true"></i>
       <% if (i.search('weixin') != -1) { %>

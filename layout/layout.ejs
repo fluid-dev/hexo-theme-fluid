@@ -13,7 +13,7 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
     <div class="view intro-2" id="background" <%- theme.banner_parallax && !is_post() && 'parallax=true' %>
-         style="background: url('<%- banner_img %>')no-repeat center center;
+         style="background: url('<%- url_for(banner_img) %>') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">

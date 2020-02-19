@@ -12,7 +12,8 @@ page.banner_img_height = theme.index.banner_img_height
     <% if(post.index_img != null) { %>
       <div class="col-12 col-md-4 m-auto">
         <a href="<%- post_url %>" target="<%- theme.index.post_url_target %>">
-          <img src="<%- post.index_img %>" alt="<%= post.title %>" class="index-img img-fluid rounded index-thumbnails">
+          <img src="<%- url_for(post.index_img) %>" alt="<%= post.title %>"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     <% } %>

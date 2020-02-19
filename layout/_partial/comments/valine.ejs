@@ -15,7 +15,7 @@
         app_id: "<%= theme.valine.appid %>",
         app_key: "<%= theme.valine.appkey %>",
         placeholder: "<%= theme.valine.placeholder %>",
-        avatar: "<%= theme.valine.avatar %>",
+        avatar: "<%= url_for(theme.valine.avatar) %>",
         meta: ['nick', 'mail', 'link'],
         pageSize: "<%= theme.valine.pageSize %>",
       });
