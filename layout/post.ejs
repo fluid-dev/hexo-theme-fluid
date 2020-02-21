@@ -22,7 +22,7 @@ page.banner_img_height = theme.post.banner_img_height
               <span>
                 <i class="iconfont icon-inbox"></i>
                 <% page.categories.each(function(cate) { %>
-                  <a class="hover-with-bg" href="/categories/<%- encodeURI(cate.name).replace('.', '-') %>"><%= cate.name %></a>
+                  <a class="hover-with-bg" href="<%- url_for(cate.path) %>"><%= cate.name %></a>
                   &nbsp;
                 <% }) %>
               </span>&nbsp;&nbsp;
@@ -31,7 +31,7 @@ page.banner_img_height = theme.post.banner_img_height
               <span>
                 <i class="iconfont icon-tag"></i>
                 <% page.tags.each(function(tag) { %>
-                  <a class="hover-with-bg" href="/tags/<%- encodeURI(tag.name).replace('.', '-') %>"><%= tag.name %></a>
+                  <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
                 <% }) %>
               </span>
             <% } %>
