@@ -267,22 +267,21 @@ body
     transform translateY(0)
 
 
-.wechat
+.qr-trigger
   cursor pointer
   position relative
 
-  &:hover .wechat-qrcode
+  &:hover .qr-img
     display block
+    transition: all .3s;
 
-.wechat-qrcode
-  width 200px
-  height 300px
-  background url($about-wechat-qrcode) no-repeat
-  background-size 100%
+.qr-img
+  max-width 200px
   position absolute
   right -100px
   z-index 99
   display none
+  box-shadow 0 0 20px -5px hsla(0, 0%, 62%, .2)
 
 // Footer police 添加备案图标
 a.police-beian
