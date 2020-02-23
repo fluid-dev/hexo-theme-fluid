@@ -55,6 +55,28 @@ theme: fluid  # 指定主题
 language: zh-CN  # 指定语言，可不改
 ```
 
+#### 4. 创建「关于页」
+
+自 v1.7.0 开始，「关于页」需要手动创建：
+
+```bash
+$ hexo new page about
+```
+
+创建成功后修改 `/source/about/index.md`，添加 `layout` 属性。
+
+修改后的文件示例如下：
+
+```yml
+title: about
+date: 2020-02-23 19:20:33
+layout: about
+---
+
+# 这里可以写正文
+支持 Markdown, HTML
+```
+
 ## 功能特性
 
 - [x] 图片懒加载

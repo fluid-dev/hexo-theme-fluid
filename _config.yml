@@ -295,7 +295,6 @@ tag:
 # About Page
 #---------------------------
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
-  md_path: ./pages/about.md  # 关于页文档的相对路径，可以按相对文档设置主题之外的路径，从而避免更新冲突
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   avatar: /img/avatar.png # 头像

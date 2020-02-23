@@ -18,7 +18,7 @@ hexo.extend.generator.register('_hexo_generator_search', function (locals) {
     return str && str.replace(/[\x00-\x1F\x7F]/g, '');
   });
 
-  var searchTmplSrc = pathFn.join(__dirname, '../pages/local-search.xml');
+  var searchTmplSrc = pathFn.join(__dirname, '../local-search.xml');
   var searchTmpl = nunjucks.compile(fs.readFileSync(searchTmplSrc, 'utf8'), env);
 
   var searchConfig = config.search;

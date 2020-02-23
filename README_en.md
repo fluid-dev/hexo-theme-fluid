@@ -53,6 +53,28 @@ highlight:
 theme: fluid
 ```
 
+#### 4. Create About Page
+
+Since v1.7.0, the about page needs to be created manually:
+
+```bash
+$ hexo new page about
+```
+
+After successful creation, modify `/source/about/index.md` and add `layout` attribute.
+
+The modified file example is as follows:
+
+```yml
+title: about
+date: 2020-02-23 19:20:33
+layout: about
+---
+
+# You can write the content here
+Support Markdown, HTML
+```
+
 ## Features
 
 - [x] Img lazyload
