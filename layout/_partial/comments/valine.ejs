@@ -4,8 +4,8 @@
   <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
   <script>
-    var notify = '<%= theme.valine.notify %>' === true;
-    var verify = '<%= theme.valine.verify %>' === true;
+    var notify = '<%= theme.valine.notify %>' === 'true';
+    var verify = '<%= theme.valine.verify %>' === 'true';
     var oldLoad = window.onload;
     window.onload = function () {
       new Valine({
