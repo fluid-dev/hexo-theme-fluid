@@ -43,9 +43,11 @@ page.banner_img_height = theme.post.banner_img_height
         </div>
       </div>
     </div>
-    <div class="d-none d-lg-block col-lg-2 toc-container">
-      <%- partial('_partial/toc') %>
-    </div>
+    <% if(theme.post.toc.enable && page.toc != false){ %>
+      <div class="d-none d-lg-block col-lg-2 toc-container">
+        <%- partial('_partial/toc') %>
+      </div>
+    <% } %>
   </div>
 </div>
 
