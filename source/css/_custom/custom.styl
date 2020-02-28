@@ -1,1 +1,94 @@
 // Custom styles
+//图片
+img
+//   max-width: 90%;
+//   margin: 1.5rem auto;
+//   display: block;
+  border-radius 0.8rem
+  transition all .5s
+  -webkit-transition all .5
+  -ms-transition all .5
+img:hover 
+    transition: all 0.5s
+    -webkit-transition: all 0.5s
+    -ms-transition: all 0.5s
+    transform: scale(1.05)
+
+/*ul and ol*/
+.markdown-body a 
+   background-color: transparent;
+   text-decoration: none;
+   color: #00f4e8;
+   transition: all .12s;
+
+.markdown-body li:hover 
+   text-shadow: 3px 3px 2px #2f2f2f57;
+
+  /*ol使用css排序进行定义序号*/
+.markdown-body ol 
+   counter-reset: xxx 0 !important;
+
+.markdown-body ol li:before 
+   content: counter(xxx,decimal) "." !important;
+   counter-increment: xxx 1 !important; 
+   position:absolute;
+   font-family:'Comic Sans MS','Open Sans','Microsoft Yahei','Microsoft Yahei',-apple-system,sans-serif !important;
+   color:#000;
+   top:0;
+   left:0;
+   text-align:center;
+   font-size:1.2em;
+   opacity:.5;
+   /*使用行高来调整前缀的上下位置*/
+   line-height:1.33;
+   text-shadow:4px 4px 1px rgba(0,0,0,.1);
+   -webkit-transition:.5s;transition:.5s
+
+.markdown-body ol li:hover:before 
+   -webkit-transform:scale(2);-ms-transform:scale(2);transform:scale(2);
+   opacity:1;
+   text-shadow:2px 2px 1px rgba(0,0,0,.1);
+   -webkit-transition:.1s;transition:.1s
+
+.markdown-body ol li 
+   list-style:none;
+   position:relative;
+   padding:0 0 0 2.1em;
+   margin:0 0 0 10px;
+   text-shadow:0px 0px 0px rgba(0,0,0,.1);
+   -webkit-transition:.12s;transition:.12s;
+
+   /*ul使用插入圆点来模拟无序列表*/
+.markdown-body ul li:before 
+   position:absolute;
+   content:'\2022';
+   font-family:Arial;
+   color:#000;
+   top:0;
+   left:0;
+   text-align:center;
+   font-size:1.5em;
+   opacity:.5;
+   /*使用行高来调整前缀的位置*/
+   line-height:1;
+   text-shadow:4px 4px 1px rgba(0,0,0,.1);
+   -webkit-transition:.5s;transition:.5s
+
+.markdown-body ul li:hover:before 
+   -webkit-transform:scale(2);-ms-transform:scale(2);transform:scale(2);
+   opacity:1;
+   text-shadow:2px 2px 1px rgba(0,0,0,.1);
+   -webkit-transition:.1s;transition:.1s
+.markdown-body ul li 
+   list-style:none;
+   position:relative;
+   padding:0 0 0 1.5em;
+   margin:0 0 0 10px;
+   text-shadow:0px 0px 0px rgba(0,0,0,.1);
+   -webkit-transition:.12s;transition:.12s;
+
+//CC
+.note.note-warning 
+    background-color: #a3f3f1a1;
+    border-color: #ff81c0 !important;
+

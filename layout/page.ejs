@@ -3,4 +3,28 @@ page.banner_img = page.banner_img || theme.page.banner_img
 page.banner_img_height = page.banner_img_height || theme.page.banner_img_height
 %>
 
-<%- page.content %>
+<% if (theme.page.page_style) { %>
+<div class="post-content mx-auto" id="post">
+    <div class="markdown-body">
+        <%- page.content %>
+        <hr>
+    </div>
+    <br>
+    <div>
+        <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
+        <p class="note note-warning"><%- theme.post.copyright.content %></p>
+        <% } %>
+    </div>
+</div>
+
+  <!-- custom -->
+  <% if(theme.post.custom.enable) { %>
+    <div class="col-lg-7 mx-auto nopadding-md">
+      <div class="container custom post-content mx-auto">
+        <%- theme.post.custom.content %>
+      </div>
+    </div>
+  <% } %>
+<% }else{ %>
+    <%- page.content %>
+<% } %>
