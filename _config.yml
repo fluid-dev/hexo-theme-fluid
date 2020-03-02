@@ -161,6 +161,9 @@ post:
     views:  # 阅读次数，统计基于不蒜子
       enable: true
       format: "{} 次"
+  updated:
+    enable: false
+    content: 本文最后更新于：
   toc:  # 文章右侧目录
     enable: true
     headingSelector: h1,h2,h3,h4,h5,h6
