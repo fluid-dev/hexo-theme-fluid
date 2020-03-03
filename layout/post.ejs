@@ -11,7 +11,7 @@ page.banner_img_height = theme.post.banner_img_height
     <div class="col-lg-8 nopadding-md">
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
-          <% if(theme.post.updated.enable) { %>
+          <% if(theme.post.updated && theme.post.updated.enable) { %>
             <p class="note note-warning"><%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %></p>
           <% } %>
           <div class="markdown-body">
