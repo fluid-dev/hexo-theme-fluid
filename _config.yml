@@ -67,6 +67,13 @@ daovoice:  # 在线客服 Daovoice 参考：http://dashboard.daovoice.io
   enable: false # 是否开启在线客服聊天
   appid: ''  # 应用ID设置
 
+aplayer:  # 音乐播放器
+  enable: false
+  order: 'random'  # 播放顺序，可选值: 'list', 'random'
+  songs:  # 歌曲列表，必须传入下列各参数，其中 url 与 cover 在本地需存于 source 目录，更多参数见文档：https://aplayer.js.org/#/zh-Hans/?id=%E5%8F%82%E6%95%B0
+    - { name: 'name', artist: 'artist', url: '/songs/test.mp3', cover: '/img/cover.jpg' }
+    - { name: 'name', artist: 'artist', url: 'https://...url.mp3', cover: 'https://...cover.jpg' }
+
 #---------------------------
 # 页头
 # Header

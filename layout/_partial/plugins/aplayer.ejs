@@ -1,0 +1,13 @@
+<%- js_ex(theme.static_prefix.aplayer, 'APlayer.min.js') %>
+<%- css_ex(theme.static_prefix.aplayer, 'APlayer.min.css') %>
+<script>
+  const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    fixed: true,
+    autoplay: false,
+    loop: 'all',
+    order: '<%= theme.aplayer.order %>',
+    preload: 'auto',
+    audio: <%- JSON.stringify(theme.aplayer.songs || []) %>
+  });
+</script>
