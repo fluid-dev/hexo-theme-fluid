@@ -1,11 +1,11 @@
-<%- js_ex(theme.static_prefix.jquery, "jquery.min.js") %>
-<%- js_ex(theme.static_prefix.popper, "popper.min.js") %>
-<%- js_ex(theme.static_prefix.bootstrap, "js/bootstrap.min.js") %>
-<%- js_ex(theme.static_prefix.mdbootstrap, "js/mdb.min.js") %>
-<%- js_ex(theme.static_prefix.internal_js, "main.js") %>
+<%- js_ex(theme.static_prefix.jquery, 'jquery.min.js') %>
+<%- js_ex(theme.static_prefix.popper, 'popper.min.js') %>
+<%- js_ex(theme.static_prefix.bootstrap, 'js/bootstrap.min.js') %>
+<%- js_ex(theme.static_prefix.mdbootstrap, 'js/mdb.min.js') %>
+<%- js_ex(theme.static_prefix.internal_js, 'main.js') %>
 
 <% if(theme.lazyload.enable){ %>
-  <%- js_ex(theme.static_prefix.internal_js, "lazyload.js") %>
+  <%- js_ex(theme.static_prefix.internal_js, 'lazyload.js') %>
 <% } %>
 
 <% if(is_post()){ %>
@@ -13,11 +13,11 @@
 <% } %>
 
 <% if (theme.smooth_scroll.enable) { %>
-  <%- js_ex(theme.static_prefix.smooth_scroll, "SmoothScroll.min.js") %>
+  <%- js_ex(theme.static_prefix.smooth_scroll, 'SmoothScroll.min.js') %>
 <% } %>
 
 <% if (theme.footer.statistics.enable || theme.post.meta.views.enable) { %>
-  <%- js_async("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js") %>
+  <%- js_ex('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', '', 'defer') %>
 <% } %>
 
 <!-- Plugins -->

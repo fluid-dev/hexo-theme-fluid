@@ -2,7 +2,7 @@
 
   <% if(theme.web_analytics.baidu) { %>
     <!-- Baidu Analytics -->
-    <script>
+    <script defer>
       var _hmt = _hmt || [];
       (function () {
         var hm = document.createElement("script");
@@ -15,7 +15,7 @@
 
   <% if (theme.web_analytics.google){ %>
     <!-- Google Analytics -->
-    <script>
+    <script defer>
       (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function () {
@@ -35,7 +35,7 @@
 
   <% if(theme.web_analytics.tencent) { %>
     <!-- Tencent Analytics -->
-    <script>
+    <script defer>
       var _mtac = {};
       (function () {
         var mta = document.createElement("script");
@@ -50,11 +50,12 @@
 
   <% if(theme.web_analytics.woyaola) { %>
     <!-- 51.la Analytics -->
-    <script type="text/javascript" src="//js.users.51.la/<%= theme.web_analytics.woyaola %>.js"></script>
+    <script defer type="text/javascript" src="//js.users.51.la/<%= theme.web_analytics.woyaola %>.js"></script>
   <% } %>
 
   <!-- cnzz Analytics -->
   <% if(theme.web_analytics.cnzz) { %>
-    <script src="//s4.cnzz.com/z_stat.php?id=<%- theme.web_analytics.cnzz %>&show=pic" type="text/javascript"></script>
+    <script defer src="//s4.cnzz.com/z_stat.php?id=<%- theme.web_analytics.cnzz %>&show=pic"
+            type="text/javascript"></script>
   <% } %>
 <% } %>

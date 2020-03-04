@@ -25,38 +25,37 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
             </span>
 
             <% if(is_post()) { %>
-              <br>
               <% if (theme.post.meta.date.enable) { %>
-                <p class="mt-3">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
                   <%- full_date(page.date, theme.post.meta.date.format) %>
                 </p>
               <% } %>
 
-              <p>
+              <p class="mt-1">
                 <% if (theme.post.meta.wordcount.enable) { %>
                   <% var wordcount_texts = theme.post.meta.wordcount.format.split('{}') %>
-                  &nbsp;<i class="far fa-chart-bar"></i>
-                  <span class="post-count">
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
                     <%- wordcount_texts[0] %><%- wordcount(page.content) %><%- wordcount_texts[1] %>
-                  </span>&nbsp;
+                  </span>
                 <% } %>
 
                 <% if (theme.post.meta.min2read.enable) { %>
                   <% var min2read_texts = theme.post.meta.min2read.format.split('{}') %>
-                  &nbsp;<i class="far fa-clock"></i>
-                  <span class="post-count">
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
                       <%- min2read_texts[0] %><%- min2read(page.content) %><%- min2read_texts[1] %>
-                  </span>&nbsp;
+                  </span>
                 <% } %>
 
                 <% if (theme.post.meta.views.enable) { %>
                   <!-- 不蒜子统计文章PV -->
                   <% var views_texts = theme.post.meta.views.format.split('{}') %>
-                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
-                  <span id="busuanzi_container_page_pv">
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
                     <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
-                  </span>&nbsp;
+                  </span>
                 <% } %>
               </p>
             <% } %>
