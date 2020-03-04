@@ -8,11 +8,11 @@ page.banner_img_height = theme.index.banner_img_height
 
 <% page.posts.each(function (post) { %>
   <div class="row mx-auto index-card">
-    <% var post_url = url_for(post.path) %>
-    <% if(post.index_img != null) { %>
+    <% var post_url = url_for(post.path), index_img = post.index_img || theme.index.post_default_img %>
+    <% if(index_img) { %>
       <div class="col-12 col-md-4 m-auto">
         <a href="<%- post_url %>" target="<%- theme.index.post_url_target %>">
-          <img src="<%- url_for(post.index_img) %>" alt="<%= post.title %>"
+          <img src="<%- url_for(index_img) %>" alt="<%= post.title %>"
                class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
