@@ -20,6 +20,10 @@
   <%- js_ex('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', '', 'defer') %>
 <% } %>
 
+<% if (theme.custom_js) { %>
+  <%- js(theme.custom_js) %>
+<% } %>
+
 <!-- Plugins -->
 <%- partial('_partial/plugins/analytics.ejs') %>
 <%- partial('_partial/plugins/prettify.ejs') %>

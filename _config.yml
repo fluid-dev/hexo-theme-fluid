@@ -15,7 +15,7 @@ favicon: /img/favicon.png # 网站标签页的 icon
 
 apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
 
-title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
+title_join_string: ' - '  # 浏览器标签页中的标题分隔符，效果： 文章名 - 站点名
 
 force_https: false  # 强制所有链接升级为 HTTPS（适用于图片等资源出现 HTTP 混入报错）
 
@@ -47,6 +47,9 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   link_color: "#3c4858"
   link_hover_color: "#1abc9c"
   board_color: "#fff"
+
+custom_js:   # 指定自定义 js 文件路径，路径是相对 source 目录，如 /js/custom.js
+custom_css:   # 指定自定义 css 文件路径，路径是相对 source 目录，如 /css/custom.css
 
 web_analytics:  # 网页访问统计
   enable: false
