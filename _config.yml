@@ -338,7 +338,8 @@ page404:
 links:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
-  items:
-    Fluid Docs: [https://hexo.fluid-dev.com/docs/, 主题使用指南]
-    Fluid Repo: [https://github.com/fluid-dev/hexo-theme-fluid, 主题 GitHub 仓库]
-    Fluid Changelog: [https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md, 主题更新日志]
+  defaultlinks: # 对应links.ejs中的 跟着身边的大佬走，努力成为小大佬
+    名字: [网址, 描述, 头像链接]
+    名字: [网址, 描述, 头像链接]
+  friendslinks: # 对应links.ejs中的 五湖四海的朋友们
+    名字: [网址, 描述, 头像链接]
