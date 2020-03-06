@@ -102,14 +102,22 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
     </a>
   <% } %>
 
-  <% if(theme.search.enable) { %>
+  <% if (theme.search.enable) { %>
     <%- partial('_partial/search') %>
   <% } %>
 
-  <% if(theme.aplayer && theme.aplayer.enable && theme.aplayer.songs) { %>
+  <% if (theme.aplayer && theme.aplayer.enable && theme.aplayer.songs) { %>
     <!-- APlayer 音乐播放器 -->
     <div id="aplayer"></div>
     <%- partial('_partial/plugins/aplayer.ejs') %>
+  <% } %>
+
+  <% if (theme.custom_html) { %>
+    <div class="col-lg-7 mx-auto nopadding-md">
+      <div class="container custom mx-auto">
+        <%- theme.custom_html %>
+      </div>
+    </div>
   <% } %>
 
   <%- partial('_partial/footer', { data: { 'subtitle': subtitle } }) %>
