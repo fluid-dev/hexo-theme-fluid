@@ -21,7 +21,7 @@ page.banner_img_height = theme.post.banner_img_height
           <br>
           <div>
             <p>
-            <% if (page.categories.length > 0) { %>
+            <% if (page.categories && page.categories.length > 0) { %>
               <span>
                 <i class="iconfont icon-inbox"></i>
                 <% page.categories.each(function(cate) { %>
@@ -30,7 +30,7 @@ page.banner_img_height = theme.post.banner_img_height
                 <% }) %>
               </span>&nbsp;&nbsp;
             <% } %>
-            <% if (page.tags.length > 0 ) { %>
+              <% if (page.tags && page.tags.length > 0 ) { %>
               <span>
                 <i class="iconfont icon-tag"></i>
                 <% page.tags.each(function(tag) { %>
