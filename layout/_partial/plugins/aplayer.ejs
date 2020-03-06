@@ -4,8 +4,8 @@
   const ap = new APlayer({
     container: document.getElementById('aplayer'),
     fixed: true,
-    autoplay: false,
-    loop: 'all',
+    autoplay: '<%= theme.aplayer.autoplay %>' === 'true',
+    loop: '<%= theme.aplayer.loop %>',
     order: '<%= theme.aplayer.order %>',
     preload: 'auto',
     audio: <%- JSON.stringify(theme.aplayer.songs || []) %>
