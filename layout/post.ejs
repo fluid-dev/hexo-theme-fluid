@@ -12,37 +12,46 @@ page.banner_img_height = theme.post.banner_img_height
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <% if(theme.post.updated && theme.post.updated.enable) { %>
-            <p class="note note-warning"><%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %></p>
+            <p
+              class="note note-warning"><%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %></p>
           <% } %>
           <div class="markdown-body">
             <%- page.content %>
-            <hr>
           </div>
-          <br>
+          <hr>
           <div>
             <p>
-            <% if (page.categories && page.categories.length > 0) { %>
-              <span>
+              <% if (page.categories && page.categories.length > 0) { %>
+                <span>
                 <i class="iconfont icon-inbox"></i>
-                <% page.categories.each(function(cate) { %>
-                  <a class="hover-with-bg" href="<%- url_for(cate.path) %>"><%= cate.name %></a>
-                  &nbsp;
-                <% }) %>
-              </span>&nbsp;&nbsp;
-            <% } %>
+                  <% page.categories.each(function(cate) { %>
+                    <a class="hover-with-bg" href="<%- url_for(cate.path) %>"><%= cate.name %></a>
+                    &nbsp;
+                  <% }) %>
+                </span>&nbsp;&nbsp;
+              <% } %>
               <% if (page.tags && page.tags.length > 0 ) { %>
-              <span>
+                <span>
                 <i class="iconfont icon-tag"></i>
-                <% page.tags.each(function(tag) { %>
-                  <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
-                <% }) %>
-              </span>
-            <% } %>
+                  <% page.tags.each(function(tag) { %>
+                    <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
+                  <% }) %>
+                </span>
+              <% } %>
             </p>
             <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
               <p class="note note-warning"><%- theme.post.copyright.content %></p>
             <% } %>
           </div>
+
+          <% if(page.comments && theme.post.comments.enable) { %>
+            <!-- Comments -->
+            <div class="comments" id="comments">
+              <% var type = '_partial/comments/' + theme.post.comments.type %>
+              <%- partial(type) %>
+            </div>
+          <% } %>
+
         </div>
       </div>
     </div>
@@ -54,7 +63,7 @@ page.banner_img_height = theme.post.banner_img_height
   </div>
 </div>
 
-<!-- custom -->
+<!-- Custom -->
 <% if(theme.post.custom.enable) { %>
   <div class="col-lg-7 mx-auto nopadding-md">
     <div class="container custom post-content mx-auto">
@@ -62,14 +71,3 @@ page.banner_img_height = theme.post.banner_img_height
     </div>
   </div>
 <% } %>
-
-<!-- Comments -->
-<div class="col-lg-7 mx-auto nopadding-md">
-  <div class="container comments mx-auto" id="comments">
-    <% if(page.comments && theme.post.comments.enable) { %>
-      <br><br>
-      <% var type = '_partial/comments/' + theme.post.comments.type %>
-      <%- partial(type) %>
-    <% } %>
-  </div>
-</div>
