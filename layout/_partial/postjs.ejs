@@ -40,6 +40,10 @@
       if ($('.toc-list-item').length > 0) {
         $('#toc > p').css('visibility', 'visible');
       }
+      var offset = $('#board-ctn').css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
     });
   </script>
 <% } %>

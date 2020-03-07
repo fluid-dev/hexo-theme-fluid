@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     var toc = $('#toc');
     if (toc) {
-      $('#toc-wrap').css({
+      $('#toc-ctn').css({
         'padding-top': `${ oVal }px`,
       });
     }

@@ -9,54 +9,55 @@ page.banner_img_height = theme.post.banner_img_height
   <div class="row">
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto" id="post">
-          <% if(theme.post.updated && theme.post.updated.enable) { %>
-            <p
-              class="note note-warning"><%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %></p>
-          <% } %>
-          <div class="markdown-body">
-            <%- page.content %>
-          </div>
-          <hr>
-          <div>
-            <p>
-              <% if (page.categories && page.categories.length > 0) { %>
-                <span>
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            <% if(theme.post.updated && theme.post.updated.enable) { %>
+              <p
+                class="note note-warning"><%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %></p>
+            <% } %>
+            <div class="markdown-body">
+              <%- page.content %>
+            </div>
+            <hr>
+            <div>
+              <p>
+                <% if (page.categories && page.categories.length > 0) { %>
+                  <span>
                 <i class="iconfont icon-inbox"></i>
-                  <% page.categories.each(function(cate) { %>
-                    <a class="hover-with-bg" href="<%- url_for(cate.path) %>"><%= cate.name %></a>
-                    &nbsp;
-                  <% }) %>
-                </span>&nbsp;&nbsp;
-              <% } %>
-              <% if (page.tags && page.tags.length > 0 ) { %>
-                <span>
+                    <% page.categories.each(function(cate) { %>
+                      <a class="hover-with-bg" href="<%- url_for(cate.path) %>"><%= cate.name %></a>
+                      &nbsp;
+                    <% }) %>
+                  </span>&nbsp;&nbsp;
+                <% } %>
+                <% if (page.tags && page.tags.length > 0 ) { %>
+                  <span>
                 <i class="iconfont icon-tag"></i>
-                  <% page.tags.each(function(tag) { %>
-                    <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
-                  <% }) %>
-                </span>
+                    <% page.tags.each(function(tag) { %>
+                      <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
+                    <% }) %>
+                  </span>
+                <% } %>
+              </p>
+              <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
+                <p class="note note-warning"><%- theme.post.copyright.content %></p>
               <% } %>
-            </p>
-            <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
-              <p class="note note-warning"><%- theme.post.copyright.content %></p>
+            </div>
+
+            <% if(page.comments && theme.post.comments.enable) { %>
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                <% var type = '_partial/comments/' + theme.post.comments.type %>
+                <%- partial(type) %>
+              </div>
             <% } %>
           </div>
-
-          <% if(page.comments && theme.post.comments.enable) { %>
-            <!-- Comments -->
-            <div class="comments" id="comments">
-              <% var type = '_partial/comments/' + theme.post.comments.type %>
-              <%- partial(type) %>
-            </div>
-          <% } %>
-
         </div>
       </div>
     </div>
     <% if(theme.post.toc.enable && page.toc != false){ %>
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-wrap">
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <%- partial('_partial/toc') %>
       </div>
     <% } %>
