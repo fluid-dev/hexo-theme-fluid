@@ -42,14 +42,11 @@
 
 下载后解压到 themes 目录下并重命名为 `fluid`。
 
-#### 3. :warning:必要的配置:warning:
+#### 3. 指定主题
 
-必须如下修改 Hexo 博客目录中的 `_config.yml`：
+如下修改 Hexo 博客目录中的 `_config.yml`：
 
 ```yaml
-highlight:
-  enable: false  # 关闭默认的代码高亮
-
 theme: fluid  # 指定主题
 
 language: zh-CN  # 指定语言，可不改
@@ -63,7 +60,7 @@ language: zh-CN  # 指定语言，可不改
 $ hexo new page about
 ```
 
-创建成功后修改 `/source/about/index.md`，添加 `layout` 属性。
+创建成功后，编辑博客目录下 `/source/about/index.md`，添加 `layout` 属性。
 
 修改后的文件示例如下：
 
@@ -73,8 +70,7 @@ date: 2020-02-23 19:20:33
 layout: about
 ---
 
-# 这里可以写正文
-支持 Markdown, HTML
+这里写正文，支持 Markdown, HTML
 ```
 
 ## 功能特性
@@ -89,12 +85,13 @@ layout: about
 - [x] 页脚备案信息
 - [x] 网页访问统计
 - [x] 支持 LaTeX 数学公式
+- [x] 音乐播放器
 
 ## 贡献者
 
 [![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
 
-英文文档翻译：[@EatRice](https://eatrice.top/)
+英文文档翻译：[@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top)
 
 其他贡献：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
 

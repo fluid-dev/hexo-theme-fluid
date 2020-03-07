@@ -40,16 +40,11 @@ Please download the [latest release](https://github.com/fluid-dev/hexo-theme-flu
 
 After downloading, extract it to the themes directory and rename it to `fluid`.
 
-#### 3. :warning:Necessary Configuration:warning:
+#### 3. Set theme
 
-Modify `_config.yml` in the blog root directory as follows。
+Edit `_config.yml` in the blog root directory as follows:
 
 ```yaml
-# close the defaulted highlight
-highlight:
-  enable: false
-
-# set theme
 theme: fluid
 ```
 
@@ -61,7 +56,7 @@ Since v1.7.0, the about page needs to be created manually:
 $ hexo new page about
 ```
 
-After successful creation, modify `/source/about/index.md` and add `layout` attribute.
+Then edit `/source/about/index.md` and add `layout` attribute.
 
 The modified file example is as follows:
 
@@ -71,7 +66,7 @@ date: 2020-02-23 19:20:33
 layout: about
 ---
 
-# You can write the content here
+You can write the content here
 Support Markdown, HTML
 ```
 
@@ -86,6 +81,7 @@ Support Markdown, HTML
 - [x] Built-in search plugin
 - [x] Website analysis
 - [x] Support for LaTeX
+- [x] Music player
 
 ## FAQ
 
@@ -102,7 +98,7 @@ Support Markdown, HTML
 
 [![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
 
-English docs translator：[@EatRice](https://eatrice.top/)
+English docs translator：[@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top)
 
 Contributors outside PR：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
 
