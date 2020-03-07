@@ -48,7 +48,7 @@ $(document).ready(function () {
 
   // 头图视差动画
   var parallax = function () {
-    var oVal = $(window).scrollTop() / 10;
+    var oVal = $(window).scrollTop() / 5;
     var offset = parseInt($('#board').css('margin-top'));
     var max = 96 + offset;
     if (oVal > max) {
