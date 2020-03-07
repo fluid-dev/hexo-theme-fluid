@@ -47,6 +47,7 @@ $(document).ready(function () {
   });
 
   // 头图视差动画
+  var target = $('#background[parallax="true"]');
   var parallax = function () {
     var oVal = $(window).scrollTop() / 5;
     var offset = parseInt($('#board').css('margin-top'));
@@ -54,7 +55,7 @@ $(document).ready(function () {
     if (oVal > max) {
       oVal = max;
     }
-    $('#background[parallax="true"]').css({
+    target.css({
       transform: 'translate3d(0,' + oVal + 'px,0)',
       '-webkit-transform': 'translate3d(0,' + oVal + 'px,0)',
       '-ms-transform': 'translate3d(0,' + oVal + 'px,0)',
@@ -68,8 +69,10 @@ $(document).ready(function () {
       });
     }
   };
-  parallax();
-  $(window).scroll(parallax);
+  if (target.length > 0) {
+    parallax();
+    $(window).scroll(parallax);
+  }
 
   // 向下滚动箭头的点击
   $('.scroll-down-bar').on('click', scrollToBoard);
