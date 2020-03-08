@@ -341,6 +341,6 @@ links:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   items:  # 键是友链标题、值的列表内容分别是 [链接, 简介, 头像]，头像可以省略
-    Fluid Docs: [https://hexo.fluid-dev.com/docs/, 主题使用指南, /img/avatar.png]
-    Fluid Repo: [https://github.com/fluid-dev/hexo-theme-fluid, 主题 GitHub 仓库, /img/avatar.png]
-    Fluid Changelog: [https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md, 主题更新日志, /img/avatar.png]
+    Fluid Docs: [https://hexo.fluid-dev.com/docs/, 主题使用指南, /img/favicon.png]
+    Fluid Repo: [https://github.com/fluid-dev/hexo-theme-fluid, 主题 GitHub 仓库, /img/favicon.png]
+    Fluid Changelog: [https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md, 主题更新日志, /img/favicon.png]
