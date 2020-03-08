@@ -1,0 +1,82 @@
+#linkks{
+    margin-top: 5rem;
+}
+.linkks-content{
+    margin-top:1rem;
+}
+.linkk-navigation::after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+.cardd {
+    width: 300px;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition-duration: 0.25s;
+    margin-bottom: 1rem;
+    display:flex;
+    margin: 20px 7px;
+    width: calc(100% / 3 - 14px);
+    border-radius: 8px;
+    list-style: none;
+    line-height: 17px;
+}
+.cardd:nth-child(odd) {
+    float: left;
+}
+.cardd:nth-child(even) {
+    float: right;
+}
+.cardd:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 0 0 6px 0 rgba(0, 0, 0, 0.3);
+}
+.cardd a {
+    border:none;
+}
+.cardd .ava {
+    width: 44px!important;
+    height: 44px!important;
+    margin:5px!important;
+    margin-right: 1em!important;
+    border-radius:25px;
+    transition-duration: 0.25s
+}
+.cardd:hover img{
+    transform: scale(1.15) rotate(12deg);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2);
+}
+.cardd .cardd-header {
+    font-style: italic;
+    overflow: hidden;
+    width: 236px;
+    margin-top: 10px;
+}
+.cardd .cardd-header a {
+    font-style: normal;
+    color: #2f4154;
+    font-weight: bold;
+    text-decoration: none;
+}
+.cardd .cardd-header a:hover {
+    color: #FF779A;
+    text-decoration: none;
+}
+.cardd .cardd-header .info {
+    font-style:normal;
+    color:#a3a3a3;
+    font-size:14px;
+    min-width: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+@media (max-width: 767px){
+    .cardd{
+        width: 90%;
+        display: block;
+        margin-left: 7%
+    }
+}
