@@ -1,13 +1,14 @@
 <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
     <%- partial('_partial/busuanzi.ejs') %>
     <%- partial('_partial/beian.ejs') %>
-    <!-- cnzz Analytics icon -->
     <% if(theme.web_analytics.cnzz) { %>
+      <!-- cnzz Analytics Icon -->
       <span id="cnzz_stat_icon_<%- theme.web_analytics.cnzz %>" style="display: none"></span>
     <% } %>
   </div>
