@@ -281,7 +281,7 @@ livere:
 archive:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
-
+  subtitle:  # 打字机内容
 
 #---------------------------
 # 分类归档页
@@ -290,7 +290,7 @@ archive:
 category:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
-
+  subtitle:  # 打字机内容
 
 #---------------------------
 # 标签归档页
@@ -299,6 +299,7 @@ category:
 tag:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
+  subtitle:  # 打字机内容
   tagcloud: # 标签云
     min_font: 15
     max_font: 30
@@ -314,6 +315,7 @@ tag:
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
+  subtitle:  # 打字机内容
   avatar: /img/avatar.png # 头像
   name: myname
   introduce: info / info / info # 支持 HTML
@@ -330,7 +332,7 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
 page404:
   banner_img: /img/default.png
   banner_img_height: 100  # available: 0 - 100
-  subtitle: 'Page not found'
+  subtitle: 'Page not found'  # 打字机内容
 
 
 #---------------------------
@@ -340,6 +342,7 @@ page404:
 links:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
+  subtitle:  # 打字机内容
   items:  # 键是友链标题、值的列表内容分别是 [链接, 简介, 头像]，头像可以省略
     Fluid Docs: [https://hexo.fluid-dev.com/docs/, 主题使用指南, /img/favicon.png]
     Fluid Repo: [https://github.com/fluid-dev/hexo-theme-fluid, 主题 GitHub 仓库, /img/favicon.png]
