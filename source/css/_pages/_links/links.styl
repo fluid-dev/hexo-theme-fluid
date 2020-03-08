@@ -1,0 +1,61 @@
+@media (max-width 768px)
+  .links
+    display flex
+    flex-direction column
+    justify-content center
+
+.link-card
+  box-shadow none
+
+.link-body
+  margin 1rem 0
+  padding .5rem 1rem
+  border-radius .3rem
+
+  &:hover
+    transition all 0.3s
+    background-color #ebedef
+    z-index 1
+
+    .link-avatar
+      transform scale(1.15)
+      transition-duration 0.25s
+
+.link-container
+  margin .5rem 1rem
+
+.link-avatar
+  width 3rem
+  height 3rem
+  border-radius 1.5rem
+  margin-right .75rem
+  object-fit cover
+
+.link-text
+  display flex
+  flex-direction column
+  justify-content center
+
+  @media (min-width 769px)
+    &:only-child
+      margin-left 1rem
+
+.link-title
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+  color #2f4154
+  font-weight bold
+
+.link-intro
+  height 2rem
+  font-size 0.85rem
+  line-height 1.2
+  color #a3a3a3
+  display -webkit-box
+  -webkit-box-orient vertical
+  -webkit-line-clamp 2
+  text-overflow ellipsis
+  overflow hidden
+  display flex
+  align-items center

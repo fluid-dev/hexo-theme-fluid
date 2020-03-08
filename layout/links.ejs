@@ -9,13 +9,22 @@ page.banner_img_height = theme.links.banner_img_height
 <div class="row links">
   <% for(const each in theme.links.items) { %>
     <div class="card link-card col-lg-4 col-md-6 col-sm-12">
-      <div class="card-body">
-        <% var props = theme.links.items[each] %>
-        <% if (!props) continue %>
-        <a href="<%= url_for(props[0]) %>">
-          <h5 class="card-title link-card-title"><%- each %></h5>
-          <p class="card-text link-card-text"><%- props[1] %></p>
-        </a>
+      <div class="card-body link-body">
+        <div class="link-container">
+          <% var props = theme.links.items[each] %>
+          <% if (!props) continue %>
+          <a href="<%= url_for(props[0]) %>" target="_blank">
+            <div class="row" style="flex-wrap: nowrap">
+              <% if (props[2]) { %>
+                <img class="link-avatar my-auto" src="<%= props[2] %>" alt="<%= each %>" />
+              <% } %>
+              <div class="link-text">
+                <div class="link-title"><%- each %></div>
+                <div class="link-intro"><%- props[1] %></div>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   <% } %>
