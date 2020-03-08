@@ -6,17 +6,37 @@ page.banner_img = theme.links.banner_img
 page.banner_img_height = theme.links.banner_img_height
 %>
 
-<div class="row links">
-  <% for(const each in theme.links.items) { %>
-    <div class="card link-card col-lg-4 col-md-6 col-sm-12">
-      <div class="card-body">
-        <% var props = theme.links.items[each] %>
-        <% if (!props) continue %>
-        <a href="<%= url_for(props[0]) %>">
-          <h5 class="card-title link-card-title"><%- each %></h5>
-          <p class="card-text link-card-text"><%- props[1] %></p>
-        </a>
-      </div>
-    </div>
-  <% } %>
+<% if(theme.links.avatar) { %>
+<div class="linkks-content">
+  <div class="note note-primary"><div class="linkk-info"><h4>🍭 五湖四海的朋友们</h4></div></div>
+  <div class="linkk-navigation">
+    <% for (const each in theme.links.friendslinks) { %>
+      <% var props = theme.links.friendslinks[each] %>
+      <% if (!props) continue { %>
+        <div class="cardd" onclick="window.open('<%= url_for(props[0]) %>')">
+          <img class="ava nomediumzoom" src="<%= props[2] %>"/>
+          <div class="cardd-header">
+            <div><a><%- each %></a></div>
+            <div class="info"><%- props[1] %></div>
+          </div>
+        </div>
+      <% } %>
+    <% } %>
+  </div>
 </div>
+<% } eles { %>
+  <div class="row links">
+    <% for(const each in theme.links.items) { %>
+      <div class="card link-card col-lg-4 col-md-6 col-sm-12">
+        <div class="card-body">
+          <% var props = theme.links.items[each] %>
+          <% if (!props) continue %>
+          <a href="<%= url_for(props[0]) %>">
+            <h5 class="card-title link-card-title"><%- each %></h5>
+            <p class="card-text link-card-text"><%- props[1] %></p>
+          </a>
+        </div>
+      </div>
+    <% } %>
+  </div>
+<% } %>
