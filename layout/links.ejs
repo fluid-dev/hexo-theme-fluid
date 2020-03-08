@@ -13,7 +13,7 @@ page.banner_img_height = theme.links.banner_img_height
         <div class="link-container">
           <% var props = theme.links.items[each] %>
           <% if (!props) continue %>
-          <a href="<%= url_for(props[0]) %>" target="_blank">
+          <a href="<%= url_for(props[0]) %>" target="_blank" rel="nofollow noopener">
             <div class="row" style="flex-wrap: nowrap">
               <% if (props[2]) { %>
                 <img class="link-avatar my-auto" src="<%= props[2] %>" alt="<%= each %>" />
