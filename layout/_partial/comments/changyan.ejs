@@ -1,7 +1,6 @@
 <% if(theme.changyan.appid){ %>
-  <!--PC和WAP自适应版-->
   <div id="SOHUCS" sid='<%= page.permalink %>'></div>
-  <script type="text/javascript" defer>
+  <script type="text/javascript">
     (function () {
       var appid = '<%= theme.changyan.appid %>';
       var conf = '<%= theme.changyan.conf %>';
@@ -10,7 +9,7 @@
         var head = document.getElementsByTagName('head')[0] || document.head || document.documentElement;
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        script.charset = 'utf-8';
+        script.defer = true;
         script.id = 'changyan_mobile_js';
         script.src = 'https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
         head.appendChild(script);
@@ -19,7 +18,7 @@
           var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement;
           var b = document.createElement('script');
           b.setAttribute('type', 'text/javascript');
-          b.setAttribute('charset', 'UTF-8');
+          b.setAttribute('defer', 'defer');
           b.setAttribute('src', d);
           if (typeof a === 'function') {
             if (window.attachEvent) {
@@ -40,5 +39,6 @@
           window.changyan.api.config({ appid: appid, conf: conf });
         });
       }
-    })(); </script>
+    })();
+  </script>
 <% } %>

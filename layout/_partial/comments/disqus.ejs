@@ -1,7 +1,7 @@
 <% if (theme.disqus.shortname) { %>
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
-    <script defer>
+    <script type="text/javascript">
       var disqus_config = function () {
         this.page.url = '<%= config.url %>/<%= page.path %>';
         this.page.identifier = '/<%= page.path %>';
@@ -13,6 +13,7 @@
         s.src = '//' + '<%- theme.disqus.shortname %>' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
+        oldLoad && oldLoad();
       };
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments
