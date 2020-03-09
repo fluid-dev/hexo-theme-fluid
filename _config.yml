@@ -71,7 +71,7 @@ daovoice:  # 在线客服 Daovoice 参考：http://dashboard.daovoice.io
   enable: false # 是否开启在线客服聊天
   appid: ''  # 应用ID设置
 
-aplayer:  # 音乐播放器
+aplayer:  # 音乐播放器，注意不能与 hexo-tag-aplayer 插件共用
   enable: false
   autoplay: false  # 音频自动播放
   loop: 'all'  # 音频循环播放, 可选值: 'all', 'one', 'none'

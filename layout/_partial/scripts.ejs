@@ -17,7 +17,7 @@
 <% } %>
 
 <% if (theme.footer.statistics.enable || theme.post.meta.views.enable) { %>
-  <%- js_ex('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', '', 'defer') %>
+  <%- js_ex(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
 <% } %>
 
 <% if (theme.custom_js) { %>

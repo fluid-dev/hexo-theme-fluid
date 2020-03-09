@@ -51,7 +51,7 @@ prettify: https://cdn.staticfile.org/prettify/188.0.0/
 
 # 高亮主题的路径，只支持 min.css，文件名需要与 _config.highlight.theme 对应
 # the path of highlight theme, only support `min.css` file，filename need to be the same as _config.highlight.theme
-prettify_theme: /lib/prettify
+prettify_theme: /lib/prettify/
 
 tocbot: https://cdn.staticfile.org/tocbot/4.10.0/
 
@@ -66,3 +66,5 @@ mathjax: https://cdn.staticfile.org/mathjax/2.7.7/
 katex: https://cdn.staticfile.org/KaTeX/0.11.1/
 
 aplayer: https://cdn.staticfile.org/aplayer/1.10.1/
+
+busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
