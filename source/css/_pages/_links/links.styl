@@ -1,27 +1,24 @@
-@media (max-width 768px)
-  .links
-    display flex
-    flex-direction column
-    justify-content center
+.links
+  .card
+    box-shadow none
 
-.link-card
-  box-shadow none
+  .card-body
+    margin 1rem 0
+    padding 1rem
+    border-radius .3rem
+    display block
 
-.link-body
-  margin 1rem 0
-  padding .5rem 1rem
-  border-radius .3rem
+    .row
+      margin 0
+      height 3.5rem
+      flex-wrap nowrap
 
-  &:hover
-    transition-duration 0.3s
-    background-color #ebedef
-    z-index 1
+    &:hover
+      transition-duration 0.3s
+      background-color #ebedef
 
-    .link-avatar
-      transform scale(1.1)
-
-.link-container
-  margin .5rem 1rem
+      .link-avatar
+        transform scale(1.1)
 
 .link-avatar
   width 3rem
@@ -32,13 +29,9 @@
   transition-duration 0.3s
 
 .link-text
-  display flex
+  display grid
   flex-direction column
   justify-content center
-
-  @media (min-width 769px)
-    &:only-child
-      margin-left 1rem
 
 .link-title
   overflow hidden
@@ -48,7 +41,7 @@
   font-weight bold
 
 .link-intro
-  height 2rem
+  max-height 2rem
   font-size 0.85rem
   line-height 1.2
   color #a3a3a3
@@ -57,5 +50,18 @@
   -webkit-line-clamp 2
   text-overflow ellipsis
   overflow hidden
-  display flex
-  align-items center
+
+@media (max-width 768px)
+  .links
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+
+    .card
+      padding-left 2rem
+      padding-right 2rem
+
+@media (min-width 769px)
+  .link-text:only-child
+    margin-left 1rem
