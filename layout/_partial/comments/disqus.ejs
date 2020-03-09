@@ -1,7 +1,7 @@
 <% if (theme.disqus.shortname) { %>
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
-    <script>
+    <script defer>
       var disqus_config = function () {
         this.page.url = '<%= config.url %>/<%= page.path %>';
         this.page.identifier = '/<%= page.path %>';

@@ -1,5 +1,5 @@
-<%- js_ex(theme.static_prefix.aplayer, 'APlayer.min.js') %>
-<%- css_ex(theme.static_prefix.aplayer, 'APlayer.min.css') %>
+<%- js_ex(theme.static_prefix.aplayer, 'APlayer.min.js', 'defer') %>
+<%- css_ex(theme.static_prefix.aplayer, 'APlayer.min.css', 'defer') %>
 <script>
   const ap = new APlayer({
     container: document.getElementById('aplayer'),

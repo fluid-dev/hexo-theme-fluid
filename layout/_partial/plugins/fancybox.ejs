@@ -1,5 +1,5 @@
 <% if (is_post && theme.post.image_zoom.enable) { %>
-  <%- js_ex(theme.static_prefix.fancybox, "jquery.fancybox.min.js") %>
+  <%- js_ex(theme.static_prefix.fancybox, "jquery.fancybox.min.js", "defer") %>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {
