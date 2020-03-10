@@ -9,7 +9,8 @@
       autoplay: '<%= theme.aplayer.autoplay %>' === 'true',
       loop: '<%= theme.aplayer.loop %>',
       order: '<%= theme.aplayer.order %>',
-      preload: 'auto',
+      theme: '<%= theme.aplayer.theme %>',
+      preload: 'none',
       audio: <%- JSON.stringify(theme.aplayer.songs || []) %>
     });
     oldLoad && oldLoad();
