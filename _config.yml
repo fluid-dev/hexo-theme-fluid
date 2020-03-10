@@ -114,8 +114,8 @@ banner_parallax: true  # 头图滚动视差
 # Footer
 #---------------------------
 footer:
-  statistics:  # 统计网站 PV、UV，使用的是不蒜子，显示在页脚
-    enable: true
+  statistics:  # 统计网站 PV、UV，使用的是不蒜子，显示在页脚  *不蒜子近期连接不稳定，谨慎开启
+    enable: false
     pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
     uv_format: "总访客数 {} 人"
 
@@ -172,8 +172,8 @@ post:
     min2read:  # 阅读时间
       enable: true
       format: "{} 分钟"
-    views:  # 阅读次数，统计基于不蒜子
-      enable: true
+    views:  # 阅读次数，统计基于不蒜子  *不蒜子近期连接不稳定，谨慎开启
+      enable: false
       format: "{} 次"
   updated:
     enable: false
