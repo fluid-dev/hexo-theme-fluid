@@ -32,18 +32,22 @@
 				})(i);
 			}
 		}
+		if (images.length === 0) {
+			window.removeEventListener('scroll', imageLazyLoader)
+		}
 	}
 
 	function throttle(method, context) {
 		clearTimeout(method.tId);
 		method.tId = setTimeout(function () {
-				method.call(context);
+			method.call(context);
 		}, 100);
 	}
 
 	processImages();
-
-	window.addEventListener('scroll', function () {
+	let imageLazyLoader = function () {
 		throttle(processImages, window);
-	});
+	};
+
+	window.addEventListener('scroll', imageLazyLoader);
 })(this);
