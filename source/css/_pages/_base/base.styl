@@ -50,17 +50,17 @@ img[srcset]
   .search-list-content
     padding 0 1.25rem
 
-.post-content
+.page-content, post-content
   strong
     font-weight bold
-
-  img
-    max-width 90%
 
 // Rewrite github-markdown.css
 
 .markdown-body
   margin-bottom 2rem
+
+  strong
+    font-weight bold
 
   h1, h2, h3, h4, h5, h6
     margin-bottom: .75em;
@@ -73,7 +73,7 @@ img[srcset]
   strong
     font-weight bold
 
-  img
+  p > img, a > img > p
     max-width 90%
     margin 1.5rem auto
     display block
