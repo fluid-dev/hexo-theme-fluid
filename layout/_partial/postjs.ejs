@@ -3,13 +3,15 @@
   <script>
     $(document).ready(function () {
       var navHeight = $('#navbar').height();
-      var post = $('#post');
       var toc = $('#toc');
-      var tocLimMax = post.offset().top + post.height() - navHeight;
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
 
       $(window).scroll(function () {
         var tocLimMin = $('#toc-start').offset().top - navHeight;
         var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+        console.log(tocLimMax, scroH)
 
         if (tocLimMin <= scroH && scroH <= tocLimMax) {
           toc.css({
@@ -36,11 +38,12 @@
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
         scrollSmooth: true,
+        headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
         $('#toc > p').css('visibility', 'visible');
       }
-      var offset = $('#board-ctn').css('margin-right')
+      var offset = boardCtn.css('margin-right')
       $('#toc-ctn').css({
         'right': offset
       })
