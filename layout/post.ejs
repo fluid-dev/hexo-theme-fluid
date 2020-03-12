@@ -43,24 +43,34 @@ page.banner_img_height = theme.post.banner_img_height
               <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
                 <p class="note note-warning"><%- theme.post.copyright.content %></p>
               <% } %>
-              <% if(theme.post.nav.enable) { %>
-                <div class="post-nav">
-                  <% if (page.prev) { %>
-                    <a href="<%- url_for(page.prev.path) %>"><i class="fa fa-chevron-left"></i>&nbsp<%= page.prev.title %></a>
-                  <% } %>
-                  <% if (page.next) { %>
-                    <a href="<%- url_for(page.next.path) %>"><%= page.next.title %>&nbsp<i class="fa fa-chevron-right"></i></a>
-                  <% } %>
+              <% if(theme.post.prev_next.enable) { %>
+                <div class="post-prevnext row">
+                  <div class="post-prev col-12 col-md-6">
+                    <% if (page.prev) { %>
+                      <a href="<%- url_for(page.prev.path) %>">
+                        <i class="fa fa-chevron-left"></i>
+                        <span><%= page.prev.title %></span>
+                      </a>
+                    <% } %>
+                  </div>
+                  <div class="post-next col-12 col-md-6">
+                    <% if (page.next) { %>
+                      <a href="<%- url_for(page.next.path) %>">
+                        <span><%= page.next.title %></span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    <% } %>
+                  </div>
                 </div>
               <% } %>
             </div>
 
-            <% if(page.comments && theme.post.comments.enable) { %>
-              <!-- Comments -->
-              <div class="comments" id="comments">
-                <% var type = '_partial/comments/' + theme.post.comments.type %>
-                <%- partial(type) %>
-              </div>
+              <% if(page.comments && theme.post.comments.enable) { %>
+                <!-- Comments -->
+                <div class="comments" id="comments">
+                  <% var type = '_partial/comments/' + theme.post.comments.type %>
+                  <%- partial(type) %>
+                </div>
             <% } %>
           </div>
         </div>

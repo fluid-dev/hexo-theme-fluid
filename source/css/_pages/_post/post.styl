@@ -28,6 +28,90 @@
   i
     margin 0 .15rem
 
+.post-prevnext
+  margin-top 2rem
+  display flex
+  justify-content space-between
+
+  .post-prev, .post-next
+    display flex
+
+    i
+      font-size 1.2rem
+      -webkit-transform translateZ(0)
+      -moz-transform translateZ(0)
+      -ms-transform translateZ(0)
+      -o-transform translateZ(0)
+      transform translateZ(0)
+
+    a
+      display flex
+      align-items center
+
+    span
+      display -webkit-box
+      -webkit-box-orient vertical
+      -webkit-line-clamp 2
+      text-overflow ellipsis
+      overflow hidden
+
+  .post-prev:hover i, .post-prev:active i, .post-next:hover i, .post-next:active i
+    -webkit-animation-duration 1s
+    animation-duration 1s
+    -webkit-animation-delay .1s
+    animation-delay .1s
+    -webkit-animation-timing-function ease-in-out
+    animation-timing-function ease-in-out
+    -webkit-animation-iteration-count infinite
+    animation-iteration-count infinite
+    -webkit-animation-fill-mode forwards
+    animation-fill-mode forwards
+    -webkit-animation-direction alternate
+    animation-direction alternate
+
+  .post-prev:hover i, .post-prev:active i
+    -webkit-animation-name post-prev-anim
+    animation-name post-prev-anim
+
+  .post-next:hover i, .post-next:active i
+    -webkit-animation-name post-next-anim
+    animation-name post-next-anim
+
+  .post-next
+    justify-content flex-end
+
+  .fa-chevron-left
+    margin-right .5rem
+
+  .fa-chevron-right
+    margin-left .5rem
+
+@media (max-width: 424px)
+  .post-prevnext
+    display none
+
+@keyframes post-prev-anim
+  0%
+    -webkit-transform translateX(0)
+    transform translateX(0)
+  50%
+    -webkit-transform translateX(-0.35rem)
+    transform translateX(-0.35rem)
+  100%
+    -webkit-transform translateX(0)
+    transform translateX(0)
+
+@keyframes post-next-anim
+  0%
+    -webkit-transform translateX(0)
+    transform translateX(0)
+  50%
+    -webkit-transform translateX(0.35rem)
+    transform translateX(0.35rem)
+  100%
+    -webkit-transform translateX(0)
+    transform translateX(0)
+
 // toc
 
 #toc
@@ -42,9 +126,11 @@
   overflow-y auto
   overflow -moz-scrollbars-none
   -ms-overflow-style none
+
   ol
     list-style none
     padding-inline-start 1rem
+
   &::-webkit-scrollbar
     display none
 
@@ -52,6 +138,7 @@
   ol
     list-style none
     padding-left 1rem
+
   a
     font-size: 15px
 
@@ -84,7 +171,3 @@
 
 .katex-block
   overflow-x auto
-
-.post-nav
-  display flex
-  justify-content space-between
