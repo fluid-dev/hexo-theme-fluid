@@ -43,6 +43,16 @@ page.banner_img_height = theme.post.banner_img_height
               <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
                 <p class="note note-warning"><%- theme.post.copyright.content %></p>
               <% } %>
+              <% if(theme.post.nav.enable) { %>
+                <div class="post-nav">
+                  <% if (page.prev) { %>
+                    <a href="<%- url_for(page.prev.path) %>"><i class="fa fa-chevron-left"></i>&nbsp<%= page.prev.title %></a>
+                  <% } %>
+                  <% if (page.next) { %>
+                    <a href="<%- url_for(page.next.path) %>"><%= page.next.title %>&nbsp<i class="fa fa-chevron-right"></i></a>
+                  <% } %>
+                </div>
+              <% } %>
             </div>
 
             <% if(page.comments && theme.post.comments.enable) { %>
