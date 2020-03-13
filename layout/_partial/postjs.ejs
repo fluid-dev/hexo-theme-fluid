@@ -11,7 +11,6 @@
       $(window).scroll(function () {
         var tocLimMin = $('#toc-start').offset().top - navHeight;
         var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-        console.log(tocLimMax, scroH)
 
         if (tocLimMin <= scroH && scroH <= tocLimMax) {
           toc.css({
