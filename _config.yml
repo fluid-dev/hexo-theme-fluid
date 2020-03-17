@@ -130,6 +130,15 @@ footer:
 scroll_top_arrow:  # 向顶部滚动的箭头
   enable: true
 
+#---------------------------
+# 吐个槽脚本，页面反馈
+# 文档 ：https://txc.qq.com/helper/WXPGuide
+#---------------------------
+txc:
+  enable: false
+  productId: 
+
+
 
 #---------------------------
 # 首页

@@ -1,0 +1,80 @@
+<% if(theme.txc.enable && theme.txc.productId){ %>
+<style type="text/css">
+    .footer .yuntucao-link {
+        position: fixed;
+        bottom: 40px;
+        right: 20px;
+        z-index: 9999;
+    }
+
+    .footer .yuntucao-link:hover .tips-wrap {
+        display: block;
+    }
+
+    .footer .yuntucao-link .logo-wrap {
+        cursor: pointer;
+        opacity: 0.9;
+        padding: 15px 10px 10px;
+        border-radius: 20px;
+        background: -webkit-gradient(linear, left top, left bottom, from(#dadfea), to(#ebedf5));
+        background: linear-gradient(-180deg, #dadfea, #ebedf5);
+    }
+
+    .footer .yuntucao-link .logo-wrap:hover {
+        background: #418dff;
+    }
+
+    .footer .yuntucao-link .logo-wrap:hover .logo {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAYAAAAAwr0iAAAABGdBTUEAALGPC/xhBQAAAe1JREFUSA29ls8uA1EUxjsqYSOIsCGNjX8bkbDgITyAjfAA3oOFlQXxEHZNI9hJRCJWgoigwkr8j0TQjt9hppk77ZmZzmTmJF/vPd85Pefr3Om9N5dzzLbtBXAEqiBNu6f4Juhxe+dw1tLsqNS+he/L8zGHkpWamuwmnbTqtxBwwGQ6u75GpycR8AOVN+jGzjf0KRgHVuOUOvYSRta6uy7iEC2MUZpL+pJlWROMq+JEsGNyRsEUsLV8ERDVik6iO4Z9bxvBFXBF4rmW3IyAGaeIO2o1Xf4vjyWWJRhySf8o74D6eHzJz/h7YBa0+WKau0OgAEa0hGYEaDUS8c0sQaJG2pdbtUAE/pGcdfDmyx3DX/RxuivvQExTd0/q3UStmWQJ1L8WP/dM/8lmJIkA+X9rdq0F/HwSAUFNgmKGhrgC5Fy4MyqZTtDTMTLjCiizxVaNSqaT+hMIaxAWr8mVJ/BS86JPAhvwdGTbfo1QriwCShES/SlffsLrswfIWSH3jDDbkrOglyw5uwfCsj1xeQnlJvXp4bzTYZxBL9FgfgL3fxNDRAEUQQWkbQ802AAdIsq4WkG2w+2DSQk69s44D3ZdIuH4wTtiqzUQcQhcu2Aih0t2RkNXQIl5V3adnU6OgGXGuJtUMs00lltsZvYLUPxHqiXJxFUAAAAASUVORK5CYII=) no-repeat 0;
+    }
+
+    .footer .yuntucao-link .logo-wrap .logo {
+        width: 32px;
+        height: 28px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAYAAAAAwr0iAAAABGdBTUEAALGPC/xhBQAAAqxJREFUSA21Vs9r1EAUfi/Z7bog1FU8KdWLv26ia1W0rApCD0qhdhdE8CdtL9WbBwX/gB48eShdqeJ1rb21KipbpSC9FARBoVIpiheVqkUQu+b5JWtKEjPJbNqdQ2bmvW++92XeZF6Y/rVypXoewwFi3iMi7NpXu2fiT8Q0njGz18517//qBCpXnt8SsgZWO1g0H3/IptJ58/bo5Gm88WA0uCne1pplbTLEoitNodcgxfZ3GkSyTwMLCC/h8YqZRQ+PFcTv8FxQ4YVkvQE2UwXw2Zkv95eO7gbhTZ9dOeGZdVTYmTbNfJRo7IBeMwxr3EYy1fu4Vcz0uFTiPxdPdcyR0FsVXluAZfFBm0So3qsIPXYHf29segM+6m0eu2/Iw5WqZk55AYfmmbCchIqMj0UxwRl4gjy3wb1DAaGUyvG/XXJQ2oPg2g3Bj8eBtVMQR5TU38AOBEIw4Ro1hljkh9djMe0ikQteW9Q4sQDkd6SvWLgRRl6+Xz0mQlvCfEFb4hTgQCo/LdSyN8FAqnliASLGnIoU9vcRPp8ruQAylEFAqvT5omOSUAAv9RUPfQySuXMxInfHhTl9IgHI/zzud8vH5Jng5mv2DkQHWJthfQF4k28e8VpDicnxmRMddgn+HkeGgjVvp+BhHDDoxx3wO2jzzicmZjMomzWvLXzMY3yn8mJjja0Z/JZtDgeFWZ2fk5cI8ivMi3qxHXVza6hv2civs625AzhPRMOVqTYIHsLWdmJhooO5zBs74C/4qXpgtqSvXuo6vOgIcNfcrVbXLH2mKQjZ69pwRhZRgs/mLHrq2lbSF4tHfoITIerNJ8A2lSuT0yij7Y6bedYwuau3u6B9tdZp9Z8R282PWlLS3szgtszQaojPY7C3p3A96rLRf8cGkSOj1XyDS1YE/wsT+LIWtt/NgQAAAABJRU5ErkJggg==) no-repeat 0;
+    }
+
+    .footer .yuntucao-link .tips-wrap {
+        position: relative;
+        display: none;
+    }
+
+    .footer .yuntucao-link .tips {
+        background: #4e4e4e;
+        border-radius: 4px;
+        position: absolute;
+        left: -98px;
+        top: -44px;
+    }
+
+    .footer .yuntucao-link .tips::after {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-left: 6px solid #4e4e4e;
+        position: absolute;
+        right: -6px;
+        top: 10px;
+    }
+
+    .footer .yuntucao-link .tips span {
+        line-height: 32px;
+        color: #fff;
+        padding: 0 15px;
+        font-size: 14px;
+    }
+</style>
+<div class="footer layout-footer">
+    <a class="yuntucao-link" href="https://support.qq.com/product/<%= theme.txc.productId %>" target="_blank">
+        <div class="logo-wrap">
+            <div class="logo"></div>
+        </div>
+        <div class="tips-wrap fade-in">
+            <div class="tips"><span>意见反馈</span></div>
+        </div>
+    </a>
+</div>
+<% } %>
