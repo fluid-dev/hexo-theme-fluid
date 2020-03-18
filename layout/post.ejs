@@ -43,20 +43,22 @@ page.banner_img_height = theme.post.banner_img_height
               <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
                 <p class="note note-warning"><%- theme.post.copyright.content %></p>
               <% } %>
-              <% if(theme.post.prev_next.enable) { %>
+              <% if(theme.post.prev_next.enable && !page.hide) { %>
                 <div class="post-prevnext row">
-                  <div class="post-prev col-12 col-md-6">
-                    <% if (page.prev) { %>
-                      <a href="<%- url_for(page.prev.path) %>">
+                  <div class="post-prev col-12 col-sm-6">
+                    <% const prev = prev_page(page) %>
+                    <% if (prev) { %>
+                      <a href="<%= url_for(prev.path) %>">
                         <i class="fa fa-chevron-left"></i>
-                        <span><%= page.prev.title %></span>
+                        <span><%- prev.title %></span>
                       </a>
                     <% } %>
                   </div>
-                  <div class="post-next col-12 col-md-6">
-                    <% if (page.next) { %>
-                      <a href="<%- url_for(page.next.path) %>">
-                        <span><%= page.next.title %></span>
+                  <div class="post-next col-12 col-sm-6">
+                    <% const next = next_page(page) %>
+                    <% if (next) { %>
+                      <a href="<%= url_for(next.path) %>">
+                        <span><%- next.title %></span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
                     <% } %>
@@ -71,7 +73,7 @@ page.banner_img_height = theme.post.banner_img_height
                   <% var type = '_partial/comments/' + theme.post.comments.type %>
                   <%- partial(type) %>
                 </div>
-            <% } %>
+              <% } %>
           </div>
         </div>
       </div>
