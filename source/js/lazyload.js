@@ -44,10 +44,11 @@
 		}, 100);
 	}
 
-	processImages();
 	let imageLazyLoader = function () {
 		throttle(processImages, window);
 	};
+
+	processImages();
 
 	window.addEventListener('scroll', imageLazyLoader);
 })(this);
