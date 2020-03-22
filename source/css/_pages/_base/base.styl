@@ -95,9 +95,18 @@ img[srcset]
 .code-block:hover > .copy-btn, .code-block:not(:hover) > .copy-btn
   outline none
 
+.hidden-mobile
+  display block
+
+.visible-mobile
+  display none
+
 @media (max-width: 575px)
-  .copy-btn
+  .hidden-mobile
     display none
+
+  .visible-mobile
+    display block
 
 // Rewrite github-markdown.css
 
