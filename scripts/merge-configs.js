@@ -61,6 +61,8 @@ const mergeConfig = function () {
 
     require('./lazyload').lazyload(hexo);
 
+    hexo.off('generateBefore', mergeConfig);
+    hexo.extend.generator.register('_merge_config', mergeConfig);
     stage = 1;
   }
 
@@ -68,5 +70,3 @@ const mergeConfig = function () {
 };
 
 hexo.on('generateBefore', mergeConfig);
-
-hexo.extend.generator.register('merge_config', mergeConfig);
