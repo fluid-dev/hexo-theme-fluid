@@ -3,7 +3,15 @@ const path = require('path');
 const yaml = require('js-yaml');
 const _ = require('./utils/lodash');
 
-hexo.on('generateBefore', function () {
+// 用于防止重复的执行
+let stage = 0;
+
+const mergeConfig = function () {
+  if (stage === 1) {
+    stage = 2;
+    return;
+  }
+
   let sourceConfig;
   let staticPrefix;
 
@@ -17,11 +25,6 @@ hexo.on('generateBefore', function () {
     if (data && data.fluid_static_prefix) {
       staticPrefix = data.fluid_static_prefix;
     }
-  }
-
-  // Force disable hexo highlight
-  if (hexo.theme.config.highlight.enable) {
-    hexo.config.highlight.enable = false;
   }
 
   // Merge configs in /source/_data/fluid_static_prefix.yml into hexo.theme.config.
@@ -50,7 +53,20 @@ hexo.on('generateBefore', function () {
   this.log.debug('Fluid: theme config merged');
 
   // Trigger action that requires configuration data.
-  require('./lazyload').lazyload(hexo);
-  this.log.debug('Configs:\n', hexo.theme.config);
+  if (stage === 0) {
+    // Force disable hexo highlight
+    if (hexo.theme.config.highlight.enable) {
+      hexo.config.highlight.enable = false;
+    }
 
-});
+    require('./lazyload').lazyload(hexo);
+
+    stage = 1;
+  }
+
+  this.log.debug('Configs:\n', hexo.theme.config);
+};
+
+hexo.on('generateBefore', mergeConfig);
+
+hexo.extend.generator.register('merge_config', mergeConfig);
