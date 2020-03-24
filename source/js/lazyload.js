@@ -44,7 +44,7 @@
 		}, 100);
 	}
 
-	let imageLazyLoader = function () {
+	var imageLazyLoader = function () {
 		throttle(processImages, window);
 	};
 

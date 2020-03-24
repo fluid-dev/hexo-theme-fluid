@@ -65,7 +65,7 @@ $(document).ready(function () {
     var toc = $('#toc');
     if (toc) {
       $('#toc-ctn').css({
-        'padding-top': `${ oVal }px`,
+        'padding-top': oVal + 'px',
       });
     }
   };
