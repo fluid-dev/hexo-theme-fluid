@@ -70,6 +70,10 @@ You can write the content here
 Support Markdown, HTML
 ```
 
+## How to Upgrade
+
+[Please follow here](https://hexo.fluid-dev.com/docs/en/example/#theme-upgrading)
+
 ## Features
 
 - [x] Img lazyload

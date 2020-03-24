@@ -4,12 +4,17 @@
 <%- js_ex(theme.static_prefix.mdbootstrap, 'js/mdb.min.js') %>
 <%- js_ex(theme.static_prefix.internal_js, 'main.js') %>
 
-<% if(theme.lazyload.enable){ %>
+<% if (theme.lazyload.enable){ %>
   <%- js_ex(theme.static_prefix.internal_js, 'lazyload.js') %>
 <% } %>
 
-<% if(is_post()){ %>
+<% if (is_post()){ %>
   <%- partial('_partial/postjs.ejs') %>
+<% } %>
+
+<% if (theme.highlight.enable && theme.highlight.copy_btn) { %>
+  <%- js_ex(theme.static_prefix.clipboard, 'clipboard.min.js', 'defer') %>
+  <%- js_ex(theme.static_prefix.internal_js, 'clipboard-use.js') %>
 <% } %>
 
 <% if (theme.smooth_scroll.enable) { %>

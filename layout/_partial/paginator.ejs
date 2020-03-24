@@ -11,7 +11,7 @@
   </nav>
   <% var point = theme.scroll_down_arrow.scroll_after_turning_page ? '#board' : '' %>
   <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
       ele.href += '<%- point %>';
     }
   </script>

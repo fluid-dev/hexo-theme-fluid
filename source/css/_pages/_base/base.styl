@@ -17,7 +17,7 @@ img[srcset]
 
 .hover-with-bg
   display inline-block
-  padding: .45rem
+  padding .45rem
 
   &:hover
     background-color $link-hover-bg!important
@@ -54,6 +54,60 @@ img[srcset]
   strong
     font-weight bold
 
+.code-block
+  position relative
+
+.code-block > pre
+  padding-top 1.5rem
+  padding-bottom 1.5rem
+
+.copy-btn
+  display inline-block
+  cursor pointer
+  border-radius .1rem
+  border none
+  background-color #fafbfc
+  -webkit-user-select none
+  -moz-user-select none
+  -ms-user-select none
+  user-select none
+  -webkit-appearance none
+  font-size .75rem
+  line-height 1
+  font-weight bold
+  outline none
+  color #6a737d
+  -webkit-transition opacity .2s ease-in-out
+  -o-transition opacity .2s ease-in-out
+  transition opacity .2s ease-in-out
+  padding .25rem
+  position absolute
+  right .5rem
+  top .5rem
+  opacity 0
+
+.copy-btn > span
+  margin-left 5px
+
+.code-block:hover > .copy-btn
+  opacity 0.9
+
+.code-block:hover > .copy-btn, .code-block:not(:hover) > .copy-btn
+  outline none
+
+.hidden-mobile
+  display block
+
+.visible-mobile
+  display none
+
+@media (max-width: 575px)
+  .hidden-mobile
+    display none
+
+  .visible-mobile
+    display block
+
 // Rewrite github-markdown.css
 
 .markdown-body
@@ -63,8 +117,11 @@ img[srcset]
     font-weight bold
 
   h1, h2, h3, h4, h5, h6
-    margin-bottom: .75em;
-    margin-top: 2em;
+    margin-bottom .75em
+    margin-top 2em
+
+    &:focus
+      outline none
 
   hr
     height .2em
@@ -73,7 +130,7 @@ img[srcset]
   strong
     font-weight bold
 
-  p > img, a > img > p
+  p > img, p > a > img
     max-width 90%
     margin 1.5rem auto
     display block
@@ -148,11 +205,11 @@ img[srcset]
   position absolute
   padding-top 2rem
   color #ff
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
+  -webkit-transform translateZ(0)
+  -moz-transform translateZ(0)
+  -ms-transform translateZ(0)
+  -o-transform translateZ(0)
+  transform translateZ(0)
   -webkit-animation scroll-down 1.5s infinite
   animation scroll-down 1.5s infinite
 
@@ -293,7 +350,7 @@ img[srcset]
 
   &:hover .qr-img
     display block
-    transition: all .3s;
+    transition all .3s
 
 .qr-img
   max-width 200px
