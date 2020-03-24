@@ -57,7 +57,10 @@ web_analytics:  # 网页访问统计
   enable: false
   baidu:  # 百度统计的Key，参见 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代码获取中 hm.js? 后边的字符串
   google:  # Google统计的Tracking ID，参见 https://analytics.google.com/analytics/web/
-  tencent:  # 腾讯统计的H5 App id，参见 https://mta.qq.com/h5/manage/ctr_app_manage
+  tencent:  # 腾讯统计的H5 App id，参见 https://mta.qq.com/h5/manage/ctr_app_manage (开启高级功能才有cid)
+    sid:
+    cid:
+  tajs:   # 腾讯统计早期版站点统计sID，参见 https://ta.qq.com/#/site/list
   woyaola:  # 51.la站点统计ID，参见 https://www.51.la/user/site/index
   cnzz:  # 友盟/cnzz站点统计web_id，参见 https://web.umeng.com/main.php?c=site&a=show
 
@@ -130,6 +133,15 @@ footer:
 
 scroll_top_arrow:  # 向顶部滚动的箭头
   enable: true
+
+#---------------------------
+# 吐个槽脚本，页面反馈
+# 文档 ：https://txc.qq.com/helper/WXPGuide
+#---------------------------
+txc:
+  enable: false
+  productId:
+
 
 
 #---------------------------
