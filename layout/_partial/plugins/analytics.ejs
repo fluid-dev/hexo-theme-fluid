@@ -41,11 +41,19 @@
         var mta = document.createElement("script");
         mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
         mta.setAttribute("name", "MTAH5");
-        mta.setAttribute("sid", "<%= theme.web_analytics.tencent %>");
+        mta.setAttribute("sid", "<%= theme.web_analytics.tencent.sid %>");
+        <% if(theme.web_analytics.tencent.cid) { %>
+        mta.setAttribute("cid", "<%= theme.web_analytics.tencent.cid %>");
+        <% } %>
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(mta, s);
       })();
     </script>
+  <% } %>
+
+  <% if(theme.web_analytics.tajs) { %>
+    <!-- tajs Analytics -->
+    <script defer type="text/javascript" src="//tajs.qq.com/stats?sId=<%= theme.web_analytics.tajs %>" charset="UTF-8"></script>
   <% } %>
 
   <% if(theme.web_analytics.woyaola) { %>
