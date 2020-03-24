@@ -48,12 +48,16 @@
       display flex
       align-items center
 
-    span
+    .hidden-mobile
       display -webkit-box
       -webkit-box-orient vertical
       -webkit-line-clamp 2
       text-overflow ellipsis
       overflow hidden
+
+    @media (max-width: 575px)
+      .hidden-mobile
+        display none
 
   .post-prev:hover i, .post-prev:active i, .post-next:hover i, .post-next:active i
     -webkit-animation-duration 1s
@@ -85,10 +89,6 @@
 
   .fa-chevron-right
     margin-left .5rem
-
-@media (max-width: 575px)
-  .post-prevnext
-    display none
 
 @keyframes post-prev-anim
   0%
@@ -171,3 +171,9 @@
 
 .katex-block
   overflow-x auto
+
+.katex, .mjx-mrow
+  white-space: pre-wrap !important
+
+.mjx-char
+  line-height 1

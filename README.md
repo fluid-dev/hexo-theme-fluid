@@ -73,6 +73,12 @@ layout: about
 这里写正文，支持 Markdown, HTML
 ```
 
+## 升级主题
+
+首先强烈建议学习使用[覆盖配置](https://hexo.fluid-dev.com/docs/guide/#%E8%A6%86%E7%9B%96%E9%85%8D%E7%BD%AE)
+
+然后升级步骤[参照这里](https://hexo.fluid-dev.com/docs/example/#%E6%9B%B4%E6%96%B0%E4%B8%BB%E9%A2%98)
+
 ## 功能特性
 
 - [x] 图片懒加载
