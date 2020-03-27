@@ -11,7 +11,12 @@
               skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
           }
       });
-
+      MathJax.Hub.Register.StartupHook("End Jax",function () {
+        var BROWSER = MathJax.Hub.Browser;
+        var jax = "HTML-CSS";
+        if (BROWSER.isMSIE && BROWSER.hasMathPlayer) jax = "NativeMML";
+        return MathJax.Hub.setRenderer(jax);
+      });
       MathJax.Hub.Queue(function() {
           var all = MathJax.Hub.getAllJax(), i;
           for(i=0; i < all.length; i += 1) {
