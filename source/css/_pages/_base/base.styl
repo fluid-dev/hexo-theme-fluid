@@ -1,3 +1,6 @@
+html, body
+  font-family $font-family
+
 html, body, header, .view
   height 100%
   overflow-wrap break-word
@@ -8,9 +11,16 @@ body
 
   a
     color $link-color
+    text-decoration none
+    cursor pointer
+    transition-duration .2s
+    transition-timing-function ease-in-out
 
     &:hover
       color $link-hover-color
+      text-decoration none
+      transition-duration .2s
+      transition-timing-function ease-in-out
 
 img[srcset]
   object-fit cover
@@ -33,6 +43,44 @@ img[srcset]
   background-color $board-bg-color
   border-radius 0.5rem
   z-index 3
+  -webkit-box-shadow 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)
+  box-shadow 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)
+
+.view
+  position relative
+  overflow hidden
+  cursor default
+
+  .mask
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    width 100%
+    height 100%
+    overflow hidden
+    background-attachment fixed
+    background-color rgba(0, 0, 0, 0.3)
+
+.flex-center
+  display -webkit-box
+  display -ms-flexbox
+  display flex
+  -webkit-box-align center
+  -ms-flex-align center
+  align-items center
+  -webkit-box-pack center
+  -ms-flex-pack center
+  justify-content center
+  height 100%
+
+.white-text
+  color #fff
+
+.fadeInUp
+  -webkit-animation-name fadeInUp
+  animation-name fadeInUp
 
 @media (max-width: 767px)
   header
@@ -108,90 +156,6 @@ img[srcset]
   .visible-mobile
     display block
 
-// Rewrite github-markdown.css
-
-.markdown-body
-  margin-bottom 2rem
-
-  strong
-    font-weight bold
-
-  h1, h2, h3, h4, h5, h6
-    margin-bottom .75em
-    margin-top 2em
-
-    &:focus
-      outline none
-
-  hr
-    height .2em
-    margin 2rem 0
-
-  strong
-    font-weight bold
-
-  p > img, p > a > img
-    max-width 90%
-    margin 1.5rem auto
-    display block
-    box-shadow $img-shadow
-
-
-// Rewrite mdb.css
-
-.list-group-item
-  border 0
-
-.page-link
-  font-size 1.1rem
-
-// Navbar
-
-.navbar
-  background-color transparent
-  font-size 0.875rem
-  color $navbar-text-color
-
-  a
-    color $navbar-text-color
-
-    &:hover
-      background-color rgba(0, 0, 0, 0.1)
-
-.navbar-custom
-  color $navbar-text-color
-
-  a
-    color $navbar-text-color
-
-.top-nav-collapse
-  background-color $navbar-bg-color
-
-.navbar-col-show
-  background-color $navbar-bg-color
-
-
-@media (max-width: 767px)
-  .navbar
-    font-size 1rem
-    line-height 2.5rem
-
-.pagination a, .pagination .current
-  outline 0
-  border 0
-  background-color transparent
-  font-size .9rem
-  padding .5rem .75rem
-  line-height 1.25
-  -webkit-border-radius .125rem
-  border-radius .125rem
-  -webkit-transition all .3s linear
-  -o-transition all .3s linear
-  transition all .3s linear
-
-.pagination a:hover, .pagination .current
-  background-color #eee
-
 .scroll-down-bar
   position absolute
   width 100%
@@ -229,6 +193,8 @@ img[srcset]
   display flex
   display -webkit-flex
   align-items center
+  -webkit-box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+  box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
 
 #scroll-top-button i
   -webkit-transform translateZ(0)
@@ -320,30 +286,6 @@ img[srcset]
         -o-transform rotate(-135deg)
         transform rotate(-135deg)
 
-
-@keyframes scroll-down
-  0%
-    opacity 0.8
-    top 0
-  50%
-    opacity 0.4
-    top -1em
-  100%
-    opacity 0.8
-    top 0
-
-@keyframes scroll-top
-  0%
-    -webkit-transform translateY(0)
-    transform translateY(0)
-  50%
-    -webkit-transform translateY(-0.35rem)
-    transform translateY(-0.35rem)
-  100%
-    -webkit-transform translateY(0)
-    transform translateY(0)
-
-
 .qr-trigger
   cursor pointer
   position relative
@@ -361,7 +303,10 @@ img[srcset]
   box-shadow 0 0 20px -5px hsla(0, 0%, 62%, .2)
 
 // Footer police 添加备案图标
-a.police-beian
+a.beian-icp
+  font-weight 300
+
+a.beian-police
   position relative
   overflow hidden
   display inline-flex
@@ -374,6 +319,6 @@ a.police-beian
     height 18px
 
 @media (max-width: 320px)
-  a.police-beian
-    span.police-beian-sep
+  a.beian-police
+    span.beian-police-sep
       display none

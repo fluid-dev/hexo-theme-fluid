@@ -22,7 +22,7 @@ page.banner_img_height = theme.index.banner_img_height
         <p class="h4 index-header"><%= post.title %></p>
       </a>
 
-      <a href="<%- post_url %>">
+      <a href="<%- post_url %>" class="index-excerpt-wrap">
         <% var height_limit = '', excerpt = '' %>
         <% if(post.excerpt && post.excerpt.length > 0) { %>
           <% excerpt = strip_html(post.excerpt) + "..." %>
