@@ -43,8 +43,6 @@ jquery: https://cdn.staticfile.org/jquery/3.4.1/
 
 bootstrap: https://cdn.staticfile.org/twitter-bootstrap/4.4.1/
 
-mdbootstrap: https://cdn.staticfile.org/mdbootstrap/4.13.0/
-
 popper: https://cdn.staticfile.org/popper.js/1.16.1/umd/
 
 prettify: https://cdn.staticfile.org/prettify/188.0.0/
