@@ -33,7 +33,7 @@
     </script>
   <% } %>
 
-  <% if(theme.web_analytics.tencent.sid) { %>
+  <% if(theme.web_analytics.tencent && theme.web_analytics.tencent.sid && theme.web_analytics.tencent.cid) { %>
     <!-- Tencent Analytics -->
     <script defer>
       var _mtac = {};
