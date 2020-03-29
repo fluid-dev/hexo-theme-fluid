@@ -91,6 +91,7 @@ layout: about
 - [x] 页脚备案信息
 - [x] 网页访问统计
 - [x] 支持 LaTeX 数学公式
+- [x] 支持 mermaid 流程图
 - [x] 音乐播放器
 
 ## 贡献者

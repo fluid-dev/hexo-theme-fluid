@@ -76,7 +76,7 @@ Support Markdown, HTML
 
 ## Features
 
-- [x] Img lazyload
+- [x] Image lazyload
 - [x] Custom code highlighting scheme
 - [x] Internationalization
 - [x] Support for multiple comment plugins
@@ -85,6 +85,7 @@ Support Markdown, HTML
 - [x] Built-in search plugin
 - [x] Website analysis
 - [x] Support for LaTeX
+- [x] Support for mermaid
 - [x] Music player
 
 ## FAQ
@@ -105,10 +106,6 @@ Support Markdown, HTML
 English docs translator：[@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top)
 
 Contributors outside PR：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
-
-## Feedback
-
-- WeChat: After the scan, add, **reply "fluid"** (in chat reply, not request note) automatically pull you into the group<details> <summary>Qr code</summary><img width="250" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.jpeg"></details>
 
 ## Star trending
 
