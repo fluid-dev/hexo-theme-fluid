@@ -202,6 +202,10 @@ post:
     enable: false  # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `math: true`
     specific: false  # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
     engine: mathjax  # 公式引擎  available: mathjax | katex
+  mermaid:  # 流程图，开启之前需要安装 hexo-filter-mermaid-diagrams，具体请见：https://hexo.fluid-dev.com/docs/guide/#mermaid-流程图
+    enable: false  # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `mermaid: true`
+    specific: false  # 开启后，只有在文章 Front-matter 里指定 `mermaid: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
+    options:   # 接口选项，具体可见：https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
 
 #---------------------------
 # 评论
