@@ -10,13 +10,15 @@ if (enable) {
     enable = false;
   }
 }
+
+var options = JSON.stringify(theme.post.mermaid.options);
 %>
 
 <% if (enable) { %>
   <%- js_ex(theme.static_prefix.mermaid, 'mermaid.min.js') %>
   <script>
     if (window.mermaid) {
-      mermaid.initialize({ theme: 'forest' });
+      mermaid.initialize(<%- options %>);
     }
   </script>
 <% } %>
