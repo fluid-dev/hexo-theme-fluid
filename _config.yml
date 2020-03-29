@@ -27,7 +27,7 @@ highlight: # 代码高亮
 fun_features: # 一些好玩的功能
   typing: # 为 subtitle 添加打字机效果
     enable: true
-    typeSpeed: 70 # 打印速度
+    typeSpeed: 70  # 打印速度，数字越大越慢
     cursorChar: "_" # 游标字符
     loop: false # 是否循环播放效果
   anchorjs: # 为文章内容中的标题添加锚图标
@@ -176,6 +176,7 @@ post:
     min2read:  # 阅读时间
       enable: true
       format: "{} 分钟"
+      words: 100  # 每分钟阅读多少字，如果是技术文章，建议降低
     views:  # 阅读次数，统计基于不蒜子  *不蒜子近期连接不稳定，谨慎开启
       enable: false
       format: "{} 次"
