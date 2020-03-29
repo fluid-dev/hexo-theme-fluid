@@ -1,4 +1,18 @@
-<% if(theme.post.math.enable && (!theme.post.math.specific || (theme.post.math.specific && page.math))) { %>
+<%
+var enable = theme.post.math.enable;
+
+if (enable) {
+  if (is_post()) {
+    enable = !theme.post.math.specific || (theme.post.math.specific && page.math);
+  } else if (is_page()) {
+    enable = page.math;
+  } else {
+    enable = false;
+  }
+}
+%>
+
+<% if (enable) { %>
   <% var engine = theme.post.math.engine; %>
 
   <% if(engine === 'mathjax') { %>
