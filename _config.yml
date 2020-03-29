@@ -135,16 +135,6 @@ scroll_top_arrow:  # 向顶部滚动的箭头
   enable: true
 
 #---------------------------
-# 吐个槽脚本，页面反馈
-# 文档 ：https://txc.qq.com/helper/WXPGuide
-#---------------------------
-txc:
-  enable: false
-  productId:
-
-
-
-#---------------------------
 # 首页
 # Index Page
 #---------------------------
@@ -261,6 +251,7 @@ valine:
   verify: false # Verification code
   placeholder: 说点什么 # comment box placeholder
   avatar: retro # gravatar style https://valine.js.org/avatar.html
+  meta: ['nick', 'mail', 'link']  # guest info
   pageSize: 10 # pagination size
 
 # Changyan

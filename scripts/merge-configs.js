@@ -46,6 +46,9 @@ hexo.on('generateBefore', function () {
     if (sourceConfig.links && sourceConfig.links.items) {
       hexo.theme.config.links.items = sourceConfig.links.items;
     }
+    if (sourceConfig.valine && sourceConfig.valine.meta) {
+      hexo.theme.config.valine.meta = sourceConfig.valine.meta;
+    }
   }
   this.log.debug('Fluid: theme config merged');
 
