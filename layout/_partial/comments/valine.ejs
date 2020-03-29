@@ -6,8 +6,10 @@
   <script type="text/javascript">
     var notify = '<%= theme.valine.notify %>' === 'true';
     var verify = '<%= theme.valine.verify %>' === 'true';
-    var oldLoad = window.onload;
+    var oldLoadVa = window.onload;
     window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
       new Valine({
         el: '#vcomments',
         notify: notify,
@@ -19,7 +21,6 @@
         meta: ['nick', 'mail', 'link'],
         pageSize: "<%= theme.valine.pageSize %>",
       });
-      oldLoad && oldLoad();
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments

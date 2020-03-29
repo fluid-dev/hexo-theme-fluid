@@ -6,14 +6,15 @@
         this.page.url = '<%= config.url %>/<%= page.path %>';
         this.page.identifier = '/<%= page.path %>';
       };
-      var oldLoad = window.onload;
+      var oldLoadDq = window.onload;
       window.onload = function () {
+        oldLoadDq && oldLoadDq();
+
         var d = document, s = d.createElement('script');
         s.type = 'text/javascript';
         s.src = '//' + '<%- theme.disqus.shortname %>' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
-        oldLoad && oldLoad();
       };
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments

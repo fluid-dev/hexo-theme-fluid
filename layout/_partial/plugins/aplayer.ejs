@@ -1,8 +1,10 @@
 <%- js_ex(theme.static_prefix.aplayer, 'APlayer.min.js', 'defer') %>
 <%- css_ex(theme.static_prefix.aplayer, 'APlayer.min.css') %>
 <script type="text/javascript">
-  var oldLoad = window.onload;
+  var oldLoadAp = window.onload;
   window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
     new APlayer({
       container: document.getElementById('aplayer'),
       fixed: true,
@@ -13,6 +15,5 @@
       preload: 'none',
       audio: <%- JSON.stringify(theme.aplayer.songs || []) %>
     });
-    oldLoad && oldLoad();
   }
 </script>

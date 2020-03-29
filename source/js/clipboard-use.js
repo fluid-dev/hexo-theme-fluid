@@ -18,9 +18,10 @@
       }, 2000);
     });
   };
-  var oldLoad = window.onload;
+  var oldLoadCb = window.onload;
   window.onload = function () {
+    oldLoadCb && oldLoadCb();
+
     initCopyCode();
-    oldLoad && oldLoad();
   };
 }(window, document);
