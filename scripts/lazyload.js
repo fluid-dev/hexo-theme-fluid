@@ -9,9 +9,12 @@ module.exports.lazyload = function (hexo) {
     return;
   }
   if (config.lazyload.onlypost) {
-    hexo.extend.filter.register('after_post_render', function (data) {
-      data.content = lazyProcess.call(this, data.content, loadingImage);
-      return data;
+    hexo.extend.filter.register('after_post_render', function (page) {
+      if (page.source.search(/^_posts\/.+\.md/) === -1) {
+        return;
+      }
+      page.content = lazyProcess.call(this, page.content, loadingImage);
+      return page;
     });
   } else {
     hexo.extend.filter.register('after_render:html', function (str, data) {
