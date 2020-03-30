@@ -10,7 +10,7 @@ module.exports.lazyload = function (hexo) {
   }
   if (config.lazyload.onlypost) {
     hexo.extend.filter.register('after_post_render', function (page) {
-      if (page.source.search(/^_posts\/.+\.md/) === -1) {
+      if (page.source.search(/^_posts\/.+\.md$/) === -1 && !page.lazyload) {
         return;
       }
       page.content = lazyProcess.call(this, page.content, loadingImage);
@@ -28,6 +28,6 @@ function lazyProcess(htmlContent, loadingImage) {
     if (/srcset=/gi.test(str)) {
       return str;
     }
-    return str.replace(p1, `${p1}" srcset="${loadingImage}`);
+    return str.replace(p1, `${ p1 }" srcset="${ loadingImage }`);
   });
 }
