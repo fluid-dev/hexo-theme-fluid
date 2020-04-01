@@ -5,8 +5,8 @@
   {% if post.indexing == undefined or post.indexing %}
   <entry>
     <title>{{ post.title }}</title>
-    <link href="{{ (url + post.path) | uriencode }}"/>
-    <url>{{ (url + post.path) | uriencode }}</url>
+    <link href="{{ [url, post.path] | urlJoin | uriencode }}"/>
+    <url>{{ [url, post.path] | urlJoin | uriencode }}</url>
     {% if content %}
     <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
     {% endif %}
@@ -33,8 +33,8 @@
   {% if post.indexing == undefined or post.indexing %}
   <entry>
     <title>{{ page.title }}</title>
-    <link href="{{ (url + page.path) | uriencode }}"/>
-    <url>{{ (url + page.path) | uriencode }}</url>
+    <link href="{{ [url, post.path] | urlJoin | uriencode }}"/>
+    <url>{{ [url, post.path] | urlJoin | uriencode }}</url>
     {% if content %}
     <content type="html"><![CDATA[{{ page.content | noControlChars | safe }}]]></content>
     {% endif %}
