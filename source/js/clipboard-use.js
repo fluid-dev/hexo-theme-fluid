@@ -13,6 +13,7 @@
       },
     });
     clipboard.on('success', function (e) {
+      e.clearSelection();
       e.trigger.innerHTML = 'Success';
       setTimeout(function () {
         e.trigger.outerHTML = copyHtml;
