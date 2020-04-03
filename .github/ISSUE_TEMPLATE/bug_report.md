@@ -23,5 +23,7 @@ Steps to reproduce the behavior:
 2. Scroll down to '....'
 3. See error
 
+It is better to provide the page link that can be reproduced:
+
 #### Screenshots
 If applicable, add screenshots to help explain your problem.
