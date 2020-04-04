@@ -1,7 +1,7 @@
 <% if(theme.valine.appid && theme.valine.appkey){ %>
   <div id="vcomments"></div>
   <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <%- js_ex(theme.static_prefix.valine, 'Valine.min.js', 'defer') %>
 
   <script type="text/javascript">
     var notify = '<%= theme.valine.notify %>' === 'true';
