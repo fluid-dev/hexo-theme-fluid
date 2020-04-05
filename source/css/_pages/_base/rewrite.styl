@@ -13,6 +13,9 @@
     &:hover
       background-color rgba(0, 0, 0, 0.1)
 
+    & > i
+      font-size 0.875rem
+
   .nav-item .nav-link
     display block
 
@@ -119,9 +122,6 @@
 .pagination a:hover, .pagination .current
   background-color #eee
 
-.pagination a i
-  font-size 1.15rem
-
 // Rewrite modal
 
 .modal-dialog .modal-content
@@ -203,14 +203,3 @@
     cursor: text;
     -webkit-transition: color .2s ease-out, -webkit-transform .2s ease-out;
     transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
-
-// Rewrite iconfont
-
-.iconfont
-  line-height 1
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
