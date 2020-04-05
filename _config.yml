@@ -332,10 +332,10 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
   avatar: /img/avatar.png # 头像
   name: myname
   introduce: info / info / info # 支持 HTML
-  icons: # 更多图标可从 https://fontawesome.com/v5.10.0/icons?d=gallery 查找，并以 "图标名: url" 的格式添加在下方
-    "fab fa-github": https://github.com
-    "fab fa-twitter": https://twitter.com
-    "fab fa-weixin qrcode":  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，因此值需要是二维码图片地址
+  icons: # 更多图标可从 https://fontawesome.com/v5.10.0/icons?d=gallery 查找，class 代表图标的 css class
+    - { class: 'fab fa-github', link: 'https://github.com' }
+    - { class: 'fab fa-twitter', link: 'https://github.com' }
+    - { class: 'fab fa-weixin', qrcode: '/img/favicon.png' }  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，需要指定 image
 
 
 #---------------------------
