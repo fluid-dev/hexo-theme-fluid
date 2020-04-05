@@ -2,7 +2,7 @@
   var initCopyCode = function () {
     var copyHtml = '';
     copyHtml += '<button class="copy-btn" data-clipboard-snippet="">';
-    copyHtml += '<i class="far fa-copy"></i><span>Copy</span>';
+    copyHtml += '<i class="iconfont icon-copy"></i><span>Copy</span>';
     copyHtml += '</button>';
     var pre = $('pre.prettyprint');
     pre.addClass('code-block');

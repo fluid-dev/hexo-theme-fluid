@@ -37,16 +37,16 @@ page.banner_img_height = theme.index.banner_img_height
 
       <div class="index-btm">
         <% if(theme.index.post_meta.date ) { %>
-          <i class="iconfont icon-riqi2"></i>&nbsp;<%- date(post.date, config.date_format) %>&nbsp;&nbsp;
+          <i class="iconfont icon-date"></i>&nbsp;<%- date(post.date, config.date_format) %>&nbsp;&nbsp;
         <% } %>
         <% if(theme.index.post_meta.category && post.categories.length) { %>
-          <i class="iconfont icon-inbox"></i>
+          <i class="iconfont icon-category"></i>
           <% post.categories.each(function(cate){ %>
             <a href="<%- url_for(cate.path) %>"><%= cate.name %></a>&nbsp;
           <% }) %>&nbsp;
         <% } %>
         <% if(theme.index.post_meta.tag && post.tags.length) { %>
-          <i class="iconfont icon-tag"></i>
+          <i class="iconfont icon-tags"></i>
           <% post.tags.each(function(tag){ %>
             <a href="<%- url_for(tag.path) %>"><%= tag.name %></a>&nbsp;
           <% }) %>

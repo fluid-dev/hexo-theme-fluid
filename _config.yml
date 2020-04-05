@@ -332,10 +332,10 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
   avatar: /img/avatar.png # 头像
   name: myname
   introduce: info / info / info # 支持 HTML
-  icons: # 更多图标可从 https://fontawesome.com/v5.10.0/icons?d=gallery 查找，class 代表图标的 css class
-    - { class: 'fab fa-github', link: 'https://github.com' }
-    - { class: 'fab fa-twitter', link: 'https://github.com' }
-    - { class: 'fab fa-weixin', qrcode: '/img/favicon.png' }  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，需要指定 image
+  icons: # 更多图标可从 https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/iconfont.png 查找，class 代表图标的 css class
+    - { class: 'iconfont icon-github-fill', link: 'https://github.com' }
+    - { class: 'iconfont icon-douban-fill', link: 'https://github.com' }
+    - { class: 'iconfont icon-wechat-fill', qrcode: '/img/favicon.png' }  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，需要指定 image
 
 
 #---------------------------

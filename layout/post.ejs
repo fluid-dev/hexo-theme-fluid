@@ -24,7 +24,7 @@ page.banner_img_height = theme.post.banner_img_height
               <p>
                 <% if (page.categories && page.categories.length > 0) { %>
                   <span>
-                <i class="iconfont icon-inbox"></i>
+                <i class="iconfont icon-category"></i>
                     <% page.categories.each(function(cate) { %>
                       <a class="hover-with-bg" href="<%- url_for(cate.path) %>"><%= cate.name %></a>
                       &nbsp;
@@ -33,7 +33,7 @@ page.banner_img_height = theme.post.banner_img_height
                 <% } %>
                 <% if (page.tags && page.tags.length > 0 ) { %>
                   <span>
-                <i class="iconfont icon-tag"></i>
+                <i class="iconfont icon-tags"></i>
                     <% page.tags.each(function(tag) { %>
                       <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
                     <% }) %>
@@ -49,7 +49,7 @@ page.banner_img_height = theme.post.banner_img_height
                     <% const prev = prev_page(page) %>
                     <% if (prev) { %>
                       <a href="<%= url_for(prev.path) %>">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"><%- prev.title %></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -61,7 +61,7 @@ page.banner_img_height = theme.post.banner_img_height
                       <a href="<%= url_for(next.path) %>">
                         <span class="hidden-mobile"><%- next.title %></span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     <% } %>
                   </div>

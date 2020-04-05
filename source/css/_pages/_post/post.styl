@@ -37,7 +37,7 @@
     display flex
 
     i
-      font-size 1.2rem
+      font-size 1.5rem
       -webkit-transform translateZ(0)
       -moz-transform translateZ(0)
       -ms-transform translateZ(0)
@@ -120,9 +120,15 @@
   top 2rem
   padding 3rem 0 0 0
   max-height 80%
+  visibility hidden
 
-  p
-    visibility: hidden
+.toc-header
+  margin-bottom .5rem
+  font-weight 500
+  line-height 1.2
+
+  &, & > i
+    font-size 1.25rem
 
 #tocbot
   max-height 100%

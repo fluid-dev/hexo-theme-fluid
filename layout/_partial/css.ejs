@@ -1,7 +1,8 @@
-<%- css_ex(theme.static_prefix.font_awesome, "css/all.min.css") %>
 <%- css_ex(theme.static_prefix.bootstrap, "css/bootstrap.min.css") %>
 <%- css_ex(theme.static_prefix.github_markdown, "github-markdown.min.css") %>
-<%- css("//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css") %>
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<%- css('//at.alicdn.com/t/font_1736178_xoqm18spjzb.css') %>
 
 <% if(theme.highlight.enable){ %>
   <%- css_ex(theme.static_prefix.prettify_theme, theme.highlight.theme + '.min.css') %>

@@ -13,8 +13,8 @@ page.banner_img_height = theme.about.banner_img_height
     <% if (!each.class) continue; %>
     <% var cls = each.class %>
     <% var isQr = each.qrcode %>
-    <a href="<%= isQr ? 'javascript:;' : url_for(each.link) %>" class="h4 px-1 <%= isQr ? 'qr-trigger' : '' %>">
-      <i class="<%= cls %>" aria-hidden="true"></i>
+    <a href="<%= isQr ? 'javascript:;' : url_for(each.link) %>" class="px-1 <%= isQr ? 'qr-trigger' : '' %>">
+      <i class="<%= cls %> about-icon" aria-hidden="true"></i>
       <% if (isQr) { %>
         <img class="qr-img" src="<%= url_for(each.qrcode) %>" alt="qrcode" />
       <% } %>
