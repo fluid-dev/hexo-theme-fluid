@@ -1,58 +1,62 @@
 .index-card
-  margin-bottom 2rem
+  margin-bottom 2.5rem
 
 .index-img
-  box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
+  img
+    display block
+    width 100%
+    height 10rem
+    object-fit cover
+    box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
+    border-radius .25rem
 
 .index-info
-  display: flex
-  flex-direction: column
-  justify-content: space-between
+  display flex
+  flex-direction column
+  justify-content space-between
+  padding-top .5rem
+  padding-bottom .5rem
 
 .index-header
+  font-size 1.5rem
   font-weight bold
+  line-height 1.2
   white-space nowrap
   overflow hidden
   text-overflow ellipsis
-  margin-top .5rem
-  margin-bottom 0
 
 .index-btm
-  margin-bottom .5rem
   color #718096
 
   a
     color #718096
 
-.index-thumbnails
-  display block
-  width 100%
-  height 10rem
-  object-fit cover
-
-.index-excerpt-wrap
+.index-excerpt
   color #718096
 
-.index-excerpt
   margin 0.5rem 0 0.5rem 0
   height calc(1.4rem * 3)
   line-height 1.4rem
   overflow hidden
 
-  .index-text
+  & > div
     float right
     margin-left -0.25rem
     width 100%
     word-break break-word
-    display: -webkit-box
-    -webkit-box-orient: vertical
-    -webkit-line-clamp: 3
+    display -webkit-box
+    -webkit-box-orient vertical
+    -webkit-line-clamp 3
 
 @media (max-width: 767px)
   .index-info
-    padding-top .5rem
+    padding-top 1.25rem
 
   .index-header
     font-size 1.25rem
     white-space normal
     overflow hidden
+    word-break break-word
+    display -webkit-box
+    -webkit-box-orient vertical
+    -webkit-line-clamp 2
