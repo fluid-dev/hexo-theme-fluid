@@ -53,6 +53,11 @@ color:  # 主题颜色配置，不一定能每一处都生效，可能会被局�
   link_hover_bg_color: "#ebedef"    # 超链接悬浮背景色
   board_color: "#fff"               # 主面板背景色
 
+font:  # 主题字体配置
+  font_size: 16px                   # 全局字号
+  font_family:                      # 全局字体
+  code_font_size: 85%               # 代码的字号
+
 custom_js:   # 指定自定义 js 文件路径，路径是相对 source 目录，如 /js/custom.js
 custom_css:   # 指定自定义 css 文件路径，路径是相对 source 目录，如 /css/custom.css
 custom_html: ''  # 自定义底部 HTML 内容（位于 footer 上方），也可用于外部引入 js css 这些操作，注意不要和 post.custom 配置冲突

@@ -65,6 +65,7 @@
 // Rewrite github-markdown.css
 
 .markdown-body
+  font-size 1rem
   margin-bottom 2rem
   font-family $font-family
   color $post-text-color
@@ -88,6 +89,9 @@
   pre
     padding 1.5rem 1rem
     position relative
+
+  code
+    font-size $code-font-size
 
   p > img, p > a > img
     max-width 90%
@@ -207,3 +211,8 @@
     cursor: text;
     -webkit-transition: color .2s ease-out, -webkit-transform .2s ease-out;
     transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
+
+// Rewrite iconfont
+.iconfont
+  font-size 1rem
+  line-height 1
