@@ -14,33 +14,33 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
         <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             <% if(theme.post.updated && theme.post.updated.enable) { %>
-              <p
-                class="note note-warning"><%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %></p>
+              <p class="note note-warning">
+                <%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %>
+              </p>
             <% } %>
-            <div class="markdown-body">
+            <article class="markdown-body">
               <%- page.content %>
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 <% if (page.categories && page.categories.length > 0) { %>
-                  <span>
-                <i class="iconfont icon-category"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     <% page.categories.each(function(cate) { %>
                       <a class="hover-with-bg" href="<%- url_for(cate.path) %>"><%= cate.name %></a>
-                      &nbsp;
                     <% }) %>
-                  </span>&nbsp;&nbsp;
+                  </div>
                 <% } %>
                 <% if (page.tags && page.tags.length > 0 ) { %>
-                  <span>
-                <i class="iconfont icon-tags"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     <% page.tags.each(function(tag) { %>
                       <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
                     <% }) %>
-                  </span>
+                  </div>
                 <% } %>
-              </p>
+              </div>
               <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
                 <p class="note note-warning"><%- theme.post.copyright.content %></p>
               <% } %>
@@ -70,13 +70,13 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
               <% } %>
             </div>
 
-              <% if(page.comments && theme.post.comments.enable) { %>
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  <% var type = '_partial/comments/' + theme.post.comments.type %>
-                  <%- partial(type) %>
-                </div>
-              <% } %>
+            <% if(page.comments && theme.post.comments.enable) { %>
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                <% var type = '_partial/comments/' + theme.post.comments.type %>
+                <%- partial(type) %>
+              </div>
+            <% } %>
           </div>
         </div>
       </div>
