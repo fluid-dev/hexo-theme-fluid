@@ -40,14 +40,18 @@ fun_features: # 一些好玩的功能
     enable: false
     style: values # 目前设置两个值：values（价值观词汇） | love（爱心）
 
-color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdesignrankings.com/resources/lolcolors/
-  body_bg_color: "#eee"
-  navbar_bg_color: "#2f4154"
-  navbar_text_color: "white"
-  text_color: "#3c4858"
-  link_color: "#3c4858"
-  link_hover_color: "#1abc9c"
-  board_color: "#fff"
+color:  # 主题颜色配置，不一定能每一处都生效，可能会被局部样式覆盖，这种情况建议用自定义 css 解决。配色可以在这获得启发： https://www.webdesignrankings.com/resources/lolcolors/
+  body_bg_color: "#eee"             # body 背景色
+  navbar_bg_color: "#2f4154"        # 顶部菜单背景色
+  navbar_text_color: "white"        # 顶部菜单字体色
+  text_color: "#3c4858"             # 全局字体色
+  sec_text_color: "#718096"         # 全局次级字体色（摘要、简介等位置）
+  post_text_color: "#2c3e50"        # 文章正文字体色
+  post_heading_color: "#1a202c"     # 文章标题标签字体色（h1 h2 h3...）
+  link_color: "#3c4858"             # 超链接字体色
+  link_hover_color: "#1abc9c"       # 超链接悬浮时字体色
+  link_hover_bg_color: "#ebedef"    # 超链接悬浮背景色
+  board_color: "#fff"               # 主面板背景色
 
 custom_js:   # 指定自定义 js 文件路径，路径是相对 source 目录，如 /js/custom.js
 custom_css:   # 指定自定义 css 文件路径，路径是相对 source 目录，如 /css/custom.css

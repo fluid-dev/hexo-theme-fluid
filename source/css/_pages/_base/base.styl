@@ -28,10 +28,12 @@ img[srcset]
 .hover-with-bg
   display inline-block
   padding .45rem
-  margin 0 !important
 
   &:hover
-    background-color $link-hover-bg !important
+    background-color $link-hover-bg-color
+    transition-duration .2s
+    transition-timing-function ease-in-out
+    border-radius .15rem
 
 .visitors
   font-size .8em
@@ -173,7 +175,7 @@ img[srcset]
 
 #scroll-top-button
   position fixed
-  background #fff
+  background $board-bg-color
   border-radius 4px
   width 40px
   height 40px
@@ -216,7 +218,7 @@ img[srcset]
 .scroll-top-arrow
   font-size 1.75rem
   margin auto
-  color #8590AB
+  color $sec-text-color
 
 .animated-icon
   width 30px

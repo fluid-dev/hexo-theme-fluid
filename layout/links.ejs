@@ -11,7 +11,7 @@ page.banner_mask_alpha = theme.links.banner_mask_alpha
   <% for(const each of theme.links.items) { %>
     <% if (!each.title || !each.link) continue %>
     <div class="card col-lg-4 col-md-6 col-sm-12">
-      <a href="<%= url_for(each.link) %>" class="card-body" target="_blank" rel="noopener">
+      <a href="<%= url_for(each.link) %>" class="card-body hover-with-bg" target="_blank" rel="noopener">
         <div class="card-content">
           <% if (each.image) { %>
             <div class="link-avatar my-auto">
