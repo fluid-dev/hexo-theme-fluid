@@ -4,8 +4,7 @@
     copyHtml += '<button class="copy-btn" data-clipboard-snippet="">';
     copyHtml += '<i class="iconfont icon-copy"></i><span>Copy</span>';
     copyHtml += '</button>';
-    var pre = $('pre.prettyprint');
-    pre.addClass('code-block');
+    var pre = $('.markdown-body pre');
     pre.prepend(copyHtml);
     var clipboard = new ClipboardJS('.copy-btn', {
       target: function (trigger) {
