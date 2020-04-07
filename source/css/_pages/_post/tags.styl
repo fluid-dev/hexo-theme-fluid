@@ -35,3 +35,101 @@
 .note-light
   background-color #fefefe
   border-color #0f0f0f
+
+// blockquote
+.blockquote-center
+  border-left none
+  margin 40px 0
+  padding 0
+  position relative
+  text-align center
+
+  &::before, &::after
+    background-repeat no-repeat
+    background-size 22px 22px
+    content ' '
+    display block
+    height 24px
+    opacity .2
+    position absolute
+    width 100%
+
+  &::before
+    background-image url(../img/quote-l.svg)
+    background-position 0 -6px
+    border-top 1px solid #ccc
+    top -20px
+
+
+  &::after
+    background-image url(../img/quote-r.svg)
+    background-position 100% 8px
+    border-bottom 1px solid #ccc
+    bottom -20px
+
+  p, div
+    text-align center
+
+.markdown-body blockquote
+  border 0
+  padding 0
+  margin-bottom: 2rem;
+
+// label
+.label
+  display inline
+  padding 0 2px
+  margin-bottom: 2rem;
+
+  &.default
+    background: #e7e3e3
+
+  &.primary
+    background: #dfeefd
+
+  &.info
+    background: #e4f2f5
+
+  &.success
+    background: #e2f0e5
+
+  &.warning
+    background: #faf4e0
+
+  &.danger
+    background: #fae7e8
+
+// btn
+.markdown-body .btn
+  background #2F4154
+  border-radius 2px
+  color #fff !important
+  display inline-block
+  font-size 0.875em
+  line-height 2
+  padding 0 20px
+  text-decoration none
+  transition-property background
+  transition-delay 0s
+  transition-duration 0.2s
+  transition-timing-function ease-in-out
+
+  &:hover
+    background #23ae92
+    color #fff !important
+    text-decoration none
+
+// group-picture
+.group-picture img
+  margin 0 auto
+  padding 0 3px
+
+
+.group-picture-row
+  margin-bottom 6px
+  overflow hidden
+
+
+.group-picture-column
+  float left
+  margin-bottom 10px
