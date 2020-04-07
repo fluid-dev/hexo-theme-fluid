@@ -26,8 +26,7 @@
 <p align="center">
   <span>预览：</span>
   <a href="https://rook1e.com">Rook1e's blog</a>&nbsp&nbsp&nbsp&nbsp
-  <a href="https://zkqiang.cn">zkqiang's blog</a>&nbsp&nbsp&nbsp&nbsp
-  <a href="https://eatrice.top">吃白饭的休伯利安号</a>
+  <a href="https://zkqiang.cn">zkqiang's blog</a>
 </p>
 
 ## 快速开始
@@ -87,6 +86,7 @@ layout: about
 - [x] 支持多款评论插件
 - [x] 支持使用[数据文件](https://hexo.io/zh-cn/docs/data-files)存放配置
 - [x] 自定义静态资源 CDN
+- [x] 无比详实的[用户文档](https://hexo.fluid-dev.com/docs/)
 - [x] 内置文章搜索
 - [x] 页脚备案信息
 - [x] 网页访问统计
