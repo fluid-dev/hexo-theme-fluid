@@ -39,41 +39,46 @@
 // label
 .label
   display inline
-  padding 0 2px
-  margin-bottom: 2rem;
+  border-radius 3px
+  font-size 85%
+  margin 0
+  padding .2em .4em
 
-  &.default
-    background: #e7e3e3
+.label-default
+  background: #e7e3e3
 
-  &.primary
-    background: #dfeefd
+.label-primary
+  background: #dfeefd
 
-  &.info
-    background: #e4f2f5
+.label-info
+  background: #e4f2f5
 
-  &.success
-    background: #e2f0e5
+.label-success
+  background: #e2f0e5
 
-  &.warning
-    background: #faf4e0
+.label-warning
+  background: #faf4e0
 
-  &.danger
-    background: #fae7e8
+.label-danger
+  background: #fae7e8
 
 // btn
 .markdown-body .btn
   background #2F4154
-  border-radius 2px
+  border-radius .25rem
   color #fff !important
   display inline-block
-  font-size 0.875em
+  font-size .875em
   line-height 2
-  padding 0 20px
+  padding 0 .75rem
   text-decoration none
   transition-property background
   transition-delay 0s
   transition-duration 0.2s
   transition-timing-function ease-in-out
+  -webkit-box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+  box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+  margin-bottom 1rem
 
   &:hover
     background #23ae92
@@ -85,11 +90,9 @@
   margin 0 auto
   padding 0 3px
 
-
 .group-picture-row
   margin-bottom 6px
   overflow hidden
-
 
 .group-picture-column
   float left

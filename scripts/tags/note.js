@@ -9,5 +9,9 @@ function postNote(args, content) {
           </div>`;
 }
 
-// {% note [primary...] [class...] %}
+/*
+  {% note [class...] %}
+  text
+  {% endnote %}
+ */
 hexo.extend.tag.register('note', postNote, { ends: true });
