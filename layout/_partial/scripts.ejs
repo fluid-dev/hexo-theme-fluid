@@ -20,7 +20,13 @@
 <% } %>
 
 <% if (theme.custom_js) { %>
-  <%- js(theme.custom_js) %>
+  <% if (typeof theme.custom_js === 'object') { %>
+    <% for (const each of theme.custom_js) { %>
+      <%- js(each) %>
+    <% } %>
+  <% } else { %>
+    <%- js(theme.custom_js) %>
+  <% } %>
 <% } %>
 
 <!-- Plugins -->

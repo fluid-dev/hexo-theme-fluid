@@ -16,5 +16,11 @@
 
 <!-- 自定义样式保持在最底部 -->
 <% if (theme.custom_css) { %>
-  <%- css(theme.custom_css) %>
+  <% if (typeof theme.custom_css === 'object') { %>
+    <% for (const each of theme.custom_css) { %>
+      <%- css(each) %>
+    <% } %>
+  <% } else { %>
+    <%- css(theme.custom_css) %>
+  <% } %>
 <% } %>
