@@ -45,22 +45,22 @@
   padding .2em .4em
 
 .label-default
-  background: #e7e3e3
+  background #e7e3e3
 
 .label-primary
-  background: #dfeefd
+  background #dfeefd
 
 .label-info
-  background: #e4f2f5
+  background #e4f2f5
 
 .label-success
-  background: #e2f0e5
+  background #e2f0e5
 
 .label-warning
-  background: #faf4e0
+  background #faf4e0
 
 .label-danger
-  background: #fae7e8
+  background #fae7e8
 
 // btn
 .markdown-body .btn
@@ -97,3 +97,65 @@
 .group-picture-column
   float left
   margin-bottom 10px
+
+input[type=checkbox]
+  -webkit-appearance none
+  -moz-appearance none
+  position relative
+  right 0
+  bottom 0
+  left 0
+  height 20px
+  width 20px
+  transition .2s
+  color #fff
+  cursor pointer
+  margin .4rem .2rem .4rem !important
+  outline none
+  border-radius 3px
+  vertical-align -0.65rem
+  border 2px solid #2F4154
+
+  &:before, &:after
+    content " "
+    transition .2s
+    position absolute
+    background #fff
+
+  &:before
+    left 2px
+    top 6px
+    width 0
+    height 2px
+    -webkit-transform rotate(45deg)
+    -moz-transform rotate(45deg)
+    -ms-transform rotate(45deg)
+    -o-transform rotate(45deg)
+    transform rotate(45deg)
+
+  &:after
+    right 9px
+    bottom 3px
+    width 2px
+    height 0
+    -webkit-transform rotate(40deg)
+    -moz-transform rotate(40deg)
+    -ms-transform rotate(40deg)
+    -o-transform rotate(40deg)
+    transform rotate(40deg)
+    transition-delay .2s
+
+  &:checked
+    background #2F4154
+
+    &:before
+      left 1px
+      top 10px
+      width 6px
+      height 2px
+
+    &:after 
+      right 5px
+      bottom 1px
+      width 2px
+      height 14px
