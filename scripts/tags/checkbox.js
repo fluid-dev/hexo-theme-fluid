@@ -3,13 +3,21 @@
 function checkbox(args) {
   args = args[0] === ',' ? args.slice(1) : args;
   args = args.join(' ').split(',');
-  let text = args[0] || '';
-  let checked = (args[1] || '').length > 0 && args[1].trim() !== 'false';
-  let inline = (args[2] || '').length > 0 && args[2].trim() !== 'false';
+  const text = (args[0] || '').trim();
 
-  return `${ !inline ? '<div>' : '' }
-            <input type="checkbox" ${ checked ? 'checked="checked"' : '' }>${ text }</input>
+  if (text === 'checked' || text === 'true' || text === 'false') {
+    const checked = (text === 'checked' || text === 'true');
+    return `<input type="checkbox" ${ checked ? 'checked="checked"' : '' }>`;
+  } else {
+    !text && hexo.log.warn('Checkbox text must be defined!');
+
+    const checked = (args[1] || '').length > 0 && args[1].trim() !== 'false';
+    const inline = (args[2] || '').length > 0 && args[2].trim() !== 'false';
+
+    return `${ !inline ? '<div>' : '' }
+            <input type="checkbox" ${ checked ? 'checked="checked"' : '' }>${ text }
           ${ !inline ? '</div>' : '' }`;
+  }
 }
 
 // {% cb text, checked?, inline? %}

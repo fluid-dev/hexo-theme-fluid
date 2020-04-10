@@ -1,17 +1,13 @@
 'use strict';
 
 function postButton(args) {
+  args = args[0] === ',' ? args.slice(1) : args;
   args = args.join(' ').split(',');
-  const url = args[0];
-  let text = args[1] || '';
-  let title = args[2] || '';
+  const url = (args[0] || '').trim();
+  const text = (args[1] || '').trim();
+  const title = (args[2] || '').trim();
 
-  if (!url) {
-    hexo.log.warn('URL can NOT be empty.');
-  }
-
-  text = text.trim();
-  title = title.trim();
+  !url && hexo.log.warn('Button url must be defined!');
 
   return `<a class="btn" href="${ url }" ${ title.length > 0 ? ` title="${ title }"` : '' }>${ text }</a>`;
 }
