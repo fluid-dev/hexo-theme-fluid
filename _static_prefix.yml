@@ -35,7 +35,7 @@ internal_img: /img
 
 anchor: https://cdn.staticfile.org/anchor-js/4.2.2/
 
-github_markdown: https://cdn.staticfile.org/github-markdown-css/3.0.1/
+github_markdown: https://cdn.staticfile.org/github-markdown-css/4.0.0/
 
 jquery: https://cdn.staticfile.org/jquery/3.4.1/
 
@@ -47,7 +47,7 @@ prettify: https://cdn.staticfile.org/prettify/188.0.0/
 # the path of highlight theme, only support `min.css` file，filename need to be the same as _config.highlight.theme
 prettify_theme: /lib/prettify/
 
-tocbot: https://cdn.staticfile.org/tocbot/4.10.0/
+tocbot: https://cdn.staticfile.org/tocbot/4.11.1/
 
 typed: https://cdn.staticfile.org/typed.js/2.0.11/
 
