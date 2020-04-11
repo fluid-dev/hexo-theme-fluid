@@ -148,7 +148,10 @@ index:
   banner_img: /img/default.png  # 首页 Banner 头图，以下相同
   banner_img_height: 100  # 头图高度，屏幕百分比，available: 0 - 100
   banner_mask_alpha: 0.3  # 头图黑色蒙版的透明度，available: 0 - 1.0， 0 是完全透明（无蒙版），1 是完全不透明
-  post_default_img: '' # 默认的文章封面图，当没有指定 index_img 时会使用该图片，若都为空则不显示任何图片
+  post_default_img:   # 随机默认文章封面图，当没有指定 index_img 时会使用该文件夹中的图片，若都为空则不显示任何图片
+    url: '' # 默认的文章封面图文件夹
+    number: 3 # 文件夹中图片数量，图片命名从0开始 0.jpg 1.jpg 2.jpg
+    format: jpg # 图片格式，保证文件夹中图片格式一致
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
     text:  # 为空则按 hexo config.subtitle 显示
