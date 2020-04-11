@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
-const _ = require('./utils/lodash');
+const objUtil = require('./utils/object');
 
 hexo.on('generateBefore', function () {
   let sourceConfig;
@@ -27,16 +27,12 @@ hexo.on('generateBefore', function () {
   // Merge configs in /source/_data/fluid_static_prefix.yml into hexo.theme.config.
   const configPath = path.join(__dirname, '../_static_prefix.yml');
   const yamlDoc = yaml.safeLoad(fs.readFileSync(configPath, 'utf8'));
-  hexo.theme.config.static_prefix = _.merge({}, yamlDoc, staticPrefix);
+  hexo.theme.config.static_prefix = objUtil.merge({}, yamlDoc, staticPrefix);
   this.log.debug('Fluid: theme static_prefix config merged');
 
   // Merge configs in hexo.config.theme_config and /source/_data/fluid_config.yml into hexo.theme.config.
-  hexo.theme.config = _.mergeWith({}, hexo.theme.config, sourceConfig, hexo.config.theme_config,
-    function (objValue, srcValue) {
-      if (_.isArray(objValue)) {
-        return srcValue;
-      }
-    });
+  hexo.theme.config = objUtil.merge({}, hexo.theme.config, sourceConfig, hexo.config.theme_config);
+
   this.log.debug('Fluid: theme config merged');
 
   // Trigger action that requires configuration data.

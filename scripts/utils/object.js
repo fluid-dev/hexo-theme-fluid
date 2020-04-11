@@ -1,0 +1,26 @@
+'use strict';
+
+function isObject(item) {
+  return item && typeof item === 'object' && !Array.isArray(item);
+}
+
+function merge(target, ...sources) {
+  for (const source of sources) {
+    for (const key in source) {
+      if (!source.hasOwnProperty(key)) {
+        continue;
+      }
+      if (isObject(target[key]) && isObject(source[key])) {
+        merge(target[key], source[key]);
+      } else {
+        target[key] = source[key];
+      }
+    }
+  }
+  return target;
+}
+
+module.exports = {
+  isObject: isObject,
+  merge: merge,
+};
