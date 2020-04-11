@@ -91,6 +91,9 @@ aplayer:  # 音乐播放器，注意不能与 hexo-tag-aplayer 插件共用
     - { name: 'name', artist: 'artist', url: '/songs/test.mp3', cover: '/img/cover.jpg' }
     - { name: 'name', artist: 'artist', url: 'https://...url.mp3', cover: 'https://...cover.jpg' }
 
+version:  # 版本相关
+  check: true  # 每次生成检测是否为最新版本
+
 #---------------------------
 # 页头
 # Header
