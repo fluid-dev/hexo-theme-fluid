@@ -257,43 +257,32 @@ gitalk:
   createIssueManually: true     # By default, Gitalk will create a corresponding github issue for your every single page automatically when the logined user is belong to the admin users. You can create it manually by setting this option to true.
 
 # Valine
-# You can get your appid and appkey from https://leancloud.cn
-# More info available at https://valine.js.org
+# 完整文档 https://valine.js.org/configuration.html
+# 注意：下列配置项中的 true/false 不要用引号括起来
 valine:
-  appid:  # your leancloud application appid
-  appkey:  # your leancloud application appkey
-  notify: false # mail notifier, See: https://github.com/xCss/Valine/wiki
-  verify: false # Verification code
-  placeholder: 说点什么 # comment box placeholder
-  avatar: retro # gravatar style https://valine.js.org/avatar.html
-  meta: ['nick', 'mail', 'link']  # guest info
-  pageSize: 10 # pagination size
+  appid:  # 从 LeanCloud 的应用中得到的 appId
+  appkey:  # 从 LeanCloud 的应用中得到的 APP Key
+  placeholder: 说点什么 # 评论框占位提示符
+  path: window.location.pathname # 当前文章页路径，用于区分不同的文章页，以保证正确读取该文章页下的评论列表
+  avatar: retro # Gravatar 头像展示方式
+  meta: ['nick', 'mail', 'link']  # 评论者相关属性
+  pageSize: 10 # 评论列表分页，每页条数
+  lang: zh-CN # zh-CN | zh-TW | en | ja
+  highlight: false # 代码高亮
+  recordIP: false # 是否记录评论者IP
+  serverURLs: # 该配置适用于国内自定义域名用户, 海外版本会自动检测(无需手动填写)
+  mathJax: false # 是否启用MathJax
 
-# Changyan
-# You can get your appid from http://changyan.kuaizhan.com/setting/common/isv-mgr
-# Install: http://changyan.kuaizhan.com/static/help/f-fitself.html
+# 畅言
+# http://changyan.kuaizhan.com/
 changyan:
-  appid: ''            # your changyan application appid        # 畅言ID
-  conf: ''             # conf                                   # 畅言设置
-  notify: false        # beian warning message                  # 备案提示
-  libopen: true        # open laboratory                        # 畅言实验室功能开关
-  cyEmoji: true        # comments emoji                         # 评论表情
-  cyWallsplugin: true  # Hot text matching                      # 热文配图
-  cyReping: true       # hot comments                           # 热门评论
-  cyReward: true       # reward                                 # 打赏
-  cyQing: true         # Light comment                          # 轻评论
-  cyHotusers: true     # User evaluation                        # 热评用户
-  cyHotnews: true      # Hot news                               # 热门新闻
-  cyHotnewswall: true  # News wall                              # 新闻墙
-  cyPk: ''             # Topic debate                           # 辩论
-  cyPoll: true         # vote                                   # 投票
-  cyBarrage: true      # Picture barrage                        # 图片弹幕
-  cyTvbarrage: true    # Video barrage                          # 视频弹幕
+  appid: ''
+  appkey: ''
 
 # Livere 来必力
 # You can get your uid from https://www.livere.com/my_Livere
 livere:
-  uid: ''            # your livere application uid        # 来必力ID
+  uid: ''
 
 
 #---------------------------
