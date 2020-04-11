@@ -1,6 +1,6 @@
 'use strict';
 
-function checkbox(args) {
+const checkbox = (args) => {
   args = args[0] === ',' ? args.slice(1) : args;
   args = args.join(' ').split(',');
   const text = (args[0] || '').trim();
@@ -18,7 +18,7 @@ function checkbox(args) {
             <input type="checkbox" ${ checked ? 'checked="checked"' : '' }>${ text }
           ${ !inline ? '</div>' : '' }`;
   }
-}
+};
 
 // {% cb text, checked?, inline? %}
 hexo.extend.tag.register('checkbox', checkbox, { ends: false });

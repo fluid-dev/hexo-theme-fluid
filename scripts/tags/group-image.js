@@ -14,27 +14,27 @@ const LAYOUTS = {
     1: [1, 2, 1],
     2: [1, 3],
     3: [2, 2],
-    4: [3, 1]
+    4: [3, 1],
   },
   5: {
     1: [1, 2, 2],
     2: [2, 1, 2],
     3: [2, 3],
-    4: [3, 2]
+    4: [3, 2],
   },
   6: {
     1: [1, 2, 3],
     2: [1, 3, 2],
     3: [2, 1, 3],
     4: [2, 2, 2],
-    5: [3, 3]
+    5: [3, 3],
   },
   7: {
     1: [1, 2, 2, 2],
     2: [1, 3, 3],
     3: [2, 2, 3],
     4: [2, 3, 2],
-    5: [3, 2, 2]
+    5: [3, 2, 2],
   },
   8: {
     1: [1, 2, 2, 3],
@@ -43,7 +43,7 @@ const LAYOUTS = {
     4: [2, 2, 2, 2],
     5: [2, 3, 3],
     6: [3, 2, 3],
-    7: [3, 3, 2]
+    7: [3, 3, 2],
   },
   9: {
     1: [1, 2, 3, 3],
@@ -52,7 +52,7 @@ const LAYOUTS = {
     4: [2, 2, 3, 2],
     5: [2, 3, 2, 2],
     6: [3, 2, 2, 2],
-    7: [3, 3, 3]
+    7: [3, 3, 3],
   },
   10: {
     1: [1, 3, 3, 3],
@@ -61,22 +61,22 @@ const LAYOUTS = {
     4: [2, 3, 3, 2],
     5: [3, 2, 2, 3],
     6: [3, 2, 3, 2],
-    7: [3, 3, 2, 2]
-  }
+    7: [3, 3, 2, 2],
+  },
 };
 
-function groupBy(group, data) {
+const groupBy = (group, data) => {
   const r = [];
   for (let count of group) {
     r.push(data.slice(0, count));
     data = data.slice(count);
   }
   return r;
-}
+};
 
 const templates = {
 
-  dispatch: function (images, group, layout) {
+  dispatch: (images, group, layout) => {
     const rule = LAYOUTS[group] ? LAYOUTS[group][layout] : null;
     return rule ? this.getHTML(groupBy(rule, images)) : templates.defaults(images);
   },
@@ -90,7 +90,7 @@ const templates = {
    *
    * @param images
    */
-  defaults: function (images) {
+  defaults: (images) => {
     const ROW_SIZE = 3;
     const rows = images.length / ROW_SIZE;
     const imageArr = [];
@@ -102,7 +102,7 @@ const templates = {
     return this.getHTML(imageArr);
   },
 
-  getHTML: function (rows) {
+  getHTML: (rows) => {
     const rowHTML = rows.map(row => {
       return `<div class="group-image-row">${ this.getColumnHTML(row) }</div>`;
     }).join('');
@@ -110,7 +110,7 @@ const templates = {
     return `<div class="group-image-container">${ rowHTML }</div>`;
   },
 
-  getColumnHTML: function (images) {
+  getColumnHTML: (images) => {
     const columnWidth = 100 / images.length;
     const columnStyle = `style="width: ${ columnWidth }%;"`;
     return images.map(image => {
@@ -119,7 +119,7 @@ const templates = {
   },
 };
 
-function groupImage(args, content) {
+const groupImage = (args, content) => {
   args = args[0].split('-');
   const group = parseInt(args[0], 10);
   const layout = parseInt(args[1], 10);
@@ -129,7 +129,7 @@ function groupImage(args, content) {
   const images = content.match(/<img[\s\S]*?>/g);
 
   return `<div class="group-image">${ templates.dispatch(images, group, layout) }</div>`;
-}
+};
 
 /*
   {% groupimage 3-x %}

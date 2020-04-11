@@ -1,4 +1,5 @@
 'use strict';
+
 hexo.extend.generator.register('_hexo_generator_search', function (locals) {
   const config = this.theme.config;
   if (!config.search.enable) {
@@ -25,7 +26,7 @@ hexo.extend.generator.register('_hexo_generator_search', function (locals) {
       : base;
   });
 
-  const searchTmplSrc = pathFn.join(__dirname, '../local-search.xml');
+  const searchTmplSrc = pathFn.join(__dirname, '../../local-search.xml');
   const searchTmpl = nunjucks.compile(fs.readFileSync(searchTmplSrc, 'utf8'), env);
 
   const searchConfig = config.search;

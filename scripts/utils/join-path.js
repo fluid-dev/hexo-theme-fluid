@@ -1,3 +1,5 @@
+'use strict';
+
 const joinPath = function (base, relative) {
   if (relative && /^https*:\/\//.test(relative)) {
     return relative;

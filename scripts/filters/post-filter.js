@@ -1,4 +1,5 @@
 'use strict';
+
 // 生成前过滤文章
 hexo.extend.filter.register('before_generate', function () {
   this._bindLocals();
