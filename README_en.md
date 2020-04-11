@@ -17,15 +17,14 @@
 
 <p align="center">
   <span>Docs：</span>
-  <a href="https://hexo.fluid-dev.com/docs/en/">Theme Guide</a>&nbsp&nbsp&nbsp&nbsp
-  <a href="https://hexo.io/docs/front-matter">Post Front-matter</a>
+  <a href="https://hexo.fluid-dev.com/docs/en/">Documents</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.io/docs/front-matter">Post-Guide</a>
 </p>
 
 <p align="center">
   <span>Demo：</span>
   <a href="https://rook1e.com">Rook1e's blog</a>&nbsp&nbsp&nbsp&nbsp
-  <a href="https://zkqiang.cn">zkqiang's blog</a>&nbsp&nbsp&nbsp&nbsp
-  <a href="https://eatrice.top">EatRice's blog</a>
+  <a href="https://zkqiang.cn">zkqiang's blog</a>
 </p>
 
 ## Quick Start
@@ -76,15 +75,17 @@ Support Markdown, HTML
 
 ## Features
 
-- [x] Img lazyload
+- [x] Image lazyload
 - [x] Custom code highlighting scheme
 - [x] Internationalization
 - [x] Support for multiple comment plugins
 - [x] Support for storing configuration in [Data Files](https://hexo.io/docs/data-files.html)
 - [x] Custom static resource CDN
+- [x] Detailed [documents](https://hexo.fluid-dev.com/docs/en/)
 - [x] Built-in search plugin
 - [x] Website analysis
 - [x] Support for LaTeX
+- [x] Support for mermaid
 - [x] Music player
 
 ## FAQ
@@ -105,10 +106,6 @@ Support Markdown, HTML
 English docs translator：[@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top)
 
 Contributors outside PR：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
-
-## Feedback
-
-- WeChat: After the scan, add, **reply "fluid"** (in chat reply, not request note) automatically pull you into the group<details> <summary>Qr code</summary><img width="250" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.jpeg"></details>
 
 ## Star trending
 

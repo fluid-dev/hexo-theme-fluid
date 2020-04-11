@@ -4,23 +4,23 @@ page.title = theme.links.title || __('links.title')
 page.subtitle = theme.links.subtitle || __('links.subtitle')
 page.banner_img = theme.links.banner_img
 page.banner_img_height = theme.links.banner_img_height
+page.banner_mask_alpha = theme.links.banner_mask_alpha
 %>
 
 <div class="row links">
-  <% for(const each in theme.links.items) { %>
-    <% var props = theme.links.items[each] %>
-    <% if (!props) continue %>
+  <% for(const each of theme.links.items) { %>
+    <% if (!each.title || !each.link) continue %>
     <div class="card col-lg-4 col-md-6 col-sm-12">
-      <a href="<%= url_for(props[0]) %>" class="card-body" target="_blank" rel="noopener">
+      <a href="<%= url_for(each.link) %>" class="card-body hover-with-bg" target="_blank" rel="noopener">
         <div class="card-content">
-          <% if (props[2]) { %>
+          <% if (each.image) { %>
             <div class="link-avatar my-auto">
-              <img src="<%= props[2] %>" alt="<%= each %>" />
+              <img src="<%= each.image %>" alt="<%= each.title %>" />
             </div>
           <% } %>
           <div class="link-text">
-            <div class="link-title"><%- each %></div>
-            <div class="link-intro"><%- props[1] %></div>
+            <div class="link-title"><%- each.title %></div>
+            <div class="link-intro"><%- each.intro %></div>
           </div>
         </div>
       </a>

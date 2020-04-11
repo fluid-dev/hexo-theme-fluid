@@ -1,7 +1,5 @@
 <%- js_ex(theme.static_prefix.jquery, 'jquery.min.js') %>
-<%- js_ex(theme.static_prefix.popper, 'popper.min.js') %>
 <%- js_ex(theme.static_prefix.bootstrap, 'js/bootstrap.min.js') %>
-<%- js_ex(theme.static_prefix.mdbootstrap, 'js/mdb.min.js') %>
 <%- js_ex(theme.static_prefix.internal_js, 'main.js') %>
 
 <% if (theme.lazyload.enable){ %>
@@ -9,7 +7,7 @@
 <% } %>
 
 <% if (is_post()){ %>
-  <%- partial('_partial/postjs.ejs') %>
+  <%- partial('_partial/plugins/tocjs.ejs') %>
 <% } %>
 
 <% if (theme.highlight.enable && theme.highlight.copy_btn) { %>
@@ -17,16 +15,18 @@
   <%- js_ex(theme.static_prefix.internal_js, 'clipboard-use.js') %>
 <% } %>
 
-<% if (theme.smooth_scroll.enable) { %>
-  <%- js_ex(theme.static_prefix.smooth_scroll, 'SmoothScroll.min.js', 'defer') %>
-<% } %>
-
 <% if (theme.footer.statistics.enable || theme.post.meta.views.enable) { %>
   <%- js_ex(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
 <% } %>
 
 <% if (theme.custom_js) { %>
-  <%- js(theme.custom_js) %>
+  <% if (typeof theme.custom_js === 'object') { %>
+    <% for (const each of theme.custom_js) { %>
+      <%- js(each) %>
+    <% } %>
+  <% } else { %>
+    <%- js(theme.custom_js) %>
+  <% } %>
 <% } %>
 
 <!-- Plugins -->
@@ -39,3 +39,4 @@
 <%- partial('_partial/plugins/math.ejs') %>
 <%- partial('_partial/plugins/mouse-click.ejs') %>
 <%- partial('_partial/plugins/daovoice.ejs') %>
+<%- partial('_partial/plugins/mermaid.ejs') %>

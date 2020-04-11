@@ -17,16 +17,22 @@
 .post-content h1::before, h2::before, h3::before, h4::before, h5::before, h6::before
   display block
   content ""
-  margin-top -50px
-  height 50px
+  margin-top -4rem
+  height 4rem
   width 1px
   visibility hidden
 
-.post-meta
-  margin 0 .25rem
+.post-metas
+  display flex
+  flex-direction row
+  flex-wrap wrap
 
-  i
-    margin 0 .15rem
+.post-meta
+  & > i
+    margin-right .15rem
+
+  & > a:not(.hover-with-bg)
+    margin-right .15rem
 
 .post-prevnext
   margin-top 2rem
@@ -37,7 +43,7 @@
     display flex
 
     i
-      font-size 1.2rem
+      font-size 1.5rem
       -webkit-transform translateZ(0)
       -moz-transform translateZ(0)
       -ms-transform translateZ(0)
@@ -115,11 +121,20 @@
 // toc
 
 #toc
+  position -webkit-sticky
+  position sticky
+  top 2rem
   padding 3rem 0 0 0
-  height 80%
+  max-height 80%
+  visibility hidden
 
-  p
-    visibility: hidden
+.toc-header
+  margin-bottom .5rem
+  font-weight 500
+  line-height 1.2
+
+  &, & > i
+    font-size 1.25rem
 
 #tocbot
   max-height 100%
@@ -140,22 +155,21 @@
     padding-left 1rem
 
   a
-    font-size: 15px
+    font-size 0.95rem
 
 .tocbot-link
   color $tocbot-link-color
 
 .tocbot-active-link
-  font-weight 600
+  font-weight bold
   color $tocbot-link-active-color
-
-.tocbot-is-collapsible
-  max-height 1000px
-  overflow hidden
-  transition all 300ms ease-in-out
 
 .tocbot-is-collapsed
   max-height 0
+
+.tocbot-is-collapsible
+  overflow hidden
+  transition all 300ms ease-in-out
 
 @media (max-width: 1024px)
   .toc-container

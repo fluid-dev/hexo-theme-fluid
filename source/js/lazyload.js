@@ -1,4 +1,4 @@
-(function (window) {
+!function (window, document) {
 	var images = Array.prototype.slice.call(document.querySelectorAll('img[srcset]'));
 
 	function elementInViewport(el) {
@@ -51,4 +51,4 @@
 	processImages();
 
 	window.addEventListener('scroll', imageLazyLoader);
-})(this);
+}(window, document);

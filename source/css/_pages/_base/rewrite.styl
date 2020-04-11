@@ -1,0 +1,218 @@
+// Rewrite navbar
+
+.navbar
+  background-color transparent
+  font-size 0.875rem
+  color $navbar-text-color
+  box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+  -webkit-box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+
+  a
+    color $navbar-text-color
+
+    &:hover
+      background-color rgba(0, 0, 0, 0.1)
+
+    & > i
+      font-size 0.875rem
+
+  .nav-item .nav-link
+    display block
+
+  .navbar-toggler
+    border-width 0
+    outline 0
+
+  &.navbar-dark .breadcrumb .nav-item .nav-link, &.navbar-dark .navbar-nav .nav-item .nav-link
+    color #fff
+    -webkit-transition .35s
+    transition .35s
+
+  @media (min-width: 600px)
+    &.scrolling-navbar
+      padding-top 12px
+      padding-bottom 12px
+      -webkit-transition background 0.5s ease-in-out, padding 0.5s ease-in-out
+      transition background 0.5s ease-in-out, padding 0.5s ease-in-out
+
+    &.scrolling-navbar .navbar-nav > li
+      -webkit-transition-duration 1s
+      transition-duration 1s
+
+  &.scrolling-navbar.top-nav-collapse
+    padding-top 5px
+    padding-bottom 5px
+
+.navbar-custom
+  color $navbar-text-color
+
+  a
+    color $navbar-text-color
+
+.top-nav-collapse
+  background-color $navbar-bg-color
+
+.navbar-col-show
+  background-color $navbar-bg-color
+
+
+@media (max-width: 767px)
+  .navbar
+    font-size 1rem
+    line-height 2.5rem
+
+
+// Rewrite github-markdown.css
+
+.markdown-body
+  font-size 1rem
+  margin-bottom 2rem
+  font-family $font-family
+  color $post-text-color
+
+  h1, h2, h3, h4, h5, h6
+    color $post-heading-color
+    font-weight bold
+    margin-bottom .75em
+    margin-top 2em
+
+    &:focus
+      outline none
+
+  hr
+    height .2em
+    margin 2rem 0
+
+  strong
+    font-weight bold
+
+  pre
+    padding 1.5rem 1rem
+    position relative
+
+  code
+    font-size $code-font-size
+
+  p > img, p > a > img
+    max-width 90%
+    margin 1.5rem auto
+    display block
+    box-shadow $img-shadow
+
+
+// Rewrite mdb.css
+
+.list-group-item
+  border 0
+
+.page-link
+  font-size 1.1rem
+
+// Rewrite pagination
+
+.pagination
+  margin-top 3rem
+  justify-content center
+
+  & a, & .current
+    outline 0
+    border 0
+    background-color transparent
+    font-size .9rem
+    padding .5rem .75rem
+    line-height 1.25
+    -webkit-border-radius .125rem
+    border-radius .125rem
+    -webkit-transition all .3s linear
+    -o-transition all .3s linear
+    transition all .3s linear
+
+  & a:hover, & .current
+    background-color $link-hover-bg-color
+
+// Rewrite modal
+
+.modal-dialog .modal-content
+  border: 0;
+  border-radius: .125rem;
+  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+
+.modal-dialog .modal-content .modal-header {
+  border-top-left-radius: .125rem;
+  border-top-right-radius: .125rem;
+}
+
+.md-form {
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.md-form
+  input[type]
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+
+    $normal = #4285f4
+
+    &:focus:not([readonly])
+      border-bottom: 1px solid $normal;
+      -webkit-box-shadow: 0 1px 0 0 $normal;
+      box-shadow: 0 1px 0 0 $normal;
+
+      & + label
+        color: $normal;
+
+    $valid = #00c851
+
+    &.valid, &:focus.valid
+      border-bottom: 1px solid $valid;
+      -webkit-box-shadow: 0 1px 0 0 $valid;
+      box-shadow: 0 1px 0 0 $valid;
+
+      & + label
+        color: $valid;
+
+    $invalid = #f44336
+
+    &.invalid, &:focus.invalid
+      border-bottom: 1px solid $invalid;
+      -webkit-box-shadow: 0 1px 0 0 $invalid;
+      box-shadow: 0 1px 0 0 $invalid;
+
+      & + label
+        color: $invalid;
+
+    &.validate
+      margin-bottom: 2.5rem;
+
+    &.form-control
+      height: auto;
+      padding: .6rem 0 .4rem 0;
+      margin: 0 0 .5rem 0;
+      background-color: transparent;
+      border-radius: 0;
+
+  label
+    font-size: 0.8rem;
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    color: #757575;
+    cursor: text;
+    -webkit-transition: color .2s ease-out, -webkit-transform .2s ease-out;
+    transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
+
+// Rewrite iconfont
+.iconfont
+  font-size 1rem
+  line-height 1

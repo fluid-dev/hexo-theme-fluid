@@ -5,6 +5,7 @@
 var subtitle = page.subtitle || page.title
 var banner_img = page.banner_img || theme.index.banner_img
 var banner_img_height = page.banner_img_height || theme.index.banner_img_height
+var banner_mask_alpha = page.banner_mask_alpha || theme.index.banner_mask_alpha
 %>
 
 <%- partial('_partial/head') %>
@@ -16,7 +17,7 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
          style="background: url('<%- url_for(banner_img) %>') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               <% if(theme.fun_features.typing.enable == false) { %>
@@ -26,26 +27,31 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 
             <% if(is_post()) { %>
               <% if (theme.post.meta.date.enable) { %>
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  <%- full_date(page.date, theme.post.meta.date.format) %>
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="<%= full_date(page.date, 'YYYY-MM-DD HH:mm') %>">
+                    <%= full_date(page.date, theme.post.meta.date.format) %>
+                  </time>
+                </div>
               <% } %>
 
-              <p class="mt-1">
+              <div class="mt-1">
                 <% if (theme.post.meta.wordcount.enable) { %>
                   <% var wordcount_texts = theme.post.meta.wordcount.format.split('{}') %>
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
                     <%- wordcount_texts[0] %><%- wordcount(page.content) %><%- wordcount_texts[1] %>
                   </span>
                 <% } %>
 
                 <% if (theme.post.meta.min2read.enable) { %>
                   <% var min2read_texts = theme.post.meta.min2read.format.split('{}') %>
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      <%- min2read_texts[0] %><%- min2read(page.content) %><%- min2read_texts[1] %>
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    <% var words = parseInt(theme.post.meta.min2read.words) %>
+                    <%- min2read_texts[0] %>
+                    <%- min2read(page.content, { cn: words, en: words / 2 }) %>
+                    <%- min2read_texts[1] %>
                   </span>
                 <% } %>
 
@@ -53,17 +59,17 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
                   <!-- 不蒜子统计文章PV -->
                   <% var views_texts = theme.post.meta.views.format.split('{}') %>
                   <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
-                    <i class="far fa-eye" aria-hidden="true"></i>
+                    <i class="iconfont icon-eye" aria-hidden="true"></i>
                     <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
                   </span>
                 <% } %>
-              </p>
+              </div>
             <% } %>
           </div>
 
           <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height) { %>
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           <% } %>
         </div>
@@ -76,13 +82,12 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
       <%- body %>
     <% } else { %>
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
+        <div class="py-5" id="board"
           <%- banner_img_height >= 100 && theme.banner_parallax ? 'style=margin-top:0' : '' %>>
           <% if(page.layout == 'about') { %>
             <div class="about-avatar">
               <img src="<%- url_for(theme.about.avatar) %>"
-                   class="img-fluid z-depth-1"
-                   alt="avatar">
+                   class="img-fluid" alt="avatar">
             </div>
           <% } %>
           <div class="container">
@@ -98,8 +103,8 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
   </main>
 
   <% if (theme.scroll_top_arrow.enable) { %>
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   <% } %>
 

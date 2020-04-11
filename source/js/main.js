@@ -1,13 +1,10 @@
+// 滚动到指定元素
 function scrollToElement(target, offset) {
   var scroll_offset = $(target).offset();
   $('body,html').animate({
     scrollTop: scroll_offset.top + (offset || 0),
     easing: 'swing',
   });
-}
-
-function scrollToBoard() {
-  scrollToElement('#board', -$('#navbar').height());
 }
 
 // 防抖动函数
@@ -26,27 +23,30 @@ function debounce(func, wait, immediate) {
   };
 }
 
-$(document).ready(function () {
-  // 顶部菜单的动效
+// 顶部菜单的监听事件
+function navbarScrollEvent() {
   var navbar = $('#navbar');
   if (navbar.offset().top > 0) {
     navbar.addClass('navbar-custom');
     navbar.removeClass('navbar-dark');
   }
-  $(window).scroll(function () {
+  $(window).scroll(debounce(function () {
+    $('.scrolling-navbar')[navbar.offset().top > 50 ? 'addClass' : 'removeClass']('top-nav-collapse');
     if (navbar.offset().top > 0) {
       navbar.addClass('navbar-custom');
       navbar.removeClass('navbar-dark');
     } else {
       navbar.addClass('navbar-dark');
     }
-  });
+  }, 20));
   $('#navbar-toggler-btn').on('click', function () {
     $('.animated-icon').toggleClass('open');
     $('#navbar').toggleClass('navbar-col-show');
   });
+}
 
-  // 头图视差动画
+// 头图视差的监听事件
+function parallaxEvent() {
   var target = $('#background[parallax="true"]');
   var parallax = function () {
     var oVal = $(window).scrollTop() / 5;
@@ -73,12 +73,21 @@ $(document).ready(function () {
     parallax();
     $(window).scroll(parallax);
   }
+}
 
-  // 向下滚动箭头的点击
-  $('.scroll-down-bar').on('click', scrollToBoard);
+// 向下滚动箭头的监听事件
+function scrollDownArrowEvent() {
+  $('.scroll-down-bar').on('click', function () {
+    scrollToElement('#board', -$('#navbar').height());
+  });
+}
 
-  // 向顶部滚动箭头
+// 向顶部滚动箭头的监听事件
+function scrollTopArrowEvent() {
   var topArrow = $('#scroll-top-button');
+  if (!topArrow) {
+    return;
+  }
   var posDisplay = false;
   var scrollDisplay = false;
   // 位置
@@ -110,4 +119,11 @@ $(document).ready(function () {
       easing: 'swing',
     });
   });
+}
+
+$(document).ready(function () {
+  navbarScrollEvent();
+  parallaxEvent();
+  scrollDownArrowEvent();
+  scrollTopArrowEvent();
 });

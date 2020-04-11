@@ -1,14 +1,14 @@
 'use strict';
 hexo.extend.generator.register('_hexo_generator_search', function (locals) {
-  var config = this.theme.config;
+  const config = this.theme.config;
   if (!config.search.enable) {
     return;
   }
 
-  var nunjucks = require('nunjucks');
-  var env = new nunjucks.Environment();
-  var pathFn = require('path');
-  var fs = require('fs');
+  const nunjucks = require('nunjucks');
+  const env = new nunjucks.Environment();
+  const pathFn = require('path');
+  const fs = require('fs');
 
   env.addFilter('uriencode', function (str) {
     return encodeURI(str);
@@ -18,21 +18,27 @@ hexo.extend.generator.register('_hexo_generator_search', function (locals) {
     return str && str.replace(/[\x00-\x1F\x7F]/g, '');
   });
 
-  var searchTmplSrc = pathFn.join(__dirname, '../local-search.xml');
-  var searchTmpl = nunjucks.compile(fs.readFileSync(searchTmplSrc, 'utf8'), env);
+  env.addFilter('urlJoin', function (str) {
+    const base = str[0], relative = str[1];
+    return relative
+      ? base.replace(/\/+$/, '') + '/' + relative.replace(/^\/+/, '')
+      : base;
+  });
 
-  var searchConfig = config.search;
-  var template = searchTmpl;
-  var searchField = searchConfig.field;
-  var content = searchConfig.content || true;
+  const searchTmplSrc = pathFn.join(__dirname, '../local-search.xml');
+  const searchTmpl = nunjucks.compile(fs.readFileSync(searchTmplSrc, 'utf8'), env);
 
-  var posts, pages;
+  const searchConfig = config.search;
+  let searchField = searchConfig.field;
+  const content = searchConfig.content || true;
 
-  if (searchField.trim() != '') {
+  let posts, pages;
+
+  if (searchField.trim() !== '') {
     searchField = searchField.trim();
-    if (searchField == 'post') {
+    if (searchField === 'post') {
       posts = locals.posts.sort('-date');
-    } else if (searchField == 'page') {
+    } else if (searchField === 'page') {
       pages = locals.pages;
     } else {
       posts = locals.posts.sort('-date');
@@ -42,16 +48,16 @@ hexo.extend.generator.register('_hexo_generator_search', function (locals) {
     posts = locals.posts.sort('-date');
   }
 
-  var xml = template.render({
+  const xml = searchTmpl.render({
     config: config,
     posts: posts,
     pages: pages,
     content: content,
-    url: hexo.config.root
+    url: hexo.config.root,
   });
 
   return {
     path: searchConfig.generate_path || '/local-search.xml',
-    data: xml
+    data: xml,
   };
 });

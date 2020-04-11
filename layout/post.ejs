@@ -3,6 +3,7 @@ if (!page.banner_img) {
   page.banner_img = theme.post.banner_img
 }
 page.banner_img_height = theme.post.banner_img_height
+page.banner_mask_alpha = theme.post.banner_mask_alpha
 %>
 
 <div class="container-fluid">
@@ -10,36 +11,36 @@ page.banner_img_height = theme.post.banner_img_height
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             <% if(theme.post.updated && theme.post.updated.enable) { %>
-              <p
-                class="note note-warning"><%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %></p>
+              <p class="note note-warning">
+                <%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %>
+              </p>
             <% } %>
-            <div class="markdown-body">
+            <article class="markdown-body">
               <%- page.content %>
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 <% if (page.categories && page.categories.length > 0) { %>
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     <% page.categories.each(function(cate) { %>
                       <a class="hover-with-bg" href="<%- url_for(cate.path) %>"><%= cate.name %></a>
-                      &nbsp;
                     <% }) %>
-                  </span>&nbsp;&nbsp;
+                  </div>
                 <% } %>
                 <% if (page.tags && page.tags.length > 0 ) { %>
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     <% page.tags.each(function(tag) { %>
                       <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
                     <% }) %>
-                  </span>
+                  </div>
                 <% } %>
-              </p>
+              </div>
               <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
                 <p class="note note-warning"><%- theme.post.copyright.content %></p>
               <% } %>
@@ -49,7 +50,7 @@ page.banner_img_height = theme.post.banner_img_height
                     <% const prev = prev_page(page) %>
                     <% if (prev) { %>
                       <a href="<%= url_for(prev.path) %>">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"><%- prev.title %></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -61,7 +62,7 @@ page.banner_img_height = theme.post.banner_img_height
                       <a href="<%= url_for(next.path) %>">
                         <span class="hidden-mobile"><%- next.title %></span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     <% } %>
                   </div>
@@ -69,13 +70,13 @@ page.banner_img_height = theme.post.banner_img_height
               <% } %>
             </div>
 
-              <% if(page.comments && theme.post.comments.enable) { %>
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  <% var type = '_partial/comments/' + theme.post.comments.type %>
-                  <%- partial(type) %>
-                </div>
-              <% } %>
+            <% if(page.comments && theme.post.comments.enable) { %>
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                <% var type = '_partial/comments/' + theme.post.comments.type %>
+                <%- partial(type) %>
+              </div>
+            <% } %>
           </div>
         </div>
       </div>

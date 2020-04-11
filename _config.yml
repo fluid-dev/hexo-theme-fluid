@@ -27,7 +27,7 @@ highlight: # 代码高亮
 fun_features: # 一些好玩的功能
   typing: # 为 subtitle 添加打字机效果
     enable: true
-    typeSpeed: 70 # 打印速度
+    typeSpeed: 70  # 打印速度，数字越大越慢
     cursorChar: "_" # 游标字符
     loop: false # 是否循环播放效果
   anchorjs: # 为文章内容中的标题添加锚图标
@@ -40,17 +40,26 @@ fun_features: # 一些好玩的功能
     enable: false
     style: values # 目前设置两个值：values（价值观词汇） | love（爱心）
 
-color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdesignrankings.com/resources/lolcolors/
-  body_bg_color: "#eee"
-  navbar_bg_color: "#2f4154"
-  navbar_text_color: "white"
-  text_color: "#3c4858"
-  link_color: "#3c4858"
-  link_hover_color: "#1abc9c"
-  board_color: "#fff"
+color:  # 主题颜色配置，不一定能每一处都生效，可能会被局部样式覆盖，这种情况建议用自定义 css 解决。配色可以在这获得启发： https://www.webdesignrankings.com/resources/lolcolors/
+  body_bg_color: "#eee"             # body 背景色
+  navbar_bg_color: "#2f4154"        # 顶部菜单背景色
+  navbar_text_color: "white"        # 顶部菜单字体色
+  text_color: "#3c4858"             # 全局字体色
+  sec_text_color: "#718096"         # 全局次级字体色（摘要、简介等位置）
+  post_text_color: "#2c3e50"        # 文章正文字体色
+  post_heading_color: "#1a202c"     # 文章标题标签字体色（h1 h2 h3...）
+  link_color: "#3c4858"             # 超链接字体色
+  link_hover_color: "#1abc9c"       # 超链接悬浮时字体色
+  link_hover_bg_color: "#ebedef"    # 超链接悬浮背景色
+  board_color: "#fff"               # 主面板背景色
 
-custom_js:   # 指定自定义 js 文件路径，路径是相对 source 目录，如 /js/custom.js
-custom_css:   # 指定自定义 css 文件路径，路径是相对 source 目录，如 /css/custom.css
+font:  # 主题字体配置
+  font_size: 16px                   # 全局字号
+  font_family:                      # 全局字体
+  code_font_size: 85%               # 代码的字号
+
+custom_js:   # 指定自定义 js 文件路径，路径是相对 source 目录，如 /js/custom.js，支持列表
+custom_css:   # 指定自定义 css 文件路径，路径是相对 source 目录，如 /css/custom.css，支持列表
 custom_html: ''  # 自定义底部 HTML 内容（位于 footer 上方），也可用于外部引入 js css 这些操作，注意不要和 post.custom 配置冲突
 
 web_analytics:  # 网页访问统计
@@ -66,10 +75,7 @@ web_analytics:  # 网页访问统计
 
 lazyload: # 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
   enable: true
-  onlypost: false  # 仅在文章页使用懒加载
-
-smooth_scroll: # 平滑滚动效果，服务器加载过慢可能会影响滚动，请慎用
-  enable: false
+  onlypost: false  # 仅在文章页使用懒加载，开启后如果自定义页面需要使用，可以在 Front-matter 里指定 `lazyload: true`
 
 daovoice:  # 在线客服 Daovoice 参考：http://dashboard.daovoice.io
   enable: false # 是否开启在线客服聊天
@@ -91,13 +97,13 @@ aplayer:  # 音乐播放器，注意不能与 hexo-tag-aplayer 插件共用
 #---------------------------
 navbar:
   blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
-  menu:  # 可自行增减，若想减去某个入口，可以将值留空，显示文本关联 languages
-    home: /
-    archive: /archives/
-    category: /categories/
-    tag: /tags/
-    about: /about/
-    #links: /links/  # 友链页，把前面#去掉即可展示
+  menu:  # 可自行增减，key 用来关联 languages/*.yml，如不存在关联则显示 key 本身的值；icon 是 css class，可以省略；增加 name 可以强制显示指定名称
+    - { key: 'home', link: '/', icon: 'iconfont icon-home-fill' }
+    - { key: 'archive', link: '/archives/', icon: 'iconfont icon-archive-fill' }
+    - { key: 'category', link: '/categories/', icon: 'iconfont icon-category-fill' }
+    - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill' }
+    - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill' }
+    #- { key: 'links', link: '/links/', icon: 'iconfont icon-link-fill' }  # 友链页，把前面#去掉即可展示
 
 search: # 搜索栏
   enable: true
@@ -135,22 +141,13 @@ scroll_top_arrow:  # 向顶部滚动的箭头
   enable: true
 
 #---------------------------
-# 吐个槽脚本，页面反馈
-# 文档 ：https://txc.qq.com/helper/WXPGuide
-#---------------------------
-txc:
-  enable: false
-  productId:
-
-
-
-#---------------------------
 # 首页
 # Index Page
 #---------------------------
 index:
   banner_img: /img/default.png  # 首页 Banner 头图，以下相同
   banner_img_height: 100  # 头图高度，屏幕百分比，available: 0 - 100
+  banner_mask_alpha: 0.3  # 头图黑色蒙版的透明度，available: 0 - 1.0， 0 是完全透明（无蒙版），1 是完全不透明
   post_default_img: '' # 默认的文章封面图，当没有指定 index_img 时会使用该图片，若都为空则不显示任何图片
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
@@ -168,14 +165,16 @@ index:
 page:
   banner_img: /img/default.png
   banner_img_height: 70  # available: 0 - 100
+  banner_mask_alpha: 0.3  # available: 0 - 1.0
 
 #---------------------------
 # 文章页
 # Post Page
 #---------------------------
-post:
+post:  # 部分配置同时控制自定义页面，注意备注
   banner_img: /img/default.png
   banner_img_height: 70  # available: 0 - 100
+  banner_mask_alpha: 0.3  # available: 0 - 1.0
   meta:  # 文章标题下方的信息
     date:  # 文章日期
       enable: true
@@ -186,6 +185,7 @@ post:
     min2read:  # 阅读时间
       enable: true
       format: "{} 分钟"
+      words: 100  # 每分钟阅读多少字，如果是技术文章，建议降低
     views:  # 阅读次数，统计基于不蒜子  *不蒜子近期连接不稳定，谨慎开启
       enable: false
       format: "{} 次"
@@ -195,6 +195,7 @@ post:
   toc:  # 文章右侧目录
     enable: true
     headingSelector: h1,h2,h3,h4,h5,h6
+    collapseDepth: 0  # 层级的折叠深度，0 是全部折叠，6 是全部不折叠
   copyright:  # 版权声明
     enable: true
     content: '本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！'
@@ -207,11 +208,15 @@ post:
     enable: false  # 开启评论
     type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere  推荐 utterances
   image_zoom:  # 文章图片可点击放大
-    enable: true
-  math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见 https://hexo.fluid-dev.com/docs/guide/#数学公式
-    enable: false
+    enable: true  # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `image_zoom: true`，并且图片使用该格式插入：<img src="..." zoom />
+  math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见：https://hexo.fluid-dev.com/docs/guide/##latex-数学公式
+    enable: false  # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `math: true`
     specific: false  # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
     engine: mathjax  # 公式引擎  available: mathjax | katex
+  mermaid:  # 流程图，基于 mermaid-js，文档：http://mermaid-js.github.io/mermaid/
+    enable: false  # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `mermaid: true`
+    specific: false  # 开启后，只有在文章 Front-matter 里指定 `mermaid: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
+    options: { theme: 'default' }  # 接口选项，具体可见：http://mermaid-js.github.io/mermaid/#/mermaidAPI
 
 #---------------------------
 # 评论
@@ -261,6 +266,7 @@ valine:
   verify: false # Verification code
   placeholder: 说点什么 # comment box placeholder
   avatar: retro # gravatar style https://valine.js.org/avatar.html
+  meta: ['nick', 'mail', 'link']  # guest info
   pageSize: 10 # pagination size
 
 # Changyan
@@ -297,6 +303,7 @@ livere:
 archive:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
+  banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle:  # 打字机内容
 
 #---------------------------
@@ -306,6 +313,7 @@ archive:
 category:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
+  banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle:  # 打字机内容
 
 #---------------------------
@@ -315,6 +323,7 @@ category:
 tag:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
+  banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle:  # 打字机内容
   tagcloud: # 标签云
     min_font: 15
@@ -331,14 +340,15 @@ tag:
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
+  banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle:  # 打字机内容
   avatar: /img/avatar.png # 头像
   name: myname
   introduce: info / info / info # 支持 HTML
-  icons: # 更多图标可从 https://fontawesome.com/v5.10.0/icons?d=gallery 查找，并以 "图标名: url" 的格式添加在下方
-    "fab fa-github": https://github.com
-    "fab fa-twitter": https://twitter.com
-    "fab fa-weixin qrcode":  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，因此值需要是二维码图片地址
+  icons: # 更多图标可从 https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/iconfont.png 查找，class 代表图标的 css class
+    - { class: 'iconfont icon-github-fill', link: 'https://github.com' }
+    - { class: 'iconfont icon-douban-fill', link: 'https://github.com' }
+    - { class: 'iconfont icon-wechat-fill', qrcode: '/img/favicon.png' }  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，需要指定 image
 
 
 #---------------------------
@@ -348,6 +358,7 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
 page404:
   banner_img: /img/default.png
   banner_img_height: 100  # available: 0 - 100
+  banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle: 'Page not found'  # 打字机内容
 
 
@@ -358,8 +369,24 @@ page404:
 links:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
+  banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle:  # 打字机内容
-  items:  # 键是友链标题、值的列表内容分别是 [链接, 简介, 头像]，头像可以省略
-    Fluid Docs: [https://hexo.fluid-dev.com/docs/, 主题使用指南, /img/favicon.png]
-    Fluid Repo: [https://github.com/fluid-dev/hexo-theme-fluid, 主题 GitHub 仓库, /img/favicon.png]
-    Fluid Changelog: [https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md, 主题更新日志, /img/favicon.png]
+  items:  # intro 与 image 可省略
+    - {
+      title: 'Fluid Docs',
+      intro: '主题使用指南',
+      link: 'https://hexo.fluid-dev.com/docs/',
+      image: '/img/favicon.png'
+    }
+    - {
+      title: 'Fluid Repo',
+      intro: '主题 GitHub 仓库',
+      link: 'https://github.com/fluid-dev/hexo-theme-fluid',
+      image: '/img/favicon.png'
+    }
+    - {
+      title: 'Fluid Changelog',
+      intro: '主题更新日志',
+      link: 'https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md',
+      image: '/img/favicon.png'
+    }

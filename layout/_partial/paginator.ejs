@@ -1,9 +1,9 @@
 <% if (page.total > 1){ %>
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
       <%- paginator({
-        prev_text: '<i class="fas fa-angle-double-left"></i>',
-        next_text: '<i class="fas fa-angle-double-right"></i>',
+        prev_text: '<i class="iconfont icon-arrowleft"></i>',
+        next_text: '<i class="iconfont icon-arrowright"></i>',
         mid_size: 2,
         escape: false
       }) %>

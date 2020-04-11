@@ -2,6 +2,7 @@
   .card
     box-shadow none
     min-width 33%
+    border 0
 
   .card-body
     margin 1rem 0
@@ -12,10 +13,6 @@
     height 100%
 
     &:hover
-      transition-duration .2s
-      transition-timing-function ease-in-out
-      background-color #ebedef
-
       .link-avatar
         transform scale(1.1)
 
@@ -51,14 +48,14 @@
   overflow hidden
   text-overflow ellipsis
   white-space nowrap
-  color #2f4154
+  color $text_color
   font-weight bold
 
 .link-intro
   max-height 2rem
   font-size 0.85rem
   line-height 1.2
-  color #a3a3a3
+  color $sec-text-color
   display -webkit-box
   -webkit-box-orient vertical
   -webkit-line-clamp 2
