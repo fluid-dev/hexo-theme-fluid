@@ -10,7 +10,7 @@
   <%- partial('_partial/plugins/tocjs.ejs') %>
 <% } %>
 
-<% if (theme.highlight.enable && theme.highlight.copy_btn) { %>
+<% if (theme.highlight.copy_btn) { %>
   <%- js_ex(theme.static_prefix.clipboard, 'clipboard.min.js', 'defer') %>
   <%- js_ex(theme.static_prefix.internal_js, 'clipboard-use.js') %>
 <% } %>
