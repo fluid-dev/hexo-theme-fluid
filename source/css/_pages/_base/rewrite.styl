@@ -87,11 +87,14 @@
     font-weight bold
 
   pre
-    padding 1.5rem 1rem
     position relative
+    overflow visible
 
-  code
+  pre code
     font-size $code-font-size
+    display block
+    overflow-x auto
+    padding .5rem 0
 
     &.mermaid > svg
       min-width 100%
