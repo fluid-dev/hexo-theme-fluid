@@ -1,14 +1,14 @@
 <%- css_ex(theme.static_prefix.bootstrap, "css/bootstrap.min.css") %>
 <%- css_ex(theme.static_prefix.github_markdown, "github-markdown.min.css") %>
 
+<% if (theme.highlight.enable) { %>
+  <%- css_ex(theme.static_prefix.highlightjs, "/styles/" + theme.highlight.style + ".min.css") %>
+<% } %>
+
 <!-- 主题依赖的图标库，不要自行修改 -->
 <%- css('//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css') %>
 
 <%- css(theme.static_prefix.iconfont) %>
-
-<% if(theme.highlight.enable){ %>
-  <%- css_ex(theme.static_prefix.prettify_theme, theme.highlight.theme + '.min.css') %>
-<% } %>
 
 <% if(theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
   <%- css_ex(theme.static_prefix.gitalk, 'gitalk.css') %>

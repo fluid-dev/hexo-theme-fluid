@@ -13,7 +13,7 @@
     });
     var clipboard = new ClipboardJS('.copy-btn', {
       target: function (trigger) {
-        return trigger.nextElementSibling;
+        return trigger.previousElementSibling;
       },
     });
     clipboard.on('success', function (e) {

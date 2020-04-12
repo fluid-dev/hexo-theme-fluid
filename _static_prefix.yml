@@ -45,11 +45,7 @@ jquery: https://cdn.staticfile.org/jquery/3.4.1/
 
 bootstrap: https://cdn.staticfile.org/twitter-bootstrap/4.4.1/
 
-prettify: https://cdn.staticfile.org/prettify/188.0.0/
-
-# 高亮主题的路径，只支持 min.css，文件名需要与 _config.highlight.theme 对应
-# the path of highlight theme, only support `min.css` file，filename need to be the same as _config.highlight.theme
-prettify_theme: /lib/prettify/
+highlightjs: https://cdn.staticfile.org/highlight.js/9.18.1/
 
 tocbot: https://cdn.staticfile.org/tocbot/4.11.1/
 
