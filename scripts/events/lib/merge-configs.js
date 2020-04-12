@@ -21,11 +21,6 @@ module.exports = (hexo) => {
     }
   }
 
-  // Force disable hexo highlight
-  if (hexo.theme.config.highlight.enable) {
-    hexo.config.highlight.enable = false;
-  }
-
   // Merge configs in /source/_data/fluid_static_prefix.yml into hexo.theme.config.
   const configPath = path.join(__dirname, '../../../_static_prefix.yml');
   const yamlDoc = yaml.safeLoad(fs.readFileSync(configPath, 'utf8'));
@@ -34,6 +29,11 @@ module.exports = (hexo) => {
 
   // Merge configs in hexo.config.theme_config and /source/_data/fluid_config.yml into hexo.theme.config.
   hexo.theme.config = objUtil.merge({}, hexo.theme.config, sourceConfig, hexo.config.theme_config);
+
+  // Force disable hexo highlight
+  if (hexo.theme.config.highlight.enable) {
+    hexo.config.highlight.enable = false;
+  }
 
   hexo.log.debug('Fluid: theme config merged');
   hexo.log.debug('Configs:\n', JSON.stringify(hexo.theme.config, undefined, 2));
