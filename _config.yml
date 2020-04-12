@@ -390,3 +390,5 @@ links:
       link: 'https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md',
       image: '/img/favicon.png'
     }
+webp:
+  enable: true
