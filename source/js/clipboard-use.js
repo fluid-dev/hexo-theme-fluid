@@ -28,7 +28,11 @@
   }
 
   function getBgClass() {
-    var rgbArr = $('div.hljs, pre').css('background-color').replace(
+    var ele = $('div.hljs, pre');
+    if (ele.length === 0) {
+      return 'copy-btn-dark';
+    }
+    var rgbArr = ele.css('background-color').replace(
       /rgba*\(/, '').replace(')', '').split(',');
     var color = 0.213 * rgbArr[0] + 0.715 * rgbArr[1] + 0.072 * rgbArr[2] > 255 / 2;
     return color ? 'copy-btn-dark' : 'copy-btn-light';
