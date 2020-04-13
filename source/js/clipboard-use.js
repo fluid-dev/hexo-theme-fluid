@@ -1,5 +1,5 @@
 !function (e, t, a) {
-  var initCopyCode = function () {
+  function initCopyCode() {
     var copyHtml = '';
     copyHtml += '<button class="copy-btn" data-clipboard-snippet="">';
     copyHtml += '<i class="iconfont icon-copy"></i><span>Copy</span>';
@@ -16,14 +16,24 @@
         return trigger.previousElementSibling;
       },
     });
+    $('.copy-btn').addClass(getBgClass());
     clipboard.on('success', function (e) {
       e.clearSelection();
+      var tmp = e.trigger.outerHTML;
       e.trigger.innerHTML = 'Success';
       setTimeout(function () {
-        e.trigger.outerHTML = copyHtml;
+        e.trigger.outerHTML = tmp;
       }, 2000);
     });
-  };
+  }
+
+  function getBgClass() {
+    var rgbArr = $('div.hljs, pre').css('background-color').replace(
+      /rgba*\(/, '').replace(')', '').split(',');
+    var color = 0.213 * rgbArr[0] + 0.715 * rgbArr[1] + 0.072 * rgbArr[2] > 255 / 2;
+    return color ? 'copy-btn-dark' : 'copy-btn-light';
+  }
+
   var oldLoadCb = window.onload;
   window.onload = function () {
     oldLoadCb && oldLoadCb();

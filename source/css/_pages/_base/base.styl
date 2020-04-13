@@ -105,7 +105,7 @@ img[srcset]
   cursor pointer
   border-radius .1rem
   border none
-  background-color #fafbfc
+  background-color transparent
   -webkit-user-select none
   -moz-user-select none
   -ms-user-select none
@@ -115,7 +115,6 @@ img[srcset]
   line-height 1
   font-weight bold
   outline none
-  color #6a737d
   -webkit-transition opacity .2s ease-in-out
   -o-transition opacity .2s ease-in-out
   transition opacity .2s ease-in-out
@@ -132,6 +131,11 @@ img[srcset]
   & > span
     margin-left 5px
 
+.copy-btn-dark
+  color #6a737d
+
+.copy-btn-light
+  color #bababa
 
 .markdown-body pre:hover > .copy-btn
   opacity 0.9
