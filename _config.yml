@@ -21,8 +21,8 @@ force_https: false  # 强制所有链接升级为 HTTPS（适用于图片等资�
 
 highlight: # 代码高亮
   enable: true
-  style: 'Github Gist'  # 高亮样式主题见：https://highlightjs.org/static/demo/  在页面挑选 style 填入
-  bg_color: false  # 是否根据 theme 改变代码背景色，如果 theme 是白色背景最好关闭此项
+  style: 'Github Gist'  # 高亮样式见：https://highlightjs.org/static/demo/  在页面挑选 style 填入
+  bg_color: false  # 是否根据 style 改变代码背景色，如果 style 是白色背景最好关闭此项
   copy_btn: true  # 是否开启复制代码的按钮
 
 fun_features: # 一些好玩的功能
