@@ -90,11 +90,14 @@
     position relative
     overflow visible
 
-    & code
+    code
       font-size $code-font-size
       display block
       overflow-x auto
       padding .5rem 0
+      line-height 1.5
+      border-radius 3px
+      tab-size 4
 
       // 隐藏滚动条
       overflow -moz-scrollbars-none
@@ -117,15 +120,8 @@
 // Rewrite highlight
 
 .markdown-body
-  code.hljs
-    overflow auto
-    font-size $code-font-size
-    line-height 1.5
-    border-radius 3px
-    tab-size 4
-
   div.hljs
-    overflow-x unset
+    overflow-x initial
     padding 0
     border-radius 3px
 
