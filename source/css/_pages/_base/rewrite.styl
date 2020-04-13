@@ -96,6 +96,14 @@
       overflow-x auto
       padding .5rem 0
 
+      // 隐藏滚动条
+      overflow -moz-scrollbars-none
+      -ms-overflow-style none
+
+      &::-webkit-scrollbar
+        width 0
+        height 0
+
       &.mermaid > svg
         min-width 100%
 
@@ -108,20 +116,21 @@
 
 // Rewrite highlight
 
-.markdown-body .highlight code
-  overflow auto
-  font-size $code-font-size
-  line-height 1.5
-  border-radius 3px
-  tab-size 4
+.markdown-body
+  code.hljs
+    overflow auto
+    font-size $code-font-size
+    line-height 1.5
+    border-radius 3px
+    tab-size 4
 
-div.hljs
-  overflow-x unset
-  padding 0
-  border-radius 3px
+  div.hljs
+    overflow-x unset
+    padding 0
+    border-radius 3px
 
-pre.hljs
-  background-color transparent
+    pre
+      background-color initial
 
 // Rewrite mdb.css
 
