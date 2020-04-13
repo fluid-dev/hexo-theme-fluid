@@ -2,7 +2,7 @@
 <%- css_ex(theme.static_prefix.github_markdown, "github-markdown.min.css") %>
 
 <% if (theme.highlight.enable) { %>
-  <%- css_ex(theme.static_prefix.highlightjs, "/styles/" + theme.highlight.style.toLowerCase().replace(' ', '-') + ".min.css") %>
+  <%- css_ex(theme.static_prefix.highlightjs, "/styles/" + theme.highlight.style.toLowerCase().replace(/\s/g, '-') + ".min.css") %>
 <% } %>
 
 <!-- 主题依赖的图标库，不要自行修改 -->
