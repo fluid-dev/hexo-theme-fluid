@@ -2,13 +2,25 @@
 
 module.exports = (hexo) => {
   var config = hexo.theme.config;
-  if (!config.highlight.enable || !config.highlight.bg_color) {
+  if (!config.highlight.enable) {
     return;
   }
 
-  hexo.extend.filter.register('after_render:html', (html, data) => {
-    return html.replace(/(?<!<div class="hljs">)<pre.+?class="(.+?)".*?>(.*?)<\/pre>/gis, (str, p1, p2) => {
-      return `<div class="hljs"><pre class="${ p1 } hljs">${ p2 }</pre></div>`;
+  // Force set hexo config
+  if (hexo.theme.config.highlight.enable) {
+    hexo.config.highlight = {
+      enable: true,
+      hljs: true,
+      line_number: false,
+      wrap: false,
+    };
+  }
+
+  if (config.highlight.bg_color) {
+    hexo.extend.filter.register('after_render:html', (html, data) => {
+      return html.replace(/(?<!<div class="hljs">)<pre.*?(class=".+?".*?)*>(.*?)<\/pre>/gis, (str, p1, p2) => {
+        return `<div class="hljs"><pre${ p1 ? (p1.replace('class="', ' class="hljs ')) : '' }>${ p2 }</pre></div>`;
+      });
     });
-  });
+  }
 };

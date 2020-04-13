@@ -30,11 +30,6 @@ module.exports = (hexo) => {
   // Merge configs in hexo.config.theme_config and /source/_data/fluid_config.yml into hexo.theme.config.
   hexo.theme.config = objUtil.merge({}, hexo.theme.config, sourceConfig, hexo.config.theme_config);
 
-  // Force disable hexo highlight
-  if (hexo.theme.config.highlight.enable) {
-    hexo.config.highlight.enable = false;
-  }
-
   hexo.log.debug('Fluid: theme config merged');
   hexo.log.debug('Configs:\n', JSON.stringify(hexo.theme.config, undefined, 2));
 };
