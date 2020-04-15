@@ -275,7 +275,6 @@ valine:
   highlight: false # 代码高亮
   recordIP: false # 是否记录评论者IP
   serverURLs: # 该配置适用于国内自定义域名用户, 海外版本会自动检测(无需手动填写)
-  mathJax: false # 是否启用MathJax
 
 # 畅言
 # http://changyan.kuaizhan.com/
