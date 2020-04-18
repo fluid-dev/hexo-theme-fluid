@@ -10,6 +10,15 @@ module.exports = (hexo) => {
   const { version } = require(path.normalize('../../../package.json'));
   const isZh = hexo.config.language.search(/zh-CN/i) !== -1;
 
+  const errorLog = (err) => {
+    if (isZh) {
+      hexo.log.error('获取主题最新版本信息失败，可能与 GitHub 连接不畅，错误信息:');
+    } else {
+      hexo.log.error('Failed to detect version info. Error message:');
+    }
+    hexo.log.error(err);
+  };
+
   https.get('https://api.github.com/repos/fluid-dev/hexo-theme-fluid/releases/latest', {
     headers: {
       'User-Agent': 'Theme Fluid Client'
@@ -21,8 +30,12 @@ module.exports = (hexo) => {
     });
     res.on('end', () => {
       try {
-        const tag = JSON.parse(result).tag_name.replace('v', '');
-        const latest = tag.split('.');
+        const tag = JSON.parse(result).tag_name;
+        if (!tag) {
+          errorLog('Missing release tag');
+          return;
+        }
+        const latest = tag.replace('v', '').split('.');
         const current = version.split('.');
 
         let isOutdated = false;
@@ -52,20 +65,10 @@ module.exports = (hexo) => {
           }
         }
       } catch (err) {
-        if (isZh) {
-          hexo.log.error('获取主题最新版本信息失败，可能与 GitHub 连接不畅，错误信息:');
-        } else {
-          hexo.log.error('Failed to detect version info. Error message:');
-        }
-        hexo.log.error(err);
+        errorLog(err);
       }
     });
   }).on('error', err => {
-    if (isZh) {
-      hexo.log.error('获取主题最新版本信息失败，可能与 GitHub 连接不畅，错误信息:');
-    } else {
-      hexo.log.error('Failed to detect version info. Error message:');
-    }
-    hexo.log.error(err);
+    errorLog(err);
   });
 };
