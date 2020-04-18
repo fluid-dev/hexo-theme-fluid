@@ -9,7 +9,8 @@ gulp.task('lint', () => gulp.src([
   './source/js/**/*.js',
   './scripts/**/*.js'
 ]).pipe(eslint())
-  .pipe(eslint.format()));
+  .pipe(eslint.format())
+  .pipe(eslint.failAfterError()));
 
 gulp.task('lint:ejs', shell.task([
   'ejslint ./layout/**/*.ejs'

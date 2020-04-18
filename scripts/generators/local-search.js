@@ -1,6 +1,8 @@
+/* global hexo */
+
 'use strict';
 
-hexo.extend.generator.register('_hexo_generator_search', function (locals) {
+hexo.extend.generator.register('_hexo_generator_search', function(locals) {
   const config = this.theme.config;
   if (!config.search.enable) {
     return;
@@ -11,16 +13,18 @@ hexo.extend.generator.register('_hexo_generator_search', function (locals) {
   const pathFn = require('path');
   const fs = require('fs');
 
-  env.addFilter('uriencode', function (str) {
+  env.addFilter('uriencode', function(str) {
     return encodeURI(str);
   });
 
-  env.addFilter('noControlChars', function (str) {
+  env.addFilter('noControlChars', function(str) {
+    // eslint-disable-next-line no-control-regex
     return str && str.replace(/[\x00-\x1F\x7F]/g, '');
   });
 
-  env.addFilter('urlJoin', function (str) {
-    const base = str[0], relative = str[1];
+  env.addFilter('urlJoin', function(str) {
+    const base = str[0];
+    const relative = str[1];
     return relative
       ? base.replace(/\/+$/, '') + '/' + relative.replace(/^\/+/, '')
       : base;
@@ -50,15 +54,15 @@ hexo.extend.generator.register('_hexo_generator_search', function (locals) {
   }
 
   const xml = searchTmpl.render({
-    config: config,
-    posts: posts,
-    pages: pages,
+    config : config,
+    posts  : posts,
+    pages  : pages,
     content: content,
-    url: hexo.config.root,
+    url    : hexo.config.root
   });
 
   return {
     path: searchConfig.generate_path || '/local-search.xml',
-    data: xml,
+    data: xml
   };
 });

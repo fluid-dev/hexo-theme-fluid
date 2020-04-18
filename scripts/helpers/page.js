@@ -1,3 +1,5 @@
+/* global hexo */
+
 'use strict';
 
 hexo.extend.helper.register('prev_page', function prev_page(page) {

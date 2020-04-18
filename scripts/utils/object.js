@@ -7,7 +7,7 @@ const isObject = (item) => {
 const merge = (target, ...sources) => {
   for (const source of sources) {
     for (const key in source) {
-      if (!source.hasOwnProperty(key)) {
+      if (!Object.prototype.hasOwnProperty.call(source, key)) {
         continue;
       }
       if (isObject(target[key]) && isObject(source[key])) {
@@ -22,5 +22,5 @@ const merge = (target, ...sources) => {
 
 module.exports = {
   isObject: isObject,
-  merge: merge,
+  merge   : merge
 };

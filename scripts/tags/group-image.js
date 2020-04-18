@@ -1,40 +1,42 @@
+/* global hexo */
+
 'use strict';
 
 const LAYOUTS = {
   2: {
     1: [1, 1],
-    2: [2],
+    2: [2]
   },
   3: {
     1: [3],
     2: [1, 2],
-    3: [2, 1],
+    3: [2, 1]
   },
   4: {
     1: [1, 2, 1],
     2: [1, 3],
     3: [2, 2],
-    4: [3, 1],
+    4: [3, 1]
   },
   5: {
     1: [1, 2, 2],
     2: [2, 1, 2],
     3: [2, 3],
-    4: [3, 2],
+    4: [3, 2]
   },
   6: {
     1: [1, 2, 3],
     2: [1, 3, 2],
     3: [2, 1, 3],
     4: [2, 2, 2],
-    5: [3, 3],
+    5: [3, 3]
   },
   7: {
     1: [1, 2, 2, 2],
     2: [1, 3, 3],
     3: [2, 2, 3],
     4: [2, 3, 2],
-    5: [3, 2, 2],
+    5: [3, 2, 2]
   },
   8: {
     1: [1, 2, 2, 3],
@@ -43,7 +45,7 @@ const LAYOUTS = {
     4: [2, 2, 2, 2],
     5: [2, 3, 3],
     6: [3, 2, 3],
-    7: [3, 3, 2],
+    7: [3, 3, 2]
   },
   9: {
     1: [1, 2, 3, 3],
@@ -52,7 +54,7 @@ const LAYOUTS = {
     4: [2, 2, 3, 2],
     5: [2, 3, 2, 2],
     6: [3, 2, 2, 2],
-    7: [3, 3, 3],
+    7: [3, 3, 3]
   },
   10: {
     1: [1, 3, 3, 3],
@@ -61,8 +63,8 @@ const LAYOUTS = {
     4: [2, 3, 3, 2],
     5: [3, 2, 2, 3],
     6: [3, 2, 3, 2],
-    7: [3, 3, 2, 2],
-  },
+    7: [3, 3, 2, 2]
+  }
 };
 
 const groupBy = (group, data) => {
@@ -104,19 +106,19 @@ const templates = {
 
   getHTML: (rows) => {
     const rowHTML = rows.map(row => {
-      return `<div class="group-image-row">${ this.getColumnHTML(row) }</div>`;
+      return `<div class="group-image-row">${this.getColumnHTML(row)}</div>`;
     }).join('');
 
-    return `<div class="group-image-container">${ rowHTML }</div>`;
+    return `<div class="group-image-container">${rowHTML}</div>`;
   },
 
   getColumnHTML: (images) => {
     const columnWidth = 100 / images.length;
-    const columnStyle = `style="width: ${ columnWidth }%;"`;
+    const columnStyle = `style="width: ${columnWidth}%;"`;
     return images.map(image => {
-      return `<div class="group-image-column" ${ columnStyle }>${ image }</div>`;
+      return `<div class="group-image-column" ${columnStyle}>${image}</div>`;
     }).join('');
-  },
+  }
 };
 
 const groupImage = (args, content) => {
@@ -128,7 +130,7 @@ const groupImage = (args, content) => {
 
   const images = content.match(/<img[\s\S]*?>/g);
 
-  return `<div class="group-image">${ templates.dispatch(images, group, layout) }</div>`;
+  return `<div class="group-image">${templates.dispatch(images, group, layout)}</div>`;
 };
 
 /*

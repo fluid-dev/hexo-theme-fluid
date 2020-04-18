@@ -1,3 +1,5 @@
+/* global hexo */
+
 'use strict';
 
 const postButton = (args) => {
@@ -9,7 +11,7 @@ const postButton = (args) => {
 
   !url && hexo.log.warn('Button url must be defined!');
 
-  return `<a class="btn" href="${ url }" ${ title.length > 0 ? ` title="${ title }"` : '' }>${ text }</a>`;
+  return `<a class="btn" href="${url}" ${title.length > 0 ? ` title="${title}"` : ''}>${text}</a>`;
 };
 
 // {% btn url, text, title %}

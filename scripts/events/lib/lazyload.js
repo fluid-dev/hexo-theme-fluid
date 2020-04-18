@@ -9,7 +9,7 @@ module.exports = (hexo) => {
     return;
   }
   if (config.lazyload.onlypost) {
-    hexo.extend.filter.register('after_post_render', function (page) {
+    hexo.extend.filter.register('after_post_render', function(page) {
       if (page.source.search(/^_posts\/.+\.md$/) === -1 && !page.lazyload) {
         return;
       }
@@ -17,7 +17,7 @@ module.exports = (hexo) => {
       return page;
     });
   } else {
-    hexo.extend.filter.register('after_render:html', function (str, data) {
+    hexo.extend.filter.register('after_render:html', function(str, data) {
       return lazyProcess(str, loadingImage);
     });
   }
@@ -28,6 +28,6 @@ const lazyProcess = (htmlContent, loadingImage) => {
     if (/srcset=/gi.test(str)) {
       return str;
     }
-    return str.replace(p1, `${ p1 }" srcset="${ loadingImage }`);
+    return str.replace(p1, `${p1}" srcset="${loadingImage}`);
   });
 };

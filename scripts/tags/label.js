@@ -1,3 +1,5 @@
+/* global hexo */
+
 'use strict';
 
 const postLabel = (args) => {
@@ -7,7 +9,7 @@ const postLabel = (args) => {
 
   !text && hexo.log.warn('Label text must be defined!');
 
-  return `<span class="label label-${ classes.trim() }">${ text }</span>`;
+  return `<span class="label label-${classes.trim()}">${text}</span>`;
 };
 
 // {% label [class...] @text %}

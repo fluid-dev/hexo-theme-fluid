@@ -6,8 +6,7 @@ const yaml = require('js-yaml');
 const objUtil = require('../../utils/object');
 
 module.exports = (hexo) => {
-  let sourceConfig;
-  let staticPrefix;
+  let sourceConfig, staticPrefix;
 
   if (hexo.locals.get) {
     const data = hexo.locals.get('data');

@@ -12,8 +12,8 @@ module.exports = (hexo) => {
 
   https.get('https://api.github.com/repos/fluid-dev/hexo-theme-fluid/releases/latest', {
     headers: {
-      'User-Agent': 'Theme Fluid Client',
-    },
+      'User-Agent': 'Theme Fluid Client'
+    }
   }, (res) => {
     let result = '';
     res.on('data', data => {
@@ -38,17 +38,17 @@ module.exports = (hexo) => {
 
         if (isOutdated) {
           if (isZh) {
-            hexo.log.warn(`你的 Fluid 主题版本已落后. 当前版本: v${ current.join('.') }, 最新版本: v${ latest.join('.') }`);
+            hexo.log.warn(`你的 Fluid 主题版本已落后. 当前版本: v${current.join('.')}, 最新版本: v${latest.join('.')}`);
             hexo.log.warn('查看 https://github.com/fluid/hexo-theme-fluid/releases 获取更多信息.');
           } else {
-            hexo.log.warn(`Your theme Fluid is outdated. Current version: v${ current.join('.') }, latest version: v${ latest.join('.') }`);
+            hexo.log.warn(`Your theme Fluid is outdated. Current version: v${current.join('.')}, latest version: v${latest.join('.')}`);
             hexo.log.warn('Visit https://github.com/fluid/hexo-theme-fluid/releases for more information.');
           }
         } else {
           if (isZh) {
-            hexo.log.info(`感谢支持！你现在使用的是 Fluid 最新版本，版本号: v${ current.join('.') }`);
+            hexo.log.info(`感谢支持！你现在使用的是 Fluid 最新版本，版本号: v${current.join('.')}`);
           } else {
-            hexo.log.info(`Congratulations! Your are using the latest version of theme Fluid. Current version: v${ current.join('.') }`);
+            hexo.log.info(`Congratulations! Your are using the latest version of theme Fluid. Current version: v${current.join('.')}`);
           }
         }
       } catch (err) {
