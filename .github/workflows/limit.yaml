@@ -1,0 +1,18 @@
+name: Limit PRs
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  limit_master_pr:
+    runs-on: ubuntu-latest
+    name: Limits PR to master
+    steps:
+      - name: Limit action step
+        id: limit_action
+        uses: LukBukkit/action-pr-limits@v1
+        with:
+          whitelist: |
+            develop

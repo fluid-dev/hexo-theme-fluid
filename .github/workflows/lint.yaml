@@ -1,0 +1,37 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Prepare Node env
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+
+      - name: Install Node Modules
+        run: |
+          rm -f .yarnclean
+          yarn --frozen-lockfile --ignore-engines --ignore-optional --non-interactive --silent --ignore-scripts --production=false
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+          HUSKY_SKIP_INSTALL: true
+
+      - name: Lint
+        run: yarn run lint
