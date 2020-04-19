@@ -7,14 +7,12 @@ module.exports = (hexo) => {
   }
 
   // Force set hexo config
-  if (hexo.theme.config.highlight.enable) {
-    hexo.config.highlight = {
-      enable     : true,
-      hljs       : true,
-      line_number: false,
-      wrap       : false
-    };
-  }
+  hexo.config.highlight = {
+    enable     : true,
+    hljs       : true,
+    line_number: false,
+    wrap       : false
+  };
 
   if (config.highlight.bg_color) {
     hexo.extend.filter.register('after_render:html', (html, data) => {
