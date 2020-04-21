@@ -168,7 +168,7 @@ index:
 # Custom Page
 page:
   banner_img: /img/default.png
-  banner_img_height: 70  # available: 0 - 100
+  banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
 
 #---------------------------
@@ -294,7 +294,7 @@ livere:
 #---------------------------
 archive:
   banner_img: /img/default.png
-  banner_img_height: 80  # available: 0 - 100
+  banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle:  # 打字机内容
 
@@ -304,7 +304,7 @@ archive:
 #---------------------------
 category:
   banner_img: /img/default.png
-  banner_img_height: 80  # available: 0 - 100
+  banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle:  # 打字机内容
 
@@ -331,7 +331,7 @@ tag:
 #---------------------------
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
   banner_img: /img/default.png
-  banner_img_height: 80  # available: 0 - 100
+  banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle:  # 打字机内容
   avatar: /img/avatar.png # 头像
@@ -339,7 +339,7 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
   introduce: info / info / info # 支持 HTML
   icons: # 更多图标可从 https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/iconfont.png 查找，class 代表图标的 css class
     - { class: 'iconfont icon-github-fill', link: 'https://github.com' }
-    - { class: 'iconfont icon-douban-fill', link: 'https://github.com' }
+    - { class: 'iconfont icon-douban-fill', link: 'https://douban.com' }
     - { class: 'iconfont icon-wechat-fill', qrcode: '/img/favicon.png' }  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，需要指定 image
 
 
@@ -349,7 +349,7 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
 #---------------------------
 page404:
   banner_img: /img/default.png
-  banner_img_height: 100  # available: 0 - 100
+  banner_img_height: 85  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle: 'Page not found'  # 打字机内容
 
@@ -360,7 +360,7 @@ page404:
 #---------------------------
 links:
   banner_img: /img/default.png
-  banner_img_height: 80  # available: 0 - 100
+  banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle:  # 打字机内容
   items:  # intro 与 image 可省略
@@ -377,8 +377,8 @@ links:
       image: '/img/favicon.png'
     }
     - {
-      title: 'Fluid Changelog',
-      intro: '主题更新日志',
-      link: 'https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md',
+      title: 'Fluid Example',
+      intro: '主题操作示例',
+      link: 'https://hexo.fluid-dev.com/docs/example/',
       image: '/img/favicon.png'
     }
