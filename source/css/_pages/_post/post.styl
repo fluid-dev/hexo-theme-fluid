@@ -182,7 +182,13 @@
   overflow-x auto
 
 .katex, .mjx-mrow
-  white-space: pre-wrap !important
+  white-space pre-wrap !important
 
 .mjx-char
   line-height 1
+
+mjx-container
+  overflow-y hidden
+
+  &:focus, svg:focus
+    outline none
