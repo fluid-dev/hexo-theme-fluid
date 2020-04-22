@@ -14,8 +14,12 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
         <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             <% if(theme.post.updated && theme.post.updated.enable) { %>
-              <p class="note note-warning">
-                <%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %>
+              <p class="note note-info">
+                <% if (theme.post.updated.relative) { %>
+                  <%- theme.post.updated.content %><%= relative_date(page.updated, theme.post.meta.date.format) %>
+                <% } else { %>
+                  <%- theme.post.updated.content %><%= date(page.updated, theme.post.meta.date.format) %>
+                <% } %>
               </p>
             <% } %>
             <article class="markdown-body">

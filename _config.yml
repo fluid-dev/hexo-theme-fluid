@@ -193,9 +193,10 @@ post:  # 部分配置同时控制自定义页面，注意备注
     views:  # 阅读次数，统计基于不蒜子  *不蒜子近期连接不稳定，谨慎开启
       enable: false
       format: "{} 次"
-  updated:
+  updated:  # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
     enable: false
-    content: 本文最后更新于：
+    content: 本文最后更新于：  # 描述文字
+    relative: false  # 是否使用相对时间表示，比如："3 天前"
   toc:  # 文章右侧目录
     enable: true
     headingSelector: h1,h2,h3,h4,h5,h6
