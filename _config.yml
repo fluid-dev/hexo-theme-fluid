@@ -100,7 +100,7 @@ version:  # 版本相关
 # Header
 #---------------------------
 navbar:
-  blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
+  blog_title: Fluid # 导航栏左侧的标题，为空则按 hexo config.title 显示
   menu:  # 可自行增减，key 用来关联 languages/*.yml，如不存在关联则显示 key 本身的值；icon 是 css class，可以省略；增加 name 可以强制显示指定名称
     - { key: 'home', link: '/', icon: 'iconfont icon-home-fill' }
     - { key: 'archive', link: '/archives/', icon: 'iconfont icon-archive-fill' }
@@ -155,7 +155,7 @@ index:
   post_default_img: '' # 默认的文章封面图，当没有指定 index_img 时会使用该图片，若都为空则不显示任何图片
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
-    text:  # 为空则按 hexo config.subtitle 显示
+    text: 'An elegant Material-Design theme for Hexo'  # 为空则按 hexo config.subtitle 显示
   auto_excerpt:
     enable: true
   post_url_target: _self  # available: _blank | _self
@@ -182,7 +182,7 @@ post:  # 部分配置同时控制自定义页面，注意备注
   meta:  # 文章标题下方的信息
     date:  # 文章日期
       enable: true
-      format: "dddd, MMMM Do YYYY, h:mm a"  # 格式参照 ISO-8601 日期格式化
+      format: "LL a"  # 格式参照 ISO-8601 日期格式化，可参照 http://momentjs.cn/docs/#/parsing/string-format/
     wordcount:  # 字数统计
       enable: true
       format: "{} 字"  # 显示的文本，{}是数字的占位符（必须包含)，下同
