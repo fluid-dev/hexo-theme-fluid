@@ -1,6 +1,7 @@
 <% if(theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
   <div id="gitalk-container"></div>
   <%- js_ex(theme.static_prefix.gitalk, 'gitalk.min.js', 'defer') %>
+  <script defer src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
   <script type="text/javascript">
     var oldLoadGt = window.onload;
     window.onload = function () {
