@@ -36,7 +36,7 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     <% page.tags.each(function(tag) { %>
-                      <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
+                      <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%- tag.name %></a>
                     <% }) %>
                   </div>
                 <% } %>
