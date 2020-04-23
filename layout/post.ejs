@@ -16,9 +16,9 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
             <% if(theme.post.updated && theme.post.updated.enable) { %>
               <p class="note note-info">
                 <% if (theme.post.updated.relative) { %>
-                  <%- theme.post.updated.content %><%= relative_date(page.updated, theme.post.meta.date.format) %>
+                  <%- theme.post.updated.content %><%- relative_date(page.updated, theme.post.meta.date.format) %>
                 <% } else { %>
-                  <%- theme.post.updated.content %><%= date(page.updated, theme.post.meta.date.format) %>
+                  <%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %>
                 <% } %>
               </p>
             <% } %>
@@ -32,7 +32,7 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     <% page.categories.each(function(cate) { %>
-                      <a class="hover-with-bg" href="<%- url_for(cate.path) %>"><%= cate.name %></a>
+                      <a class="hover-with-bg" href="<%= url_for(cate.path) %>"><%- cate.name %></a>
                     <% }) %>
                   </div>
                 <% } %>
@@ -40,7 +40,7 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     <% page.tags.each(function(tag) { %>
-                      <a class="hover-with-bg" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
+                      <a class="hover-with-bg" href="<%= url_for(tag.path) %>"><%- tag.name %></a>
                     <% }) %>
                   </div>
                 <% } %>
