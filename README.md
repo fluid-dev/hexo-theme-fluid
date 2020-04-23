@@ -24,7 +24,7 @@
 
 <p align="center">
   <span>预览：</span>
-  <a href="https://rook1e.com">Rook1e's blog</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.fluid-dev.com/">demo</a>&nbsp&nbsp&nbsp&nbsp
   <a href="https://zkqiang.cn">zkqiang's blog</a>
 </p>
 

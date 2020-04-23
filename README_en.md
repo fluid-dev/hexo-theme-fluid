@@ -22,8 +22,8 @@
 </p>
 
 <p align="center">
-  <span>Demo：</span>
-  <a href="https://rook1e.com">Rook1e's blog</a>&nbsp&nbsp&nbsp&nbsp
+  <span>Preview: </span>
+  <a href="https://hexo.fluid-dev.com/">demo</a>&nbsp&nbsp&nbsp&nbsp
   <a href="https://zkqiang.cn">zkqiang's blog</a>
 </p>
 
