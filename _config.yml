@@ -388,6 +388,9 @@ links:
 # 统计页
 #---------------------------
 statistics:
+  banner_img: /img/default.png 
+  banner_img_height: 50  # available: 0 - 100
+  banner_mask_alpha: 0.3  # available: 0 - 1.0
   skills:
     data:
       后台技术:
