@@ -86,14 +86,22 @@
     text-decoration none
 
 // group-image
-.group-image img
-  margin 0 auto
-  padding 0 3px
+.group-image-container
+  margin 1.5rem auto
+
+  & img
+    margin 0 auto
+    border-radius 3px
 
 .group-image-row
-  margin-bottom 6px
-  overflow hidden
+  margin-bottom .5rem
+  display flex
+  justify-content center
 
-.group-image-column
-  float left
-  margin-bottom 10px
+.group-image-wrap
+  flex 1
+  display flex
+  justify-content center
+
+  &:not(:last-child)
+    margin-right .25rem
