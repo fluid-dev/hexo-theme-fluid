@@ -383,3 +383,28 @@ links:
       link: 'https://hexo.fluid-dev.com/docs/example/',
       image: '/img/favicon.png'
     }
+
+#---------------------------
+# 统计页
+#---------------------------
+statistics:
+  skills:
+    data:
+      后台技术:
+        background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
+        percent: 85%
+      前端技术:
+        background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
+        percent: 80%
+      大数据:
+        background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
+        percent: 80%
+      算法:
+        background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
+        percent: 40%
+      数据库:
+        background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+        percent: 85%
+      Python:
+        background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
+        percent: 75%

@@ -1,0 +1,192 @@
+<%
+// the skills information of theme _config.yml.
+var mySkills = theme.my.skills.data;
+var topSkillArr = [];
+%>
+<style>
+.row .col.l6 {
+    width: 50%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+.row .col {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 .75rem;
+    min-height: 1px;
+}
+.my-skills{
+    padding: 3.8rem 1.5rem 0.8rem 1.5rem;
+}
+.skills-row{
+    display: block !important;
+}
+.my-skills .skillbar {
+    position: relative;
+    display: block;
+    max-width: 360px;
+    margin: 15px auto;
+    background: #eee;
+    height: 30px;
+    border-radius: 35px;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -webkit-transition: 0.4s linear;
+    -moz-transition: 0.4s linear;
+    -o-transition: 0.4s linear;
+    transition: 0.4s linear;
+    -webkit-transition-property: width, background-color;
+    -moz-transition-property: width, background-color;
+    -o-transition-property: width, background-color;
+    transition-property: width, background-color;
+}
+
+.skillbar .skillbar-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+}
+
+.skillbar .skillbar-title span {
+    display: block;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+}
+
+.skillbar .skillbar-bar {
+    height: 30px;
+    width: 0;
+    border-radius: 35px;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+}
+
+.skillbar .skill-bar-percent {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.my-skills .other-skills {
+    margin-top: 2rem;
+}
+.other-skills .sub-title {
+    font-size: 1.5rem;
+}
+
+.other-skills .tag-chips {
+    max-width: 600px;
+}
+
+.other-skills .chip {
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+
+.other-skills .chip:hover {
+    color: #fff;
+    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    border: 1px solid #4cbf30;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .25);
+    text-decoration: none;
+}
+.chip-container .tag-chips {
+    margin: 1rem auto 0.5rem;
+    max-width: 850px;
+    text-align: center;
+}
+.other-skills .chip {
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+.chip-container .chip {
+    margin: 10px 10px;
+    padding: 19px 14px;
+    display: inline-flex;
+    line-height: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .12);
+    z-index: 0;
+}
+.chip-container .chip-default {
+    color: #34495e;
+}
+.tag-chips a{
+    text-decoration: none !important;
+}
+</style>
+<div class="my-skills">
+    <div class="title center-align center-align-title" data-aos="zoom-in-up">
+        <i class="fas fa-wrench"></i>&nbsp;&nbsp;我的技能
+    </div>
+    <div class="row skills-row">
+        <% if (mySkills) { %>
+        <% Object.keys(mySkills).forEach(function(skill) { %>
+        <% topSkillArr.push(skill); %>
+        <div class="col s12 m6 l6" data-aos="fade-up">
+            <div class="skillbar">
+                <div class="skillbar-title"
+                     style="background: <%- mySkills[skill].background %>; width: <%- mySkills[skill].percent %>">
+                    <span><%- skill %></span>
+                </div>
+                <div class="skill-bar-percent"><%- mySkills[skill].percent %></div>
+            </div>
+        </div>
+        <% }); %>
+        <% } %>
+    </div>
+
+    <%
+    /**
+     * Determine if an element is included in the array.
+     *
+     * @param arr array
+     * @param value value
+     */
+    var isInArray = function (arr, value) {
+        for (var i = 0; i < arr.length; i++) {
+            if (value == arr[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    %>
+
+    <% if (site.tags) { %>
+    <div class="other-skills chip-container" data-aos="zoom-in-up">
+        <div class="sub-title center-align center-align-title"><i class="fa fa-book"></i>&nbsp;&nbsp;其他技能</div>
+        <div class="tag-chips center-align">
+            <% site.tags.map(function(tag) { %>
+            <% if (!isInArray(topSkillArr, tag.name)) { %>
+            <a href="<%- url_for(tag.path) %>">
+                <span class="chip center-align waves-effect waves-light chip-default"><%- tag.name %></span>
+            </a>
+            <% } %>
+            <% }); %>
+        </div>
+    </div>
+    <% } %>
+
+</div>

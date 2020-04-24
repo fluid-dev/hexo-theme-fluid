@@ -1,0 +1,225 @@
+<style type="text/css">
+    #posts-chart,
+    #categories-chart,
+    #tags-chart {
+        width: 100%;
+        height: 300px;
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+    }
+</style>
+
+<div id="postCharts" class="post-charts">
+   <div class="title center-align center-align-title" data-aos="zoom-in-up">
+        文章统计图
+    </div>
+    <div class="row">
+        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
+            <div id="posts-chart"></div>
+        </div>
+        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
+            <div id="categories-chart"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
+            <div id="tags-chart"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/echarts.min.js"></script>
+<script>
+    let postsChart = echarts.init(document.getElementById('posts-chart'));
+    let categoriesChart = echarts.init(document.getElementById('categories-chart'));
+    let tagsChart = echarts.init(document.getElementById('tags-chart'));
+
+    <%
+    /* calculate postsOption data. */
+    var startDate = moment().subtract(1, 'years').startOf('month');
+    var endDate = moment().endOf('month');
+
+    var monthMap = new Map();
+    var dayTime = 3600 * 24 * 1000;
+    for (var time = startDate; time <= endDate; time += dayTime) {
+        var month = moment(time).format('YYYY-MM');
+        if (!monthMap.has(month)) {
+            monthMap.set(month, 0);
+        }
+    }
+
+    // post and count map.
+    site.posts.forEach(function (post) {
+        var month = post.date.format('YYYY-MM');
+        if (monthMap.has(month)) {
+            monthMap.set(month, monthMap.get(month) + 1);
+        }
+    });
+
+    // xAxis data and yAxis data.
+    var monthArr = JSON.stringify([...monthMap.keys()]);
+    var monthValueArr = JSON.stringify([...monthMap.values()]);
+    %>
+
+    let postsOption = {
+        title: {
+            text: '文章发布统计图',
+            top: -5,
+            x: 'center'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        xAxis: {
+            type: 'category',
+            data: <%- monthArr %>
+        },
+        yAxis: {
+            type: 'value',
+        },
+        series: [
+            {
+                name: '文章篇数',
+                type: 'line',
+                color: ['#6772e5'],
+                data: <%- monthValueArr %>,
+                markPoint: {
+                    symbolSize: 45,
+                    color: ['#fa755a','#3ecf8e','#82d3f4'],
+                    data: [{
+                        type: 'max',
+                        itemStyle: {color: ['#3ecf8e']},
+                        name: '最大值'
+                    }, {
+                        type: 'min',
+                        itemStyle: {color: ['#fa755a']},
+                        name: '最小值'
+                    }]
+                },
+                markLine: {
+                    itemStyle: {color: ['#ab47bc']},
+                    data: [
+                        {type: 'average', name: '<%- __("average")  %>'}
+                    ]
+                }
+            }
+        ]
+    };
+
+    <%
+    /* calculate categoriesOption data. */
+    var categoryArr = [];
+    site.categories.map(function(category) {
+        categoryArr.push({'name': category.name, 'value': category.length})
+    });
+
+    var categoryArrJson = JSON.stringify(categoryArr);
+    %>
+
+    let categoriesOption = {
+        title: {
+            text: '文章分类统计图',
+            top: -4,
+            x: 'center'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        series: [
+            {
+                name: '分类',
+                type: 'pie',
+                radius: '50%',
+                color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
+                data: <%- categoryArrJson %>,
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    
+    <%
+    /* calculate tagsOption data. */
+    // get all tags name and count,then order by length desc.
+    var tagArr = [];
+    site.tags.map(function(tag) {
+        tagArr.push({'name': tag.name, 'value': tag.length});
+    });
+    tagArr.sort((a, b) => {return b.value - a.value});
+
+    // get Top 10 tags name and count.
+    var tagNameArr = [];
+    var tagCountArr = [];
+    for (var i = 0, len = Math.min(tagArr.length, 10); i < len; i++) {
+        tagNameArr.push(tagArr[i].name);
+        tagCountArr.push(tagArr[i].value);
+    }
+
+    var tagNameArrJson = JSON.stringify(tagNameArr);
+    var tagCountArrJson = JSON.stringify(tagCountArr);
+
+    %>
+
+    let tagsOption = {
+        title: {
+            text: 'TOP10 标签统计图',
+            top: -5,
+            x: 'center'
+        },
+        tooltip: {},
+        xAxis: [
+            {
+                type: 'category',
+                axisLabel:{
+                    interval:0,
+                    rotate:40
+                },
+                data: <%- tagNameArrJson %>
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: 'TOP10标签统计',
+                type: 'bar',
+                color: ['#82d3f4'],
+                barWidth : 18,
+                data: <%- tagCountArrJson %>,
+                markPoint: {
+                    symbolSize: 45,
+                    data: [{
+                        type: 'max',
+                        itemStyle: {color: ['#3ecf8e']},
+                        name: '最大值'
+                    }, {
+                        type: 'min',
+                        itemStyle: {color: ['#fa755a']},
+                        name: '最小值'
+                    }],
+                },
+                markLine: {
+                    itemStyle: {color: ['#ab47bc']},
+                    data: [
+                        {type: 'average', name: '平均值'}
+                    ]
+                }
+            }
+        ]
+    };
+
+    // render the charts
+    postsChart.setOption(postsOption);
+    categoriesChart.setOption(categoriesOption);
+    tagsChart.setOption(tagsOption);
+</script>

@@ -1,0 +1,16 @@
+<%
+page.layout = "statistics"
+page.banner_img = theme.statistics.banner_img
+page.banner_img_height = theme.statistics.banner_img_height
+page.banner_mask_alpha = theme.statistics.banner_mask_alpha
+%>
+<style>
+    .center-align-title{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+</style>
+<div class="mt-5 markdown-body">
+    <%- partial('_partial/post-charts') %>
+    <%- partial('_partial/my-skills') %>
+</div>
