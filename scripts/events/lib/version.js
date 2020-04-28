@@ -10,13 +10,12 @@ module.exports = (hexo) => {
   const { version } = require(path.normalize('../../../package.json'));
   const isZh = hexo.config.language.search(/zh-CN/i) !== -1;
 
-  const errorLog = (err) => {
+  const errorLog = (_) => {
     if (isZh) {
-      hexo.log.error('获取主题最新版本信息失败，可能与 GitHub 连接不畅，错误信息:');
+      hexo.log.warn('获取主题最新版本信息失败，可能与 GitHub 连接不畅，不影响正常使用');
     } else {
-      hexo.log.error('Failed to detect version info. Error message:');
+      hexo.log.warn('Failed to detect version info. Don\'t worry, it won\'t hinder the use');
     }
-    hexo.log.error(err);
   };
 
   https.get('https://api.github.com/repos/fluid-dev/hexo-theme-fluid/releases/latest', {
