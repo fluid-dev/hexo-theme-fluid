@@ -41,11 +41,11 @@ anchor: https://cdn.staticfile.org/anchor-js/4.2.2/
 
 github_markdown: https://cdn.staticfile.org/github-markdown-css/4.0.0/
 
-jquery: https://cdn.staticfile.org/jquery/3.4.1/
+jquery: https://cdn.staticfile.org/jquery/3.5.0/
 
 bootstrap: https://cdn.staticfile.org/twitter-bootstrap/4.4.1/
 
-highlightjs: https://cdn.staticfile.org/highlight.js/9.18.1/
+highlightjs: https://cdn.staticfile.org/highlight.js/10.0.0/
 
 tocbot: https://cdn.staticfile.org/tocbot/4.11.1/
 
@@ -63,9 +63,9 @@ busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
 clipboard: https://cdn.staticfile.org/clipboard.js/2.0.6/
 
-mermaid: https://cdn.staticfile.org/mermaid/8.4.8/
+mermaid: https://cdn.staticfile.org/mermaid/8.5.0/
 
-valine: https://cdn.staticfile.org/valine/1.4.4/
+valine: https://cdn.staticfile.org/valine/1.4.14/
 
 gitalk: https://cdn.staticfile.org/gitalk/1.6.2/
 
