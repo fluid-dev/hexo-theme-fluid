@@ -4,6 +4,7 @@
 
 hexo.on('generateBefore', () => {
   require('./lib/hello')(hexo);
+  require('./lib/check')(hexo);
   require('./lib/merge-configs')(hexo);
   require('./lib/highlight')(hexo);
   require('./lib/lazyload')(hexo);
