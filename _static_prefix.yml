@@ -35,7 +35,7 @@ internal_img: /img
 
 # 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
 # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. Detail: https://hexo.fluid-dev.com/docs/en/icon/
-iconfont: //at.alicdn.com/t/font_1736178_ijqayz9ro8k.css
+iconfont: //at.alicdn.com/t/font_1736178_pjno9b9zyxs.css
 
 anchor: https://cdn.staticfile.org/anchor-js/4.2.2/
 
