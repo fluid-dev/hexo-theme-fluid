@@ -105,7 +105,15 @@ layout: about
 
 ## 反馈
 
-- 微信群：扫描后添加好友，**回复「fluid」**（在聊天回复，不是加好友验证）自动拉群<details> <summary>二维码</summary><img width="250" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.jpeg"></details>
+微信群：扫描后添加好友，**回复「fluid」**（在聊天回复，不是加好友验证）自动拉群
+
+<details><summary>二维码</summary><img width="200" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.jpeg" alt="wechat"></details>
+
+## 赞赏
+
+你可以通过下方二维码赞助本项目，资金将用于服务器开销以及今后的公共接口服务
+
+<details><summary>二维码</summary><img width="600" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/reward.png" alt="reward"></details>
 
 ## Star 趋势
 
