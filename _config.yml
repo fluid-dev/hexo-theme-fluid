@@ -239,12 +239,15 @@ utterances:
   label: utterances
   theme: github-light
   crossorigin: anonymous
-
 # Disqus
 # 国内用户不要用，已被墙
+# for DisqusJS, https://github.com/SukkaW/DisqusJS
 disqus:
-  shortname: # your shortname
-
+  shortname:  #必须 你的 Disqus Forum 的 shortname
+  apikey:  #DisqusJS 时必须  向 API 发起请求时使用的 API Key，申请地址：https://disqus.com/api/applications/
+  nesting:  #最大评论嵌套数,默认值为 4 
+  admin:  #非必须 你的站点的 Disqus Moderator 的用户名（也就是你的用户名）。你可以在 Disqus - Settings - Account - Username 获取你的 Username
+  adminLabel:  #非必须 你想显示在 Disqus Moderator Badge 中的文字。该配置应和 Disqus Admin - Settings - Community - Moderator Badge Text 相同
 # Gitalk
 # You can get yout ClientID and ClientSecret from https://github.com/settings/applications/new
 # More info available at https://github.com/gitalk/gitalk#options
