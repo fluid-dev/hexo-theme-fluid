@@ -169,7 +169,7 @@ index:
 page:
   banner_img: /img/default.png
   banner_img_height: 60  # available: 0 - 100
-  banner_mask_alpha: 0.3  # available: 0 - 1.0
+  banner_mask_alpha: 0  # available: 0 - 1.0
 
 #---------------------------
 # 文章页
@@ -178,7 +178,7 @@ page:
 post:  # 部分配置同时控制自定义页面，注意备注
   banner_img: /img/default.png
   banner_img_height: 70  # available: 0 - 100
-  banner_mask_alpha: 0.3  # available: 0 - 1.0
+  banner_mask_alpha: 0  # available: 0 - 1.0
   meta:  # 文章标题下方的信息
     date:  # 文章日期
       enable: true
@@ -305,9 +305,9 @@ archive:
 # Categories Page
 #---------------------------
 category:
-  banner_img: /img/outlook.png
+  banner_img: /img/default.png
   banner_img_height: 60  # available: 0 - 100
-  banner_mask_alpha: 0.3  # available: 0 - 1.0
+  banner_mask_alpha: 0  # available: 0 - 1.0
   subtitle:  # 打字机内容
 
 #---------------------------
@@ -317,7 +317,7 @@ category:
 tag:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
-  banner_mask_alpha: 0.3  # available: 0 - 1.0
+  banner_mask_alpha: 0  # available: 0 - 1.0
   subtitle:  # 打字机内容
   tagcloud: # 标签云
     min_font: 15
@@ -334,7 +334,7 @@ tag:
 about:  # 关于页需要手动创建，具体请见：https://hexo.fluid-dev.com/docs/guide/#%E5%85%B3%E4%BA%8E%E9%A1%B5
   banner_img: /img/default.png
   banner_img_height: 60  # available: 0 - 100
-  banner_mask_alpha: 0.3  # available: 0 - 1.0
+  banner_mask_alpha: 0  # available: 0 - 1.0
   subtitle:  # 打字机内容
   avatar: /img/avatar.png # 头像
   name: myname
@@ -352,7 +352,7 @@ about:  # 关于页需要手动创建，具体请见：https://hexo.fluid-dev.co
 page404:
   banner_img: /img/default.png
   banner_img_height: 85  # available: 0 - 100
-  banner_mask_alpha: 0.3  # available: 0 - 1.0
+  banner_mask_alpha: 0  # available: 0 - 1.0
   subtitle: 'Page not found'  # 打字机内容
 
 
@@ -363,7 +363,7 @@ page404:
 links:
   banner_img: /img/default.png
   banner_img_height: 60  # available: 0 - 100
-  banner_mask_alpha: 0.3  # available: 0 - 1.0
+  banner_mask_alpha: 0  # available: 0 - 1.0
   subtitle:  # 打字机内容
   items:  # intro 与 image 可省略
     - {
