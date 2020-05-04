@@ -63,12 +63,13 @@ $ hexo new page about
 修改后的文件示例如下：
 
 ```yml
+---
 title: about
 date: 2020-02-23 19:20:33
 layout: about
 ---
 
-这里写正文，支持 Markdown, HTML
+这里写关于页的正文，支持 Markdown, HTML
 ```
 
 ## 升级主题
