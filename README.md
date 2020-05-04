@@ -110,11 +110,13 @@ layout: about
 
 <details><summary>二维码</summary><img width="200" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.jpeg" alt="wechat"></details>
 
-## 赞赏
+## 赞助
 
 你可以通过下方二维码赞助本项目，资金将用于服务器开销以及今后的公共接口服务
 
-<details><summary>二维码</summary><img width="600" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/reward.png" alt="reward"></details>
+<details><summary>二维码</summary><img width="600" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/sponsor.png" alt="sponsor"></details>
+
+其他商业赞助可发送邮件至 zkqiang#126.com (#替换为@)
 
 ## Star 趋势
 
