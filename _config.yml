@@ -155,7 +155,7 @@ index:
   post_default_img: '' # 默认的文章封面图，当没有指定 index_img 时会使用该图片，若都为空则不显示任何图片
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
-    text: '点滴记录 · 些许成长'  # 为空则按 hexo config.subtitle 显示
+    text: '点滴积累 · 些许成长'  # 为空则按 hexo config.subtitle 显示
   auto_excerpt:
     enable: true
   post_url_target: _self  # available: _blank | _self
