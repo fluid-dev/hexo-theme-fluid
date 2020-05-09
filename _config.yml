@@ -151,7 +151,7 @@ scroll_top_arrow:  # 向顶部滚动的箭头
 index:
   banner_img: /img/mylove.png  # 首页 Banner 头图，以下相同
   banner_img_height: 100  # 头图高度，屏幕百分比，available: 0 - 100
-  banner_mask_alpha: 0  # 头图黑色蒙版的透明度，available: 0 - 1.0， 0 是完全透明（无蒙版），1 是完全不透明
+  banner_mask_alpha: 0.1  # 头图黑色蒙版的透明度，available: 0 - 1.0， 0 是完全透明（无蒙版），1 是完全不透明
   post_default_img: '' # 默认的文章封面图，当没有指定 index_img 时会使用该图片，若都为空则不显示任何图片
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
@@ -220,8 +220,8 @@ post:  # 部分配置同时控制自定义页面，注意备注
     specific: false  # 开启后，只有在文章 Front-matter 里指定 `mermaid: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
     options: { theme: 'default' }  # 接口选项，具体可见：http://mermaid-js.github.io/mermaid/#/mermaidAPI
   comments:  # 评论
-    enable: false  # 开启评论
-    type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere  推荐 utterances
+    enable: true  # 开启评论
+    type: utterances  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere  推荐 utterances
 
 
 #---------------------------
@@ -234,8 +234,8 @@ post:  # 部分配置同时控制自定义页面，注意备注
 # utterances
 # You can install utterances with https://utteranc.es/ and generate your configuration
 utterances:
-  repo:
-  issue_term:
+  repo: "https://github.com/smilelt/smilelt.github.io/issues"
+  issue_term: "pathname"
   label: utterances
   theme: github-light
   crossorigin: anonymous
@@ -295,7 +295,7 @@ livere:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/mylove1.png
+  banner_img: /img/default.png
   banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0  # available: 0 - 1.0
   subtitle:  # 打字机内容
@@ -316,7 +316,7 @@ category:
 #---------------------------
 tag:
   banner_img: /img/default.png
-  banner_img_height: 80  # available: 0 - 100
+  banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0  # available: 0 - 1.0
   subtitle:  # 打字机内容
   tagcloud: # 标签云
