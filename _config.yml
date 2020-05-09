@@ -234,7 +234,7 @@ post:  # 部分配置同时控制自定义页面，注意备注
 # utterances
 # You can install utterances with https://utteranc.es/ and generate your configuration
 utterances:
-  repo: "https://github.com/smilelt/smilelt.github.io/issues"
+  repo: "https://github.com/smilelt/smilelt.github.io.git"
   issue_term: "pathname"
   label: utterances
   theme: github-light
