@@ -22,6 +22,9 @@
     img.srcset = src;
   }
 
+  // eslint-disable-next-line no-undef
+  var lazyLoader = new Debouncer(processImages);
+
   function processImages() {
     for (var i = 0; i < images.length; i++) {
       if (elementInViewport(images[i])) {
@@ -37,22 +40,11 @@
       }
     }
     if (images.length === 0) {
-      window.removeEventListener('scroll', imageLazyLoader);
+      window.removeEventListener('scroll', lazyLoader, false);
     }
   }
 
-  function throttle(method, context) {
-    clearTimeout(method.tId);
-    method.tId = setTimeout(function() {
-      method.call(context);
-    }, 100);
-  }
+  window.addEventListener('scroll', lazyLoader, false);
+  lazyLoader.handleEvent();
 
-  var imageLazyLoader = function() {
-    throttle(processImages, window);
-  };
-
-  processImages();
-
-  window.addEventListener('scroll', imageLazyLoader);
 })(window, document);
