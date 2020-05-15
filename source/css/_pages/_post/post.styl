@@ -194,3 +194,118 @@ mjx-container
 
   &:focus, svg:focus
     outline none
+
+// reward
+
+.reward {
+    padding: 5px 0
+}
+
+.reward .reward-notice {
+    font-size: 14px;
+    line-height: 14px;
+    margin: 15px auto;
+    text-align: center
+}
+
+.reward .reward-button {
+    font-size: 28px;
+    line-height: 58px;
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    padding: 0;
+    -webkit-user-select: none;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    border: 1px solid #fccd60e;
+    border-radius: 50%;
+    background: #fccd60;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fccd60), color-stop(100%, #fbae12), color-stop(100%, #2989d8), color-stop(100%, #207cca));
+    background: -webkit-linear-gradient(top, #fccd60 0, #fbae12 100%, #2989d8 100%, #207cca 100%);
+    background: linear-gradient(to bottom, #fccd60 0, #fbae12 100%, #2989d8 100%, #207cca 100%)
+}
+
+.reward .reward-code {
+    position: absolute;
+    top: -220px;
+    left: 50%;
+    display: none;
+    width: 350px;
+    height: 200px;
+    margin-left: -175px;
+    padding: 15px;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    box-shadow: 0 1px 1px 1px #efefef
+}
+
+.reward .reward-button:hover .reward-code {
+    display: block
+}
+
+.reward .reward-code span {
+    display: inline-block;
+    width: 150px;
+    height: 150px
+}
+
+.reward .reward-code span.alipay-code {
+    float: left
+}
+
+.reward .reward-code span.alipay-code a {
+    padding: 0
+}
+
+.reward .reward-code span.wechat-code {
+    float: right
+}
+
+.reward .reward-code img {
+    display: inline-block;
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border: 0
+}
+
+.reward .reward-code b {
+    font-size: 14px;
+    line-height: 26px;
+    display: block;
+    margin: 0;
+    text-align: center;
+    color: #666
+}
+
+.reward .reward-code b.notice {
+    line-height: 2rem;
+    margin-top: -1rem;
+    color: #999
+}
+
+.reward .reward-code:after,
+.reward .reward-code:before {
+    position: absolute;
+    content: '';
+    border: 10px solid transparent
+}
+
+.reward .reward-code:after {
+    bottom: -19px;
+    left: 50%;
+    margin-left: -10px;
+    border-top-color: #fff
+}
+
+.reward .reward-code:before {
+    bottom: -20px;
+    left: 50%;
+    margin-left: -10px;
+    border-top-color: #e6e6e6
+}

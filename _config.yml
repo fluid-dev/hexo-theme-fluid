@@ -206,6 +206,11 @@ post:  # 部分配置同时控制自定义页面，注意备注
     content: '本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！'
   prev_next:  # 文章底部上一篇下一篇功能
     enable: true
+  reward:  # 赞赏功能，与文章底部自定义内容不冲突，位于评论下方
+   enable: false
+   content: 小礼物走一走，感谢关注我 # 赞赏按钮下的一句话
+   alipay_code:  # 支付宝二维码链接
+   wechat_code:  # 微信二维码链接
   custom:  # 文章底部自定义内容
     enable: false
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
