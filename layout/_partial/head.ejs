@@ -18,6 +18,10 @@ if (page.title) {
   <% } %>
   <meta name="theme-color" content="<%- theme.color.navbar_bg_color %>">
   <meta name="description" content="<%= config.description %>">
+  <% if (theme.disqus.disqusjs) { %>
+  <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/disqus.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/disqusjs.css">
+  <% } %>
   <meta name="author" content="<%= config.author %>">
   <meta name="keywords" content="<%= config.keywords %>">
   <title><%= title %></title>
