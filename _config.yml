@@ -257,6 +257,11 @@ utterances:
 # 国内用户不要用，已被墙
 disqus:
   shortname: # your shortname
+  # The following are Disqusjs configurations, please ignore if DisqusJS is not required
+  # 以下为 Disqusjs 支持, 如不需要 DisqusJS 请忽略
+  # https://github.com/SukkaW/DisqusJS
+  disqusjs: false # 设置为 true 开启 DisqusJS
+  apikey: # DisqusJS 向 API 发起请求时使用的 API Key
 
 # Gitalk
 # You can get yout ClientID and ClientSecret from https://github.com/settings/applications/new
