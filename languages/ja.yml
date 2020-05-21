@@ -13,6 +13,8 @@ paginator:
 
 post:
   toc: ディレクトリ
+  pre: 前の記事
+  next: 次の記事
 
 home:
   title: ホーム
