@@ -43,6 +43,22 @@
     padding-top 5px
     padding-bottom 5px
 
+  .dropdown:hover .dropdown-menu
+    opacity 100%
+    transition opacity .3s
+
+  .dropdown-menu
+    opacity 0
+    display block
+    color $navbar-text-color
+    background-color rgba(0, 0, 0, 0.3)
+
+  .dropdown-item:hover
+    color $link-hover-color
+
+  .dropdown-collapse
+    background-color $navbar-bg-color
+
 .navbar-custom
   color $navbar-text-color
 
