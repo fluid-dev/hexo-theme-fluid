@@ -13,6 +13,8 @@ paginator:
 
 post:
   toc: 目录
+  pre: 上一篇
+  next: 下一篇
 
 home:
   title: 首页
