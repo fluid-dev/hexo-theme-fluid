@@ -47,6 +47,9 @@
     font-size 0.875rem
     color $navbar-text-color
     background-color rgba(0, 0, 0, 0.3)
+    border none
+    -webkit-transition background .5s ease-in-out,padding .5s ease-in-out
+    transition background .5s ease-in-out,padding .5s ease-in-out
 
     @media (max-width: 991.98px)
       text-align center
@@ -55,7 +58,10 @@
     color $link-hover-color
 
   .dropdown-collapse
-    background-color $navbar-bg-color
+    if $navbar-glass-enable
+      ground-glass($navbar-glass-px, $navbar-bg-color, $navbar-glass-alpha)
+    else
+      background-color $navbar-bg-color
 
 .navbar-custom
   color $navbar-text-color
@@ -64,11 +70,16 @@
     color $navbar-text-color
 
 .top-nav-collapse
-  background-color $navbar-bg-color
+  if $navbar-glass-enable
+    ground-glass($navbar-glass-px, $navbar-bg-color, $navbar-glass-alpha)
+  else
+    background-color $navbar-bg-color
 
 .navbar-col-show
-  background-color $navbar-bg-color
-
+  if $navbar-glass-enable
+    ground-glass($navbar-glass-px, $navbar-bg-color, $navbar-glass-alpha)
+  else
+    background-color $navbar-bg-color
 
 @media (max-width: 767px)
   .navbar

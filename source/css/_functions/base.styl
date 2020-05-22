@@ -1,2 +1,8 @@
 theme-config(config, predef)
   unquote(hexo-config(config) ? hexo-config(config):predef)
+
+theme-config-unit(config, predef, unit)
+  unit(hexo-config(config) ? hexo-config(config):predef, unit)
+
+theme-config-origin(config, predef)
+  (hexo-config(config) ? hexo-config(config):predef)
