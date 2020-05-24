@@ -45,7 +45,7 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
                   </div>
                 <% } %>
               </div>
-              <% if(theme.post.copyright.enable && theme.post.copyright.content) { %>
+              <% if(theme.post.copyright.enable && theme.post.copyright.content && page.copyright != false) { %>
                 <p class="note note-warning"><%- theme.post.copyright.content %></p>
               <% } %>
               <% if(theme.post.prev_next.enable && !page.hide) { %>
