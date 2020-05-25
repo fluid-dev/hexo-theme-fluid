@@ -26,7 +26,7 @@ var banner_mask_alpha = page.banner_mask_alpha || theme.index.banner_mask_alpha
             </span>
 
             <% if(is_post()) { %>
-              <% if (theme.post.meta.date.enable) { %>
+              <% if (theme.post.meta.date.enable && page.meta !== false) { %>
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
                   <time datetime="<%= full_date(page.date, 'YYYY-MM-DD HH:mm') %>">
@@ -36,7 +36,7 @@ var banner_mask_alpha = page.banner_mask_alpha || theme.index.banner_mask_alpha
               <% } %>
 
               <div class="mt-1">
-                <% if (theme.post.meta.wordcount.enable) { %>
+                <% if (theme.post.meta.wordcount.enable && page.meta !== false) { %>
                   <% var wordcount_texts = theme.post.meta.wordcount.format.split('{}') %>
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
@@ -44,7 +44,7 @@ var banner_mask_alpha = page.banner_mask_alpha || theme.index.banner_mask_alpha
                   </span>
                 <% } %>
 
-                <% if (theme.post.meta.min2read.enable) { %>
+                <% if (theme.post.meta.min2read.enable && page.meta !== false) { %>
                   <% var min2read_texts = theme.post.meta.min2read.format.split('{}') %>
                   <span class="post-meta mr-2">
                       <i class="iconfont icon-clock-fill"></i>
@@ -55,7 +55,7 @@ var banner_mask_alpha = page.banner_mask_alpha || theme.index.banner_mask_alpha
                   </span>
                 <% } %>
 
-                <% if (theme.post.meta.views.enable) { %>
+                <% if (theme.post.meta.views.enable && page.meta !== false) { %>
                   <!-- 不蒜子统计文章PV -->
                   <% var views_texts = theme.post.meta.views.format.split('{}') %>
                   <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
