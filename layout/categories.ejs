@@ -14,14 +14,14 @@ page.banner_mask_alpha = theme.category.banner_mask_alpha
     <% var collapsed = subCats.length === 0 %>
     <div class="<%= depth <= 0 ? 'category' : 'category-sub' %> row">
       <a
-        class="<%= depth <= 0 ? 'category-item' : 'category-subitem' %> <%= collapsed ? 'collapsed' : '' %> list-group-item category-item-action col-11"
+        class="<%= depth <= 0 ? 'category-item' : 'category-subitem' %> <%= collapsed ? 'collapsed' : '' %> list-group-item category-item-action col-10 col-md-11"
         id="heading-<%= cat.name %>" role="tab" data-toggle="collapse" href="#collapse-<%= cat.name %>"
         aria-expanded="<%= collapsed ? 'false' : 'true' %>"
       >
         <%= cat.name %>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="<%= url_for(cat.path) %>" class="category-count col-1">
+      <a href="<%= url_for(cat.path) %>" class="category-count col-2 col-md-1">
         <i class="iconfont icon-articles"></i>
         <span><%= cat.posts.length %></span>
       </a>
