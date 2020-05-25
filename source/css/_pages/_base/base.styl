@@ -330,3 +330,12 @@ a.beian-police
   a.beian-police
     span.beian-police-sep
       display none
+
+// 脚注锚点
+sup > a
+  anchor-offset()
+  &::before
+    display inline-block
+
+.footnote-item
+  anchor-offset()
