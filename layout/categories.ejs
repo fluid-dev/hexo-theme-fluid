@@ -5,12 +5,14 @@ page.subtitle = theme.category.subtitle || __('category.subtitle')
 page.banner_img = theme.category.banner_img
 page.banner_img_height = theme.category.banner_img_height
 page.banner_mask_alpha = theme.category.banner_mask_alpha
+
+var orderBy = theme.category.order_by || 'name'
 %>
 
 <% function render_categories(cats, depth) { %>
   <% depth = depth || 0 %>
   <% return cats.each(function(cat){ %>
-    <% var subCats = site.categories.find({parent: cat._id}).filter(cat => cat.length) %>
+    <% var subCats = site.categories.find({parent: cat._id}).sort(orderBy).filter(cat => cat.length) %>
     <% var collapsed = subCats.length === 0 %>
     <div class="<%= depth <= 0 ? 'category' : 'category-sub' %> row">
       <a
@@ -46,15 +48,25 @@ page.banner_mask_alpha = theme.category.banner_mask_alpha
 <% function render_posts(cat) { %>
   <div id="collapse-<%= cat.name %>" class="collapse in" role="tabpanel"
        aria-labelledby="heading-<%= cat.name %>">
-    <% cat.posts.each(function(post){ %>
-      <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
-        <span class="category-post"><%= post.title %></span>
-      </a>
-    <% }) %>
+    <% var limit = theme.category.post_limit %>
+    <% var posts = cat.posts.sort(config.index_generator.order_by || '-date') %>
+    <% for (var idx = 0; idx < posts.length; idx++) { %>
+      <% var post = posts.data[idx] %>
+      <% if (idx && limit && idx >= limit) { %>
+        <a href="<%- url_for(cat.path) %>" class="list-group-item list-group-item-action">
+          <span class="category-post">More...</span>
+        </a>
+        <% break %>
+      <% } else { %>
+        <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
+          <span class="category-post"><%= post.title %></span>
+        </a>
+      <% } %>
+    <% } %>
   </div>
 <% } %>
 
 <div class="category-list">
-  <% cats = site.categories.find({parent: {$exists: false}}).filter(cat => cat.length) %>
+  <% cats = site.categories.find({parent: {$exists: false}}).sort(orderBy).filter(cat => cat.length) %>
   <%- render_categories(cats) %>
 </div>
