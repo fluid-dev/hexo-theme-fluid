@@ -1,11 +1,12 @@
 /* 给锚点增加偏移量（适配导航栏的高度） */
 anchor-offset()
-  display block
-  content ""
-  margin-top -4rem
-  height 4rem
-  width 1px
-  visibility hidden
+  &::before
+    display block
+    content ""
+    margin-top -4rem
+    height 4rem
+    width 1px
+    visibility hidden
 
 /* 毛玻璃透明效果 */
 ground-glass($px, $bg-color, $alpha)
