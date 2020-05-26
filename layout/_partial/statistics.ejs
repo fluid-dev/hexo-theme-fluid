@@ -1,0 +1,43 @@
+<% if (theme.footer.statistics.enable) { %>
+  <div class="statistics">
+    <% var pv_texts = theme.footer.statistics.pv_format.split('{}') %>
+    <% var uv_texts = theme.footer.statistics.uv_format.split('{}') %>
+
+    <% if (theme.footer.statistics.source === 'leancloud') { %>
+      <% if (theme.footer.statistics.pv_format) { %>
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            <%- pv_texts[0] %>
+            <span id="leancloud-site-pv"></span>
+            <%- pv_texts[1] %>
+          </span>
+      <% } %>
+      <% if (theme.footer.statistics.uv_format) { %>
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            <%- uv_texts[0] %>
+            <span id="leancloud-site-uv"></span>
+            <%- uv_texts[1] %>
+          </span>
+      <% } %>
+
+    <% } else if (theme.footer.statistics.source === 'busuanzi') { %>
+      <% if (theme.footer.statistics.pv_format) { %>
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            <%- pv_texts[0] %>
+            <span id="busuanzi_value_site_pv"></span>
+            <%- pv_texts[1] %>
+          </span>
+      <% } %>
+      <% if (theme.footer.statistics.uv_format) { %>
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            <%- uv_texts[0] %>
+            <span id="busuanzi_value_site_uv"></span>
+            <%- uv_texts[1] %>
+          </span>
+      <% } %>
+    <% } %>
+  </div>
+<% } %>

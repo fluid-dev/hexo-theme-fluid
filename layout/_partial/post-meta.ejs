@@ -1,0 +1,46 @@
+<% if (theme.post.meta.date.enable && page.meta !== false) { %>
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="<%= full_date(page.date, 'YYYY-MM-DD HH:mm') %>">
+      <%= full_date(page.date, theme.post.meta.date.format) %>
+    </time>
+  </div>
+<% } %>
+
+<div class="mt-1">
+  <% if (theme.post.meta.wordcount.enable && page.meta !== false) { %>
+    <% var wordcount_texts = theme.post.meta.wordcount.format.split('{}') %>
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      <%- wordcount_texts[0] %><%- wordcount(page.content) %><%- wordcount_texts[1] %>
+    </span>
+  <% } %>
+
+  <% if (theme.post.meta.min2read.enable && page.meta !== false) { %>
+    <% var min2read_texts = theme.post.meta.min2read.format.split('{}') %>
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      <% var words = parseInt(theme.post.meta.min2read.words) %>
+      <%- min2read_texts[0] %>
+      <%- min2read(page.content, {cn: words, en: words / 2}) %>
+      <%- min2read_texts[1] %>
+    </span>
+  <% } %>
+
+  <% var views_texts = theme.post.meta.views.format.split('{}') %>
+  <% if (theme.post.meta.views.enable && page.meta !== false) { %>
+    <% if (theme.post.meta.views.source === 'leancloud') { %>
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <%- views_texts[0] %><span id="leancloud-post-views"></span><%- views_texts[1] %>
+      </span>
+    <% } else if (theme.post.meta.views.source === 'busuanzi' && page.meta !== false)  { %>
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
+      </span>
+    <% } %>
+  <% } %>
+</div>
