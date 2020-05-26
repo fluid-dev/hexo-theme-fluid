@@ -110,9 +110,9 @@ layout: about
 
 <details>
     <summary>二维码</summary>
-    <p><b>在聊天中发送「fluid」（不是在好友验证中）自动拉群</b></p>
-    <p><b>该微信仅用于拉群，不进行答疑</b></p>
-    <img width="200" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.jpeg" alt="wechat">
+    <p><b>好友申请备注：fluid</b></p>
+    <p><b>提问之前请先仔细查阅用户文档</b></p>
+    <img width="200" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.png" alt="wechat">
 </details>
 
 ## 赞助
