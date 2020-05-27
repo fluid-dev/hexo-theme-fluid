@@ -17,11 +17,11 @@ module.exports = (hexo) => {
    * @returns {String} text
    */
   function renderFootnotes(text) {
-    var footnotes = [];
-    var reFootnoteContent = /\[\^(\d+)]: ?([\S\s]+?)(?=\[\^(?:\d+)]|\n\n|$)/g;
-    var reInlineFootnote = /\[\^(\d+)]\((.+?)\)/g;
-    var reFootnoteIndex = /\[\^(\d+)]/g;
-    var html = '';
+    const reFootnoteContent = /\[\^(\d+)]: ?([\S\s]+?)(?=\[\^(?:\d+)]|\n\n|$)/g;
+    const reInlineFootnote = /\[\^(\d+)]\((.+?)\)/g;
+    const reFootnoteIndex = /\[\^(\d+)]/g;
+    let footnotes = [];
+    let html = '';
 
     // threat all inline footnotes
     text = text.replace(reInlineFootnote, function(match, index, content) {
@@ -45,23 +45,25 @@ module.exports = (hexo) => {
 
     // create map for looking footnotes array
     function createLookMap(field) {
-      var map = {};
-      for (var i = 0; i < footnotes.length; i++) {
-        var item = footnotes[i];
-        var key = item[field];
+      let map = {};
+      for (let i = 0; i < footnotes.length; i++) {
+        const item = footnotes[i];
+        const key = item[field];
         map[key] = item;
       }
       return map;
     }
-    var indexMap = createLookMap('index');
+    const indexMap = createLookMap('index');
 
     // render (HTML) footnotes reference
     text = text.replace(reFootnoteIndex,
       function(match, index) {
-        var tooltip = indexMap[index].content;
+        let tooltip = indexMap[index].content;
+        tooltip = hexo.render.renderSync({ text: tooltip, engine: 'markdown' });
+        tooltip = tooltip.replace(/(<.+?>)/g, '');
         return '<sup id="fnref:' + index + '" class="footnote-ref">'
           + '<a href="#fn:' + index + '" rel="footnote">'
-          + '<span class="" aria-label="'
+          + '<span class="hint--top hint--rounded" aria-label="'
           + tooltip
           + '">[' + index + ']</span></a></sup>';
       });
