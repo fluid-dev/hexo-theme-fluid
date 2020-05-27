@@ -58,6 +58,9 @@ module.exports = (hexo) => {
     // render (HTML) footnotes reference
     text = text.replace(reFootnoteIndex,
       function(match, index) {
+        if (!indexMap[index]) {
+          return match;
+        }
         let tooltip = indexMap[index].content;
         tooltip = hexo.render.renderSync({ text: tooltip, engine: 'markdown' });
         tooltip = tooltip.replace(/(<.+?>)/g, '');
@@ -78,7 +81,7 @@ module.exports = (hexo) => {
       html += '<li><span id="fn:' + footNote.index + '" class="footnote-text">';
       html += '<span>';
       const fn = hexo.render.renderSync({ text: footNote.content.trim(), engine: 'markdown' });
-      html += fn.replace(/(^<p>)|(<\/p>$)/g, '');
+      html += fn.replace(/(<p>)|(<\/p>)/g, '');
       html += '<a href="#fnref:' + footNote.index + '" rev="footnote" class="footnote-backref"> ↩</a></span></span></li>';
     });
 
