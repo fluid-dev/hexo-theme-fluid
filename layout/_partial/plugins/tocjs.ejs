@@ -1,4 +1,4 @@
-<% if(theme.post.toc.enable && page.toc != false){ %>
+<% if(is_post() && theme.post.toc.enable && page.toc != false){ %>
   <%- js_ex(theme.static_prefix.tocbot, '/tocbot.min.js') %>
   <script>
     $(document).ready(function () {

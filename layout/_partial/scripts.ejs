@@ -6,11 +6,13 @@
 <!-- Plugins -->
 
 <% if (theme.lazyload.enable){ %>
-  <%- js_ex(theme.static_prefix.internal_js, 'lazyload.js') %>
-<% } %>
-
-<% if (is_post()){ %>
-  <%- partial('_partial/plugins/tocjs.ejs') %>
+  <% if (theme.lazyload.onlypost) { %>
+    <% if (is_post() || is_page()) { %>
+      <%- js_ex(theme.static_prefix.internal_js, 'lazyload.js') %>
+    <% } %>
+  <% } else { %>
+    <%- js_ex(theme.static_prefix.internal_js, 'lazyload.js') %>
+  <% }%>
 <% } %>
 
 <% if (theme.highlight.copy_btn) { %>
@@ -33,7 +35,7 @@
   <%- js(theme.custom_js) %>
 <% } %>
 
-<%- partial('_partial/plugins/analytics.ejs') %>
+<%- partial('_partial/plugins/tocjs.ejs') %>
 <%- partial('_partial/plugins/typed.ejs') %>
 <%- partial('_partial/plugins/anchor.ejs') %>
 <%- partial('_partial/plugins/local-search.ejs') %>
@@ -42,3 +44,4 @@
 <%- partial('_partial/plugins/mouse-click.ejs') %>
 <%- partial('_partial/plugins/daovoice.ejs') %>
 <%- partial('_partial/plugins/mermaid.ejs') %>
+<%- partial('_partial/plugins/analytics.ejs') %>
