@@ -332,10 +332,25 @@ a.beian-police
       display none
 
 // 脚注锚点
-sup > a
+sup > a, .footnote-text
   anchor-offset()
   &::before
     display inline-block
 
 .footnote-item
   anchor-offset()
+
+.footnote-list
+  ol
+    list-style-type none
+    counter-reset sectioncounter
+    padding-left 1em
+    font-size .9rem
+
+    li:before
+      font-family "Helvetica Neue", monospace, "Monaco"
+      content "["counter(sectioncounter)"]"
+      counter-increment sectioncounter
+
+.footnote-text
+  padding-left .5em
