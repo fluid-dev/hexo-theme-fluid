@@ -49,7 +49,7 @@ theme: fluid
 
 #### 4. Create About Page
 
-Since v1.7.0, the about page needs to be created manually:
+The about page needs to be created manually:
 
 ```bash
 $ hexo new page about
@@ -84,6 +84,7 @@ About content
 - [x] Detailed [documents](https://hexo.fluid-dev.com/docs/en/)
 - [x] Built-in search plugin
 - [x] Website analysis
+- [x] Support for footnote
 - [x] Support for LaTeX
 - [x] Support for mermaid
 - [x] Music player
