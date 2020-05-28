@@ -73,7 +73,7 @@ web_analytics:  # 网页访问统计
   tajs:   # 腾讯统计早期版站点统计sID，参见 https://ta.qq.com/#/site/list
   woyaola:  # 51.la站点统计ID，参见 https://www.51.la/user/site/index
   cnzz:  # 友盟/cnzz站点统计web_id，参见 https://web.umeng.com/main.php?c=site&a=show
-  leancloud:  # LeanCloud 计数统计，可用于 PV UV 展示
+  leancloud:  # LeanCloud 计数统计，可用于 PV UV 展示，如果 web_analytics.enable 没有开启，PV UV 展示只会查询，不会增加
     app_id:
     app_key:
     server_url:  # REST API 服务器地址，国际版不填
@@ -288,7 +288,7 @@ valine:
   lang: zh-CN # zh-CN | zh-TW | en | ja
   highlight: false # 代码高亮
   recordIP: false # 是否记录评论者IP
-  serverURLs: # 该配置适用于国内自定义域名用户, 海外版本会自动检测(无需手动填写)
+  serverURLs:  # REST API 服务器地址，国际版不填
 
 # 畅言
 # http://changyan.kuaizhan.com/

@@ -4,26 +4,50 @@
     function getRecord(Counter, target) {
       return new Promise(function (resolve, reject) {
         Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(response => response.json())
-          .then(({results}) => {
+          .then(resp => resp.json())
+          .then(({results, error}) => {
+            if (error) {
+              throw error;
+            }
             if (results && results.length > 0) {
               var record = results[0];
               resolve(record);
             } else {
               Counter('post', '/classes/Counter', {target, time: 0})
-                .then(response => response.json())
-                .then((record) => {
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
                   resolve(record);
                 }).catch(error => {
                 console.error('Failed to create', error);
                 reject(error);
               });
             }
-          }).catch(error => {
-          console.error('LeanCloud Counter Error', error);
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
           reject(error);
         });
       })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
     }
 
     // 构建自增请求体
@@ -38,20 +62,6 @@
           }
         }
       }
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          resolve(res);
-        }).catch(error => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
     }
 
     // 校验是否为有效的 UV
@@ -69,7 +79,7 @@
     }
 
     function addCount(Counter) {
-      var enableIncr = '<%= theme.web_analytics.enable %>' === 'true'
+      var enableIncr = '<%= theme.web_analytics.enable %>' === 'true' && window.location.hostname !== 'localhost';
       var getterArr = [];
       var incrArr = [];
 
@@ -159,7 +169,7 @@
       fetchData(api_server);
     } else {
       fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
+        .then(resp => resp.json())
         .then(({api_server}) => {
           fetchData('https://' + api_server);
         });
