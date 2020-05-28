@@ -73,7 +73,7 @@ web_analytics:  # 网页访问统计
   tajs:   # 腾讯统计早期版站点统计sID，参见 https://ta.qq.com/#/site/list
   woyaola:  # 51.la站点统计ID，参见 https://www.51.la/user/site/index
   cnzz:  # 友盟/cnzz站点统计web_id，参见 https://web.umeng.com/main.php?c=site&a=show
-  leancloud:  # LeanCloud 计数统计，可用于 PV UV 展示
+  leancloud:  # LeanCloud 计数统计，可用于 PV UV 展示，如果 web_analytics.enable 没有开启，PV UV 展示只会查询，不会增加
     app_id:
     app_key:
     server_url:  # REST API 服务器地址，国际版不填
@@ -137,9 +137,9 @@ banner_parallax: true  # 头图滚动视差
 # Footer
 #---------------------------
 footer:
-  statistics:  # 统计网站 PV、UV，使用的是不蒜子，显示在页脚  *不蒜子近期连接不稳定，谨慎开启
+  statistics:  # 展示网站的 PV、UV 统计数
     enable: false
-    source: "leancloud"  # 统计数据来源，可选：leancloud | busuanzi   注意不蒜子会间歇抽风
+    source: "leancloud"  # 统计数据来源，可选：leancloud | busuanzi，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
     pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
     uv_format: "总访客数 {} 人"
 
@@ -201,7 +201,7 @@ post:  # 部分配置同时控制自定义页面，注意备注
       words: 100  # 每分钟阅读多少字，如果是技术文章，建议降低
     views:  # 阅读次数
       enable: false
-      source: "leancloud"  # 统计数据来源，可选：leancloud | busuanzi   注意不蒜子会间歇抽风
+      source: "leancloud"  # 统计数据来源，可选：leancloud | busuanzi，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
       format: "{} 次"
   updated:  # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
     enable: false
@@ -288,7 +288,7 @@ valine:
   lang: zh-CN # zh-CN | zh-TW | en | ja
   highlight: false # 代码高亮
   recordIP: false # 是否记录评论者IP
-  serverURLs: # 该配置适用于国内自定义域名用户, 海外版本会自动检测(无需手动填写)
+  serverURLs:  # REST API 服务器地址，国际版不填
 
 # 畅言
 # http://changyan.kuaizhan.com/
