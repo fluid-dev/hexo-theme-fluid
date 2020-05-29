@@ -5,8 +5,8 @@
       return new Promise(function (resolve, reject) {
         Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
           .then(resp => resp.json())
-          .then(({results, error}) => {
-            if (error) {
+          .then(({results, code, error}) => {
+            if (code === 401) {
               throw error;
             }
             if (results && results.length > 0) {
