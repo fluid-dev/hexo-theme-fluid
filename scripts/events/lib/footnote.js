@@ -2,10 +2,11 @@
 
 // Register footnotes filter
 module.exports = (hexo) => {
-  if (hexo.theme.config.post.footnote.enable) {
-    hexo.extend.filter.register('before_post_render', function(data) {
-      data.content = renderFootnotes(data.content);
-      return data;
+  const config = hexo.theme.config;
+  if (config.post.footnote.enable) {
+    hexo.extend.filter.register('before_post_render', function(page) {
+      page.content = renderFootnotes(page.content, page.footnote);
+      return page;
     });
   }
 
@@ -14,9 +15,10 @@ module.exports = (hexo) => {
    *
    * Render markdown footnotes
    * @param {String} text
+   * @param {String} header
    * @returns {String} text
    */
-  function renderFootnotes(text) {
+  function renderFootnotes(text, header) {
     const reFootnoteContent = /\[\^(\d+)]: ?([\S\s]+?)(?=\[\^(?:\d+)]|\n\n|$)/g;
     const reInlineFootnote = /\[\^(\d+)]\((.+?)\)/g;
     const reFootnoteIndex = /\[\^(\d+)]/g;
@@ -88,7 +90,7 @@ module.exports = (hexo) => {
     // add footnotes at the end of the content
     if (footnotes.length) {
       text += '<section class="footnotes">';
-      text += '<hr>';
+      text += header || config.post.footnote.header || '';
       text += '<div class="footnote-list">';
       text += '<ol>' + html + '</ol>';
       text += '</div></section>';
