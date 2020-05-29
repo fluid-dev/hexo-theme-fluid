@@ -116,6 +116,7 @@ navbar:
     - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill' }
     - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill' }
     #- { key: 'links', link: '/links/', icon: 'iconfont icon-link-fill' }  # 友链页，把前面#去掉即可展示
+    #- { key: 'RSS', link: '/atom.xml', icon: 'iconfont icon-rss-fill' }  #RSS订阅页，安装hexo-generator-feed插件后启用，注意修改link对应rss页面链接
 
 search: # 搜索栏，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件。
   enable: true
