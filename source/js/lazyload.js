@@ -5,11 +5,8 @@
   function elementInViewport(el) {
     var rect = el.getBoundingClientRect();
     var height = window.innerHeight || document.documentElement.clientHeight;
-    return (
-      rect.top >= 0
-      && rect.left >= 0
-      && rect.top <= height * 3
-    );
+    var top = rect.top;
+    return (top >= 0 && top <= height * 3) || (top <= 0 && top <= -(height * 2) - rect.height);
   }
 
   function loadImage(el, fn) {
