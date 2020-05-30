@@ -1,12 +1,19 @@
 <% if(theme.utterances.repo && theme.utterances.issue_term){ %>
-  <script defer src="https://utteranc.es/client.js"
-          repo="<%- theme.utterances.repo %>"
-          issue-term="<%- theme.utterances.issue_term %>"
-  <% if(theme.utterances.label != null ){ %>
-          label="<%- theme.utterances.label %>"
-    <% } %>
-          theme="<%- theme.utterances.theme %>"
-          crossorigin="<%- theme.utterances.crossorigin %>"
-  >
+  <script type="text/javascript">
+    function loadUtterances() {
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.defer = false
+      s.setAttribute('repo', '<%= theme.utterances.repo %>');
+      s.setAttribute('issue-term', '<%= theme.utterances.issue_term %>');
+      <% if (theme.utterances.label != null) { %>
+      s.setAttribute('label', '<%= theme.utterances.label %>');
+      <% } %>
+      s.setAttribute('theme', '<%= theme.utterances.theme %>');
+      s.setAttribute('crossorigin', '<%= theme.utterances.crossorigin %>');
+      var e = document.getElementsByTagName('script')[0];
+      e.parentNode.insertBefore(s, e);
+    }
+    createObserver(loadUtterances, 'comments')
   </script>
 <% } %>

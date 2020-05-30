@@ -1,35 +1,17 @@
 <% if (theme.disqus.disqusjs) { %>
-  <%= js_ex(theme.static_prefix.disqusjs, 'disqus.js') %>
-  <%= js_ex(theme.static_prefix.disqusjs, 'disqusjs.css') %>
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     <script>
       function loadDisqus() {
-        var dsqjs = new DisqusJS({
-          shortname: '<%= theme.disqus.shortname %>',
-          apikey: '<%= theme.disqus.apikey %>'
+        addCssLink('<%= url_join(theme.static_prefix.disqusjs, 'disqusjs.css') %>');
+        addScript('<%= url_join(theme.static_prefix.disqusjs, 'disqus.js') %>', function () {
+          new DisqusJS({
+            shortname: '<%= theme.disqus.shortname %>',
+            apikey: '<%= theme.disqus.apikey %>'
+          });
         });
       }
-
-      var runningOnBrowser = typeof window !== "undefined";
-      var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" &&
-        /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
-      var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
-      setTimeout(function () {
-        if (!isBot && supportsIntersectionObserver) {
-          var disqus_observer = new IntersectionObserver(function (entries) {
-            if (entries[0].isIntersecting) {
-              loadDisqus();
-              disqus_observer.disconnect();
-            }
-          }, {
-            threshold: [ 0 ]
-          });
-          disqus_observer.observe(document.getElementById('disqus_thread'));
-        } else {
-          loadDisqus();
-        }
-      }, 1);
+      createObserver(loadDisqus, 'disqus_thread');
     </script>
     <noscript>Please enable JavaScript to view the
       <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a>
@@ -52,26 +34,7 @@
           (d.head || d.body).appendChild(s);
         })();
       }
-
-      var runningOnBrowser = typeof window !== "undefined";
-      var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" &&
-        /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
-      var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
-      setTimeout(function () {
-        if (!isBot && supportsIntersectionObserver) {
-          var disqus_observer = new IntersectionObserver(function (entries) {
-            if (entries[0].isIntersecting) {
-              loadDisqus();
-              disqus_observer.disconnect();
-            }
-          }, {
-            threshold: [ 0 ]
-          });
-          disqus_observer.observe(document.getElementById('disqus_thread'));
-        } else {
-          loadDisqus();
-        }
-      }, 1);
+      createObserver(loadDisqus, 'disqus_thread');
     </script>
     <noscript>Please enable JavaScript to view the
       <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a>

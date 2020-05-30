@@ -1,27 +1,25 @@
 <% if(theme.valine.appid && theme.valine.appkey){ %>
   <div id="vcomments"></div>
-  <%- js_ex(theme.static_prefix.valine, 'Valine.min.js', 'defer') %>
-
   <script type="text/javascript">
-    var oldLoadVa = window.onload;
-    window.onload = function () {
-      oldLoadVa && oldLoadVa();
-
-      new Valine({
-        el: "#vcomments",
-        app_id: "<%= theme.valine.appid %>",
-        app_key: "<%= theme.valine.appkey %>",
-        placeholder: "<%= theme.valine.placeholder %>",
-        path: <%= theme.valine.path %>,
-        avatar: "<%= theme.valine.avatar %>",
-        meta: <%- JSON.stringify(theme.valine.meta || []) %>,
-        pageSize: "<%= theme.valine.pageSize %>",
-        lang: "<%= theme.valine.lang %>",
-        highlight: <%= theme.valine.highlight %>,
-        recordIP: <%= theme.valine.recordIP %>,
-        serverURLs: "<%= theme.valine.serverURLs %>",
+    function loadValine() {
+      addScript('<%= url_join(theme.static_prefix.valine, 'Valine.min.js') %>', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "<%= theme.valine.appid %>",
+          app_key: "<%= theme.valine.appkey %>",
+          placeholder: "<%= theme.valine.placeholder %>",
+          path: <%= theme.valine.path %>,
+          avatar: "<%= theme.valine.avatar %>",
+          meta: <%- JSON.stringify(theme.valine.meta || []) %>,
+          pageSize: "<%= theme.valine.pageSize %>",
+          lang: "<%= theme.valine.lang %>",
+          highlight: <%= theme.valine.highlight %>,
+          recordIP: <%= theme.valine.recordIP %>,
+          serverURLs: "<%= theme.valine.serverURLs %>",
+        });
       });
-    };
+    }
+    createObserver(loadValine, 'vcomments');
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
