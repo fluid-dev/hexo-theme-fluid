@@ -9,16 +9,23 @@ page.banner_mask_alpha = theme.category.banner_mask_alpha
 var orderBy = theme.category.order_by || 'name'
 %>
 
+<%
+function guid() {
+    return Number(Math.random().toString().substr(3, 3) + Date.now()).toString(36);
+} 
+%> 
+
 <% function render_categories(cats, depth) { %>
   <% depth = depth || 0 %>
   <% return cats.each(function(cat){ %>
     <% var subCats = site.categories.find({parent: cat._id}).sort(orderBy).filter(cat => cat.length) %>
     <% var collapsed = subCats.length === 0 %>
+    <% var uniqId = guid() %>
     <div class="<%= depth <= 0 ? 'category' : 'category-sub' %> row">
       <a
         class="<%= depth <= 0 ? 'category-item' : 'category-subitem' %> <%= collapsed ? 'collapsed' : '' %> list-group-item category-item-action col-10 col-md-11"
-        id="heading-<%= cat.name %>" role="tab" data-toggle="collapse" href="#collapse-<%= cat.name %>"
-        aria-expanded="<%= collapsed ? 'false' : 'true' %>"
+        id="heading-<%= cat.name %>" role="tab" data-toggle="collapse" href="#collapse-<%= uniqId %>"
+        aria-expanded="false"
       >
         <%= cat.name %>
         <i class="iconfont icon-arrowright"></i>
@@ -29,24 +36,24 @@ var orderBy = theme.category.order_by || 'name'
       </a>
       <div class="category-collapse">
         <% if (subCats.length > 0) { %>
-          <%- render_sub_categories(subCats, cat, depth + 1) %>
+          <%- render_sub_categories(subCats, cat, depth + 1, uniqId) %>
         <% } else { %>
-          <%- render_posts(cat) %>
+          <%- render_posts(cat, uniqId) %>
         <% } %>
       </div>
     </div>
   <% }) %>
 <% } %>
 
-<% function render_sub_categories(cats, parent, depth) { %>
-  <div id="collapse-<%= parent.name %>" class="collapse in show" role="tabpanel"
+<% function render_sub_categories(cats, parent, depth, id) { %>
+  <div id="collapse-<%= id %>" class="collapse in show" role="tabpanel"
        aria-labelledby="heading-<%= parent.name %>">
     <%- render_categories(cats, depth) %>
   </div>
 <% } %>
 
-<% function render_posts(cat) { %>
-  <div id="collapse-<%= cat.name %>" class="collapse in" role="tabpanel"
+<% function render_posts(cat, id) { %>
+  <div id="collapse-<%= id %>" class="collapse in" role="tabpanel"
        aria-labelledby="heading-<%= cat.name %>">
     <% var limit = theme.category.post_limit %>
     <% var posts = cat.posts.sort(config.index_generator.order_by || '-date') %>
