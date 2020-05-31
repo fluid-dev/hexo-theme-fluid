@@ -6,11 +6,12 @@ page.banner_img = theme.category.banner_img
 page.banner_img_height = theme.category.banner_img_height
 page.banner_mask_alpha = theme.category.banner_mask_alpha
 
+var cat = site.categories.find({name: page.category}).filter(cat => cat.length).data[0]
 var date_cursor = 'xxx'
 %>
 
 <div class="list-group">
-<!--  <p class="h4"><%= __('postTotal', page.posts.length) %></p>-->
+  <p class="h4"><%= __('postTotal', cat ? cat.posts.length : 0) %></p>
   <hr>
   <% page.posts.each(function (post) { %>
     <% if(date(post.date, "YYYY") != date_cursor) { %>
