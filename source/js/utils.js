@@ -4,22 +4,20 @@ function createObserver(func, obid) {
   var isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
     && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
   var supportsIntersectionObserver = runningOnBrowser && 'IntersectionObserver' in window;
-  setTimeout(function() {
-    if (!isBot && supportsIntersectionObserver) {
-      var io = new IntersectionObserver(function(entries) {
-        if (entries[0].isIntersecting) {
-          func();
-          io.disconnect();
-        }
-      }, {
-        threshold : [0],
-        rootMargin: (window.innerHeight || document.documentElement.clientHeight) + 'px'
-      });
-      io.observe(document.getElementById(obid));
-    } else {
-      func();
-    }
-  }, 1);
+  if (!isBot && supportsIntersectionObserver) {
+    var io = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        func();
+        io.disconnect();
+      }
+    }, {
+      threshold : [0],
+      rootMargin: (window.innerHeight || document.documentElement.clientHeight) + 'px'
+    });
+    io.observe(document.getElementById(obid));
+  } else {
+    func();
+  }
 }
 
 // eslint-disable-next-line no-unused-vars
