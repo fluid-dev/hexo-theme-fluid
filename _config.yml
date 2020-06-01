@@ -6,6 +6,8 @@
 # Docs：https://hexo.fluid-dev.com/docs/guide/
 #---------------------------
 
+# 新增 rainbow 页脚配置,rainbow的介绍: https://rainbow.eatrice.top/
+rainbow: true
 
 #---------------------------
 # 全局

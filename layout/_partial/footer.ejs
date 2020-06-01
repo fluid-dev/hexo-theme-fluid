@@ -5,6 +5,10 @@
       <i class="iconfont icon-love"></i>
       <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
         <span>Fluid</span></a>
+        <% if(theme.rainbow) { %>
+          <br />
+          <%- partial('_partial/plugins/rainbow.ejs') %>
+        <% } %> 
     </div>
     <%- partial('_partial/statistics.ejs') %>
     <%- partial('_partial/beian.ejs') %>
