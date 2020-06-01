@@ -1,4 +1,4 @@
-<% if(theme.fun_features.anchorjs.enable){ %>
+<% if((is_post() || is_page()) && theme.fun_features.anchorjs.enable){ %>
   <%- js_ex(theme.static_prefix.anchor, "/anchor.min.js") %>
   <script>
     anchors.options = {

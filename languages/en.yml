@@ -13,6 +13,8 @@ paginator:
 
 post:
   toc: TOC
+  pre: Previous
+  next: Next
 
 home:
   title: Home

@@ -6,11 +6,12 @@ page.banner_img = theme.tag.banner_img
 page.banner_img_height = theme.tag.banner_img_height
 page.banner_mask_alpha = theme.tag.banner_mask_alpha
 
+var tag = site.tags.find({name: page.tag}).filter(tag => tag.length).data[0]
 var date_cursor = 'xxx'
 %>
 
 <div class="list-group">
-<!--  <p class="h4"><%= __('postTotal', page.posts.length) %></p>-->
+  <p class="h4"><%= __('postTotal', tag ? tag.posts.length : 0) %></p>
   <hr>
   <% page.posts.each(function (post) { %>
     <% if(date(post.date, "YYYY") != date_cursor) { %>

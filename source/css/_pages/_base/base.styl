@@ -310,9 +310,13 @@ img[srcset]
   display none
   box-shadow 0 0 20px -5px hsla(0, 0%, 62%, .2)
 
-// Footer police 添加备案图标
-a.beian-icp
-  font-weight 300
+// Footer
+footer > div > div:not(:first-child)
+  margin .25rem 0
+  font-size .85rem
+
+.statistics > span:last-child
+  margin 0 .35rem
 
 a.beian-police
   position relative
@@ -330,3 +334,30 @@ a.beian-police
   a.beian-police
     span.beian-police-sep
       display none
+
+// 脚注锚点
+sup > a, .footnote-text
+  anchor-offset()
+  &::before
+    display inline-block
+
+.footnote-item
+  anchor-offset()
+
+.footnote-list
+  ol
+    list-style-type none
+    counter-reset sectioncounter
+    padding-left 1em
+    font-size .9rem
+
+    li:before
+      font-family "Helvetica Neue", monospace, "Monaco"
+      content "["counter(sectioncounter)"]"
+      counter-increment sectioncounter
+
+    li+li
+      margin-top .5rem
+
+.footnote-text
+  padding-left .5em

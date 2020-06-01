@@ -1,18 +1,22 @@
 <%- css_ex(theme.static_prefix.bootstrap, "css/bootstrap.min.css") %>
-<%- css_ex(theme.static_prefix.github_markdown, "github-markdown.min.css") %>
 
-<% if (theme.highlight.enable) { %>
-  <%- css_ex(theme.static_prefix.highlightjs, "/styles/" + theme.highlight.style.toLowerCase().replace(/\s/g, '-') + ".min.css") %>
+<% if (is_post() || is_page()) { %>
+  <%- css_ex(theme.static_prefix.github_markdown, "github-markdown.min.css") %>
+  <%- css_ex(theme.static_prefix.hint, 'hint.min.css') %>
+
+  <% if (theme.highlight.enable) { %>
+    <%- css_ex(theme.static_prefix.highlightjs, "/styles/" + theme.highlight.style.toLowerCase().replace(/\s/g, '-') + ".min.css") %>
+  <% } %>
+
+  <% if(theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
+    <%- css_ex(theme.static_prefix.gitalk, 'gitalk.css') %>
+  <% } %>
 <% } %>
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<%- css('//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css') %>
+<%- css('//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css') %>
 
 <%- css(theme.static_prefix.iconfont) %>
-
-<% if(theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
-  <%- css_ex(theme.static_prefix.gitalk, 'gitalk.css') %>
-<% } %>
 
 <%- css_ex(theme.static_prefix.internal_css, "main.css") %>
 

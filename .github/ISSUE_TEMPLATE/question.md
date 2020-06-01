@@ -8,4 +8,4 @@ about: Ask a question about use, need help
 - [ ] No solution found in [Documentation][https://hexo.fluid-dev.com/docs/en/]
 
 #### Describe the question
-A clear and concise description of what the question is.
+<!-- A clear and concise description of what the question is. -->

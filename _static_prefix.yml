@@ -69,4 +69,6 @@ valine: https://cdn.staticfile.org/valine/1.4.14/
 
 gitalk: https://cdn.staticfile.org/gitalk/1.6.2/
 
-blueimp-md5: https://cdn.staticfile.org/blueimp-md5/2.13.0/
+disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
+
+hint: /lib/hint/

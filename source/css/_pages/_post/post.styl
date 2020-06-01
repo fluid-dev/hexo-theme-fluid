@@ -13,13 +13,8 @@
     padding-left 1rem
     padding-right 1rem
 
-.post-content h1::before, h2::before, h3::before, h4::before, h5::before, h6::before
-  display block
-  content ""
-  margin-top -4rem
-  height 4rem
-  width 1px
-  visibility hidden
+.post-content h1, h2, h3, h4, h5, h6
+  anchor-offset()
 
 .post-metas
   display flex
@@ -40,6 +35,8 @@
 
   .post-prev, .post-next
     display flex
+    padding-left 0
+    padding-right 0
 
     i
       font-size 1.5rem
@@ -187,7 +184,7 @@
 .mjx-char
   line-height 1
 
-mjx-container
+.mjx-container
   overflow-x auto
   overflow-y hidden !important
   padding .5em 0

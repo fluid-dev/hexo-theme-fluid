@@ -13,7 +13,7 @@
 #---------------------------
 favicon: /img/favicon.png # 网站标签页的 icon
 
-apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
+apple_touch_icon: /img/favicon.png # 用于苹果设备的 icon
 
 title_join_string: ' - '  # 浏览器标签页中的标题分隔符，效果： 文章名 - 站点名
 
@@ -51,7 +51,7 @@ color:  # 主题颜色配置，不一定能每一处都生效，可能会被局�
   post_heading_color: "#1a202c"     # 文章标题标签字体色（h1 h2 h3...）
   link_color: "#3c4858"             # 超链接字体色
   link_hover_color: "#1abc9c"       # 超链接悬浮时字体色
-  link_hover_bg_color: "#ebedef"    # 超链接悬浮背景色
+  link_hover_bg_color: "#f8f9fa"    # 超链接悬浮背景色
   board_color: "#fff"               # 主面板背景色
 
 font:  # 主题字体配置
@@ -73,6 +73,10 @@ web_analytics:  # 网页访问统计
   tajs:   # 腾讯统计早期版站点统计sID，参见 https://ta.qq.com/#/site/list
   woyaola:  # 51.la站点统计ID，参见 https://www.51.la/user/site/index
   cnzz:  # 友盟/cnzz站点统计web_id，参见 https://web.umeng.com/main.php?c=site&a=show
+  leancloud:  # LeanCloud 计数统计，可用于 PV UV 展示，如果 web_analytics.enable 没有开启，PV UV 展示只会查询，不会增加
+    app_id:
+    app_key:
+    server_url:  # REST API 服务器地址，国际版不填
 
 lazyload: # 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
   enable: true
@@ -93,7 +97,7 @@ aplayer:  # 音乐播放器，注意不能与 hexo-tag-aplayer 插件共用
     - { name: 'name', artist: 'artist', url: 'https://...url.mp3', cover: 'https://...cover.jpg' }
 
 version:  # 主题版本相关
-  check: true  # 每次生成页面后，检测主题是否为最新版本
+  check: false  # 每次生成页面后，检测主题是否为最新版本
 
 #---------------------------
 # 页头
@@ -101,6 +105,11 @@ version:  # 主题版本相关
 #---------------------------
 navbar:
   blog_title: Smile # 导航栏左侧的标题，为空则按 hexo config.title 显示
+  blog_title: Fluid # 导航栏左侧的标题，为空则按 hexo config.title 显示
+  ground_glass:  # 导航栏毛玻璃特效，实验性功能，可能会造成页面滚动掉帧和抖动，部分浏览器不支持会自动不生效
+    enable: false
+    px: 3  # 模糊像素，只能为数字，数字越大模糊度越高
+    alpha: 0.7   # 透明度，只能为数字，范围0~1，数字越大透明度越低，注意透明过度可能看不清菜单字体
   menu:  # 可自行增减，key 用来关联 languages/*.yml，如不存在关联则显示 key 本身的值；icon 是 css class，可以省略；增加 name 可以强制显示指定名称
     - { key: 'home', link: '/', icon: 'iconfont icon-home-fill' }
     - { key: 'archive', link: '/archives/', icon: 'iconfont icon-archive-fill' }
@@ -129,8 +138,9 @@ banner_parallax: true  # 头图滚动视差
 # Footer
 #---------------------------
 footer:
-  statistics:  # 统计网站 PV、UV，使用的是不蒜子，显示在页脚  *不蒜子近期连接不稳定，谨慎开启
+  statistics:  # 展示网站的 PV、UV 统计数
     enable: false
+    source: "leancloud"  # 统计数据来源，可选：leancloud | busuanzi，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
     pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
     uv_format: "总访客数 {} 人"
 
@@ -190,8 +200,9 @@ post:  # 部分配置同时控制自定义页面，注意备注
       enable: true
       format: "{} 分钟"
       words: 100  # 每分钟阅读多少字，如果是技术文章，建议降低
-    views:  # 阅读次数，统计基于不蒜子  *不蒜子近期连接不稳定，谨慎开启
+    views:  # 阅读次数
       enable: false
+      source: "leancloud"  # 统计数据来源，可选：leancloud | busuanzi，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
       format: "{} 次"
   updated:  # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
     enable: false
@@ -203,7 +214,7 @@ post:  # 部分配置同时控制自定义页面，注意备注
     collapseDepth: 0  # 层级的折叠深度，0 是全部折叠，6 是全部不折叠
   copyright:  # 版权声明
     enable: true
-    content: '本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！'
+    content: '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！'
   prev_next:  # 文章底部上一篇下一篇功能
     enable: true
   custom:  # 文章底部自定义内容
@@ -211,6 +222,9 @@ post:  # 部分配置同时控制自定义页面，注意备注
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
   image_zoom:  # 文章图片可点击放大
     enable: true  # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `image_zoom: true`，并且图片使用该格式插入：<img src="..." zoom />
+  footnote:  # 脚注语法，会在文章底部生成脚注，如果 Markdown 渲染器本身支持，则建议关闭，否则可能会冲突
+    enable: true
+    header: <hr>  # 脚注的节标题，也可以在 front-matter 中通过 `footnote: <h2>Reference</h2>` 这种形式修改单页的节标题
   math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见：https://hexo.fluid-dev.com/docs/guide/##latex-数学公式
     enable: false  # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `math: true`
     specific: false  # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
@@ -244,6 +258,11 @@ utterances:
 # 国内用户不要用，已被墙
 disqus:
   shortname: # your shortname
+  # The following are Disqusjs configurations, please ignore if DisqusJS is not required
+  # 以下为 Disqusjs 支持, 如不需要 DisqusJS 请忽略
+  # https://github.com/SukkaW/DisqusJS
+  disqusjs: false # 设置为 true 开启 DisqusJS
+  apikey: # DisqusJS 向 API 发起请求时使用的 API Key
 
 # Gitalk
 # You can get yout ClientID and ClientSecret from https://github.com/settings/applications/new
@@ -276,7 +295,7 @@ valine:
   lang: zh-CN # zh-CN | zh-TW | en | ja
   highlight: false # 代码高亮
   recordIP: false # 是否记录评论者IP
-  serverURLs: # 该配置适用于国内自定义域名用户, 海外版本会自动检测(无需手动填写)
+  serverURLs:  # REST API 服务器地址，国际版不填
 
 # 畅言
 # http://changyan.kuaizhan.com/
@@ -309,6 +328,8 @@ category:
   banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0  # available: 0 - 1.0
   subtitle:  # 打字机内容
+  post_limit: 10  # 单个分类中折叠展示文章数的最大值，超过限制会显示 More
+  order_by: '-length'  # 排序字段，前面带减号是倒序，不带减号是正序，可选项：name | length
 
 #---------------------------
 # 标签归档页
@@ -338,10 +359,10 @@ about:  # 关于页需要手动创建，具体请见：https://hexo.fluid-dev.co
   subtitle:  # 打字机内容
   avatar: /img/avatar.png # 头像
   name: myname
-  introduce: info / info / info # 支持 HTML
-  icons: # 更多图标可从 https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/iconfont.png 查找，class 代表图标的 css class
-    - { class: 'iconfont icon-github-fill', link: 'https://github.com' }
-    - { class: 'iconfont icon-douban-fill', link: 'https://douban.com' }
+  introduce: '一句简短的介绍' # 支持 HTML
+  icons: # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，class 代表图标的 css class
+    - { class: 'iconfont icon-github-fill', link: 'https://github.com', tip: 'GitHub' }
+    - { class: 'iconfont icon-douban-fill', link: 'https://douban.com', tip: '豆瓣' }
     - { class: 'iconfont icon-wechat-fill', qrcode: '/img/favicon.png' }  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，需要指定 image
 
 

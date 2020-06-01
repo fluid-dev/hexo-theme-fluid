@@ -1,19 +1,56 @@
-.category-tree-list
-  font-size s = 1rem
-  list-style-type circle
+.category
 
-  .category-tree-list-link
-    display inline-block
-    padding .1rem .55rem
+  &:not(:last-child)
+    margin-bottom 1rem
 
-  .category-tree-list-count
-    padding-left .5rem
-    color #99a9bf
-    font-size s* (3 / 4)
+  &-sub
+    pass
 
-    &::before
-      content: "("
+  &-item
+    font-size 1.25rem
+    font-weight bold
+    display flex
+    align-items center
 
-    &::after
-      content: ")"
+  &-subitem
+    font-size 1rem
+    font-weight bold
 
+  &-collapse
+    margin-left: 1.25rem
+    width 100%
+
+  &-count
+    font-size .9rem
+    font-weight initial
+    min-width 1.3em
+    line-height 1.3em
+    display flex
+    align-items center
+
+    i
+      padding-right  .25rem
+
+    span
+      width 2rem
+
+  &-item-action
+
+    &:not(.collapsed) > i
+      transform rotate(90deg)
+      transform-origin center center
+
+    i
+      transition transform .3s ease-out
+      display inline-block
+      margin-left .25rem
+
+    &:hover
+      z-index 1
+      color #495057
+      text-decoration none
+      background-color $link-hover-bg-color
+
+  .row
+    margin-left 0
+    margin-right 0

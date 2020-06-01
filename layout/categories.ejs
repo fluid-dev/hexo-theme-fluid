@@ -5,6 +5,68 @@ page.subtitle = theme.category.subtitle || __('category.subtitle')
 page.banner_img = theme.category.banner_img
 page.banner_img_height = theme.category.banner_img_height
 page.banner_mask_alpha = theme.category.banner_mask_alpha
+
+var orderBy = theme.category.order_by || 'name'
 %>
 
-<%- list_categories({ class: "category-tree" }) %>
+<% function render_categories(cats, depth) { %>
+  <% depth = depth || 0 %>
+  <% return cats.each(function(cat){ %>
+    <% var subCats = site.categories.find({parent: cat._id}).sort(orderBy).filter(cat => cat.length) %>
+    <% var collapsed = subCats.length === 0 %>
+    <div class="<%= depth <= 0 ? 'category' : 'category-sub' %> row">
+      <a
+        class="<%= depth <= 0 ? 'category-item' : 'category-subitem' %> <%= collapsed ? 'collapsed' : '' %> list-group-item category-item-action col-10 col-md-11"
+        id="heading-<%= cat._id %>" role="tab" data-toggle="collapse" href="#collapse-<%= cat._id %>"
+        aria-expanded="<%= collapsed ? 'false' : 'true' %>"
+      >
+        <%= cat.name %>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="<%= url_for(cat.path) %>" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span><%= cat.posts.length %></span>
+      </a>
+      <div class="category-collapse">
+        <% if (subCats.length > 0) { %>
+          <%- render_sub_categories(subCats, cat, depth + 1) %>
+        <% } else { %>
+          <%- render_posts(cat) %>
+        <% } %>
+      </div>
+    </div>
+  <% }) %>
+<% } %>
+
+<% function render_sub_categories(cats, parent, depth) { %>
+  <div id="collapse-<%= parent._id %>" class="collapse in show" role="tabpanel"
+       aria-labelledby="heading-<%= parent._id %>">
+    <%- render_categories(cats, depth) %>
+  </div>
+<% } %>
+
+<% function render_posts(cat) { %>
+  <div id="collapse-<%= cat._id %>" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-<%= cat._id %>">
+    <% var limit = theme.category.post_limit %>
+    <% var posts = cat.posts.sort(config.index_generator.order_by || '-date') %>
+    <% for (var idx = 0; idx < posts.length; idx++) { %>
+      <% var post = posts.data[idx] %>
+      <% if (idx && limit && idx >= limit) { %>
+        <a href="<%- url_for(cat.path) %>" class="list-group-item list-group-item-action">
+          <span class="category-post">More...</span>
+        </a>
+        <% break %>
+      <% } else { %>
+        <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
+          <span class="category-post"><%= post.title %></span>
+        </a>
+      <% } %>
+    <% } %>
+  </div>
+<% } %>
+
+<div class="category-list">
+  <% cats = site.categories.find({parent: {$exists: false}}).sort(orderBy).filter(cat => cat.length) %>
+  <%- render_categories(cats) %>
+</div>

@@ -1,4 +1,4 @@
-<% if(theme.post.toc.enable && page.toc != false){ %>
+<% if(is_post() && theme.post.toc.enable && page.toc != false){ %>
   <%- js_ex(theme.static_prefix.tocbot, '/tocbot.min.js') %>
   <script>
     $(document).ready(function () {
@@ -7,14 +7,14 @@
 
       tocbot.init({
         tocSelector: '#tocbot',
-        contentSelector: '.post-content',
-        headingSelector: '<%- theme.post.toc.headingSelector || "h1,h2,h3,h4,h5,h6" %>',
+        contentSelector: 'article.markdown-body',
+        headingSelector: '<%= theme.post.toc.headingSelector || "h1,h2,h3,h4,h5,h6" %>',
         linkClass: 'tocbot-link',
         activeLinkClass: 'tocbot-active-link',
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: <%- theme.post.toc.collapseDepth || 0 %>,
+        collapseDepth: <%= theme.post.toc.collapseDepth || 0 %>,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });

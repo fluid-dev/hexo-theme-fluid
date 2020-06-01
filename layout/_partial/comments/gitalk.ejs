@@ -1,26 +1,24 @@
 <% if(theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
   <div id="gitalk-container"></div>
-  <%- js_ex(theme.static_prefix.gitalk, 'gitalk.min.js', 'defer') %>
-  <%- js_ex(theme.static_prefix.blueimp-md5, 'js/md5.min.js', 'defer') %>
   <script type="text/javascript">
-    var oldLoadGt = window.onload;
-    window.onload = function () {
-      oldLoadGt && oldLoadGt();
-
-      var gitalk = new Gitalk({
-        clientID: '<%- theme.gitalk.clientID %>',
-        clientSecret: '<%- theme.gitalk.clientSecret %>',
-        repo: '<%- theme.gitalk.repo %>',
-        owner: '<%- theme.gitalk.owner %>',
-        admin: '<%- theme.gitalk.admin %>',
-        id: md5(<%- theme.gitalk.id %>),
-        language: '<%- theme.gitalk.language %>',
-        perPage: <%- theme.gitalk.perPage %>,
-        pagerDirection: '<%- theme.gitalk.pagerDirection %>',
-        createIssueManually: '<%- theme.gitalk.createIssueManually %>',
-        distractionFreeMode: '<%- theme.gitalk.distractionFreeMode %>'
+    function loadGitalk(){
+      addScript('<%= url_join(theme.static_prefix.gitalk, 'gitalk.min.js') %>', function () {
+        var gitalk = new Gitalk({
+          clientID: '<%- theme.gitalk.clientID %>',
+          clientSecret: '<%- theme.gitalk.clientSecret %>',
+          repo: '<%- theme.gitalk.repo %>',
+          owner: '<%- theme.gitalk.owner %>',
+          admin: '<%- theme.gitalk.admin %>',
+          id: '<%- md5(theme.gitalk.id) %>',
+          language: '<%- theme.gitalk.language %>',
+          perPage: <%- theme.gitalk.perPage %>,
+          pagerDirection: '<%- theme.gitalk.pagerDirection %>',
+          createIssueManually: '<%- theme.gitalk.createIssueManually %>',
+          distractionFreeMode: '<%- theme.gitalk.distractionFreeMode %>'
+        });
+        gitalk.render('gitalk-container');
       });
-      gitalk.render('gitalk-container')
     }
+    createObserver(loadGitalk, 'gitalk-container');
   </script>
 <% } %>
