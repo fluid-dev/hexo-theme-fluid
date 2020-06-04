@@ -1,19 +1,43 @@
 <% if(theme.fun_features.typing.enable && page.subtitle !== false){ %>
   <%- js_ex(theme.static_prefix.typed, "/typed.min.js") %>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "<%- data.subtitle %>&nbsp;",
-      ],
-      cursorChar: "<%- theme.fun_features.typing.cursorChar %>",
-      typeSpeed: <%- theme.fun_features.typing.typeSpeed %>,
-      loop: <%- theme.fun_features.typing.loop %>,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
+    function typing(id, title){
+        var typed = new Typed('#' + id, {
+            strings: [
+              '  ',
+              title + "&nbsp;",
+            ],
+            cursorChar: "<%- theme.fun_features.typing.cursorChar %>",
+            typeSpeed: <%- theme.fun_features.typing.typeSpeed %>,
+            loop: <%- theme.fun_features.typing.loop %>,
+        });
+        typed.stop();
+        $(document).ready(function () {
+            $(".typed-cursor").addClass("h2");
+            typed.start();
+        });
+    }
+
+    <% if(is_post()) { %>
+        typing("subtitle", "<%- data.subtitle %>")
+    <% } else if(theme.index.slogan.hitokoto && !page.layout) { %>
+        fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+           typing("hitokoto", '『' + data.hitokoto + '』' + '<br /> <h5>'+ '——' + '「' + data.from + '」' + '</h5>')
+        })
+        .catch(console.error)
+    <% } else if(theme.index.slogan.jinrishici && !page.layout) { %>
+        jinrishici.load(function(result) { 
+            console.log(result.data.content)
+            typing("jinrishici", '『' + result.data.content + '』')
+            console.log(result)
+        });
+    <% } else { %>
+        typing("subtitle", "<%- data.subtitle %>")
+    <% } %>
+
   </script>
 <% } %>
