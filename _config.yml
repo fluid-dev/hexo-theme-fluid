@@ -165,6 +165,8 @@ index:
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
     text: 'An elegant Material-Design theme for Hexo'  # 为空则按 hexo config.subtitle 显示
+    hitokoto: false # 首页显示一言
+    jinrishici: true # 首页显示今日诗词
   auto_excerpt:
     enable: true
   post_url_target: _self  # available: _blank | _self
