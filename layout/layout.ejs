@@ -24,6 +24,24 @@ var banner_mask_alpha = page.banner_mask_alpha || theme.index.banner_mask_alpha
                 <%- subtitle %>
               <% } %>
             </span>
+            
+            <% if(!is_post()) { %>
+              <% if(theme.index.slogan.hitokoto) { %>
+                <br>
+                <span class="h2" id="hitokoto">
+                  <% if(theme.fun_features.typing.enable == false) { %>
+                    <%- hitokoto %>
+                  <% } %>
+                </span>
+              <% } else if(theme.index.slogan.jinrishici) { %>
+                <br>
+                <span class="h2" id="jinrishici">
+                  <% if(theme.fun_features.typing.enable == false) { %>
+                    <%- jinrishici %>
+                  <% } %>
+                </span>
+              <% } %>
+            <% } %>
 
             <% if(is_post()) { %>
               <%- partial('_partial/post-meta') %>
