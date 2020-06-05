@@ -3,7 +3,6 @@ name: Lint
 on:
   push:
     branches:
-      - master
       - develop
   pull_request:
     branches:
@@ -13,6 +12,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8.x, 14.x]
 
     steps:
       - name: Checkout Branch
@@ -20,10 +22,10 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Prepare Node env
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: "10.x"
+          node-version: ${{ matrix.node-version }}
 
       - name: Install Node Modules
         run: |
@@ -33,5 +35,5 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
           HUSKY_SKIP_INSTALL: true
 
-      - name: Lint
+      - name: Run Lint
         run: yarn run lint
