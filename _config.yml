@@ -271,11 +271,11 @@ gitalk:
   clientSecret:                 # GitHub Application Client Secret
   repo:                         # The repo to store comments
   owner:                        # GitHub repository owner. Can be personal user or organization.
-  admin:                        # GitHub repo owner and collaborators, only these guys can initialize github issues, should be like "['admin']" or "['admin1','admin2']"
+  admin: ['name']               # GitHub repo owner and collaborators, only these guys can initialize github issues, should be like ['admin'] or ['admin1','admin2']
   id: location.pathname         # The unique id of the page. Length must less than 50.
   language: zh-CN               # Localization language key, en, zh-CN and zh-TW are currently available.
-  labels: "['Gitalk']"          # GitHub issue labels.
-  perPage: 15                   # Pagination size, with maximum 100.
+  labels: ['Gitalk']            # GitHub issue labels.
+  perPage: 10                   # Pagination size, with maximum 100.
   pagerDirection: last          # Comment sorting direction, available values are last and first.
   distractionFreeMode: false    # Facebook-like distraction free mode.
   createIssueManually: true     # By default, Gitalk will create a corresponding github issue for your every single page automatically when the logined user is belong to the admin users. You can create it manually by setting this option to true.
