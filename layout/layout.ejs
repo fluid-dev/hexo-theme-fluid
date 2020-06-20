@@ -13,12 +13,12 @@ var banner_mask_alpha = page.banner_mask_alpha || theme.index.banner_mask_alpha
 <body>
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
-    <div class="view intro-2" id="background" <%- theme.banner_parallax && 'parallax=true' %>
+    <div class="banner intro-2" id="background" <%- theme.banner_parallax && 'parallax=true' %>
          style="background: url('<%- url_for(banner_img) %>') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container text-center white-text fade-in-up">
             <span class="h2" id="subtitle">
               <% if(theme.fun_features.typing.enable == false) { %>
                 <%- subtitle %>
