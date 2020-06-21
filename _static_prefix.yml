@@ -65,7 +65,7 @@ clipboard: https://cdn.staticfile.org/clipboard.js/2.0.6/
 
 mermaid: https://cdn.staticfile.org/mermaid/8.5.0/
 
-valine: https://cdn.staticfile.org/valine/1.4.14/
+valine: https://unpkg.com/valine/dist/Valine.min.js
 
 gitalk: https://cdn.staticfile.org/gitalk/1.6.2/
 
