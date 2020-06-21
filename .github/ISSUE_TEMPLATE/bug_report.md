@@ -9,13 +9,11 @@ assignees: ''
 #### Make sure
 - [ ] Upgrade the latest [release version](https://github.com/fluid-dev/hexo-theme-fluid/releases).
 - [ ] Browser does not belong to IE and other old browsers
-- [ ] It can be replicated through `hexo clean && hexo s` in the localhost.
-- [ ] It can still be replicated by cleared browser cache or replaced browser.
+- [ ] It can be replicated through `hexo clean && hexo s` and cleared browser cache in the localhost.
+- [ ] Not affected by other Hexo plugins
 
 #### Describe the bug
 <!-- A clear and concise description of what the bug is. -->
-
-Browser: Chrome 80.0.3987.132 64bit
 
 #### To Reproduce
 Steps to reproduce the behavior:
@@ -23,7 +21,7 @@ Steps to reproduce the behavior:
 2. Scroll down to '....'
 3. See error
 
-It is better to provide the page link that can be reproduced:
+<!-- It is better to provide the page link that can be reproduced -->
 
 #### Screenshots
 <!-- If applicable, add screenshots to help explain your problem. -->
