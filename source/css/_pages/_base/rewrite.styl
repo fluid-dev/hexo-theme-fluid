@@ -62,6 +62,16 @@
     else
       background-color $navbar-bg-color
 
+  @media (min-width: 992px)
+    .dropdown:hover > .dropdown-menu
+      display block
+
+    .dropdown > .dropdown-toggle:active
+      pointer-events none
+
+    .dropdown-menu
+      top 95%
+
   .animated-icon
     width 30px
     height 20px
