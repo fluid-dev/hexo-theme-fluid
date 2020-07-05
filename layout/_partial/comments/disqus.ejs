@@ -11,7 +11,7 @@
           });
         });
       }
-      createObserver(loadDisqus, 'disqus_thread');
+      waitElementVisible(loadDisqus, 'disqus_thread');
     </script>
     <noscript>Please enable JavaScript to view the
       <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a>
@@ -34,7 +34,7 @@
           (d.head || d.body).appendChild(s);
         })();
       }
-      createObserver(loadDisqus, 'disqus_thread');
+      waitElementVisible('disqus_thread', loadDisqus);
     </script>
     <noscript>Please enable JavaScript to view the
       <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a>

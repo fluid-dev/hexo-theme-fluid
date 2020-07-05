@@ -21,6 +21,6 @@
         gitalk.render('gitalk-container');
       });
     }
-    createObserver(loadGitalk, 'gitalk-container');
+    waitElementVisible('gitalk-container', loadGitalk);
   </script>
 <% } %>
