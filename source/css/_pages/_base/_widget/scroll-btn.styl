@@ -23,16 +23,12 @@
 
 #scroll-top-button
   position fixed
-  background $board-bg-color
+  background var(--board-bg-color)
+  transition background-color .2s ease-in-out, bottom .3s ease
   border-radius 4px
   min-width 40px
   min-height 40px
   bottom -60px
-  -webkit-transition bottom .3s ease
-  -moz-transform bottom .3s ease
-  -ms-transform bottom .3s ease
-  -o-transform bottom .3s ease
-  transition bottom .3s ease
   outline none
   display flex
   display -webkit-flex
@@ -43,7 +39,7 @@
   i
     font-size 1.75rem
     margin auto
-    color $sec-text-color
+    color var(--sec-text-color)
     -webkit-transform translateZ(0)
     -moz-transform translateZ(0)
     -ms-transform translateZ(0)

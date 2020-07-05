@@ -9,21 +9,20 @@ html, body, header
   overflow-wrap break-word
 
 body
-  background-color $body-bg-color
-  color $text-color
+  transition color .2s ease-in-out, background-color .2s ease-in-out
+  background-color var(--body-bg-color)
+  color var(--text-color)
 
   a
-    color $link-color
+    color var(--text-color)
     text-decoration none
     cursor pointer
-    transition-duration .2s
-    transition-timing-function ease-in-out
+    transition color .2s ease-in-out, background-color .2s ease-in-out
 
     &:hover
-      color $link-hover-color
+      color var(--link-hover-color)
       text-decoration none
-      transition-duration .2s
-      transition-timing-function ease-in-out
+      transition color .2s ease-in-out, background-color .2s ease-in-out
 
 img[srcset]
   object-fit cover

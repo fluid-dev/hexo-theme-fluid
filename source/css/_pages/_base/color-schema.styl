@@ -1,0 +1,61 @@
+:root
+  --color-mode 'light'
+  --body-bg-color $body-bg-color
+  --board-bg-color $board-bg-color
+  --text-color $text-color
+  --sec-text-color $sec-text-color
+  --post-text-color $post-text-color
+  --post-heading-color $post-heading-color
+  --post-link-color $post-link-color
+  --link-hover-color $link-hover-color
+  --link-hover-bg-color $link-hover-bg-color
+  --navbar-bg-color $navbar-bg-color
+  --navbar-text-color $navbar-text-color
+
+dark-colors()
+  --body-bg-color $body-bg-color-dark
+  --board-bg-color $board-bg-color-dark
+  --text-color $text-color-dark
+  --sec-text-color $sec-text-color-dark
+  --post-text-color $post-text-color-dark
+  --post-heading-color $post-heading-color-dark
+  --post-link-color $post-link-color-dark
+  --link-hover-color $link-hover-color-dark
+  --link-hover-bg-color $link-hover-bg-color-dark
+  --navbar-bg-color $navbar-bg-color-dark
+  --navbar-text-color $navbar-text-color-dark
+
+  .page-heading
+    color #ddd
+
+  .markdown-body
+
+    :not(pre) > code
+      background-color rgba(62, 75, 94, .35)
+      transition background-color .2s ease-in-out
+
+    .highlight pre, pre
+      background-color rgba(246, 248, 250, .80)
+
+    h1, h2
+      border-bottom-color #435266
+
+    h1, h2, h3, h6, h5, h6
+      color #ddd
+
+  hr
+    border-top-color #435266
+
+  .navbar .dropdown-collapse, .top-nav-collapse, .navbar-col-show
+    if $navbar-glass-enable
+      ground-glass($navbar-glass-px, $navbar-bg-color-dark, $navbar-glass-alpha)
+
+@media (prefers-color-scheme: dark)
+  :root
+    --color-mode 'dark'
+
+  :root:not([data-user-color-scheme])
+    dark-colors()
+
+[data-user-color-scheme='dark']
+  dark-colors()

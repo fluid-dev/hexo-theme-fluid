@@ -101,6 +101,7 @@ layout: about
 - [x] 支持 LaTeX 数学公式
 - [x] 支持 mermaid 流程图
 - [x] 音乐播放器
+- [x] 暗色模式
 
 ## 贡献者
 

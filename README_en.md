@@ -95,6 +95,7 @@ About content
 - [x] Support for LaTeX
 - [x] Support for mermaid
 - [x] Music player
+- [x] Dark mode
 
 ## FAQ
 
