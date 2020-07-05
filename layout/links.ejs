@@ -8,7 +8,7 @@ page.banner_mask_alpha = theme.links.banner_mask_alpha
 %>
 
 <div class="row links">
-  <% for(const each of theme.links.items) { %>
+  <% for(const each of theme.links.items || []) { %>
     <% if (!each.title || !each.link) continue %>
     <div class="card col-lg-4 col-md-6 col-sm-12">
       <a href="<%= url_for(each.link) %>" class="card-body hover-with-bg" target="_blank" rel="noopener">
