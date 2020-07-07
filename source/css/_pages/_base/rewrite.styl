@@ -248,14 +248,25 @@
 
 // Rewrite modal
 .modal-dialog .modal-content
+  background-color var(--board-bg-color)
   border 0
   border-radius .125rem
   -webkit-box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
   box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
 
+.close
+  color var(--text-color)
+
+  &:hover
+    color var(--link-hover-color)
+
+  &:focus
+    outline 0
+
 .modal-dialog .modal-content .modal-header
   border-top-left-radius .125rem
   border-top-right-radius .125rem
+  border-bottom 1px solid #dee2e6
 
 .md-form
   position relative
@@ -312,6 +323,7 @@
       height auto
       padding .6rem 0 .4rem 0
       margin 0 0 .5rem 0
+      color var(--text-color)
       background-color transparent
       border-radius 0
 
