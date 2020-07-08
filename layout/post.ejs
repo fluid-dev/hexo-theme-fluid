@@ -12,7 +12,9 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none"><%= page.subtitle || page.title %></h1>
             <% if(theme.post.updated && theme.post.updated.enable) { %>
               <p class="note note-info">
                 <% if (theme.post.updated.relative) { %>
@@ -22,9 +24,9 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
                 <% } %>
               </p>
             <% } %>
-            <article class="markdown-body">
+            <div class="markdown-body" id="post-body">
               <%- page.content %>
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -50,7 +52,7 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
               <% } %>
               <% if(theme.post.prev_next.enable && !page.hide) { %>
                 <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                  <article class="post-prev col-6">
                     <% const prev = prev_page(page) %>
                     <% if (prev) { %>
                       <a href="<%= url_for(prev.path) %>">
@@ -59,8 +61,8 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
                         <span class="visible-mobile"><%= __('post.pre') %></span>
                       </a>
                     <% } %>
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     <% const next = next_page(page) %>
                     <% if (next) { %>
                       <a href="<%= url_for(next.path) %>">
@@ -69,19 +71,19 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     <% } %>
-                  </div>
+                  </article>
                 </div>
               <% } %>
             </div>
 
             <% if(page.comments && theme.post.comments.enable) { %>
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
                 <% var type = '_partial/comments/' + theme.post.comments.type %>
                 <%- partial(type) %>
-              </div>
+              </article>
             <% } %>
-          </div>
+          </article>
         </div>
       </div>
     </div>
