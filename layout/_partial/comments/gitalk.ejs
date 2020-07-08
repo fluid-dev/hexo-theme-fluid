@@ -12,7 +12,7 @@
           admin: <%- JSON.stringify(theme.gitalk.admin || []) %>,
           id: md5(<%= theme.gitalk.id %>),
           language: '<%= theme.gitalk.language %>',
-          labels: <%- JSON.stringify(theme.gitalk.labels || []) %>,
+          labels: '{{ theme.gitalk.labels }}'.split(',').filter(l => l),
           perPage: <%= theme.gitalk.perPage %>,
           pagerDirection: '<%= theme.gitalk.pagerDirection %>',
           createIssueManually: <%= theme.gitalk.createIssueManually %>,
