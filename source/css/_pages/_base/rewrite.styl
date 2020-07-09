@@ -392,6 +392,7 @@ input[type=checkbox]
 
   &:checked
     background #2f4154
+    margin-right .5rem !important
 
     &:before
       left 0.0625rem
@@ -412,3 +413,22 @@ input[type=checkbox]
   &:focus, &:hover
     color var(--link-hover-color)
     background-color var(--link-hover-bg-color)
+
+// Rewrite valine
+.v[data-class=v]
+  .status-bar, .veditor, .vinput, .vbtn, p, pre code
+    color var(--text-color) !important
+
+  .vicon
+    fill var(--text-color) !important
+
+// Rewrite gitalk
+.gt-container
+
+  .gt-comment-content:hover
+    -webkit-box-shadow none
+    box-shadow none
+
+  .gt-comment-body
+    color var(--text-color) !important
+    transition color .2s ease-in-out
