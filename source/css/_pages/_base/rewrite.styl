@@ -233,7 +233,10 @@
   margin-top 3rem
   justify-content center
 
-  & a, & .current
+  .space
+    align-self flex-end
+
+  a, .current
     outline 0
     border 0
     background-color transparent
@@ -243,7 +246,7 @@
     border-radius .125rem
     transition background-color .2s ease-in-out
 
-  & a:hover, & .current
+  a:hover, .current
     background-color var(--link-hover-bg-color)
 
 // Rewrite modal
