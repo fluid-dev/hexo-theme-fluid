@@ -263,7 +263,7 @@ post:  # 部分配置同时控制自定义页面，注意备注
 # You can install utterances with https://utteranc.es/ and generate your configuration
 utterances:
   repo:
-  issue_term:
+  issue_term: pathname
   label: utterances
   theme: github-light
   crossorigin: anonymous
