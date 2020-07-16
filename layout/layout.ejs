@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html lang="<%= config.language %>">
-
 <%
 var subtitle = page.subtitle || page.title
 var banner_img = page.banner_img || theme.index.banner_img
 var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 var banner_mask_alpha = page.banner_mask_alpha || theme.index.banner_mask_alpha
+var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.default ? theme.dark_mode.default : ''
 %>
+
+<!DOCTYPE html>
+<html lang="<%= config.language %>" <%= colorSchema ? `data-default-color-scheme="${colorSchema}"` : '' %>>
 
 <%- partial('_partial/head') %>
 
 <body>
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
-    <div class="view intro-2" id="background" <%- theme.banner_parallax && 'parallax=true' %>
+    <div class="banner intro-2" id="background" <%- theme.banner_parallax && 'parallax=true' %>
          style="background: url('<%- url_for(banner_img) %>') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               <% if(theme.fun_features.typing.enable == false) { %>
                 <%- subtitle %>

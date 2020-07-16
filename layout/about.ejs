@@ -12,7 +12,7 @@ page.banner_mask_alpha = theme.about.banner_mask_alpha
     <div class="about-name"><%- theme.about.name %></div>
     <div class="about-intro"><%- theme.about.introduce %></div>
     <div class="about-icons">
-      <% for(const each of theme.about.icons) { %>
+      <% for(const each of theme.about.icons || []) { %>
         <% if (!each.class) continue; %>
         <% var cls = each.class %>
         <% var isQr = each.qrcode %>

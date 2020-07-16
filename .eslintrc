@@ -146,7 +146,7 @@
       }
     ],
     "keyword-spacing": 2,
-    "linebreak-style": 2,
+    "linebreak-style": ["off", "window"],
     "lines-around-comment": 2,
     "new-cap": [
       2,

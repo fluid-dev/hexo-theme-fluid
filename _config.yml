@@ -41,18 +41,33 @@ fun_features: # 一些好玩的功能
     enable: false
     style: values # 目前设置两个值：values（价值观词汇） | love（爱心）
 
+dark_mode:   # 主题暗色模式，开启后菜单中会出现切换按钮，用户浏览器会存储切换选项，并且会遵循 prefers-color-scheme 自动切换
+  enable: true
+  default: auto  # 默认的模式，可选：auto | light | dark，若用户浏览器没有存储切换选项，则使用默认值，auto 则在用户本地时间 18 点后进入暗色模式
+
 color:  # 主题颜色配置，不一定能每一处都生效，可能会被局部样式覆盖，这种情况建议用自定义 css 解决。配色可以在这获得启发： https://www.webdesignrankings.com/resources/lolcolors/
   body_bg_color: "#eee"             # body 背景色
+  body_bg_color_dark: "#181c27"     # 暗色模式下的 body 背景色，下同
   navbar_bg_color: "#2f4154"        # 顶部菜单背景色
-  navbar_text_color: "white"        # 顶部菜单字体色
+  navbar_bg_color_dark: "#1f3144"
+  navbar_text_color: "#fff"         # 顶部菜单字体色
+  navbar_text_color_dark: "#d0d0d0"
   text_color: "#3c4858"             # 全局字体色
+  text_color_dark: "#c4c6c9"
   sec_text_color: "#718096"         # 全局次级字体色（摘要、简介等位置）
+  sec_text_color_dark: "#a7a9ad"
   post_text_color: "#2c3e50"        # 文章正文字体色
+  post_text_color_dark: "#c4c6c9"
   post_heading_color: "#1a202c"     # 文章标题标签字体色（h1 h2 h3...）
-  link_color: "#3c4858"             # 超链接字体色
-  link_hover_color: "#1abc9c"       # 超链接悬浮时字体色
+  post_heading_color_dark: "#c4c6c9"
+  post_link_color: "#0366d6"        # 文章超链接字体色
+  post_link_color_dark: "#1589e9"
+  link_hover_color: "#30a9de"       # 超链接悬浮时字体色
+  link_hover_color_dark: "#30a9de"
   link_hover_bg_color: "#f8f9fa"    # 超链接悬浮背景色
+  link_hover_bg_color_dark: "#364151"
   board_color: "#fff"               # 主面板背景色
+  board_color_dark: "#252d38"
 
 font:  # 主题字体配置
   font_size: 16px                   # 全局字号
@@ -139,7 +154,7 @@ banner_parallax: true  # 头图滚动视差
 footer:
   statistics:  # 展示网站的 PV、UV 统计数
     enable: false
-    source: "leancloud"  # 统计数据来源，可选：leancloud | busuanzi，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
+    source: "busuanzi"  # 统计数据来源，可选：busuanzi | leancloud，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
     pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
     uv_format: "总访客数 {} 人"
 
@@ -201,7 +216,7 @@ post:  # 部分配置同时控制自定义页面，注意备注
       words: 100  # 每分钟阅读多少字，如果是技术文章，建议降低
     views:  # 阅读次数
       enable: false
-      source: "leancloud"  # 统计数据来源，可选：leancloud | busuanzi，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
+      source: "busuanzi"  # 统计数据来源，可选：busuanzi | leancloud，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
       format: "{} 次"
   updated:  # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
     enable: false
@@ -223,7 +238,7 @@ post:  # 部分配置同时控制自定义页面，注意备注
     enable: true  # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `image_zoom: true`，并且图片使用该格式插入：<img src="..." zoom />
   footnote:  # 脚注语法，会在文章底部生成脚注，如果 Markdown 渲染器本身支持，则建议关闭，否则可能会冲突
     enable: true
-    header: <hr>  # 脚注的节标题，也可以在 front-matter 中通过 `footnote: <h2>Reference</h2>` 这种形式修改单页的节标题
+    header: ''  # 脚注的节标题，也可以在 front-matter 中通过 `footnote: <h2>Reference</h2>` 这种形式修改单页的节标题
   math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见：https://hexo.fluid-dev.com/docs/guide/##latex-数学公式
     enable: false  # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `math: true`
     specific: false  # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
@@ -248,17 +263,16 @@ post:  # 部分配置同时控制自定义页面，注意备注
 # You can install utterances with https://utteranc.es/ and generate your configuration
 utterances:
   repo: "https://github.com/smilelt/smilelt.github.io.git"
-  issue_term: "pathname"
+  issue_term: pathname
   label: utterances
   theme: github-light
   crossorigin: anonymous
 
 # Disqus
-# 国内用户不要用，已被墙
 disqus:
   shortname: # your shortname
   # The following are Disqusjs configurations, please ignore if DisqusJS is not required
-  # 以下为 Disqusjs 支持, 如不需要 DisqusJS 请忽略
+  # 以下为 Disqusjs 支持, 国内用户如果想使用 Disqus 建议配合使用
   # https://github.com/SukkaW/DisqusJS
   disqusjs: false # 设置为 true 开启 DisqusJS
   apikey: # DisqusJS 向 API 发起请求时使用的 API Key
@@ -271,11 +285,11 @@ gitalk:
   clientSecret:                 # GitHub Application Client Secret
   repo:                         # The repo to store comments
   owner:                        # GitHub repository owner. Can be personal user or organization.
-  admin:                        # GitHub repo owner and collaborators, only these guys can initialize github issues, should be like "['admin']" or "['admin1','admin2']"
+  admin: ['name']               # GitHub repo owner and collaborators, only these guys can initialize github issues, should be like ['admin'] or ['admin1','admin2']
   id: location.pathname         # The unique id of the page. Length must less than 50.
   language: zh-CN               # Localization language key, en, zh-CN and zh-TW are currently available.
-  labels: "['Gitalk']"          # GitHub issue labels.
-  perPage: 15                   # Pagination size, with maximum 100.
+  labels: ['Gitalk']            # GitHub issue labels.
+  perPage: 10                   # Pagination size, with maximum 100.
   pagerDirection: last          # Comment sorting direction, available values are last and first.
   distractionFreeMode: false    # Facebook-like distraction free mode.
   createIssueManually: true     # By default, Gitalk will create a corresponding github issue for your every single page automatically when the logined user is belong to the admin users. You can create it manually by setting this option to true.

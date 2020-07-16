@@ -12,7 +12,7 @@
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
-        <% for(const each of theme.navbar.menu) { %>
+        <% for(const each of theme.navbar.menu || []) { %>
           <% if (!each.submenu && !each.link) continue %>
           <% var text = each.name || __(each.key + '.title') %>
           <% if (text.indexOf('.title') !== -1) {
@@ -25,7 +25,7 @@
                 <%- text %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <% for(const subEach of each.submenu) { %>
+                <% for(const subEach of each.submenu || []) { %>
                   <% if (!subEach.link) continue %>
                   <% var subText = subEach.name || __(subEach.key + '.title') %>
                   <% if (subText.indexOf('.title') !== -1) {
@@ -49,8 +49,14 @@
         <% } %>
         <% if(theme.search.enable) { %>
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        <% } %>
+        <% if(theme.dark_mode && theme.dark_mode.enable) { %>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         <% } %>
       </ul>

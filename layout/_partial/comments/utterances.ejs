@@ -3,17 +3,15 @@
     function loadUtterances() {
       var s = document.createElement('script');
       s.setAttribute('src', 'https://utteranc.es/client.js');
-      s.defer = false
       s.setAttribute('repo', '<%= theme.utterances.repo %>');
       s.setAttribute('issue-term', '<%= theme.utterances.issue_term %>');
-      <% if (theme.utterances.label != null) { %>
+      <% if (theme.utterances.label) { %>
       s.setAttribute('label', '<%= theme.utterances.label %>');
       <% } %>
       s.setAttribute('theme', '<%= theme.utterances.theme %>');
       s.setAttribute('crossorigin', '<%= theme.utterances.crossorigin %>');
-      var e = document.getElementsByTagName('script')[0];
-      e.parentNode.insertBefore(s, e);
+      document.getElementById('comments').appendChild(s);
     }
-    createObserver(loadUtterances, 'comments')
+    waitElementVisible('comments', loadUtterances)
   </script>
 <% } %>

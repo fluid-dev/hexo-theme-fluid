@@ -18,7 +18,7 @@ var date_cursor = 'xxx'
     <% } %>
     <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
       <span class="archive-post-title"><%= post.title %></span>
-      <span style="float: right;"><%- date(post.date, "MM-DD") %></span>
+      <time style="float: right;"><%- date(post.date, "MM-DD") %></time>
     </a>
   <% }) %>
 </div>

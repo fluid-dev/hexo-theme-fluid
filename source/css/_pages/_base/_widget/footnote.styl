@@ -1,0 +1,25 @@
+sup > a, .footnote-text
+  anchor-offset()
+  &::before
+    display inline-block
+
+.footnote-item
+  anchor-offset()
+
+.footnote-list
+  ol
+    list-style-type none
+    counter-reset sectioncounter
+    padding-left .5rem
+    font-size .95rem
+
+    li:before
+      font-family "Helvetica Neue", monospace, "Monaco"
+      content "["counter(sectioncounter)"]"
+      counter-increment sectioncounter
+
+    li+li
+      margin-top .5rem
+
+.footnote-text
+  padding-left .5em

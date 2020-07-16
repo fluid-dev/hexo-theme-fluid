@@ -1,0 +1,42 @@
+.copy-btn
+  display inline-block
+  cursor pointer
+  border-radius .1rem
+  border none
+  background-color transparent
+  -webkit-user-select none
+  -moz-user-select none
+  -ms-user-select none
+  user-select none
+  -webkit-appearance none
+  font-size .75rem
+  line-height 1
+  font-weight bold
+  outline none
+  -webkit-transition opacity .2s ease-in-out
+  -o-transition opacity .2s ease-in-out
+  transition opacity .2s ease-in-out
+  padding .25rem
+  position absolute
+  right .5rem
+  top .25rem
+  opacity 0
+
+  & > i
+    font-size .75rem
+    font-weight 400
+
+  & > span
+    margin-left 5px
+
+.copy-btn-dark
+  color #6a737d
+
+.copy-btn-light
+  color #bababa
+
+.markdown-body pre:hover > .copy-btn
+  opacity 0.9
+
+.markdown-body pre:hover > .copy-btn, .markdown-body pre:not(:hover) > .copy-btn
+  outline none

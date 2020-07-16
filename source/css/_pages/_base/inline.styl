@@ -1,0 +1,43 @@
+.fade-in-up
+  -webkit-animation-name fade-in-up
+  animation-name fade-in-up
+
+.hidden-mobile
+  display block
+
+.visible-mobile
+  display none
+
+@media (max-width: 575px)
+  .hidden-mobile
+    display none
+
+  .visible-mobile
+    display block
+
+@media (max-width: 767px)
+  .nopadding-md
+    padding-left 0 !important
+    padding-right 0 !important
+
+.flex-center
+  display -webkit-box
+  display -ms-flexbox
+  display flex
+  -webkit-box-align center
+  -ms-flex-align center
+  align-items center
+  -webkit-box-pack center
+  -ms-flex-pack center
+  justify-content center
+  height 100%
+
+.hover-with-bg
+  display inline-block
+  padding .45rem
+
+  &:hover
+    background-color var(--link-hover-bg-color)
+    transition-duration .2s
+    transition-timing-function ease-in-out
+    border-radius .15rem

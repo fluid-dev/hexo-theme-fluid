@@ -1,7 +1,7 @@
 <% if (theme.post.meta.date.enable && page.meta !== false) { %>
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="<%= full_date(page.date, 'YYYY-MM-DD HH:mm') %>">
+    <time datetime="<%= full_date(page.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
       <%= full_date(page.date, theme.post.meta.date.format) %>
     </time>
   </div>

@@ -1,0 +1,87 @@
+:root
+  --color-mode 'light'
+  --body-bg-color $body-bg-color
+  --board-bg-color $board-bg-color
+  --text-color $text-color
+  --sec-text-color $sec-text-color
+  --post-text-color $post-text-color
+  --post-heading-color $post-heading-color
+  --post-link-color $post-link-color
+  --link-hover-color $link-hover-color
+  --link-hover-bg-color $link-hover-bg-color
+  --navbar-bg-color $navbar-bg-color
+  --navbar-text-color $navbar-text-color
+
+dark-colors()
+  --body-bg-color $body-bg-color-dark
+  --board-bg-color $board-bg-color-dark
+  --text-color $text-color-dark
+  --sec-text-color $sec-text-color-dark
+  --post-text-color $post-text-color-dark
+  --post-heading-color $post-heading-color-dark
+  --post-link-color $post-link-color-dark
+  --link-hover-color $link-hover-color-dark
+  --link-hover-bg-color $link-hover-bg-color-dark
+  --navbar-bg-color $navbar-bg-color-dark
+  --navbar-text-color $navbar-text-color-dark
+
+  img, .note, .label
+    -webkit-filter brightness(.9)
+    filter brightness(.9)
+    transition filter .2s ease-in-out
+
+  .page-header
+    color #ddd
+    transition color .2s ease-in-out
+
+  .markdown-body
+
+    :not(pre) > code
+      background-color rgba(#3e4b5e, .35)
+      transition background-color .2s ease-in-out
+
+    .highlight pre, pre
+      background-color rgba(#f6f8fa, .80)
+      transition background-color .2s ease-in-out
+
+    h1, h2
+      border-bottom-color $line-color-dark
+      transition border-bottom-color .2s ease-in-out
+
+    h1, h2, h3, h6, h5, h6
+      color #ddd
+      transition color .2s ease-in-out
+
+    table
+      tr
+        background-color var(--board-bg-color)
+      tr:nth-child(2n)
+        background-color var(--board-bg-color)
+      th, td
+        border-color $line-color-dark
+
+  hr
+    border-top-color $line-color-dark
+    transition border-top-color .2s ease-in-out
+
+  .navbar .dropdown-collapse, .top-nav-collapse, .navbar-col-show
+    if $navbar-glass-enable
+      ground-glass($navbar-glass-px, $navbar-bg-color-dark, $navbar-glass-alpha)
+
+  .modal-dialog .modal-content .modal-header
+    border-bottom-color $line-color-dark
+    transition border-bottom-color .2s ease-in-out
+
+  .gt-comment-admin .gt-comment-content
+    background-color transparent
+    transition background-color .2s ease-in-out
+
+@media (prefers-color-scheme: dark)
+  :root
+    --color-mode 'dark'
+
+  :root:not([data-user-color-scheme])
+    dark-colors()
+
+[data-user-color-scheme='dark']
+  dark-colors()
