@@ -55,10 +55,13 @@ dark-colors()
     table
       tr
         background-color var(--board-bg-color)
+        transition background-color .2s ease-in-out
       tr:nth-child(2n)
         background-color var(--board-bg-color)
+        transition background-color .2s ease-in-out
       th, td
         border-color $line-color-dark
+        transition border-color .2s ease-in-out
 
   hr
     border-top-color $line-color-dark
@@ -67,6 +70,9 @@ dark-colors()
   .navbar .dropdown-collapse, .top-nav-collapse, .navbar-col-show
     if $navbar-glass-enable
       ground-glass($navbar-glass-px, $navbar-bg-color-dark, $navbar-glass-alpha)
+
+  .note :not(pre) > code
+    background-color rgba(27, 31, 35, .05)
 
   .modal-dialog .modal-content .modal-header
     border-bottom-color $line-color-dark
