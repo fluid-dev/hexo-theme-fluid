@@ -36,7 +36,7 @@
       colorSchemaMediaQueryKey
     );
     if (res.length > 0) {
-      return res.replace(/"/g, '').trim();
+      return res.replace(/["'\s]/g, '');
     }
     return null;
   }
