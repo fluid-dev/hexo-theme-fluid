@@ -35,9 +35,15 @@
   <%- js(theme.custom_js) %>
 <% } %>
 
-<% if (theme.service-worker.enable == true) { %>
- <script src="/sw.js"></script>
-<% } %>
+  <% if (theme.sw == true) { %>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
+  <% } %>
 
 <%- partial('_partial/plugins/tocjs.ejs') %>
 <%- partial('_partial/plugins/typed.ejs') %>
