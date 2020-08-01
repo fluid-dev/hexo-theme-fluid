@@ -35,6 +35,10 @@
   <%- js(theme.custom_js) %>
 <% } %>
 
+<% if (theme.service-worker.enable == true) { %>
+ <script src="/sw.js"></script>
+<% } %>
+
 <%- partial('_partial/plugins/tocjs.ejs') %>
 <%- partial('_partial/plugins/typed.ejs') %>
 <%- partial('_partial/plugins/anchor.ejs') %>
