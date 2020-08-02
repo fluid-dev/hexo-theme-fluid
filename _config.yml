@@ -102,6 +102,9 @@ daovoice:  # 在线客服 Daovoice 参考：http://dashboard.daovoice.io
   enable: false # 是否开启在线客服聊天
   appid: ''  # 应用 ID 设置
 
+sw: #Service-Worker开关
+  enable: true
+
 aplayer:  # 音乐播放器，注意不能与 hexo-tag-aplayer 插件共用
   enable: false
   autoplay: false  # 音频自动播放
