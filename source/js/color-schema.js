@@ -31,11 +31,19 @@
     }
   }
 
-  function getModeFromCSSMediaQuery() {
+  function getSchemaFromHTML() {
+    var res = rootElement.getAttribute(defaultColorSchemaAttributeName);
+    if (typeof res === 'string') {
+      return res.replace(/["'\s]/g, '');
+    }
+    return null;
+  }
+
+  function getSchemaFromCSSMediaQuery() {
     var res = getComputedStyle(rootElement).getPropertyValue(
       colorSchemaMediaQueryKey
     );
-    if (res.length > 0) {
+    if (typeof res === 'string') {
       return res.replace(/["'\s]/g, '');
     }
     return null;
@@ -53,13 +61,13 @@
 
   function getDefaultColorSchemaAttribute() {
     // 取默认字段的值
-    var schema = rootElement.getAttribute(defaultColorSchemaAttributeName);
+    var schema = getSchemaFromHTML();
     // 如果明确指定了 schema 则返回
     if (validColorSchemaKeys[schema]) {
       return schema;
     }
     // 默认优先按 prefers-color-scheme
-    schema = getModeFromCSSMediaQuery();
+    schema = getSchemaFromCSSMediaQuery();
     if (validColorSchemaKeys[schema]) {
       return schema;
     }
@@ -74,7 +82,7 @@
     // 接受从「开关」处传来的模式，或者从 localStorage 读取，否则按默认设置值
     var currentSetting = schema || getLS(colorSchemaStorageKey) || getDefaultColorSchemaAttribute();
 
-    if (currentSetting === getModeFromCSSMediaQuery()) {
+    if (currentSetting === getSchemaFromCSSMediaQuery()) {
       // 当用户自定义的显示模式和 prefers-color-scheme 相同时，重置到自动模式
       resetRootColorSchemaAttributeAndLS();
     } else if (validColorSchemaKeys[currentSetting]) {
@@ -106,7 +114,7 @@
     } else if (currentSetting === null) {
       // localStorage 中没有相关值，或者 localStorage 抛了 Error
       // 从 CSS 中读取当前 prefers-color-scheme 并取相反的模式
-      currentSetting = invertColorSchemaObj[getModeFromCSSMediaQuery()];
+      currentSetting = invertColorSchemaObj[getSchemaFromCSSMediaQuery()];
     } else {
       return;
     }
