@@ -71,8 +71,9 @@
     if (validColorSchemaKeys[schema]) {
       return schema;
     }
-    // 否则按本地时间是否大于 18 点
-    if (new Date().getHours() >= 18) {
+    // 否则按本地时间是否大于 18 点或凌晨 0 ~ 6 点
+    var hours = new Date().getHours();
+    if (hours >= 18 || (hours >= 0 && hours <= 6)) {
       return 'dark';
     }
     return 'light';

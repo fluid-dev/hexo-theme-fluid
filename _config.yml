@@ -43,7 +43,7 @@ fun_features: # 一些好玩的功能
 
 dark_mode:   # 主题暗色模式，开启后菜单中会出现切换按钮，用户浏览器会存储切换选项，并且会遵循 prefers-color-scheme 自动切换
   enable: true
-  default: auto  # 默认的模式，可选：auto | light | dark，若用户浏览器没有存储切换选项，则使用默认值，auto 则在用户本地时间 18 点后进入暗色模式
+  default: auto  # 默认的模式，可选：auto | light | dark，若用户浏览器没有存储切换选项，则使用默认值，auto 则在用户本地时间 18 点到次日 6 点之间进入暗色模式
 
 color:  # 主题颜色配置，不一定能每一处都生效，可能会被局部样式覆盖，这种情况建议用自定义 css 解决。配色可以在这获得启发： https://www.webdesignrankings.com/resources/lolcolors/
   body_bg_color: "#eee"             # body 背景色
