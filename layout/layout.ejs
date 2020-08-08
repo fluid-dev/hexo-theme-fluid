@@ -31,7 +31,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
             <% } %>
           </div>
 
-          <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height) { %>
+          <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height && page.layout !== '404') { %>
             <div class="scroll-down-bar">
               <i class="iconfont icon-arrowdown"></i>
             </div>
@@ -42,7 +42,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
   </header>
 
   <main>
-    <% if(is_post() || page.layout == '404') { %>
+    <% if(is_post() || page.layout === '404') { %>
       <%- body %>
     <% } else { %>
       <div class="container nopadding-md">
