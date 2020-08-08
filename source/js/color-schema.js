@@ -49,8 +49,8 @@
     return null;
   }
 
-  function resetRootColorSchemaAttributeAndLS() {
-    rootElement.removeAttribute(userColorSchemaAttributeName);
+  function resetSchemaAttributeAndLS() {
+    rootElement.setAttribute(userColorSchemaAttributeName, getDefaultColorSchema());
     removeLS(colorSchemaStorageKey);
   }
 
@@ -59,7 +59,7 @@
     light: true
   };
 
-  function getDefaultColorSchemaAttribute() {
+  function getDefaultColorSchema() {
     // 取默认字段的值
     var schema = getSchemaFromHTML();
     // 如果明确指定了 schema 则返回
@@ -81,20 +81,20 @@
 
   function applyCustomColorSchemaSettings(schema) {
     // 接受从「开关」处传来的模式，或者从 localStorage 读取，否则按默认设置值
-    var currentSetting = schema || getLS(colorSchemaStorageKey) || getDefaultColorSchemaAttribute();
+    var currentSetting = schema || getLS(colorSchemaStorageKey) || getDefaultColorSchema();
 
-    if (currentSetting === getSchemaFromCSSMediaQuery()) {
-      // 当用户自定义的显示模式和 prefers-color-scheme 相同时，重置到自动模式
-      resetRootColorSchemaAttributeAndLS();
+    if (currentSetting === getDefaultColorSchema()) {
+      // 当用户切换的显示模式和默认模式相同时，则恢复为自动模式
+      resetSchemaAttributeAndLS();
     } else if (validColorSchemaKeys[currentSetting]) {
       rootElement.setAttribute(
         userColorSchemaAttributeName,
         currentSetting
       );
     } else {
-      // 首次访问或从未使用过开关、localStorage 中没有存储的值，currentSetting 是 null
-      // 或者 localStorage 被篡改，currentSetting 不是合法值
-      resetRootColorSchemaAttributeAndLS();
+      // 特殊情况重置
+      resetSchemaAttributeAndLS();
+      return;
     }
 
     // 根据当前模式设置图标
@@ -113,9 +113,16 @@
       // 从 localStorage 中读取模式，并取相反的模式
       currentSetting = invertColorSchemaObj[currentSetting];
     } else if (currentSetting === null) {
-      // localStorage 中没有相关值，或者 localStorage 抛了 Error
-      // 从 CSS 中读取当前 prefers-color-scheme 并取相反的模式
-      currentSetting = invertColorSchemaObj[getSchemaFromCSSMediaQuery()];
+      // 当 localStorage 中没有相关值，或者 localStorage 抛了 Error
+      // 先按照按钮的状态进行切换
+      var iconElement = document.getElementById(colorToggleIconName);
+      if (iconElement) {
+        currentSetting = iconElement.getAttribute('data');
+      }
+      if (!iconElement || !validColorSchemaKeys[currentSetting]) {
+        // 当 localStorage 中没有相关值，或者 localStorage 抛了 Error，则读取默认值并切换到相反的模式
+        currentSetting = invertColorSchemaObj[getSchemaFromCSSMediaQuery()];
+      }
     } else {
       return;
     }
@@ -138,6 +145,10 @@
           'class',
           'iconfont ' + icon
         );
+        iconElement.setAttribute(
+          'data',
+          invertColorSchemaObj[schema]
+        );
       } else {
         // 如果图标不存在则说明图标还没加载出来，等到页面全部加载再尝试切换
         // eslint-disable-next-line no-undef
@@ -147,6 +158,10 @@
             iconElement.setAttribute(
               'class',
               'iconfont ' + icon
+            );
+            iconElement.setAttribute(
+              'data',
+              invertColorSchemaObj[schema]
             );
           }
         });
