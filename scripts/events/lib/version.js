@@ -7,7 +7,7 @@ module.exports = (hexo) => {
 
   const https = require('https');
   const path = require('path');
-  const { version } = require(path.normalize('../../../package.json'));
+  const { version } = require(path.normalize(path.join(hexo.base_dir, 'package.json')));
   const isZh = hexo.config.language.search(/zh-CN/i) !== -1;
 
   const errorLog = (_) => {
