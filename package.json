@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-fluid",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "An elegant Material-Design theme for Hexo.",
   "main": "gulpfile.js",
   "scripts": {
