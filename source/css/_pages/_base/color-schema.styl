@@ -40,9 +40,10 @@ dark-colors()
       background-color rgba(#3e4b5e, .35)
       transition background-color .2s ease-in-out
 
-    .highlight pre, pre
-      background-color rgba(#f6f8fa, .80)
-      transition background-color .2s ease-in-out
+    if $highlight-enable
+      .highlight pre, pre
+        background-color rgba(#f6f8fa, .80)
+        transition background-color .2s ease-in-out
 
     h1, h2
       border-bottom-color $line-color-dark
