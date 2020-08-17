@@ -86,7 +86,6 @@ web_analytics:  # 网页访问统计
   tencent:  # 腾讯统计的 H5 App id，参见 https://mta.qq.com/h5/manage/ctr_app_manage (开启高级功能才有cid)
     sid:
     cid:
-  tajs:   # 腾讯统计早期版站点统计 sID，参见 https://ta.qq.com/#/site/list
   woyaola:  # 51.la 站点统计 ID，参见 https://www.51.la/user/site/index
   cnzz:  # 友盟/cnzz 站点统计 web_id，参见 https://web.umeng.com/main.php?c=site&a=show
   leancloud:  # LeanCloud 计数统计，可用于 PV UV 展示，如果 web_analytics.enable 没有开启，PV UV 展示只会查询，不会增加
