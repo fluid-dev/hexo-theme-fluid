@@ -1,0 +1,32 @@
+<% if(theme.remark42.host && theme.remark42.site_id){ %>
+  <div id="remark42"></div>
+  <script type="text/javascript">
+    var schema = document.documentElement.getAttribute('data-user-color-scheme');
+    if (schema !== 'light' && schema !== 'dark') {
+      schema = 'light';
+    }
+    var remark_config = {
+      host: '<%= theme.remark42.host %>',
+      site_id: '<%= theme.remark42.site_id %>',
+      components: ['embed'],
+      url: '<%= url_for(page.path) %>',
+      max_shown_comments: '<%= theme.remark42.max_shown_comments %>',
+      theme: schema,
+      page_title: '<%= page.title %>',
+      locale: '<%= theme.remark42.locale %>'
+    };
+
+    function loadRemark42() {
+      (function (c) {
+        for (var i = 0; i < c.length; i++) {
+          var d = document, s = d.createElement('script');
+          s.src = remark_config.host + '/web/' + c[i] + '.js';
+          s.defer = true;
+          (d.head || d.body).appendChild(s);
+        }
+      })(remark_config.components || [ 'embed' ]);
+    }
+
+    waitElementVisible('remark42', loadRemark42);
+  </script>
+<% } %>
