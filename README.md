@@ -21,7 +21,7 @@
   <a title="GitHub Forks" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/network/members"><img alt="GitHub Forks" src="https://img.shields.io/github/forks/fluid-dev/hexo-theme-fluid.svg?label=Forks&style=social"></a>  
 </p>
 
-<p align="center">中文简体  |  <a title="English" href="README_en.md">English</a></p>
+<p align="center">🇨🇳 中文简体  |  <a title="English" href="README_en.md">🇬🇧 English</a></p>
 
 <p align="center">
   <span>文档：</span>
