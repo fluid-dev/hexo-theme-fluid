@@ -27,20 +27,23 @@
     border-width 0
     outline 0
 
-  @media (min-width: 600px)
-    &.scrolling-navbar
-      padding-top 12px
-      padding-bottom 12px
-      -webkit-transition background 0.5s ease-in-out, padding 0.5s ease-in-out
-      transition background 0.5s ease-in-out, padding 0.5s ease-in-out
+  &.scrolling-navbar
+    will-change background, padding
+    -webkit-transition background 0.5s ease-in-out, padding 0.5s ease-in-out
+    transition background 0.5s ease-in-out, padding 0.5s ease-in-out
 
-    &.scrolling-navbar .navbar-nav > li
-      -webkit-transition-duration 1s
-      transition-duration 1s
+    @media (min-width: 600px)
+      &
+        padding-top 12px
+        padding-bottom 12px
 
-  &.scrolling-navbar.top-nav-collapse
-    padding-top 5px
-    padding-bottom 5px
+      & .navbar-nav > li
+        -webkit-transition-duration 1s
+        transition-duration 1s
+
+    &.top-nav-collapse
+      padding-top 5px
+      padding-bottom 5px
 
   .dropdown-menu
     font-size 0.875rem
