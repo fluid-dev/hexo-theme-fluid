@@ -99,6 +99,11 @@
 
     // 根据当前模式设置图标
     setButtonIcon(currentSetting);
+
+    // 设置 remark42 的主题
+    if (window.REMARK42) {
+      window.REMARK42.changeTheme(schema);
+    }
   }
 
   var invertColorSchemaObj = {

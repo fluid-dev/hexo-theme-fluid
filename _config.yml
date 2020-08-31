@@ -321,6 +321,13 @@ changyan:
 livere:
   uid: ''
 
+# Remark42
+# https://remark42.com/
+remakr42:
+  host: 
+  site_id: 
+  max_shown_comments: 10
+  locale: zh
 
 #---------------------------
 # 归档页
