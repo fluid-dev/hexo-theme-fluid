@@ -81,15 +81,15 @@
 
   function applyCustomColorSchemaSettings(schema) {
     // 接受从「开关」处传来的模式，或者从 localStorage 读取，否则按默认设置值
-    var currentSetting = schema || getLS(colorSchemaStorageKey) || getDefaultColorSchema();
+    var current = schema || getLS(colorSchemaStorageKey) || getDefaultColorSchema();
 
-    if (currentSetting === getDefaultColorSchema()) {
+    if (current === getDefaultColorSchema()) {
       // 当用户切换的显示模式和默认模式相同时，则恢复为自动模式
       resetSchemaAttributeAndLS();
-    } else if (validColorSchemaKeys[currentSetting]) {
+    } else if (validColorSchemaKeys[current]) {
       rootElement.setAttribute(
         userColorSchemaAttributeName,
-        currentSetting
+        current
       );
     } else {
       // 特殊情况重置
@@ -98,12 +98,10 @@
     }
 
     // 根据当前模式设置图标
-    setButtonIcon(currentSetting);
+    setButtonIcon(current);
 
-    // 设置 remark42 的主题
-    if (window.REMARK42) {
-      window.REMARK42.changeTheme(schema);
-    }
+    // 设置其他应用
+    setApplications(current);
   }
 
   var invertColorSchemaObj = {
@@ -171,6 +169,27 @@
           }
         });
       }
+    }
+  }
+
+  function setApplications(schema) {
+    // 设置 remark42 评论主题
+    if (window.REMARK42) {
+      window.REMARK42.changeTheme(schema);
+    }
+
+    // 设置 utterances 评论主题
+    var utterances = document.querySelector('iframe');
+    if (utterances) {
+      var theme = window.UtterancesThemeLight;
+      if (schema === 'dark') {
+        theme = window.UtterancesThemeDark;
+      }
+      const message = {
+        type : 'set-theme',
+        theme: theme
+      };
+      utterances.contentWindow.postMessage(message, 'https://utteranc.es');
     }
   }
 

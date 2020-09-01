@@ -266,6 +266,7 @@ utterances:
   issue_term: pathname
   label: utterances
   theme: github-light
+  theme_dark: github-dark
   crossorigin: anonymous
 
 # Disqus
