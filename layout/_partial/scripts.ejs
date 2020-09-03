@@ -15,7 +15,19 @@
   <% }%>
 <% } %>
 
-<% if (theme.highlight.copy_btn) { %>
+<% if (theme.code.highlight.enable) { %>
+  <% if (theme.code.highlight.lib === 'prismjs') { %>
+    <% if (!theme.code.highlight.prismjs.preprocess) { %>
+      <%- js_ex(theme.static_prefix.prismjs, 'components/prism-core.min.js') %>
+      <%- js_ex(theme.static_prefix.prismjs, 'plugins/autoloader/prism-autoloader.min.js') %>
+      <% if (theme.code.highlight.prismjs.line_number) { %>
+        <%- js_ex(theme.static_prefix.prismjs, '/plugins/line-numbers/prism-line-numbers.min.js') %>
+      <% } %>
+    <% } %>
+  <% } %>
+<% } %>
+
+<% if (theme.code.copy_btn) { %>
   <%- js_ex(theme.static_prefix.clipboard, 'clipboard.min.js', 'defer') %>
   <%- js_ex(theme.static_prefix.internal_js, 'clipboard-use.js') %>
 <% } %>

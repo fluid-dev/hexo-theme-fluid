@@ -47,6 +47,8 @@ bootstrap: https://cdn.staticfile.org/twitter-bootstrap/4.4.1/
 
 highlightjs: https://cdn.staticfile.org/highlight.js/10.0.0/
 
+prismjs: https://cdn.staticfile.org/prism/1.21.0/
+
 tocbot: https://cdn.staticfile.org/tocbot/4.11.1/
 
 typed: https://cdn.staticfile.org/typed.js/2.0.11/
