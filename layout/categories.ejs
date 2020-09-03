@@ -13,7 +13,7 @@ var orderBy = theme.category.order_by || 'name'
   <% depth = depth || 0 %>
   <% return cats.each(function(cat){ %>
     <% var subCats = site.categories.find({parent: cat._id}).sort(orderBy).filter(cat => cat.length) %>
-    <% var collapsed = subCats.length === 0 %>
+    <% var collapsed = subCats.length === 0 || depth >= theme.category.collapse_depth %>
     <div class="<%= depth <= 0 ? 'category' : 'category-sub' %> row">
       <a
         class="<%= depth <= 0 ? 'category-item' : 'category-subitem' %> <%= collapsed ? 'collapsed' : '' %> list-group-item category-item-action col-10 col-md-11"
@@ -29,7 +29,7 @@ var orderBy = theme.category.order_by || 'name'
       </a>
       <div class="category-collapse">
         <% if (subCats.length > 0) { %>
-          <%- render_sub_categories(subCats, cat, depth + 1) %>
+          <%- render_sub_categories(subCats, cat, depth + 1, !collapsed) %>
         <% } else { %>
           <%- render_posts(cat) %>
         <% } %>
@@ -38,8 +38,8 @@ var orderBy = theme.category.order_by || 'name'
   <% }) %>
 <% } %>
 
-<% function render_sub_categories(cats, parent, depth) { %>
-  <div id="collapse-<%= parent._id %>" class="collapse in show" role="tabpanel"
+<% function render_sub_categories(cats, parent, depth, show) { %>
+  <div id="collapse-<%= parent._id %>" class="collapse in <%= show ? 'show' : '' %>" role="tabpanel"
        aria-labelledby="heading-<%= parent._id %>">
     <%- render_categories(cats, depth) %>
   </div>
