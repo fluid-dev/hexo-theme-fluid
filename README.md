@@ -43,9 +43,21 @@
 
 #### 2. 获取主题最新版本
 
+**方式一：**
+
 请优先下载 [最新 release 版本](https://github.com/fluid-dev/hexo-theme-fluid/releases)，master 分支无法保证稳定。
 
 下载后解压到 themes 目录下并重命名为 `fluid`。
+
+**方式二：**
+
+Hexo 5.0.0 版本以上，可以通过 npm 直接安装：
+
+```sh
+npm install --save hexo-theme-fluid
+```
+
+然后在博客目录下创建 `_config.fluid.yml`，把主题的 [_config.yml](https://github.com/fluid-dev/hexo-theme-fluid/blob/release/_config.yml) 内容复制过去。
 
 #### 3. 指定主题
 

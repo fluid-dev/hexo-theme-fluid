@@ -13,7 +13,7 @@ module.exports = (hexo) => {
     sourceConfig = {};
     if (data && data.fluid_config) {
       sourceConfig = data.fluid_config;
-    } else {
+    } else if (!configFromRoot(hexo)) {
       const isZh = hexo.config.language.search(/zh-CN/i) !== -1;
       if (isZh) {
         hexo.log.warn('[Fluid] 推荐你使用覆盖配置功能: https://hexo.fluid-dev.com/docs/guide/#%E8%A6%86%E7%9B%96%E9%85%8D%E7%BD%AE');
@@ -38,4 +38,9 @@ module.exports = (hexo) => {
 
   hexo.log.debug('[Fluid] Theme config merged');
   hexo.log.debug('[Fluid] Configs:\n', JSON.stringify(hexo.theme.config, undefined, 2));
+};
+
+const configFromRoot = (hexo) => {
+  const configPath = path.join(hexo.base_dir, '_config.fluid.yml');
+  return fs.existsSync(configPath);
 };
