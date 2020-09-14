@@ -8,7 +8,7 @@ const button = (args) => {
   const text = (args[1] || '').trim();
   const title = (args[2] || '').trim();
 
-  !url && hexo.log.warn('Button url must be defined!');
+  !url && hexo.log.warn('[Fluid] Button url must be defined!');
 
   return `<a class="btn" href="${url}" ${title.length > 0 ? ` title="${title}"` : ''} target="_blank">${text}</a>`;
 };

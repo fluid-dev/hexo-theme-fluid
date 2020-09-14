@@ -1,6 +1,16 @@
 <% if(theme.utterances.repo && theme.utterances.issue_term){ %>
   <script type="text/javascript">
     function loadUtterances() {
+      var light = '<%= theme.utterances.theme || 'github-light' %>';
+      var dark = '<%= theme.utterances.theme_dark || 'github-dark' %>';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
       var s = document.createElement('script');
       s.setAttribute('src', 'https://utteranc.es/client.js');
       s.setAttribute('repo', '<%= theme.utterances.repo %>');
@@ -8,7 +18,7 @@
       <% if (theme.utterances.label) { %>
       s.setAttribute('label', '<%= theme.utterances.label %>');
       <% } %>
-      s.setAttribute('theme', '<%= theme.utterances.theme %>');
+      s.setAttribute('theme', schema);
       s.setAttribute('crossorigin', '<%= theme.utterances.crossorigin %>');
       document.getElementById('comments').appendChild(s);
     }

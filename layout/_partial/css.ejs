@@ -4,9 +4,25 @@
   <%- css_ex(theme.static_prefix.github_markdown, 'github-markdown.min.css') %>
   <%- css_ex(theme.static_prefix.hint, 'hint.min.css') %>
 
-  <% if (theme.highlight.enable) { %>
-    <% var cssName = theme.highlight.style.toLowerCase().replace(/(?<!([0-9]))\s(?!([0-9]))/g, '-').replace(/\s/g, '') %>
-    <%- css_ex(theme.static_prefix.highlightjs, '/styles/' + cssName + '.min.css') %>
+  <% if (theme.code.highlight.enable) { %>
+    <% var cssName %>
+    <% if (theme.code.highlight.lib === 'highlightjs') { %>
+      <% cssName = theme.code.highlight.highlightjs.style.toLowerCase().replace(/(?<!([0-9]))\s(?!([0-9]))/g, '-').replace(/\s/g, '') %>
+      <%- css_ex(theme.static_prefix.highlightjs, `/styles/${ cssName }.min.css`) %>
+    <% } else if (theme.code.highlight.lib === 'prismjs') { %>
+      <% var style = theme.code.highlight.prismjs.style %>
+      <% if (!style || style === 'default') { %>
+        <% cssName = '' %>
+      <% } else { %>
+        <% cssName = style.toLowerCase().replace(/[\s\-]/g, '') %>
+        <% if (cssName === 'prism') { cssName = '' } %>
+        <% if (cssName === 'tomorrownight') { cssName = 'tomorrow' } %>
+      <% } %>
+      <%- css_ex(theme.static_prefix.prismjs, `/themes/${ cssName ? 'prism-' + cssName : 'prism' }.min.css`) %>
+      <% if (theme.code.highlight.prismjs.line_number) { %>
+        <%- css_ex(theme.static_prefix.prismjs, '/plugins/line-numbers/prism-line-numbers.min.css') %>
+      <% } %>
+    <% } %>
   <% } %>
 
   <% if(theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
@@ -15,7 +31,7 @@
 <% } %>
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<%- css('//at.alicdn.com/t/font_1749284_6peoq002giu.css') %>
+<%- css('//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css') %>
 
 <%- css(theme.static_prefix.iconfont) %>
 

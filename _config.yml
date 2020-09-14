@@ -19,11 +19,17 @@ title_join_string: ' - '  # 浏览器标签页中的标题分隔符，效果： 
 
 force_https: false  # 强制所有链接升级为 HTTPS（适用于图片等资源出现 HTTP 混入报错）
 
-highlight: # 代码高亮
-  enable: true
-  style: 'Github Gist'  # 高亮样式见：https://highlightjs.org/static/demo/  在页面挑选 style 填入
-  bg_color: false  # 是否根据 style 改变代码背景色，**如果 style 是深色背景别忘了开启此项**
+code:  # 代码块相关的配置
   copy_btn: true  # 是否开启复制代码的按钮
+  highlight:  # 代码高亮
+    enable: true
+    lib: 'highlightjs'  # 实现高亮的库，可选：highlightjs | prismjs，对应下面的配置项
+    highlightjs:
+      style: 'Github Gist'  # 高亮样式见：https://highlightjs.org/static/demo/  在页面挑选 style 填入
+      bg_color: false  # 是否根据 style 改变代码背景色，**如果 style 是深色背景别忘了开启此项**
+    prismjs:
+      style: 'default'  # 高亮样式见：https://prismjs.com/  在页面右侧的圆形按钮挑选 style 填入，也可以直接填入 css 链接
+      preprocess: true  # 设为 true 高亮将本地静态生成（并只支持部分 prismjs 插件），设为 false 高亮将在浏览器通过 js 生成
 
 fun_features: # 一些好玩的功能
   typing: # 为 subtitle 添加打字机效果
@@ -204,7 +210,9 @@ post:  # 部分配置同时控制自定义页面，注意备注
   banner_img_height: 70  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
   meta:  # 文章标题下方的信息
-    date:  # 文章日期
+    author:  # 作者，优先根据 front-matter 里 author 字段，其次是 hexo 配置中 author 值
+      enable: false
+    date:  # 文章日期，优先根据 front-matter 里 date 字段，其次是 md 文件日期
       enable: true
       format: "LL a"  # 格式参照 ISO-8601 日期格式化，可参照 http://momentjs.cn/docs/#/parsing/string-format/
     wordcount:  # 字数统计
@@ -249,7 +257,7 @@ post:  # 部分配置同时控制自定义页面，注意备注
     options: { theme: 'default' }  # 接口选项，具体可见：http://mermaid-js.github.io/mermaid/#/mermaidAPI
   comments:  # 评论
     enable: false  # 开启评论
-    type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere  推荐 utterances
+    type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere | remark42
 
 
 #---------------------------
@@ -266,6 +274,7 @@ utterances:
   issue_term: pathname
   label: utterances
   theme: github-light
+  theme_dark: github-dark
   crossorigin: anonymous
 
 # Disqus
@@ -323,9 +332,9 @@ livere:
 
 # Remark42
 # https://remark42.com/
-remakr42:
-  host: 
-  site_id: 
+remark42:
+  host: https://remark.haoyizebo.com
+  site_id: haoyizebo
   max_shown_comments: 10
   locale: zh
 
@@ -350,6 +359,7 @@ category:
   subtitle:  # 打字机内容
   post_limit: 10  # 单个分类中折叠展示文章数的最大值，超过限制会显示 More
   order_by: '-length'  # 排序字段，前面带减号是倒序，不带减号是正序，可选项：name | length
+  collapse_depth: 0  # 层级的折叠深度，0 是全部折叠，大于 0 后如果存在子分类则默认展开
 
 #---------------------------
 # 标签归档页

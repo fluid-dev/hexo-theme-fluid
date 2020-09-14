@@ -18,7 +18,7 @@ if (page.title) {
   <% } %>
   <meta name="theme-color" content="<%- theme.color.navbar_bg_color %>">
   <meta name="description" content="<%= config.description %>">
-  <meta name="author" content="<%= config.author %>">
+  <meta name="author" content="<%= page.author || config.author %>">
   <meta name="keywords" content="<%= config.keywords %>">
   <title><%= title %></title>
 

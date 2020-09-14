@@ -35,7 +35,7 @@ internal_img: /img
 
 # 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
 # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. Detail: https://hexo.fluid-dev.com/docs/en/icon/
-iconfont: //at.alicdn.com/t/font_1736178_pjno9b9zyxs.css
+iconfont: //at.alicdn.com/t/font_1736178_kmeydafke9r.css
 
 anchor: https://cdn.staticfile.org/anchor-js/4.2.2/
 
@@ -46,6 +46,8 @@ jquery: https://cdn.staticfile.org/jquery/3.4.1/
 bootstrap: https://cdn.staticfile.org/twitter-bootstrap/4.4.1/
 
 highlightjs: https://cdn.staticfile.org/highlight.js/10.0.0/
+
+prismjs: https://cdn.staticfile.org/prism/1.21.0/
 
 tocbot: https://cdn.staticfile.org/tocbot/4.11.1/
 
