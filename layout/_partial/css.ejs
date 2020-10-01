@@ -25,8 +25,9 @@
     <% } %>
   <% } %>
 
-  <% if(theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
-    <%- css_ex(theme.static_prefix.gitalk, 'gitalk.css') %>
+  <% if(page.comments && theme.post.comments.enable && theme.post.comments.type === 'gitalk' &&
+    theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
+    <%- css_ex(theme.static_prefix.internal_css, 'gitalk.css') %>
   <% } %>
 <% } %>
 
