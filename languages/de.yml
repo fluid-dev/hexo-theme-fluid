@@ -1,0 +1,44 @@
+search:
+  title: Suchen
+  keyword: Stichwort
+  status:
+    success: v
+    error: x
+
+postTotal: Insgesamt %d Artikel.
+
+paginator:
+  pre: Vorheriger
+  next: Nächster
+
+post:
+  toc: TOC
+  pre: Vorheriger
+  next: Nächster
+
+home:
+  title: Startseite
+
+archive:
+  title: Archiv
+  subtitle: Archiv
+
+tag:
+  title: Etiketten
+  subtitle: Etiketten
+
+category:
+  title: Kategorie
+  subtitle: Kategorie
+
+about:
+  title: Über mich
+  subtitle: Über mich
+
+page404:
+  title: Die Seite wurde nicht gefunden
+  subtitle: Die Seite wurde nicht gefunden
+
+links:
+  title: Weblinks
+  subtitle: Weblinks
