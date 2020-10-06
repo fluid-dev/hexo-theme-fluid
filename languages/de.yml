@@ -12,7 +12,7 @@ paginator:
   next: Nächster
 
 post:
-  toc:TOC
+  toc: TOC
   pre: Vorheriger
   next: Nächster
 
