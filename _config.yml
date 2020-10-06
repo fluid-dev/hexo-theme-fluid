@@ -158,12 +158,16 @@ banner_parallax: true  # 头图滚动视差
 # Footer
 #---------------------------
 footer:
+  content: '
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+  '  # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   statistics:  # 展示网站的 PV、UV 统计数
     enable: false
     source: "busuanzi"  # 统计数据来源，可选：busuanzi | leancloud，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
     pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
     uv_format: "总访客数 {} 人"
-
   beian:  # The footer of China's website policy, other areas keep disable
     enable: false
     icp_text: 京ICP证123456号 # ICP证号
