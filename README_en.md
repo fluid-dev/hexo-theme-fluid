@@ -44,12 +44,6 @@ If you don't have a hexo blog, please follow [Hexo Docs](https://hexo.io/docs/) 
 
 **Way A:**
 
-Please download the [latest release](https://github.com/fluid-dev/hexo-theme-fluid/releases) first, or the master branch can't guarantee stability.
-
-After downloading, extract it to the themes directory and rename it to `fluid`.
-
-**Way B:**
-
 If your Hexo version >= 5.0.0, you can be installed through npm:
 
 ```sh
@@ -57,6 +51,10 @@ npm install --save hexo-theme-fluid
 ```
 
 Then create `_config.fluid.yml` in the blog directory and copy the content of [_config.yml](https://github.com/fluid-dev/hexo-theme-fluid/blob/release/_config.yml)
+
+**Way B:**
+
+Download the [latest release](https://github.com/fluid-dev/hexo-theme-fluid/releases), then extract it to `themes` directory and renamed to `fluid`.
 
 #### 3. Set theme
 
