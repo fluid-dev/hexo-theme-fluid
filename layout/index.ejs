@@ -19,6 +19,9 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
     <% } %>
     <article class="col-12 col-md-<%= index_img ? '8' : '12' %> mx-auto index-info">
       <h1 class="index-header">
+        <% if (theme.index.post_sticky && theme.index.post_sticky.enable && post.sticky > 0) { %>
+          <i class="index-pin <%= theme.index.post_sticky && theme.index.post_sticky.icon %>" title="Pin on top"></i>
+        <% } %>
         <a href="<%- post_url %>"><%= post.title %></a>
       </h1>
 

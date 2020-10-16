@@ -197,6 +197,9 @@ index:
     date: true
     category: true
     tag: true
+  post_sticky:  # 文章通过 sticky 排序后，在首页文章标题前显示图标
+    enable: true
+    icon: 'iconfont icon-top'
 
 # 通过 hexo new page 命令创建的页面
 # Custom Page
