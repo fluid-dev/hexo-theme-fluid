@@ -10,11 +10,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [8.x, 14.x]
 
     steps:
       - name: Checkout Branch
@@ -24,8 +20,6 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
 
       - name: Install Node Modules
         run: |

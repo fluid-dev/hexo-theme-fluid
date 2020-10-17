@@ -25,13 +25,14 @@
     <% } %>
   <% } %>
 
-  <% if(theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
-    <%- css_ex(theme.static_prefix.gitalk, 'gitalk.css') %>
+  <% if(page.comments && theme.post.comments.enable && theme.post.comments.type === 'gitalk' &&
+    theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
+    <%- css_ex(theme.static_prefix.internal_css, 'gitalk.css') %>
   <% } %>
 <% } %>
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<%- css('//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css') %>
+<%- css('//at.alicdn.com/t/font_1749284_ba1fz6golrf.css') %>
 
 <%- css(theme.static_prefix.iconfont) %>
 

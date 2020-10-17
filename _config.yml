@@ -43,9 +43,6 @@ fun_features: # 一些好玩的功能
     placement: right # icon放置的位置： left | right
     visible: hover # 默认悬浮显示，可选：hover（鼠标在元素上悬浮时显示） | always（一直显示） | touch（移动端触摸显示）
     icon: "" # 可选：§ | # | ❡ 等，留空则为默认效果
-  mouse_click:  # 鼠标点击动效
-    enable: false
-    style: values # 目前设置两个值：values（价值观词汇） | love（爱心）
 
 dark_mode:   # 主题暗色模式，开启后菜单中会出现切换按钮，用户浏览器会存储切换选项，并且会遵循 prefers-color-scheme 自动切换
   enable: true
@@ -103,20 +100,6 @@ lazyload: # 对页面中的图片进行懒加载处理，可见范围外的图�
   enable: true
   onlypost: false  # 仅在文章页使用懒加载，开启后如果自定义页面需要使用，可以在 Front-matter 里指定 `lazyload: true`
 
-daovoice:  # 在线客服 Daovoice 参考：http://dashboard.daovoice.io
-  enable: false # 是否开启在线客服聊天
-  appid: ''  # 应用 ID 设置
-
-aplayer:  # 音乐播放器，注意不能与 hexo-tag-aplayer 插件共用
-  enable: false
-  autoplay: false  # 音频自动播放
-  loop: 'all'  # 音频循环播放, 可选值: 'all', 'one', 'none'
-  order: 'random'  # 播放顺序，可选值: 'list', 'random'
-  theme: '#b7daff'  # 主题色
-  songs:  # 歌曲列表，必须传入下列各参数，其中 url 与 cover 在本地需存于 source 目录，更多参数见文档：https://aplayer.js.org/#/zh-Hans/?id=%E5%8F%82%E6%95%B0
-    - { name: 'name', artist: 'artist', url: '/songs/test.mp3', cover: '/img/cover.jpg' }
-    - { name: 'name', artist: 'artist', url: 'https://...url.mp3', cover: 'https://...cover.jpg' }
-
 version:  # 主题版本相关
   check: true  # 每次生成页面后，检测主题是否为最新版本
 
@@ -158,12 +141,16 @@ banner_parallax: true  # 头图滚动视差
 # Footer
 #---------------------------
 footer:
+  content: '
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+  '  # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   statistics:  # 展示网站的 PV、UV 统计数
     enable: false
     source: "busuanzi"  # 统计数据来源，可选：busuanzi | leancloud，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
     pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
     uv_format: "总访客数 {} 人"
-
   beian:  # The footer of China's website policy, other areas keep disable
     enable: false
     icp_text: 京ICP证123456号 # ICP证号
@@ -193,6 +180,9 @@ index:
     date: true
     category: true
     tag: true
+  post_sticky:  # 文章通过 sticky 排序后，在首页文章标题前显示图标
+    enable: true
+    icon: 'iconfont icon-top'
 
 # 通过 hexo new page 命令创建的页面
 # Custom Page
@@ -418,6 +408,12 @@ links:
   subtitle:  # 打字机内容
   items:  # intro 与 image 可省略
     - {
+      title: 'Fluid Blog',
+      intro: '主题博客',
+      link: 'https://hexo.fluid-dev.com/',
+      image: '/img/favicon.png'
+    }
+    - {
       title: 'Fluid Docs',
       intro: '主题使用指南',
       link: 'https://hexo.fluid-dev.com/docs/',
@@ -429,9 +425,64 @@ links:
       link: 'https://github.com/fluid-dev/hexo-theme-fluid',
       image: '/img/favicon.png'
     }
-    - {
-      title: 'Fluid Example',
-      intro: '主题操作示例',
-      link: 'https://hexo.fluid-dev.com/docs/example/',
-      image: '/img/favicon.png'
-    }
+
+
+#---------------------------
+# 以下是配置 JS CSS 静态资源的 URL 前缀，可以自定义成 CDN 地址，
+# 默认的 staticfile CDN 可能在部分地区无法访问，如果需要修改，最好使用与默认配置相同的版本，以避免潜在的问题，
+# 在站点上启用 https 时，请使用 CDN 地址的 https 协议，
+# ** 如果你不知道如何设置，请不要做任何改动 **
+#
+# Here is the url prefix to configure JS and CSS static assets. Set CDN addresses you want to customize.
+# Be aware that you would better use the same version as default ones to avoid potential problems.
+# Use the https protocol of CDN url when you enable https on your site.
+# DO NOT EDIT THE FOLLOWING SETTINGS UNLESS YOU KNOW WHAT YOU ARE DOING
+#---------------------------
+
+static_prefix:
+  # 内部静态 Internal static
+  internal_js: /js
+  internal_css: /css
+  internal_img: /img
+
+  # 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
+  # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. Detail: https://hexo.fluid-dev.com/docs/en/icon/
+  iconfont: //at.alicdn.com/t/font_1736178_kmeydafke9r.css
+
+  anchor: https://cdn.staticfile.org/anchor-js/4.2.2/
+
+  github_markdown: https://cdn.staticfile.org/github-markdown-css/4.0.0/
+
+  jquery: https://cdn.staticfile.org/jquery/3.4.1/
+
+  bootstrap: https://cdn.staticfile.org/twitter-bootstrap/4.4.1/
+
+  highlightjs: https://cdn.staticfile.org/highlight.js/10.0.0/
+
+  prismjs: https://cdn.staticfile.org/prism/1.21.0/
+
+  tocbot: https://cdn.staticfile.org/tocbot/4.11.1/
+
+  typed: https://cdn.staticfile.org/typed.js/2.0.11/
+
+  fancybox: https://cdn.staticfile.org/fancybox/3.5.7/
+
+  mathjax: https://cdn.staticfile.org/mathjax/3.0.5/es5/
+
+  katex: https://cdn.staticfile.org/KaTeX/0.11.1/
+
+  busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
+
+  clipboard: https://cdn.staticfile.org/clipboard.js/2.0.6/
+
+  mermaid: https://cdn.staticfile.org/mermaid/8.5.0/
+
+  valine: https://cdn.staticfile.org/valine/1.4.14/
+
+  gitalk: https://cdn.staticfile.org/gitalk/1.6.2/
+
+  blueimp_md5: https://cdn.staticfile.org/blueimp-md5/2.13.0/
+
+  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
+
+  hint: /lib/hint/

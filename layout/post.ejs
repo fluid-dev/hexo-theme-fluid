@@ -53,7 +53,7 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
               <% if(theme.post.prev_next.enable && !page.hide) { %>
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
-                    <% const prev = prev_page(page) %>
+                    <% const prev = prev_post(page) %>
                     <% if (prev) { %>
                       <a href="<%= url_for(prev.path) %>">
                         <i class="iconfont icon-arrowleft"></i>
@@ -63,7 +63,7 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
                     <% } %>
                   </article>
                   <article class="post-next col-6">
-                    <% const next = next_page(page) %>
+                    <% const next = next_post(page) %>
                     <% if (next) { %>
                       <a href="<%= url_for(next.path) %>">
                         <span class="hidden-mobile"><%- next.title %></span>
