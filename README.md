@@ -25,7 +25,7 @@
 
 <p align="center">
   <span>文档：</span>
-  <a href="https://hexo.fluid-dev.com/docs/">用户手册</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.fluid-dev.com/docs/guide/">主题配置</a>&nbsp&nbsp&nbsp&nbsp
   <a href="https://hexo.io/zh-cn/docs/front-matter">文章配置</a>
 </p>
 
@@ -72,14 +72,14 @@ language: zh-CN  # 指定语言，会影响主题显示的语言，按需修改
 首次使用主题的「关于页」需要手动创建：
 
 ```bash
-$ hexo new page about
+hexo new page about
 ```
 
 创建成功后，编辑博客目录下 `/source/about/index.md`，添加 `layout` 属性。
 
 修改后的文件示例如下：
 
-```yml
+```yaml
 ---
 title: about
 date: 2020-02-23 19:20:33
@@ -89,11 +89,9 @@ layout: about
 这里写关于页的正文，支持 Markdown, HTML
 ```
 
-## 升级主题
+## 更新主题
 
-首先强烈建议学习使用[覆盖配置](https://hexo.fluid-dev.com/docs/guide/#%E8%A6%86%E7%9B%96%E9%85%8D%E7%BD%AE)
-
-然后升级步骤[参照这里](https://hexo.fluid-dev.com/docs/example/#%E6%9B%B4%E6%96%B0%E4%B8%BB%E9%A2%98)
+更新主题的方式[参照这里](https://hexo.fluid-dev.com/docs/start/#更新主题)。
 
 ## 功能特性
 
@@ -110,7 +108,6 @@ layout: about
 - [x] 支持脚注语法
 - [x] 支持 LaTeX 数学公式
 - [x] 支持 mermaid 流程图
-- [x] 音乐播放器
 - [x] 暗色模式
 
 ## 贡献者

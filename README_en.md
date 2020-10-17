@@ -24,7 +24,7 @@
 
 <p align="center">
   <span>Docs：</span>
-  <a href="https://hexo.fluid-dev.com/docs/en/">Documents</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.fluid-dev.com/docs/en/guide/">Theme-Guide</a>&nbsp&nbsp&nbsp&nbsp
   <a href="https://hexo.io/docs/front-matter">Post-Guide</a>
 </p>
 
@@ -44,7 +44,7 @@ If you don't have a hexo blog, please follow [Hexo Docs](https://hexo.io/docs/) 
 
 **Way A:**
 
-If your Hexo version >= 5.0.0, you can be installed through npm:
+If your Hexo version >= 5.0.0, you can be installed via Npm:
 
 ```sh
 npm install --save hexo-theme-fluid
@@ -69,7 +69,7 @@ theme: fluid
 The about page needs to be created manually:
 
 ```bash
-$ hexo new page about
+hexo new page about
 ```
 
 Then edit `/source/about/index.md` and add `layout` attribute.
@@ -88,7 +88,7 @@ About content
 
 ## How to Upgrade
 
-[Please follow here](https://hexo.fluid-dev.com/docs/en/example/#theme-upgrading)
+[Please follow here](https://hexo.fluid-dev.com/docs/en/start/#theme-upgrade)
 
 ## Features
 
@@ -104,7 +104,6 @@ About content
 - [x] Support for footnote
 - [x] Support for LaTeX
 - [x] Support for mermaid
-- [x] Music player
 - [x] Dark mode
 
 ## Contributors

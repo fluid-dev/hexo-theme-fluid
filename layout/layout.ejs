@@ -76,12 +76,6 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
     <%- partial('_partial/search') %>
   <% } %>
 
-  <% if (theme.aplayer && theme.aplayer.enable && theme.aplayer.songs) { %>
-    <!-- APlayer 音乐播放器 -->
-    <div id="aplayer"></div>
-    <%- partial('_partial/plugins/aplayer.ejs') %>
-  <% } %>
-
   <% if (theme.custom_html) { %>
     <div class="col-lg-7 mx-auto nopadding-md">
       <div class="container custom mx-auto">
