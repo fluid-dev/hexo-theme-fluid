@@ -5,21 +5,6 @@ page.subtitle = theme.archive.subtitle || __('archive.subtitle')
 page.banner_img = theme.archive.banner_img
 page.banner_img_height = theme.archive.banner_img_height
 page.banner_mask_alpha = theme.archive.banner_mask_alpha
-var date_cursor = 'xxx'
 %>
 
-<div class="list-group">
-  <p class="h4"><%= __('postTotal', site.posts.length) %></p>
-  <hr>
-  <% page.posts.each(function (post) { %>
-    <% if(date(post.date, "YYYY") != date_cursor) { %>
-      <% date_cursor = date(post.date, "YYYY") %>
-      <p class="h5"><%= date_cursor %></p>
-    <% } %>
-    <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
-      <span class="archive-post-title"><%= post.title %></span>
-      <time style="float: right;"><%- date(post.date, "MM-DD") %></time>
-    </a>
-  <% }) %>
-</div>
-<%- partial('_partial/paginator') %>
+<%- partial('_partial/archive-list.ejs', { params: { postTotal: site.posts.length } }) %>

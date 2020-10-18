@@ -7,21 +7,6 @@ page.banner_img_height = theme.category.banner_img_height
 page.banner_mask_alpha = theme.category.banner_mask_alpha
 
 var cat = site.categories.find({name: page.category}).filter(cat => cat.length).data[0]
-var date_cursor = 'xxx'
 %>
 
-<div class="list-group">
-  <p class="h4"><%= __('postTotal', cat ? cat.posts.length : 0) %></p>
-  <hr>
-  <% page.posts.each(function (post) { %>
-    <% if(date(post.date, "YYYY") != date_cursor) { %>
-      <% date_cursor = date(post.date, "YYYY") %>
-      <p class="h5"><%= date_cursor %></p>
-    <% } %>
-    <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
-      <span class="archive-post-title"><%= post.title %></span>
-      <time style="float: right;"><%- date(post.date, "MM-DD") %></time>
-    </a>
-  <% }) %>
-</div>
-<%- partial('_partial/paginator') %>
+<%- partial('_partial/archive-list.ejs', { params: { postTotal: cat ? cat.posts.length : 0 } }) %>

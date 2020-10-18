@@ -64,27 +64,27 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
         </div>
       </div>
     <% } %>
+
+    <% if (theme.scroll_top_arrow.enable) { %>
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    <% } %>
+
+    <% if (theme.search.enable) { %>
+      <%- partial('_partial/search') %>
+    <% } %>
+
+    <% if (theme.custom_html) { %>
+      <div class="col-lg-7 mx-auto nopadding-md">
+        <div class="container custom mx-auto">
+          <%- theme.custom_html %>
+        </div>
+      </div>
+    <% } %>
   </main>
 
-  <% if (theme.scroll_top_arrow.enable) { %>
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  <% } %>
-
-  <% if (theme.search.enable) { %>
-    <%- partial('_partial/search') %>
-  <% } %>
-
-  <% if (theme.custom_html) { %>
-    <div class="col-lg-7 mx-auto nopadding-md">
-      <div class="container custom mx-auto">
-        <%- theme.custom_html %>
-      </div>
-    </div>
-  <% } %>
-
-  <%- partial('_partial/footer', { data: { 'subtitle': subtitle } }) %>
+  <%- partial('_partial/footer', { params: { subtitle: subtitle } }) %>
 
 </body>
 </html>
