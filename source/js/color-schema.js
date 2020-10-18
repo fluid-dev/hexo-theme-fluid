@@ -199,6 +199,7 @@
   var oldLoadCs = window.onload;
   window.onload = function() {
     oldLoadCs && oldLoadCs();
+    applyCustomColorSchemaSettings();
     var button = document.getElementById(colorToggleButtonName);
     if (button) {
       // 当用户点击切换按钮时，获得新的显示模式、写入 localStorage、并在页面上生效

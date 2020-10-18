@@ -43,6 +43,11 @@ fun_features: # 一些好玩的功能
     placement: right # icon放置的位置： left | right
     visible: hover # 默认悬浮显示，可选：hover（鼠标在元素上悬浮时显示） | always（一直显示） | touch（移动端触摸显示）
     icon: "" # 可选：§ | # | ❡ 等，留空则为默认效果
+  progressbar:  # 加载进度条
+    enable: true
+    height_px: 3
+    color: "#29d"
+    options: { showSpinner: false }  # 参数详见 https://github.com/rstacruz/nprogress
 
 dark_mode:   # 主题暗色模式，开启后菜单中会出现切换按钮，用户浏览器会存储切换选项，并且会遵循 prefers-color-scheme 自动切换
   enable: true
@@ -466,6 +471,8 @@ static_prefix:
   typed: https://cdn.staticfile.org/typed.js/2.0.11/
 
   fancybox: https://cdn.staticfile.org/fancybox/3.5.7/
+
+  nprogress: https://cdn.staticfile.org/nprogress/0.2.0/
 
   mathjax: https://cdn.staticfile.org/mathjax/3.0.5/es5/
 

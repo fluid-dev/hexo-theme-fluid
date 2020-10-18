@@ -1,0 +1,15 @@
+<% if (theme.fun_features.progressbar && theme.fun_features.progressbar.enable){ %>
+  <%- js_ex(theme.static_prefix.nprogress, 'nprogress.min.js') %>
+  <%- css_ex(theme.static_prefix.nprogress, 'nprogress.min.css') %>
+
+  <script>
+    NProgress.configure(<%- JSON.stringify(theme.fun_features.progressbar.options || '{}') %>)
+    NProgress.start()
+
+    var oldLoadNp = window.onload;
+    window.onload = function () {
+      oldLoadNp && oldLoadNp();
+      NProgress.done();
+    }
+  </script>
+<% } %>

@@ -8,7 +8,7 @@
 
 <p align="center">
   <a title="Hexo Version" target="_blank" href="https://hexo.io"><img alt="Hexo Version" src="https://img.shields.io/badge/Hexo-%3E%3D%203.0-orange?style=flat"></a>
-  <a title="Node Version" target="_blank" href="https://nodejs.org"><img alt="Node Version" src="https://img.shields.io/badge/Node-%3E%3D%208.1.0-yellowgreen?style=flat"></a>
+  <a title="Node Version" target="_blank" href="https://nodejs.org"><img alt="Node Version" src="https://img.shields.io/badge/Node-%3E%3D%208.10.0-yellowgreen?style=flat"></a>
   <a title="License" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
   <br>
   <a title="GitHub Release" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid?style=flat"></a>
@@ -30,7 +30,7 @@
 
 <p align="center">
   <span>Preview: </span>
-  <a href="https://hexo.fluid-dev.com/">demo</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.fluid-dev.com/">Fluid's blog</a>&nbsp&nbsp&nbsp&nbsp
   <a href="https://zkqiang.cn">zkqiang's blog</a>
 </p>
 
@@ -40,17 +40,17 @@
 
 If you don't have a hexo blog, please follow [Hexo Docs](https://hexo.io/docs/) to install and initialize your blog。
 
-#### 2. Download Fluid
+#### 2. Install Fluid
 
 **Way A:**
 
-If your Hexo version >= 5.0.0, you can be installed via Npm:
+If your Hexo version >= 5.0.0, you can install Fluid via Npm:
 
 ```sh
 npm install --save hexo-theme-fluid
 ```
 
-Then create `_config.fluid.yml` in the blog directory and copy the content of [_config.yml](https://github.com/fluid-dev/hexo-theme-fluid/blob/release/_config.yml)
+Then create `_config.fluid.yml` in the blog directory and copy the content of [_config.yml](https://github.com/fluid-dev/hexo-theme-fluid/blob/release/_config.yml).
 
 **Way B:**
 

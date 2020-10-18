@@ -20,7 +20,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
           <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+            <span class="h2" id="subtitle" title="<%- subtitle %>">
               <% if(theme.fun_features.typing.enable == false) { %>
                 <%- subtitle %>
               <% } %>
@@ -56,7 +56,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
           <% } %>
           <div class="container">
             <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+              <div class="col-12 col-md-10 m-auto" id="page-body">
                 <%- body %>
               </div>
             </div>
