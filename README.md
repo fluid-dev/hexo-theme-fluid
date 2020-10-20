@@ -25,7 +25,7 @@
 
 <p align="center">
   <span>文档：</span>
-  <a href="https://hexo.fluid-dev.com/docs/guide/">主题配置</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.fluid-dev.com/docs/zh/guide/">主题配置</a>&nbsp&nbsp&nbsp&nbsp
   <a href="https://hexo.io/zh-cn/docs/front-matter">文章配置</a>
 </p>
 
@@ -91,7 +91,7 @@ layout: about
 
 ## 更新主题
 
-更新主题的方式[参照这里](https://hexo.fluid-dev.com/docs/start/#更新主题)。
+更新主题的方式[参照这里](https://hexo.fluid-dev.com/docs/zh/start/#更新主题)。
 
 ## 功能特性
 
@@ -118,7 +118,7 @@ layout: about
 
 其他贡献：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
 
-如你也想贡献代码，可参照[贡献指南](https://hexo.fluid-dev.com/docs/contribute/)
+如你也想贡献代码，可参照[贡献指南](https://hexo.fluid-dev.com/docs/zh/contribute/)
 
 ## 社区
 
