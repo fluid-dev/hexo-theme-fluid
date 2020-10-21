@@ -1,6 +1,6 @@
 #---------------------------
-# Hexo Fluid
-# Author: Fluid-dev organization
+# Hexo Theme Fluid
+# Author: Fluid-dev
 # Github: https://github.com/fluid-dev/hexo-theme-fluid
 #
 # Docs：https://hexo.fluid-dev.com/docs/guide/
@@ -348,6 +348,7 @@ archive:
 # Categories Page
 #---------------------------
 category:
+  enable: true
   banner_img: /img/default.png
   banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
@@ -361,6 +362,7 @@ category:
 # Tags Page
 #---------------------------
 tag:
+  enable: true
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
@@ -378,6 +380,7 @@ tag:
 # About Page
 #---------------------------
 about:  # 关于页需要手动创建，具体请见：https://hexo.fluid-dev.com/docs/guide/#%E5%85%B3%E4%BA%8E%E9%A1%B5
+  enable: true
   banner_img: /img/default.png
   banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
@@ -396,6 +399,7 @@ about:  # 关于页需要手动创建，具体请见：https://hexo.fluid-dev.co
 # 404 Page
 #---------------------------
 page404:
+  enable: true
   banner_img: /img/default.png
   banner_img_height: 85  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
@@ -407,6 +411,7 @@ page404:
 # Links Page
 #---------------------------
 links:
+  enable: true
   banner_img: /img/default.png
   banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
