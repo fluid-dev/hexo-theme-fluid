@@ -178,6 +178,11 @@ index:
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
     text: 'An elegant Material-Design theme for Hexo'  # 为空则按 hexo config.subtitle 显示
+    api:  # 通过 API 接口作为首页副标题的内容，如果请求失败则按 text 字段显示
+      enable: false
+      url: ''  # 请求地址
+      method: 'GET'  # 请求方法，available: GET | POST
+      keys: []  # 从请求结果获取字符串的取值字段，最终必须是一个字符串，例如返回结果为 {"data": {"author": "fluid", "content": "An elegant theme"}}, 则取值字段为 ['data', 'content']；如果返回是列表则自动选择第一项
   auto_excerpt:
     enable: true
   post_url_target: _self  # available: _blank | _self

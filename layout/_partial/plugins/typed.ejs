@@ -1,20 +1,55 @@
 <% if(theme.fun_features.typing.enable && page.subtitle !== false){ %>
-  <%- js_ex(theme.static_prefix.typed, "/typed.min.js") %>
+  <%- js_ex(theme.static_prefix.typed, '/typed.min.js') %>
   <script>
-    var title = document.getElementById('subtitle').title;
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        title + '&nbsp;',
-      ],
-      cursorChar: "<%- theme.fun_features.typing.cursorChar %>",
-      typeSpeed: <%- theme.fun_features.typing.typeSpeed %>,
-      loop: <%- theme.fun_features.typing.loop %>,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
+    (function (window, document) {
+      function typing(text) {
+        var typed = new Typed('#subtitle', {
+          strings: [
+            '  ',
+            text + '&nbsp;',
+          ],
+          cursorChar: '<%= theme.fun_features.typing.cursorChar %>',
+          typeSpeed: <%- theme.fun_features.typing.typeSpeed %>,
+          loop: <%= theme.fun_features.typing.loop %>,
+        });
+        typed.stop();
+        $(document).ready(function () {
+          $('.typed-cursor').addClass('h2');
+          typed.start();
+        });
+      }
+
+      var title = document.getElementById('subtitle').title;
+      <% if (is_home() && theme.index.slogan.api && theme.index.slogan.api.enable) { %>
+      $.ajax({
+        type: '<%= theme.index.slogan.api.method %>',
+        url: '<%= theme.index.slogan.api.url %>',
+        success: function (result) {
+          var text;
+          if (result) {
+            var keys = '<%= theme.index.slogan.api.dataKeys %>'.split('.')
+            if (result instanceof Array) {
+              result = result[0]
+            }
+            for (const k of keys) {
+              var value = result[k]
+              if (typeof value === 'string') {
+                text = value
+                break
+              } else if (value instanceof Object) {
+                result = value
+              }
+            }
+          }
+          text ? typing(text) : typing(title);
+        },
+        error: function () {
+          typing(title)
+        }
+      })
+      <% } else { %>
+      typing(title)
+      <% } %>
+    })(window, document);
   </script>
 <% } %>
