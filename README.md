@@ -125,21 +125,27 @@ layout: about
 微信群：扫描二维码添加好友进交流群
 
 <details>
-    <summary>二维码</summary>
-    <p><b>好友申请备注：fluid</b></p>
-    <p><b>提问之前请先仔细查阅用户文档</b></p>
-    <img width="200" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.png" alt="wechat">
+  <summary>二维码</summary>
+  <p><b>好友申请备注：fluid</b></p>
+  <p><b>提问之前请先仔细查阅用户文档</b></p>
+  <img width="200" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.png" alt="wechat">
 </details>
 
 ## 支持
 
 你可以通过[爱发电](https://afdian.net/@zkqiang)支持我们的开源创作，资金将用于服务器开销以及今后的公共接口服务
 
-<a href="https://afdian.net/@zkqiang">
-  <img width="300" src="https://static.zkqiang.cn/images/20200715113201.png-slim" alt="support me">
+<a title="支持我们" href="https://afdian.net/@zkqiang" target="_blank">
+  <img src="https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/afdian.png?s=300&v=4" width="300" alt="爱发电">
 </a>
 
 其他商业赞助可发送邮件至 zkqiang#126.com (#替换为@)
+
+## 鸣谢
+
+<a title="鸣谢 JetBrains 免费授权开发工具" href="https://www.jetbrains.com/?from=hexo-theme-fluid" target="_blank">
+  <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" width="150" alt="JetBrains">
+</a>
 
 ## Star 趋势
 
