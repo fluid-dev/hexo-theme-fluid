@@ -39,9 +39,9 @@
 <% } else if ( theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key &&
   ((theme.footer.statistics.enable && theme.footer.statistics.source === 'leancloud')
     || (page.meta !== false && theme.post.meta.views.enable && theme.post.meta.views.source === 'leancloud'))) { %>
-  <%- partial('_partial/plugins/leancloud.ejs') %>
+  <%- js_ex(theme.static_prefix.internal_js, 'leancloud.js') %>
 <% } else if (theme.web_analytics.enable && theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key) { %>
-  <%- partial('_partial/plugins/leancloud.ejs') %>
+  <%- js_ex(theme.static_prefix.internal_js, 'leancloud.js') %>
 <% } %>
 
 <% if (theme.custom_js) { %>
