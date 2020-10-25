@@ -1,5 +1,0 @@
-<% if ((is_post() || (is_page() && page.image_zoom)) && theme.post.image_zoom.enable) { %>
-  <%- js_ex(theme.static_prefix.fancybox, 'jquery.fancybox.min.js') %>
-  <%- css_ex(theme.static_prefix.fancybox, 'jquery.fancybox.min.css') %>
-  <%- js_ex(theme.static_prefix.internal_js, 'fancybox-use.js') %>
-<% } %>

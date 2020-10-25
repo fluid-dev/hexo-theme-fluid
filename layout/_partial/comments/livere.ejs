@@ -1,10 +1,9 @@
 <% if(theme.livere.uid){ %>
   <div id="lv-container" data-id="city" data-uid="<%= theme.livere.uid %>">
     <script type="text/javascript">
-      function loadLivere() {
-        addScript('https://cdn-city.livere.com/js/embed.dist.js');
-      }
-      waitElementVisible('lv-container', loadLivere);
+      Fluid.utils.waitElementVisible('lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
     </script>
     <noscript>为正常使用来必力评论功能请允许 JavaScript 运行</noscript>
   </div>

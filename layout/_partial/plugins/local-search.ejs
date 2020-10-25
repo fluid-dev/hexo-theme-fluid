@@ -1,11 +1,13 @@
 <% if(theme.search.enable){ %>
   <%- js_ex(theme.static_prefix.internal_js, "local-search.js") %>
   <script>
-    var path = "<%- url_for(theme.search.path) || '/local-search.xml' %>";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
+    (function () {
+      var path = "<%- url_for(theme.search.path) || '/local-search.xml' %>";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
   </script>
 <% } %>

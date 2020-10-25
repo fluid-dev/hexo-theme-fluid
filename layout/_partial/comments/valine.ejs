@@ -1,8 +1,8 @@
 <% if(theme.valine.appid && theme.valine.appkey){ %>
   <div id="vcomments"></div>
   <script type="text/javascript">
-    function loadValine() {
-      addScript('<%= url_join(theme.static_prefix.valine, 'Valine.min.js') %>', function () {
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.valine, 'Valine.min.js') %>', function () {
         new Valine({
           el: "#vcomments",
           app_id: "<%= theme.valine.appid %>",
@@ -18,9 +18,9 @@
           serverURLs: "<%= theme.valine.serverURLs %>",
         });
       });
-    }
-    waitElementVisible('vcomments', loadValine);
+    });
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
-      powered by Valine.</a></noscript>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" rel="nofollow noopener">comments powered by Valine.</a>
+  </noscript>
 <% } %>

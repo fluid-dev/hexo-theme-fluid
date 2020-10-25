@@ -13,7 +13,11 @@ hexo.extend.helper.register('export_config', function() {
     hostname     : url.parse(config.url).hostname || config.url,
     root         : config.root,
     version      : fluid_version,
-    fancybox     : theme.fancybox,
+    typing       : theme.fun_features.typing,
+    toc          : theme.post.toc,
+    anchorjs     : theme.fun_features.anchorjs,
+    copy_btn     : theme.code.copy_btn,
+    image_zoom   : theme.post.image_zoom,
     lazyload     : theme.lazyload,
     web_analytics: theme.web_analytics
   };

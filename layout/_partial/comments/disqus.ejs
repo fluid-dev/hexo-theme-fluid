@@ -2,16 +2,15 @@
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     <script>
-      function loadDisqus() {
-        addCssLink('<%= url_join(theme.static_prefix.disqusjs, 'disqusjs.css') %>');
-        addScript('<%= url_join(theme.static_prefix.disqusjs, 'disqus.js') %>', function () {
+      Fluid.utils.waitElementVisible('disqus_thread', function() {
+        Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.disqusjs, 'disqusjs.css') %>');
+        Fluid.utils.createScript('<%= url_join(theme.static_prefix.disqusjs, 'disqus.js') %>', function () {
           new DisqusJS({
             shortname: '<%= theme.disqus.shortname %>',
             apikey: '<%= theme.disqus.apikey %>'
           });
         });
-      }
-      waitElementVisible('disqus_thread', loadDisqus);
+      });
     </script>
     <noscript>Please enable JavaScript to view the
       <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a>
@@ -21,20 +20,16 @@
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-      var disqus_config = function () {
+      var disqus_config = function() {
         this.page.url = '<%= page.permalink %>';
         this.page.identifier = '<%= url_for(page.path) %>';
       };
-      function loadDisqus() {
-        (function () {
-          var d = document,
-            s = d.createElement('script');
-          s.src = '//' + '<%- theme.disqus.shortname %>' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      }
-      waitElementVisible('disqus_thread', loadDisqus);
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + '<%- theme.disqus.shortname %>' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
     </script>
     <noscript>Please enable JavaScript to view the
       <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a>

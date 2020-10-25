@@ -25,6 +25,10 @@
     <% } %>
   <% } %>
 
+  <% if ((is_post() || (is_page() && page.image_zoom)) && theme.post.image_zoom.enable) { %>
+    <%- css_ex(theme.static_prefix.fancybox, 'jquery.fancybox.min.css') %>
+  <% } %>
+
   <% if(page.comments && theme.post.comments.enable && theme.post.comments.type === 'gitalk' &&
     theme.gitalk.clientID && theme.gitalk.clientSecret && theme.gitalk.repo){ %>
     <%- css_ex(theme.static_prefix.internal_css, 'gitalk.css') %>
