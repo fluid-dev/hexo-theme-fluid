@@ -295,7 +295,6 @@ gitalk:
   repo:                         # The repo to store comments
   owner:                        # GitHub repository owner. Can be personal user or organization.
   admin: ['name']               # GitHub repo owner and collaborators, only these guys can initialize github issues, should be like ['admin'] or ['admin1','admin2']
-  id: location.pathname         # The unique id of the page. Length must less than 50.
   language: zh-CN               # Localization language key, en, zh-CN and zh-TW are currently available.
   labels: ['Gitalk']            # GitHub issue labels.
   perPage: 10                   # Pagination size, with maximum 100.
@@ -497,8 +496,6 @@ static_prefix:
   valine: https://cdn.staticfile.org/valine/1.4.14/
 
   gitalk: https://cdn.staticfile.org/gitalk/1.6.2/
-
-  blueimp_md5: https://cdn.staticfile.org/blueimp-md5/2.13.0/
 
   disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
 
