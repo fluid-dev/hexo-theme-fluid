@@ -50,7 +50,7 @@ If your Hexo version >= 5.0.0, you can install Fluid via Npm:
 npm install --save hexo-theme-fluid
 ```
 
-Then create `_config.fluid.yml` in the blog directory and copy the content of [_config.yml](https://github.com/fluid-dev/hexo-theme-fluid/blob/release/_config.yml).
+Then create `_config.fluid.yml` in the blog directory and copy the content of [_config.yml](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml).
 
 **Way B:**
 
