@@ -6,9 +6,7 @@
     NProgress.configure(<%- JSON.stringify(theme.fun_features.progressbar.options || '{}') %>)
     NProgress.start()
     document.addEventListener('DOMContentLoaded', function() {
-      if (NProgress <= 0.66) {
-        NProgress.set(0.66);
-      }
+      window.NProgress && window.NProgress.inc();
     })
     window.addEventListener('load', function() {
       NProgress.done();

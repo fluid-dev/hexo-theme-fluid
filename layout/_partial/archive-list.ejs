@@ -3,7 +3,7 @@
   <hr>
   <% var dateCursor %>
   <% page.posts.each(function (post) { %>
-    <% if(date(post.date, "YYYY") != dateCursor) { %>
+    <% if(date(post.date, "YYYY") !== dateCursor) { %>
       <% dateCursor = date(post.date, "YYYY") %>
       <p class="h5"><%= dateCursor %></p>
     <% } %>

@@ -13,14 +13,14 @@ module.exports = (hexo) => {
       if (page.layout !== 'post' && !page.lazyload) {
         return;
       }
-      if (page.lazyload !== false && page.lazyload !== 'false') {
+      if (page.lazyload !== false) {
         page.content = lazyProcess(page.content, loadingImage);
       }
       return page;
     });
   } else {
     hexo.extend.filter.register('after_render:html', function(str, data) {
-      if (data.page.lazyload !== false && data.page.lazyload !== 'false') {
+      if (data.page.lazyload !== false) {
         return lazyProcess(str, loadingImage);
       }
     });

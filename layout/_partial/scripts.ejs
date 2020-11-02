@@ -29,7 +29,7 @@
   <% } %>
 <% } %>
 
-<% if(is_post() && theme.post.toc.enable && page.toc != false) { %>
+<% if(is_post() && theme.post.toc.enable && page.toc !== false) { %>
   <%- js_ex(theme.static_prefix.tocbot, 'tocbot.min.js') %>
 <% } %>
 
@@ -51,9 +51,9 @@
 <% } else if ( theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key &&
   ((theme.footer.statistics.enable && theme.footer.statistics.source === 'leancloud')
     || (page.meta !== false && theme.post.meta.views.enable && theme.post.meta.views.source === 'leancloud'))) { %>
-  <%- js_ex(theme.static_prefix.internal_js, 'leancloud.js') %>
+  <%- js_ex(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
 <% } else if (theme.web_analytics.enable && theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key) { %>
-  <%- js_ex(theme.static_prefix.internal_js, 'leancloud.js') %>
+  <%- js_ex(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
 <% } %>
 
 <%- partial('_partial/plugins/typed.ejs') %>

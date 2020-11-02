@@ -2,6 +2,7 @@
   <div id="gitalk-container"></div>
   <script type="text/javascript">
     Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.internal_css, 'gitalk.css') %>')
       Fluid.utils.createScript('<%= url_join(theme.static_prefix.gitalk, 'gitalk.min.js') %>', function () {
         var gitalk = new Gitalk({
           clientID: '<%= theme.gitalk.clientID %>',

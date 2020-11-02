@@ -20,9 +20,5 @@ document.addEventListener('DOMContentLoaded', function() {
   Fluid.boot.registerEvents();
   Fluid.boot.refresh();
 
-  if (window.NProgress) {
-    if (window.NProgress <= 0.33) {
-      window.NProgress.set(0.33);
-    }
-  }
+  window.NProgress && window.NProgress.inc();
 });

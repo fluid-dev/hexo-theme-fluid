@@ -2,32 +2,18 @@
   <%- js_ex(theme.static_prefix.typed, '/typed.min.js') %>
   <script>
     (function (window, document) {
-      function typing(text) {
-        var typed = new Typed('#subtitle', {
-          strings: [
-            '  ',
-            text + '&nbsp;',
-          ],
-          cursorChar: '<%= theme.fun_features.typing.cursorChar %>',
-          typeSpeed: <%- theme.fun_features.typing.typeSpeed %>,
-          loop: <%= theme.fun_features.typing.loop %>,
-        });
-        typed.stop();
-        $(document).ready(function () {
-          $('.typed-cursor').addClass('h2');
-          typed.start();
-        });
-      }
-
+      var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       <% if (is_home() && theme.index.slogan.api && theme.index.slogan.api.enable) { %>
       $.ajax({
         type: '<%= theme.index.slogan.api.method %>',
         url: '<%= theme.index.slogan.api.url %>',
+        headers: <%- JSON.stringify(theme.index.slogan.api.headers || {}) %>,
+        dataType: 'json',
         success: function (result) {
           var text;
           if (result) {
-            var keys = '<%= theme.index.slogan.api.dataKeys %>'.split('.')
+            var keys = '<%= theme.index.slogan.api.keys %>'.split('.')
             if (result instanceof Array) {
               result = result[0]
             }
