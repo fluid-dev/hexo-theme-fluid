@@ -592,7 +592,7 @@ post:
   # Comment plugin
   comments:
     enable: false
-    # Options: disqus | valine | gitalk | utterances | changyan | livere | remark42
+    # Options: disqus | valine | gitalk | utterances | changyan | livere | remark42 | twikoo
     type: disqus
 
 
@@ -673,6 +673,10 @@ remark42:
   max_shown_comments: 10
   locale: zh
 
+# twikoo
+# See: https://twikoo.js.org
+twikoo:
+  env_id:
 
 #---------------------------
 # 归档页
@@ -852,5 +856,7 @@ static_prefix:
   gitalk: https://cdn.staticfile.org/gitalk/1.7.0/
 
   disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
+
+  twikoo: https://cdn.jsdelivr.net/npm/twikoo@0.1.15/dist/
 
   hint: /lib/hint/

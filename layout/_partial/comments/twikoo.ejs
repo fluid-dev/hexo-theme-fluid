@@ -1,0 +1,11 @@
+<% if(theme.twikoo && theme.twikoo.env_id){ %>
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('twikoo', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.twikoo, 'twikoo.all.min.js') %>', function () {
+        twikoo.init({ envId: '<%= theme.twikoo.env_id %>' })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+<% } %>
