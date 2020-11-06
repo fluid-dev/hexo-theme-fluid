@@ -10,15 +10,19 @@ module.exports = (hexo) => {
   }
   if (config.lazyload.onlypost) {
     hexo.extend.filter.register('after_post_render', function(page) {
-      if (page.source.search(/^_posts\/.+\.md$/) === -1 && !page.lazyload) {
+      if (page.layout !== 'post' && !page.lazyload) {
         return;
       }
-      page.content = lazyProcess(page.content, loadingImage);
+      if (page.lazyload !== false) {
+        page.content = lazyProcess(page.content, loadingImage);
+      }
       return page;
     });
   } else {
     hexo.extend.filter.register('after_render:html', function(str, data) {
-      return lazyProcess(str, loadingImage);
+      if (data.page.lazyload !== false) {
+        return lazyProcess(str, loadingImage);
+      }
     });
   }
 };

@@ -8,12 +8,12 @@
 
 <p align="center">
   <a title="Hexo Version" target="_blank" href="https://hexo.io"><img alt="Hexo Version" src="https://img.shields.io/badge/Hexo-%3E%3D%203.0-orange?style=flat"></a>
-  <a title="Node Version" target="_blank" href="https://nodejs.org"><img alt="Node Version" src="https://img.shields.io/badge/Node-%3E%3D%208.1.0-yellowgreen?style=flat"></a>
+  <a title="Node Version" target="_blank" href="https://nodejs.org"><img alt="Node Version" src="https://img.shields.io/badge/Node-%3E%3D%208.10.0-yellowgreen?style=flat"></a>
   <a title="License" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>
   <br>
   <a title="GitHub Release" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid?style=flat"></a>
-  <a title="GitHub Commits" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/commits/master"><img alt="GitHub Commits" src="https://img.shields.io/github/commit-activity/m/fluid-dev/hexo-theme-fluid.svg?style=flat&color=brightgreen"></a>
-  <a title="Last Commit" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/commits/master"><img alt="Last Commit" src="https://img.shields.io/github/last-commit/fluid-dev/hexo-theme-fluid/master.svg?style=flat&color=FF9900"></a>
+  <a title="Npm Downloads" target="_blank" href="https://www.npmjs.com/package/hexo-theme-fluid"><img alt="Npm Downloads" src="https://img.shields.io/npm/dt/hexo-theme-fluid?color=red&label=npm"></a>
+  <a title="GitHub Commits" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/commits/master"><img alt="GitHub Commits" src="https://img.shields.io/github/commit-activity/m/fluid-dev/hexo-theme-fluid.svg?style=flat&color=brightgreen&label=commits"></a>
   <br><br>
   <a title="GitHub Watchers" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/watchers"><img alt="GitHub Watchers" src="https://img.shields.io/github/watchers/fluid-dev/hexo-theme-fluid.svg?label=Watchers&style=social"></a>  
   <a title="GitHub Stars" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fluid-dev/hexo-theme-fluid.svg?label=Stars&style=social"></a>  
@@ -30,7 +30,7 @@
 
 <p align="center">
   <span>Preview: </span>
-  <a href="https://hexo.fluid-dev.com/">demo</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.fluid-dev.com/">Fluid's blog</a>&nbsp&nbsp&nbsp&nbsp
   <a href="https://zkqiang.cn">zkqiang's blog</a>
 </p>
 
@@ -40,17 +40,17 @@
 
 If you don't have a hexo blog, please follow [Hexo Docs](https://hexo.io/docs/) to install and initialize your blog。
 
-#### 2. Download Fluid
+#### 2. Install Fluid
 
 **Way A:**
 
-If your Hexo version >= 5.0.0, you can be installed via Npm:
+If your Hexo version >= 5.0.0, you can install Fluid via Npm:
 
 ```sh
 npm install --save hexo-theme-fluid
 ```
 
-Then create `_config.fluid.yml` in the blog directory and copy the content of [_config.yml](https://github.com/fluid-dev/hexo-theme-fluid/blob/release/_config.yml)
+Then create `_config.fluid.yml` in the blog directory and copy the content of [_config.yml](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml).
 
 **Way B:**
 
@@ -113,6 +113,12 @@ About content
 English docs translator：[@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top)
 
 Contributors outside PR：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
+
+## Thanks
+
+<a title="Thanks to JetBrains for providing the license" href="https://www.jetbrains.com/?from=hexo-theme-fluid" target="_blank">
+  <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" width="150" alt="JetBrains">
+</a>
 
 ## Star Trending
 

@@ -39,9 +39,9 @@
   <% if (theme.post.meta.views.enable) { %>
     <% if (theme.post.meta.views.source === 'leancloud') { %>
       <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
         <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <%- views_texts[0] %><span id="leancloud-post-views"></span><%- views_texts[1] %>
+        <%- views_texts[0] %><span id="leancloud-page-views"></span><%- views_texts[1] %>
       </span>
     <% } else if (theme.post.meta.views.source === 'busuanzi')  { %>
       <!-- 不蒜子统计文章PV -->

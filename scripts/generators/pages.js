@@ -8,37 +8,45 @@ const path = require('path');
 // generate 404 page
 if (!fs.existsSync(path.join(hexo.source_dir, '404.html'))) {
   hexo.extend.generator.register('_404', function(locals) {
-    return {
-      path  : '404.html',
-      data  : locals.theme,
-      layout: '404'
-    };
+    if (this.theme.config.page404.enable !== false) {
+      return {
+        path  : '404.html',
+        data  : locals.theme,
+        layout: '404'
+      };
+    }
   });
 }
 
 // generate tags Page
 hexo.extend.generator.register('_tags', function(locals) {
-  return {
-    path  : 'tags/index.html',
-    data  : locals.theme,
-    layout: 'tags'
-  };
+  if (this.theme.config.tag.enable !== false) {
+    return {
+      path  : 'tags/index.html',
+      data  : locals.theme,
+      layout: 'tags'
+    };
+  }
 });
 
 // generate categories Page
 hexo.extend.generator.register('_categories', function(locals) {
-  return {
-    path  : 'categories/index.html',
-    data  : locals.theme,
-    layout: 'categories'
-  };
+  if (this.theme.config.category.enable !== false) {
+    return {
+      path  : 'categories/index.html',
+      data  : locals.theme,
+      layout: 'categories'
+    };
+  }
 });
 
 // generate links page
 hexo.extend.generator.register('_links', function(locals) {
-  return {
-    path  : 'links/index.html',
-    data  : locals.theme,
-    layout: 'links'
-  };
+  if (this.theme.config.links.enable !== false) {
+    return {
+      path  : 'links/index.html',
+      data  : locals.theme,
+      layout: 'links'
+    };
+  }
 });

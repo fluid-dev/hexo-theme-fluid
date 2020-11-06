@@ -1,0 +1,17 @@
+<div class="list-group">
+  <p class="h4"><%= __('postTotal', params.postTotal) %></p>
+  <hr>
+  <% var dateCursor %>
+  <% page.posts.each(function (post) { %>
+    <% if(date(post.date, "YYYY") !== dateCursor) { %>
+      <% dateCursor = date(post.date, "YYYY") %>
+      <p class="h5"><%= dateCursor %></p>
+    <% } %>
+    <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
+      <span class="archive-post-title"><%= post.title %></span>
+      <time style="float: right;"><%- date(post.date, "MM-DD") %></time>
+    </a>
+  <% }) %>
+</div>
+
+<%- partial('_partial/paginator') %>

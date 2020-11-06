@@ -1,21 +1,20 @@
 <% if(theme.changyan.appid){ %>
   <div id="SOHUCS" sid='<%= page.permalink %>'></div>
   <script type="text/javascript">
-    function loadChangyan() {
+    Fluid.utils.waitElementVisible('SOHUCS', function() {
       var appid = '<%= theme.changyan.appid %>';
       var conf = '<%= theme.changyan.appkey %>';
       var width = window.innerWidth || document.documentElement.clientWidth;
       if (width < 960) {
         window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
       } else {
-        addScript("https://changyan.sohu.com/upload/changyan.js", function() {
+        Fluid.utils.createScript("https://changyan.sohu.com/upload/changyan.js", function() {
           window.changyan.api.config({
             appid: appid,
             conf: conf
           })
         });
       }
-    }
-    waitElementVisible('SOHUCS', loadChangyan)
+    })
   </script>
 <% } %>

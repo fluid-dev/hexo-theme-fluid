@@ -1,15 +1,15 @@
-.post-content
+.post-content, post-custom
   box-sizing border-box
   padding-left 10%
   padding-right 10%
 
 @media (max-width: 767px)
-  .post-content
+  .post-content, post-custom
     padding-left 2rem
     padding-right 2rem
 
 @media (max-width: 424px)
-  .post-content
+  .post-content, post-custom
     padding-left 1rem
     padding-right 1rem
 
@@ -17,7 +17,7 @@
     h1, h2, h3, h4, h5, h6
       anchor-offset()
 
-.page-content, post-content
+.page-content, .post-content
   strong
     font-weight bold
 
@@ -132,7 +132,7 @@
   &, & > i
     font-size 1.25rem
 
-#tocbot
+.toc-body
   max-height 100%
   overflow-y auto
   overflow -moz-scrollbars-none
@@ -165,12 +165,20 @@
 
 .tocbot-is-collapsible
   overflow hidden
-  transition all 300ms ease-in-out
+  transition all .3s ease-in-out
 
 @media (max-width: 1024px)
   .toc-container
     padding-left 0
     padding-right 0
+
+.markdown-body .image-caption
+  font-size .8rem
+  color var(--post-text-color)
+  opacity 0.65
+  line-height 1
+  margin -.85rem auto 2rem
+  text-align center
 
 .custom, .comments
   margin-top 2rem
