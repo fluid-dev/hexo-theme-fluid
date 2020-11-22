@@ -599,7 +599,7 @@ post:
   # Comment plugin
   comments:
     enable: false
-    # Options: disqus | valine | gitalk | utterances | changyan | livere | remark42 | twikoo
+    # Options: disqus | valine | gitalk | waline | utterances | changyan | livere | remark42 | twikoo
     type: disqus
 
 
@@ -668,6 +668,24 @@ valine:
   highlight: false
   recordIP: false
   serverURLs:
+
+# Waline
+# 一款从 Valine 衍生的带后端的评论系统
+# A comment system with backend derived from Valine
+# See: https://waline.js.org/
+waline:
+  serverURL: ''
+  placeholder: 说点什么
+  path: window.location.pathname
+  avatar: retro
+  meta: ['nick', 'mail', 'link']
+  pageSize: 10
+  lang: zh-CN
+  highlight: true
+  avatarForce: false
+  requiredFields: []
+  emojiCDN: ''
+  emojiMaps: {}
 
 # 畅言 Changyan
 # 基于第三方的服务
@@ -875,6 +893,8 @@ static_prefix:
   mermaid: https://cdn.staticfile.org/mermaid/8.8.2/
 
   valine: https://cdn.staticfile.org/valine/1.4.14/
+
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.4.2/dist/
 
   gitalk: https://cdn.staticfile.org/gitalk/1.7.0/
 

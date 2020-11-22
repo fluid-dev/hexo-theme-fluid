@@ -1,0 +1,27 @@
+<% if(theme.waline.serverURL){ %>
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('waline', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'Waline.min.js') %>', function () {
+        new Waline({
+          el: "#waline",
+          placeholder: "<%= theme.waline.placeholder %>",
+          path: <%= theme.waline.path %>,
+          avatar: "<%= theme.waline.avatar %>",
+          meta: <%- JSON.stringify(theme.waline.meta || []) %>,
+          pageSize: "<%= theme.waline.pageSize %>",
+          lang: "<%= theme.waline.lang %>",
+          highlight: <%= theme.waline.highlight %>,
+          serverURL: "<%= theme.waline.serverURL %>",
+          avatarForce: <%= theme.waline.avatarForce %>,
+          requiredFields: <%= JSON.stringify(theme.waline.requiredFields || []) %>,
+          emojiCDN: "<%= theme.waline.emojiCDN %>",
+          emojiMaps: <%- JSON.stringify(theme.waline.emojiMaps) %>,
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://waline.js.org" rel="nofollow noopener">comments powered by Waline.</a>
+  </noscript>
+<% } %>
