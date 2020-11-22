@@ -599,7 +599,7 @@ post:
   # Comment plugin
   comments:
     enable: false
-    # Options: disqus | valine | gitalk | utterances | changyan | livere | remark42 | twikoo
+    # Options: disqus | valine | gitalk | utterances | changyan | livere | remark42 | twikoo | waline
     type: disqus
 
 
@@ -700,6 +700,24 @@ remark42:
 # See: https://twikoo.js.org
 twikoo:
   env_id:
+
+# waline
+# 一款从 Valine衍生的带后端评论系统
+# A comment system with backend derived from Valine
+# See: https://waline.js.org/
+waline:
+  serverURL: ''
+  placeholder: 说点什么
+  path: window.location.pathname
+  avatar: retro
+  meta: ['nick', 'mail', 'link']
+  pageSize: 10
+  lang: zh-CN
+  highlight: true
+  avatarForce: false
+  requiredFields: []
+  emojiCDN: ''
+  emojiMaps: null
 
 #---------------------------
 # 归档页
@@ -881,5 +899,7 @@ static_prefix:
   disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
 
   twikoo: https://cdn.jsdelivr.net/npm/twikoo@0.1.15/dist/
+
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.4.2/dist/
 
   hint: /lib/hint/
