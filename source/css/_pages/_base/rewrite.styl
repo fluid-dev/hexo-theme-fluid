@@ -457,3 +457,22 @@ $npColor = theme-config("fun_features.progressbar.color", "#29d")
   z-index 1030
 #remark-km423lmfdslkm34-node
   z-index 1031
+
+// Rewrite mathjax
+mjx-container, .mjx-container
+  overflow-x auto
+  overflow-y hidden !important
+  padding .5em 0
+
+  &:focus, svg:focus
+    outline none
+
+.mjx-char
+  line-height 1
+
+// Rewrite katex
+.katex-block
+  overflow-x auto
+
+.katex, .mjx-mrow
+  white-space pre-wrap !important
