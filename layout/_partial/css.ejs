@@ -23,7 +23,7 @@
         <% } %>
         <%- css_ex(theme.static_prefix.prismjs, `/themes/${ cssName ? 'prism-' + cssName : 'prism' }.min.css`) %>
       <% } %>
-      <% if (theme.code.highlight.prismjs.line_number) { %>
+      <% if (theme.code.highlight.line_number) { %>
         <%- css_ex(theme.static_prefix.prismjs, '/plugins/line-numbers/prism-line-numbers.min.css') %>
       <% } %>
     <% } %>

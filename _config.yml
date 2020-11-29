@@ -49,6 +49,10 @@ code:
     # Options: highlightjs | prismjs
     lib: "highlightjs"
 
+    # 代码块是否显示行号
+    # If true, the code block display line number
+    line_number: true
+
     highlightjs:
       # 在链接中挑选 style 填入
       # Select a style in the link
