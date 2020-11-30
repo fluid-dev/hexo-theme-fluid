@@ -603,7 +603,9 @@ post:
   # Comment plugin
   comments:
     enable: false
-    # Options: disqus | valine | gitalk | waline | utterances | changyan | livere | remark42 | twikoo
+    # 指定的插件，需要同时设置对应插件的必要参数
+    # The specified plugin needs to set the necessary parameters at the same time
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
     type: disqus
 
 
@@ -611,8 +613,8 @@ post:
 # 评论插件
 # Comment plugins
 #
-# 开启评论需要先在上方 `post: comments: enable: true`
-# Enable comments need to be above `post: comments: enable: true`
+# 开启评论需要先设置上方 `post: comments: enable: true`，然后根据 `type` 设置下方对应的评论插件参数
+# Enable comments need to be set `post: comments: enable: true`, then set the corresponding comment plugin parameters below according to `type`
 #---------------------------
 
 # Utterances
@@ -722,6 +724,7 @@ remark42:
 # See: https://twikoo.js.org
 twikoo:
   env_id:
+
 
 #---------------------------
 # 归档页
