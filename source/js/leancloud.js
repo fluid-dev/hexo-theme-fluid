@@ -172,8 +172,10 @@
   } else {
     fetch('https://app-router.leancloud.cn/2/route?appId=' + appId)
       .then(resp => resp.json())
-      .then(({ api_server }) => {
-        fetchData('https://' + api_server);
+      .then((data) => {
+        if (data.api_server) {
+          fetchData('https://' + data.api_server);
+        }
       });
   }
 })(window, document);
