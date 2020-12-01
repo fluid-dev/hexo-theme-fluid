@@ -47,8 +47,6 @@ module.exports = (hexo) => {
           }
           return str;
         });
-        // For color of line number
-        html = html.replace(/<span class="line/gis, '<span class="line hljs-comment');
       }
       return html;
     });
