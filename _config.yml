@@ -402,10 +402,6 @@ index:
   # Available: 0 - 1.0
   banner_mask_alpha: 0.3
 
-  # 默认的文章封面图，当没有指定 index_img 时会使用该图片，若都为空则不显示任何图片
-  # Path of the default post cover when `index_img` is not set. If empty, no image will be displayed
-  post_default_img:
-
   # 首页副标题的独立设置
   # Independent config of home page subtitle
   slogan:
@@ -469,6 +465,10 @@ post:
   banner_img: /img/default.png
   banner_img_height: 70
   banner_mask_alpha: 0.3
+
+  # 文章在首页的默认封面图，当没有指定 index_img 时会使用该图片，若两者都为空则不显示任何图片
+  # Path of the default post cover when `index_img` is not set. If both are empty, no image will be displayed
+  default_index_img:
 
   # 文章标题下方的元信息
   # Meta information below title
