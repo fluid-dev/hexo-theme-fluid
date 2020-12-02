@@ -22,7 +22,7 @@
     <% if (!theme.code.highlight.prismjs.preprocess) { %>
       <%- js_ex(theme.static_prefix.prismjs, 'components/prism-core.min.js') %>
       <%- js_ex(theme.static_prefix.prismjs, 'plugins/autoloader/prism-autoloader.min.js') %>
-      <% if (theme.code.highlight.prismjs.line_number) { %>
+      <% if (theme.code.highlight.line_number) { %>
         <%- js_ex(theme.static_prefix.prismjs, '/plugins/line-numbers/prism-line-numbers.min.js') %>
       <% } %>
     <% } %>

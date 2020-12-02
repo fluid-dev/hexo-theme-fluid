@@ -182,19 +182,18 @@
     font-weight bold
 
   pre
-    position relative
-    overflow visible
+    font-size $code-font-size !important
 
     code
-      font-size $code-font-size
-      display block
       overflow-x auto
-      padding .5rem 0
       line-height 1.5
       border-radius 3px
       tab-size 4
 
-      &.mermaid > svg
+    .mermaid
+      text-align center
+
+      & > svg
         min-width 100%
 
   p > img, p > a > img
@@ -215,13 +214,60 @@
 
 // Rewrite highlight
 .markdown-body
-  div.hljs
+  .hljs
     overflow-x initial
     padding 0
-    border-radius 3px
 
     pre
       background-color initial !important
+
+  .radius3
+    border-radius 3px
+
+  & > .code-wrapper
+    position relative
+
+    pre[class*=language-].line-numbers
+      position initial
+
+figure.highlight
+  position relative
+
+  table
+    border 0
+    margin 0
+    width auto
+    border-radius 3px
+
+  td
+    border 0
+    padding 0
+
+  tr
+    border 0
+
+  td.code
+    width 100%
+
+  td.gutter
+    display table-cell
+
+    &:not(.hljs)
+      background-color #f6f8fa
+
+    pre
+      text-align right
+      font-size 1px
+      overflow-x none
+      overflow-y none
+      padding 0 .75rem
+      line-height 1.5
+      background-color inherit
+      border-radius initial
+      border-right 1px solid #999
+
+      span.line
+        color #999
 
 // Rewrite mdb.css
 .list-group-item
@@ -343,6 +389,12 @@
     -webkit-transition color .2s ease-out, -webkit-transform .2s ease-out
     transition transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out
 
+// Rewrite toc
+.toc-list-item
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+
 // Rewrite iconfont
 .iconfont
   font-size 1rem
@@ -457,3 +509,22 @@ $npColor = theme-config("fun_features.progressbar.color", "#29d")
   z-index 1030
 #remark-km423lmfdslkm34-node
   z-index 1031
+
+// Rewrite mathjax
+mjx-container, .mjx-container
+  overflow-x auto
+  overflow-y hidden !important
+  padding .5em 0
+
+  &:focus, svg:focus
+    outline none
+
+.mjx-char
+  line-height 1
+
+// Rewrite katex
+.katex-block
+  overflow-x auto
+
+.katex, .mjx-mrow
+  white-space pre-wrap !important

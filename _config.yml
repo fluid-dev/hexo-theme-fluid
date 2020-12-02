@@ -44,6 +44,10 @@ code:
   highlight:
     enable: true
 
+    # 代码块是否显示行号
+    # If true, the code block display line numbers
+    line_number: true
+
     # 实现高亮的库，对应下面的设置
     # Highlight library
     # Options: highlightjs | prismjs
@@ -398,10 +402,6 @@ index:
   # Available: 0 - 1.0
   banner_mask_alpha: 0.3
 
-  # 默认的文章封面图，当没有指定 index_img 时会使用该图片，若都为空则不显示任何图片
-  # Path of the default post cover when `index_img` is not set. If empty, no image will be displayed
-  post_default_img:
-
   # 首页副标题的独立设置
   # Independent config of home page subtitle
   slogan:
@@ -472,6 +472,10 @@ post:
   banner_img: /img/default.png
   banner_img_height: 70
   banner_mask_alpha: 0.3
+
+  # 文章在首页的默认封面图，当没有指定 index_img 时会使用该图片，若两者都为空则不显示任何图片
+  # Path of the default post cover when `index_img` is not set. If both are empty, no image will be displayed
+  default_index_img:
 
   # 文章标题下方的元信息
   # Meta information below title
@@ -599,7 +603,9 @@ post:
   # Comment plugin
   comments:
     enable: false
-    # Options: disqus | valine | gitalk | utterances | changyan | livere | remark42 | twikoo
+    # 指定的插件，需要同时设置对应插件的必要参数
+    # The specified plugin needs to set the necessary parameters at the same time
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
     type: disqus
 
 
@@ -607,8 +613,8 @@ post:
 # 评论插件
 # Comment plugins
 #
-# 开启评论需要先在上方 `post: comments: enable: true`
-# Enable comments need to be above `post: comments: enable: true`
+# 开启评论需要先设置上方 `post: comments: enable: true`，然后根据 `type` 设置下方对应的评论插件参数
+# Enable comments need to be set `post: comments: enable: true`, then set the corresponding comment plugin parameters below according to `type`
 #---------------------------
 
 # Utterances
@@ -669,6 +675,24 @@ valine:
   recordIP: false
   serverURLs:
 
+# Waline
+# 一款从 Valine 衍生的带后端的评论系统
+# A comment system with backend derived from Valine
+# See: https://waline.js.org/
+waline:
+  serverURL: ''
+  placeholder: 说点什么
+  path: window.location.pathname
+  avatar: retro
+  meta: ['nick', 'mail', 'link']
+  pageSize: 10
+  lang: zh-CN
+  highlight: true
+  avatarForce: false
+  requiredFields: []
+  emojiCDN: ''
+  emojiMaps: {}
+
 # 畅言 Changyan
 # 基于第三方的服务
 # Third-party based services, insufficient support for regions outside China
@@ -700,6 +724,7 @@ remark42:
 # See: https://twikoo.js.org
 twikoo:
   env_id:
+
 
 #---------------------------
 # 归档页
@@ -844,39 +869,41 @@ static_prefix:
   # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
   iconfont: //at.alicdn.com/t/font_1736178_kmeydafke9r.css
 
-  anchor: https://cdn.staticfile.org/anchor-js/4.3.0/
+  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/
 
-  github_markdown: https://cdn.staticfile.org/github-markdown-css/4.0.0/
+  github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/
 
-  jquery: https://cdn.staticfile.org/jquery/3.5.1/
+  jquery: https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/
 
-  bootstrap: https://cdn.staticfile.org/twitter-bootstrap/4.5.3/
+  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/
 
-  highlightjs: https://cdn.staticfile.org/highlight.js/10.1.2/
+  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/
 
-  prismjs: https://cdn.staticfile.org/prism/1.22.0/
+  prismjs: https://cdn.jsdelivr.net/npm/prismjs@1.22.0/
 
-  tocbot: https://cdn.staticfile.org/tocbot/4.12.0/
+  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/
 
-  typed: https://cdn.staticfile.org/typed.js/2.0.11/
+  typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/
 
-  fancybox: https://cdn.staticfile.org/fancybox/3.5.7/
+  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/
 
-  nprogress: https://cdn.staticfile.org/nprogress/0.2.0/
+  nprogress: https://cdn.jsdelivr.net/npm/nprogress@0.2.0/
 
-  mathjax: https://cdn.staticfile.org/mathjax/3.1.2/es5/
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/
 
-  katex: https://cdn.staticfile.org/KaTeX/0.12.0/
+  katex: https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-  clipboard: https://cdn.staticfile.org/clipboard.js/2.0.6/
+  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/
 
-  mermaid: https://cdn.staticfile.org/mermaid/8.8.2/
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/
 
-  valine: https://cdn.staticfile.org/valine/1.4.14/
+  valine: https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/
 
-  gitalk: https://cdn.staticfile.org/gitalk/1.7.0/
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.4.2/dist/
+
+  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/
 
   disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
 

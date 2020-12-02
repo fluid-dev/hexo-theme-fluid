@@ -3,6 +3,7 @@
 module.exports = (hexo) => {
   const isZh = hexo.config.language.search(/zh-CN/i) !== -1;
 
+  // Breaking change at v1.8.3 2020/09/03
   if (hexo.theme.config.highlight && !hexo.theme.config.code) {
     if (isZh) {
       hexo.log.warn('[Fluid] 检测到弃用的配置项: "highlight" 已被修改为 "code:highlight"，请根据新版本更新');
@@ -36,5 +37,10 @@ module.exports = (hexo) => {
         hexo.log.warn('[Fluid] Hexo version < 5.0.0 detected, "prismjs:preprocess" in theme config is forced to false.');
       }
     }
+  }
+
+  // Breaking change at v1.8.6 2020/11/30
+  if (hexo.theme.config.index.post_default_img) {
+    hexo.theme.config.post.default_index_img = hexo.theme.config.index.post_default_img;
   }
 };

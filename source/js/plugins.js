@@ -108,8 +108,7 @@ Fluid.plugins = {
   },
 
   registerCopyCode: function() {
-    function getBgClass() {
-      var ele = $('div.hljs, pre');
+    function getBgClass(ele) {
       if (ele.length === 0) {
         return 'copy-btn-dark';
       }
@@ -123,7 +122,8 @@ Fluid.plugins = {
     copyHtml += '<button class="copy-btn" data-clipboard-snippet="">';
     copyHtml += '<i class="iconfont icon-copy"></i><span>Copy</span>';
     copyHtml += '</button>';
-    $('.markdown-body pre').each(function() {
+    var blockElement = $('.markdown-body > pre, .markdown-body > div.code-wrapper > pre, .markdown-body > figure.highlight td.code pre');
+    blockElement.each(function() {
       const pre = $(this);
       if (pre.find('code.mermaid').length > 0) {
         return;
@@ -135,7 +135,7 @@ Fluid.plugins = {
         return trigger.previousElementSibling;
       }
     });
-    $('.copy-btn').addClass(getBgClass());
+    $('.copy-btn').addClass(getBgClass(blockElement));
     clipboard.on('success', function(e) {
       e.clearSelection();
       var tmp = e.trigger.outerHTML;
