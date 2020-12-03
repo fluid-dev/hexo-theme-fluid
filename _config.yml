@@ -528,14 +528,18 @@ post:
     relative: false
 
   # 文章右侧目录
-  # Table of contents
+  # Table of contents (TOC)
   toc:
     enable: true
+    # 目录会选择这些节点作为标题
+    # TOC will select these nodes as headings
     headingSelector: "h1,h2,h3,h4,h5,h6"
+    # 层级的折叠深度，0 是全部折叠，大于 0 后如果存在下级标题则默认展开
+    # Collapse depth. If 0, all headings collapsed. If greater than 0, it will be expanded by default if there are sub headings
     collapseDepth: 0
 
-  # 版权声明
-  # Copyright
+  # 版权声明，会显示在每篇文章的结尾
+  # Copyright, will be displayed at the end of each post
   copyright:
     enable: true
     content: '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！'
@@ -624,7 +628,7 @@ utterances:
 
 # Disqus
 # 基于第三方的服务，国内用户直接使用容易被墙，建议配合 Disqusjs
-# Third-party based services, it is a very popular
+# Based on third-party service
 # See: https://disqus.com
 disqus:
   shortname:
@@ -669,8 +673,8 @@ valine:
   serverURLs:
 
 # Waline
-# 一款从 Valine 衍生的带后端的评论系统
-# A comment system with backend derived from Valine
+# 一款从 Valine 衍生的带后端的评论插件
+# A comment plugin with backend derived from Valine
 # See: https://waline.js.org/
 waline:
   serverURL: ''
@@ -688,7 +692,7 @@ waline:
 
 # 畅言 Changyan
 # 基于第三方的服务
-# Third-party based services, insufficient support for regions outside China
+# Based on third-party service, insufficient support for regions outside China
 # http://changyan.kuaizhan.com
 changyan:
   appid: ''
@@ -696,7 +700,7 @@ changyan:
 
 # 来必力 Livere
 # 基于第三方的服务
-# Third-party based services
+# Based on third-party service
 # See: https://www.livere.com
 livere:
   uid: ''
@@ -711,7 +715,7 @@ remark42:
   max_shown_comments: 10
   locale: zh
 
-# twikoo
+# Twikoo
 # 基于腾讯云开发
 # Based on Tencent CloudBase
 # See: https://twikoo.js.org
