@@ -20,7 +20,7 @@ module.exports = (hexo) => {
     });
   } else {
     hexo.extend.filter.register('after_render:html', function(str, data) {
-      if (data.page && data.page.lazyload !== false) {
+      if (!data.page || data.page.lazyload !== false) {
         return lazyProcess(str, loadingImage);
       }
     });
