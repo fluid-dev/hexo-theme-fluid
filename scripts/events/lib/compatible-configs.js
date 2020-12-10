@@ -48,4 +48,17 @@ module.exports = (hexo) => {
     }
     hexo.theme.config.post.default_index_img = hexo.theme.config.index.post_default_img;
   }
+
+  // Breaking change at v1.8.7 2020/12/10
+  if (hexo.theme.config.banner_parallax) {
+    if (isZh) {
+      hexo.log.warn('[Fluid] 检测到弃用的配置项: "banner_parallax" 已被修改为 "banner:parallax"，请根据新版本更新');
+    } else {
+      hexo.log.warn('[Fluid] Deprecated config detected: "banner_parallax" has been modified to "banner:parallax", please update according to the release.');
+    }
+    if (!hexo.theme.config.banner) {
+      hexo.theme.config.banner = {};
+    }
+    hexo.theme.config.banner.parallax = hexo.theme.config.banner_parallax;
+  }
 };

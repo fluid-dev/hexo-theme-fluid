@@ -318,6 +318,17 @@ search:
   # If true, search will scan the post content
   content: true
 
+# 首屏图片的相关配置
+# Config of the big image on the first screen
+banner:
+  # 视差滚动，图片与板块会随着屏幕滚动产生视差效果
+  # Scrolling parallax
+  parallax: true
+
+  # 图片最小的宽高比，以免图片两边被过度裁剪，适用于移动端竖屏时，如需关闭设为 0
+  # Minimum ratio of width to height, applicable to the vertical screen of mobile device, if you need to close it, set it to 0
+  width_height_ratio: 1.0
+
 # 向下滚动的箭头
 # Scroll down arrow
 scroll_down_arrow:
@@ -325,7 +336,8 @@ scroll_down_arrow:
 
   # 头图高度不小于指定比例，才显示箭头
   # Only the height of the banner image is greater than the ratio, the arrow is displayed
-  banner_height_limit: 90
+  # Available: 0 - 100
+  banner_height_limit: 80
 
   # 翻页后自动滚动
   # Auto scroll after page turning
@@ -335,10 +347,6 @@ scroll_down_arrow:
 # Scroll top arrow
 scroll_top_arrow:
   enable: true
-
-# 头图滚动视差
-# Banner image scrolling parallax
-banner_parallax: true
 
 
 #---------------------------

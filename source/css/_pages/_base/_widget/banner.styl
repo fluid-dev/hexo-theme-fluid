@@ -24,3 +24,15 @@
     will-change transform
     -webkit-transform-style preserve-3d
     -webkit-backface-visibility hidden
+
+if $banner-width_height_ratio > 0
+  @media (max-width: unit($banner-width_height_ratio * 100, "vh"))
+    header
+      max-height unit(100 / $banner-width_height_ratio, "vw")
+
+    #board
+      margin-top -1rem !important
+
+  @media (max-width: unit($scroll-arrow-height-limit - 0.01, "vh"))
+    .scroll-down-bar
+      display none
