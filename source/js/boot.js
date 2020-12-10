@@ -19,6 +19,4 @@ Fluid.boot.refresh = function() {
 document.addEventListener('DOMContentLoaded', function() {
   Fluid.boot.registerEvents();
   Fluid.boot.refresh();
-
-  window.NProgress && window.NProgress.inc();
 });
