@@ -113,8 +113,7 @@ Fluid.plugins = {
       if (ele.length === 0) {
         return 'copy-btn-dark';
       }
-      var rgbArr = ele.css('background-color').replace(
-        /rgba*\(/, '').replace(')', '').split(',');
+      var rgbArr = ele.css('background-color').replace(/rgba*\(/, '').replace(')', '').split(',');
       var color = (0.213 * rgbArr[0]) + (0.715 * rgbArr[1]) + (0.072 * rgbArr[2]) > 255 / 2;
       return color ? 'copy-btn-dark' : 'copy-btn-light';
     }
@@ -123,7 +122,7 @@ Fluid.plugins = {
     copyHtml += '<button class="copy-btn" data-clipboard-snippet="">';
     copyHtml += '<i class="iconfont icon-copy"></i><span>Copy</span>';
     copyHtml += '</button>';
-    var blockElement = $('.markdown-body > pre, .markdown-body > div.code-wrapper > pre, .markdown-body > figure.highlight td.code pre');
+    var blockElement = $('.markdown-body pre');
     blockElement.each(function() {
       const pre = $(this);
       if (pre.find('code.mermaid').length > 0) {
