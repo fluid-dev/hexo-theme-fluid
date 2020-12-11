@@ -14,7 +14,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 <body>
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
-    <div class="banner" id="background" <%- theme.banner && theme.banner.parallax && 'parallax=true' %>
+    <div class="banner" id="banner" <%- theme.banner && theme.banner.parallax && 'parallax=true' %>
          style="background: url('<%- url_for(banner_img) %>') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">

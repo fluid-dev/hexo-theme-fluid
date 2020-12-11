@@ -33,7 +33,7 @@ Fluid.events = {
   },
 
   registerParallaxEvent: function() {
-    var bg = $('#background[parallax="true"]');
+    var bg = $('#banner[parallax="true"]');
     if (bg.length === 0) {
       return;
     }

@@ -14,6 +14,7 @@ Fluid.boot.refresh = function() {
   CONFIG.image_zoom && Fluid.plugins.wrapImageWithFancyBox();
   CONFIG.anchorjs.enable && Fluid.plugins.registerAnchor();
   CONFIG.copy_btn && Fluid.plugins.registerCopyCode();
+  CONFIG.progressbar && Fluid.plugins.registerImageLoaded();
 };
 
 document.addEventListener('DOMContentLoaded', function() {

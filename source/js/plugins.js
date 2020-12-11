@@ -1,4 +1,4 @@
-/* global Fluid, CONFIG, ClipboardJS */
+/* global Fluid, CONFIG */
 
 HTMLElement.prototype.wrap = function(wrapper) {
   this.parentNode.insertBefore(wrapper, this);
@@ -108,6 +108,7 @@ Fluid.plugins = {
   },
 
   registerCopyCode: function() {
+    if (!window.ClipboardJS) { return; }
     function getBgClass(ele) {
       if (ele.length === 0) {
         return 'copy-btn-dark';
@@ -130,7 +131,7 @@ Fluid.plugins = {
       }
       pre.append(copyHtml);
     });
-    var clipboard = new ClipboardJS('.copy-btn', {
+    var clipboard = new window.ClipboardJS('.copy-btn', {
       target: function(trigger) {
         return trigger.previousElementSibling;
       }
@@ -144,6 +145,37 @@ Fluid.plugins = {
         e.trigger.outerHTML = tmp;
       }, 2000);
     });
+  },
+
+  registerImageLoaded: function() {
+    var bg = document.getElementById('banner');
+    if (bg) {
+      var src = bg.style.backgroundImage;
+      var url = src.match(/\((.*?)\)/)[1].replace(/(['"])/g, '');
+      var img = new Image();
+      img.onload = function() {
+        window.NProgress && window.NProgress.inc(0.2);
+      };
+      img.src = url;
+      if (img.complete) { img.onload(); }
+    }
+
+    var images = $('main img:not([srcset])');
+    var notLazyImages = [];
+    for (const img of images) {
+      if (!img.srcset) {
+        notLazyImages.push(img);
+      }
+    }
+    var total = notLazyImages.length;
+    for (const img of notLazyImages) {
+      const old = img.onload;
+      img.onload = function() {
+        old && old();
+        window.NProgress && window.NProgress.inc(0.5 / total);
+      };
+      if (img.complete) { img.onload(); }
+    }
   }
 
 };

@@ -14,10 +14,11 @@ hexo.extend.helper.register('export_config', function() {
     root         : config.root,
     version      : fluid_version,
     typing       : theme.fun_features.typing,
-    toc          : theme.post.toc,
     anchorjs     : theme.fun_features.anchorjs,
+    progressbar  : theme.fun_features.progressbar,
     copy_btn     : theme.code.copy_btn,
     image_zoom   : theme.post.image_zoom,
+    toc          : theme.post.toc,
     lazyload     : theme.lazyload,
     web_analytics: theme.web_analytics
   };
