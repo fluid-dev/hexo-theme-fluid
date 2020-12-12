@@ -528,3 +528,10 @@ mjx-container, .mjx-container
 
 .katex, .mjx-mrow
   white-space pre-wrap !important
+
+// Rewrite hint
+.footnote-ref [class*=hint--][aria-label]:after
+  max-width 12rem
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
