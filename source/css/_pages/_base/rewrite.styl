@@ -485,6 +485,10 @@ $npColor = theme-config("fun_features.progressbar.color", "#29d")
   .peg
     box-shadow 0 0 14px $npColor, 0 0 8px $npColor !important
 
+  @media (max-width: 575px)
+    .bar
+      display none
+
 // Rewrite valine
 .v[data-class=v]
   .status-bar, .veditor, .vinput, .vbtn, p, pre code
