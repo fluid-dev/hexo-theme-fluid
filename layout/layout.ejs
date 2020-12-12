@@ -45,7 +45,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
     <% if(is_post() || page.layout === '404') { %>
       <%- body %>
     <% } else { %>
-      <div class="container nopadding-md">
+      <div class="container nopadding-x-md">
         <div class="py-5" id="board"
           <%- banner_img_height >= 100 && theme.banner && theme.banner.parallax ? 'style=margin-top:0' : '' %>>
           <% if(page.layout === 'about') { %>
@@ -76,7 +76,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
     <% } %>
 
     <% if (theme.custom_html) { %>
-      <div class="col-lg-7 mx-auto nopadding-md">
+      <div class="col-lg-7 mx-auto nopadding-x-md">
         <div class="container custom mx-auto">
           <%- theme.custom_html %>
         </div>

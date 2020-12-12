@@ -25,10 +25,10 @@
     -webkit-transform-style preserve-3d
     -webkit-backface-visibility hidden
 
-if $banner-width_height_ratio > 0
-  @media (max-width: unit($banner-width_height_ratio * 100, "vh"))
+if $banner-width-height-ratio > 0
+  @media (max-width: unit($banner-width-height-ratio * 100, "vh"))
     header
-      max-height unit(100 / $banner-width_height_ratio, "vw")
+      max-height unit(100 / $banner-width-height-ratio, "vw")
 
     #board
       margin-top -1rem !important
