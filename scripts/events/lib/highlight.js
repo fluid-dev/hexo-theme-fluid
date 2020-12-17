@@ -21,17 +21,17 @@ module.exports = (hexo) => {
       line_number: config.code.highlight.line_number || false
     });
 
-    hexo.extend.filter.register('after_render:html', (html, data) => {
+    hexo.extend.filter.register('after_post_render', (page) => {
       if (config.code.highlight.highlightjs.bg_color) {
-        html = html.replace(/(?<!<div class="hljs code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
+        page.content = page.content.replace(/(?<!<div class="hljs code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
           if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
             return str.replace(/(class=".*?)hljs(.*?")/gims, '$1$2');
           }
           return `<div class="hljs code-wrapper">${p1}</div>`;
         });
-        html = html.replace(/<td class="gutter/gims, '<td class="gutter hljs');
+        page.content = page.content.replace(/<td class="gutter/gims, '<td class="gutter hljs');
       } else if (!hexo.config.highlight.line_number) {
-        html = html.replace(/(?<!<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
+        page.content = page.content.replace(/(?<!<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
           if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
             return str.replace(/(class=".*?)hljs(.*?")/gims, '$1$2');
           }
@@ -41,14 +41,14 @@ module.exports = (hexo) => {
 
       if (hexo.config.highlight.line_number) {
         // Mermaid block adaptation
-        html = html.replace(/<figure.+?<td class="code">.*?(<pre.+?<\/pre>).+?<\/figure>/gims, (str, p1) => {
+        page.content = page.content.replace(/<figure.+?<td class="code">.*?(<pre.+?<\/pre>).+?<\/figure>/gims, (str, p1) => {
           if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
             return p1.replace(/(class=".*?)hljs(.*?")/gims, '$1$2').replace(/<br>/gims, '\n');
           }
           return str;
         });
       }
-      return html;
+      return page;
     });
   } else if (config.code.highlight.lib === 'prismjs') {
     // Force set hexo config
@@ -61,8 +61,8 @@ module.exports = (hexo) => {
       line_number: config.code.highlight.line_number || false
     });
 
-    hexo.extend.filter.register('after_render:html', (html, data) => {
-      html = html.replace(/(?<!<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
+    hexo.extend.filter.register('after_post_render', (page) => {
+      page.content = page.content.replace(/(?<!<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
         if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
           str = str.replace(/<pre[^>]*?>/gims, '<pre>')
             .replace(/(class=".*?)language-mermaid(.*?")/gims, '$1mermaid$2');
@@ -73,7 +73,7 @@ module.exports = (hexo) => {
         }
         return `<div class="code-wrapper">${p1}</div>`;
       });
-      return html;
+      return page;
     });
   }
 };
