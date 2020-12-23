@@ -205,6 +205,10 @@
 
 // Rewrite highlight
 .markdown-body
+
+  pre
+    border-radius 3px
+
   .hljs
     overflow-x initial
     padding 0
@@ -212,11 +216,9 @@
     pre
       background-color initial !important
 
-  .radius3
-    border-radius 3px
-
   & > .code-wrapper
     position relative
+    border-radius 3px
 
     pre[class*=language-].line-numbers
       position initial
