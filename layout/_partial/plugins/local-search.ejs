@@ -1,13 +1,14 @@
 <% if(theme.search.enable){ %>
-  <%- js_ex(theme.static_prefix.internal_js, "local-search.js") %>
+  <%- js_ex(theme.static_prefix.internal_js, 'local-search.js') %>
   <script>
     (function () {
       var path = "<%- url_for(theme.search.path) || '/local-search.xml' %>";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
+      $('#local-search-input').on('click', function() {
         searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
     })()
   </script>
 <% } %>
