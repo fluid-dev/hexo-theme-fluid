@@ -25,13 +25,13 @@
 
 <p align="center">
   <span>文档：</span>
-  <a href="https://hexo.fluid-dev.com/docs/guide/">主题配置</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.fluid-dev.com/docs/guide/">主题配置</a> | 
   <a href="https://hexo.io/zh-cn/docs/front-matter">文章配置</a>
 </p>
 
 <p align="center">
   <span>预览：</span>
-  <a href="https://hexo.fluid-dev.com/">Fluid's blog</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.fluid-dev.com/">Fluid's blog</a> | 
   <a href="https://zkqiang.cn">zkqiang's blog</a>
 </p>
 
