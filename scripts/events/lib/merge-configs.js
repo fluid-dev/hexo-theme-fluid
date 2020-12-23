@@ -13,7 +13,7 @@ module.exports = (hexo) => {
     if (data && data.fluid_config) {
       dataConfig = data.fluid_config;
     } else if (!configFromRoot(hexo)) {
-      const isZh = hexo.config.language.search(/zh-CN/i) !== -1;
+      const isZh = hexo.theme.i18n.languages[0].search(/zh-CN/i) !== -1;
       if (isZh) {
         hexo.log.warn('[Fluid] 推荐你使用覆盖配置功能: https://hexo.fluid-dev.com/docs/guide/#%E8%A6%86%E7%9B%96%E9%85%8D%E7%BD%AE');
       } else {

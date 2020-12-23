@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (hexo) => {
-  const isZh = hexo.config.language.search(/zh-CN/i) !== -1;
+  const isZh = hexo.theme.i18n.languages[0].search(/zh-CN/i) !== -1;
 
   // Breaking change at v1.8.3 2020/09/03
   if (hexo.theme.config.highlight && !hexo.theme.config.code) {
