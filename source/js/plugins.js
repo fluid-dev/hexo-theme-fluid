@@ -128,6 +128,9 @@ Fluid.plugins = {
       if (pre.find('code.mermaid').length > 0) {
         return;
       }
+      if (pre.find('span.line').length > 0) {
+        return;
+      }
       pre.append(copyHtml);
     });
     var clipboard = new window.ClipboardJS('.copy-btn', {
