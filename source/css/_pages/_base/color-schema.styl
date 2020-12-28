@@ -40,10 +40,14 @@ dark-colors()
       background-color rgba(#3e4b5e, .35)
       transition background-color .2s ease-in-out
 
-    if $highlight-enable
-      .highlight pre, pre
-        background-color rgba(#f6f8fa, .80)
-        transition background-color .2s ease-in-out
+    pre, td.gutter, td.code > .code-wrapper
+      -webkit-filter brightness(.9)
+      filter brightness(.9)
+      transition filter .2s ease-in-out
+
+    td.gutter pre
+      -webkit-filter initial
+      filter initial
 
     h1, h2
       border-bottom-color $line-color-dark
@@ -51,7 +55,7 @@ dark-colors()
 
     h1, h2, h3, h6, h5, h6
       color #ddd
-      transition color .2s ease-in-out
+      transition all .2s ease-in-out
 
     table
       tr
@@ -64,7 +68,7 @@ dark-colors()
         border-color $line-color-dark
         transition border-color .2s ease-in-out
 
-  hr
+  hr, .markdown-body hr
     border-top-color $line-color-dark
     transition border-top-color .2s ease-in-out
 
