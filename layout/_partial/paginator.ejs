@@ -5,14 +5,10 @@
         prev_text: '<i class="iconfont icon-arrowleft"></i>',
         next_text: '<i class="iconfont icon-arrowright"></i>',
         mid_size: 2,
+        end_size: 1,
+        format: `${config.pagination_dir}/%d/${theme.scroll_down_arrow.scroll_after_turning_page ? '#board' : ''}`,
         escape: false
       }) %>
     </span>
   </nav>
-  <% var point = theme.scroll_down_arrow.scroll_after_turning_page ? '#board' : '' %>
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '<%- point %>';
-    }
-  </script>
 <% } %>
