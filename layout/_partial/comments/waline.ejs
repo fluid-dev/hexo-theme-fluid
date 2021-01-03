@@ -14,7 +14,7 @@
           highlight: <%= theme.waline.highlight %>,
           serverURL: "<%= theme.waline.serverURL %>",
           avatarForce: <%= theme.waline.avatarForce %>,
-          requiredFields: <%= JSON.stringify(theme.waline.requiredFields || []) %>,
+          requiredFields: <%- JSON.stringify(theme.waline.requiredFields || []) %>,
           emojiCDN: "<%= theme.waline.emojiCDN %>",
           emojiMaps: <%- JSON.stringify(theme.waline.emojiMaps) %>,
         });
