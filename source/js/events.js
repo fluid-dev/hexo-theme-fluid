@@ -8,6 +8,39 @@ HTMLElement.prototype.wrap = function(wrapper) {
 
 Fluid.events = {
 
+  /**
+   * https://github.com/theme-next/hexo-theme-next/blob/d24c48efb1ff1182b23926a3835e350f9c3ab6eb/source/js/utils.js
+   * Tabs tag listener (without twitter bootstrap).
+   */
+  registerTabsTag: function() {
+    // Binding `nav-tabs` & `tab-content` by real time permalink changing.
+    document.querySelectorAll('.tabs ul.nav-tabs .tab').forEach(element => {
+      element.addEventListener('click', event => {
+        event.preventDefault();
+        var target = event.currentTarget;
+        // Prevent selected tab to select again.
+        if (!target.classList.contains('active')) {
+          // Add & Remove active class on `nav-tabs` & `tab-content`.
+          [...target.parentNode.children].forEach(element => {
+            element.classList.remove('active');
+          });
+          target.classList.add('active');
+          var tActive = document.getElementById(target.querySelector('a').getAttribute('href').replace('#', ''));
+          [...tActive.parentNode.children].forEach(element => {
+            element.classList.remove('active');
+          });
+          tActive.classList.add('active');
+          // Trigger event
+          tActive.dispatchEvent(new Event('tabs:click', {
+            bubbles: true
+          }));
+        }
+      });
+    });
+
+    window.dispatchEvent(new Event('tabs:register'));
+  },
+
   registerNavbarEvent: function() {
     var navbar = $('#navbar');
     var submenu = $('#navbar .dropdown-menu');
