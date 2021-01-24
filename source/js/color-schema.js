@@ -3,6 +3,7 @@
 /**
  * Modify by https://blog.skk.moe/post/hello-darkmode-my-old-friend/
  */
+
 (function(window, document) {
   var rootElement = document.documentElement;
   var colorSchemaStorageKey = 'Fluid_Color_Scheme';
@@ -202,7 +203,40 @@
     if (button) {
       // 当用户点击切换按钮时，获得新的显示模式、写入 localStorage、并在页面上生效
       button.addEventListener('click', () => {
-        applyCustomColorSchemaSettings(toggleCustomColorSchema());
+		const BODY = document.getElementsByTagName('body')[0];
+
+		var neko = BODY.createChild('div', {
+            id: 'neko',
+            innerHTML: '<div class="planet"><div class="sun"></div><div class="moon"></div></div><div class="body"><div class="face"><section class="eyes left"><span class="pupil"></span></section><section class="eyes right"><span class="pupil"></span></section><span class="nose"></span></div></div>'
+        });
+
+        var hideNeko = function() {
+            Fluid.utils.transition(neko, {
+                delay: 2500,
+                opacity: 0
+            }, function() {
+                BODY.removeChild(neko)
+            });
+        }
+		var currentSetting = getLS(colorSchemaStorageKey);
+        if (currentSetting==="light") {
+            var c = function() {
+				neko.addClass('dark');
+				applyCustomColorSchemaSettings(toggleCustomColorSchema());
+                hideNeko();
+            };
+        } else {
+            neko.addClass('dark');
+            var c = function() {
+				neko.removeClass('dark');
+				applyCustomColorSchemaSettings(toggleCustomColorSchema());
+                hideNeko();
+            };
+        }
+        Fluid.utils.transition(neko, 1, function() {
+            setTimeout(c, 210)
+        });
+        
       });
     }
   });

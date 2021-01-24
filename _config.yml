@@ -888,6 +888,8 @@ static_prefix:
   # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
   iconfont: //at.alicdn.com/t/font_1736178_kmeydafke9r.css
 
+  anime: https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/
+
   anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/
 
   github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/

@@ -1,0 +1,318 @@
+// animation: name duration timing-function delay iteration-count direction;
+
+.rotate {
+  animation: rotate 6s linear infinite;
+}
+
+.beat {
+  animation: beat 1.33s ease-in-out infinite;
+}
+
+.flash {
+  animation: flash 6s cubic-bezier(.22, .61, .36, 1) infinite;
+}
+
+.shake {
+  animation: shake 1s;
+}
+
+.fade-in {
+  animation: fadeIn .5s;
+}
+
+.fade-out {
+  animation: fadeOut .3s;
+}
+
+.up-down {
+  animation: UpDown 2s infinite;
+}
+
+.down-up {
+  animation: DownUp 2s infinite;
+}
+
+.slide {
+  animation: slide .5s;
+}
+
+.slide-up-in {
+  animation: slideUpIn .3s;
+}
+
+.slide-up-big-in {
+  animation: slideUpBigIn .5s;
+}
+
+.slide-right-in {
+  animation: slideRightIn .3s;
+}
+
+.slide-left-in {
+  animation: slideLeftIn .3s;
+}
+
+.slide-down-in {
+  animation: slideDownIn .3s;
+}
+
+.blur {
+  animation: blur .8s ease-in-out forwards;
+}
+
+.elastic {
+  animation: elastic 1s;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0)
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(720deg);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@keyframes rotate-needle-pause {
+    0% {
+        transform: rotateZ(-35deg)
+    }
+    100% {
+        transform: rotateZ(-60deg)
+    }
+}
+
+
+@keyframes rotate-needle-resume {
+    0% {
+        transform: rotateZ(-60deg)
+    }
+
+    100% {
+        transform: rotateZ(-35deg)
+    }
+}
+
+@keyframes beat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  10%,
+  30% {
+    transform: scale(.9);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: scale(1.1);
+  }
+
+  50%,
+  70% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes flash {
+
+  0%,
+  50%,
+  to {
+    opacity: 1
+  }
+
+  25%,
+  75% {
+    opacity: 0
+  }
+}
+
+@keyframes shake {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blur {
+    0% {
+        filter: blur(10px)
+    }
+
+    to {
+        filter: blur(0)
+    }
+}
+
+@keyframes blur-dark {
+    0% {
+        filter: blur(10px) brightness(.9)
+    }
+
+    to {
+        filter: blur(0) brightness(.9)
+    }
+}
+
+@keyframes UpDown {
+  0%, 100% {
+    opacity: .8;
+    transform: translateY(10px);
+  }
+  50% {
+    opacity: .4;
+    transform: translateY(0);
+  }
+}
+
+@keyframes DownUp {
+  0%, 100% {
+    opacity: .8;
+    transform: rotate(180deg) translateY(0);
+  }
+  50% {
+    opacity: .4;
+    transform: rotate(180deg) translateY(-10px);
+  }
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes slideRightIn {
+    0% {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+@keyframes slideLeftIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+@keyframes slideUpIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+@keyframes slideUpBigIn {
+    0% {
+        opacity: 0;
+        transform: translateY(80px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes slideDownIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+@keyframes elastic {
+    0% {
+        transform: scale(0)
+    }
+
+    55% {
+        transform: scale(1)
+    }
+
+    70% {
+        transform: scale(.98)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
