@@ -1,29 +1,85 @@
 <%
 page.layout = "links"
-page.title = theme.links.title || __('links.title')
-page.subtitle = theme.links.subtitle || __('links.subtitle')
+page.title = page.title || theme.links.title ||  __('links.title')
+page.subtitle = page.subtitle || theme.links.subtitle || page.title || theme.links.title ||  __('links.subtitle')
 page.banner_img = theme.links.banner_img
 page.banner_img_height = theme.links.banner_img_height
 page.banner_mask_alpha = theme.links.banner_mask_alpha
 %>
 
-<div class="row links">
-  <% for(const each of theme.links.items || []) { %>
-    <% if (!each.title || !each.link) continue %>
-    <div class="card col-lg-4 col-md-6 col-sm-12">
-      <a href="<%= url_for(each.link) %>" class="card-body hover-with-bg" target="_blank" rel="noopener">
-        <div class="card-content">
-          <% if (each.image) { %>
-            <div class="link-avatar my-auto">
-              <img src="<%= each.image %>" alt="<%= each.title %>" />
-            </div>
-          <% } %>
-          <div class="link-text">
-            <div class="link-title"><%- each.title %></div>
-            <div class="link-intro"><%- each.intro %></div>
-          </div>
-        </div>
-      </a>
-    </div>
-  <% } %>
+<div class="markdown-body">
+	<% var contents = page.content.split(theme.links.insert || "<!--links-->"); %>
+	<% var [startContent,endContent] = contents%>
+	<%- startContent %>
+	<div class="row links">
+		<% for(const each of theme.links.items || []) { %>
+		  <% if (!each.title || !each.link) continue %>
+		  <div class="card col-lg-4 col-md-6 col-sm-12">
+			<a href="<%= url_for(each.link) %>" class="card-body hover-with-bg" target="_blank" rel="noopener">
+			  <div class="card-content">
+				<% if (each.image) { %>
+				  <div class="link-avatar my-auto">
+					<img src="<%= each.image %>" alt="<%= each.title %>" />
+				  </div>
+				<% } %>
+				<div class="link-text">
+				  <div class="link-title"><%- each.title %></div>
+				  <div class="link-intro"><%- each.intro %></div>
+				</div>
+			  </div>
+			</a>
+		  </div>
+		<% } %>
+	  </div>	  
+	<%- endContent %>  
 </div>
+
+
+<% if((page.comments || theme.links.comments) && theme.post.comments.enable) {%>
+	<!-- Comments -->
+	<article class="comments" id="comments">
+		<% var type = '_partial/comments/' + theme.post.comments.type%>
+		<%- partial(type) %>
+	</article>
+<% } %>
+
+<!-- 
+## 可自定义 title 和 subtitle
+
+如果有自定义的links page，`page.title` 和 `page.subtitle`会优先使用自定义page中的`title`和`subtitle`，如果`subtitle`不存在，再去读取`config`中的`links.subtitle`，再不存在则使用page中的`title`。
+
+如果不设置，则使用主题默认
+
+自定义页面中的设置优于config中的设置
+
+## 可在自定义page中添加文字说明
+
+自定义page中添加文字，默认是插入到模板友链前面的，如果想自定义友链在文字中的位置，可使用自定义的`insert`字符串进行插入友链。
+
+`insert`字符串默认为 "<!--links- ->"(没有空格)，可在config中设置`links.insert`，建议使用不常用字符串作为插入符
+
+## 评论
+
+可在config或者自定义page中设置`comments: true`来打开评论，只要一个位置设置打开则开启。
+
+## 增加配置
+
+### 页面
+
+```
+comments: true # 评论
+title: 友人帐 # title 名称
+subtitle: 友人帐 # subtitle，page或者config中都不设置则使用title
+```
+
+### config
+
+```
+links: 
+	comments: true # 评论
+	title: 友人帐 # title
+	subtitle: 友人帐 # subtitle 不设置则使用 title
+	insert: <ssxx> # 自定插入符
+```
+
+--> 
