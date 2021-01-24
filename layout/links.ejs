@@ -34,6 +34,15 @@ page.banner_mask_alpha = theme.links.banner_mask_alpha
 	<%- endContent %>  
 </div>
 
+
+<% if((page.comments || theme.links.comments) && theme.post.comments.enable) {%>
+	<!-- Comments -->
+	<article class="comments" id="comments">
+		<% var type = '_partial/comments/' + theme.post.comments.type%>
+		<%- partial(type) %>
+	</article>
+<% } %>
+
 <!-- 
 ## 可自定义 title 和 subtitle
 
@@ -58,6 +67,7 @@ page.banner_mask_alpha = theme.links.banner_mask_alpha
 ### 页面
 
 ```
+comments: true # 评论
 title: 友人帐 # title 名称
 subtitle: 友人帐 # subtitle，page或者config中都不设置则使用title
 ```
@@ -66,6 +76,7 @@ subtitle: 友人帐 # subtitle，page或者config中都不设置则使用title
 
 ```
 links: 
+	comments: true # 评论
 	title: 友人帐 # title
 	subtitle: 友人帐 # subtitle 不设置则使用 title
 	insert: <ssxx> # 自定插入符
