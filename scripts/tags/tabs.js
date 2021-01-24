@@ -75,3 +75,24 @@ function postTabs(args, content) {
 hexo.extend.tag.register("tabs", postTabs, { ends: true });
 hexo.extend.tag.register("subtabs", postTabs, { ends: true });
 hexo.extend.tag.register("subsubtabs", postTabs, { ends: true });
+
+/*
+demo:
+
+{% tabs tab-id %}
+
+<!-- tab tab1 -->
+
+tab1的内容
+
+<!-- endtab -->
+
+<!-- tab tab2 -->
+
+tab2 的内容
+
+<!-- endtab -->
+
+{% endtabs %}
+
+*/
