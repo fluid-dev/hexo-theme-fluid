@@ -17,7 +17,13 @@ if (page.title) {
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <% } %>
   <meta name="theme-color" content="<%- theme.color.navbar_bg_color %>">
-  <meta name="description" content="<%= config.description %>">
+  <% if (page.description) { %>
+    <meta name="description" content="<%= page.description %>">
+  <% } else if(page.excerpt){ %> 
+    <meta name="description" content="<%= strip_html(page.excerpt).substr(0, 200) %>">
+  <% } else { %>
+    <meta name="description" content="<%= config.description %>">
+  <% } %>
   <meta name="author" content="<%= page.author || config.author %>">
   <meta name="keywords" content="<%= config.keywords %>">
   <title><%= title %></title>
