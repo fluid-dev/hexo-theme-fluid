@@ -843,6 +843,7 @@ links:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
+  default_avatar: /img/favicon.png  #默认友链头像
   subtitle:
   # 友链的成员项
   # Member item of page

@@ -14,7 +14,7 @@
       changes.forEach(({ target, isIntersecting }) => {
         if (!isIntersecting) return;
         target.setAttribute('srcset', target.src);
-        target.onload = target.onerror = () => io.unobserve(target);
+        target.onload = () => io.unobserve(target);
       });
     }, {
       threshold : [0],
