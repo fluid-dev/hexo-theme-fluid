@@ -248,6 +248,14 @@ web_analytics:  # 网页访问统计
     # Only the Chinese mainland users need to set
     server_url:
 
+# 网站归属验证（用于SEO中提交sitemap前的网站归属验证）
+# verify ownership(use for submit sitemap)
+web_verification:
+  # 百度html标签验证的code，值需要获取下方链接中 `content=` 后边的字符串
+  # Baidu html tag verification , get the string behind `content=`
+  # See: https://ziyuan.baidu.com/site/siteverify?id=990810159#/
+  baidu:
+
 # 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
 # Lazy loading of images on the page
 lazyload:

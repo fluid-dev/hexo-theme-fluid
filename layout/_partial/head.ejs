@@ -20,6 +20,9 @@ if (page.title) {
   <meta name="description" content="<%= config.description %>">
   <meta name="author" content="<%= page.author || config.author %>">
   <meta name="keywords" content="<%= config.keywords %>">
+  <% if (theme.web_verification.baidu) { %>
+    <meta name="baidu-site-verification" content="<%- theme.web_verification.baidu %>" />
+  <% } %>
   <title><%= title %></title>
 
   <%- partial('_partial/css.ejs') %>
