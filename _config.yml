@@ -198,6 +198,10 @@ custom_js:
 # The usage is the same as custom_js
 custom_css:
 
+# 自定义 <head> 节点中的 HTML 内容
+# Customize <head> HTML content
+custom_head: ''
+
 # 自定义底部 HTML 内容（位于 footer 上方），注意不要和 `post: custom` 配置冲突
 # Customize the HTML content at the bottom (located above the footer), be careful not to conflict with `post: custom`
 custom_html: ''

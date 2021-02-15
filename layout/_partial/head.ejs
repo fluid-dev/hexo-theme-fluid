@@ -9,7 +9,7 @@ if (page.title) {
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="<%- url_for(theme.apple_touch_icon) %>">
-  <link rel="icon" type="image/png" href="<%- url_for(theme.favicon) %>">
+  <link rel="icon" href="<%- url_for(theme.favicon) %>">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -19,13 +19,16 @@ if (page.title) {
   <meta name="theme-color" content="<%- theme.color.navbar_bg_color %>">
   <% if (page.description) { %>
     <meta name="description" content="<%= page.description %>">
-  <% } else if(page.excerpt){ %> 
+  <% } else if(page.excerpt){ %>
     <meta name="description" content="<%= strip_html(page.excerpt).substr(0, 200) %>">
   <% } else { %>
     <meta name="description" content="<%= config.description %>">
   <% } %>
   <meta name="author" content="<%= page.author || config.author %>">
   <meta name="keywords" content="<%= config.keywords %>">
+  <% if (theme.custom_head) { %>
+    <%- theme.custom_head %>
+  <% } %>
   <title><%= title %></title>
 
   <%- partial('_partial/css.ejs') %>
