@@ -7,6 +7,19 @@ page.banner_img_height = page.banner_img_height || theme.page.banner_img_height
 page.banner_mask_alpha = page.banner_mask_alpha || theme.page.banner_mask_alpha
 %>
 
-<div class="page-content">
+<article class="page-content">
   <%- page.content %>
-</div>
+
+  <% if(page.comments) { %>
+    <!-- Comments -->
+    <article class="comments" id="comments">
+      <% var type %>
+      <% if (typeof page.comment === 'string' && page.comment !== '') { %>
+        <% type = '_partial/comments/' + page.comment %>
+      <% } else { %>
+        <% type = '_partial/comments/' + theme.post.comments.type %>
+      <% } %>
+      <%- partial(type) %>
+    </article>
+  <% } %>
+</article>

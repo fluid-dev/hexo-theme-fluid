@@ -27,3 +27,18 @@ page.banner_mask_alpha = theme.links.banner_mask_alpha
     </div>
   <% } %>
 </div>
+
+<% if(theme.links.custom.enable && theme.links.custom.content) { %>
+  <!-- Custom -->
+  <div class="custom mx-auto">
+    <%- theme.links.custom.content %>
+  </div>
+<% } %>
+
+<% if(theme.links.comments.enable) { %>
+  <!-- Comments -->
+  <article class="comments" id="comments">
+    <% var type = '_partial/comments/' + theme.links.comments.type %>
+    <%- partial(type) %>
+  </article>
+<% } %>

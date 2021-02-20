@@ -9,7 +9,9 @@ hexo.extend.filter.register('before_generate', function() {
   const allPages = this.locals.get('pages');
   allPages.data.map((page) => {
     if (page.comment !== true) {
-      page.comments = false;
+      page.comments = typeof page.comment === 'string' && page.comment !== '';
+    } else {
+      page.comments = true;
     }
     return page;
   });

@@ -28,7 +28,9 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
       <p class="index-excerpt">
         <a href="<%- post_url %>">
           <% var excerpt = '' %>
-          <% if(post.excerpt) { %>
+          <% if(post.description) { %>
+            <% excerpt = post.description %>
+          <% } else if(post.excerpt){ %>
             <% excerpt = strip_html(post.excerpt).substr(0, 200) %>
           <% } else if(theme.index.auto_excerpt.enable){ %>
             <% excerpt = strip_html(post.content).substr(0, 200) %>
