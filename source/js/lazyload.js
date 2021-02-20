@@ -14,7 +14,11 @@
       changes.forEach(({ target, isIntersecting }) => {
         if (!isIntersecting) return;
         target.setAttribute('srcset', target.src);
-        target.onload = target.onerror = () => io.unobserve(target);
+        const oldLoad = target.onload;
+        target.onload = function() {
+          io.unobserve(target);
+          oldLoad && oldLoad();
+        };
       });
     }, {
       threshold : [0],
