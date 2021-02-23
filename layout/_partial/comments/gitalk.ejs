@@ -16,7 +16,8 @@
           perPage: <%= theme.gitalk.perPage %>,
           pagerDirection: '<%= theme.gitalk.pagerDirection %>',
           createIssueManually: <%= theme.gitalk.createIssueManually %>,
-          distractionFreeMode: <%= theme.gitalk.distractionFreeMode %>
+          distractionFreeMode: <%= theme.gitalk.distractionFreeMode %>,
+          proxy: '<%= theme.gitalk.proxy %>'
         });
         gitalk.render('gitalk-container');
       });

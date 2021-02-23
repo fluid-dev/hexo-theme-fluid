@@ -657,6 +657,11 @@ disqus:
 # 基于 GitHub Issues
 # Based on GitHub Issues
 # See: https://github.com/gitalk/gitalk#options
+# 默认proxy已失效，可参看https://github.com/Zibri/cloudflare-cors-anywhere自行部署
+# 流程大致如下
+# 1. 注册cloudflare workers帐号
+# 2. 创建新worker，复制上述仓库的index.js到脚本中，保存并部署
+# 3. 用建立的proxy替换下列proxy选项中<your own proxy>部分
 gitalk:
   clientID:
   clientSecret:
@@ -669,6 +674,7 @@ gitalk:
   pagerDirection: last
   distractionFreeMode: false
   createIssueManually: true
+  proxy: <your own proxy>/https://github.com/login/oauth/access_token
 
 # Valine
 # 基于 LeanCloud
