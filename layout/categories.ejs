@@ -28,10 +28,17 @@ var orderBy = theme.category.order_by || 'name'
         <span><%= cat.posts.length %></span>
       </a>
       <div class="category-collapse">
+        <% var posts = cat.posts.sort(config.index_generator.order_by || '-date') %>
         <% if (subCats.length > 0) { %>
+          <% var filteredPosts = posts.filter((w) => {
+            var children = w.categories.filter((categoriesOnPost) => categoriesOnPost.parent == cat._id)
+            return children.length==0
+          }) %>
+          <%- render_posts(filteredPosts, cat._id) %>
           <%- render_sub_categories(subCats, cat, depth + 1, !collapsed) %>
         <% } else { %>
-          <%- render_posts(cat) %>
+          <% var posts = cat.posts.sort(config.index_generator.order_by || '-date') %>
+          <%- render_posts(posts, cat._id) %>
         <% } %>
       </div>
     </div>
@@ -45,11 +52,10 @@ var orderBy = theme.category.order_by || 'name'
   </div>
 <% } %>
 
-<% function render_posts(cat) { %>
-  <div id="collapse-<%= cat._id %>" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-<%= cat._id %>">
+<% function render_posts(posts, catId) { %>
+  <div id="collapse-<%= catId %>" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-<%= catId %>">
     <% var limit = theme.category.post_limit %>
-    <% var posts = cat.posts.sort(config.index_generator.order_by || '-date') %>
     <% for (var idx = 0; idx < posts.length; idx++) { %>
       <% var post = posts.data[idx] %>
       <% if (idx && limit && idx >= limit) { %>
