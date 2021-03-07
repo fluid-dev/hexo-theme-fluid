@@ -19,23 +19,48 @@ Fluid.utils = {
   },
 
   waitElementVisible: function(targetId, callback) {
-    var runningOnBrowser = typeof window !== 'undefined';
-    var isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
-    && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
-    var supportsIntersectionObserver = runningOnBrowser && 'IntersectionObserver' in window;
-    if (!isBot && supportsIntersectionObserver) {
-      var io = new IntersectionObserver(function(entries, ob) {
-        if (entries[0].isIntersecting) {
-          callback && callback();
-          ob.disconnect();
+    const runningOnBrowser = typeof window !== 'undefined',
+        isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
+        && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent)),
+        supportsIntersectionObserver = 'IntersectionObserver' in window,
+        attachEvent = 'attachEvent' in window,
+        addEventListener = 'addEventListener' in window;
+    if (!isBot && runningOnBrowser && (attachEvent || addEventListener)) {
+        function _scroll() {
+            if(attachEvent)document.attachEvent("scroll", _callback);
+            if(addEventListener)document.addEventListener('scroll', _callback);
+            function _callback() {
+                const _target = document.getElementById(targetId);
+                //滚动条高度+视窗高度 = 可见区域底部高度
+                let visibleBottom = window.scrollY + document.documentElement.clientHeight;
+                //可见区域顶部高度
+                let visibleTop = window.scrollY;
+                let centerY = _target.offsetTop + (_target.offsetHeight / 2);
+                if (centerY > visibleTop && centerY < visibleBottom) {
+                    if(attachEvent)document.detachEvent('scroll', _callback);
+                    if(addEventListener)document.removeEventListener('scroll', _callback);
+                    callback && callback();
+                }
+            }
         }
-      }, {
-        threshold : [0],
-        rootMargin: (window.innerHeight || document.documentElement.clientHeight) + 'px'
-      });
-      io.observe(document.getElementById(targetId));
+        if(supportsIntersectionObserver){
+          var io = new IntersectionObserver(function(entries, ob) {
+            //如果失败，回退到scroll方式
+            if(entries[0].intersectionRect.x <= 0){_scroll();ob.disconnect();return;}
+            if (entries[0].isIntersecting) {
+              callback && callback();
+              ob.disconnect();
+            }
+          }, {
+            threshold : [0],
+            rootMargin: (window.innerHeight || document.documentElement.clientHeight) + 'px'
+          });
+          io.observe(document.getElementById(targetId));
+        }else{
+            _scroll();
+        }
     } else {
-      callback && callback();
+        callback && callback();
     }
   },
 
