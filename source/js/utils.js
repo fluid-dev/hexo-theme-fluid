@@ -3,7 +3,7 @@
 Fluid.utils = {
 
   listenScroll: function(callback) {
-    const dbc = new Debouncer(callback);
+    var dbc = new Debouncer(callback);
     window.addEventListener('scroll', dbc, false);
     dbc.handleEvent();
   },
@@ -21,19 +21,50 @@ Fluid.utils = {
   waitElementVisible: function(targetId, callback) {
     var runningOnBrowser = typeof window !== 'undefined';
     var isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
-    && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
-    var supportsIntersectionObserver = runningOnBrowser && 'IntersectionObserver' in window;
-    if (!isBot && supportsIntersectionObserver) {
-      var io = new IntersectionObserver(function(entries, ob) {
-        if (entries[0].isIntersecting) {
-          callback && callback();
-          ob.disconnect();
+        && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
+    var supportsIntersectionObserver = 'IntersectionObserver' in window;
+    var attachEvent = 'attachEvent' in window;
+    var addEventListener = 'addEventListener' in window;
+    if (!isBot && runningOnBrowser && (attachEvent || addEventListener)) {
+      var _listenScroll = function() {
+        var _callback = function() {
+          var _target = document.getElementById(targetId);
+          var visibleBottom = window.scrollY + document.documentElement.clientHeight;
+          var visibleTop = window.scrollY;
+          var centerY = _target.offsetTop + (_target.offsetHeight / 2);
+          if (centerY > visibleTop && centerY < visibleBottom) {
+            if (attachEvent) {
+              document.detachEvent('scroll', _callback);
+            }
+            if (addEventListener) {
+              document.removeEventListener('scroll', _callback);
+            }
+            callback && callback();
+          }
+        };
+        if (attachEvent) {
+          document.attachEvent('scroll', _callback);
         }
-      }, {
-        threshold : [0],
-        rootMargin: (window.innerHeight || document.documentElement.clientHeight) + 'px'
-      });
-      io.observe(document.getElementById(targetId));
+        if (addEventListener) {
+          document.addEventListener('scroll', _callback);
+        }
+      };
+      if (supportsIntersectionObserver) {
+        var io = new IntersectionObserver(function(entries, ob) {
+          if (entries[0].intersectionRect.x <= 0) {
+            _listenScroll();
+          } else if (entries[0].isIntersecting) {
+            callback && callback();
+          }
+          ob.disconnect();
+        }, {
+          threshold : [0],
+          rootMargin: (window.innerHeight || document.documentElement.clientHeight) + 'px'
+        });
+        io.observe(document.getElementById(targetId));
+      } else {
+        _listenScroll();
+      }
     } else {
       callback && callback();
     }
