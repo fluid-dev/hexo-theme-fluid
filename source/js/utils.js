@@ -27,8 +27,6 @@ Fluid.utils = {
     const addEventListener = 'addEventListener' in window;
     if (!isBot && runningOnBrowser && (attachEvent || addEventListener)) {
       var _scroll = function() {
-        if (attachEvent)document.attachEvent('scroll', _callback);
-        if (addEventListener)document.addEventListener('scroll', _callback);
         let _callback = function() {
           const _target = document.getElementById(targetId);
           //滚动条高度+视窗高度 = 可见区域底部高度
@@ -42,6 +40,8 @@ Fluid.utils = {
             callback && callback();
           }
         };
+        if (attachEvent)document.attachEvent('scroll', _callback);
+        if (addEventListener)document.addEventListener('scroll', _callback);
       };
       if (supportsIntersectionObserver) {
         var io = new IntersectionObserver(function(entries, ob) {
