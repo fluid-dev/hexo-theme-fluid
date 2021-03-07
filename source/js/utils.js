@@ -19,21 +19,21 @@ Fluid.utils = {
   },
 
   waitElementVisible: function(targetId, callback) {
-    const runningOnBrowser = typeof window !== 'undefined';
-    const isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
+    var runningOnBrowser = typeof window !== 'undefined';
+    var isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
         && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
-    const supportsIntersectionObserver = 'IntersectionObserver' in window;
-    const attachEvent = 'attachEvent' in window;
-    const addEventListener = 'addEventListener' in window;
+    var supportsIntersectionObserver = 'IntersectionObserver' in window;
+    var attachEvent = 'attachEvent' in window;
+    var addEventListener = 'addEventListener' in window;
     if (!isBot && runningOnBrowser && (attachEvent || addEventListener)) {
       var _scroll = function() {
-        let _callback = function() {
-          const _target = document.getElementById(targetId);
+        var _callback = function() {
+          var _target = document.getElementById(targetId);
           //滚动条高度+视窗高度 = 可见区域底部高度
-          let visibleBottom = window.scrollY + document.documentElement.clientHeight;
+          var visibleBottom = window.scrollY + document.documentElement.clientHeight;
           //可见区域顶部高度
-          let visibleTop = window.scrollY;
-          let centerY = _target.offsetTop + (_target.offsetHeight / 2);
+          var visibleTop = window.scrollY;
+          var centerY = _target.offsetTop + (_target.offsetHeight / 2);
           if (centerY > visibleTop && centerY < visibleBottom) {
             if (attachEvent)document.detachEvent('scroll', _callback);
             if (addEventListener)document.removeEventListener('scroll', _callback);
