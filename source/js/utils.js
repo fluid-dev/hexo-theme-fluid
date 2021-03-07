@@ -26,7 +26,7 @@ Fluid.utils = {
     const attachEvent = 'attachEvent' in window;
     const addEventListener = 'addEventListener' in window;
     if (!isBot && runningOnBrowser && (attachEvent || addEventListener)) {
-      let _scroll = function() {
+      var _scroll = function() {
         if (attachEvent)document.attachEvent('scroll', _callback);
         if (addEventListener)document.addEventListener('scroll', _callback);
         let _callback = function() {
