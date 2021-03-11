@@ -10,10 +10,10 @@
 <% if (theme.lazyload.enable){ %>
   <% if (theme.lazyload.onlypost) { %>
     <% if (is_post() || is_page()) { %>
-      <%- js_ex(theme.static_prefix.internal_js, 'lazyload.js') %>
+      <%- js_ex(theme.static_prefix.internal_js, 'img-lazyload.js') %>
     <% } %>
   <% } else { %>
-    <%- js_ex(theme.static_prefix.internal_js, 'lazyload.js') %>
+    <%- js_ex(theme.static_prefix.internal_js, 'img-lazyload.js') %>
   <% } %>
 <% } %>
 

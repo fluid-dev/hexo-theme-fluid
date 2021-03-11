@@ -14,24 +14,36 @@ module.exports = (hexo) => {
         return;
       }
       if (page.lazyload !== false) {
-        page.content = lazyProcess(page.content, loadingImage);
+        page.content = lazyImages(page.content, loadingImage);
+        page.content = lazyComments(page.content);
       }
       return page;
     });
   } else {
     hexo.extend.filter.register('after_render:html', (html, data) => {
       if (!data.page || data.page.lazyload !== false) {
-        return lazyProcess(html, loadingImage);
+        html = lazyImages(html, loadingImage);
+        html = lazyComments(html);
+        return html;
       }
     });
   }
 };
 
-const lazyProcess = (htmlContent, loadingImage) => {
+const lazyImages = (htmlContent, loadingImage) => {
   return htmlContent.replace(/<img[^>]+?src="(.*?)"[^>]*?>/gims, (str, p1) => {
     if (/\ssrcset="/i.test(str)) {
       return str;
     }
     return str.replace(p1, `${p1}" srcset="${loadingImage}`);
+  });
+};
+
+const lazyComments = (htmlContent) => {
+  return htmlContent.replace(/<[^>]+?id="comments"[^>]*?>/gims, (str) => {
+    if (/lazyload/i.test(str)) {
+      return str;
+    }
+    return str.replace('id="comments"', 'id="comments" lazyload');
   });
 };

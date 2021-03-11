@@ -1,7 +1,7 @@
-<% if(theme.livere.uid){ %>
+<% if (theme.livere.uid) { %>
   <div id="lv-container" data-id="city" data-uid="<%= theme.livere.uid %>">
     <script type="text/javascript">
-      Fluid.utils.waitElementVisible('lv-container', function() {
+      Fluid.utils.lazyComments('lv-container', function() {
         Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
       });
     </script>

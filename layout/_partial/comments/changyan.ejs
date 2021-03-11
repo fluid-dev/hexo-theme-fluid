@@ -1,7 +1,7 @@
-<% if(theme.changyan.appid){ %>
+<% if (theme.changyan.appid) { %>
   <div id="SOHUCS" sid='<%= page.permalink %>'></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('SOHUCS', function() {
+    Fluid.utils.lazyComments('SOHUCS', function() {
       var appid = '<%= theme.changyan.appid %>';
       var conf = '<%= theme.changyan.appkey %>';
       var width = window.innerWidth || document.documentElement.clientWidth;
@@ -15,6 +15,6 @@
           })
         });
       }
-    })
+    });
   </script>
 <% } %>

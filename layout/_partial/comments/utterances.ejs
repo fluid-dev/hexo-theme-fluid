@@ -1,6 +1,6 @@
-<% if(theme.utterances.repo && theme.utterances.issue_term){ %>
+<% if (theme.utterances.repo && theme.utterances.issue_term) { %>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('comments', function() {
+    Fluid.utils.lazyComments('comments', function() {
       var light = '<%= theme.utterances.theme || 'github-light' %>';
       var dark = '<%= theme.utterances.theme_dark || 'github-dark' %>';
       var schema = document.documentElement.getAttribute('data-user-color-scheme');

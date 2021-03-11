@@ -1,7 +1,7 @@
-<% if(theme.valine.appid && theme.valine.appkey){ %>
+<% if (theme.valine.appid && theme.valine.appkey) { %>
   <div id="vcomments"></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('vcomments', function() {
+    Fluid.utils.lazyComments('vcomments', function() {
       Fluid.utils.createScript('<%= url_join(theme.static_prefix.valine, 'Valine.min.js') %>', function () {
         new Valine({
           el: "#vcomments",

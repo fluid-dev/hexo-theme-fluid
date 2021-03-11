@@ -252,13 +252,16 @@ web_analytics:  # 网页访问统计
     # Only the Chinese mainland users need to set
     server_url:
 
-# 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
-# Lazy loading of images on the page
+# 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
+# Lazy loading of images and comment plugin on the page
 lazyload:
   enable: true
-  # 懒加载仅对文章页生效，开启后如果自定义页面需要使用，可以在 Front-matter 里指定 `lazyload: true`
-  # If true, only enable lazyload on the post page. For custom pages, you can set 'lazyload: true' in front-matter
+  # 图片的懒加载仅在文章页生效，开启后如果自定义页面需要使用，可以在 Front-matter 里指定 `lazyload: true`
+  # If true, only enable lazy loading of images on the post page. For custom pages, you can set 'lazyload: true' in front-matter
   onlypost: false
+  # 触发加载的偏移倍数，基数是视窗高度，可根据部署环境的请求速度调节
+  # The factor of viewport height that triggers loading
+  offset_factor: 2
 
 # 主题版本相关
 # Theme version
