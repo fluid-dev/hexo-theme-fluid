@@ -155,16 +155,16 @@ Fluid.utils = {
     e.parentNode.insertBefore(l, e);
   },
 
-  lazyComments: function(eleID, loadFunc) {
+  lazyComments: function(eleId, loadFunc) {
     var ele = document.querySelector('#comments[lazyload]');
     if (ele) {
       var callback = function() {
         loadFunc && loadFunc();
         ele.removeAttribute('lazyload');
       };
-      this.waitElementVisible(eleID, callback, CONFIG.lazyload.offset_factor);
+      this.waitElementVisible(eleId, callback, CONFIG.lazyload.offset_factor);
     } else {
-      loadFunc();
+      loadFunc && loadFunc();
     }
   }
 
