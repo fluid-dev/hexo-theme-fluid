@@ -28,7 +28,7 @@ var orderBy = theme.category.order_by || 'name'
         <span><%= cat.posts.length %></span>
       </a>
       <div class="category-collapse">
-        <% var posts = cat.posts.sort(config.index_generator.order_by || '-date') %>
+        <% var posts = cat.posts.sort(theme.category.post_order_by || config.index_generator.order_by || '-date') %>
         <% if (subCats.length > 0) { %>
           <% var filteredPosts = posts.filter((p) => {
             return p.categories.filter(catOnPost => catOnPost.parent === cat._id).length === 0;

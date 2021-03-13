@@ -774,15 +774,19 @@ category:
   # The maximum number of posts in a single category. If the limit is exceeded, it will be displayed More
   post_limit: 10
 
-  # 排序字段，前面带减号是倒序，不带减号是正序，可选项：name | length
-  # Sort field, with a minus sign is reverse order
-  # Options: name | length
+  # 分类的排序字段，前面带减号是倒序，不带减号是正序
+  # Sort field for categories, with a minus sign is reverse order
+  # Options: length | name
   order_by: "-length"
 
   # 层级的折叠深度，0 是全部折叠，大于 0 后如果存在子分类则默认展开
   # Collapse depth. If 0, all posts collapsed. If greater than 0, it will be expanded by default if there are subcategories
   collapse_depth: 0
 
+  # 文章的排序字段，前面带减号是倒序，不带减号是正序
+  # Sort field for posts, with a minus sign is reverse order
+  # Options: date | title | or other field of front-matter
+  post_order_by: "-date"
 
 #---------------------------
 # 标签页
