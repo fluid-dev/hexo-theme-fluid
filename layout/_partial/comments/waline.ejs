@@ -13,10 +13,12 @@
           lang: "<%= theme.waline.lang %>",
           highlight: <%= theme.waline.highlight %>,
           serverURL: "<%= theme.waline.serverURL %>",
+          avatarCDN: "<%= theme.waline.avatarCDN %>",
           avatarForce: <%= theme.waline.avatarForce %>,
           requiredFields: <%- JSON.stringify(theme.waline.requiredFields || []) %>,
           emojiCDN: "<%= theme.waline.emojiCDN %>",
           emojiMaps: <%- JSON.stringify(theme.waline.emojiMaps) %>,
+          anonymous: <%= theme.waline.anonymous %>,
         });
       });
     });

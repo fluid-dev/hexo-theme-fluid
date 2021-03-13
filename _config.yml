@@ -708,10 +708,12 @@ waline:
   pageSize: 10
   lang: zh-CN
   highlight: true
+  avatarCDN:
   avatarForce: false
   requiredFields: []
   emojiCDN: ''
   emojiMaps: {}
+  anonymous:
 
 # 畅言 Changyan
 # 基于第三方的服务
