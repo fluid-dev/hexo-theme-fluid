@@ -32,11 +32,11 @@ module.exports = (hexo) => {
 };
 
 const lazyImages = (htmlContent, loadingImage) => {
-  return htmlContent.replace(/<img[^>]+?src="(.*?)"[^>]*?>/gims, (str, p1) => {
-    if (/\ssrcset="/i.test(str)) {
+  return htmlContent.replace(/<img[^>]+?src=(".*?")[^>]*?>/gims, (str, p1) => {
+    if (/lazyload/i.test(str)) {
       return str;
     }
-    return str.replace(p1, `${p1}" srcset="${loadingImage}`);
+    return str.replace(p1, `${p1} srcset="${loadingImage}" lazyload`);
   });
 };
 

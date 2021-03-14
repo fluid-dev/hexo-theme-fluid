@@ -47,7 +47,7 @@ Fluid.utils = {
       var height = window.innerHeight || document.documentElement.clientHeight;
       var top = rect.top;
       return (top >= 0 && top <= height * (_heightFactor + 1))
-          || (top <= 0 && top <= -(height * _heightFactor) - rect.height);
+          || (top <= 0 && top >= -(height * _heightFactor) - rect.height);
     };
 
     if (_elementInViewport(_target)) {
