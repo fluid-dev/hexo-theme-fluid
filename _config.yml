@@ -256,6 +256,9 @@ web_analytics:  # 网页访问统计
 # Lazy loading of images and comment plugin on the page
 lazyload:
   enable: true
+  # 加载时的占位图片
+  # The placeholder image when loading
+  loading_img: /img/loading.gif
   # 图片的懒加载仅在文章页生效，开启后如果自定义页面需要使用，可以在 Front-matter 里指定 `lazyload: true`
   # If true, only enable lazy loading of images on the post page. For custom pages, you can set 'lazyload: true' in front-matter
   onlypost: false

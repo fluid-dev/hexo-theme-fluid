@@ -4,7 +4,8 @@ const joinPath = require('../../utils/join-path');
 
 module.exports = (hexo) => {
   const config = hexo.theme.config;
-  let loadingImage = joinPath(joinPath(hexo.config.root, config.static_prefix.internal_img), 'loading.gif');
+  const loadingImage = joinPath(hexo.config.root, config.lazyload.loading_img
+    || joinPath(config.static_prefix.internal_img, 'loading.gif'));
   if (!config.lazyload || !config.lazyload.enable || !loadingImage) {
     return;
   }
