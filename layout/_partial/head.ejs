@@ -1,5 +1,5 @@
 <%
-var joinStr = theme.title_join_string
+var joinStr = theme.title_join_string || theme.tab_title_separator
 var title = config.title
 if (page.title) {
   title = [page.title, title].join(joinStr)
