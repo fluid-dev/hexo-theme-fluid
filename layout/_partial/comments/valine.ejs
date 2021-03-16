@@ -1,10 +1,10 @@
 <% if (theme.valine.appid && theme.valine.appkey) { %>
-  <div id="vcomments"></div>
+  <div id="valine"></div>
   <script type="text/javascript">
-    Fluid.utils.lazyComments('vcomments', function() {
+    Fluid.utils.lazyComments('valine', function() {
       Fluid.utils.createScript('<%= url_join(theme.static_prefix.valine, 'Valine.min.js') %>', function () {
         new Valine({
-          el: "#vcomments",
+          el: "#valine",
           app_id: "<%= theme.valine.appid %>",
           app_key: "<%= theme.valine.appkey %>",
           placeholder: "<%= theme.valine.placeholder %>",
