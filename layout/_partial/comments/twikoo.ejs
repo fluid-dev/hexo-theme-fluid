@@ -1,8 +1,14 @@
-<% if (theme.twikoo && theme.twikoo.env_id) { %>
+<% if (theme.twikoo && theme.twikoo.envId) { %>
+  <div id="twikoo"></div>
   <script type="text/javascript">
     Fluid.utils.lazyComments('comments', function() {
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.twikoo, 'twikoo.all.min.js') %>', function () {
-        twikoo.init({ envId: '<%= theme.twikoo.env_id %>' })
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.twikoo, 'twikoo.all.min.js') %>', function() {
+        twikoo.init({
+          el: '#twikoo',
+          envId: '<%= theme.twikoo.envId %>',
+          region: '<%= theme.twikoo.region %>',
+          path: '<%= theme.twikoo.path %>',
+        })
       });
     });
   </script>

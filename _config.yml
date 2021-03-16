@@ -756,8 +756,9 @@ remark42:
 # Based on Tencent CloudBase
 # See: https://twikoo.js.org
 twikoo:
-  env_id:
-
+  envId:
+  region: ap-shanghai
+  path: window.location.pathname
 
 #---------------------------
 # 归档页
@@ -965,12 +966,12 @@ static_prefix:
 
   valine: https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/
 
-  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.4.2/dist/
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.14.8/dist/
 
   gitalk: https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/
 
   disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
 
-  twikoo: https://cdn.jsdelivr.net/npm/twikoo@0.1.15/dist/
+  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.0/dist/
 
   hint: /lib/hint/
