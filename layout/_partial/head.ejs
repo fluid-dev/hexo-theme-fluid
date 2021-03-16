@@ -1,8 +1,15 @@
 <%
-var joinStr = theme.title_join_string || theme.tab_title_separator
-var title = config.title
-if (page.title) {
-  title = [page.title, title].join(joinStr)
+var separator = theme.title_join_string || theme.tab_title_separator
+var title = page.title ? [page.title, config.title].join(separator) : config.title
+var keywords = page.keywords || config.keywords
+if (keywords instanceof Array) {
+  keywords = keywords.join(',')
+}
+var description = config.description
+if (page.description) {
+  description = page.description
+} else if(page.excerpt) {
+  description = strip_html(page.excerpt).substr(0, 200)
 }
 %>
 
@@ -16,16 +23,10 @@ if (page.title) {
   <% if (theme.force_https) { %>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <% } %>
-  <meta name="theme-color" content="<%- theme.color.navbar_bg_color %>">
-  <% if (page.description) { %>
-    <meta name="description" content="<%= page.description %>">
-  <% } else if(page.excerpt){ %>
-    <meta name="description" content="<%= strip_html(page.excerpt).substr(0, 200) %>">
-  <% } else { %>
-    <meta name="description" content="<%= config.description %>">
-  <% } %>
+  <meta name="theme-color" content="<%= theme.color.navbar_bg_color %>">
+  <meta name="description" content="<%= description %>">
   <meta name="author" content="<%= page.author || config.author %>">
-  <meta name="keywords" content="<%= page.keywords || config.keywords %>">
+  <meta name="keywords" content="<%= keywords %>">
   <% if (theme.custom_head) { %>
     <%- theme.custom_head %>
   <% } %>
