@@ -18,7 +18,7 @@
           requiredFields: <%- JSON.stringify(theme.waline.requiredFields || []) %>,
           emojiCDN: "<%= theme.waline.emojiCDN %>",
           emojiMaps: <%- JSON.stringify(theme.waline.emojiMaps) %>,
-          anonymous: <%= theme.waline.anonymous %>,
+          anonymous: <%= JSON.stringify(theme.waline.anonymous) %>,
         });
       });
     });
