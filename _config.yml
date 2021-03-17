@@ -707,8 +707,8 @@ valine:
   serverURLs:
 
 # Waline
-# 一款从 Valine 衍生的带后端的评论插件
-# A comment plugin with backend derived from Valine
+# 从 Valine 衍生而来，额外增加了服务端和多种功能
+# Derived from Valine, with self-hosted service and new features
 # See: https://waline.js.org/
 waline:
   serverURL: ''
@@ -742,8 +742,8 @@ livere:
   uid: ''
 
 # Remark42
-# 需要自己运行后端服务
-# Need to run the backend service yourself
+# 需要自托管服务端
+# Based on self-hosted service
 # See: https://remark42.com
 remark42:
   host:
