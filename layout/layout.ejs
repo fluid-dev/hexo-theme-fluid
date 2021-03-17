@@ -12,6 +12,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 <%- partial('_partial/head') %>
 
 <body>
+  <%- inject_point('bodyBegin') %>
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
     <div class="banner" id="banner" <%- theme.banner && theme.banner.parallax && 'parallax=true' %>
@@ -39,6 +40,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
         </div>
       </div>
     </div>
+    <%- inject_point('header') %>
   </header>
 
   <main>
@@ -88,6 +90,8 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 
   <!-- SCRIPTS -->
   <%- partial('_partial/scripts') %>
+
+  <%- inject_point('bodyEnd') %>
 
 </body>
 </html>
