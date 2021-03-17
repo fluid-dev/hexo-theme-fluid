@@ -3,7 +3,7 @@
     <div id="disqus_thread"></div>
     <% if (theme.disqus.disqusjs) { %>
       <script>
-        Fluid.utils.lazyComments('disqus_thread', function() {
+        Fluid.utils.loadComments('#disqus_thread', function() {
           Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.disqusjs, 'disqusjs.css') %>');
           Fluid.utils.createScript('<%= url_join(theme.static_prefix.disqusjs, 'disqus.js') %>', function() {
             new DisqusJS({
@@ -19,7 +19,7 @@
           this.page.url = '<%= page.permalink %>';
           this.page.identifier = '<%= url_for(page.path) %>';
         };
-        Fluid.utils.lazyComments('disqus_thread', function() {
+        Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
           s.src = '//' + '<%- theme.disqus.shortname %>' + '.disqus.com/embed.js';
           s.setAttribute('data-timestamp', new Date());

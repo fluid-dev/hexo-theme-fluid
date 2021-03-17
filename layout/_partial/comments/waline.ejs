@@ -1,7 +1,7 @@
 <% if (theme.waline.serverURL) { %>
   <div id="waline"></div>
   <script type="text/javascript">
-    Fluid.utils.lazyComments('waline', function() {
+    Fluid.utils.loadComments('#waline', function() {
       Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'Waline.min.js') %>', function () {
         new Waline({
           el: "#waline",

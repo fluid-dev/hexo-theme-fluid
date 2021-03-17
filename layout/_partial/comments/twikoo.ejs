@@ -1,7 +1,7 @@
 <% if (theme.twikoo && theme.twikoo.envId) { %>
   <div id="twikoo"></div>
   <script type="text/javascript">
-    Fluid.utils.lazyComments('comments', function() {
+    Fluid.utils.loadComments('#comments', function() {
       Fluid.utils.createScript('<%= url_join(theme.static_prefix.twikoo, 'twikoo.all.min.js') %>', function() {
         twikoo.init({
           el: '#twikoo',

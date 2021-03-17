@@ -1,7 +1,7 @@
 <% if (theme.changyan.appid) { %>
   <div id="SOHUCS" sid='<%= page.permalink %>'></div>
   <script type="text/javascript">
-    Fluid.utils.lazyComments('SOHUCS', function() {
+    Fluid.utils.loadComments('#SOHUCS', function() {
       var appid = '<%= theme.changyan.appid %>';
       var conf = '<%= theme.changyan.appkey %>';
       var width = window.innerWidth || document.documentElement.clientWidth;

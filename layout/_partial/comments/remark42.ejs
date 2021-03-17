@@ -16,7 +16,7 @@
       locale: '<%= theme.remark42.locale %>'
     };
 
-    Fluid.utils.lazyComments('remark42', function() {
+    Fluid.utils.loadComments('#remark42', function() {
       (function (c) {
         for (var i = 0; i < c.length; i++) {
           var d = document, s = d.createElement('script');
