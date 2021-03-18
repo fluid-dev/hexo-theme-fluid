@@ -61,4 +61,12 @@ module.exports = (hexo) => {
     }
     hexo.theme.config.banner.parallax = hexo.theme.config.banner_parallax;
   }
+
+  // Breaking change at v1.8.11 2021/05/14
+  if (hexo.theme.config.valine.appid) {
+    hexo.theme.config.valine.appId = hexo.theme.config.valine.appid;
+  }
+  if (hexo.theme.config.valine.appkey) {
+    hexo.theme.config.valine.appKey = hexo.theme.config.valine.appkey;
+  }
 };

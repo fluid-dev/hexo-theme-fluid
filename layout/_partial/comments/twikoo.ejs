@@ -3,12 +3,11 @@
   <script type="text/javascript">
     Fluid.utils.loadComments('#comments', function() {
       Fluid.utils.createScript('<%= url_join(theme.static_prefix.twikoo, 'twikoo.all.min.js') %>', function() {
-        twikoo.init({
-          el: '#twikoo',
-          envId: '<%= theme.twikoo.envId %>',
-          region: '<%= theme.twikoo.region %>',
-          path: '<%= theme.twikoo.path %>',
-        })
+        var options = Object.assign(
+          <%- JSON.stringify(theme.twikoo || {}) %>,
+          { el: "#twikoo", path: <%= theme.twikoo.path %> }
+        )
+        twikoo.init(options)
       });
     });
   </script>

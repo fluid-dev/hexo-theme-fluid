@@ -688,10 +688,10 @@ gitalk:
 # Valine
 # 基于 LeanCloud
 # Based on LeanCloud
-# See: https://valine.js.org/configuration.html
+# See: https://valine.js.org/
 valine:
-  appid:
-  appkey:
+  appId:
+  appKey:
   placeholder: 说点什么
   path: window.location.pathname
   avatar: retro
@@ -700,7 +700,11 @@ valine:
   lang: zh-CN
   highlight: false
   recordIP: false
-  serverURLs:
+  serverURLs: ''
+  emojiCDN:
+  emojiMaps:
+  enableQQ: false
+  requiredFields: []
 
 # Waline
 # 从 Valine 衍生而来，额外增加了服务端和多种功能
@@ -715,11 +719,11 @@ waline:
   pageSize: 10
   lang: zh-CN
   highlight: true
-  avatarCDN:
+  avatarCDN: ''
   avatarForce: false
   requiredFields: []
-  emojiCDN: ''
-  emojiMaps: {}
+  emojiCDN:
+  emojiMaps:
   anonymous:
 
 # 畅言 Changyan
@@ -746,6 +750,7 @@ remark42:
   site_id:
   max_shown_comments: 10
   locale: zh
+  components: ['embed']
 
 # Twikoo
 # 基于腾讯云开发
@@ -762,7 +767,7 @@ twikoo:
 # See https://cusdis.com
 cusdis:
   host:
-  appID:
+  app_id:
   lang: zh-cn
 
 #---------------------------

@@ -5,16 +5,14 @@
     if (schema !== 'light' && schema !== 'dark') {
       schema = 'light';
     }
-    var remark_config = {
-      host: '<%= theme.remark42.host %>',
-      site_id: '<%= theme.remark42.site_id %>',
-      components: ['embed'],
-      url: '<%= url_for(page.path) %>',
-      max_shown_comments: '<%= theme.remark42.max_shown_comments %>',
-      theme: schema,
-      page_title: '<%= page.title %>',
-      locale: '<%= theme.remark42.locale %>'
-    };
+    var remark_config = Object.assign(
+      <%- JSON.stringify(theme.remark42 || {}) %>,
+      {
+        url: '<%= url_for(page.path) %>',
+        page_title: '<%= page.title %>',
+        theme: schema,
+      }
+    );
 
     Fluid.utils.loadComments('#remark42', function() {
       (function (c) {

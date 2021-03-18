@@ -3,22 +3,12 @@
   <script type="text/javascript">
     Fluid.utils.loadComments('#gitalk-container', function() {
       Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.internal_css, 'gitalk.css') %>')
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.gitalk, 'gitalk.min.js') %>', function () {
-        var gitalk = new Gitalk({
-          clientID: '<%= theme.gitalk.clientID %>',
-          clientSecret: '<%= theme.gitalk.clientSecret %>',
-          repo: '<%= theme.gitalk.repo %>',
-          owner: '<%= theme.gitalk.owner %>',
-          admin: <%- JSON.stringify(theme.gitalk.admin || []) %>,
-          id: '<%= md5(page.path) %>',
-          language: '<%= theme.gitalk.language %>',
-          labels: <%- JSON.stringify(theme.gitalk.labels || []) %>,
-          perPage: <%= theme.gitalk.perPage %>,
-          pagerDirection: '<%= theme.gitalk.pagerDirection %>',
-          createIssueManually: <%= theme.gitalk.createIssueManually %>,
-          distractionFreeMode: <%= theme.gitalk.distractionFreeMode %>,
-          proxy: '<%= theme.gitalk.proxy %>'
-        });
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.gitalk, 'gitalk.min.js') %>', function() {
+        var options = Object.assign(
+          <%- JSON.stringify(theme.gitalk || {}) %>,
+          { id: '<%= md5(page.path) %>' }
+        )
+        var gitalk = new Gitalk(options);
         gitalk.render('gitalk-container');
       });
     });
