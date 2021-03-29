@@ -16,9 +16,10 @@ page.banner_mask_alpha = theme.about.banner_mask_alpha
         <% if (!each.class) continue; %>
         <% var cls = each.class %>
         <% var isQr = each.qrcode %>
-        <a href="<%= isQr ? 'javascript:;' : url_for(each.link) %>" class="<%= isQr ? 'qr-trigger' : '' %>
+        <a <%= isQr ? '' : ('href=' + url_for(each.link)) %> class="<%= isQr ? 'qr-trigger' : '' %>
            <%= !isQr && each.tip ? 'hint--bottom hint--rounded' : '' %>"
            <%= !isQr && each.tip ? 'aria-label=' + each.tip : '' %>
+           target="<%= isQr ? '_self' : '_blank' %>"
         >
           <i class="<%= cls %>" aria-hidden="true"></i>
           <% if (isQr) { %>
