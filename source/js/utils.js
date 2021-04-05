@@ -12,6 +12,10 @@ Fluid.utils = {
     }
   },
 
+  unlistenScroll: function(callback) {
+    window.removeEventListener('scroll', callback);
+  },
+
   scrollToElement: function(target, offset) {
     var of = $(target).offset();
     if (of) {
@@ -22,6 +26,15 @@ Fluid.utils = {
     }
   },
 
+  elementInViewport: function(element, heightFactor) {
+    heightFactor = heightFactor || 1;
+    var rect = element.getBoundingClientRect();
+    var height = window.innerHeight || document.documentElement.clientHeight;
+    var top = rect.top;
+    return (top >= 0 && top <= height * (heightFactor + 1))
+      || (top <= 0 && top >= -(height * heightFactor) - rect.height);
+  },
+
   waitElementVisible: function(selectorsOrElement, callback, heightFactor) {
     var runningOnBrowser = typeof window !== 'undefined';
     var isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
@@ -29,7 +42,7 @@ Fluid.utils = {
     var supportsIntersectionObserver = 'IntersectionObserver' in window;
 
     if (!runningOnBrowser || isBot) {
-      callback && callback();
+      callback();
       return;
     }
 
@@ -42,54 +55,30 @@ Fluid.utils = {
 
     var _heightFactor = heightFactor || 2;
 
-    var _elementInViewport = function(el) {
-      var rect = el.getBoundingClientRect();
-      var height = window.innerHeight || document.documentElement.clientHeight;
-      var top = rect.top;
-      return (top >= 0 && top <= height * (_heightFactor + 1))
-          || (top <= 0 && top >= -(height * _heightFactor) - rect.height);
-    };
-
-    if (_elementInViewport(target)) {
-      callback && callback();
+    if (Fluid.utils.elementInViewport(target, _heightFactor)) {
+      callback();
       return;
     }
 
-    var _listenScroll = function() {
-      var _callback = function() {
-        if (_elementInViewport(target)) {
-          window.removeEventListener('scroll', _callback);
-          callback && callback();
-        }
-      };
-      window.addEventListener('scroll', _callback);
-    };
-
     if (supportsIntersectionObserver) {
       var io = new IntersectionObserver(function(entries, ob) {
-        if (entries[0].intersectionRect.x <= 0) {
-          if ('Debouncer' in window) {
-            var dbc = new Debouncer(_listenScroll);
-            dbc.handleEvent();
-          } else {
-            _listenScroll();
-          }
-        } else if (entries[0].isIntersecting) {
-          callback && callback();
+        if (entries[0].isIntersecting) {
+          callback();
+          ob.disconnect();
         }
-        ob.disconnect();
       }, {
         threshold : [0],
         rootMargin: (window.innerHeight || document.documentElement.clientHeight) + 'px'
       });
       io.observe(target);
     } else {
-      if ('Debouncer' in window) {
-        var dbc = new Debouncer(_listenScroll);
-        dbc.handleEvent();
-      } else {
-        _listenScroll();
-      }
+      var _callback = function() {
+        if (Fluid.utils.elementInViewport(target, _heightFactor)) {
+          Fluid.utils.unlistenScroll(_callback);
+          callback();
+        }
+      };
+      Fluid.utils.listenScroll(_callback);
     }
   },
 
@@ -99,7 +88,7 @@ Fluid.utils = {
     && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
 
     if (!runningOnBrowser || isBot) {
-      callback && callback();
+      callback();
       return;
     }
 
@@ -107,14 +96,14 @@ Fluid.utils = {
       var mo = new MutationObserver(function(records, ob) {
         var ele = document.getElementById(targetId);
         if (ele) {
-          callback && callback();
+          callback();
           ob.disconnect();
         }
       });
       mo.observe(document, { childList: true, subtree: true });
     } else {
       document.addEventListener('DOMContentLoaded', function() {
-        callback && callback();
+        callback();
       });
     }
   },
@@ -159,12 +148,12 @@ Fluid.utils = {
     var ele = document.querySelector('#comments[lazyload]');
     if (ele) {
       var callback = function() {
-        loadFunc && loadFunc();
+        loadFunc();
         ele.removeAttribute('lazyload');
       };
-      this.waitElementVisible(selectors, callback, CONFIG.lazyload.offset_factor);
+      Fluid.utils.waitElementVisible(selectors, callback, CONFIG.lazyload.offset_factor);
     } else {
-      loadFunc && loadFunc();
+      loadFunc();
     }
   }
 
