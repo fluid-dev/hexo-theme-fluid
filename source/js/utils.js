@@ -1,15 +1,14 @@
-/* global Fluid, CONFIG, Debouncer */
+/* global Fluid, CONFIG */
+
+window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
 
 Fluid.utils = {
 
   listenScroll: function(callback) {
-    if ('Debouncer' in window) {
-      var dbc = new Debouncer(callback);
-      window.addEventListener('scroll', dbc, false);
-      dbc.handleEvent();
-    } else {
-      window.addEventListener('scroll', callback, false);
-    }
+    var dbc = new Debouncer(callback);
+    window.addEventListener('scroll', dbc, false);
+    dbc.handleEvent();
+    return dbc;
   },
 
   unlistenScroll: function(callback) {
@@ -72,13 +71,12 @@ Fluid.utils = {
       });
       io.observe(target);
     } else {
-      var _callback = function() {
+      var warpCallback = Fluid.utils.listenScroll(function() {
         if (Fluid.utils.elementInViewport(target, _heightFactor)) {
-          Fluid.utils.unlistenScroll(_callback);
+          Fluid.utils.unlistenScroll(warpCallback);
           callback();
         }
-      };
-      Fluid.utils.listenScroll(_callback);
+      });
     }
   },
 
@@ -157,4 +155,44 @@ Fluid.utils = {
     }
   }
 
+};
+
+/**
+ * Handles debouncing of events via requestAnimationFrame
+ * @see http://www.html5rocks.com/en/tutorials/speed/animations/
+ * @param {Function} callback The callback to handle whichever event
+ */
+function Debouncer(callback) {
+  this.callback = callback;
+  this.ticking = false;
+}
+Debouncer.prototype = {
+  constructor: Debouncer,
+
+  /**
+   * dispatches the event to the supplied callback
+   * @private
+   */
+  update: function() {
+    this.callback && this.callback();
+    this.ticking = false;
+  },
+
+  /**
+   * ensures events don't get stacked
+   * @private
+   */
+  requestTick: function() {
+    if (!this.ticking) {
+      requestAnimationFrame(this.rafCallback || (this.rafCallback = this.update.bind(this)));
+      this.ticking = true;
+    }
+  },
+
+  /**
+   * Attach this as the event listeners
+   */
+  handleEvent: function() {
+    this.requestTick();
+  }
 };
