@@ -273,13 +273,6 @@ lazyload:
 # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
 iconfont: //at.alicdn.com/t/font_1736178_kmeydafke9r.css
 
-# 主题版本相关
-# Theme version
-version:
-  # 每次生成页面后，检测主题是否为最新版本
-  # If true, check whether Fluid is the latest version after hexo generate
-  check: false
-
 
 #---------------------------
 # 页头
