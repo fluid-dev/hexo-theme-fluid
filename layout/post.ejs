@@ -1,9 +1,7 @@
 <%
-if (!page.banner_img) {
-  page.banner_img = theme.post.banner_img
-}
-page.banner_img_height = theme.post.banner_img_height
-page.banner_mask_alpha = theme.post.banner_mask_alpha
+page.banner_img = page.banner_img || theme.post.banner_img
+page.banner_img_height = page.banner_img_height || theme.post.banner_img_height
+page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
 %>
 
 <div class="container-fluid nopadding-x">
