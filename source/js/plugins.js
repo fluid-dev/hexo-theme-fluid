@@ -9,7 +9,7 @@ HTMLElement.prototype.wrap = function(wrapper) {
 Fluid.plugins = {
 
   typing: function(text) {
-    if (!window.Typed) { return; }
+    if (!('Typed' in window)) { return; }
 
     var typed = new window.Typed('#subtitle', {
       strings: [
@@ -55,7 +55,7 @@ Fluid.plugins = {
     }
   },
 
-  wrapImageWithFancyBox: function() {
+  initFancyBox: function() {
     if (!$.fancybox) { return; }
 
     $('.markdown-body :not(a) > img, .markdown-body > img').each(function() {
@@ -89,8 +89,8 @@ Fluid.plugins = {
     });
   },
 
-  registerAnchor: function() {
-    if (!window.anchors) { return; }
+  initAnchor: function() {
+    if (!('anchors' in window)) { return; }
 
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
@@ -107,8 +107,9 @@ Fluid.plugins = {
     window.anchors.add(res.join(', '));
   },
 
-  registerCopyCode: function() {
-    if (!window.ClipboardJS) { return; }
+  initCopyCode: function() {
+    if (!('ClipboardJS' in window)) { return; }
+
     function getBgClass(ele) {
       if (ele.length === 0) {
         return 'copy-btn-dark';
@@ -147,31 +148,6 @@ Fluid.plugins = {
         e.trigger.outerHTML = tmp;
       }, 2000);
     });
-  },
-
-  registerImageLoaded: function() {
-    var bg = document.getElementById('banner');
-    if (bg) {
-      var src = bg.style.backgroundImage;
-      var url = src.match(/\((.*?)\)/)[1].replace(/(['"])/g, '');
-      var img = new Image();
-      img.onload = function() {
-        window.NProgress && window.NProgress.inc(0.2);
-      };
-      img.src = url;
-      if (img.complete) { img.onload(); }
-    }
-
-    var notLazyImages = $('main img:not([lazyload])');
-    var total = notLazyImages.length;
-    for (const img of notLazyImages) {
-      const old = img.onload;
-      img.onload = function() {
-        old && old();
-        window.NProgress && window.NProgress.inc(0.5 / total);
-      };
-      if (img.complete) { img.onload(); }
-    }
   }
 
 };
