@@ -60,21 +60,35 @@ Fluid.plugins = {
 
     $('.markdown-body :not(a) > img, .markdown-body > img').each(function() {
       var $image = $(this);
-      var imageLink = $image.attr('data-src') || $image.attr('src');
-      var $imageWrapLink = $image.wrap(`
-        <a class="fancybox fancybox.image" href="${imageLink}"
+      var imageUrl = $image.attr('data-src') || $image.attr('src') || '';
+      if (CONFIG.image_zoom.img_url_replace) {
+        var rep = CONFIG.image_zoom.img_url_replace;
+        var r1 = rep[0] || '';
+        var r2 = rep[1] || '';
+        if (r1) {
+          if (/^re:/.test(r1)) {
+            r1 = r1.replace(/^re:/, '');
+            var reg = new RegExp(r1, 'gi');
+            imageUrl = imageUrl.replace(reg, r2);
+          } else {
+            imageUrl = imageUrl.replace(r1, r2);
+          }
+        }
+      }
+      var $imageWrap = $image.wrap(`
+        <a class="fancybox fancybox.image" href="${imageUrl}"
           itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`
       ).parent('a');
       if ($image.is('.group-image-container img')) {
-        $imageWrapLink.attr('data-fancybox', 'group').attr('rel', 'group');
+        $imageWrap.attr('data-fancybox', 'group').attr('rel', 'group');
       } else {
-        $imageWrapLink.attr('data-fancybox', 'default').attr('rel', 'default');
+        $imageWrap.attr('data-fancybox', 'default').attr('rel', 'default');
       }
 
       var imageTitle = $image.attr('title') || $image.attr('alt');
       if (imageTitle) {
-        $imageWrapLink.append(`<p class="image-caption">${imageTitle}</p>`);
-        $imageWrapLink.attr('title', imageTitle).attr('data-caption', imageTitle);
+        $imageWrap.append(`<p class="image-caption">${imageTitle}</p>`);
+        $imageWrap.attr('title', imageTitle).attr('data-caption', imageTitle);
       }
     });
 
