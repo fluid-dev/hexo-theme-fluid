@@ -1,0 +1,44 @@
+search:
+  title: Serĉi
+  keyword: ŝlosivorto
+  status:
+    success: v
+    error: x
+
+postTotal: Entute %d afiŝoj
+
+paginator:
+  pre: Antaŭa paĝo
+  next: Sekva paĝo
+
+post:
+  toc: Enhavtabelo
+  pre: Antaŭa afiŝo
+  next: Sekva afiŝo
+
+home:
+  title: Hejmpaĝo
+
+archive:
+  title: Arkivoj
+  subtitle: Arkivo
+
+tag:
+  title: Etikedoj
+  subtitle: Etikedo
+
+category:
+  title: Kategorioj
+  subtitle: Kategorio
+
+about:
+  title: Pri
+  subtitle: Pri
+
+page404:
+  title: Paĝo ne trovita
+  subtitle: Ho ve, Paĝo ne trovita~
+
+links:
+  title: Ligoj
+  subtitle: Ligoj de amikeco
