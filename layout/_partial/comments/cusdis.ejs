@@ -1,0 +1,23 @@
+<% if (theme.cusdis.host && theme.cusdis.appID) { %>
+  <div class="cusdis" style="width:100%">
+    <div id="cusdis_thread"
+      data-host="<%= theme.cusdis.host %>"
+      data-app-id="<%= theme.cusdis.appID %>"
+      data-page-id="<%= md5(page.path) %>"
+      data-page-url="<%= page.path %>"
+      data-page-title="<%= page.title %>"
+      data-theme="<%= theme.dark_mode.default %>"
+    >
+    </div>
+  </div>
+  <script type="text/javascript">
+    const src = '<%= theme.cusdis.host %>/js/widget/lang/<%= theme.cusdis.lang %>.js';
+    Fluid.utils.createScript(src);
+  </script>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#cusdis_thread', function() {
+      Fluid.utils.createScript("<%= url_join(theme.cusdis.host, 'js/cusdis.es.js') %>");
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+<% } %>
