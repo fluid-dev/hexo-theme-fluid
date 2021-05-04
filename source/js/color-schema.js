@@ -178,6 +178,11 @@
       window.REMARK42.changeTheme(schema);
     }
 
+    // 设置 cusdis 评论主题
+    if (window.CUSDIS) {
+      window.CUSDIS.setTheme(schema);
+    }
+
     // 设置 utterances 评论主题
     var utterances = document.querySelector('iframe');
     if (utterances) {
