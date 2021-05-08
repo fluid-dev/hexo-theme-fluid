@@ -13,6 +13,10 @@
   <script type="text/javascript">
     const src = '<%= theme.cusdis.host %>/js/widget/lang/<%= theme.cusdis.lang %>.js';
     Fluid.utils.createScript(src);
+    var schema = document.documentElement.getAttribute('data-user-color-scheme');
+    if (schema) {
+      document.querySelector('#cusdis_thread').dataset.theme = schema
+    }
   </script>
   <script type="text/javascript">
     Fluid.utils.loadComments('#cusdis_thread', function() {
