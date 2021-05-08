@@ -763,6 +763,7 @@ twikoo:
 cusdis:
   host:
   appID:
+  lang: zh-cn
 
 #---------------------------
 # 归档页
