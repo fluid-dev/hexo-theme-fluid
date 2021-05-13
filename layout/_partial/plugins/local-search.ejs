@@ -3,11 +3,11 @@
   <script>
     (function () {
       var path = "<%- url_for(theme.search.path) || '/local-search.xml' %>";
-      $('#local-search-input').on('click', function() {
+      jQuery('#local-search-input').on('click', function() {
         searchFunc(path, 'local-search-input', 'local-search-result');
       });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
+      jQuery('#modalSearch').on('shown.bs.modal', function() {
+        jQuery('#local-search-input').focus();
       });
     })()
   </script>

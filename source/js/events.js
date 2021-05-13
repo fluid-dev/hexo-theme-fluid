@@ -9,8 +9,8 @@ HTMLElement.prototype.wrap = function(wrapper) {
 Fluid.events = {
 
   registerNavbarEvent: function() {
-    var navbar = $('#navbar');
-    var submenu = $('#navbar .dropdown-menu');
+    var navbar = jQuery('#navbar');
+    var submenu = jQuery('#navbar .dropdown-menu');
     if (navbar.offset().top > 0) {
       navbar.removeClass('navbar-dark');
       submenu.removeClass('navbar-dark');
@@ -26,23 +26,23 @@ Fluid.events = {
         submenu.removeClass('navbar-dark');
       }
     });
-    $('#navbar-toggler-btn').on('click', function() {
-      $('.animated-icon').toggleClass('open');
-      $('#navbar').toggleClass('navbar-col-show');
+    jQuery('#navbar-toggler-btn').on('click', function() {
+      jQuery('.animated-icon').toggleClass('open');
+      jQuery('#navbar').toggleClass('navbar-col-show');
     });
   },
 
   registerParallaxEvent: function() {
-    var bg = $('#banner[parallax="true"]');
+    var bg = jQuery('#banner[parallax="true"]');
     if (bg.length === 0) {
       return;
     }
-    var board = $('#board');
+    var board = jQuery('#board');
     if (board.length === 0) {
       return;
     }
     var parallax = function() {
-      var oVal = $(window).scrollTop() / 5;
+      var oVal = jQuery(window).scrollTop() / 5;
       var offset = parseInt(board.css('margin-top'), 0);
       var max = 96 + offset;
       if (oVal > max) {
@@ -54,9 +54,9 @@ Fluid.events = {
         '-ms-transform'    : 'translate3d(0,' + oVal + 'px,0)',
         '-o-transform'     : 'translate3d(0,' + oVal + 'px,0)'
       });
-      var toc = $('#toc');
+      var toc = jQuery('#toc');
       if (toc) {
-        $('#toc-ctn').css({
+        jQuery('#toc-ctn').css({
           'padding-top': oVal + 'px'
         });
       }
@@ -65,21 +65,21 @@ Fluid.events = {
   },
 
   registerScrollDownArrowEvent: function() {
-    var scrollbar = $('.scroll-down-bar');
+    var scrollbar = jQuery('.scroll-down-bar');
     if (scrollbar.length === 0) {
       return;
     }
     scrollbar.on('click', function() {
-      Fluid.utils.scrollToElement('#board', -$('#navbar').height());
+      Fluid.utils.scrollToElement('#board', -jQuery('#navbar').height());
     });
   },
 
   registerScrollTopArrowEvent: function() {
-    var topArrow = $('#scroll-top-button');
+    var topArrow = jQuery('#scroll-top-button');
     if (topArrow.length === 0) {
       return;
     }
-    var board = $('#board');
+    var board = jQuery('#board');
     if (board.length === 0) {
       return;
     }
@@ -97,7 +97,7 @@ Fluid.events = {
       });
     };
     setTopArrowPos();
-    $(window).resize(setTopArrowPos);
+    jQuery(window).resize(setTopArrowPos);
     // Display
     var headerHeight = board.offset().top;
     Fluid.utils.listenScroll(function() {
@@ -109,7 +109,7 @@ Fluid.events = {
     });
     // Click
     topArrow.on('click', function() {
-      $('body,html').animate({
+      jQuery('body,html').animate({
         scrollTop: 0,
         easing   : 'swing'
       });
@@ -131,7 +131,7 @@ Fluid.events = {
       if (img.complete) { img.onload(); }
     }
 
-    var notLazyImages = $('main img:not([lazyload])');
+    var notLazyImages = jQuery('main img:not([lazyload])');
     var total = notLazyImages.length;
     for (const img of notLazyImages) {
       const old = img.onload;
