@@ -12,9 +12,9 @@
   </div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#cusdis_thread', function() {
-      Fluid.utils.createScript('<%= url_join(theme.cusdis.host, 'js/cusdis.es.js') %>');
       Fluid.utils.createScript('<%= url_join(theme.cusdis.host,
         `/js/widget/lang/${ String(theme.cusdis.lang || 'zh-cn').toLowerCase() }.js`) %>');
+      Fluid.utils.createScript('<%= url_join(theme.cusdis.host, 'js/cusdis.es.js') %>');
       var schema = document.documentElement.getAttribute('data-user-color-scheme');
       if (schema) {
         document.querySelector('#cusdis_thread').dataset.theme = schema
