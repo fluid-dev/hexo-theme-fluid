@@ -679,11 +679,11 @@ gitalk:
   pagerDirection: last
   distractionFreeMode: false
   createIssueManually: true
-  # 默认 proxy 已失效，解决方法请见下方链接
-  # The default proxy is invalid, please see the links for the solution
+  # 默认 proxy 可能会失效，解决方法请见下方链接
+  # The default proxy may be invalid, refer to the links for solutions
   # https://github.com/gitalk/gitalk/issues/429
   # https://github.com/Zibri/cloudflare-cors-anywhere
-  proxy: <your own proxy>/https://github.com/login/oauth/access_token
+  proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token
 
 # Valine
 # 基于 LeanCloud
