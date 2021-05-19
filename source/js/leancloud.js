@@ -123,7 +123,7 @@
     // 如果有页面浏览数节点，则请求浏览数并自增
     var viewCtn = document.querySelector('#leancloud-page-views-container');
     if (viewCtn) {
-      var target = decodeURI(window.location.pathname);
+      var target = decodeURI(window.location.pathname.replace(/(?<!\/)\/*(index.html)*$/, '/'));
       var viewGetter = getRecord(Counter, target).then((record) => {
         enableIncr && incrArr.push(buildIncrement(record.objectId));
         if (viewCtn) {
