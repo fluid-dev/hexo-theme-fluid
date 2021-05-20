@@ -5,7 +5,10 @@
       Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'Waline.min.js') %>', function() {
         var options = Object.assign(
           <%- JSON.stringify(theme.waline || {}) %>,
-          { el: "#waline", path: <%= theme.waline.path %> }
+          {
+            el: '#waline',
+            path: <%= theme.waline.path %>
+          }
         )
         new Waline(options);
       });

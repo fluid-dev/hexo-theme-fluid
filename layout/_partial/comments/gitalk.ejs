@@ -6,7 +6,9 @@
       Fluid.utils.createScript('<%= url_join(theme.static_prefix.gitalk, 'gitalk.min.js') %>', function() {
         var options = Object.assign(
           <%- JSON.stringify(theme.gitalk || {}) %>,
-          { id: '<%= md5(page.path) %>' }
+          {
+            id: '<%= md5(page.path) %>'
+          }
         )
         var gitalk = new Gitalk(options);
         gitalk.render('gitalk-container');

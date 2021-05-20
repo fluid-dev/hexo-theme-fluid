@@ -5,7 +5,10 @@
       Fluid.utils.createScript('<%= url_join(theme.static_prefix.valine, 'Valine.min.js') %>', function() {
         var options = Object.assign(
           <%- JSON.stringify(theme.valine || {}) %>,
-          { el: "#valine", path: <%= theme.valine.path %> }
+          {
+            el: "#valine",
+            path: <%= theme.valine.path %>
+          }
         )
         new Valine(options);
       });
