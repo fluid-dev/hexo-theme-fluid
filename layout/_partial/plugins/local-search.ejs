@@ -9,6 +9,9 @@
       jQuery('#modalSearch').on('shown.bs.modal', function() {
         jQuery('#local-search-input').focus();
       });
+      jQuery('#search-btn').on('click', function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      })
     })()
   </script>
 <% } %>
