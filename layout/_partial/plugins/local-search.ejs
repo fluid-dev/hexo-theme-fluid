@@ -3,7 +3,7 @@
   <script>
     (function () {
       var path = "<%- url_for(theme.search.path) || '/local-search.xml' %>";
-      jQuery('#local-search-input').on('click', function() {
+      jQuery('#search-btn').on('click', function () {
         searchFunc(path, 'local-search-input', 'local-search-result');
       });
       jQuery('#modalSearch').on('shown.bs.modal', function() {
