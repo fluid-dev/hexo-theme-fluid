@@ -44,6 +44,10 @@
   <%- js_ex(theme.static_prefix.clipboard, 'clipboard.min.js', 'defer') %>
 <% } %>
 
+<% if(theme.search.enable){ %>
+  <%- js_ex(theme.static_prefix.internal_js, 'local-search.js') %>
+<% } %>
+
 <% if ((theme.footer.statistics.enable && theme.footer.statistics.source === 'busuanzi')
   || (page.meta !== false && theme.post.meta.views.enable && theme.post.meta.views.source === 'busuanzi')) { %>
   <%- js_ex(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
@@ -57,7 +61,6 @@
 <% } %>
 
 <%- partial('_partial/plugins/typed.ejs') %>
-<%- partial('_partial/plugins/local-search.ejs') %>
 <%- partial('_partial/plugins/math.ejs') %>
 <%- partial('_partial/plugins/mermaid.ejs') %>
 <%- partial('_partial/plugins/analytics.ejs') %>
