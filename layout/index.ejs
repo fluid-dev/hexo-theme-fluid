@@ -50,6 +50,14 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
             </time>
           </div>
         <% } %>
+        <% if(theme.index.post_meta.updated && (post.updated > post.date)) { %>
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-pen"></i>
+            <time datetime="<%= full_date(post.updated, 'YYYY-MM-DD HH:mm') %>" pubdate>
+              <%- date(post.updated, config.date_format) %>
+            </time>
+          </div>
+        <% } %>
         <% if(theme.index.post_meta.category && post.categories.length > 0) { %>
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>

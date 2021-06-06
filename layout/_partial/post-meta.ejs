@@ -11,6 +11,21 @@
       <time datetime="<%= full_date(page.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
         <%= full_date(page.date, theme.post.meta.date.format) %>
       </time>
+      <% if (theme.post.meta.date.updated_enable && (page.updated > page.date)) { %>
+        <%- theme.post.meta.date.date_updated_words[0] %>
+      <% } %>
+    </span>
+  <% } %>
+</div>
+
+<div class="mt-3">
+  <% if (theme.post.meta.date.updated_enable && (page.updated > page.date)) { %>
+    <span class="post-meta">
+      <i class="iconfont icon-pen" aria-hidden="true"></i>
+      <time datetime="<%= full_date(page.updated, 'YYYY-MM-DD HH:mm') %>" pubdate>
+        <%= full_date(page.updated, theme.post.meta.date.format) %>
+      </time>
+      <%- theme.post.meta.date.date_updated_words[1] %>
     </span>
   <% } %>
 </div>

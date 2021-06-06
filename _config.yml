@@ -469,6 +469,7 @@ index:
   # Meta information of post
   post_meta:
     date: true
+    updated: true
     category: true
     tag: true
 
@@ -501,9 +502,13 @@ post:
       enable: false
 
     # 文章日期，优先根据 front-matter 里 date 字段，其次是 md 文件日期
+    # updated_enable 显示 front-matter 里 updated 字段，如果updated晚于date。如果enable，则用两个单词区别两行日期。
     # Post date, based on `date` field in front-matter, if not set, based on create date of .md file
+    # updated_enable displays `updated` field in front-matter if it's later than `date`.If you enabled updated,two words to distinguish date and updated are needed.
     date:
       enable: true
+      updated_enable: true
+      date_updated_words: ['创建', '更新']
       # 格式参照 ISO-8601 日期格式化
       # ISO-8601 date format
       # See: http://momentjs.cn/docs/#/parsing/string-format/
