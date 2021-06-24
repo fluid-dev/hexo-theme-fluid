@@ -2,23 +2,24 @@
 page.layout = "about"
 page.title = theme.about.title || __('about.title')
 page.subtitle = theme.about.subtitle || __('about.subtitle')
-page.banner_img = theme.about.banner_img
-page.banner_img_height = theme.about.banner_img_height
-page.banner_mask_alpha = theme.about.banner_mask_alpha
+page.banner_img = page.banner_img || theme.about.banner_img
+page.banner_img_height = page.banner_img_height || theme.about.banner_img_height
+page.banner_mask_alpha = page.banner_mask_alpha || theme.about.banner_mask_alpha
 %>
 
 <div class="text-center">
   <div class="about-info">
     <div class="about-name"><%- theme.about.name %></div>
-    <div class="about-intro"><%- theme.about.introduce %></div>
+    <div class="about-intro"><%- theme.about.introduce || theme.about.intro %></div>
     <div class="about-icons">
       <% for(const each of theme.about.icons || []) { %>
         <% if (!each.class) continue; %>
         <% var cls = each.class %>
         <% var isQr = each.qrcode %>
-        <a href="<%= isQr ? 'javascript:;' : url_for(each.link) %>" class="<%= isQr ? 'qr-trigger' : '' %>
+        <a <%= isQr ? '' : ('href=' + url_for(each.link)) %> class="<%= isQr ? 'qr-trigger' : '' %>
            <%= !isQr && each.tip ? 'hint--bottom hint--rounded' : '' %>"
            <%= !isQr && each.tip ? 'aria-label=' + each.tip : '' %>
+           target="<%= isQr ? '_self' : '_blank' %>"
         >
           <i class="<%= cls %>" aria-hidden="true"></i>
           <% if (isQr) { %>
@@ -30,14 +31,21 @@ page.banner_mask_alpha = theme.about.banner_mask_alpha
   </div>
 </div>
 
-<article class="mt-5 markdown-body">
-  <%- page.content %>
-</article>
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <%- page.content %>
+  </div>
 
-<% if(page.comments && theme.post.comments.enable) { %>
-  <!-- Comments -->
-  <article class="comments" id="comments">
-    <% var type = '_partial/comments/' + theme.post.comments.type %>
-    <%- partial(type) %>
-  </article>
-<% } %>
+  <% if(page.comments) { %>
+    <!-- Comments -->
+    <article class="comments" id="comments">
+      <% var type %>
+      <% if (typeof page.comment === 'string' && page.comment !== '') { %>
+        <% type = '_partial/comments/' + page.comment %>
+      <% } else { %>
+        <% type = '_partial/comments/' + theme.post.comments.type %>
+      <% } %>
+      <%- partial(type) %>
+    </article>
+  <% } %>
+</article>

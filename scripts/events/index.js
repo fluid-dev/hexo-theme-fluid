@@ -3,7 +3,6 @@
 'use strict';
 
 hexo.on('generateBefore', () => {
-  require('./lib/hello')(hexo);
   require('./lib/merge-configs')(hexo);
   require('./lib/compatible-configs')(hexo);
   require('./lib/highlight')(hexo);
@@ -12,5 +11,5 @@ hexo.on('generateBefore', () => {
 });
 
 hexo.on('generateAfter', () => {
-  require('./lib/version')(hexo);
+  require('./lib/hello')(hexo);
 });

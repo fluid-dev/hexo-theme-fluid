@@ -1,25 +1,35 @@
 <%
-var joinStr = theme.title_join_string
-var title = config.title
-if (page.title) {
-  title = [page.title, title].join(joinStr)
+var separator = theme.title_join_string || theme.tab_title_separator
+var title = page.title ? [page.title, config.title].join(separator) : config.title
+var keywords = page.keywords || config.keywords
+if (keywords instanceof Array) {
+  keywords = keywords.join(',')
+}
+var description = config.description
+if (page.description) {
+  description = page.description
+} else if(page.excerpt) {
+  description = strip_html(page.excerpt).substr(0, 200)
 }
 %>
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="<%- url_for(theme.apple_touch_icon) %>">
-  <link rel="icon" type="image/png" href="<%- url_for(theme.favicon) %>">
+  <link rel="icon" href="<%- url_for(theme.favicon) %>">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <% if (theme.force_https) { %>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <% } %>
-  <meta name="theme-color" content="<%- theme.color.navbar_bg_color %>">
-  <meta name="description" content="<%= config.description %>">
+  <meta name="theme-color" content="<%= theme.color.navbar_bg_color %>">
+  <meta name="description" content="<%= description %>">
   <meta name="author" content="<%= page.author || config.author %>">
-  <meta name="keywords" content="<%= config.keywords %>">
+  <meta name="keywords" content="<%= keywords %>">
+  <% if (theme.custom_head) { %>
+    <%- theme.custom_head %>
+  <% } %>
   <title><%= title %></title>
 
   <%- partial('_partial/css.ejs') %>

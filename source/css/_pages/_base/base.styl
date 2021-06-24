@@ -1,7 +1,9 @@
 @import "_widget/*"
 
-html, body
+html
   font-size $font-size
+
+html, body
   font-family $font-family
 
 html, body, header
@@ -24,7 +26,13 @@ body
       text-decoration none
       transition color .2s ease-in-out, background-color .2s ease-in-out
 
-img[srcset]
+code
+  color inherit
+
+table
+  font-size inherit
+
+img[lazyload]
   object-fit cover
 
 *[align="left"]

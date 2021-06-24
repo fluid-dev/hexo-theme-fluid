@@ -26,7 +26,7 @@ apple_touch_icon: /img/favicon.png
 
 # 浏览器标签页中的标题分隔符，效果： 文章名 - 站点名
 # Title separator in browser tab, eg: article - site
-title_join_string: " - "
+tab_title_separator: " - "
 
 # 强制所有链接升级为 HTTPS（适用于图片等资源出现 HTTP 混入报错）
 # Force all links to be HTTPS (applicable to HTTP mixed error)
@@ -198,6 +198,10 @@ custom_js:
 # The usage is the same as custom_js
 custom_css:
 
+# 自定义 <head> 节点中的 HTML 内容
+# Customize <head> HTML content
+custom_head: ''
+
 # 自定义底部 HTML 内容（位于 footer 上方），注意不要和 `post: custom` 配置冲突
 # Customize the HTML content at the bottom (located above the footer), be careful not to conflict with `post: custom`
 custom_html: ''
@@ -248,20 +252,26 @@ web_analytics:  # 网页访问统计
     # Only the Chinese mainland users need to set
     server_url:
 
-# 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
-# Lazy loading of images on the page
+# 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
+# Lazy loading of images and comment plugin on the page
 lazyload:
   enable: true
-  # 懒加载仅对文章页生效，开启后如果自定义页面需要使用，可以在 Front-matter 里指定 `lazyload: true`
+
+  # 加载时的占位图片
+  # The placeholder image when loading
+  loading_img: /img/loading.gif
+
+  # 开启后懒加载仅在文章页生效，如果自定义页面需要使用，可以在 Front-matter 里指定 `lazyload: true`
   # If true, only enable lazyload on the post page. For custom pages, you can set 'lazyload: true' in front-matter
   onlypost: false
 
-# 主题版本相关
-# Theme version
-version:
-  # 每次生成页面后，检测主题是否为最新版本
-  # If true, check whether Fluid is the latest version after hexo generate
-  check: false
+  # 触发加载的偏移倍数，基数是视窗高度，可根据部署环境的请求速度调节
+  # The factor of viewport height that triggers loading
+  offset_factor: 2
+
+# 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
+# Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
+iconfont: //at.alicdn.com/t/font_1736178_kmeydafke9r.css
 
 
 #---------------------------
@@ -304,6 +314,7 @@ navbar:
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
 search:
   enable: true
+
   # 搜索索引文件的路径，可以是相对路径或外站的绝对路径
   # Path for search index file, it can be a relative path or an absolute path
   path: /local-search.xml
@@ -370,7 +381,7 @@ footer:
   statistics:
     enable: false
 
-    # 统计数据来源，如果使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；如果使用 busuanzi 可能会有请求失败的情况
+    # 统计数据来源，使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；使用 busuanzi 不需要额外设置，但是有时不稳定，另外本地运行时 busuanzi 显示统计数据很大属于正常现象，部署后会正常
     # Data source. If use leancloud, you need to set the parameter in `web_analytics: leancloud`
     # Options: busuanzi | leancloud
     source: "busuanzi"
@@ -570,6 +581,9 @@ post:
   # Zoom feature of images
   image_zoom:
     enable: true
+    # 放大后图片链接替换规则，可用于将压缩图片链接替换为原图片链接，如 ['-slim', ''] 是将链接中 `-slim` 移除；如果想使用正则请使用 `re:` 前缀，如 ['re:\\d{3,4}\\/\\d{3,4}\\/', '']
+    # The image url replacement when zooming, the feature can be used to replace the compressed image to the original image, eg: ['-slim', ''] removes `-slim` from the image url when zooming; if you want to use regular, use prefix `re:`, eg: ['re:\\d{3,4}\\/\\d{3,4}\\/','']
+    img_url_replace: ['', '']
 
   # 脚注语法，会在文章底部生成脚注，如果 Markdown 渲染器本身支持，则建议关闭，否则可能会冲突
   # Support footnote syntax, footnotes will be generated at the bottom of the post page. If the Markdown renderer itself supports it, please disable it, otherwise it may conflict
@@ -613,7 +627,7 @@ post:
     enable: false
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
-    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
     type: disqus
 
 
@@ -665,14 +679,19 @@ gitalk:
   pagerDirection: last
   distractionFreeMode: false
   createIssueManually: true
+  # 默认 proxy 可能会失效，解决方法请见下方链接
+  # The default proxy may be invalid, refer to the links for solutions
+  # https://github.com/gitalk/gitalk/issues/429
+  # https://github.com/Zibri/cloudflare-cors-anywhere
+  proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token
 
 # Valine
 # 基于 LeanCloud
 # Based on LeanCloud
-# See: https://valine.js.org/configuration.html
+# See: https://valine.js.org/
 valine:
-  appid:
-  appkey:
+  appId:
+  appKey:
   placeholder: 说点什么
   path: window.location.pathname
   avatar: retro
@@ -681,11 +700,15 @@ valine:
   lang: zh-CN
   highlight: false
   recordIP: false
-  serverURLs:
+  serverURLs: ''
+  emojiCDN:
+  emojiMaps:
+  enableQQ: false
+  requiredFields: []
 
 # Waline
-# 一款从 Valine 衍生的带后端的评论插件
-# A comment plugin with backend derived from Valine
+# 从 Valine 衍生而来，额外增加了服务端和多种功能
+# Derived from Valine, with self-hosted service and new features
 # See: https://waline.js.org/
 waline:
   serverURL: ''
@@ -696,10 +719,12 @@ waline:
   pageSize: 10
   lang: zh-CN
   highlight: true
+  avatarCDN: ''
   avatarForce: false
   requiredFields: []
-  emojiCDN: ''
-  emojiMaps: {}
+  emojiCDN:
+  emojiMaps:
+  anonymous:
 
 # 畅言 Changyan
 # 基于第三方的服务
@@ -717,22 +742,33 @@ livere:
   uid: ''
 
 # Remark42
-# 需要自己运行后端服务
-# Need to run the backend service yourself
+# 需要自托管服务端
+# Based on self-hosted service
 # See: https://remark42.com
 remark42:
   host:
   site_id:
   max_shown_comments: 10
   locale: zh
+  components: ['embed']
 
 # Twikoo
 # 基于腾讯云开发
 # Based on Tencent CloudBase
 # See: https://twikoo.js.org
 twikoo:
-  env_id:
+  envId:
+  region: ap-shanghai
+  path: window.location.pathname
 
+# Cusdis
+# 基于第三方服务或自托管服务
+# Based on third-party or self-hosted service
+# See https://cusdis.com
+cusdis:
+  host:
+  app_id:
+  lang: zh-cn
 
 #---------------------------
 # 归档页
@@ -756,18 +792,23 @@ category:
   banner_mask_alpha: 0.3
   subtitle:
 
-  # 单个分类中折叠展示文章数的最大值，超过限制会显示 More
-  # The maximum number of posts in a single category. If the limit is exceeded, it will be displayed More
-  post_limit: 10
-
-  # 排序字段，前面带减号是倒序，不带减号是正序，可选项：name | length
-  # Sort field, with a minus sign is reverse order
-  # Options: name | length
+  # 分类的排序字段，前面带减号是倒序，不带减号是正序
+  # Sort field for categories, with a minus sign is reverse order
+  # Options: length | name
   order_by: "-length"
 
   # 层级的折叠深度，0 是全部折叠，大于 0 后如果存在子分类则默认展开
   # Collapse depth. If 0, all posts collapsed. If greater than 0, it will be expanded by default if there are subcategories
   collapse_depth: 0
+
+  # 文章的排序字段，前面带减号是倒序，不带减号是正序
+  # Sort field for posts, with a minus sign is reverse order
+  # Options: date | title | or other field of front-matter
+  post_order_by: "-date"
+
+  # 单个分类中折叠展示文章数的最大值，超过限制会显示 More，0 则不限制
+  # The maximum number of posts in a single category. If the limit is exceeded, it will be displayed More. If 0 no limit
+  post_limit: 10
 
 
 #---------------------------
@@ -797,10 +838,10 @@ about:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  subtitle:  # 打字机内容
+  subtitle:
   avatar: /img/avatar.png
   name: "Fluid"
-  introduce: "An elegant theme for Hexo"
+  intro: "An elegant theme for Hexo"
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
@@ -851,20 +892,39 @@ links:
       title: "Fluid Blog",
       intro: "主题博客",
       link: "https://hexo.fluid-dev.com/",
-      image: "/img/favicon.png"
+      avatar: "/img/favicon.png"
     }
     - {
       title: "Fluid Docs",
       intro: "主题使用指南",
       link: "https://hexo.fluid-dev.com/docs/",
-      image: "/img/favicon.png"
+      avatar: "/img/favicon.png"
     }
     - {
       title: "Fluid Repo",
       intro: "主题 GitHub 仓库",
       link: "https://github.com/fluid-dev/hexo-theme-fluid",
-      image: "/img/favicon.png"
+      avatar: "/img/favicon.png"
     }
+
+  # 当成员头像加载失败时，替换为指定图片
+  # When the member avatar fails to load, replace the specified image
+  onerror_avatar: /img/avatar.png
+
+  # 友链下方自定义区域，支持 HTML，可插入例如申请友链的文字
+  # Custom content at the bottom of the links
+  custom:
+    enable: false
+    content: '<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/favicon.png</li></ul>'
+
+  # 评论插件
+  # Comment plugin
+  comments:
+    enable: false
+    # 指定的插件，需要同时设置对应插件的必要参数
+    # The specified plugin needs to set the necessary parameters at the same time
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
+    type: disqus
 
 
 #---------------------------
@@ -884,48 +944,44 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  # 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
-  # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
-  iconfont: //at.alicdn.com/t/font_1736178_kmeydafke9r.css
-
-  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/
+  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/
 
   github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/
 
-  jquery: https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/
+  jquery: https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/
 
-  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/
+  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/
 
-  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/
+  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/
 
-  prismjs: https://cdn.jsdelivr.net/npm/prismjs@1.22.0/
+  prismjs: https://cdn.jsdelivr.net/npm/prismjs@1.23.0/
 
-  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/
+  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/
 
-  typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/
+  typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/
 
   fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/
 
   nprogress: https://cdn.jsdelivr.net/npm/nprogress@0.2.0/
 
-  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/
 
-  katex: https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/
+  katex: https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/
+  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/
 
-  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.10.1/dist/
 
   valine: https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/
 
-  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.4.2/dist/
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.16.2/dist/
 
-  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/
+  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/
 
-  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
+  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/
 
-  twikoo: https://cdn.jsdelivr.net/npm/twikoo@0.1.15/dist/
+  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/
 
   hint: /lib/hint/

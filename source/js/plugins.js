@@ -9,7 +9,7 @@ HTMLElement.prototype.wrap = function(wrapper) {
 Fluid.plugins = {
 
   typing: function(text) {
-    if (!window.Typed) { return; }
+    if (!('Typed' in window)) { return; }
 
     var typed = new window.Typed('#subtitle', {
       strings: [
@@ -25,16 +25,16 @@ Fluid.plugins = {
     if (subtitle) {
       subtitle.innerText = '';
     }
-    $(document).ready(function() {
-      $('.typed-cursor').addClass('h2');
+    jQuery(document).ready(function() {
+      jQuery('.typed-cursor').addClass('h2');
       typed.start();
     });
   },
 
   initTocBot: function() {
-    var toc = $('#toc');
+    var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = $('#board-ctn');
+    var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
     window.tocbot.init({
@@ -50,36 +50,50 @@ Fluid.plugins = {
       scrollSmooth    : true,
       headingsOffset  : -boardTop
     });
-    if ($('.toc-list-item').length > 0) {
+    if (jQuery('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
   },
 
-  wrapImageWithFancyBox: function() {
+  initFancyBox: function() {
     if (!$.fancybox) { return; }
 
-    $('.markdown-body :not(a) > img, .markdown-body > img').each(function() {
-      var $image = $(this);
-      var imageLink = $image.attr('data-src') || $image.attr('src');
-      var $imageWrapLink = $image.wrap(`
-        <a class="fancybox fancybox.image" href="${imageLink}"
+    jQuery('.markdown-body :not(a) > img, .markdown-body > img').each(function() {
+      var $image = jQuery(this);
+      var imageUrl = $image.attr('data-src') || $image.attr('src') || '';
+      if (CONFIG.image_zoom.img_url_replace) {
+        var rep = CONFIG.image_zoom.img_url_replace;
+        var r1 = rep[0] || '';
+        var r2 = rep[1] || '';
+        if (r1) {
+          if (/^re:/.test(r1)) {
+            r1 = r1.replace(/^re:/, '');
+            var reg = new RegExp(r1, 'gi');
+            imageUrl = imageUrl.replace(reg, r2);
+          } else {
+            imageUrl = imageUrl.replace(r1, r2);
+          }
+        }
+      }
+      var $imageWrap = $image.wrap(`
+        <a class="fancybox fancybox.image" href="${imageUrl}"
           itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`
       ).parent('a');
       if ($image.is('.group-image-container img')) {
-        $imageWrapLink.attr('data-fancybox', 'group').attr('rel', 'group');
+        $imageWrap.attr('data-fancybox', 'group').attr('rel', 'group');
       } else {
-        $imageWrapLink.attr('data-fancybox', 'default').attr('rel', 'default');
+        $imageWrap.attr('data-fancybox', 'default').attr('rel', 'default');
       }
 
       var imageTitle = $image.attr('title') || $image.attr('alt');
       if (imageTitle) {
-        $imageWrapLink.append(`<p class="image-caption">${imageTitle}</p>`);
-        $imageWrapLink.attr('title', imageTitle).attr('data-caption', imageTitle);
+        $imageWrap.append(`<p class="image-caption">${imageTitle}</p>`);
+        $imageWrap.attr('title', imageTitle).attr('data-caption', imageTitle);
       }
     });
 
     $.fancybox.defaults.hash = false;
-    $('.fancybox').fancybox({
+    jQuery('.fancybox').fancybox({
       loop   : true,
       helpers: {
         overlay: {
@@ -89,8 +103,8 @@ Fluid.plugins = {
     });
   },
 
-  registerAnchor: function() {
-    if (!window.anchors) { return; }
+  initAnchor: function() {
+    if (!('anchors' in window)) { return; }
 
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
@@ -107,8 +121,9 @@ Fluid.plugins = {
     window.anchors.add(res.join(', '));
   },
 
-  registerCopyCode: function() {
-    if (!window.ClipboardJS) { return; }
+  initCopyCode: function() {
+    if (!('ClipboardJS' in window)) { return; }
+
     function getBgClass(ele) {
       if (ele.length === 0) {
         return 'copy-btn-dark';
@@ -122,9 +137,9 @@ Fluid.plugins = {
     copyHtml += '<button class="copy-btn" data-clipboard-snippet="">';
     copyHtml += '<i class="iconfont icon-copy"></i><span>Copy</span>';
     copyHtml += '</button>';
-    var blockElement = $('.markdown-body pre');
+    var blockElement = jQuery('.markdown-body pre');
     blockElement.each(function() {
-      const pre = $(this);
+      const pre = jQuery(this);
       if (pre.find('code.mermaid').length > 0) {
         return;
       }
@@ -138,7 +153,7 @@ Fluid.plugins = {
         return trigger.previousElementSibling;
       }
     });
-    $('.copy-btn').addClass(getBgClass(blockElement));
+    jQuery('.copy-btn').addClass(getBgClass(blockElement));
     clipboard.on('success', function(e) {
       e.clearSelection();
       var tmp = e.trigger.outerHTML;
@@ -147,37 +162,6 @@ Fluid.plugins = {
         e.trigger.outerHTML = tmp;
       }, 2000);
     });
-  },
-
-  registerImageLoaded: function() {
-    var bg = document.getElementById('banner');
-    if (bg) {
-      var src = bg.style.backgroundImage;
-      var url = src.match(/\((.*?)\)/)[1].replace(/(['"])/g, '');
-      var img = new Image();
-      img.onload = function() {
-        window.NProgress && window.NProgress.inc(0.2);
-      };
-      img.src = url;
-      if (img.complete) { img.onload(); }
-    }
-
-    var images = $('main img:not([srcset])');
-    var notLazyImages = [];
-    for (const img of images) {
-      if (!img.srcset) {
-        notLazyImages.push(img);
-      }
-    }
-    var total = notLazyImages.length;
-    for (const img of notLazyImages) {
-      const old = img.onload;
-      img.onload = function() {
-        old && old();
-        window.NProgress && window.NProgress.inc(0.5 / total);
-      };
-      if (img.complete) { img.onload(); }
-    }
   }
 
 };

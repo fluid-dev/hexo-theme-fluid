@@ -1,26 +1,18 @@
-<% if(theme.valine.appid && theme.valine.appkey){ %>
-  <div id="vcomments"></div>
+<% if (theme.valine.appId && theme.valine.appKey) { %>
+  <div id="valine"></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('vcomments', function() {
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.valine, 'Valine.min.js') %>', function () {
-        new Valine({
-          el: "#vcomments",
-          app_id: "<%= theme.valine.appid %>",
-          app_key: "<%= theme.valine.appkey %>",
-          placeholder: "<%= theme.valine.placeholder %>",
-          path: <%= theme.valine.path %>,
-          avatar: "<%= theme.valine.avatar %>",
-          meta: <%- JSON.stringify(theme.valine.meta || []) %>,
-          pageSize: "<%= theme.valine.pageSize %>",
-          lang: "<%= theme.valine.lang %>",
-          highlight: <%= theme.valine.highlight %>,
-          recordIP: <%= theme.valine.recordIP %>,
-          serverURLs: "<%= theme.valine.serverURLs %>",
-        });
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.valine, 'Valine.min.js') %>', function() {
+        var options = Object.assign(
+          <%- JSON.stringify(theme.valine || {}) %>,
+          {
+            el: "#valine",
+            path: <%= theme.valine.path %>
+          }
+        )
+        new Valine(options);
       });
     });
   </script>
-  <noscript>Please enable JavaScript to view the
-    <a href="https://valine.js.org" rel="nofollow noopener">comments powered by Valine.</a>
-  </noscript>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 <% } %>

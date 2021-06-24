@@ -120,17 +120,6 @@ layout: about
 
 如你也想贡献代码，可参照[贡献指南](https://hexo.fluid-dev.com/docs/contribute/)
 
-## 社区
-
-微信群：扫描二维码添加好友进交流群
-
-<details>
-  <summary>二维码</summary>
-  <p><b>好友申请备注：fluid</b></p>
-  <p><b>提问之前请先仔细查阅用户文档</b></p>
-  <img width="200" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.png" alt="wechat">
-</details>
-
 ## 支持
 
 你可以通过[爱发电](https://afdian.net/@zkqiang)支持我们的开源创作，资金将用于服务器开销以及今后的公共接口服务

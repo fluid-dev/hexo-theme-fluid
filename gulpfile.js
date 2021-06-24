@@ -20,7 +20,7 @@ gulp.task('validate:config', cb => {
   const themeConfig = fs.readFileSync(path.join(__dirname, '_config.yml'));
 
   try {
-    yaml.safeLoad(themeConfig);
+    yaml.load(themeConfig);
     return cb();
   } catch (error) {
     return cb(new Error(error));
@@ -35,7 +35,7 @@ gulp.task('validate:languages', cb => {
   languages.forEach(lang => {
     const languagePath = path.join(languagesPath, lang);
     try {
-      yaml.safeLoad(fs.readFileSync(languagePath), {
+      yaml.load(fs.readFileSync(languagePath), {
         filename: path.relative(__dirname, languagePath)
       });
     } catch (error) {

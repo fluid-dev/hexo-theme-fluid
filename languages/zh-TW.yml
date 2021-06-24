@@ -1,0 +1,44 @@
+search:
+  title: 搜尋
+  keyword: 關鍵字
+  status:
+    success: v
+    error: x
+
+postTotal: 總共 %d 篇文章
+
+paginator:
+  pre: 上一頁
+  next: 下一頁
+
+post:
+  toc: 目錄
+  pre: 上一篇
+  next: 下一篇
+
+home:
+  title: 首頁
+
+archive:
+  title: 封存
+  subtitle: 封存
+
+tag:
+  title: 標籤
+  subtitle: 標籤
+
+category:
+  title: 分類
+  subtitle: 分類
+
+about:
+  title: 關於
+  subtitle: 關於
+
+page404:
+  title: 頁面走丟啦～
+  subtitle: 頁面走丟啦～
+
+links:
+  title: 交換連結
+  subtitle: 交換連結

@@ -1,9 +1,16 @@
-<% if(theme.twikoo && theme.twikoo.env_id){ %>
+<% if (theme.twikoo && theme.twikoo.envId) { %>
   <div id="twikoo"></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('twikoo', function() {
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.twikoo, 'twikoo.all.min.js') %>', function () {
-        twikoo.init({ envId: '<%= theme.twikoo.env_id %>' })
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.twikoo, 'twikoo.all.min.js') %>', function() {
+        var options = Object.assign(
+          <%- JSON.stringify(theme.twikoo || {}) %>,
+          {
+            el: '#twikoo',
+            path: '<%= theme.twikoo.path %>'
+          }
+        )
+        twikoo.init(options)
       });
     });
   </script>

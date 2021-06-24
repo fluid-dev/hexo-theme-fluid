@@ -1,0 +1,25 @@
+<% if (theme.cusdis.host && theme.cusdis.app_id) { %>
+  <div class="cusdis" style="width:100%">
+    <div id="cusdis_thread"
+      data-host="<%= theme.cusdis.host %>"
+      data-app-id="<%= theme.cusdis.app_id %>"
+      data-page-id="<%= md5(page.path) %>"
+      data-page-url="<%= page.path %>"
+      data-page-title="<%= page.title %>"
+      data-theme="<%= theme.dark_mode.default %>"
+    >
+    </div>
+  </div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#cusdis_thread', function() {
+      Fluid.utils.createScript('<%= url_join(theme.cusdis.host,
+        `/js/widget/lang/${ String(theme.cusdis.lang || 'zh-cn').toLowerCase() }.js`) %>');
+      Fluid.utils.createScript('<%= url_join(theme.cusdis.host, 'js/cusdis.es.js') %>');
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema) {
+        document.querySelector('#cusdis_thread').dataset.theme = schema
+      }
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+<% } %>

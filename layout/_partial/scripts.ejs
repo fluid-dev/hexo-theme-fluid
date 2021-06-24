@@ -1,7 +1,6 @@
 <%- partial('_partial/plugins/nprogress.ejs') %>
 <%- js_ex(theme.static_prefix.jquery, 'jquery.min.js') %>
 <%- js_ex(theme.static_prefix.bootstrap, 'js/bootstrap.min.js') %>
-<%- js_ex(theme.static_prefix.internal_js, 'debouncer.js') %>
 <%- js_ex(theme.static_prefix.internal_js, 'events.js') %>
 <%- js_ex(theme.static_prefix.internal_js, 'plugins.js') %>
 
@@ -10,10 +9,10 @@
 <% if (theme.lazyload.enable){ %>
   <% if (theme.lazyload.onlypost) { %>
     <% if (is_post() || is_page()) { %>
-      <%- js_ex(theme.static_prefix.internal_js, 'lazyload.js') %>
+      <%- js_ex(theme.static_prefix.internal_js, 'img-lazyload.js') %>
     <% } %>
   <% } else { %>
-    <%- js_ex(theme.static_prefix.internal_js, 'lazyload.js') %>
+    <%- js_ex(theme.static_prefix.internal_js, 'img-lazyload.js') %>
   <% } %>
 <% } %>
 
@@ -45,6 +44,10 @@
   <%- js_ex(theme.static_prefix.clipboard, 'clipboard.min.js', 'defer') %>
 <% } %>
 
+<% if(theme.search.enable){ %>
+  <%- js_ex(theme.static_prefix.internal_js, 'local-search.js') %>
+<% } %>
+
 <% if ((theme.footer.statistics.enable && theme.footer.statistics.source === 'busuanzi')
   || (page.meta !== false && theme.post.meta.views.enable && theme.post.meta.views.source === 'busuanzi')) { %>
   <%- js_ex(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
@@ -58,7 +61,6 @@
 <% } %>
 
 <%- partial('_partial/plugins/typed.ejs') %>
-<%- partial('_partial/plugins/local-search.ejs') %>
 <%- partial('_partial/plugins/math.ejs') %>
 <%- partial('_partial/plugins/mermaid.ejs') %>
 <%- partial('_partial/plugins/analytics.ejs') %>

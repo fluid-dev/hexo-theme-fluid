@@ -13,17 +13,33 @@ page.banner_mask_alpha = theme.links.banner_mask_alpha
     <div class="card col-lg-4 col-md-6 col-sm-12">
       <a href="<%= url_for(each.link) %>" class="card-body hover-with-bg" target="_blank" rel="noopener">
         <div class="card-content">
-          <% if (each.image) { %>
+          <% if (each.avatar || each.image) { %>
             <div class="link-avatar my-auto">
-              <img src="<%= each.image %>" alt="<%= each.title %>" />
+              <img src="<%= each.avatar || each.image %>" alt="<%= each.title %>"
+                   onerror="this.onerror=null; this.src=this.srcset='<%= theme.links.onerror_avatar %>'"/>
             </div>
           <% } %>
           <div class="link-text">
             <div class="link-title"><%- each.title %></div>
-            <div class="link-intro"><%- each.intro %></div>
+            <div class="link-intro"><%- each.intro || '' %></div>
           </div>
         </div>
       </a>
     </div>
   <% } %>
 </div>
+
+<% if(theme.links.custom.enable && theme.links.custom.content) { %>
+  <!-- Custom -->
+  <div class="custom mx-auto">
+    <%- theme.links.custom.content %>
+  </div>
+<% } %>
+
+<% if(theme.links.comments.enable) { %>
+  <!-- Comments -->
+  <article class="comments" id="comments">
+    <% var type = '_partial/comments/' + theme.links.comments.type %>
+    <%- partial(type) %>
+  </article>
+<% } %>

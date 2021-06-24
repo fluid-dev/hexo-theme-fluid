@@ -1,7 +1,7 @@
-<% if(theme.changyan.appid){ %>
+<% if (theme.changyan.appid) { %>
   <div id="SOHUCS" sid='<%= page.permalink %>'></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('SOHUCS', function() {
+    Fluid.utils.loadComments('#SOHUCS', function() {
       var appid = '<%= theme.changyan.appid %>';
       var conf = '<%= theme.changyan.appkey %>';
       var width = window.innerWidth || document.documentElement.clientWidth;
@@ -9,12 +9,10 @@
         window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
       } else {
         Fluid.utils.createScript("https://changyan.sohu.com/upload/changyan.js", function() {
-          window.changyan.api.config({
-            appid: appid,
-            conf: conf
-          })
+          window.changyan.api.config(<%- JSON.stringify(theme.changyan || {}) %>)
         });
       }
-    })
+    });
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 <% } %>
