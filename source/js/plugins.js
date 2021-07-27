@@ -55,10 +55,15 @@ Fluid.plugins = {
     }
   },
 
-  initFancyBox: function() {
+  initFancyBox: function(option) {
     if (!$.fancybox) { return; }
 
-    jQuery('.markdown-body :not(a) > img, .markdown-body > img').each(function() {
+    var $imageSel = '.markdown-body :not(a) > img, .markdown-body > img'
+    if (option.isTwikoo) {
+      $imageSel = '#twikoo img:not(.tk-avatar-img)'
+    }
+
+    jQuery($imageSel).each(function() {
       var $image = jQuery(this);
       var imageUrl = $image.attr('data-src') || $image.attr('src') || '';
       if (CONFIG.image_zoom.img_url_replace) {
