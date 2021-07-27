@@ -7,7 +7,12 @@
           <%- JSON.stringify(theme.twikoo || {}) %>,
           {
             el: '#twikoo',
-            path: '<%= theme.twikoo.path %>'
+            path: '<%= theme.twikoo.path %>',
+            onCommentLoaded: function () {
+              Fluid.plugins.initFancyBox({
+                isTwikoo: true
+              });
+            }
           }
         )
         twikoo.init(options)
