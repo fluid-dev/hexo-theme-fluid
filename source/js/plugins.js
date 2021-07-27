@@ -55,12 +55,13 @@ Fluid.plugins = {
     }
   },
 
-  initFancyBox: function(option) {
+  initFancyBox: function(param) {
     if (!$.fancybox) { return; }
 
-    var $imageSel = '.markdown-body :not(a) > img, .markdown-body > img'
+    var option = param || {};
+    var $imageSel = '.markdown-body :not(a) > img, .markdown-body > img';
     if (option.isTwikoo) {
-      $imageSel = '#twikoo img:not(.tk-avatar-img)'
+      $imageSel = '#twikoo img:not(.tk-avatar-img)';
     }
 
     jQuery($imageSel).each(function() {
