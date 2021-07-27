@@ -61,7 +61,7 @@ Fluid.plugins = {
     var option = param || {};
     var $imageSel = '.markdown-body :not(a) > img, .markdown-body > img';
     if (option.isTwikoo) {
-      $imageSel = '#twikoo img:not(.tk-avatar-img)';
+      $imageSel = '#twikoo .tk-content img:not(.tk-owo-emotion)';
     }
 
     jQuery($imageSel).each(function() {
