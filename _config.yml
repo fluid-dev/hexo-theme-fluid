@@ -964,7 +964,7 @@ static_prefix:
 
   nprogress: https://cdn.jsdelivr.net/npm/nprogress@0.2.0/
 
-  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/
 
   katex: https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/
 
