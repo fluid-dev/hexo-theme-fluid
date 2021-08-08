@@ -55,16 +55,10 @@ Fluid.plugins = {
     }
   },
 
-  initFancyBox: function(param) {
-    if (!$.fancybox) { return; }
+  initFancyBox: function(selector) {
+    if (!('fancybox' in jQuery)) { return; }
 
-    var option = param || {};
-    var $imageSel = '.markdown-body :not(a) > img, .markdown-body > img';
-    if (option.isTwikoo) {
-      $imageSel = '#twikoo .tk-content img:not(.tk-owo-emotion)';
-    }
-
-    jQuery($imageSel).each(function() {
+    jQuery(selector || '.markdown-body :not(a) > img, .markdown-body > img').each(function() {
       var $image = jQuery(this);
       var imageUrl = $image.attr('data-src') || $image.attr('src') || '';
       if (CONFIG.image_zoom.img_url_replace) {
@@ -98,7 +92,7 @@ Fluid.plugins = {
       }
     });
 
-    $.fancybox.defaults.hash = false;
+    jQuery.fancybox.defaults.hash = false;
     jQuery('.fancybox').fancybox({
       loop   : true,
       helpers: {
