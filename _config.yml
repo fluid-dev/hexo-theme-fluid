@@ -518,13 +518,16 @@ post:
       format: "{} 字"
 
     # 估计阅读全文需要的时长
-    # Estimate the time required to read the full text
+    # Estimated reading time
     min2read:
       enable: true
       format: "{} 分钟"
-      # 每分钟阅读多少字，如果是技术文章，建议降低
-      # Words read per minute
-      words: 100
+      # 每个字词的长度，建议：中文≈2，英文≈5
+      # Average word length (chars count in word), ZH ≈ 2, EN ≈ 5
+      awl: 2
+      # 每分钟阅读字数
+      # Words per minute
+      wpm: 160
 
     # 浏览量计数
     # Number of visits

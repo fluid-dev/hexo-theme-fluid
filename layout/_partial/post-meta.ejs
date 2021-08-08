@@ -17,21 +17,18 @@
 
 <div class="mt-1">
   <% if (theme.post.meta.wordcount.enable) { %>
-    <% var wordcount_texts = theme.post.meta.wordcount.format.split('{}') %>
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      <%- wordcount_texts[0] %><%- wordcount(page.content) %><%- wordcount_texts[1] %>
+      <%- theme.post.meta.wordcount.format.replace('{}', wordcount(page)) %>
     </span>
   <% } %>
 
   <% if (theme.post.meta.min2read.enable) { %>
-    <% var min2read_texts = theme.post.meta.min2read.format.split('{}') %>
     <span class="post-meta mr-2">
       <i class="iconfont icon-clock-fill"></i>
-      <% var words = parseInt(theme.post.meta.min2read.words) %>
-      <%- min2read_texts[0] %>
-      <%- min2read(page.content, {cn: words, en: words / 2}) %>
-      <%- min2read_texts[1] %>
+      <% var awl = parseInt(theme.post.meta.min2read.awl) %>
+      <% var wpm = parseInt(theme.post.meta.min2read.wpm) %>
+      <%- theme.post.meta.min2read.format.replace('{}', min2read(page, { awl: awl, wpm: wpm })) %>
     </span>
   <% } %>
 
