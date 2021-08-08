@@ -9,8 +9,8 @@
   var colorSchemaMediaQueryKey = '--color-mode';
   var userColorSchemaAttributeName = 'data-user-color-scheme';
   var defaultColorSchemaAttributeName = 'data-default-color-scheme';
-  var colorToggleButtonName = 'color-toggle-btn';
-  var colorToggleIconName = 'color-toggle-icon';
+  var colorToggleButtonSelector = '#color-toggle-btn';
+  var colorToggleIconSelector = '#color-toggle-icon';
 
   function setLS(k, v) {
     try {
@@ -119,7 +119,7 @@
     } else if (currentSetting === null) {
       // 当 localStorage 中没有相关值，或者 localStorage 抛了 Error
       // 先按照按钮的状态进行切换
-      var iconElement = document.getElementById(colorToggleIconName);
+      var iconElement = document.querySelector(colorToggleIconSelector);
       if (iconElement) {
         currentSetting = iconElement.getAttribute('data');
       }
@@ -143,7 +143,7 @@
       if (schema) {
         icon = 'icon-' + invertColorSchemaObj[schema];
       }
-      var iconElement = document.getElementById(colorToggleIconName);
+      var iconElement = document.querySelector(colorToggleIconSelector);
       if (iconElement) {
         iconElement.setAttribute(
           'class',
@@ -155,8 +155,8 @@
         );
       } else {
         // 如果图标不存在则说明图标还没加载出来，等到页面全部加载再尝试切换
-        Fluid.utils.waitElementLoaded(colorToggleIconName, function() {
-          var iconElement = document.getElementById(colorToggleIconName);
+        Fluid.utils.waitElementLoaded(colorToggleIconSelector, function() {
+          var iconElement = document.querySelector(colorToggleIconSelector);
           if (iconElement) {
             iconElement.setAttribute(
               'class',
@@ -201,9 +201,9 @@
   // 当页面加载时，将显示模式设置为 localStorage 中自定义的值（如果有的话）
   applyCustomColorSchemaSettings();
 
-  Fluid.utils.waitElementLoaded(colorToggleButtonName, function() {
+  Fluid.utils.waitElementLoaded(colorToggleButtonSelector, function() {
     applyCustomColorSchemaSettings();
-    var button = document.getElementById(colorToggleButtonName);
+    var button = document.querySelector(colorToggleButtonSelector);
     if (button) {
       // 当用户点击切换按钮时，获得新的显示模式、写入 localStorage、并在页面上生效
       button.addEventListener('click', () => {

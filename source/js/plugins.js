@@ -1,4 +1,4 @@
-/* global Fluid, CONFIG */
+/* global Fluid, CONFIG, jQuery */
 
 HTMLElement.prototype.wrap = function(wrapper) {
   this.parentNode.insertBefore(wrapper, this);
@@ -55,10 +55,10 @@ Fluid.plugins = {
     }
   },
 
-  initFancyBox: function() {
-    if (!$.fancybox) { return; }
+  initFancyBox: function(selector) {
+    if (!('fancybox' in jQuery)) { return; }
 
-    jQuery('.markdown-body :not(a) > img, .markdown-body > img').each(function() {
+    jQuery(selector || '.markdown-body :not(a) > img, .markdown-body > img').each(function() {
       var $image = jQuery(this);
       var imageUrl = $image.attr('data-src') || $image.attr('src') || '';
       if (CONFIG.image_zoom.img_url_replace) {
@@ -92,7 +92,7 @@ Fluid.plugins = {
       }
     });
 
-    $.fancybox.defaults.hash = false;
+    jQuery.fancybox.defaults.hash = false;
     jQuery('.fancybox').fancybox({
       loop   : true,
       helpers: {
