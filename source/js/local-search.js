@@ -1,4 +1,4 @@
-/* global CONFIG */
+/* global CONFIG, jQuery */
 
 (function() {
   // Modify by [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
@@ -21,7 +21,7 @@
       $result.html('<div class="m-auto text-center"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div><br/>Loading...</div>');
     }
 
-    $.ajax({
+    jQuery.ajax({
       // 0x01. load xml file
       url     : path,
       dataType: 'xml',

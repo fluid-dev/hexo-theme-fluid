@@ -5,7 +5,7 @@
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       <% if (is_home() && theme.index.slogan.api && theme.index.slogan.api.enable) { %>
-      $.ajax({
+      jQuery.ajax({
         type: '<%= theme.index.slogan.api.method %>',
         url: '<%= theme.index.slogan.api.url %>',
         headers: <%- JSON.stringify(theme.index.slogan.api.headers || {}) %>,
