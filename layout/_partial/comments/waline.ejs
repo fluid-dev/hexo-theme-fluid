@@ -11,6 +11,9 @@
           }
         )
         new Waline(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          Fluid.plugins.initFancyBox('#waline .vcontent img:not(.vemoji)');
+        })
       });
     });
   </script>
