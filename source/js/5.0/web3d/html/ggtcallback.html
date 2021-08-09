@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <script>
+
+    function getURLParameter(name) {
+          return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+    }
+
+
+    function sendToken() {
+        window.opener.postMessage(JSON.stringify({action: "logintoken", msg: getURLParameter("token")}), "*");
+    }
+    
+    function sendURL() {
+    	window.opener.postMessage(JSON.stringify({action: "openfromggt", msg: getURLParameter("url")}), "*");
+    }
+
+	if (getURLParameter("token") !== null) {
+    	sendToken();
+    }
+    if (getURLParameter("url") !== null) {
+    	sendURL();
+    }
+    </script>
+</body>
+</html>

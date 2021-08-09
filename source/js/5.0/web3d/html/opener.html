@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <script>
+    
+    function getURLParameter(name) {
+          return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+    }
+    
+    //alert(getURLParameter("redirect") + "&url=" + getURLParameter("callback"));
+    
+    var redirectTo = getURLParameter("redirect"),
+    	separator = "?";
+    if (redirectTo && redirectTo.indexOf("?") > -1) {
+    	separator = "&";
+    }
+
+    window.location.href = redirectTo + separator + "url=" + getURLParameter("callback");   
+    </script>
+</body>
+</html>
