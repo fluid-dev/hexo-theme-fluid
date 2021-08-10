@@ -9,7 +9,7 @@ var banner_video = theme.index.banner_video
 
 <!DOCTYPE html>
 <html lang="<%= config.language %>" <%= colorSchema ? `data-default-color-scheme="${colorSchema}"` : '' %>>
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
 
 <%- partial('_partial/head') %>
 
@@ -32,7 +32,7 @@ var banner_video = theme.index.banner_video
 		</div>
 		<script>
 
-			$.getJSON('js/video_url.json', function(data){
+			$.getJSON('/js/video_url.json', function(data){
 				var video_list_length = data.length
 				var seed = Math.random()
 				index = Math.floor(seed * video_list_length)
