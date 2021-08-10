@@ -16,8 +16,8 @@ if (theme.lazyload.enable) {
   var ver = theme.static_prefix.mathjax.match(/@(\d\.\d{1,2}\.\d{1,2})/);
   if (ver.length >= 2) {
     ver = ver[1];
+    lazy = compareVersions(ver, '3.2.0') >= 0;
   }
-  lazy = compareVersions(ver, '3.2.0') >= 0;
 }
 %>
 
