@@ -18,13 +18,11 @@ var banner_video = theme.index.banner_video
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
 	
-		<% if(!banner_video){ %>
+		
 		<div class="banner" id="banner" <%- theme.banner && theme.banner.parallax && 'parallax=true' %>
 			 style="background: url('<%- url_for(banner_img) %>') no-repeat center center;
 			   background-size: cover;">
-		<% }else{ %>
-		<div class="banner" id="banner">
-		<% } %>
+
       <div class="full-bg-img" >
 
 		<% if(banner_video){ %>
