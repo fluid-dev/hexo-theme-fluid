@@ -34,9 +34,23 @@ var banner_video = theme.index.banner_video
 				index = Math.floor(seed * video_list_length)
 				
 				video_url = data[index]
-				video_html_res = "<video id='video_item' style='position: absolute; width: 100%' muted='muted' src=" + video_url + " autoplay='autoplay' loop='loop'></video>"
+				video_html_res = "<video id='video_item' style='position: absolute;' muted='muted' src=" + video_url + " autoplay='autoplay' loop='loop'></video>"
 
 				document.getElementById("banner_video_insert").innerHTML = video_html_res;
+				
+				var height = document.body.children[0].clientHeight
+
+				var width = document.body.children[0].clientWidth
+
+				var video_item = document.getElementById("video_item");
+
+				if (height / width < 0.56){
+					video_item.setAttribute('width', '100%');
+					video_item.setAttribute('height', 'auto');
+				} else {
+					video_item.setAttribute('height', '100%');
+					video_item.setAttribute('width', 'auto');
+				}
 			});
 		</script>
 
@@ -44,19 +58,18 @@ var banner_video = theme.index.banner_video
 		window.onresize = function(){
 		 
 			var height = document.body.children[0].clientHeight
-			console.log(height)
+
 			var width = document.body.children[0].clientWidth
-			console.log(width)
-			
-			
+
+			var video_item = document.getElementById("video_item");
+
 			if (height / width < 0.56){
-				console.log("width 100")
+				video_item.setAttribute('width', '100%');
+				video_item.setAttribute('height', 'auto');
 			} else {
-				console.log("height 100")
+				video_item.setAttribute('height', '100%');
+				video_item.setAttribute('width', 'auto');
 			}
-			
-			//var video_item = document.getElementById("video_item").style
-			//console.log(video_item)
 		}
 		</script>
 		
