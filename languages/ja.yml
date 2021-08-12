@@ -47,7 +47,15 @@ post:
     min2read: '%s 分'
     views: '{} 閲覧'
   copyright:
-    license_content: 'このブログ内のすべての記事は、特別な記載がない限り <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" rel="nofollow noopener">CC BY-SA 4.0</a> の下のライセンスで保護されています。'
+    author: '著者'
+    posted: '作成日'
+    updated: '修正日'
+    licensed: '著作権'
+    CC: 'CC - Creative Commons license'
+    BY: 'BY - Attribution'
+    SA: 'SA - Share-alike'
+    NC: 'NC - Non-commercial'
+    ND: 'ND - No derivative works'
 
 footer:
   pv: '閲覧合計数: {}'

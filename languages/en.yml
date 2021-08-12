@@ -47,7 +47,15 @@ post:
     min2read: '%s mins'
     views: '{} views'
   copyright:
-    license_content: 'All posts in this blog are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="nofollow noopener">CC BY-SA 4.0</a> unless stating additionally.'
+    author: 'Author'
+    posted: 'Posted on'
+    updated: 'Updated on'
+    licensed: 'Licensed under'
+    CC: 'CC - Creative Commons license'
+    BY: 'BY - Attribution'
+    SA: 'SA - Share-alike'
+    NC: 'NC - Non-commercial'
+    ND: 'ND - No derivative works'
 
 footer:
   pv: 'Views: {}'

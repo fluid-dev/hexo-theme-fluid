@@ -57,15 +57,12 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
                   </div>
                 <% } %>
               </div>
+
               <% if(theme.post.copyright.enable && page.copyright !== false) { %>
-                <p class="note note-warning">
-                  <% if (typeof page.copyright === 'string' && page.copyright !== '') { %>
-                    <%- page.copyright %>
-                  <% } else { %>
-                    <%- theme.post.copyright.content || __('post.copyright.license_content') %>
-                  <% } %>
-                </p>
+                <%- partial('_partial/copyright.ejs') %>
               <% } %>
+              <%- inject_point('copyright') %>
+
               <% if(theme.post.prev_next.enable && !page.hide) { %>
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
@@ -101,9 +98,9 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
                   <% type = '_partial/comments/' + theme.post.comments.type %>
                 <% } %>
                 <%- partial(type) %>
-                <%- inject_point('comments') %>
               </article>
             <% } %>
+            <%- inject_point('comments') %>
           </article>
         </div>
       </div>

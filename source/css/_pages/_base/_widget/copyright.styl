@@ -1,0 +1,81 @@
+// Modify by hexo-theme-icarus
+
+.license-box
+  background-color rgba(#1b1f23, .05)
+  transition background-color .2s ease-in-out
+  border-radius 4px
+  font-size .9rem
+  overflow hidden
+  padding 1.25rem
+  position relative
+  z-index 1
+
+  &::after
+    content "\e8e4"
+    font-size 200px
+    opacity 0.1
+    position absolute
+    right -35px
+    top -80px
+    z-index -1
+
+  .license-title
+    margin-bottom 1rem
+
+    div:nth-child(1)
+      line-height 1.2
+      margin-bottom .25rem
+
+    div:nth-child(2)
+      color var(--sec-text-color)
+      font-size .8rem
+
+  .license-meta
+    align-items center
+    display flex
+    flex-wrap wrap
+    justify-content flex-start
+
+    .license-meta-item
+      align-items center
+      justify-content center
+      margin-right 1.5rem
+
+      div:nth-child(1)
+        color var(--sec-text-color)
+        font-size .8rem
+        font-weight normal
+
+  @media (max-width: 575px) and (min-width: 425px)
+    .license-meta
+
+      .license-meta-item
+        display flex
+        justify-content flex-start
+        flex-wrap wrap
+        font-size .8rem
+        flex 0 0 50%
+        max-width 50%
+        margin-right 0
+
+        div:nth-child(1)
+          margin-right .5rem
+
+      .license-meta-date
+        order -1
+
+  @media (max-width: 424px)
+    &::after
+      top -65px
+
+    .license-meta
+      flex-direction column
+      align-items flex-start
+
+      .license-meta-item
+        display flex
+        flex-wrap wrap
+        font-size .8rem
+
+        div:nth-child(1)
+          margin-right .5rem

@@ -47,7 +47,15 @@ post:
     min2read: '%s 分钟'
     views: '{} 次'
   copyright:
-    license_content: '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a>。'
+    author: '作者'
+    posted: '发布于'
+    updated: '更新于'
+    licensed: '许可协议'
+    CC: 'CC - 知识共享许可协议'
+    BY: 'BY - 署名'
+    SA: 'SA - 相同方式共享'
+    NC: 'NC - 非商业性使用'
+    ND: 'ND - 禁止演绎'
 
 footer:
   pv: '总访问量 {} 次'

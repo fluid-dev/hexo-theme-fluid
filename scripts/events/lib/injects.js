@@ -58,6 +58,7 @@ const points = {
     'postMeta',
     'postMarkdownBegin',
     'postMarkdownEnd',
+    'copyright',
     'comments'
   ],
   styles: [

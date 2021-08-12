@@ -47,7 +47,15 @@ post:
     min2read: '%s minutoj'
     views: '{} rigardoj'
   copyright:
-    license_content: 'Ĉiuj poŝtoj en ĉi tiu blogo estas permesitaj sub <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.eo" rel="nofollow noopener">CC BY-SA 4.0</a>, se ĝi ne estas aldonaj.'
+    author: 'Aŭtoro'
+    posted: 'Postigita'
+    updated: 'Aktualizita'
+    licensed: 'Lizenta'
+    CC: 'CC - Creative Commons license'
+    BY: 'BY - Attribution'
+    SA: 'SA - Share-alike'
+    NC: 'NC - Non-commercial'
+    ND: 'ND - No derivative works'
 
 footer:
   pv: 'Vidoj: {}'

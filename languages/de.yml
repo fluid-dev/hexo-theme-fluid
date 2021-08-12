@@ -47,7 +47,15 @@ post:
     min2read: '%s minuten'
     views: '{} ansichten'
   copyright:
-    license_content: 'Alle Artikel in diesem Blog sind unter <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" rel="nofollow noopener">CC BY-SA 4.0</a> lizenziert, außer es wird anders angegeben.'
+    author: 'Beitragsautor'
+    posted: 'Veröffentlicht am'
+    updated: 'Geändert am'
+    licensed: 'Urheberrechtshinweis'
+    CC: 'CC - Creative Commons license'
+    BY: 'BY - Attribution'
+    SA: 'SA - Share-alike'
+    NC: 'NC - Non-commercial'
+    ND: 'ND - No derivative works'
 
 footer:
   pv: 'Alle Aufrufe: {}'
