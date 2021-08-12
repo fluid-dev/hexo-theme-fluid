@@ -1,0 +1,96 @@
+.licensing-box
+  background-color rgba(27,31,35,.05)
+  border-radius 4px
+  box-shadow none
+  box-sizing inherit
+  color var(--text-color)
+  display block
+  font-size .9em
+  font-weight 400
+  line-height 1.5
+  margin-bottom 1.5rem
+  overflow hidden
+  padding 1.25rem
+  position relative
+  text-rendering optimizeLegibility
+  text-size-adjust 100%
+  transition background-color .2s ease-in-out, color .2s ease-in-out, transform .2s ease-in-out
+  z-index 1
+
+  &::after
+    content: "\e626";   // Copyright Icon
+    font-size 200px
+    opacity 0.1
+    position absolute
+    right -50px
+    top -87.87px
+    transition background-color .2s ease-in-out, color .2s ease-in-out, transform .2s ease-in-out
+    z-index -1
+
+  .licensing-title
+    p:nth-child(1)
+      box-sizing inherit
+      line-height 1.2
+      margin 0
+      margin-bottom 0.25rem !important
+      padding 0
+      transition color .2s ease-in-out
+
+    p:nth-child(2)
+      box-sizing inherit
+      color var(--sec-text-color)
+      font-size .8rem !important
+      transition color .2s ease-in-out
+
+  .licensing-meta
+    align-items center
+    box-sizing inherit
+    display flex
+    flex-basis auto
+    flex-grow 0
+    flex-shrink 0
+    flex-wrap wrap
+    justify-content flex-start
+    max-width 100%
+
+    .licensing-meta-item
+      align-items center
+      box-sizing inherit
+      flex-basis auto
+      flex-grow 0
+      flex-shrink 0
+      justify-content center
+      margin-bottom 0
+      margin-right 1.5rem !important
+
+      p:nth-child(1)
+        box-sizing inherit
+        color var(--sec-text-color)
+        font-size .8rem !important
+        font-weight normal
+        margin 0
+        padding 0
+        transition color .2s ease-in-out
+
+      p:nth-child(2)
+        box-sizing inherit
+        margin 0
+        padding 0
+        transition color .2s ease-in-out
+
+        a
+          margin-left 1pt
+
+@media (prefers-color-scheme: dark)
+  :root
+    --color-mode 'dark'
+
+  :root:not([data-user-color-scheme])
+    .licensing-box
+      background-color rgba(#3e4b5e, .35)
+      transition background-color .2s ease-in-out
+
+[data-user-color-scheme='dark']
+  .licensing-box
+    background-color rgba(#3e4b5e, .35)
+    transition background-color .2s ease-in-out

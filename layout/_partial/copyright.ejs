@@ -1,0 +1,76 @@
+<% if (theme.post.copyright.enable && page.copyright !== false) {
+  if (typeof page.copyright === 'string') {
+    page.licenses = page.copyright;
+  } else {
+    page.licenses = theme.post.copyright.content;
+  }
+  page.licensesUpperCase = page.licenses.toUpperCase();
+%>
+  <div class="licensing-box iconfont-cc">
+    <div class="licensing-title">
+      <p><%= page.title %></p>
+      <p><%= page.permalink %></p>
+    </div>
+    <div class="licensing-meta">
+      <div class="licensing-meta-item">
+        <p><%= __('copyright.author') %></p>
+        <p><%= page.author || config.author %></p>
+      </div>
+      <div class="licensing-meta-item">
+        <p><%= __('copyright.date') %></p>
+        <p><%= full_date(page.date, theme.post.meta.date.format) %></p>
+      </div>
+      <% if (theme.post.copyright.updated) { %>
+      <div class="licensing-meta-item">
+        <p><%= __('copyright.updated') %></p>
+        <p><%= full_date(page.updated, theme.post.meta.date.format) %></p>
+      </div>
+      <% } %>
+      <div class="licensing-meta-item">
+        <p><%= __('copyright.licenses') %></p>
+        <p>
+          <% if (page.licensesUpperCase == "BY") { %>
+          <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+            <i class="iconfont-cc icon-cc" title="<%= __('copyright.CC') %>"></i>
+            <i class="iconfont-cc icon-by" title="<%= __('copyright.BY') %>"></i>
+          </a>
+          <% } else if (page.licensesUpperCase == "BY-SA") { %>
+          <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <i class="iconfont-cc icon-cc" title="<%= __('copyright.CC') %>"></i>
+            <i class="iconfont-cc icon-by" title="<%= __('copyright.BY') %>"></i>
+            <i class="iconfont-cc icon-sa" title="<%= __('copyright.SA') %>"></i>
+          </a>
+          <% } else if (page.licensesUpperCase == "BY-ND") { %>
+          <a target="_blank" href="https://creativecommons.org/licenses/by-nd/4.0/">
+            <i class="iconfont-cc icon-cc" title="<%= __('copyright.CC') %>"></i>
+            <i class="iconfont-cc icon-by" title="<%= __('copyright.BY') %>"></i>
+            <i class="iconfont-cc icon-nd" title="<%= __('copyright.ND') %>"></i>
+          </a>
+          <% } else if (page.licensesUpperCase == "BY-NC") { %>
+          <a target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+            <i class="iconfont-cc icon-cc" title="<%= __('copyright.CC') %>"></i>
+            <i class="iconfont-cc icon-by" title="<%= __('copyright.BY') %>"></i>
+            <i class="iconfont-cc icon-nc" title="<%= __('copyright.NC') %>"></i>
+          </a>
+          <% } else if (page.licensesUpperCase == "BY-NC-SA") { %>
+          <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+            <i class="iconfont-cc icon-cc" title="<%= __('copyright.CC') %>"></i>
+            <i class="iconfont-cc icon-by" title="<%= __('copyright.BY') %>"></i>
+            <i class="iconfont-cc icon-nc" title="<%= __('copyright.NC') %>"></i>
+            <i class="iconfont-cc icon-sa" title="<%= __('copyright.SA') %>"></i>
+          </a>
+          <% } else if (page.licensesUpperCase == "BY-NC-ND") { %>
+          <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+            <i class="iconfont-cc icon-cc" title="<%= __('copyright.CC') %>"></i>
+            <i class="iconfont-cc icon-by" title="<%= __('copyright.BY') %>"></i>
+            <i class="iconfont-cc icon-nc" title="<%= __('copyright.NC') %>"></i>
+            <i class="iconfont-cc icon-nd" title="<%= __('copyright.ND') %>"></i>
+          </a>
+          <% } else { %>
+          <%= page.licenses %>
+          <% } %>
+        </p>
+      </div>
+    </div>
+  </div>
+<% } %>

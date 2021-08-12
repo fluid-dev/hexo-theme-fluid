@@ -42,3 +42,14 @@ page404:
 links:
   title: Links
   subtitle: Links
+
+copyright:
+  author: Author
+  date: Posted on
+  updated: Updated on
+  licenses: Licensed under
+  CC: CC - Creative Commons license
+  BY: BY - Attribution
+  SA: SA - Share-alike
+  NC: NC - Non-commercial
+  ND: ND - No derivative works

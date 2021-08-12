@@ -42,3 +42,14 @@ page404:
 links:
   title: 友链
   subtitle: 友情链接
+
+copyright:
+  author: 作者
+  date: 发布于
+  updated: 更新于
+  licenses: 许可协议
+  CC: CC - 知识共享许可协议
+  BY: BY - 署名
+  SA: SA - 相同方式共享
+  NC: NC - 非商业性使用
+  ND: ND - 禁止演绎
