@@ -28,6 +28,23 @@ var banner_video = theme.index.banner_video
 		</div>
 		<script>
 
+			function set_video_attr(id){
+				
+				var height = document.body.children[0].clientHeight
+
+				var width = document.body.children[0].clientWidth
+
+				var video_item = document.getElementById(id);
+
+				if (height / width < 0.56){
+					video_item.setAttribute('width', '100%');
+					video_item.setAttribute('height', 'auto');
+				} else {
+					video_item.setAttribute('height', '100%');
+					video_item.setAttribute('width', 'auto');
+				}
+			}
+
 			$.getJSON('/js/video_url.json', function(data){
 				var video_list_length = data.length
 				var seed = Math.random()
@@ -37,39 +54,13 @@ var banner_video = theme.index.banner_video
 				video_html_res = "<video id='video_item' style='position: absolute;' muted='muted' src=" + video_url + " autoplay='autoplay' loop='loop'></video>"
 
 				document.getElementById("banner_video_insert").innerHTML = video_html_res;
-				
-				var height = document.body.children[0].clientHeight
-
-				var width = document.body.children[0].clientWidth
-
-				var video_item = document.getElementById("video_item");
-
-				if (height / width < 0.56){
-					video_item.setAttribute('width', '100%');
-					video_item.setAttribute('height', 'auto');
-				} else {
-					video_item.setAttribute('height', '100%');
-					video_item.setAttribute('width', 'auto');
-				}
+				set_video_attr('video_item')
 			});
 		</script>
 
 		<script>
 		window.onresize = function(){
-		 
-			var height = document.body.children[0].clientHeight
-
-			var width = document.body.children[0].clientWidth
-
-			var video_item = document.getElementById("video_item");
-
-			if (height / width < 0.56){
-				video_item.setAttribute('width', '100%');
-				video_item.setAttribute('height', 'auto');
-			} else {
-				video_item.setAttribute('height', '100%');
-				video_item.setAttribute('width', 'auto');
-			}
+			set_video_attr('video_item')
 		}
 		</script>
 		
