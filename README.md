@@ -120,6 +120,16 @@ layout: about
 
 如你也想贡献代码，可参照[贡献指南](https://hexo.fluid-dev.com/docs/contribute/)
 
+## 添加功能
+
+- 视频背景
+
+> 示例：https://www.zywvvd.com
+
+- 支持 geogebra
+
+> 示例：https://www.zywvvd.com/2020/12/19/tools/geogebra/geogebra-html-embed/geogebra-html-embed/
+
 ## 支持
 
 你可以扫描下方微信赞赏码支持我们的开源创作，资金将用于服务器及域名开销以及今后的公共接口服务。
