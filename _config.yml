@@ -947,44 +947,44 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/
+  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4/
 
-  github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/
+  github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4/
 
-  jquery: https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/
+  jquery: https://cdn.jsdelivr.net/npm/jquery@3/dist/
 
-  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/
+  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4/dist/
 
-  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/
+  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10/
 
-  prismjs: https://cdn.jsdelivr.net/npm/prismjs@1.23.0/
+  prismjs: https://cdn.jsdelivr.net/npm/prismjs@1/
 
-  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/
+  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4/dist/
 
-  typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/
+  typed: https://cdn.jsdelivr.net/npm/typed.js@2/lib/
 
-  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/
+  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/
 
-  nprogress: https://cdn.jsdelivr.net/npm/nprogress@0.2.0/
+  nprogress: https://cdn.jsdelivr.net/npm/nprogress@0/
 
-  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/
 
-  katex: https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/
+  katex: https://cdn.jsdelivr.net/npm/katex@0/dist/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/
+  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2/dist/
 
-  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.10.1/dist/
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8/dist/
 
-  valine: https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/
+  valine: https://cdn.jsdelivr.net/npm/valine@1/dist/
 
-  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.16.2/dist/
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@0/dist/
 
-  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/
+  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1/dist/
 
-  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/
+  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/
 
-  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/
+  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1/dist/
 
   hint: /lib/hint/
