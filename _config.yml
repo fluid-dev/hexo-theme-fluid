@@ -362,6 +362,16 @@ scroll_down_arrow:
 scroll_top_arrow:
   enable: true
 
+# Open Graph metadata
+# See: https://hexo.io/docs/helpers.html#open-graph
+open_graph:
+  twitter_card: summary_large_image
+  twitter_id:
+  twitter_site:
+  google_plus:
+  fb_admins:
+  fb_app_id:
+
 
 #---------------------------
 # 页脚
