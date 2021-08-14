@@ -21,7 +21,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
           <div class="page-header text-center fade-in-up">
             <span class="h2" id="subtitle" title="<%= subtitle %>">
-              <% if(!theme.fun_features.typing.enable) { %>
+              <% if(!theme.fun_features.typing.enable || (theme.fun_features.typing.indexOnly && !is_home())) { %>
                 <%- subtitle %>
               <% } %>
             </span>

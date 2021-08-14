@@ -93,6 +93,10 @@ fun_features:
     # If true, loop animation
     loop: false
 
+    # 是否仅在首页启用
+    # If true, only enable in index page
+    indexOnly: false
+
   # 为文章内容中的标题添加锚图标
   # Add an anchor icon to the title on the post page
   anchorjs:
