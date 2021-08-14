@@ -1,7 +1,8 @@
 <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="<%- url_for() %>">&nbsp;<strong><%- theme.navbar.blog_title || config.title %></strong>&nbsp;</a>
+    <a class="navbar-brand" href="<%= url_for() %>">
+      <strong><%= theme.navbar.blog_title || config.title %></strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -50,8 +51,9 @@
         <% } %>
         <% if(theme.search.enable) { %>
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         <% } %>
         <% if(theme.dark_mode && theme.dark_mode.enable) { %>

@@ -49,12 +49,12 @@ var orderBy = theme.category.order_by || 'name'
     <% for (var idx = 0; idx < posts.length; idx++) { %>
       <% var post = posts.data[idx] %>
       <% if (idx && limit && idx >= limit) { %>
-        <a href="<%- url_for(cat.path) %>" class="list-group-item list-group-item-action">
+        <a href="<%= url_for(cat.path) %>" class="list-group-item list-group-item-action">
           <span class="category-post">More...</span>
         </a>
         <% break %>
       <% } else { %>
-        <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
+        <a href="<%= url_for(post.path) %>" class="list-group-item list-group-item-action">
           <span class="category-post"><%= post.title %></span>
         </a>
       <% } %>
