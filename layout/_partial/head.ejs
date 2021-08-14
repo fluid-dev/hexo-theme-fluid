@@ -27,6 +27,9 @@ if (page.description) {
   <meta name="description" content="<%= description %>">
   <meta name="author" content="<%= page.author || config.author %>">
   <meta name="keywords" content="<%= keywords %>">
+  <%- open_graph({
+    twitter_card: "summary_large_image"
+  }) %>
   <% if (theme.custom_head) { %>
     <%- theme.custom_head %>
   <% } %>
