@@ -188,6 +188,7 @@ color:
 font:
   font_size: 16px
   font_family:
+  letter_spacing: 0.02em
   code_font_size: 85%
 
 # 指定自定义 .js 文件路径，支持列表；路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js
