@@ -709,19 +709,19 @@ gitalk:
 valine:
   appId:
   appKey:
-  placeholder: 说点什么
   path: window.location.pathname
-  avatar: retro
+  placeholder:
+  avatar: 'retro'
   meta: ['nick', 'mail', 'link']
+  requiredFields: []
   pageSize: 10
-  lang: zh-CN
+  lang: 'zh-CN'
   highlight: false
   recordIP: false
   serverURLs: ''
   emojiCDN:
   emojiMaps:
   enableQQ: false
-  requiredFields: []
 
 # Waline
 # 从 Valine 衍生而来，额外增加了服务端和多种功能
@@ -729,19 +729,19 @@ valine:
 # See: https://waline.js.org/
 waline:
   serverURL: ''
-  placeholder: 说点什么
   path: window.location.pathname
-  avatar: retro
+  placeholder:
   meta: ['nick', 'mail', 'link']
-  pageSize: 10
-  lang: zh-CN
-  highlight: true
-  avatarCDN: ''
+  requiredMeta: ['nick']
+  lang: 'zh-CN'
+  emoji: ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+  dark: 'html[data-user-color-scheme="dark"]'
+  avatar: 'retro'
+  avatarCDN: 'https://seccdn.libravatar.org/avatar/'
   avatarForce: false
-  requiredFields: []
-  emojiCDN:
-  emojiMaps:
-  anonymous:
+  wordLimit: 0
+  pageSize: 10
+  highlight: true
 
 # 畅言 Changyan
 # 基于第三方的服务
@@ -993,7 +993,7 @@ static_prefix:
 
   valine: https://cdn.jsdelivr.net/npm/valine@1/dist/
 
-  waline: https://cdn.jsdelivr.net/npm/@waline/client@0/dist/
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@1/dist/
 
   gitalk: https://cdn.jsdelivr.net/npm/gitalk@1/dist/
 
