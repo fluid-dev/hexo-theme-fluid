@@ -730,18 +730,12 @@ valine:
 waline:
   serverURL: ''
   placeholder: 说点什么
-  path: window.location.pathname
-  avatar: retro
-  meta: ['nick', 'mail', 'link']
-  pageSize: 10
-  lang: zh-CN
   highlight: true
-  avatarCDN: ''
   avatarForce: false
-  requiredFields: []
-  emojiCDN:
-  emojiMaps:
-  anonymous:
+  dark: 'html[data-user-color-scheme="dark"]'
+  visitor: false
+  avatar: 'monsterid'
+  avatarCDN: 'https://seccdn.libravatar.org/avatar/'
 
 # 畅言 Changyan
 # 基于第三方的服务
@@ -993,7 +987,7 @@ static_prefix:
 
   valine: https://cdn.jsdelivr.net/npm/valine@1/dist/
 
-  waline: https://cdn.jsdelivr.net/npm/@waline/client@0/dist/
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@1.3.4/dist/
 
   gitalk: https://cdn.jsdelivr.net/npm/gitalk@1/dist/
 
