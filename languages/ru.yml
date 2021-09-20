@@ -1,0 +1,44 @@
+search:
+  title: Поиск
+  keyword: ключевое слово
+  status:
+    success: v
+    error: x
+
+postTotal: "Всего %d статья"
+
+paginator:
+  pre: Предыдущий
+  next: Следующий
+
+post:
+  toc: СОДЕРЖАНИЕ
+  pre: Предыдущий
+  next: Следующий
+
+home:
+  title: Дом
+
+archive:
+  title: Архивы
+  subtitle: Архив
+
+tag:
+  title: Теги
+  subtitle: Ярлык
+
+category:
+  title: Категории
+  subtitle: Категория
+
+about:
+  title: Обо
+  subtitle: Обо
+
+page404:
+  title: Страница не найдена
+  subtitle: К сожалению, страница не найдена
+
+links:
+  title: Ссылки
+  subtitle: Ссылки
