@@ -1,0 +1,45 @@
+search:
+  title: 찾다
+  keyword: 예어
+  status:
+    success: v
+    error: x
+
+postTotal: "총 %d 개의 게시물."
+
+paginator:
+  pre: 이전의
+  next: 다음
+
+post:
+  toc: 목차
+  pre: 이전의
+  next: 다음
+
+home:
+  title: 집
+
+archive:
+  title: 아카이브
+  subtitle: 보관소
+
+tag:
+  title: 태그
+  subtitle: 꼬리표
+
+category:
+  title: 카테고리
+  subtitle: 범주
+
+about:
+  title: 에 대한
+  subtitle: 에 대한
+
+page404:
+  title: 페이지를 찾을 수 없음
+  subtitle: 죄송합니다. 페이지를 찾을 수 없습니다...
+
+links:
+  title: 연결
+  subtitle: 연결
+  
