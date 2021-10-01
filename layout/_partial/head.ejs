@@ -10,6 +10,8 @@ if (page.description) {
   description = page.description
 } else if(page.excerpt) {
   description = strip_html(page.excerpt).substr(0, 200)
+} else if (page.hasOwnProperty('__post') && page.__post) {
+  description = strip_html(page.content).substring(0, 120);
 }
 %>
 
