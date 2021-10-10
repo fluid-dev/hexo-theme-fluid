@@ -11,6 +11,7 @@ if (page.description) {
 } else if(page.excerpt) {
   description = strip_html(page.excerpt).substr(0, 200)
 }
+var og = Object.assign({image: page.index_img}, theme.open_graph)
 %>
 
 <head>
@@ -26,7 +27,7 @@ if (page.description) {
   <meta name="description" content="<%= description %>">
   <meta name="author" content="<%= page.author || config.author %>">
   <meta name="keywords" content="<%= keywords %>">
-  <%- open_graph(theme.open_graph || {}) %>
+  <%- open_graph(og) %>
   <% if (theme.custom_head) { %>
     <%- theme.custom_head %>
   <% } %>
