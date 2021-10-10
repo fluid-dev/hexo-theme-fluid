@@ -8,11 +8,13 @@ if (keywords instanceof Array) {
 var description = config.description
 if (page.description) {
   description = page.description
-} else if(page.excerpt) {
+} else if (page.excerpt) {
   description = strip_html(page.excerpt).substr(0, 200)
 } else if (is_post()) {
-  description = strip_html(page.content).substr(0, 200);
+  description = strip_html(page.content).substr(0, 200)
 }
+var ogImage = page.og_img || page.index_img
+var ogConfig = Object.assign({ image: ogImage && url_for(ogImage) }, theme.open_graph)
 %>
 
 <head>
@@ -28,7 +30,7 @@ if (page.description) {
   <meta name="description" content="<%= description %>">
   <meta name="author" content="<%= page.author || config.author %>">
   <meta name="keywords" content="<%= keywords %>">
-  <%- open_graph(theme.open_graph || {}) %>
+  <%- open_graph(ogConfig) %>
   <% if (theme.custom_head) { %>
     <%- theme.custom_head %>
   <% } %>
