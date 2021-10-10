@@ -13,7 +13,7 @@ if (page.description) {
 } else if (is_post()) {
   description = strip_html(page.content).substr(0, 200)
 }
-var ogConfig = Object.assign({ image: page.og_img || page.index_img }, theme.open_graph)
+var ogConfig = Object.assign({ image: url_for(page.og_img) || url_for(page.index_img) }, theme.open_graph)
 %>
 
 <head>
