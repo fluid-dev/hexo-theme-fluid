@@ -255,6 +255,9 @@ web_analytics:  # 网页访问统计
     # 统计页面时获取路径的属性
     # Get the attribute of the page path during statistics
     path: window.location.pathname
+    # 开启后不统计本地路径( localhost 与 127.0.0.1 )
+    # If ture, ignore localhost & 127.0.0.1
+    ignore_local: false
 
 # 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
 # Lazy loading of images and comment plugin on the page
