@@ -539,12 +539,12 @@ post:
     min2read:
       enable: true
       format: "{} 分钟"
-      # 每个字词的长度，建议：中文≈2，英文≈5
+      # 每个字词的长度，建议：中文≈2，英文≈5，中英混合可自行调节
       # Average word length (chars count in word), ZH ≈ 2, EN ≈ 5
       awl: 2
-      # 每分钟阅读字数
+      # 每分钟阅读字数，如果大部分是技术文章可适度调低
       # Words per minute
-      wpm: 160
+      wpm: 60
 
     # 浏览量计数
     # Number of visits
