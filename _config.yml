@@ -1004,4 +1004,4 @@ static_prefix:
 
   twikoo: https://cdn.jsdelivr.net/npm/twikoo@1/dist/
 
-  hint: /lib/hint/
+  hint: https://cdn.jsdelivr.net/npm/hint.css@2/
