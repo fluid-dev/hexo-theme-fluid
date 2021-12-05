@@ -1,0 +1,104 @@
+<%  
+    page.layout="articlecount" 
+    page.title=theme.articlecount.title || __('articlecount.title')
+    page.subtitle=theme.articlecount.subtitle || __('articlecount.subtitle') 
+    page.banner_img=theme.articlecount.banner_img
+    page.banner_img_height=theme.articlecount.banner_img_height 
+    page.banner_mask_alpha=theme.articlecount.banner_mask_alpha
+%>
+
+<div>
+    <div>
+        <p class="h4" style="font-family: ZCOOL KuaiLe;"><%= __('articlecount.des') %></p>
+        <svg class="line-chart-year"></svg>
+        <svg class="bar-chart-month"></svg>
+        <svg class="pie-chart-week"></svg>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // charts的共同配置
+    const commonOptions = {
+            fontFamily: "ZCOOL KuaiLe",
+            dataColors:['#28a3dd', '#f3db52', '#ed84b5', '#4ab74e', '#9179c0', '#8e6d5a', '#f19839', '#949494'],
+    }
+    const darkMode = {
+        // dark mode 
+        strokeColor: '#c4c6c9',
+        backgroundColor: '#252d38'
+    }
+    const takeOptionsByMode = (commonOptions) => {
+        // 适配黑暗模式 以用户设置优先系统模式其次
+        if (<%- theme.dark_mode.enable %> && localStorage.getItem('Fluid_Color_Scheme') === 'dark'){
+           Object.keys(darkMode).forEach(item => {
+               commonOptions[item] = darkMode[item]
+           })
+        } else if(<%- theme.dark_mode.enable %> && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            Object.keys(darkMode).forEach(item => {
+               commonOptions[item] = darkMode[item]
+           })
+        } else {
+            Object.keys(darkMode).forEach(item => {
+               delete commonOptions[item]
+           })
+        }
+        return commonOptions
+    }
+    const loadBarChart = (commonOptions = {}, data = {}) => {
+        const svg = document.querySelector('.bar-chart-month')
+        new chartXkcd.StackedBar(svg, {
+            title: '<%-  __('date.month') %>',
+            data: {
+                ...data,
+            },
+            options: {
+                ...commonOptions,
+            }
+        });
+    }
+    const loadPieChart = (commonOptions = {}, data = {}) => {
+        const svg = document.querySelector('.pie-chart-week')
+        const pieChart = new chartXkcd.Pie(svg, {
+            title: '<%-  __('date.week') %>',
+            data: {
+                ...data
+            },
+            options: { 
+                ...commonOptions,
+                innerRadius: 0.5,
+                legendPosition: chartXkcd.config.positionType.upRight,
+            },
+        });
+    }
+    const loadLineChart = (commonOptions = {}, data = {}) => {
+        const svg = document.querySelector('.line-chart-year')
+        const lineChart = new chartXkcd.Line(svg, {
+            title: '<%-  __('date.year') %>',
+            data: {
+                ...data
+            },
+            options: { 
+                ...commonOptions,
+                yTickCount: 3,
+                legendPosition: chartXkcd.config.positionType.upLeft
+            }
+        });
+    }
+    // 加载zcool-kuaile 字体
+    // chart.xkcd原本字体没有中文 找了个风格比较接近的 zcool-kuaile
+    Fluid.utils.createCssLink("<%= theme.static_prefix.kuaile %>")
+    Fluid.utils.createScript("<%= url_join(theme.static_prefix.xkcd, 'chart.xkcd.min.js') %>", function () {
+        const options = takeOptionsByMode(commonOptions)
+        // 获取helper函数计算后的数据 参数为获取翻译文案的函数
+        const chartsData = <%- countArticle(__) %>
+        loadLineChart(options, chartsData.year)
+        loadBarChart(options, chartsData.month)
+        loadPieChart(options, chartsData.week)
+        document.getElementById('color-toggle-btn').addEventListener('click',() => {
+            const options = takeOptionsByMode(commonOptions)
+            loadLineChart(options, chartsData.year)
+            loadBarChart(options, chartsData.month)
+            loadPieChart(options, chartsData.week)
+        })
+    })
+</script>

@@ -316,6 +316,8 @@ navbar:
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
     #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+    - { key: "articlecount", link: "/articlecount/", icon: "iconfont icon-codeforces" }
+
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -948,6 +950,17 @@ links:
 
 
 #---------------------------
+# 文章可视化统计页
+# articlecount Page
+#---------------------------
+articlecount:
+  enable: true
+  banner_img: /img/default.png
+  banner_img_height: 60
+  banner_mask_alpha: 0.3
+  subtitle:
+
+#---------------------------
 # 以下是配置 JS CSS 等静态资源的 URL 前缀，可以自定义成 CDN 地址，
 # 默认的 jsDelivr CDN 可能在部分地区无法访问，如果需要修改，最好使用与默认配置相同的版本，以避免潜在的问题，
 # ** 如果你不知道如何设置，请不要做任何改动 **
@@ -1005,3 +1018,7 @@ static_prefix:
   twikoo: https://cdn.jsdelivr.net/npm/twikoo@1/dist/
 
   hint: https://cdn.jsdelivr.net/npm/hint.css@2/
+
+  xkcd: https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/
+
+  kuaile: https://cdn.jsdelivr.net/npm/@fontsource/zcool-kuaile@4.5.0/index.css

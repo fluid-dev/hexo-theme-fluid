@@ -50,3 +50,14 @@ hexo.extend.generator.register('_links', function(locals) {
     };
   }
 });
+
+// generate articlecount page
+hexo.extend.generator.register('_articlestatistics', function(locals) {
+  if (this.theme.config.articlecount.enable !== false) {
+    return {
+      path  : 'articlecount/index.html',
+      data  : locals.theme,
+      layout: 'articlecount'
+    };
+  }
+});
