@@ -27,14 +27,14 @@ var orderBy = theme.category.order_by || 'name'
         <i class="iconfont icon-articles"></i>
         <span><%= cat.posts.length %></span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-<%= md5(cat.name) %>" role="tabpanel" aria-labelledby="heading-<%= md5(cat.name) %>">
         <% var posts = cat.posts.sort(theme.category.post_order_by || config.index_generator.order_by || '-date') %>
         <% if (subCats.length > 0) { %>
           <% var filteredPosts = posts.filter((p) => {
             return p.categories.filter(catOnPost => catOnPost.parent === cat._id).length === 0;
           }) %>
           <%- render_posts(filteredPosts, cat) %>
-          <%- render_sub_categories(subCats, cat, depth + 1, !collapsed) %>
+          <%- render_categories(subCats, depth + 1) %>
         <% } else { %>
           <%- render_posts(posts, cat) %>
         <% } %>
@@ -43,26 +43,18 @@ var orderBy = theme.category.order_by || 'name'
   <% }) %>
 <% } %>
 
-<% function render_sub_categories(cats, parent, depth, show) { %>
-  <div id="collapse-<%= md5(parent.name) %>" class="collapse in <%= show ? 'show' : '' %>" role="tabpanel"
-       aria-labelledby="heading-<%= md5(parent.name) %>">
-    <%- render_categories(cats, depth) %>
-  </div>
-<% } %>
-
 <% function render_posts(posts, cat) { %>
-  <div id="collapse-<%= md5(cat.name) %>" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-<%= md5(cat.name) %>">
+  <div class="category-post-list">
     <% var limit = theme.category.post_limit %>
     <% for (var idx = 0; idx < posts.length; idx++) { %>
       <% var post = posts.data[idx] %>
       <% if (idx && limit && idx >= limit) { %>
-        <a href="<%- url_for(cat.path) %>" class="list-group-item list-group-item-action">
+        <a href="<%= url_for(cat.path) %>" class="list-group-item list-group-item-action">
           <span class="category-post">More...</span>
         </a>
         <% break %>
       <% } else { %>
-        <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
+        <a href="<%= url_for(post.path) %>" class="list-group-item list-group-item-action">
           <span class="category-post"><%= post.title %></span>
         </a>
       <% } %>

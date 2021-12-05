@@ -7,7 +7,10 @@
           <%- JSON.stringify(theme.twikoo || {}) %>,
           {
             el: '#twikoo',
-            path: '<%= theme.twikoo.path %>'
+            path: '<%= theme.twikoo.path %>',
+            onCommentLoaded: function() {
+              Fluid.plugins.initFancyBox('#twikoo .tk-content img:not(.tk-owo-emotion)');
+            }
           }
         )
         twikoo.init(options)

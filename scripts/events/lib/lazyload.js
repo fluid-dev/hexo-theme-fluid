@@ -1,11 +1,11 @@
 'use strict';
 
-const joinPath = require('../../utils/join-path');
+const urlJoin = require('../../utils/url-join');
 
 module.exports = (hexo) => {
   const config = hexo.theme.config;
-  const loadingImage = joinPath(hexo.config.root, config.lazyload.loading_img
-    || joinPath(config.static_prefix.internal_img, 'loading.gif'));
+  const loadingImage = urlJoin(hexo.config.root, config.lazyload.loading_img
+    || urlJoin(config.static_prefix.internal_img, 'loading.gif'));
   if (!config.lazyload || !config.lazyload.enable || !loadingImage) {
     return;
   }

@@ -7,7 +7,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 %>
 
 <!DOCTYPE html>
-<html lang="<%= config.language %>" <%= colorSchema ? `data-default-color-scheme="${colorSchema}"` : '' %>>
+<html lang="<%= config.language %>" <%= colorSchema ? `data-default-color-scheme=${colorSchema}` : '' %>>
 
 <%- partial('_partial/head') %>
 
@@ -20,7 +20,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="<%- subtitle %>">
+            <span class="h2" id="subtitle" title="<%= subtitle %>">
               <% if(!theme.fun_features.typing.enable) { %>
                 <%- subtitle %>
               <% } %>
@@ -50,7 +50,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
           <%- banner_img_height >= 100 && theme.banner && theme.banner.parallax ? 'style=margin-top:0' : '' %>>
           <% if(page.layout === 'about') { %>
             <div class="about-avatar">
-              <img src="<%- url_for(theme.about.avatar) %>"
+              <img src="<%= url_for(theme.about.avatar) %>"
                    class="img-fluid" alt="avatar">
             </div>
           <% } %>
@@ -66,7 +66,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
     <% } %>
 
     <% if (theme.scroll_top_arrow.enable) { %>
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     <% } %>

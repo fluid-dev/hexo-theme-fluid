@@ -1,40 +1,40 @@
-<% if(theme.fun_features.typing.enable && page.subtitle !== false){ %>
+<% if(theme.fun_features.typing.enable && page.subtitle !== false) { %>
   <%- js_ex(theme.static_prefix.typed, '/typed.min.js') %>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       <% if (is_home() && theme.index.slogan.api && theme.index.slogan.api.enable) { %>
-      $.ajax({
+      jQuery.ajax({
         type: '<%= theme.index.slogan.api.method %>',
         url: '<%= theme.index.slogan.api.url %>',
         headers: <%- JSON.stringify(theme.index.slogan.api.headers || {}) %>,
         dataType: 'json',
-        success: function (result) {
+        success: function(result) {
           var text;
           if (result) {
-            var keys = '<%= theme.index.slogan.api.keys %>'.split('.')
+            var keys = '<%= theme.index.slogan.api.keys %>'.split(',');
             if (result instanceof Array) {
-              result = result[0]
+              result = result[0];
             }
             for (const k of keys) {
-              var value = result[k]
+              var value = result[k];
               if (typeof value === 'string') {
-                text = value
-                break
+                text = value;
+                break;
               } else if (value instanceof Object) {
-                result = value
+                result = value;
               }
             }
           }
           text ? typing(text) : typing(title);
         },
-        error: function () {
-          typing(title)
+        error: function() {
+          typing(title);
         }
       })
       <% } else { %>
-      typing(title)
+        typing(title);
       <% } %>
     })(window, document);
   </script>

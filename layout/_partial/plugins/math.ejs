@@ -10,6 +10,15 @@ if (enable) {
     enable = false;
   }
 }
+
+var lazy = false;
+if (theme.lazyload.enable) {
+  var verRe = theme.static_prefix.mathjax.match(/@(\d{1,2})\.?(\d{0,2})\.?(\d{0,2})/);
+  if (verRe.length >= 4) {
+    ver = `${verRe[1]}.${verRe[2] || 'x'}.${verRe[3] || 'x'}`;
+    lazy = compareVersions(ver, '3.2.0') >= 0;
+  }
+}
 %>
 
 <% if (enable) { %>
@@ -21,6 +30,9 @@ if (enable) {
       MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          <%- lazy ? 'load: \[\'ui/lazy\'\]' : undefined %>
         },
         options: {
           renderActions: {

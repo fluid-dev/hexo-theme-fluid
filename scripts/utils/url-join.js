@@ -1,6 +1,6 @@
 'use strict';
 
-const joinPath = function(base, relative) {
+const urlJoin = function(base, relative) {
   if (relative && /^https*:\/\//.test(relative)) {
     return relative;
   }
@@ -9,4 +9,4 @@ const joinPath = function(base, relative) {
     : base;
 };
 
-module.exports = joinPath;
+module.exports = urlJoin;

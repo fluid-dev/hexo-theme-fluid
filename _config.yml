@@ -188,6 +188,7 @@ color:
 font:
   font_size: 16px
   font_family:
+  letter_spacing: 0.02em
   code_font_size: 85%
 
 # 指定自定义 .js 文件路径，支持列表；路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js
@@ -251,6 +252,12 @@ web_analytics:  # 网页访问统计
     # REST API 服务器地址，国际版不填
     # Only the Chinese mainland users need to set
     server_url:
+    # 统计页面时获取路径的属性
+    # Get the attribute of the page path during statistics
+    path: window.location.pathname
+    # 开启后不统计本地路径( localhost 与 127.0.0.1 )
+    # If ture, ignore localhost & 127.0.0.1
+    ignore_local: false
 
 # 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
 # Lazy loading of images and comment plugin on the page
@@ -271,7 +278,7 @@ lazyload:
 
 # 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
 # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
-iconfont: //at.alicdn.com/t/font_1736178_kmeydafke9r.css
+iconfont: //at.alicdn.com/t/font_1736178_lbnruvf0jn.css
 
 
 #---------------------------
@@ -361,6 +368,16 @@ scroll_down_arrow:
 # Scroll top arrow
 scroll_top_arrow:
   enable: true
+
+# Open Graph metadata
+# See: https://hexo.io/docs/helpers.html#open-graph
+open_graph:
+  twitter_card: summary_large_image
+  twitter_id:
+  twitter_site:
+  google_plus:
+  fb_admins:
+  fb_app_id:
 
 
 #---------------------------
@@ -518,13 +535,16 @@ post:
       format: "{} 字"
 
     # 估计阅读全文需要的时长
-    # Estimate the time required to read the full text
+    # Estimated reading time
     min2read:
       enable: true
       format: "{} 分钟"
-      # 每分钟阅读多少字，如果是技术文章，建议降低
-      # Words read per minute
-      words: 100
+      # 每个字词的长度，建议：中文≈2，英文≈5，中英混合可自行调节
+      # Average word length (chars count in word), ZH ≈ 2, EN ≈ 5
+      awl: 2
+      # 每分钟阅读字数，如果大部分是技术文章可适度调低
+      # Words per minute
+      wpm: 60
 
     # 浏览量计数
     # Number of visits
@@ -692,19 +712,19 @@ gitalk:
 valine:
   appId:
   appKey:
-  placeholder: 说点什么
   path: window.location.pathname
-  avatar: retro
+  placeholder:
+  avatar: 'retro'
   meta: ['nick', 'mail', 'link']
+  requiredFields: []
   pageSize: 10
-  lang: zh-CN
+  lang: 'zh-CN'
   highlight: false
   recordIP: false
   serverURLs: ''
   emojiCDN:
   emojiMaps:
   enableQQ: false
-  requiredFields: []
 
 # Waline
 # 从 Valine 衍生而来，额外增加了服务端和多种功能
@@ -712,19 +732,19 @@ valine:
 # See: https://waline.js.org/
 waline:
   serverURL: ''
-  placeholder: 说点什么
   path: window.location.pathname
-  avatar: retro
+  placeholder:
   meta: ['nick', 'mail', 'link']
-  pageSize: 10
-  lang: zh-CN
-  highlight: true
-  avatarCDN: ''
+  requiredMeta: ['nick']
+  lang: 'zh-CN'
+  emoji: ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+  dark: 'html[data-user-color-scheme="dark"]'
+  avatar: 'retro'
+  avatarCDN: 'https://seccdn.libravatar.org/avatar/'
   avatarForce: false
-  requiredFields: []
-  emojiCDN:
-  emojiMaps:
-  anonymous:
+  wordLimit: 0
+  pageSize: 10
+  highlight: true
 
 # 畅言 Changyan
 # 基于第三方的服务
@@ -944,44 +964,44 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/
+  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4/
 
-  github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/
+  github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4/
 
-  jquery: https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/
+  jquery: https://cdn.jsdelivr.net/npm/jquery@3/dist/
 
-  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/
+  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4/dist/
 
-  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/
+  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10/
 
-  prismjs: https://cdn.jsdelivr.net/npm/prismjs@1.23.0/
+  prismjs: https://cdn.jsdelivr.net/npm/prismjs@1/
 
-  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/
+  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4/dist/
 
-  typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/
+  typed: https://cdn.jsdelivr.net/npm/typed.js@2/lib/
 
-  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/
+  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/
 
-  nprogress: https://cdn.jsdelivr.net/npm/nprogress@0.2.0/
+  nprogress: https://cdn.jsdelivr.net/npm/nprogress@0/
 
-  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/
 
-  katex: https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/
+  katex: https://cdn.jsdelivr.net/npm/katex@0/dist/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/
+  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2/dist/
 
-  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.10.1/dist/
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8/dist/
 
-  valine: https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/
+  valine: https://cdn.jsdelivr.net/npm/valine@1/dist/
 
-  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.16.2/dist/
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@1/dist/
 
-  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/
+  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1/dist/
 
-  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/
+  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/
 
-  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/
+  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1/dist/
 
-  hint: /lib/hint/
+  hint: https://cdn.jsdelivr.net/npm/hint.css@2/

@@ -1,7 +1,10 @@
 .idea/
+.vscode/
 .DS_Store
+Thumbs.db
+
 *.log
 *.iml
-yarn.lock
-package-lock.json
 node_modules/
+package-lock.json
+*.lock

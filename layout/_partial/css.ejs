@@ -7,7 +7,7 @@
   <% if (theme.code.highlight.enable) { %>
     <% var cssName %>
     <% if (theme.code.highlight.lib === 'highlightjs') { %>
-      <% cssName = theme.code.highlight.highlightjs.style.toLowerCase().replace(/(?<!([0-9]))\s(?!([0-9]))/g, '-').replace(/\s/g, '') %>
+      <% cssName = theme.code.highlight.highlightjs.style.toLowerCase().replace(/([^0-9])\s([^0-9])/g, '$1-$2').replace(/\s/g, '') %>
       <%- css_ex(theme.static_prefix.highlightjs, `/styles/${ cssName }.min.css`) %>
     <% } else if (theme.code.highlight.lib === 'prismjs') { %>
       <% var style = theme.code.highlight.prismjs.style %>
@@ -29,10 +29,9 @@
     <% } %>
   <% } %>
 
-  <% if ((is_post() || (is_page() && page.image_zoom)) && theme.post.image_zoom.enable) { %>
+  <% if (theme.post.image_zoom.enable && page.image_zoom !== false) { %>
     <%- css_ex(theme.static_prefix.fancybox, 'jquery.fancybox.min.css') %>
   <% } %>
-
 <% } %>
 
 <!-- 主题依赖的图标库，不要自行修改 -->

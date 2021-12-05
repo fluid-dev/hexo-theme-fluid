@@ -149,8 +149,9 @@
 // Rewrite github-markdown.css
 .markdown-body
   font-size 1rem
-  margin-bottom 2rem
+  line-height 1.6
   font-family $font-family
+  margin-bottom 2rem
   color var(--post-text-color)
 
   h1, h2, h3, h4, h5, h6
@@ -193,6 +194,7 @@
     display block
     box-shadow $img-shadow
     border-radius 3px
+    background-color transparent
 
   blockquote
     color var(--sec-text-color)
@@ -235,6 +237,9 @@
     border-top-width 2px
     border-top-style solid
     border-top-color rgba(0, 0, 0, .1)
+
+figure
+  margin 1rem 0
 
 figure.highlight
   position relative

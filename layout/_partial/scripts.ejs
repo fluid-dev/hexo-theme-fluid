@@ -6,6 +6,10 @@
 
 <!-- Plugins -->
 
+<% if(theme.search.enable){ %>
+  <%- js_ex(theme.static_prefix.internal_js, 'local-search.js') %>
+<% } %>
+
 <% if (theme.lazyload.enable){ %>
   <% if (theme.lazyload.onlypost) { %>
     <% if (is_post() || is_page()) { %>
@@ -28,24 +32,19 @@
   <% } %>
 <% } %>
 
-<% if(is_post() && theme.post.toc.enable && page.toc !== false) { %>
-  <%- js_ex(theme.static_prefix.tocbot, 'tocbot.min.js') %>
-<% } %>
-
-<% if ((is_post() || (is_page() && page.image_zoom)) && theme.post.image_zoom.enable) { %>
-  <%- js_ex(theme.static_prefix.fancybox, 'jquery.fancybox.min.js') %>
-<% } %>
-
-<% if((is_post() || is_page()) && theme.fun_features.anchorjs.enable){ %>
-  <%- js_ex(theme.static_prefix.anchor, 'anchor.min.js') %>
-<% } %>
-
-<% if (theme.code.copy_btn) { %>
-  <%- js_ex(theme.static_prefix.clipboard, 'clipboard.min.js', 'defer') %>
-<% } %>
-
-<% if(theme.search.enable){ %>
-  <%- js_ex(theme.static_prefix.internal_js, 'local-search.js') %>
+<% if (is_post() || is_page()) { %>
+  <% if (theme.post.toc.enable && page.toc !== false) { %>
+    <%- js_ex(theme.static_prefix.tocbot, 'tocbot.min.js') %>
+  <% } %>
+  <% if (theme.post.image_zoom.enable && page.image_zoom !== false) { %>
+    <%- js_ex(theme.static_prefix.fancybox, 'jquery.fancybox.min.js') %>
+  <% } %>
+  <% if (theme.fun_features.anchorjs.enable && page.anchorjs !== false) { %>
+    <%- js_ex(theme.static_prefix.anchor, 'anchor.min.js') %>
+  <% } %>
+  <% if (theme.code.copy_btn) { %>
+    <%- js_ex(theme.static_prefix.clipboard, 'clipboard.min.js', 'defer') %>
+  <% } %>
 <% } %>
 
 <% if ((theme.footer.statistics.enable && theme.footer.statistics.source === 'busuanzi')
