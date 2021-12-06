@@ -7,7 +7,7 @@ if (theme.category.order_by === 'weight') orderBy = order_by_weight
   <% let { depth, showSubIcon, activeIds } = option %>
   <% depth = depth || 0 %>
   <% activeIds = activeIds || [] %>
-  <% return cats.each((cat) => { console.log(cat)%>
+  <% return cats.each((cat) => { %>
     <% var subCats = site.categories.find({parent: cat._id}).sort(orderBy).filter(cat => cat.length) %>
     <% var collapsed = subCats.length === 0 || depth >= theme.category.collapse_depth %>
     <% if(activeIds.includes(cat._id)) collapsed = false %>
