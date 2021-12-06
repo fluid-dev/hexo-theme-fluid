@@ -15,6 +15,7 @@ category:
   title: '分類'
   subtitle: '分類'
   post_total: '共有 %d 篇文章'
+  more: 'More...'
 
 tag:
   menu: '標籤'

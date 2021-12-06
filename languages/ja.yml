@@ -15,6 +15,7 @@ category:
   title: 'カテゴリ'
   subtitle: 'カテゴリ'
   post_total: '全 %d 件のポスト'
+  more: 'More...'
 
 tag:
   menu: 'タグ'

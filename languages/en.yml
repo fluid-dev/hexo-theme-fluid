@@ -15,6 +15,7 @@ category:
   title: 'Categories'
   subtitle: 'Categories'
   post_total: '%d posts in total'
+  more: 'More...'
 
 tag:
   menu: 'Tags'

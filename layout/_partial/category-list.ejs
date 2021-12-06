@@ -1,0 +1,64 @@
+<% function render_categories(cats, params = {}) { %>
+  <% var depth = params.depth || 0 %>
+  <% return cats.each((cat) => { %>
+    <% var subCats = site.categories.find({ parent: cat._id }).sort(params.orderBy || 'name').filter(cat => cat.length) %>
+    <% var collapsed = subCats.length === 0 || depth >= theme.category.collapse_depth %>
+    <% if ((params.activeIds || []).includes(cat._id)) collapsed = false %>
+    <div class="<%= depth <= 0 ? 'category' : 'category-sub' %> row nomargin-x">
+      <a class="<%= depth <= 0 ? 'category-item' : 'category-subitem' %> <%= collapsed ? 'collapsed' : '' %>
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="<%= cat.name.trim() %>"
+        id="heading-<%= md5(cat.name) %>" role="tab" data-toggle="collapse" href="#collapse-<%= md5(cat.name) %>"
+        aria-expanded="<%= collapsed ? 'false' : 'true' %>"
+      >
+        <%= cat.name.trim() %>
+        <span class="list-group-count"><%= params.type === 'post' ? `(${ cat.posts.length })` : '' %></span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <% if(params.type !== 'post') { %>
+        <a href="<%= url_for(cat.path) %>" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span><%= cat.posts.length %></span>
+        </a>
+      <% } %>
+      <div class="category-collapse collapse <%= collapsed ? '' : 'show' %>" id="collapse-<%= md5(cat.name) %>"
+           role="tabpanel" aria-labelledby="heading-<%= md5(cat.name) %>">
+        <% var posts = cat.posts.sort(params.postOrderBy || '-date') %>
+        <% if (subCats.length > 0) { %>
+          <% var filteredPosts = posts.filter((p) => {
+            return p.categories.filter(catOnPost => catOnPost.parent === cat._id).length === 0;
+          }) %>
+          <%- render_posts(filteredPosts, cat, params) %>
+          <% params.depth++ %>
+          <%- render_categories(subCats, params) %>
+        <% } else { %>
+          <%- render_posts(posts, cat, params) %>
+        <% } %>
+      </div>
+    </div>
+  <% }) %>
+<% } %>
+
+<% function render_posts(posts, cat, params) { %>
+  <div class="category-post-list">
+    <% var limit = params.postLimit %>
+    <% for (var idx = 0; idx < posts.length; idx++) { %>
+      <% var post = posts.data[idx] %>
+      <% if (idx && limit && idx >= limit) { %>
+        <a href="<%= url_for(cat.path) %>" class="list-group-item list-group-item-action">
+          <span class="category-post"><%- __('category.more') %></span>
+        </a>
+        <% break %>
+      <% } else { %>
+        <a href="<%= url_for(post.path) %>" title="<%= post.title %>"
+           class="list-group-item list-group-item-action
+           <%= (params.activeIds || []).includes(post._id) ? 'active' : ''  %>">
+          <span class="category-post"><%= post.title %></span>
+        </a>
+      <% } %>
+    <% } %>
+  </div>
+<% } %>
+
+<div class="category-list">
+  <%- render_categories(cats, params) %>
+</div>

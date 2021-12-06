@@ -15,6 +15,7 @@ category:
   title: '分类'
   subtitle: '分类'
   post_total: '共计 %d 篇文章'
+  more: 'More...'
 
 tag:
   menu: '标签'

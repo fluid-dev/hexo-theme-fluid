@@ -8,14 +8,18 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
   <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2">
       <% if(theme.post.toc.enable && theme.post.toc.placement === 'left' && page.toc !== false){ %>
-        <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn" style="padding-left: 2rem">
+        <div class="toc-container" id="toc-ctn" style="padding-left: 2rem; margin-right: -1rem">
           <%- partial('_partial/toc') %>
           <%- inject_point('postLeft') %>
         </div>
-      <% } else { %>
-        <div class="d-none d-lg-block col-lg-2">
+      <% } else if (theme.post.category_bar.enable && theme.post.category_bar.placement !== 'right' && !page.hide &&
+        (!theme.post.category_bar.specific || (theme.post.category_bar.specific && page.category_bar))) { %>
+        <div id="category-bar" style="margin-right: -1rem">
+          <%- partial('_partial/category-bar') %>
           <%- inject_point('postLeft') %>
         </div>
+      <% } else { %>
+        <%- inject_point('postLeft') %>
       <% } %>
     </div>
 
@@ -118,16 +122,22 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
       </div>
     </div>
 
-    <% if(theme.post.toc.enable && theme.post.toc.placement !== 'left' && page.toc !== false){ %>
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <%- partial('_partial/toc') %>
+    <div class="d-none d-lg-block col-lg-2">
+      <% if(theme.post.toc.enable && theme.post.toc.placement !== 'left' && page.toc !== false){ %>
+        <div class="toc-container" id="toc-ctn" style="margin-left: -1rem">
+          <%- partial('_partial/toc') %>
+          <%- inject_point('postRight') %>
+        </div>
+      <% } else if (theme.post.category_bar.enable && theme.post.category_bar.placement === 'right' && !page.hide &&
+        (!theme.post.category_bar.specific || (theme.post.category_bar.specific && page.category_bar))) { %>
+        <div id="category-bar" style="margin-left: -1rem">
+          <%- partial('_partial/category-bar') %>
+          <%- inject_point('postRight') %>
+        </div>
+      <% } else { %>
         <%- inject_point('postRight') %>
-      </div>
-    <% } else { %>
-      <div class="d-none d-lg-block col-lg-2">
-        <%- inject_point('postRight') %>
-      </div>
-    <% } %>
+      <% } %>
+    </div>
   </div>
 </div>
 

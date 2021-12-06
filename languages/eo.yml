@@ -15,6 +15,7 @@ category:
   title: 'Kategorio'
   subtitle: 'Kategorio'
   post_total: 'Entute %d afiŝoj'
+  more: 'More...'
 
 tag:
   menu: 'Etikedoj'

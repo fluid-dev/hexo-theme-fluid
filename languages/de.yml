@@ -15,6 +15,7 @@ category:
   title: 'Kategorien'
   subtitle: 'Kategorien'
   post_total: 'Insgesamt %d Artikel'
+  more: 'More...'
 
 tag:
   menu: 'Schlagwörter'

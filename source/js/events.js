@@ -54,6 +54,12 @@ Fluid.events = {
         '-ms-transform'    : 'translate3d(0,' + oVal + 'px,0)',
         '-o-transform'     : 'translate3d(0,' + oVal + 'px,0)'
       });
+      var categoryBar = jQuery('#category-bar');
+      if (categoryBar) {
+        categoryBar.css({
+          'padding-top': oVal + 'px'
+        });
+      }
       var toc = jQuery('#toc');
       if (toc) {
         jQuery('#toc-ctn').css({
