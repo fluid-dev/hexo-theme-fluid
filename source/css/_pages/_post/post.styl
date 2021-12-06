@@ -3,12 +3,12 @@
   padding-left 10%
   padding-right 10%
 
-@media (max-width: 767px)
+@media (max-width 767px)
   .post-content, post-custom
     padding-left 2rem
     padding-right 2rem
 
-@media (max-width: 424px)
+@media (max-width 424px)
   .post-content, post-custom
     padding-left 1rem
     padding-right 1rem
@@ -21,7 +21,7 @@
   strong
     font-weight bold
 
-  & > *:first-child
+  & > *first-child
     margin-top 0
 
   img
@@ -37,7 +37,7 @@
   & > i
     margin-right .15rem
 
-  & > a:not(.hover-with-bg)
+  & > anot(.hover-with-bg)
     margin-right .15rem
 
 .post-prevnext
@@ -67,11 +67,11 @@
       text-overflow ellipsis
       overflow hidden
 
-    @media (max-width: 575px)
+    @media (max-width 575px)
       .hidden-mobile
         display none
 
-  .post-prev:hover i, .post-prev:active i, .post-next:hover i, .post-next:active i
+  .post-prevhover i, .post-prevactive i, .post-nexthover i, .post-nextactive i
     -webkit-animation-duration 1s
     animation-duration 1s
     -webkit-animation-delay .1s
@@ -85,11 +85,11 @@
     -webkit-animation-direction alternate
     animation-direction alternate
 
-  .post-prev:hover i, .post-prev:active i
+  .post-prevhover i, .post-prevactive i
     -webkit-animation-name post-prev-anim
     animation-name post-prev-anim
 
-  .post-next:hover i, .post-next:active i
+  .post-nexthover i, .post-nextactive i
     -webkit-animation-name post-next-anim
     animation-name post-next-anim
 
@@ -151,7 +151,7 @@
     list-style none
     padding-inline-start 1rem
 
-  &::-webkit-scrollbar
+  &-webkit-scrollbar
     display none
 
 .tocbot-list
@@ -176,7 +176,7 @@
   overflow hidden
   transition all .3s ease-in-out
 
-@media (max-width: 1024px)
+@media (max-width 1024px)
   .toc-container
     padding-left 0
     padding-right 0
@@ -202,3 +202,41 @@
   font-size .8em
   padding .45rem
   float right
+
+// category
+.post-categories .category-list
+  position -webkit-sticky
+  position sticky
+  top 2rem
+  padding 3rem 0 0 0
+  max-height 85vh 
+  overflow-y auto
+  overflow-x hidden
+
+  &::-webkit-scrollbar
+    display none
+
+  > .category-sub > a
+    font-weight 500
+    font-size 1.2rem
+  
+  .category-item-action i
+    margin 0
+
+  .list-group-item
+    padding-top 0.3rem
+    padding-bottom 0.3rem
+    padding-left 1rem
+
+    &.active
+      color var(--link-hover-color)
+      background-color var(--body-bg-color)
+
+  .category-subitem
+    &.list-group-item
+      padding-left 0.5rem
+      padding-right 0rem
+
+  .category-collapse
+    a
+      font-size 0.95rem

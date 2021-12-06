@@ -649,6 +649,11 @@ post:
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
     type: disqus
+  
+  # 分类，是否展示左侧分类目录
+  # categories
+  categories:
+    enable: false
 
 
 #---------------------------

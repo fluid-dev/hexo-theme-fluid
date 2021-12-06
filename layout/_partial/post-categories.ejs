@@ -1,0 +1,8 @@
+<% 
+var orderBy = theme.category.order_by || 'name'
+var parent = page.categories.filter(c => !c.parent)
+var activeIds = page.categories.map(c => c._id)
+activeIds.push(page._id)
+var option = { depth: 0, showSubIcon: false, activeIds: activeIds }
+%>
+<%- partial('_partial/categories', {cats: parent, option: option }) %>

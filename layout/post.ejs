@@ -1,113 +1,114 @@
-<%
-page.banner_img = page.banner_img || theme.post.banner_img
+<% page.banner_img = page.banner_img || theme.post.banner_img
 page.banner_img_height = page.banner_img_height || theme.post.banner_img_height
 page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
 %>
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="d-none d-lg-block col-lg-2 post-categories">
+      <% // if(theme.post.categories.enable && page.show_category !== false){ %>
+        <%- partial('_partial/post-categories') %>
+      <% // } %>
+    </div>
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"><%= page.subtitle || page.title %></h1>
+            <h1 style="display: none;"><%= page.subtitle || page.title %></h1>
             <% if(theme.post.updated && theme.post.updated.enable) { %>
-              <p class="note note-info">
-                <% if (theme.post.updated.relative) { %>
-                  <%- theme.post.updated.content %><%- relative_date(page.updated, theme.post.meta.date.format) %>
-                <% } else { %>
-                  <%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %>
-                <% } %>
-              </p>
+            <p class="note note-info">
+              <% if (theme.post.updated.relative) { %> <%-
+              theme.post.updated.content %><%- relative_date(page.updated,
+              theme.post.meta.date.format) %> <% } else { %> <%-
+              theme.post.updated.content %><%- date(page.updated,
+              theme.post.meta.date.format) %> <% } %>
+            </p>
             <% } %>
             <div class="markdown-body">
               <%- page.content %>
             </div>
-            <hr>
+            <hr />
             <div>
               <div class="post-metas mb-3">
                 <% if (page.categories && page.categories.length > 0) { %>
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    <% page.categories.each(function(cate) { %>
-                      <a class="hover-with-bg" href="<%= url_for(cate.path) %>"><%- cate.name %></a>
-                    <% }) %>
-                  </div>
-                <% } %>
-                <% if (page.tags && page.tags.length > 0 ) { %>
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    <% page.tags.each(function(tag) { %>
-                      <a class="hover-with-bg" href="<%= url_for(tag.path) %>"><%- tag.name %></a>
-                    <% }) %>
-                  </div>
+                <div class="post-meta mr-3">
+                  <i class="iconfont icon-category"></i>
+                  <% page.categories.each(function(cate) { %>
+                  <a class="hover-with-bg" href="<%= url_for(cate.path) %>"
+                    ><%- cate.name %></a
+                  >
+                  <% }) %>
+                </div>
+                <% } %> <% if (page.tags && page.tags.length > 0 ) { %>
+                <div class="post-meta">
+                  <i class="iconfont icon-tags"></i>
+                  <% page.tags.each(function(tag) { %>
+                  <a class="hover-with-bg" href="<%= url_for(tag.path) %>"
+                    ><%- tag.name %></a
+                  >
+                  <% }) %>
+                </div>
                 <% } %>
               </div>
-              <% if(theme.post.copyright.enable && theme.post.copyright.content && page.copyright !== false) { %>
-                <p class="note note-warning">
-                  <% if (typeof page.copyright === 'string' && page.copyright !== '') { %>
-                    <%- page.copyright %>
-                  <% } else { %>
-                    <%- theme.post.copyright.content %>
+              <% if(theme.post.copyright.enable && theme.post.copyright.content
+              && page.copyright !== false) { %>
+              <p class="note note-warning">
+                <% if (typeof page.copyright === 'string' && page.copyright !==
+                '') { %> <%- page.copyright %> <% } else { %> <%-
+                theme.post.copyright.content %> <% } %>
+              </p>
+              <% } %> <% if(theme.post.prev_next.enable && !page.hide) { %>
+              <div class="post-prevnext">
+                <article class="post-prev col-6">
+                  <% const prev = prev_post(page) %> <% if (prev) { %>
+                  <a href="<%= url_for(prev.path) %>">
+                    <i class="iconfont icon-arrowleft"></i>
+                    <span class="hidden-mobile"><%- prev.title %></span>
+                    <span class="visible-mobile"><%= __('post.pre') %></span>
+                  </a>
                   <% } %>
-                </p>
-              <% } %>
-              <% if(theme.post.prev_next.enable && !page.hide) { %>
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    <% const prev = prev_post(page) %>
-                    <% if (prev) { %>
-                      <a href="<%= url_for(prev.path) %>">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"><%- prev.title %></span>
-                        <span class="visible-mobile"><%= __('post.pre') %></span>
-                      </a>
-                    <% } %>
-                  </article>
-                  <article class="post-next col-6">
-                    <% const next = next_post(page) %>
-                    <% if (next) { %>
-                      <a href="<%= url_for(next.path) %>">
-                        <span class="hidden-mobile"><%- next.title %></span>
-                        <span class="visible-mobile"><%= __('post.next') %></span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    <% } %>
-                  </article>
-                </div>
+                </article>
+                <article class="post-next col-6">
+                  <% const next = next_post(page) %> <% if (next) { %>
+                  <a href="<%= url_for(next.path) %>">
+                    <span class="hidden-mobile"><%- next.title %></span>
+                    <span class="visible-mobile"><%= __('post.next') %></span>
+                    <i class="iconfont icon-arrowright"></i>
+                  </a>
+                  <% } %>
+                </article>
+              </div>
               <% } %>
             </div>
 
             <% if(page.comments && theme.post.comments.enable) { %>
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                <% if (typeof page.comment === 'string' && page.comment !== '') { %>
-                  <% type = '_partial/comments/' + page.comment %>
-                <% } else { %>
-                  <% type = '_partial/comments/' + theme.post.comments.type %>
-                <% } %>
-                <%- partial(type) %>
-              </article>
+            <!-- Comments -->
+            <article class="comments" id="comments">
+              <% if (typeof page.comment === 'string' && page.comment !== '') {
+              %> <% type = '_partial/comments/' + page.comment %> <% } else { %>
+              <% type = '_partial/comments/' + theme.post.comments.type %> <% }
+              %> <%- partial(type) %>
+            </article>
             <% } %>
           </article>
         </div>
       </div>
     </div>
     <% if(theme.post.toc.enable && page.toc !== false){ %>
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <%- partial('_partial/toc') %>
-      </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+      <%- partial('_partial/toc') %>
+    </div>
     <% } %>
   </div>
 </div>
 
 <!-- Custom -->
-<% if(theme.post.custom.enable && theme.post.custom.content && page.custom !== false) { %>
-  <div class="col-lg-7 mx-auto nopadding-x-md">
-    <div class="container custom post-custom mx-auto">
-      <%- page.custom || theme.post.custom.content %>
-    </div>
+<% if(theme.post.custom.enable && theme.post.custom.content && page.custom !==
+false) { %>
+<div class="col-lg-7 mx-auto nopadding-x-md">
+  <div class="container custom post-custom mx-auto">
+    <%- page.custom || theme.post.custom.content %>
   </div>
+</div>
 <% } %>
