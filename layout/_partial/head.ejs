@@ -5,13 +5,9 @@ var keywords = page.keywords || config.keywords
 if (keywords instanceof Array) {
   keywords = keywords.join(',')
 }
-var description = config.description
-if (page.description) {
-  description = page.description
-} else if (page.excerpt) {
-  description = strip_html(page.excerpt).substr(0, 200)
-} else if (is_post()) {
-  description = strip_html(page.content).substr(0, 200)
+var description = page.description || page.excerpt || (is_post() && page.content) || config.description
+if (description) {
+  description = escape_html(strip_html(description).substring(0, 200).trim()).replace(/\n/g, ' ')
 }
 var ogImage = page.og_img || page.index_img
 var ogConfig = Object.assign({ image: ogImage && url_for(ogImage) }, theme.open_graph)
