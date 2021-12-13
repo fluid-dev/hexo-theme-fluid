@@ -372,6 +372,7 @@ scroll_top_arrow:
 # Open Graph metadata
 # See: https://hexo.io/docs/helpers.html#open-graph
 open_graph:
+  enable: true
   twitter_card: summary_large_image
   twitter_id:
   twitter_site:

@@ -23,10 +23,13 @@ var ogConfig = Object.assign({ image: ogImage && url_for(ogImage) }, theme.open_
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <% } %>
   <meta name="theme-color" content="<%= theme.color.navbar_bg_color %>">
-  <meta name="description" content="<%= description %>">
   <meta name="author" content="<%= page.author || config.author %>">
   <meta name="keywords" content="<%= keywords %>">
-  <%- open_graph(ogConfig) %>
+  <% if (theme.open_graph.enable) { %>
+    <%- open_graph(ogConfig) %>
+  <% } else { %>
+    <meta name="description" content="<%= description %>">
+  <% } %>
   <% if (theme.custom_head) { %>
     <%- theme.custom_head %>
   <% } %>
