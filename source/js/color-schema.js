@@ -188,7 +188,7 @@
     }
 
     // 设置 utterances 评论主题
-    var utterances = document.querySelector('iframe');
+    var utterances = document.querySelector('.utterances-frame');
     if (utterances) {
       var theme = window.UtterancesThemeLight;
       if (schema === 'dark') {
