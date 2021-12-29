@@ -147,7 +147,6 @@ Fluid.plugins = {
         return;
       }
       pre.append(copyHtml);
-      pre.addClass('copy-btn-wrapper');
     });
     var clipboard = new window.ClipboardJS('.copy-btn', {
       target: function(trigger) {
