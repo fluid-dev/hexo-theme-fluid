@@ -180,6 +180,24 @@
   overflow hidden
   transition all .3s ease-in-out
 
+.toc-list-item
+  &.is-active-li::before
+    height 1rem
+    margin 0.25rem 0
+    visibility visible
+
+  &::before
+    width 0.15rem
+    height 0.2rem
+    position absolute
+    left 0.25rem
+    content ''
+    border-radius 2px
+    margin 0.65rem 0
+    background var(--link-hover-color)
+    visibility hidden
+    transition height .1s ease-in-out, margin .1s ease-in-out, visibility .1s ease-in-out
+
 @media (max-width: 1024px)
   .toc-container
     padding-left 0
