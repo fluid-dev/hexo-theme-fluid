@@ -222,18 +222,6 @@ label
     pre
       background-color initial !important
 
-  & > .code-wrapper
-    position relative
-    border-radius 3px
-
-    pre[class*=language-].line-numbers
-      position initial
-
-  figure.highlight
-    td.code > pre
-      border-top-left-radius 0
-      border-bottom-left-radius 0
-
   hr
     height 0
     margin 2rem 0
@@ -241,6 +229,13 @@ label
     border-top-width 2px
     border-top-style solid
     border-top-color rgba(0, 0, 0, .1)
+
+*:not(td) > .code-wrapper
+  position relative
+  border-radius 3px
+
+pre[class*=language-].line-numbers
+  position initial
 
 figure
   margin 1rem 0
@@ -283,6 +278,10 @@ figure.highlight
 
       span.line
         color #999
+
+  td.code > pre
+    border-top-left-radius 0
+    border-bottom-left-radius 0
 
 // Rewrite mdb.css
 .list-group-item

@@ -30,14 +30,18 @@ module.exports = (hexo) => {
           return `<div class="hljs code-wrapper">${p1}</div>`;
         });
         page.content = page.content.replace(/<td class="gutter/gims, '<td class="gutter hljs');
-      } else if (!hexo.config.highlight.line_number) {
-        page.content = page.content.replace(/(?<!<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
+      } else {
+        page.content = page.content.replace(/(?<!<td class="code.*?">|<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
           if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
             return str.replace(/(class=".*?)hljs(.*?")/gims, '$1$2');
           }
           return `<div class="code-wrapper">${p1}</div>`;
         });
       }
+
+      page.content = page.content.replace(/<pre><code>/gims, (str) => {
+        return '<pre><code class="hljs">';
+      });
 
       if (hexo.config.highlight.line_number) {
         // Mermaid block adaptation
@@ -48,6 +52,7 @@ module.exports = (hexo) => {
           return str;
         });
       }
+
       return page;
     });
   } else if (config.code.highlight.lib === 'prismjs') {
@@ -73,6 +78,11 @@ module.exports = (hexo) => {
         }
         return `<div class="code-wrapper">${p1}</div>`;
       });
+
+      page.content = page.content.replace(/<pre><code>/gims, (str) => {
+        return '<pre class="language-none"><code class="language-none">';
+      });
+
       return page;
     });
   }
