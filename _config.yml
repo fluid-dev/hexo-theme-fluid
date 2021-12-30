@@ -187,8 +187,8 @@ color:
   # Color of scrollbar
   scrollbar_color: "#c4c6c9"
   scrollbar_color_dark: "#687582"
-  scrollbar_color_hover: "#a6a6a6"
-  scrollbar_color_hover_dark: "#9da8b3"
+  scrollbar_hover_color: "#a6a6a6"
+  scrollbar_hover_color_dark: "#9da8b3"
 
 # 主题字体配置
 # Font
