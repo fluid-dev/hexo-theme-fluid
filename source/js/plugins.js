@@ -116,7 +116,10 @@ Fluid.plugins = {
     var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
     var res = [];
     for (const item of el) {
-      res.push('.markdown-body > ' + item);
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
     }
     window.anchors.add(res.join(', '));
   },
