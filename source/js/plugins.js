@@ -1,4 +1,4 @@
-/* global Fluid, CONFIG, jQuery */
+/* global Fluid, CONFIG */
 
 HTMLElement.prototype.wrap = function(wrapper) {
   this.parentNode.insertBefore(wrapper, this);
@@ -32,6 +32,8 @@ Fluid.plugins = {
   },
 
   initTocBot: function() {
+    if (!CONFIG.toc.enable) { return; }
+
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -123,7 +125,7 @@ Fluid.plugins = {
   },
 
   initAnchor: function() {
-    if (!('anchors' in window)) { return; }
+    if (!CONFIG.anchorjs.enable || !('anchors' in window)) { return; }
 
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
@@ -144,7 +146,7 @@ Fluid.plugins = {
   },
 
   initCopyCode: function() {
-    if (!('ClipboardJS' in window)) { return; }
+    if (!CONFIG.copy_btn || !('ClipboardJS' in window)) { return; }
 
     function getBgClass(ele) {
       if (ele.length === 0) {
