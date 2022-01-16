@@ -161,8 +161,7 @@ Fluid.plugins = {
     copyHtml += '<button class="copy-btn" data-clipboard-snippet="">';
     copyHtml += '<i class="iconfont icon-copy"></i><span>Copy</span>';
     copyHtml += '</button>';
-    var blockElement = jQuery('.markdown-body pre');
-    blockElement.each(function() {
+    jQuery('.markdown-body pre').each(function() {
       const pre = jQuery(this);
       if (pre.find('code.mermaid').length > 0) {
         return;
@@ -170,21 +169,21 @@ Fluid.plugins = {
       if (pre.find('span.line').length > 0) {
         return;
       }
-      pre.append(copyHtml);
-    });
-    var clipboard = new window.ClipboardJS('.copy-btn', {
-      target: function(trigger) {
-        return trigger.previousElementSibling;
-      }
-    });
-    jQuery('.copy-btn').addClass(getBgClass(blockElement));
-    clipboard.on('success', function(e) {
-      e.clearSelection();
-      var tmp = e.trigger.outerHTML;
-      e.trigger.innerHTML = 'Success';
-      setTimeout(function() {
-        e.trigger.outerHTML = tmp;
-      }, 2000);
+      pre.append(copyHtml.replace('copy-btn', `copy-btn ${getBgClass(pre)}`));
+
+      var clipboard = new window.ClipboardJS('.copy-btn', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        e.clearSelection();
+        var tmp = e.trigger.outerHTML;
+        e.trigger.innerHTML = 'Success';
+        setTimeout(function() {
+          e.trigger.outerHTML = tmp;
+        }, 2000);
+      });
     });
   }
 
