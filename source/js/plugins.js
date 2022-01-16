@@ -52,7 +52,7 @@ Fluid.plugins = {
       scrollSmooth    : true,
       headingsOffset  : -boardTop
     });
-    if (jQuery('.toc-list-item').length > 0) {
+    if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
   },
@@ -64,7 +64,7 @@ Fluid.plugins = {
       .markdown-body > p > a.fancybox, .markdown-body > figure > a.fancybox`).each(function() {
       var $target = jQuery(this);
       var $figcaption = $target.next('figcaption');
-      if ($figcaption) {
+      if ($figcaption.length !== 0) {
         $figcaption.addClass('image-caption');
       } else {
         var imageTitle = $target.attr('title') || $target.attr('alt');
@@ -99,7 +99,7 @@ Fluid.plugins = {
         <a class="fancybox fancybox.image" href="${imageUrl}"
           itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`
       ).parent('a');
-      if ($imageWrap) {
+      if ($imageWrap.length !== 0) {
         if ($image.is('.group-image-container img')) {
           $imageWrap.attr('data-fancybox', 'group').attr('rel', 'group');
         } else {
