@@ -12,7 +12,9 @@
         )
         new Valine(options);
         Fluid.utils.waitElementVisible('#valine .vcontent', () => {
-          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.initImageCaption(imgSelector);
+          Fluid.plugins.initFancyBox(imgSelector);
         })
       });
     });

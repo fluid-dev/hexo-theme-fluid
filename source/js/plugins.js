@@ -55,8 +55,26 @@ Fluid.plugins = {
     }
   },
 
+  initImageCaption: function(selector) {
+    if (!CONFIG.image_caption.enable) { return; }
+
+    jQuery(selector || `.markdown-body > p > img, .markdown-body > figure > img,
+      .markdown-body > p > a.fancybox, .markdown-body > figure > a.fancybox`).each(function() {
+      var $target = jQuery(this);
+      var $figcaption = $target.next('figcaption');
+      if ($figcaption) {
+        $figcaption.addClass('image-caption');
+      } else {
+        var imageTitle = $target.attr('title') || $target.attr('alt');
+        if (imageTitle) {
+          $target.after(`<figcaption aria-hidden="true" class="image-caption">${imageTitle}</figcaption>`);
+        }
+      }
+    });
+  },
+
   initFancyBox: function(selector) {
-    if (!('fancybox' in jQuery)) { return; }
+    if (!CONFIG.image_zoom.enable || !('fancybox' in jQuery)) { return; }
 
     jQuery(selector || '.markdown-body :not(a) > img, .markdown-body > img').each(function() {
       var $image = jQuery(this);
@@ -79,16 +97,17 @@ Fluid.plugins = {
         <a class="fancybox fancybox.image" href="${imageUrl}"
           itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`
       ).parent('a');
-      if ($image.is('.group-image-container img')) {
-        $imageWrap.attr('data-fancybox', 'group').attr('rel', 'group');
-      } else {
-        $imageWrap.attr('data-fancybox', 'default').attr('rel', 'default');
-      }
+      if ($imageWrap) {
+        if ($image.is('.group-image-container img')) {
+          $imageWrap.attr('data-fancybox', 'group').attr('rel', 'group');
+        } else {
+          $imageWrap.attr('data-fancybox', 'default').attr('rel', 'default');
+        }
 
-      var imageTitle = $image.attr('title') || $image.attr('alt');
-      if (imageTitle) {
-        $imageWrap.append(`<p class="image-caption">${imageTitle}</p>`);
-        $imageWrap.attr('title', imageTitle).attr('data-caption', imageTitle);
+        var imageTitle = $image.attr('title') || $image.attr('alt');
+        if (imageTitle) {
+          $imageWrap.attr('title', imageTitle).attr('data-caption', imageTitle);
+        }
       }
     });
 

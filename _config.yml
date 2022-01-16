@@ -605,6 +605,11 @@ post:
     enable: false
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">'
 
+  # 文章图片标题
+  # Image caption
+  image_caption:
+    enable: true
+
   # 文章图片可点击放大
   # Zoom feature of images
   image_zoom:

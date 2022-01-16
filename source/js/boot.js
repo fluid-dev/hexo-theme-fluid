@@ -14,6 +14,7 @@ Fluid.boot.registerEvents = function() {
 Fluid.boot.initPlugins = function() {
   CONFIG.anchorjs.enable && Fluid.plugins.initAnchor();
   CONFIG.toc.enable && Fluid.plugins.initTocBot();
+  CONFIG.image_caption.enable && Fluid.plugins.initImageCaption();
   CONFIG.image_zoom.enable && Fluid.plugins.initFancyBox();
   CONFIG.copy_btn && Fluid.plugins.initCopyCode();
 };

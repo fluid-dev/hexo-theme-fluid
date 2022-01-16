@@ -18,6 +18,7 @@ hexo.extend.helper.register('export_config', function() {
     anchorjs     : theme.fun_features.anchorjs,
     progressbar  : theme.fun_features.progressbar,
     copy_btn     : theme.code.copy_btn,
+    image_caption: theme.post.image_caption,
     image_zoom   : theme.post.image_zoom,
     toc          : theme.post.toc,
     lazyload     : theme.lazyload,
