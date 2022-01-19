@@ -29,7 +29,10 @@
           }
           text ? typing(text) : typing(title);
         },
-        error: function() {
+        error: function(xhr, status, error) {
+          if (error) {
+            console.error('Failed to request <%= theme.index.slogan.api.url %>:', error);
+          }
           typing(title);
         }
       })
