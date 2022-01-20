@@ -153,6 +153,11 @@ color:
   sec_text_color: "#718096"
   sec_text_color_dark: "#a7a9ad"
 
+  # 主面板背景色
+  # Color of main board
+  board_color: "#fff"
+  board_color_dark: "#252d38"
+
   # 文章正文字体色
   # Color of post text
   post_text_color: "#2c3e50"
@@ -178,17 +183,28 @@ color:
   link_hover_bg_color: "#f8f9fa"
   link_hover_bg_color_dark: "#364151"
 
-  # 主面板背景色
-  # Color of main board
-  board_color: "#fff"
-  board_color_dark: "#252d38"
+  # 分隔线和表格边线的颜色
+  # Color of horizontal rule and table border
+  line_color: "#eaecef"
+  line_color_dark: "#435266"
 
   # 滚动条颜色
   # Color of scrollbar
   scrollbar_color: "#c4c6c9"
   scrollbar_color_dark: "#687582"
+  # 滚动条悬浮颜色
+  # Color of scrollbar when hovering
   scrollbar_hover_color: "#a6a6a6"
   scrollbar_hover_color_dark: "#9da8b3"
+
+  # 按钮背景色
+  # Color of button
+  button_bg_color: "#f6f8fa"
+  button_bg_color_dark: "#2f4154"
+  # 按钮悬浮背景色
+  # Color of button when hovering
+  button_hover_bg_color: "#f2f3f5"
+  button_hover_bg_color_dark: "#46647e"
 
 # 主题字体配置
 # Font

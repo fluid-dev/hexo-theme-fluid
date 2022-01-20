@@ -9,10 +9,13 @@
   --post-link-color $post-link-color
   --link-hover-color $link-hover-color
   --link-hover-bg-color $link-hover-bg-color
+  --line-color $line-color
   --navbar-bg-color $navbar-bg-color
   --navbar-text-color $navbar-text-color
   --scrollbar-color $scrollbar-color
   --scrollbar-hover-color $scrollbar-hover-color
+  --button-bg-color $button-bg-color
+  --button-hover-bg-color $button-hover-bg-color
 
 dark-colors()
   --body-bg-color $body-bg-color-dark
@@ -24,12 +27,15 @@ dark-colors()
   --post-link-color $post-link-color-dark
   --link-hover-color $link-hover-color-dark
   --link-hover-bg-color $link-hover-bg-color-dark
+  --line-color $line-color-dark
   --navbar-bg-color $navbar-bg-color-dark
   --navbar-text-color $navbar-text-color-dark
   --scrollbar-color $scrollbar-color-dark
   --scrollbar-hover-color $scrollbar-hover-color-dark
+  --button-bg-color $button-bg-color-dark
+  --button-hover-bg-color $button-hover-bg-color-dark
 
-  img, .note, .label
+  img
     -webkit-filter brightness(.9)
     filter brightness(.9)
     transition filter .2s ease-in-out
@@ -38,41 +44,9 @@ dark-colors()
     color #ddd
     transition color .2s ease-in-out
 
-  .markdown-body
-
-    :not(pre) > code
-      background-color rgba(#3e4b5e, .35)
-      transition background-color .2s ease-in-out
-
-    h1, h2
-      border-bottom-color $line-color-dark
-      transition border-bottom-color .2s ease-in-out
-
-    table
-      tr
-        background-color var(--board-bg-color)
-        transition background-color .2s ease-in-out
-      tr:nth-child(2n)
-        background-color var(--board-bg-color)
-        transition background-color .2s ease-in-out
-      th, td
-        border-color $line-color-dark
-        transition border-color .2s ease-in-out
-
-  hr, .markdown-body hr
-    border-top-color $line-color-dark
-    transition border-top-color .2s ease-in-out
-
   .navbar .dropdown-collapse, .top-nav-collapse, .navbar-col-show
     if $navbar-glass-enable
       ground-glass($navbar-glass-px, $navbar-bg-color-dark, $navbar-glass-alpha)
-
-  .note :not(pre) > code
-    background-color rgba(27, 31, 35, .05)
-
-  .modal-dialog .modal-content .modal-header
-    border-bottom-color $line-color-dark
-    transition border-bottom-color .2s ease-in-out
 
   .gt-comment-admin .gt-comment-content
     background-color transparent

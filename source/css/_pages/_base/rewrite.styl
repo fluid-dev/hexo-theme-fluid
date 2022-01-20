@@ -158,6 +158,10 @@ label
   margin-bottom 2rem
   color var(--post-text-color)
 
+  h1, h2
+    border-bottom-color var(--line-color)
+    transition border-bottom-color .2s ease-in-out
+
   h1, h2, h3, h4, h5, h6
     color var(--post-heading-color)
     transition color .2s ease-in-out
@@ -177,6 +181,17 @@ label
 
   strong
     font-weight bold
+
+  table
+    tr
+      background-color var(--board-bg-color)
+      transition background-color .2s ease-in-out
+    tr:nth-child(2n)
+      background-color var(--board-bg-color)
+      transition background-color .2s ease-in-out
+    th, td
+      border-color var(--line-color)
+      transition border-color .2s ease-in-out
 
   pre
     font-size $code-font-size !important
@@ -209,6 +224,11 @@ label
 
     summary
       outline none
+
+// Rewrite hr
+hr, .markdown-body hr
+  border-top-color var(--line-color)
+  transition border-top-color .2s ease-in-out
 
 // Rewrite highlight
 .markdown-body
@@ -324,6 +344,10 @@ figure.highlight
   -webkit-box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
   box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
 
+.modal-dialog .modal-content .modal-header
+  border-bottom-color var(--line-color)
+  transition border-bottom-color .2s ease-in-out
+
 .close
   color var(--text-color)
 
@@ -437,19 +461,19 @@ input[type=checkbox]
   height 1.25rem
   width 1.25rem
   transition .2s
-  color #fff
+  color var(--text-color)
   cursor pointer
   margin .4rem .2rem .4rem !important
   outline 0
   border-radius 0.1875rem
   vertical-align -.65rem
-  border 2px solid #2f4154
+  border 2px solid var(--text-color)
 
   &:after, &:before
     content " "
     transition .2s
     position absolute
-    background #fff
+    background var(--text-color)
 
   &:before
     left 0.125rem
@@ -475,7 +499,7 @@ input[type=checkbox]
     transition-delay .2s
 
   &:checked
-    background #2f4154
+    background var(--button-bg-color)
     margin-right .5rem !important
 
     &:before
