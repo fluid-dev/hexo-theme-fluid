@@ -452,67 +452,8 @@ figure.highlight
 
 // Rewrite checkbox
 input[type=checkbox]
-  -webkit-appearance none
-  -moz-appearance none
-  position relative
-  right 0
-  bottom 0
-  left 0
-  height 1.25rem
-  width 1.25rem
-  transition .2s
-  color var(--text-color)
-  cursor pointer
-  margin .4rem .2rem .4rem !important
-  outline 0
-  border-radius 0.1875rem
-  vertical-align -.65rem
-  border 2px solid var(--text-color)
-
-  &:after, &:before
-    content " "
-    transition .2s
-    position absolute
-    background var(--text-color)
-
-  &:before
-    left 0.125rem
-    top 0.375rem
-    width 0
-    height 0.125rem
-    -webkit-transform rotate(45deg)
-    -moz-transform rotate(45deg)
-    -ms-transform rotate(45deg)
-    -o-transform rotate(45deg)
-    transform rotate(45deg)
-
-  &:after
-    right 0.5625rem
-    bottom 0.1875rem
-    width 0.125rem
-    height 0
-    -webkit-transform rotate(40deg)
-    -moz-transform rotate(40deg)
-    -ms-transform rotate(40deg)
-    -o-transform rotate(40deg)
-    transform rotate(40deg)
-    transition-delay .2s
-
-  &:checked
-    background var(--button-bg-color)
-    margin-right .5rem !important
-
-    &:before
-      left 0.0625rem
-      top 0.625rem
-      width 0.375rem
-      height 0.125rem
-
-    &:after
-      right 0.3125rem
-      bottom 0.0625rem
-      width 0.125rem
-      height 0.875rem
+  margin 0 0.2em 0.2em 0
+  vertical-align middle
 
 // Rewrite list-group
 .list-group-item-action
