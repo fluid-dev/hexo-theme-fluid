@@ -98,7 +98,7 @@ fun_features:
   anchorjs:
     enable: true
     element: h1,h2,h3,h4,h5,h6
-    placement: right
+    placement: left
     # Options: hover | always | touch
     visible: hover
     # Option：§ | # | ❡
@@ -153,6 +153,11 @@ color:
   sec_text_color: "#718096"
   sec_text_color_dark: "#a7a9ad"
 
+  # 主面板背景色
+  # Color of main board
+  board_color: "#fff"
+  board_color_dark: "#252d38"
+
   # 文章正文字体色
   # Color of post text
   post_text_color: "#2c3e50"
@@ -178,16 +183,35 @@ color:
   link_hover_bg_color: "#f8f9fa"
   link_hover_bg_color_dark: "#364151"
 
-  # 主面板背景色
-  # Color of main board
-  board_color: "#fff"
-  board_color_dark: "#252d38"
+  # 分隔线和表格边线的颜色
+  # Color of horizontal rule and table border
+  line_color: "#eaecef"
+  line_color_dark: "#435266"
+
+  # 滚动条颜色
+  # Color of scrollbar
+  scrollbar_color: "#c4c6c9"
+  scrollbar_color_dark: "#687582"
+  # 滚动条悬浮颜色
+  # Color of scrollbar when hovering
+  scrollbar_hover_color: "#a6a6a6"
+  scrollbar_hover_color_dark: "#9da8b3"
+
+  # 按钮背景色
+  # Color of button
+  button_bg_color: "#f6f8fa"
+  button_bg_color_dark: "#2f4154"
+  # 按钮悬浮背景色
+  # Color of button when hovering
+  button_hover_bg_color: "#f2f3f5"
+  button_hover_bg_color_dark: "#46647e"
 
 # 主题字体配置
 # Font
 font:
   font_size: 16px
   font_family:
+  letter_spacing: 0.02em
   code_font_size: 85%
 
 # 指定自定义 .js 文件路径，支持列表；路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js
@@ -251,6 +275,12 @@ web_analytics:  # 网页访问统计
     # REST API 服务器地址，国际版不填
     # Only the Chinese mainland users need to set
     server_url:
+    # 统计页面时获取路径的属性
+    # Get the attribute of the page path during statistics
+    path: window.location.pathname
+    # 开启后不统计本地路径( localhost 与 127.0.0.1 )
+    # If ture, ignore localhost & 127.0.0.1
+    ignore_local: false
 
 # 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
 # Lazy loading of images and comment plugin on the page
@@ -271,7 +301,7 @@ lazyload:
 
 # 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
 # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
-iconfont: //at.alicdn.com/t/font_1736178_kmeydafke9r.css
+iconfont: //at.alicdn.com/t/font_1736178_lbnruvf0jn.css
 
 
 #---------------------------
@@ -362,6 +392,17 @@ scroll_down_arrow:
 scroll_top_arrow:
   enable: true
 
+# Open Graph metadata
+# See: https://hexo.io/docs/helpers.html#open-graph
+open_graph:
+  enable: true
+  twitter_card: summary_large_image
+  twitter_id:
+  twitter_site:
+  google_plus:
+  fb_admins:
+  fb_app_id:
+
 
 #---------------------------
 # 页脚
@@ -385,11 +426,6 @@ footer:
     # Data source. If use leancloud, you need to set the parameter in `web_analytics: leancloud`
     # Options: busuanzi | leancloud
     source: "busuanzi"
-
-    # 页面显示的文本，{}是数字的占位符（必须包含)，下同
-    # Displayed text, {} is a placeholder for numbers (must be included), the same below
-    pv_format: "总访问量 {} 次"
-    uv_format: "总访客数 {} 人"
 
   # 国内大陆服务器的备案信息
   # For Chinese mainland website policy, other areas keep disable
@@ -513,21 +549,17 @@ post:
     # Word count
     wordcount:
       enable: true
-      # 显示的文本，{}是数字的占位符（必须包含)，下同
-      # Displayed text, {} is a placeholder for numbers (must be included), the same below
-      format: "{} 字"
 
     # 估计阅读全文需要的时长
     # Estimated reading time
     min2read:
       enable: true
-      format: "{} 分钟"
-      # 每个字词的长度，建议：中文≈2，英文≈5
+      # 每个字词的长度，建议：中文≈2，英文≈5，中英混合可自行调节
       # Average word length (chars count in word), ZH ≈ 2, EN ≈ 5
       awl: 2
-      # 每分钟阅读字数
+      # 每分钟阅读字数，如果大部分是技术文章可适度调低
       # Words per minute
-      wpm: 160
+      wpm: 60
 
     # 浏览量计数
     # Number of visits
@@ -537,20 +569,25 @@ post:
       # Data Source
       # Options: busuanzi | leancloud
       source: "busuanzi"
-      format: "{} 次"
 
   # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
   # Update date is displayed at the beginning of the post. The default date is the update date of the md file, which can be manually specified by `updated` in front-matter (same format as date)
   updated:
-    enable: false
+    enable: true
 
-    # 描述文字
-    # Descriptive text before date
-    content: 本文最后更新于：
+    # 格式参照 ISO-8601 日期格式化
+    # ISO-8601 date format
+    # See: http://momentjs.cn/docs/#/parsing/string-format/
+    date_format: "LL a"
 
     # 是否使用相对时间表示，比如："3 天前"
     # If true, it will be a relative time, such as: "3 days ago"
     relative: false
+
+    # 提示标签类型
+    # Note class
+    # Options: default | primary | info | success | warning | danger | light
+    note_class: info
 
   # 文章右侧目录
   # Table of contents (TOC)
@@ -583,6 +620,11 @@ post:
   custom:
     enable: false
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">'
+
+  # 文章图片标题
+  # Image caption
+  image_caption:
+    enable: true
 
   # 文章图片可点击放大
   # Zoom feature of images
@@ -699,19 +741,19 @@ gitalk:
 valine:
   appId:
   appKey:
-  placeholder: 说点什么
   path: window.location.pathname
-  avatar: retro
+  placeholder:
+  avatar: 'retro'
   meta: ['nick', 'mail', 'link']
+  requiredFields: []
   pageSize: 10
-  lang: zh-CN
+  lang: 'zh-CN'
   highlight: false
   recordIP: false
   serverURLs: ''
   emojiCDN:
   emojiMaps:
   enableQQ: false
-  requiredFields: []
 
 # Waline
 # 从 Valine 衍生而来，额外增加了服务端和多种功能
@@ -719,19 +761,19 @@ valine:
 # See: https://waline.js.org/
 waline:
   serverURL: ''
-  placeholder: 说点什么
   path: window.location.pathname
-  avatar: retro
+  placeholder:
   meta: ['nick', 'mail', 'link']
-  pageSize: 10
-  lang: zh-CN
-  highlight: true
-  avatarCDN: ''
+  requiredMeta: ['nick']
+  lang: 'zh-CN'
+  emoji: ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+  dark: 'html[data-user-color-scheme="dark"]'
+  avatar: 'retro'
+  avatarCDN: 'https://seccdn.libravatar.org/avatar/'
   avatarForce: false
-  requiredFields: []
-  emojiCDN:
-  emojiMaps:
-  anonymous:
+  wordLimit: 0
+  pageSize: 10
+  highlight: true
 
 # 畅言 Changyan
 # 基于第三方的服务
@@ -785,7 +827,6 @@ archive:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  subtitle:
 
 
 #---------------------------
@@ -797,7 +838,6 @@ category:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  subtitle:
 
   # 分类的排序字段，前面带减号是倒序，不带减号是正序
   # Sort field for categories, with a minus sign is reverse order
@@ -827,7 +867,6 @@ tag:
   banner_img: /img/default.png
   banner_img_height: 80
   banner_mask_alpha: 0.3
-  subtitle:
   tagcloud:
     min_font: 15
     max_font: 30
@@ -845,7 +884,6 @@ about:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  subtitle:
   avatar: /img/avatar.png
   name: "Fluid"
   intro: "An elegant theme for Hexo"
@@ -879,7 +917,6 @@ page404:
   banner_img: /img/default.png
   banner_img_height: 85
   banner_mask_alpha: 0.3
-  subtitle: "Page not found"
 
 
 #---------------------------
@@ -891,7 +928,6 @@ links:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  subtitle:
   # 友链的成员项
   # Member item of page
   items:
@@ -951,44 +987,44 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/
+  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4/
 
-  github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/
+  github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4/
 
-  jquery: https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/
+  jquery: https://cdn.jsdelivr.net/npm/jquery@3/dist/
 
-  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/
+  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4/dist/
 
-  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/
+  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10/
 
-  prismjs: https://cdn.jsdelivr.net/npm/prismjs@1.23.0/
+  prismjs: https://cdn.jsdelivr.net/npm/prismjs@1/
 
-  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/
+  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4/dist/
 
-  typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/
+  typed: https://cdn.jsdelivr.net/npm/typed.js@2/lib/
 
-  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/
+  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/
 
-  nprogress: https://cdn.jsdelivr.net/npm/nprogress@0.2.0/
+  nprogress: https://cdn.jsdelivr.net/npm/nprogress@0/
 
-  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/
 
-  katex: https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/
+  katex: https://cdn.jsdelivr.net/npm/katex@0/dist/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/
+  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2/dist/
 
-  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.10.1/dist/
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8/dist/
 
-  valine: https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/
+  valine: https://cdn.jsdelivr.net/npm/valine@1/dist/
 
-  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.16.2/dist/
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@1/dist/
 
-  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/
+  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1/dist/
 
-  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/
+  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/
 
-  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/
+  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1/dist/
 
-  hint: /lib/hint/
+  hint: https://cdn.jsdelivr.net/npm/hint.css@2/

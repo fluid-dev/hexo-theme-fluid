@@ -11,7 +11,7 @@ module.exports = (hexo) => {
   let dataConfig = {};
   let dataStaticConfig = {};
 
-  if (hexo.locals.get) {
+  if (hexo.locals.get instanceof Function) {
     const data = hexo.locals.get('data');
     if (data && isNotEmptyObject(data.fluid_config)) {
       dataConfig = data.fluid_config;
@@ -24,6 +24,29 @@ module.exports = (hexo) => {
     }
     if (data && isNotEmptyObject(data.fluid_static_prefix)) {
       dataStaticConfig = data.fluid_static_prefix;
+    }
+
+    const { language } = hexo.config;
+    const { i18n } = hexo.theme;
+    const languageMap = {};
+    for (const key in data) {
+      if (Object.prototype.hasOwnProperty.call(data, key)) {
+        if (/^languages\/.+$/.test(key)) {
+          languageMap[key.replace('languages/', '')] = data[key];
+        }
+      }
+    }
+    const mergeLang = (lang) => {
+      if (languageMap[lang]) {
+        i18n.set(lang, objUtil.merge({}, i18n.get([lang]), languageMap[lang]));
+      }
+    };
+    if (Array.isArray(language)) {
+      for (const lang of language) {
+        mergeLang(lang);
+      }
+    } else {
+      mergeLang(language);
     }
   }
 

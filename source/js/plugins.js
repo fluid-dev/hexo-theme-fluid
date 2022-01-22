@@ -1,4 +1,4 @@
-/* global Fluid, CONFIG, jQuery */
+/* global Fluid, CONFIG */
 
 HTMLElement.prototype.wrap = function(wrapper) {
   this.parentNode.insertBefore(wrapper, this);
@@ -32,6 +32,8 @@ Fluid.plugins = {
   },
 
   initTocBot: function() {
+    if (!CONFIG.toc.enable) { return; }
+
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -50,13 +52,31 @@ Fluid.plugins = {
       scrollSmooth    : true,
       headingsOffset  : -boardTop
     });
-    if (jQuery('.toc-list-item').length > 0) {
+    if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
   },
 
+  initImageCaption: function(selector) {
+    if (!CONFIG.image_caption.enable) { return; }
+
+    jQuery(selector || `.markdown-body > p > img, .markdown-body > figure > img,
+      .markdown-body > p > a.fancybox, .markdown-body > figure > a.fancybox`).each(function() {
+      var $target = jQuery(this);
+      var $figcaption = $target.next('figcaption');
+      if ($figcaption.length !== 0) {
+        $figcaption.addClass('image-caption');
+      } else {
+        var imageTitle = $target.attr('title') || $target.attr('alt');
+        if (imageTitle) {
+          $target.after(`<figcaption aria-hidden="true" class="image-caption">${imageTitle}</figcaption>`);
+        }
+      }
+    });
+  },
+
   initFancyBox: function(selector) {
-    if (!('fancybox' in jQuery)) { return; }
+    if (!CONFIG.image_zoom.enable || !('fancybox' in jQuery)) { return; }
 
     jQuery(selector || '.markdown-body :not(a) > img, .markdown-body > img').each(function() {
       var $image = jQuery(this);
@@ -79,16 +99,17 @@ Fluid.plugins = {
         <a class="fancybox fancybox.image" href="${imageUrl}"
           itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`
       ).parent('a');
-      if ($image.is('.group-image-container img')) {
-        $imageWrap.attr('data-fancybox', 'group').attr('rel', 'group');
-      } else {
-        $imageWrap.attr('data-fancybox', 'default').attr('rel', 'default');
-      }
+      if ($imageWrap.length !== 0) {
+        if ($image.is('.group-image-container img')) {
+          $imageWrap.attr('data-fancybox', 'group').attr('rel', 'group');
+        } else {
+          $imageWrap.attr('data-fancybox', 'default').attr('rel', 'default');
+        }
 
-      var imageTitle = $image.attr('title') || $image.attr('alt');
-      if (imageTitle) {
-        $imageWrap.append(`<p class="image-caption">${imageTitle}</p>`);
-        $imageWrap.attr('title', imageTitle).attr('data-caption', imageTitle);
+        var imageTitle = $image.attr('title') || $image.attr('alt');
+        if (imageTitle) {
+          $imageWrap.attr('title', imageTitle).attr('data-caption', imageTitle);
+        }
       }
     });
 
@@ -104,7 +125,7 @@ Fluid.plugins = {
   },
 
   initAnchor: function() {
-    if (!('anchors' in window)) { return; }
+    if (!CONFIG.anchorjs.enable || !('anchors' in window)) { return; }
 
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
@@ -116,13 +137,16 @@ Fluid.plugins = {
     var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
     var res = [];
     for (const item of el) {
-      res.push('.markdown-body > ' + item);
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
     }
     window.anchors.add(res.join(', '));
   },
 
   initCopyCode: function() {
-    if (!('ClipboardJS' in window)) { return; }
+    if (!CONFIG.copy_btn || !('ClipboardJS' in window)) { return; }
 
     function getBgClass(ele) {
       if (ele.length === 0) {
@@ -137,8 +161,7 @@ Fluid.plugins = {
     copyHtml += '<button class="copy-btn" data-clipboard-snippet="">';
     copyHtml += '<i class="iconfont icon-copy"></i><span>Copy</span>';
     copyHtml += '</button>';
-    var blockElement = jQuery('.markdown-body pre');
-    blockElement.each(function() {
+    jQuery('.markdown-body pre').each(function() {
       const pre = jQuery(this);
       if (pre.find('code.mermaid').length > 0) {
         return;
@@ -146,21 +169,21 @@ Fluid.plugins = {
       if (pre.find('span.line').length > 0) {
         return;
       }
-      pre.append(copyHtml);
-    });
-    var clipboard = new window.ClipboardJS('.copy-btn', {
-      target: function(trigger) {
-        return trigger.previousElementSibling;
-      }
-    });
-    jQuery('.copy-btn').addClass(getBgClass(blockElement));
-    clipboard.on('success', function(e) {
-      e.clearSelection();
-      var tmp = e.trigger.outerHTML;
-      e.trigger.innerHTML = 'Success';
-      setTimeout(function() {
-        e.trigger.outerHTML = tmp;
-      }, 2000);
+      pre.append(copyHtml.replace('copy-btn', `copy-btn ${getBgClass(pre)}`));
+
+      var clipboard = new window.ClipboardJS('.copy-btn', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        e.clearSelection();
+        var tmp = e.trigger.outerHTML;
+        e.trigger.innerHTML = 'Success';
+        setTimeout(function() {
+          e.trigger.outerHTML = tmp;
+        }, 2000);
+      });
     });
   }
 

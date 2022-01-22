@@ -13,9 +13,9 @@ if (enable) {
 
 var lazy = false;
 if (theme.lazyload.enable) {
-  var ver = theme.static_prefix.mathjax.match(/@(\d\.\d{1,2}\.\d{1,2})/);
-  if (ver.length >= 2) {
-    ver = ver[1];
+  var verRe = theme.static_prefix.mathjax.match(/@(\d{1,2})\.?(\d{0,2})\.?(\d{0,2})/);
+  if (verRe && verRe.length >= 4) {
+    ver = `${verRe[1]}.${verRe[2] || 'x'}.${verRe[3] || 'x'}`;
     lazy = compareVersions(ver, '3.2.0') >= 0;
   }
 }

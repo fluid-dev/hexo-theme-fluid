@@ -12,8 +12,8 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
     <% var post_url = url_for(post.path), index_img = post.index_img || theme.post.default_index_img %>
     <% if(index_img) { %>
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="<%- post_url %>" target="<%- theme.index.post_url_target %>">
-          <img src="<%- url_for(index_img) %>" alt="<%= post.title %>">
+        <a href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
+          <img src="<%= url_for(index_img) %>" alt="<%= post.title %>">
         </a>
       </div>
     <% } %>
@@ -22,22 +22,15 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
         <% if (theme.index.post_sticky && theme.index.post_sticky.enable && post.sticky > 0) { %>
           <i class="index-pin <%= theme.index.post_sticky && theme.index.post_sticky.icon %>" title="Pin on top"></i>
         <% } %>
-        <a href="<%- post_url %>" target="<%- theme.index.post_url_target %>">
+        <a href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
           <%= post.title %>
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="<%- post_url %>" target="<%- theme.index.post_url_target %>">
-          <% var excerpt = '' %>
-          <% if(post.description) { %>
-            <% excerpt = post.description %>
-          <% } else if(post.excerpt){ %>
-            <% excerpt = strip_html(post.excerpt).substr(0, 200) %>
-          <% } else if(theme.index.auto_excerpt.enable){ %>
-            <% excerpt = strip_html(post.content).substr(0, 200) %>
-          <% } %>
-          <%- excerpt %>
+        <a href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
+          <% var excerpt = post.description || post.excerpt || (theme.index.auto_excerpt.enable && post.content) %>
+          <%- escape_html(strip_html(excerpt).substring(0, 200).trim()).replace(/\n/g, ' ') %>
         </a>
       </p>
 

@@ -19,7 +19,12 @@
   <% if (theme.post.meta.wordcount.enable) { %>
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      <%- theme.post.meta.wordcount.format.replace('{}', wordcount(page)) %>
+      <% if (theme.post.meta.wordcount.format) { %>
+        <!-- compatible with older versions-->
+        <%- theme.post.meta.wordcount.format.replace('{}', wordcount(page)) %>
+      <% } else { %>
+        <%- __('post.meta.wordcount', wordcount(page)) %>
+      <% } %>
     </span>
   <% } %>
 
@@ -28,20 +33,23 @@
       <i class="iconfont icon-clock-fill"></i>
       <% var awl = parseInt(theme.post.meta.min2read.awl) %>
       <% var wpm = parseInt(theme.post.meta.min2read.wpm) %>
-      <%- theme.post.meta.min2read.format.replace('{}', min2read(page, { awl: awl, wpm: wpm })) %>
+      <% if (theme.post.meta.min2read.format) { %>
+        <!-- compatible with older versions-->
+        <%- theme.post.meta.min2read.format.replace('{}', min2read(page, { awl: awl, wpm: wpm })) %>
+      <% } else { %>
+        <%- __('post.meta.min2read', min2read(page, { awl: awl, wpm: wpm })) %>
+      <% } %>
     </span>
   <% } %>
 
-  <% var views_texts = theme.post.meta.views.format.split('{}') %>
-  <% if (theme.post.meta.views.enable) { %>
+  <% var views_texts = (theme.post.meta.views.format || __('post.meta.views')).split('{}') %>
+  <% if (theme.post.meta.views.enable && views_texts.length >= 2) { %>
     <% if (theme.post.meta.views.source === 'leancloud') { %>
-      <!-- LeanCloud 统计文章PV -->
       <span id="leancloud-page-views-container" class="post-meta" style="display: none">
         <i class="iconfont icon-eye" aria-hidden="true"></i>
         <%- views_texts[0] %><span id="leancloud-page-views"></span><%- views_texts[1] %>
       </span>
     <% } else if (theme.post.meta.views.source === 'busuanzi')  { %>
-      <!-- 不蒜子统计文章PV -->
       <span id="busuanzi_container_page_pv" style="display: none">
         <i class="iconfont icon-eye" aria-hidden="true"></i>
         <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
@@ -49,3 +57,5 @@
     <% } %>
   <% } %>
 </div>
+
+<%- inject_point('postMeta') %> %>

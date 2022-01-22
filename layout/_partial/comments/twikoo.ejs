@@ -9,7 +9,9 @@
             el: '#twikoo',
             path: '<%= theme.twikoo.path %>',
             onCommentLoaded: function() {
-              Fluid.plugins.initFancyBox('#twikoo .tk-content img:not(.tk-owo-emotion)');
+              var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+              Fluid.plugins.initImageCaption(imgSelector);
+              Fluid.plugins.initFancyBox(imgSelector);
             }
           }
         )

@@ -13,6 +13,9 @@
     padding-left 1rem
     padding-right 1rem
 
+  .anchorjs-link-left
+    opacity 0 !important
+
 .post-content
     h1, h2, h3, h4, h5, h6
       anchor-offset()
@@ -27,6 +30,10 @@
   img
     object-fit cover
     max-width 100%
+
+@media (max-width: 767px)
+  .page-content, .post-content
+    overflow-x hidden
 
 .post-metas
   display flex
@@ -155,6 +162,8 @@
     display none
 
 .tocbot-list
+  position relative
+
   ol
     list-style none
     padding-left 1rem
@@ -175,6 +184,24 @@
 .tocbot-is-collapsible
   overflow hidden
   transition all .3s ease-in-out
+
+.toc-list-item
+  &.is-active-li::before
+    height 1rem
+    margin 0.25rem 0
+    visibility visible
+
+  &::before
+    width 0.15rem
+    height 0.2rem
+    position absolute
+    left 0.25rem
+    content ''
+    border-radius 2px
+    margin 0.65rem 0
+    background var(--link-hover-color)
+    visibility hidden
+    transition height .1s ease-in-out, margin .1s ease-in-out, visibility .1s ease-in-out
 
 @media (max-width: 1024px)
   .toc-container

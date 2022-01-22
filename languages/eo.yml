@@ -1,44 +1,58 @@
-search:
-  title: Serĉi
-  keyword: ŝlosivorto
-  status:
-    success: v
-    error: x
-
-postTotal: Entute %d afiŝoj
-
-paginator:
-  pre: Antaŭa paĝo
-  next: Sekva paĝo
-
-post:
-  toc: Enhavtabelo
-  pre: Antaŭa afiŝo
-  next: Sekva afiŝo
+name: 'Esperanto'
 
 home:
-  title: Hejmpaĝo
+  menu: 'Hejmpaĝo'
+  title: 'Hejmpaĝo'
 
 archive:
-  title: Arkivoj
-  subtitle: Arkivo
-
-tag:
-  title: Etikedoj
-  subtitle: Etikedo
+  menu: 'Arkivoj'
+  title: 'Arkivoj'
+  subtitle: 'Arkivoj'
+  post_total: 'Entute %d afiŝoj'
 
 category:
-  title: Kategorioj
-  subtitle: Kategorio
+  menu: 'Kategorio'
+  title: 'Kategorio'
+  subtitle: 'Kategorio'
+  post_total: 'Entute %d afiŝoj'
+
+tag:
+  menu: 'Etikedoj'
+  title: 'Etikedoj'
+  subtitle: 'Etikedoj'
+  post_total: 'Entute %d afiŝoj'
 
 about:
-  title: Pri
-  subtitle: Pri
-
-page404:
-  title: Paĝo ne trovita
-  subtitle: Ho ve, Paĝo ne trovita~
+  menu: 'Pri'
+  title: 'Pri'
+  subtitle: 'Pri'
 
 links:
-  title: Ligoj
-  subtitle: Ligoj de amikeco
+  menu: 'Ligoj'
+  title: 'Ligoj'
+  subtitle: 'Ligoj'
+
+page404:
+  menu: 'Paĝo ne trovita'
+  title: 'Paĝo ne trovita'
+  subtitle: 'Paĝo ne trovita'
+
+post:
+  toc: 'Enhavtabelo'
+  prev_post: 'Antaŭa afiŝo'
+  next_post: 'Sekva afiŝo'
+  updated: 'Aktualizita: %s'
+  meta:
+    wordcount: '%s vortoj'
+    min2read: '%s minutoj'
+    views: '{} rigardoj'
+  copyright:
+    license_content: 'Ĉiuj poŝtoj en ĉi tiu blogo estas permesitaj sub <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.eo" rel="nofollow noopener">CC BY-SA 4.0</a>, se ĝi ne estas aldonaj.'
+
+footer:
+  pv: 'Vidoj: {}'
+  uv: 'Visitoj: {}'
+
+search:
+  title: 'Serĉi'
+  keyword: 'ŝlosivorto'

@@ -14,7 +14,7 @@
   .nav-item .nav-link
     display block
     color var(--navbar-text-color)
-    transition color .2s, background-color .2s
+    transition color .2s ease-in-out, background-color .2s ease-in-out
 
     &:hover
       color var(--link-hover-color)
@@ -146,15 +146,25 @@
     font-size 1rem
     line-height 2.5rem
 
+// Rewrite reboot.scss
+label
+  margin-bottom 0
+
 // Rewrite github-markdown.css
 .markdown-body
   font-size 1rem
-  margin-bottom 2rem
+  line-height 1.6
   font-family $font-family
+  margin-bottom 2rem
   color var(--post-text-color)
+
+  h1, h2
+    border-bottom-color var(--line-color)
+    transition border-bottom-color .2s ease-in-out
 
   h1, h2, h3, h4, h5, h6
     color var(--post-heading-color)
+    transition color .2s ease-in-out
     font-weight bold
     margin-bottom .75em
     margin-top 2em
@@ -172,6 +182,17 @@
   strong
     font-weight bold
 
+  table
+    tr
+      background-color var(--board-bg-color)
+      transition background-color .2s ease-in-out
+    tr:nth-child(2n)
+      background-color var(--board-bg-color)
+      transition background-color .2s ease-in-out
+    th, td
+      border-color var(--line-color)
+      transition border-color .2s ease-in-out
+
   pre
     font-size $code-font-size !important
 
@@ -187,7 +208,7 @@
       & > svg
         min-width 100%
 
-  p > img, p > a > img
+  p > img, p > a > img, figure > img, figure > a > img
     max-width 90%
     margin 1.5rem auto
     display block
@@ -204,6 +225,11 @@
     summary
       outline none
 
+// Rewrite hr
+hr, .markdown-body hr
+  border-top-color var(--line-color)
+  transition border-top-color .2s ease-in-out
+
 // Rewrite highlight
 .markdown-body
 
@@ -217,18 +243,6 @@
     pre
       background-color initial !important
 
-  & > .code-wrapper
-    position relative
-    border-radius 3px
-
-    pre[class*=language-].line-numbers
-      position initial
-
-  figure.highlight
-    td.code > pre
-      border-top-left-radius 0
-      border-bottom-left-radius 0
-
   hr
     height 0
     margin 2rem 0
@@ -236,6 +250,16 @@
     border-top-width 2px
     border-top-style solid
     border-top-color rgba(0, 0, 0, .1)
+
+*:not(td) > .code-wrapper
+  position relative
+  border-radius 3px
+
+pre[class*=language-].line-numbers
+  position initial
+
+figure
+  margin 1rem 0
 
 figure.highlight
   position relative
@@ -258,6 +282,9 @@ figure.highlight
 
   td.gutter
     display table-cell
+    position sticky
+    left 0
+    z-index 1
 
     &:not(.hljs)
       background-color #f6f8fa
@@ -275,6 +302,10 @@ figure.highlight
 
       span.line
         color #999
+
+  td.code > pre
+    border-top-left-radius 0
+    border-bottom-left-radius 0
 
 // Rewrite mdb.css
 .list-group-item
@@ -312,6 +343,10 @@ figure.highlight
   border-radius .125rem
   -webkit-box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
   box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
+
+.modal-dialog .modal-content .modal-header
+  border-bottom-color var(--line-color)
+  transition border-bottom-color .2s ease-in-out
 
 .close
   color var(--text-color)
@@ -393,14 +428,22 @@ figure.highlight
     left 0
     color #757575
     cursor text
-    -webkit-transition color .2s ease-out, -webkit-transform .2s ease-out
-    transition transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out
+    transition color .2s ease-out, transform .2s ease-out, -webkit-transform .2s ease-out
 
 // Rewrite toc
 .toc-list-item
   white-space nowrap
   overflow hidden
   text-overflow ellipsis
+
+// Rewrite anchorjs
+.anchorjs-link
+  text-decoration none !important
+  transition opacity .2s ease-in-out
+
+.markdown-body h1, h2, h3, h4, h5, h6
+  &:hover > .anchorjs-link
+    opacity 1
 
 // Rewrite iconfont
 .iconfont
@@ -409,67 +452,8 @@ figure.highlight
 
 // Rewrite checkbox
 input[type=checkbox]
-  -webkit-appearance none
-  -moz-appearance none
-  position relative
-  right 0
-  bottom 0
-  left 0
-  height 1.25rem
-  width 1.25rem
-  transition .2s
-  color #fff
-  cursor pointer
-  margin .4rem .2rem .4rem !important
-  outline 0
-  border-radius 0.1875rem
-  vertical-align -.65rem
-  border 2px solid #2f4154
-
-  &:after, &:before
-    content " "
-    transition .2s
-    position absolute
-    background #fff
-
-  &:before
-    left 0.125rem
-    top 0.375rem
-    width 0
-    height 0.125rem
-    -webkit-transform rotate(45deg)
-    -moz-transform rotate(45deg)
-    -ms-transform rotate(45deg)
-    -o-transform rotate(45deg)
-    transform rotate(45deg)
-
-  &:after
-    right 0.5625rem
-    bottom 0.1875rem
-    width 0.125rem
-    height 0
-    -webkit-transform rotate(40deg)
-    -moz-transform rotate(40deg)
-    -ms-transform rotate(40deg)
-    -o-transform rotate(40deg)
-    transform rotate(40deg)
-    transition-delay .2s
-
-  &:checked
-    background #2f4154
-    margin-right .5rem !important
-
-    &:before
-      left 0.0625rem
-      top 0.625rem
-      width 0.375rem
-      height 0.125rem
-
-    &:after
-      right 0.3125rem
-      bottom 0.0625rem
-      width 0.125rem
-      height 0.875rem
+  margin 0 0.2em 0.2em 0
+  vertical-align middle
 
 // Rewrite list-group
 .list-group-item-action

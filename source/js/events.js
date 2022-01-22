@@ -43,7 +43,7 @@ Fluid.events = {
     }
     var parallax = function() {
       var oVal = jQuery(window).scrollTop() / 5;
-      var offset = parseInt(board.css('margin-top'), 0);
+      var offset = parseInt(board.css('margin-top'), 10);
       var max = 96 + offset;
       if (oVal > max) {
         oVal = max;

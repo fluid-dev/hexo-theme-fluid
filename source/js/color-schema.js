@@ -110,6 +110,10 @@
     light: 'dark'
   };
 
+  function getIconClass(scheme) {
+    return 'icon-' + scheme;
+  }
+
   function toggleCustomColorSchema() {
     var currentSetting = getLS(colorSchemaStorageKey);
 
@@ -139,9 +143,9 @@
   function setButtonIcon(schema) {
     if (validColorSchemaKeys[schema]) {
       // 切换图标
-      var icon = 'icon-dark';
+      var icon = getIconClass('dark');
       if (schema) {
-        icon = 'icon-' + invertColorSchemaObj[schema];
+        icon = getIconClass(schema);
       }
       var iconElement = document.querySelector(colorToggleIconSelector);
       if (iconElement) {
@@ -184,7 +188,7 @@
     }
 
     // 设置 utterances 评论主题
-    var utterances = document.querySelector('iframe');
+    var utterances = document.querySelector('.utterances-frame');
     if (utterances) {
       var theme = window.UtterancesThemeLight;
       if (schema === 'dark') {
@@ -201,14 +205,26 @@
   // 当页面加载时，将显示模式设置为 localStorage 中自定义的值（如果有的话）
   applyCustomColorSchemaSettings();
 
-  Fluid.utils.waitElementLoaded(colorToggleButtonSelector, function() {
+  Fluid.utils.waitElementLoaded(colorToggleIconSelector, function() {
     applyCustomColorSchemaSettings();
     var button = document.querySelector(colorToggleButtonSelector);
     if (button) {
       // 当用户点击切换按钮时，获得新的显示模式、写入 localStorage、并在页面上生效
-      button.addEventListener('click', () => {
+      button.addEventListener('click', function() {
         applyCustomColorSchemaSettings(toggleCustomColorSchema());
       });
+      var icon = document.querySelector(colorToggleIconSelector);
+      if (icon) {
+        // 光标悬停在按钮上时，切换图标
+        button.addEventListener('mouseenter', function() {
+          var current = icon.getAttribute('data');
+          icon.classList.replace(getIconClass(invertColorSchemaObj[current]), getIconClass(current));
+        });
+        button.addEventListener('mouseleave', function() {
+          var current = icon.getAttribute('data');
+          icon.classList.replace(getIconClass(current), getIconClass(invertColorSchemaObj[current]));
+        });
+      }
     }
   });
 })(window, document);

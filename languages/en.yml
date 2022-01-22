@@ -1,55 +1,58 @@
-search:
-  title: Search
-  keyword: keyword
-  status:
-    success: v
-    error: x
-
-postTotal: "%d posts in total."
-
-paginator:
-  pre: Previous
-  next: Next
-
-post:
-  toc: TOC
-  pre: Previous
-  next: Next
+name: 'English'
 
 home:
-  title: Home
+  menu: 'Home'
+  title: 'Home'
 
 archive:
-  title: Archives
-  subtitle: Archive
-
-tag:
-  title: Tags
-  subtitle: Tag
+  menu: 'Archives'
+  title: 'Archives'
+  subtitle: 'Archives'
+  post_total: '%d posts in total'
 
 category:
-  title: Categories
-  subtitle: Category
+  menu: 'Categories'
+  title: 'Categories'
+  subtitle: 'Categories'
+  post_total: '%d posts in total'
+
+tag:
+  menu: 'Tags'
+  title: 'Tags'
+  subtitle: 'Tags'
+  post_total: '%d posts in total'
 
 about:
-  title: About
-  subtitle: About
-
-page404:
-  title: Page not found
-  subtitle: Oops, Page not found...
+  menu: 'About'
+  title: 'About'
+  subtitle: 'About'
 
 links:
-  title: Links
-  subtitle: Links
+  menu: 'Links'
+  title: 'Links'
+  subtitle: 'Links'
 
-copyright:
-  author: Author
-  date: Posted on
-  updated: Updated on
-  licenses: Licensed under
-  CC: CC - Creative Commons license
-  BY: BY - Attribution
-  SA: SA - Share-alike
-  NC: NC - Non-commercial
-  ND: ND - No derivative works
+page404:
+  menu: 'Page not found'
+  title: 'Page not found'
+  subtitle: 'Page not found'
+
+post:
+  toc: 'Table of Contents'
+  prev_post: 'Previous'
+  next_post: 'Next'
+  updated: 'Last updated on %s'
+  meta:
+    wordcount: '%s words'
+    min2read: '%s mins'
+    views: '{} views'
+  copyright:
+    license_content: 'All posts in this blog are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="nofollow noopener">CC BY-SA 4.0</a> unless stating additionally.'
+
+footer:
+  pv: 'Views: {}'
+  uv: 'Visitors: {}'
+
+search:
+  title: 'Search'
+  keyword: 'Keyword'
