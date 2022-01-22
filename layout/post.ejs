@@ -6,7 +6,19 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="d-none d-lg-block col-lg-2">
+      <% if(theme.post.toc.enable && theme.post.toc.placement === 'left' && page.toc !== false){ %>
+        <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn" style="padding-left: 2rem">
+          <%- partial('_partial/toc') %>
+          <%- inject_point('postLeft') %>
+        </div>
+      <% } else { %>
+        <div class="d-none d-lg-block col-lg-2">
+          <%- inject_point('postLeft') %>
+        </div>
+      <% } %>
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
@@ -105,9 +117,15 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
         </div>
       </div>
     </div>
-    <% if(theme.post.toc.enable && page.toc !== false){ %>
+
+    <% if(theme.post.toc.enable && theme.post.toc.placement !== 'left' && page.toc !== false){ %>
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <%- partial('_partial/toc') %>
+        <%- inject_point('postRight') %>
+      </div>
+    <% } else { %>
+      <div class="d-none d-lg-block col-lg-2">
+        <%- inject_point('postRight') %>
       </div>
     <% } %>
   </div>

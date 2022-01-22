@@ -98,6 +98,7 @@ fun_features:
   anchorjs:
     enable: true
     element: h1,h2,h3,h4,h5,h6
+    # Options: left | right
     placement: left
     # Options: hover | always | touch
     visible: hover
@@ -589,13 +590,20 @@ post:
     # Options: default | primary | info | success | warning | danger | light
     note_class: info
 
-  # 文章右侧目录
+  # 文章目录
   # Table of contents (TOC)
   toc:
     enable: true
+
+    # 置于板块的左侧或右侧
+    # place in the board
+    # Options: left | right
+    placement: right
+
     # 目录会选择这些节点作为标题
     # TOC will select these nodes as headings
     headingSelector: "h1,h2,h3,h4,h5,h6"
+
     # 层级的折叠深度，0 是全部折叠，大于 0 后如果存在下级标题则默认展开
     # Collapse depth. If 0, all headings collapsed. If greater than 0, it will be expanded by default if there are sub headings
     collapseDepth: 0
