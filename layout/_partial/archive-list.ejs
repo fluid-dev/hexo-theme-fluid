@@ -8,8 +8,8 @@
       <p class="h5"><%= dateCursor %></p>
     <% } %>
     <a href="<%= url_for(post.path) %>" class="list-group-item list-group-item-action">
-      <span class="archive-post-title"><%= post.title %></span>
-      <time style="float: right;"><%= date(post.date, "MM-DD") %></time>
+      <time><%= date(post.date, "MM-DD") %></time>
+      <div class="list-group-item-title"><%= post.title %></div>
     </a>
   <% }) %>
 </div>

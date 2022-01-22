@@ -309,8 +309,25 @@ figure.highlight
 
 // Rewrite mdb.css
 .list-group-item
+  display flex
   background-color transparent
   border 0
+
+  time
+    flex 0 0 5rem
+
+  .list-group-item-title
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+
+@media (max-width: 575px)
+  .list-group-item
+    font-size .95rem
+    padding 0.5rem 1.25rem
+
+    time
+      flex 0 0 4rem
 
 .page-link
   font-size 1.1rem
