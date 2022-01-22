@@ -427,11 +427,6 @@ footer:
     # Options: busuanzi | leancloud
     source: "busuanzi"
 
-    # 页面显示的文本，{}是数字的占位符（必须包含)，下同
-    # Displayed text, {} is a placeholder for numbers (must be included), the same below
-    pv_format: "总访问量 {} 次"
-    uv_format: "总访客数 {} 人"
-
   # 国内大陆服务器的备案信息
   # For Chinese mainland website policy, other areas keep disable
   beian:
@@ -554,15 +549,11 @@ post:
     # Word count
     wordcount:
       enable: true
-      # 显示的文本，{}是数字的占位符（必须包含)，下同
-      # Displayed text, {} is a placeholder for numbers (must be included), the same below
-      format: "{} 字"
 
     # 估计阅读全文需要的时长
     # Estimated reading time
     min2read:
       enable: true
-      format: "{} 分钟"
       # 每个字词的长度，建议：中文≈2，英文≈5，中英混合可自行调节
       # Average word length (chars count in word), ZH ≈ 2, EN ≈ 5
       awl: 2
@@ -578,20 +569,25 @@ post:
       # Data Source
       # Options: busuanzi | leancloud
       source: "busuanzi"
-      format: "{} 次"
 
   # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
   # Update date is displayed at the beginning of the post. The default date is the update date of the md file, which can be manually specified by `updated` in front-matter (same format as date)
   updated:
     enable: false
 
-    # 描述文字
-    # Descriptive text before date
-    content: 本文最后更新于：
+    # 格式参照 ISO-8601 日期格式化
+    # ISO-8601 date format
+    # See: http://momentjs.cn/docs/#/parsing/string-format/
+    date_format: "LL a"
 
     # 是否使用相对时间表示，比如："3 天前"
     # If true, it will be a relative time, such as: "3 days ago"
     relative: false
+
+    # 提示标签类型
+    # Note class
+    # Options: default | primary | info | success | warning | danger | light
+    note_class: info
 
   # 文章右侧目录
   # Table of contents (TOC)
@@ -608,7 +604,6 @@ post:
   # Copyright, will be displayed at the end of each post
   copyright:
     enable: true
-    content: '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！'
 
   # 文章底部上一篇下一篇功能
   # Link to previous/next post
@@ -827,7 +822,6 @@ archive:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  subtitle:
 
 
 #---------------------------
@@ -839,7 +833,6 @@ category:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  subtitle:
 
   # 分类的排序字段，前面带减号是倒序，不带减号是正序
   # Sort field for categories, with a minus sign is reverse order
@@ -869,7 +862,6 @@ tag:
   banner_img: /img/default.png
   banner_img_height: 80
   banner_mask_alpha: 0.3
-  subtitle:
   tagcloud:
     min_font: 15
     max_font: 30
@@ -887,7 +879,6 @@ about:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  subtitle:
   avatar: /img/avatar.png
   name: "Fluid"
   intro: "An elegant theme for Hexo"
@@ -921,7 +912,6 @@ page404:
   banner_img: /img/default.png
   banner_img_height: 85
   banner_mask_alpha: 0.3
-  subtitle: "Page not found"
 
 
 #---------------------------
@@ -933,7 +923,6 @@ links:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  subtitle:
   # 友链的成员项
   # Member item of page
   items:

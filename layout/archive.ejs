@@ -7,4 +7,4 @@ page.banner_img_height = theme.archive.banner_img_height
 page.banner_mask_alpha = theme.archive.banner_mask_alpha
 %>
 
-<%- partial('_partial/archive-list.ejs', { params: { postTotal: site.posts.length } }) %>
+<%- partial('_partial/archive-list.ejs', { params: { key: page.layout, postTotal: site.posts.length } }) %>

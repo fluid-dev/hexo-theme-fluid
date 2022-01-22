@@ -9,4 +9,4 @@ page.banner_mask_alpha = theme.category.banner_mask_alpha
 var cat = site.categories.find({name: page.category}).filter(cat => cat.length).data[0]
 %>
 
-<%- partial('_partial/archive-list.ejs', { params: { postTotal: cat ? cat.posts.length : 0 } }) %>
+<%- partial('_partial/archive-list.ejs', { params: { key: page.layout, postTotal: cat ? cat.posts.length : 0 } }) %>
