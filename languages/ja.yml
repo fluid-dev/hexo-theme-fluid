@@ -1,44 +1,58 @@
-search:
-  title: 検索
-  keyword: キーワード
-  status:
-    success: v
-    error: x
-
-postTotal: 合計 %d 件のポスト
-
-paginator:
-  pre: 前のページ
-  next: 次のページ
-
-post:
-  toc: ディレクトリ
-  pre: 前の記事
-  next: 次の記事
+name: '日本語'
 
 home:
-  title: ホーム
+  menu: 'ホーム'
+  title: 'ホーム'
 
 archive:
-  title: アーカイブ
-  subtitle: アーカイブ
-
-tag:
-  title: タグ
-  subtitle: タグ
+  menu: 'アーカイブ'
+  title: 'アーカイブ'
+  subtitle: 'アーカイブ'
+  post_total: '全 %d 件のポスト'
 
 category:
-  title: カテゴリー
-  subtitle: カテゴリー
+  menu: 'カテゴリ'
+  title: 'カテゴリ'
+  subtitle: 'カテゴリ'
+  post_total: '全 %d 件のポスト'
+
+tag:
+  menu: 'タグ'
+  title: 'タグ'
+  subtitle: 'タグ'
+  post_total: '全 %d 件のポスト'
 
 about:
-  title: 本ブログ情報　
-  subtitle: 本ブログ情報
-
-page404:
-  title: ページが見つかりませんでした
-  subtitle: ページが見つかりませんでした
+  menu: 'プロフィール'
+  title: 'プロフィール'
+  subtitle: 'プロフィール'
 
 links:
-  title: リンク
-  subtitle: リンク
+  menu: 'リンク'
+  title: 'リンク'
+  subtitle: 'リンク'
+
+page404:
+  menu: 'ページが見つかりませんでした'
+  title: 'ページが見つかりませんでした'
+  subtitle: 'ページが見つかりませんでした'
+
+post:
+  toc: '見出し'
+  prev_post: '前の記事'
+  next_post: '次の記事'
+  updated: '最終更新日：%s'
+  meta:
+    wordcount: '%s 単語'
+    min2read: '%s 分'
+    views: '{} 閲覧'
+  copyright:
+    license_content: 'このブログ内のすべての記事は、特別な記載がない限り <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" rel="nofollow noopener">CC BY-SA 4.0</a> の下のライセンスで保護されています。'
+
+footer:
+  pv: '閲覧合計数: {}'
+  uv: '合計閲覧者数: {}'
+
+search:
+  title: '検索'
+  keyword: 'キーワード'

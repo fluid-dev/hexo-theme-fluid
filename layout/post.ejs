@@ -13,12 +13,22 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none"><%= page.subtitle || page.title %></h1>
-            <% if(theme.post.updated && theme.post.updated.enable) { %>
-              <p class="note note-info">
+            <% if(theme.post.updated.enable) { %>
+              <p class="note note-<%= theme.post.updated.note_class || 'info' %>">
                 <% if (theme.post.updated.relative) { %>
-                  <%- theme.post.updated.content %><%- relative_date(page.updated, theme.post.meta.date.format) %>
+                  <% if (theme.post.updated.content) { %>
+                    <!-- compatible with older versions-->
+                    <%- theme.post.updated.content %><%- relative_date(page.updated, theme.post.updated.date_format) %>
+                  <% } else { %>
+                    <%- __('post.updated', relative_date(page.updated, theme.post.updated.date_format)) %>
+                  <% } %>
                 <% } else { %>
-                  <%- theme.post.updated.content %><%- date(page.updated, theme.post.meta.date.format) %>
+                  <% if (theme.post.updated.content) { %>
+                    <!-- compatible with older versions-->
+                    <%- theme.post.updated.content %><%- date(page.updated, theme.post.updated.date_format) %>
+                  <% } else { %>
+                    <%- __('post.updated', date(page.updated, theme.post.updated.date_format)) %>
+                  <% } %>
                 <% } %>
               </p>
             <% } %>
@@ -47,12 +57,12 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
                   </div>
                 <% } %>
               </div>
-              <% if(theme.post.copyright.enable && theme.post.copyright.content && page.copyright !== false) { %>
+              <% if(theme.post.copyright.enable && page.copyright !== false) { %>
                 <p class="note note-warning">
                   <% if (typeof page.copyright === 'string' && page.copyright !== '') { %>
                     <%- page.copyright %>
                   <% } else { %>
-                    <%- theme.post.copyright.content %>
+                    <%- theme.post.copyright.content || __('post.copyright.license_content') %>
                   <% } %>
                 </p>
               <% } %>
@@ -61,19 +71,19 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
                   <article class="post-prev col-6">
                     <% const prev = prev_post(page) %>
                     <% if (prev) { %>
-                      <a href="<%= url_for(prev.path) %>">
+                      <a href="<%= url_for(prev.path) %>" title="<%= prev.title %>">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"><%- prev.title %></span>
-                        <span class="visible-mobile"><%= __('post.pre') %></span>
+                        <span class="hidden-mobile"><%= prev.title %></span>
+                        <span class="visible-mobile"><%- __('post.prev_post') %></span>
                       </a>
                     <% } %>
                   </article>
                   <article class="post-next col-6">
                     <% const next = next_post(page) %>
                     <% if (next) { %>
-                      <a href="<%= url_for(next.path) %>">
-                        <span class="hidden-mobile"><%- next.title %></span>
-                        <span class="visible-mobile"><%= __('post.next') %></span>
+                      <a href="<%= url_for(next.path) %>" title="<%= next.title %>">
+                        <span class="hidden-mobile"><%= next.title %></span>
+                        <span class="visible-mobile"><%- __('post.next_post') %></span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     <% } %>

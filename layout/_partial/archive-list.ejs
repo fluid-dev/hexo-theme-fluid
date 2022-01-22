@@ -1,5 +1,5 @@
 <div class="list-group">
-  <p class="h4"><%= __('postTotal', params.postTotal) %></p>
+  <p class="h4"><%= __(params.key + '.post_total', params.postTotal) %></p>
   <hr>
   <% var dateCursor %>
   <% page.posts.each(function (post) { %>
