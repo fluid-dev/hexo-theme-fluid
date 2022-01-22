@@ -1,12 +1,14 @@
 <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-    <%- theme.footer.content %>
-  </div>
+  <%- inject_point('footer') %>
+  <% if (theme.footer.content) { %>
+    <div class="footer-content">
+      <%- theme.footer.content %>
+    </div>
+  <% } %>
   <%- partial('_partial/statistics.ejs') %>
   <%- partial('_partial/beian.ejs') %>
   <% if(theme.web_analytics.cnzz) { %>
     <!-- cnzz Analytics Icon -->
     <span id="cnzz_stat_icon_<%= theme.web_analytics.cnzz %>" style="display: none"></span>
   <% } %>
-  <%- inject_point('footer') %>
 </footer>
