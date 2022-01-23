@@ -28,32 +28,39 @@ module.exports = (hexo) => {
 
     const { language } = hexo.config;
     const { i18n } = hexo.theme;
-    const languageMap = {};
+    const langConfigMap = {};
     for (const key in data) {
       if (Object.prototype.hasOwnProperty.call(data, key)) {
         if (/^languages\/.+$/.test(key)) {
-          languageMap[key.replace('languages/', '')] = data[key];
+          langConfigMap[key.replace('languages/', '')] = data[key];
         }
       }
     }
-    const mergeLang = (lang) => {
-      if (languageMap[lang]) {
-        i18n.set(lang, objUtil.merge({}, i18n.get([lang]), languageMap[lang]));
+    if (isNotEmptyObject(langConfigMap)) {
+      const mergeLang = (lang) => {
+        if (langConfigMap[lang]) {
+          i18n.set(lang, objUtil.merge({}, i18n.get([lang]), langConfigMap[lang]));
+        }
+      };
+      if (Array.isArray(language)) {
+        for (const lang of language) {
+          mergeLang(lang);
+        }
+      } else {
+        mergeLang(language);
       }
-    };
-    if (Array.isArray(language)) {
-      for (const lang of language) {
-        mergeLang(lang);
+      if (isZh) {
+        hexo.log.info('[Fluid] 读取 source/_data/languages/*.yml 文件覆盖语言配置');
+      } else {
+        hexo.log.info('[Fluid] Merge language config from source/_data/languages/*.yml');
       }
-    } else {
-      mergeLang(language);
     }
   }
 
   if (isNotEmptyObject(hexo.config.theme_config)) {
     hexo.theme.config = objUtil.merge({}, hexo.theme.config, hexo.config.theme_config);
     if (isZh) {
-      hexo.log.info('[Fluid] 读取 _config.yml 中 theme_config 配置项覆盖配置');
+      hexo.log.info('[Fluid] 读取 _config.yml 中 theme_config 配置项覆盖主题配置');
     } else {
       hexo.log.info('[Fluid] Merge theme config from theme_config in _config.yml');
     }
@@ -62,7 +69,7 @@ module.exports = (hexo) => {
   if (isNotEmptyObject(dataStaticConfig)) {
     hexo.theme.config.static_prefix = objUtil.merge({}, hexo.theme.config.static_prefix, dataStaticConfig);
     if (isZh) {
-      hexo.log.info('[Fluid] 读取 source/_data/fluid_static_prefix.yml 文件覆盖配置');
+      hexo.log.info('[Fluid] 读取 source/_data/fluid_static_prefix.yml 文件覆盖主题配置');
     } else {
       hexo.log.info('[Fluid] Merge theme config from source/_data/fluid_static_prefix.yml');
     }
@@ -71,7 +78,7 @@ module.exports = (hexo) => {
   if (isNotEmptyObject(dataConfig)) {
     hexo.theme.config = objUtil.merge({}, hexo.theme.config, dataConfig);
     if (isZh) {
-      hexo.log.info('[Fluid] 读取 source/_data/fluid_config.yml 文件覆盖配置');
+      hexo.log.info('[Fluid] 读取 source/_data/fluid_config.yml 文件覆盖主题配置');
     } else {
       hexo.log.info('[Fluid] Merge theme config from source/_data/fluid_config.yml');
     }
