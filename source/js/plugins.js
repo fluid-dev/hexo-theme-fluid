@@ -177,7 +177,7 @@ Fluid.plugins = {
 
       if (enableLang) {
         lang = CONFIG.code_language.default;
-        if ($pre.hasClass('hljs') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
           lang = $pre[0].children[0].classList[1];
         } else if ($pre[0].getAttribute('data-language')) {
           lang = $pre[0].getAttribute('data-language');
