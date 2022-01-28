@@ -12,5 +12,7 @@ page.banner_mask_alpha = theme.page404.banner_mask_alpha
     location.href = "/";
   }
 
-  //setTimeout(redirect, 3000)
+  <% if (theme.page404.redirect_delay) { %>
+    setTimeout(redirect, <%= parseInt(theme.page404.redirect_delay) %>)
+  <% } %>
 </script>

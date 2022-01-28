@@ -968,6 +968,9 @@ page404:
   banner_img: /img/default.png
   banner_img_height: 85
   banner_mask_alpha: 0.3
+  # 重定向到首页的延迟(毫秒)
+  # Delay in redirecting to home page (milliseconds)
+  redirect_delay: 5000
 
 
 #---------------------------
