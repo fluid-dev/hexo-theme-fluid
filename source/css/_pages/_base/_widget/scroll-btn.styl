@@ -6,19 +6,14 @@
   cursor pointer
   bottom 0
 
-  i
+  i.iconfont
     font-size 2rem
     font-weight bold
     display inline-block
     position relative
     padding-top 2rem
-    color #ff
-    -webkit-transform translateZ(0)
-    -moz-transform translateZ(0)
-    -ms-transform translateZ(0)
-    -o-transform translateZ(0)
+    color var(--subtitle-color)
     transform translateZ(0)
-    -webkit-animation scroll-down 1.5s infinite
     animation scroll-down 1.5s infinite
 
 #scroll-top-button
@@ -34,7 +29,6 @@
   display flex
   display -webkit-flex
   align-items center
-  -webkit-box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
   box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
 
   i
@@ -43,17 +37,10 @@
     color var(--sec-text-color)
 
   &:hover i, &:active i
-    -webkit-animation-name scroll-top
     animation-name scroll-top
-    -webkit-animation-duration 1s
     animation-duration 1s
-    -webkit-animation-delay .1s
     animation-delay .1s
-    -webkit-animation-timing-function ease-in-out
     animation-timing-function ease-in-out
-    -webkit-animation-iteration-count infinite
     animation-iteration-count infinite
-    -webkit-animation-fill-mode forwards
     animation-fill-mode forwards
-    -webkit-animation-direction alternate
     animation-direction alternate

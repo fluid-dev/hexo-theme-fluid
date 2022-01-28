@@ -155,6 +155,11 @@ color:
   navbar_text_color: "#fff"
   navbar_text_color_dark: "#d0d0d0"
 
+  # 副标题字体色
+  # Color of navigation bar text
+  subtitle_color: "#fff"
+  subtitle_color_dark: "#d0d0d0"
+
   # 全局字体色
   # Color of global text
   text_color: "#3c4858"
