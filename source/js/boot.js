@@ -16,7 +16,7 @@ Fluid.boot.initPlugins = function() {
   Fluid.plugins.initTocBot();
   Fluid.plugins.initImageCaption();
   Fluid.plugins.initFancyBox();
-  Fluid.plugins.initCopyCode();
+  Fluid.plugins.initCodeWidget();
 };
 
 document.addEventListener('DOMContentLoaded', function() {

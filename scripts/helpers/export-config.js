@@ -17,6 +17,7 @@ hexo.extend.helper.register('export_config', function() {
     typing       : theme.fun_features.typing,
     anchorjs     : theme.fun_features.anchorjs,
     progressbar  : theme.fun_features.progressbar,
+    code_language: theme.code.language,
     copy_btn     : theme.code.copy_btn,
     image_caption: theme.post.image_caption,
     image_zoom   : theme.post.image_zoom,

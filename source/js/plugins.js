@@ -136,7 +136,7 @@ Fluid.plugins = {
     }
     var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
     var res = [];
-    for (const item of el) {
+    for (var item of el) {
       res.push('.markdown-body > ' + item.trim());
     }
     if (CONFIG.anchorjs.placement === 'left') {
@@ -145,45 +145,72 @@ Fluid.plugins = {
     window.anchors.add(res.join(', '));
   },
 
-  initCopyCode: function() {
-    if (!CONFIG.copy_btn || !('ClipboardJS' in window)) { return; }
+  initCodeWidget: function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn && ('ClipboardJS' in window);
+
+    if (!enableLang && !enableCopy) { return; }
 
     function getBgClass(ele) {
       if (ele.length === 0) {
-        return 'copy-btn-dark';
+        return 'code-widget-light';
       }
       var rgbArr = ele.css('background-color').replace(/rgba*\(/, '').replace(')', '').split(',');
       var color = (0.213 * rgbArr[0]) + (0.715 * rgbArr[1]) + (0.072 * rgbArr[2]) > 255 / 2;
-      return color ? 'copy-btn-dark' : 'copy-btn-light';
+      return color ? 'code-widget-light' : 'code-widget-dark';
     }
 
-    var copyHtml = '';
-    copyHtml += '<button class="copy-btn" data-clipboard-snippet="">';
-    copyHtml += '<i class="iconfont icon-copy"></i><span>Copy</span>';
-    copyHtml += '</button>';
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-weight">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
     jQuery('.markdown-body pre').each(function() {
-      const pre = jQuery(this);
-      if (pre.find('code.mermaid').length > 0) {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
         return;
       }
-      if (pre.find('span.line').length > 0) {
+      if ($pre.find('span.line').length > 0) {
         return;
       }
-      pre.append(copyHtml.replace('copy-btn', `copy-btn ${getBgClass(pre)}`));
 
-      var clipboard = new window.ClipboardJS('.copy-btn', {
-        target: function(trigger) {
-          return trigger.previousElementSibling;
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre.hasClass('hljs') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
         }
-      });
-      clipboard.on('success', function(e) {
-        e.clearSelection();
-        var tmp = e.trigger.outerHTML;
-        e.trigger.innerHTML = 'Success';
-        setTimeout(function() {
-          e.trigger.outerHTML = tmp;
-        }, 2000);
-      });
+        lang = lang.toUpperCase().replace(/(LIVECODESERVER|NONE)/, CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-weight">',
+        `${getBgClass($pre)} ${enableCopy ? 'code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : 'code-widget">'}`));
+
+      if (enableCopy) {
+        var clipboard = new window.ClipboardJS('.copy-btn', {
+          target: function(trigger) {
+            var nodes = trigger.parentNode.childNodes;
+            for (var i = 0; i < nodes.length; i++) {
+              if (nodes[i].tagName === 'CODE') {
+                return nodes[i];
+              }
+            }
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+          e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+          setTimeout(function() {
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+          }, 2000);
+        });
+      }
     });
   }
 

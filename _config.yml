@@ -39,6 +39,12 @@ code:
   # Enable copy code button
   copy_btn: true
 
+  # 代码语言
+  # Code language
+  language:
+    enable: true
+    default: "TEXT"
+
   # 代码高亮
   # Code highlight
   highlight:
