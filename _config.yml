@@ -93,6 +93,11 @@ fun_features:
     # If true, loop animation
     loop: false
 
+    # 在指定页面开启，不填则在所有页面开启
+    # Enable in specified page, all pages by default
+    # Options: home | post | tag | category | about | links | page | 404
+    scope: []
+
   # 为文章内容中的标题添加锚图标
   # Add an anchor icon to the title on the post page
   anchorjs:
@@ -102,7 +107,7 @@ fun_features:
     placement: left
     # Options: hover | always | touch
     visible: hover
-    # Option：§ | # | ❡
+    # Options: § | # | ❡
     icon: ""
 
   # 加载进度条

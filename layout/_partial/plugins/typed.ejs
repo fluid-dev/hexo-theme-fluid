@@ -1,4 +1,4 @@
-<% if(theme.fun_features.typing.enable && page.subtitle !== false) { %>
+<% if(theme.fun_features.typing.enable && in_scope(theme.fun_features.typing.scope) && page.subtitle !== false) { %>
   <%- js_ex(theme.static_prefix.typed, '/typed.min.js') %>
   <script>
     (function (window, document) {
