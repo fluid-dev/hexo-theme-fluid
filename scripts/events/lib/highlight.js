@@ -44,10 +44,9 @@ module.exports = (hexo) => {
       });
 
       if (hexo.config.highlight.line_number) {
-        // Mermaid block adaptation
-        page.content = page.content.replace(/<figure.+?<td class="code">.*?(<pre.+?<\/pre>).+?<\/figure>/gims, (str, p1) => {
+        page.content = page.content.replace(/<figure[^>]+?highlight.+?<td[^>]+?code[^>]+?>.*?(<pre.+?<\/pre>).+?<\/figure>/gims, (str, p1) => {
           if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
-            return p1.replace(/(class=".*?)hljs(.*?")/gims, '$1$2').replace(/<br>/gims, '\n');
+            return p1.replace(/(class="[^>]*?)hljs([^>]*?")/gims, '$1$2').replace(/<br>/gims, '\n');
           }
           return str;
         });
@@ -69,11 +68,12 @@ module.exports = (hexo) => {
     hexo.extend.filter.register('after_post_render', (page) => {
       page.content = page.content.replace(/(?<!<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
         if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
-          str = str.replace(/<pre[^>]*?>/gims, '<pre>')
-            .replace(/(class=".*?)language-mermaid(.*?")/gims, '$1mermaid$2');
           if (hexo.config.highlight.line_number) {
-            str = str.replace(/<span.+?line-numbers-rows.+?>.+?<\/span><\/code>/, '</code>');
+            str = str.replace(/<span[^>]+?line-numbers-rows[^>]+?>.+?<\/span><\/code>/, '</code>');
           }
+          str = str.replace(/<pre[^>]*?>/gims, '<pre>')
+            .replace(/(class=".*?)language-mermaid(.*?")/gims, '$1mermaid$2')
+            .replace(/<span[^>]+?>(.+?)<\/span>/gims, '$1');
           return str;
         }
         return `<div class="code-wrapper">${p1}</div>`;
