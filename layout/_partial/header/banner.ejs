@@ -1,0 +1,32 @@
+<%
+var banner_img = page.banner_img || theme.index.banner_img
+var banner_img_height = parseInt(page.banner_img_height || theme.index.banner_img_height, 10) || 100
+var banner_mask_alpha = parseInt(page.banner_mask_alpha || theme.index.banner_mask_alpha, 10) || 0.3
+%>
+
+<div id="banner" class="banner" <%- theme.banner && theme.banner.parallax && 'parallax=true' %>
+     style="background: url('<%- url_for(banner_img) %>') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          <span id="subtitle" title="<%= subtitle %>">
+            <% if(!theme.fun_features.typing.enable || !in_scope(theme.fun_features.typing.scope)) { %>
+              <%- subtitle %>
+            <% } %>
+          </span>
+        </div>
+
+        <% if (is_post()) { %>
+          <%- inject_point('postMetaHeader') %>
+        <% } %>
+      </div>
+
+      <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height && page.layout !== '404') { %>
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>

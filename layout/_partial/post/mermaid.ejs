@@ -1,0 +1,5 @@
+<script>
+  Fluid.utils.createScript('<%= url_join(theme.static_prefix.mermaid, 'mermaid.min.js') %>', function() {
+    mermaid.initialize(<%- JSON.stringify(theme.post.mermaid.options || {}) %>);
+  });
+</script>

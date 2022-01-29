@@ -1,0 +1,61 @@
+<% if (page.meta !== false) { %>
+  <div class="mt-3">
+    <% if (theme.post.meta.author && theme.post.meta.author.enable && (page.author || config.author)) { %>
+      <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      <%- page.author || config.author %>
+    </span>
+    <% } %>
+    <% if (theme.post.meta.date.enable) { %>
+      <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="<%= full_date(page.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
+        <%= full_date(page.date, theme.post.meta.date.format) %>
+      </time>
+    </span>
+    <% } %>
+  </div>
+
+  <div class="mt-1">
+    <% if (theme.post.meta.wordcount.enable) { %>
+      <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+        <% if (theme.post.meta.wordcount.format) { %>
+          <!-- compatible with older versions-->
+          <%- theme.post.meta.wordcount.format.replace('{}', wordcount(page)) %>
+        <% } else { %>
+          <%- __('post.meta.wordcount', wordcount(page)) %>
+        <% } %>
+      </span>
+    <% } %>
+
+    <% if (theme.post.meta.min2read.enable) { %>
+      <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+        <% var awl = parseInt(theme.post.meta.min2read.awl, 10) %>
+        <% var wpm = parseInt(theme.post.meta.min2read.wpm, 10) %>
+        <% if (theme.post.meta.min2read.format) { %>
+          <!-- compatible with older versions-->
+          <%- theme.post.meta.min2read.format.replace('{}', min2read(page, { awl: awl, wpm: wpm })) %>
+        <% } else { %>
+          <%- __('post.meta.min2read', min2read(page, { awl: awl, wpm: wpm })) %>
+        <% } %>
+      </span>
+    <% } %>
+
+    <% var views_texts = (theme.post.meta.views.format || __('post.meta.views')).split('{}') %>
+    <% if (theme.post.meta.views.enable && views_texts.length >= 2) { %>
+      <% if (theme.post.meta.views.source === 'leancloud') { %>
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <%- views_texts[0] %><span id="leancloud-page-views"></span><%- views_texts[1] %>
+      </span>
+      <% } else if (theme.post.meta.views.source === 'busuanzi')  { %>
+        <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
+      </span>
+      <% } %>
+    <% } %>
+  </div>
+<% } %>

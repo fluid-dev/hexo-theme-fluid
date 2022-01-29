@@ -1,0 +1,10 @@
+<% if(theme.post.toc.enable && theme.post.toc.placement !== 'left' && page.toc !== false){ %>
+  <div class="toc-container" id="toc-ctn" style="margin-left: -1rem">
+    <%- partial('_partial/post/toc') %>
+  </div>
+<% } else if (theme.post.category_bar.enable && theme.post.category_bar.placement === 'right' && !page.hide &&
+  (!theme.post.category_bar.specific || (theme.post.category_bar.specific && page.category_bar))) { %>
+  <div id="category-bar" style="margin-left: -1rem">
+    <%- partial('_partial/post/category-bar') %>
+  </div>
+<% } %>

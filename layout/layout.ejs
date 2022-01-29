@@ -1,8 +1,6 @@
 <%
 var subtitle = page.subtitle || page.title
-var banner_img = page.banner_img || theme.index.banner_img
-var banner_img_height = page.banner_img_height || theme.index.banner_img_height
-var banner_mask_alpha = page.banner_mask_alpha || theme.index.banner_mask_alpha
+var banner_img_height = parseInt(page.banner_img_height || theme.index.banner_img_height, 10) || 100
 var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.default ? theme.dark_mode.default : ''
 %>
 
@@ -13,47 +11,19 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 
 <body>
   <%- inject_point('bodyBegin') %>
-  <header style="height: <%- banner_img_height %>vh;">
-    <%- partial('_partial/nav') %>
-    <div class="banner" id="banner" <%- theme.banner && theme.banner.parallax && 'parallax=true' %>
-         style="background: url('<%- url_for(banner_img) %>') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="<%= subtitle %>">
-              <% if(!theme.fun_features.typing.enable || !in_scope(theme.fun_features.typing.scope)) { %>
-                <%- subtitle %>
-              <% } %>
-            </span>
 
-            <% if(is_post() && page.meta !== false) { %>
-              <%- partial('_partial/post-meta') %>
-            <% } %>
-          </div>
-
-          <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height && page.layout !== '404') { %>
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
-          <% } %>
-        </div>
-      </div>
-    </div>
-    <%- inject_point('header') %>
-  </header>
+  <%- inject_point('header') %>
 
   <main>
     <% if(is_post() || page.layout === '404') { %>
       <%- body %>
     <% } else { %>
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          <%- banner_img_height >= 100 && theme.banner && theme.banner.parallax ? 'style=margin-top:0' : '' %>>
+        <div id="board"
+          <%- banner_img_height >= 100 && theme.banner && theme.banner.parallax ? 'style="margin-top: 0"' : '' %>>
           <% if(page.layout === 'about') { %>
             <div class="about-avatar">
-              <img src="<%= url_for(theme.about.avatar) %>"
-                   class="img-fluid" alt="avatar">
+              <img src="<%= url_for(theme.about.avatar) %>" class="img-fluid" alt="avatar">
             </div>
           <% } %>
           <div class="container">
@@ -86,9 +56,9 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
     <% } %>
   </main>
 
-  <%- partial('_partial/footer', { params: { subtitle: subtitle } }) %>
+  <%- inject_point('footer') %>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   <%- partial('_partial/scripts') %>
 
   <%- inject_point('bodyEnd') %>

@@ -26,7 +26,6 @@ Fluid.plugins = {
       subtitle.innerText = '';
     }
     jQuery(document).ready(function() {
-      jQuery('.typed-cursor').addClass('h2');
       typed.start();
     });
   },

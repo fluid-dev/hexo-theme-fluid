@@ -1,14 +1,20 @@
-<footer class="text-center mt-5 py-3">
-  <%- inject_point('footer') %>
-  <% if (theme.footer.content) { %>
-    <div class="footer-content">
-      <%- theme.footer.content %>
-    </div>
-  <% } %>
-  <%- partial('_partial/statistics.ejs') %>
-  <%- partial('_partial/beian.ejs') %>
-  <% if(theme.web_analytics.cnzz) { %>
-    <!-- cnzz Analytics Icon -->
-    <span id="cnzz_stat_icon_<%= theme.web_analytics.cnzz %>" style="display: none"></span>
-  <% } %>
+<footer>
+  <div class="footer-inner">
+    <% if (theme.footer.content) { %>
+      <div class="footer-content">
+        <%- theme.footer.content %>
+      </div>
+    <% } %>
+    <% if (theme.footer.statistics.enable) { %>
+      <%- partial('_partial/footer/statistics.ejs') %>
+    <% } %>
+    <% if(theme.footer.beian.enable) { %>
+      <!-- 备案信息 ICP for China -->
+      <%- partial('_partial/footer/beian.ejs') %>
+    <% } %>
+    <% if(theme.web_analytics.cnzz) { %>
+      <!-- cnzz Analytics Icon -->
+      <span id="cnzz_stat_icon_<%= theme.web_analytics.cnzz %>" style="display: none"></span>
+    <% } %>
+  </div>
 </footer>

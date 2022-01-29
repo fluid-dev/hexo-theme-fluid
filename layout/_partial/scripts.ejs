@@ -45,6 +45,12 @@
   <% if (theme.code.copy_btn) { %>
     <%- js_ex(theme.static_prefix.clipboard, 'clipboard.min.js', 'defer') %>
   <% } %>
+  <% if (theme.post.math.enable && (!theme.post.math.specific || (theme.post.math.specific && page.math))) { %>
+    <%- partial('_partial/post/math.ejs') %>
+  <% } %>
+  <% if (theme.post.mermaid.enable && (!theme.post.mermaid.specific || (theme.post.mermaid.specific && page.mermaid))) { %>
+    <%- partial('_partial/post/mermaid.ejs') %>
+  <% } %>
 <% } %>
 
 <% if ((theme.footer.statistics.enable && theme.footer.statistics.source === 'busuanzi')
@@ -60,8 +66,6 @@
 <% } %>
 
 <%- partial('_partial/plugins/typed.ejs') %>
-<%- partial('_partial/plugins/math.ejs') %>
-<%- partial('_partial/plugins/mermaid.ejs') %>
 <%- partial('_partial/plugins/analytics.ejs') %>
 
 <% if (theme.custom_js) { %>

@@ -3,7 +3,6 @@
   position relative
   overflow hidden
   cursor default
-  overflow-wrap break-word
 
   .mask
     position absolute
@@ -11,23 +10,15 @@
     height 100%
     background-color rgba(0, 0, 0, 0.3)
 
-  .page-header
-    color var(--subtitle-color)
-    max-width calc(960px - 6rem)
-    width 80%
-
-  @media (max-width: 575px)
-    .page-header, .page-header i.iconfont
-      font-size 0.9rem
-
   &[parallax="true"]
     will-change transform
     -webkit-transform-style preserve-3d
     -webkit-backface-visibility hidden
+    transition transform .05s ease-out
 
 if $banner-width-height-ratio > 0
   @media (max-width: unit($banner-width-height-ratio * 100, "vh"))
-    header
+    .header-inner
       max-height unit(100 / $banner-width-height-ratio, "vw")
 
     #board

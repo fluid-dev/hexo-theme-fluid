@@ -7,25 +7,12 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2">
-      <% if(theme.post.toc.enable && theme.post.toc.placement === 'left' && page.toc !== false){ %>
-        <div class="toc-container" id="toc-ctn" style="padding-left: 2rem; margin-right: -1rem">
-          <%- partial('_partial/toc') %>
-          <%- inject_point('postLeft') %>
-        </div>
-      <% } else if (theme.post.category_bar.enable && theme.post.category_bar.placement !== 'right' && !page.hide &&
-        (!theme.post.category_bar.specific || (theme.post.category_bar.specific && page.category_bar))) { %>
-        <div id="category-bar" style="margin-right: -1rem">
-          <%- partial('_partial/category-bar') %>
-          <%- inject_point('postLeft') %>
-        </div>
-      <% } else { %>
-        <%- inject_point('postLeft') %>
-      <% } %>
+      <%- inject_point('postLeft') %>
     </div>
 
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none"><%= page.subtitle || page.title %></h1>
@@ -53,7 +40,7 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
               <%- page.content %>
               <%- inject_point('postMarkdownEnd') %>
             </div>
-            <hr>
+            <hr/>
             <div>
               <div class="post-metas mb-3">
                 <% if (page.categories && page.categories.length > 0) { %>
@@ -74,10 +61,7 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
                 <% } %>
               </div>
 
-              <% if(theme.post.copyright.enable && page.copyright !== false) { %>
-                <%- partial('_partial/copyright.ejs') %>
-              <% } %>
-              <%- inject_point('copyright') %>
+              <%- inject_point('postCopyright') %>
 
               <% if(theme.post.prev_next.enable && !page.hide) { %>
                 <div class="post-prevnext">
@@ -105,38 +89,14 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
               <% } %>
             </div>
 
-            <% if(page.comments && theme.post.comments.enable) { %>
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                <% if (typeof page.comment === 'string' && page.comment !== '') { %>
-                  <% type = '_partial/comments/' + page.comment %>
-                <% } else { %>
-                  <% type = '_partial/comments/' + theme.post.comments.type %>
-                <% } %>
-                <%- partial(type) %>
-              </article>
-            <% } %>
-            <%- inject_point('comments') %>
+            <%- inject_point('postComments') %>
           </article>
         </div>
       </div>
     </div>
 
     <div class="d-none d-lg-block col-lg-2">
-      <% if(theme.post.toc.enable && theme.post.toc.placement !== 'left' && page.toc !== false){ %>
-        <div class="toc-container" id="toc-ctn" style="margin-left: -1rem">
-          <%- partial('_partial/toc') %>
-          <%- inject_point('postRight') %>
-        </div>
-      <% } else if (theme.post.category_bar.enable && theme.post.category_bar.placement === 'right' && !page.hide &&
-        (!theme.post.category_bar.specific || (theme.post.category_bar.specific && page.category_bar))) { %>
-        <div id="category-bar" style="margin-left: -1rem">
-          <%- partial('_partial/category-bar') %>
-          <%- inject_point('postRight') %>
-        </div>
-      <% } else { %>
-        <%- inject_point('postRight') %>
-      <% } %>
+      <%- inject_point('postRight') %>
     </div>
   </div>
 </div>

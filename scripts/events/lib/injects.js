@@ -55,13 +55,15 @@ const points = {
     'bodyBegin',
     'bodyEnd',
     'footer',
-    'postMeta',
+    'postMetaHeader',
+    'postMetaFooter',
     'postMarkdownBegin',
     'postMarkdownEnd',
     'postLeft',
     'postRight',
-    'copyright',
-    'comments'
+    'postCopyright',
+    'postComments',
+    'pageComments'
   ],
   styles: [
     'variable',
