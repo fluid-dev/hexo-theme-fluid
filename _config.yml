@@ -1088,6 +1088,8 @@ static_prefix:
 
   gitalk: https://cdn.jsdelivr.net/npm/gitalk@1/dist/
 
+  utterances: https://cdn.jsdelivr.net/npm/utterances@1.3/
+
   disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/
 
   twikoo: https://cdn.jsdelivr.net/npm/twikoo@1/dist/
