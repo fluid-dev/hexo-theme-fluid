@@ -1,5 +1,0 @@
-<% if (theme.post.comments.enable && page.comments) { %>
-  <article id="comments">
-    <%- partial('_partial/comments/' + (typeof page.comment === 'string' && page.comment !== '' ? page.comment : theme.post.comments.type)) %>
-  </article>
-<% } %>

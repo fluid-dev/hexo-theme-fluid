@@ -9,7 +9,7 @@ var orderBy = theme.category.order_by || 'name'
 var cats = site.categories.find({ parent: { $exists: false } }).sort(orderBy).filter(cat => cat.length)
 %>
 
-<%- partial('_partial/category-list', {
+<%- partial('_partials/category-list', {
   cats: cats,
   params: {
     orderBy: orderBy,

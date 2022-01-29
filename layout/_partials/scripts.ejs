@@ -1,4 +1,4 @@
-<%- partial('_partial/plugins/nprogress.ejs') %>
+<%- partial('_partials/plugins/nprogress.ejs') %>
 <%- js_ex(theme.static_prefix.jquery, 'jquery.min.js') %>
 <%- js_ex(theme.static_prefix.bootstrap, 'js/bootstrap.min.js') %>
 <%- js_ex(theme.static_prefix.internal_js, 'events.js') %>
@@ -46,10 +46,10 @@
     <%- js_ex(theme.static_prefix.clipboard, 'clipboard.min.js', 'defer') %>
   <% } %>
   <% if (theme.post.math.enable && (!theme.post.math.specific || (theme.post.math.specific && page.math))) { %>
-    <%- partial('_partial/post/math.ejs') %>
+    <%- partial('_partials/post/math.ejs') %>
   <% } %>
   <% if (theme.post.mermaid.enable && (!theme.post.mermaid.specific || (theme.post.mermaid.specific && page.mermaid))) { %>
-    <%- partial('_partial/post/mermaid.ejs') %>
+    <%- partial('_partials/post/mermaid.ejs') %>
   <% } %>
 <% } %>
 
@@ -65,8 +65,8 @@
   <%- js_ex(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
 <% } %>
 
-<%- partial('_partial/plugins/typed.ejs') %>
-<%- partial('_partial/plugins/analytics.ejs') %>
+<%- partial('_partials/plugins/typed.ejs') %>
+<%- partial('_partials/plugins/analytics.ejs') %>
 
 <% if (theme.custom_js) { %>
   <%- js(theme.custom_js) %>

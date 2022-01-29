@@ -7,7 +7,7 @@ var activeIds = page.categories.map(c => c._id)
 activeIds.push(page._id)
 %>
 
-<%- partial('_partial/category-list', {
+<%- partial('_partials/category-list', {
   cats  : parent,
   params: {
     type     : 'post',

@@ -7,7 +7,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 <!DOCTYPE html>
 <html lang="<%= config.language %>" <%= colorSchema ? `data-default-color-scheme=${colorSchema}` : '' %>>
 
-<%- partial('_partial/head') %>
+<%- partial('_partials/head') %>
 
 <body>
   <%- inject_point('bodyBegin') %>
@@ -44,7 +44,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
     <% } %>
 
     <% if (theme.search.enable) { %>
-      <%- partial('_partial/search') %>
+      <%- partial('_partials/search') %>
     <% } %>
 
     <% if (theme.custom_html) { %>
@@ -59,7 +59,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
   <%- inject_point('footer') %>
 
   <!-- Scripts -->
-  <%- partial('_partial/scripts') %>
+  <%- partial('_partials/scripts') %>
 
   <%- inject_point('bodyEnd') %>
 
