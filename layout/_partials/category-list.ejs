@@ -1,6 +1,6 @@
-<% function render_categories(cats, params = {}) { %>
+<% function render_categories(curCats, params = {}) { %>
   <% var depth = params.depth || 0 %>
-  <% return cats.each((cat) => { %>
+  <% return curCats.each((cat) => { %>
     <% var subCats = site.categories.find({ parent: cat._id }).sort(params.orderBy || 'name').filter(cat => cat.length) %>
     <% var collapsed = subCats.length === 0 || depth >= theme.category.collapse_depth %>
     <% if ((params.activeIds || []).includes(cat._id)) collapsed = false %>
@@ -60,5 +60,5 @@
 <% } %>
 
 <div class="category-list">
-  <%- render_categories(cats, params) %>
+  <%- render_categories(curCats, params) %>
 </div>

@@ -42,24 +42,7 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
             </div>
             <hr/>
             <div>
-              <div class="post-metas mb-3">
-                <% if (page.categories && page.categories.length > 0) { %>
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    <% page.categories.each(function(cate) { %>
-                      <a class="hover-with-bg" href="<%= url_for(cate.path) %>"><%- cate.name %></a>
-                    <% }) %>
-                  </div>
-                <% } %>
-                <% if (page.tags && page.tags.length > 0 ) { %>
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    <% page.tags.each(function(tag) { %>
-                      <a class="hover-with-bg" href="<%= url_for(tag.path) %>"><%- tag.name %></a>
-                    <% }) %>
-                  </div>
-                <% } %>
-              </div>
+              <%- inject_point('postMetaFooter') %>
 
               <%- inject_point('postCopyright') %>
 

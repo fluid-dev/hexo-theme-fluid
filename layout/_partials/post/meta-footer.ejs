@@ -1,0 +1,16 @@
+<div class="post-metas my-3">
+  <% if (page.categories && page.categories.length > 0) { %>
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      <%- partial('_partials/category-chains', { categories: page.categories }) %>
+    </div>
+  <% } %>
+  <% if (page.tags && page.tags.length > 0 ) { %>
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      <% page.tags.each(function(tag) { %>
+        <a href="<%= url_for(tag.path) %>">#<%- tag.name %></a>
+      <% }) %>
+    </div>
+  <% } %>
+</div>

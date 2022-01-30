@@ -44,11 +44,9 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
           </div>
         <% } %>
         <% if(theme.index.post_meta.category && post.categories.length > 0) { %>
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            <% post.categories.each(function(cate){ %>
-              <a href="<%= url_for(cate.path) %>"><%- cate.name %></a>
-            <% }) %>
+            <%- partial('_partials/category-chains', { categories: post.categories, limit: 1 }) %>
           </div>
         <% } %>
         <% if(theme.index.post_meta.tag && post.tags.length > 0) { %>

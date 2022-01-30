@@ -6,11 +6,11 @@ page.banner_img = theme.category.banner_img
 page.banner_img_height = theme.category.banner_img_height
 page.banner_mask_alpha = theme.category.banner_mask_alpha
 var orderBy = theme.category.order_by || 'name'
-var cats = site.categories.find({ parent: { $exists: false } }).sort(orderBy).filter(cat => cat.length)
+var curCats = site.categories.find({ parent: { $exists: false } }).sort(orderBy).filter(cat => cat.length)
 %>
 
 <%- partial('_partials/category-list', {
-  cats: cats,
+  curCats: curCats,
   params: {
     orderBy: orderBy,
     postLimit  : theme.category.post_limit,
