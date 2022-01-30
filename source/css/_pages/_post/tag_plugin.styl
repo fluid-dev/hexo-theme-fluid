@@ -73,19 +73,15 @@
 
 // button
 .markdown-body .btn
+  border 1px solid var(--line-color)
   background-color var(--button-bg-color)
-  border-radius .25rem
   color var(--text-color)
+  transition color .2s ease-in-out, background .2s ease-in-out, border-color .2s ease-in-out
+  border-radius .25rem
   display inline-block
   font-size .875em
   line-height 2
   padding 0 .75rem
-  text-decoration none
-  transition-property background
-  transition-delay 0s
-  transition-duration 0.2s
-  transition-timing-function ease-in-out
-  box-shadow 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
   margin-bottom 1rem
 
   &:hover

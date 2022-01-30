@@ -216,8 +216,8 @@ color:
 
   # 按钮背景色
   # Color of button
-  button_bg_color: "#f6f8fa"
-  button_bg_color_dark: "#2f4154"
+  button_bg_color: "transparent"
+  button_bg_color_dark: "transparent"
   # 按钮悬浮背景色
   # Color of button when hovering
   button_hover_bg_color: "#f2f3f5"
