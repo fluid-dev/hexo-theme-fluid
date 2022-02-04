@@ -53,7 +53,7 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             <% post.tags.each(function(tag){ %>
-              <a href="<%= url_for(tag.path) %>"><%- tag.name %></a>
+              <a href="<%= url_for(tag.path) %>">#<%- tag.name %></a>
             <% }) %>
           </div>
         <% } %>
