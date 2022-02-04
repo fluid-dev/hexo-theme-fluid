@@ -130,10 +130,9 @@ Fluid.utils = {
         s.onload = onload;
       }
     }
-    var e = document.getElementsByTagName('script')[0]
-    || document.getElementsByTagName('head')[0]
-    || document.head || document.documentElement;
-    e.parentNode.insertBefore(s, e);
+    var ss = document.getElementsByTagName('script');
+    var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+    e.parentNode.insertBefore(s, e.nextSibling);
   },
 
   createCssLink: function(url) {

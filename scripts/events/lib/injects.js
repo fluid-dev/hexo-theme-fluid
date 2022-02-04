@@ -63,7 +63,8 @@ const points = {
     'postRight',
     'postCopyright',
     'postComments',
-    'pageComments'
+    'pageComments',
+    'linksComments'
   ],
   styles: [
     'variable',

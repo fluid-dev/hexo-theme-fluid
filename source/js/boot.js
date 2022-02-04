@@ -11,15 +11,6 @@ Fluid.boot.registerEvents = function() {
   Fluid.events.registerImageLoadedEvent();
 };
 
-Fluid.boot.initPlugins = function() {
-  Fluid.plugins.initAnchor();
-  Fluid.plugins.initTocBot();
-  Fluid.plugins.initImageCaption();
-  Fluid.plugins.initFancyBox();
-  Fluid.plugins.initCodeWidget();
-};
-
 document.addEventListener('DOMContentLoaded', function() {
   Fluid.boot.registerEvents();
-  Fluid.boot.initPlugins();
 });

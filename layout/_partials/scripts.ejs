@@ -4,12 +4,6 @@
 <%- js_ex(theme.static_prefix.internal_js, 'events.js') %>
 <%- js_ex(theme.static_prefix.internal_js, 'plugins.js') %>
 
-<!-- Plugins -->
-
-<% if(theme.search.enable){ %>
-  <%- js_ex(theme.static_prefix.internal_js, 'local-search.js') %>
-<% } %>
-
 <% if (theme.lazyload.enable){ %>
   <% if (theme.lazyload.onlypost) { %>
     <% if (is_post() || is_page()) { %>
@@ -20,53 +14,15 @@
   <% } %>
 <% } %>
 
-<% if (theme.code.highlight.enable) { %>
-  <% if (theme.code.highlight.lib === 'prismjs') { %>
-    <% if (!theme.code.highlight.prismjs.preprocess) { %>
-      <%- js_ex(theme.static_prefix.prismjs, 'components/prism-core.min.js') %>
-      <%- js_ex(theme.static_prefix.prismjs, 'plugins/autoloader/prism-autoloader.min.js') %>
-      <% if (theme.code.highlight.line_number) { %>
-        <%- js_ex(theme.static_prefix.prismjs, '/plugins/line-numbers/prism-line-numbers.min.js') %>
-      <% } %>
-    <% } %>
-  <% } %>
-<% } %>
-
-<% if (is_post() || is_page()) { %>
-  <% if (theme.post.toc.enable && page.toc !== false) { %>
-    <%- js_ex(theme.static_prefix.tocbot, 'tocbot.min.js') %>
-  <% } %>
-  <% if (theme.post.image_zoom.enable && page.image_zoom !== false) { %>
-    <%- js_ex(theme.static_prefix.fancybox, 'jquery.fancybox.min.js') %>
-  <% } %>
-  <% if (theme.fun_features.anchorjs.enable && page.anchorjs !== false) { %>
-    <%- js_ex(theme.static_prefix.anchor, 'anchor.min.js') %>
-  <% } %>
-  <% if (theme.code.copy_btn) { %>
-    <%- js_ex(theme.static_prefix.clipboard, 'clipboard.min.js', 'defer') %>
-  <% } %>
-  <% if (theme.post.math.enable && (!theme.post.math.specific || (theme.post.math.specific && page.math))) { %>
-    <%- partial('_partials/post/math.ejs') %>
-  <% } %>
-  <% if (theme.post.mermaid.enable && (!theme.post.mermaid.specific || (theme.post.mermaid.specific && page.mermaid))) { %>
-    <%- partial('_partials/post/mermaid.ejs') %>
-  <% } %>
-<% } %>
-
-<% if ((theme.footer.statistics.enable && theme.footer.statistics.source === 'busuanzi')
-  || (page.meta !== false && theme.post.meta.views.enable && theme.post.meta.views.source === 'busuanzi')) { %>
-  <%- js_ex(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
-<% } %>
-<% if (theme.web_analytics.enable && theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key) { %>
-  <%- js_ex(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
-<% } else if (theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key &&
-  ((theme.footer.statistics.enable && theme.footer.statistics.source === 'leancloud')
-    || (page.meta !== false && theme.post.meta.views.enable && theme.post.meta.views.source === 'leancloud'))) { %>
-  <%- js_ex(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
-<% } %>
-
 <%- partial('_partials/plugins/typed.ejs') %>
 <%- partial('_partials/plugins/analytics.ejs') %>
+
+<% if (page.script_snippets) { %>
+  <% for (var idx = 0; idx < page.script_snippets.length; idx++) { %>
+    <%- page.script_snippets[idx] %>
+  <% } %>
+  <% page.script_snippets = [] %>
+<% } %>
 
 <% if (theme.custom_js) { %>
   <%- js(theme.custom_js) %>

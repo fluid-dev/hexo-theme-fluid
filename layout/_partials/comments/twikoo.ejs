@@ -10,8 +10,8 @@
             path: '<%= theme.twikoo.path %>',
             onCommentLoaded: function() {
               var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
-              Fluid.plugins.initImageCaption(imgSelector);
-              Fluid.plugins.initFancyBox(imgSelector);
+              Fluid.plugins.imageCaption(imgSelector);
+              Fluid.plugins.fancyBox(imgSelector);
             }
           }
         )
