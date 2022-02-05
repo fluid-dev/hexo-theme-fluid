@@ -65,3 +65,5 @@ footer:
 search:
   title: 'Suchen'
   keyword: 'Stichwort'
+
+noscript_warning: 'Blog funktioniert am besten mit aktiviertem JavaScript'

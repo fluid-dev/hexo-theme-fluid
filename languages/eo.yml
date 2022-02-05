@@ -65,3 +65,5 @@ footer:
 search:
   title: 'Serĉi'
   keyword: 'ŝlosivorto'
+
+noscript_warning: 'Blogo funkcias plej bone kun JavaScript ebligita'

@@ -65,3 +65,5 @@ footer:
 search:
   title: '検索'
   keyword: 'キーワード'
+
+noscript_warning: 'ブログは JavaScript を有効にすると最適に機能します'

@@ -65,3 +65,5 @@ footer:
 search:
   title: '搜尋'
   keyword: '關鍵字'
+
+noscript_warning: '博客在允許 JavaScript 運行的環境下瀏覽效果更佳'
