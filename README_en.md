@@ -23,9 +23,9 @@
 <p align="center"><a title="Chinese" href="README.md">🇨🇳 中文简体</a>  |  🇬🇧 English</p>
 
 <p align="center">
-  <span>Docs：</span>
-  <a href="https://hexo.fluid-dev.com/docs/en/guide/">Theme-Guide</a>&nbsp&nbsp&nbsp&nbsp
-  <a href="https://hexo.io/docs/front-matter">Post-Guide</a>
+  <span>Docs: </span>
+  <a href="https://hexo.fluid-dev.com/docs/en/guide/">Theme guide</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.io/docs/front-matter">Post guide</a>
 </p>
 
 <p align="center">
@@ -110,9 +110,9 @@ About content
 
 [![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
 
-English docs translator：[@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top)
+English docs translator: [@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top)
 
-Contributors outside PR：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
+Contributors outside PR: [@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
 
 ## Thanks
 
