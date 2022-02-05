@@ -6,7 +6,7 @@
       <script>
         MathJax = {
           tex    : {
-            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            inlineMath: { '[+]': [['$', '$']] }
           },
           loader : {
             ${ lazy ? 'load: \[\'ui/lazy\'\]' : '' }
@@ -38,7 +38,7 @@
       </script>
     `)
 
-    import_js(theme.static_prefix.mathjax, 'tex-svg.js')
+    import_js(theme.static_prefix.mathjax.replace('es5/', ''), 'es5/tex-mml-chtml.js')
   %>
 
 <% } else if (theme.post.math.engine === 'katex') { %>
