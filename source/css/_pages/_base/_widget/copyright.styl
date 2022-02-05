@@ -10,14 +10,20 @@
   position relative
   z-index 1
 
-  &::after
-    content "\e8e4"
-    font-size 200px
-    opacity 0.1
+  .license-icon
     position absolute
-    right -35px
-    top -80px
-    z-index -1
+    top 50%
+    left 100%
+
+    &::after
+      content "\e8e4"
+      font-size 12.5rem
+      line-height 1
+      opacity 0.1
+      position relative
+      left -.85em
+      bottom .5em
+      z-index -1
 
   .license-title
     margin-bottom 1rem
