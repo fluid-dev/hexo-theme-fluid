@@ -254,6 +254,9 @@ hr, .markdown-body hr
   .highlight pre, pre
     padding 1.45rem 1rem
 
+  pre[class*="language-"]
+    padding 1.45rem 1rem 1.45rem 3.5rem
+
 *:not(td) > .code-wrapper
   position relative
   border-radius 3px
@@ -290,7 +293,8 @@ figure.highlight
     z-index 1
 
     &:not(.hljs)
-      background-color #f6f8fa
+      background-color var(--highlight-bg-color)
+      transition color .2s ease-in-out, background-color .2s ease-in-out
 
     pre
       text-align right
@@ -309,6 +313,8 @@ figure.highlight
   td.code > pre
     border-top-left-radius 0
     border-bottom-left-radius 0
+    background-color var(--highlight-bg-color)
+    transition color .2s ease-in-out, background-color .2s ease-in-out
 
 // Rewrite mdb.css
 .list-group-item

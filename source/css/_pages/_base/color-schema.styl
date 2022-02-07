@@ -17,6 +17,7 @@
   --scrollbar-hover-color $scrollbar-hover-color
   --button-bg-color $button-bg-color
   --button-hover-bg-color $button-hover-bg-color
+  --highlight-bg-color $highlight-bg-color
 
 dark-colors()
   --body-bg-color $body-bg-color-dark
@@ -36,6 +37,7 @@ dark-colors()
   --scrollbar-hover-color $scrollbar-hover-color-dark
   --button-bg-color $button-bg-color-dark
   --button-hover-bg-color $button-hover-bg-color-dark
+  --highlight-bg-color $highlight-bg-color-dark
 
   img
     -webkit-filter brightness(.9)
@@ -54,12 +56,13 @@ dark-colors()
     background-color transparent
     transition background-color .2s ease-in-out
 
-@media (prefers-color-scheme: dark)
-  :root
-    --color-mode 'dark'
+if (hexo-config('dark_mode.enable'))
+  @media (prefers-color-scheme: dark)
+    :root
+      --color-mode 'dark'
 
-  :root:not([data-user-color-scheme])
+    :root:not([data-user-color-scheme])
+      dark-colors()
+
+  [data-user-color-scheme='dark']
     dark-colors()
-
-[data-user-color-scheme='dark']
-  dark-colors()

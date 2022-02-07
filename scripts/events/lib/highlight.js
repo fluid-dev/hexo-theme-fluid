@@ -1,8 +1,48 @@
 'use strict';
 
+const fs = require('fs');
 const objUtil = require('../../utils/object');
+const resolveModule = require('../../utils/resolve');
 
 module.exports = (hexo) => {
+
+  function highlightCSS(name) {
+    if (!name) {
+      name = 'github-gist';
+    }
+    const cssName = name.toLowerCase().replace(/([^0-9])\s+?([^0-9])/g, '$1-$2').replace(/\s/g, '');
+    let file = resolveModule('highlight.js', `styles/${cssName}.css`);
+    if (cssName === 'github-gist' && !fs.existsSync(file)) {
+      file = resolveModule('highlight.js', 'styles/github.css');
+    }
+    if (!fs.existsSync(file)) {
+      hexo.log.error(`[Fluid] highlightjs style '${name}' not found`);
+      return;
+    }
+    return file;
+  }
+
+  function prismCSS(name) {
+    if (!name) {
+      name = 'default';
+    }
+    let cssName = name.toLowerCase().replace(/[\s-]/g, '');
+    if (cssName === 'prism' || cssName === 'default') {
+      cssName = '';
+    } else if (cssName === 'tomorrownight') {
+      cssName = 'tomorrow';
+    }
+    let file = resolveModule('prismjs', `themes/${cssName ? 'prism-' + cssName : 'prism'}.css`);
+    if (!fs.existsSync(file)) {
+      file = resolveModule('prism-themes', `themes/${cssName}.css`);
+    }
+    if (!fs.existsSync(file)) {
+      hexo.log.error(`[Fluid] prismjs style '${name}' not found`);
+      return;
+    }
+    return file;
+  }
+
   const config = hexo.theme.config;
   if (!config.code || !config.code.highlight.enable) {
     return;
@@ -19,6 +59,10 @@ module.exports = (hexo) => {
       wrap       : false,
       auto_detect: true,
       line_number: config.code.highlight.line_number || false
+    });
+    hexo.theme.config.code.highlight.highlightjs = objUtil.merge({}, hexo.theme.config.code.highlight.highlightjs, {
+      light_css: highlightCSS(hexo.theme.config.code.highlight.highlightjs.style),
+      dark_css : hexo.theme.config.dark_mode.enable && highlightCSS(hexo.theme.config.code.highlight.highlightjs.style_dark)
     });
 
     hexo.extend.filter.register('after_post_render', (page) => {
@@ -63,6 +107,10 @@ module.exports = (hexo) => {
       enable     : true,
       preprocess : config.code.highlight.prismjs.preprocess || false,
       line_number: config.code.highlight.line_number || false
+    });
+    hexo.theme.config.code.highlight.prismjs = objUtil.merge({}, hexo.theme.config.code.highlight.prismjs, {
+      light_css: prismCSS(hexo.theme.config.code.highlight.prismjs.style),
+      dark_css : hexo.theme.config.dark_mode.enable && prismCSS(hexo.theme.config.code.highlight.prismjs.style_dark)
     });
 
     hexo.extend.filter.register('after_post_render', (page) => {

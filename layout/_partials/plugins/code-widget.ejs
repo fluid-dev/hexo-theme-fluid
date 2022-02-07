@@ -8,12 +8,7 @@ import_script(`<script>
     }
 
     function getBgClass(ele) {
-      if (ele.length === 0) {
-        return 'code-widget-light';
-      }
-      var rgbArr = ele.css('background-color').replace(/rgba*\\(/, '').replace(')', '').split(',');
-      var color = (0.213 * rgbArr[0]) + (0.715 * rgbArr[1]) + (0.072 * rgbArr[2]) > 255 / 2;
-      return color ? 'code-widget-light' : 'code-widget-dark';
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
     }
 
     var copyTmpl = '';
@@ -46,7 +41,7 @@ import_script(`<script>
         lang = lang.toUpperCase().replace(/(LIVECODESERVER|NONE)/, CONFIG.code_language.default);
       }
       $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
 
       if (enableCopy) {
         Fluid.utils.createScript('${url_join(theme.static_prefix.clipboard, 'clipboard.min.js')}', function() {

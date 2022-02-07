@@ -1,31 +1,5 @@
 <%
-var cssName
-if (theme.code.highlight.lib === 'highlightjs') {
-  cssName = theme.code.highlight.highlightjs.style.toLowerCase().replace(/([^0-9])\s([^0-9])/g, '$1-$2').replace(/\s/g, '')
-  if (cssName === 'github-gist' && require_version(theme.static_prefix.highlightjs, '11.0.0')) {
-    cssName = 'github'
-  }
-  import_css(theme.static_prefix.highlightjs, `/styles/${cssName}.min.css`)
-
-} else if (theme.code.highlight.lib === 'prismjs') {
-  var style = theme.code.highlight.prismjs.style
-  if (/\.css$/.test(style)) {
-    import_css(theme.static_prefix.prismjs, style)
-  } else {
-    if (!style || style === 'default') {
-      cssName = ''
-    } else {
-      cssName = style.toLowerCase().replace(/[\s\-]/g, '')
-      if (cssName === 'prism') {
-        cssName = ''
-      }
-      if (cssName === 'tomorrownight') {
-        cssName = 'tomorrow'
-      }
-    }
-    import_css(theme.static_prefix.prismjs, `/themes/${cssName ? 'prism-' + cssName : 'prism'}.min.css`)
-  }
-
+if (theme.code.highlight.lib === 'prismjs') {
   if (!theme.code.highlight.prismjs.preprocess) {
     import_js(theme.static_prefix.prismjs, 'components/prism-core.min.js')
     import_js(theme.static_prefix.prismjs, 'plugins/autoloader/prism-autoloader.min.js')
