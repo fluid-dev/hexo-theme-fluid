@@ -10,8 +10,8 @@ hexo.extend.filter.register('theme_inject', function(injects) {
 
   injects.postLeft.file('default', path.join(hexo.theme_dir, 'layout/_partials/post/sidebar-left.ejs'));
   injects.postRight.file('default', path.join(hexo.theme_dir, 'layout/_partials/post/sidebar-right.ejs'));
-  injects.postMetaHeader.file('default', path.join(hexo.theme_dir, 'layout/_partials/post/meta-header.ejs'));
-  injects.postMetaFooter.file('default', path.join(hexo.theme_dir, 'layout/_partials/post/meta-footer.ejs'));
+  injects.postMetaTop.file('default', path.join(hexo.theme_dir, 'layout/_partials/post/meta-top.ejs'));
+  injects.postMetaBottom.file('default', path.join(hexo.theme_dir, 'layout/_partials/post/meta-bottom.ejs'));
   if (hexo.theme.config.post.copyright.enable) {
     injects.postCopyright.file('default', path.join(hexo.theme_dir, 'layout/_partials/post/copyright.ejs'));
   }
