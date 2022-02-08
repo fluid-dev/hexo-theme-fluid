@@ -15,22 +15,22 @@
       <div><%= page.permalink %></div>
     </div>
     <div class="license-meta">
-      <% if (theme.post.copyright.author.enable) { %>
+      <% if (theme.post.copyright.author.enable && (page.author || config.author)) { %>
         <div class="license-meta-item">
           <div><%- __('post.copyright.author') %></div>
           <div><%- page.author || config.author %></div>
         </div>
       <% } %>
-      <% if (theme.post.copyright.post_date.enable) { %>
+      <% if (theme.post.copyright.post_date.enable && page.date) { %>
         <div class="license-meta-item license-meta-date">
           <div><%- __('post.copyright.posted') %></div>
-          <div><%= full_date(page.date, theme.post.copyright.post_date.format) %></div>
+          <div><%= full_date(page.date, theme.post.copyright.post_date.format || 'LL') %></div>
         </div>
       <% } %>
-      <% if (theme.post.copyright.update_date.enable) { %>
+      <% if (theme.post.copyright.update_date.enable && page.updated) { %>
         <div class="license-meta-item license-meta-date">
           <div><%- __('post.copyright.updated') %></div>
-          <div><%= full_date(page.updated, theme.post.copyright.update_date.format) %></div>
+          <div><%= full_date(page.updated, theme.post.copyright.update_date.format || 'LL') %></div>
         </div>
       <% } %>
       <div class="license-meta-item">
