@@ -244,9 +244,6 @@ hr, .markdown-body hr
     overflow-x initial
     padding 0
 
-    pre
-      background-color initial !important
-
   hr
     height 0
     margin 2rem 0
@@ -259,7 +256,9 @@ hr, .markdown-body hr
     padding 1.45rem 1rem
 
   pre[class*="language-"]
-    padding 1.45rem 1rem 1.45rem 3.5rem
+    padding-top 1.45rem
+    padding-bottom 1.45rem
+    padding-right 1rem
 
 *:not(td) > .code-wrapper
   position relative
@@ -296,10 +295,6 @@ figure.highlight
     left 0
     z-index 1
 
-    &:not(.hljs)
-      background-color var(--highlight-bg-color)
-      transition color .2s ease-in-out, background-color .2s ease-in-out
-
     pre
       text-align right
       font-size 1px
@@ -307,7 +302,6 @@ figure.highlight
       overflow-y none
       padding 0 .75rem
       line-height 1.5
-      background-color inherit
       border-radius initial
       border-right 1px solid #999
 
@@ -317,8 +311,10 @@ figure.highlight
   td.code > pre
     border-top-left-radius 0
     border-bottom-left-radius 0
-    background-color var(--highlight-bg-color)
+
+.markdown-body .hljs, .markdown-body .highlight pre, .markdown-body pre
     transition color .2s ease-in-out, background-color .2s ease-in-out
+    background-color var(--highlight-bg-color)
 
 // Rewrite mdb.css
 .list-group-item

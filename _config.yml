@@ -66,10 +66,6 @@ code:
       style: "github gist"
       style_dark: "dark"
 
-      # 是否根据 style 改变代码背景色（如果 style 是深色背景别忘了开启此项）
-      # If true, the code background will change color based on the style (If style has a dark background, don't forget to true)
-      bg_color: false
-
     prismjs:
       # 在下方链接页面右侧的圆形按钮挑选 style 填入，也可以直接填入 css 链接
       # Select the style button on the right side of the link page, you can also set the CSS link
@@ -1053,8 +1049,6 @@ static_prefix:
   jquery: https://cdn.staticfile.org/jquery/3.6.0/
 
   bootstrap: https://cdn.staticfile.org/twitter-bootstrap/4.6.1/
-
-  highlightjs: https://cdn.staticfile.org/highlight.js/11.4.0/
 
   prismjs: https://cdn.staticfile.org/prism/1.26.0/
 

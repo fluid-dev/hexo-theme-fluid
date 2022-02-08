@@ -6,7 +6,11 @@ const resolveModule = require('../../utils/resolve');
 
 module.exports = (hexo) => {
 
-  function highlightCSS(name) {
+  function parseStyleValue(line, attr) {
+    return line.split(attr)[1].replace(';', '').trim();
+  }
+
+  function resolveHighlight(name) {
     if (!name) {
       name = 'github-gist';
     }
@@ -15,14 +19,29 @@ module.exports = (hexo) => {
     if (cssName === 'github-gist' && !fs.existsSync(file)) {
       file = resolveModule('highlight.js', 'styles/github.css');
     }
-    if (!fs.existsSync(file)) {
+    let backgroundColor;
+    if (fs.existsSync(file)) {
+      const css = fs.readFileSync(file).toString();
+      let rule = '';
+      css.replace(/\.hljs(\s+|,[^{]+){(.*?)}/sg, (match, $1, content) => {
+        rule += content;
+        return match;
+      });
+      rule.split('\n').forEach(line => {
+        if (line.includes('background:')) {
+          backgroundColor = parseStyleValue(line, 'background:');
+        } else if (line.includes('background-color:')) {
+          backgroundColor = parseStyleValue(line, 'background-color:');
+        }
+      });
+    } else {
       hexo.log.error(`[Fluid] highlightjs style '${name}' not found`);
-      return;
+      return {};
     }
-    return file;
+    return { file, backgroundColor };
   }
 
-  function prismCSS(name) {
+  function resolvePrism(name) {
     if (!name) {
       name = 'default';
     }
@@ -38,9 +57,9 @@ module.exports = (hexo) => {
     }
     if (!fs.existsSync(file)) {
       hexo.log.error(`[Fluid] prismjs style '${name}' not found`);
-      return;
+      return {};
     }
-    return file;
+    return { file };
   }
 
   const config = hexo.theme.config;
@@ -61,27 +80,17 @@ module.exports = (hexo) => {
       line_number: config.code.highlight.line_number || false
     });
     hexo.theme.config.code.highlight.highlightjs = objUtil.merge({}, hexo.theme.config.code.highlight.highlightjs, {
-      light_css: highlightCSS(hexo.theme.config.code.highlight.highlightjs.style),
-      dark_css : hexo.theme.config.dark_mode.enable && highlightCSS(hexo.theme.config.code.highlight.highlightjs.style_dark)
+      light: resolveHighlight(hexo.theme.config.code.highlight.highlightjs.style),
+      dark : hexo.theme.config.dark_mode.enable && resolveHighlight(hexo.theme.config.code.highlight.highlightjs.style_dark)
     });
 
     hexo.extend.filter.register('after_post_render', (page) => {
-      if (config.code.highlight.highlightjs.bg_color) {
-        page.content = page.content.replace(/(?<!<div class="hljs code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
-          if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
-            return str.replace(/(class=".*?)hljs(.*?")/gims, '$1$2');
-          }
-          return `<div class="hljs code-wrapper">${p1}</div>`;
-        });
-        page.content = page.content.replace(/<td class="gutter/gims, '<td class="gutter hljs');
-      } else {
-        page.content = page.content.replace(/(?<!<td class="code.*?">|<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
-          if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
-            return str.replace(/(class=".*?)hljs(.*?")/gims, '$1$2');
-          }
-          return `<div class="code-wrapper">${p1}</div>`;
-        });
-      }
+      page.content = page.content.replace(/(?<!<td class="code.*?">|<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
+        if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
+          return str.replace(/(class=".*?)hljs(.*?")/gims, '$1$2');
+        }
+        return `<div class="code-wrapper">${p1}</div>`;
+      });
 
       page.content = page.content.replace(/<pre><code>/gims, (str) => {
         return '<pre><code class="hljs">';
@@ -109,8 +118,8 @@ module.exports = (hexo) => {
       line_number: config.code.highlight.line_number || false
     });
     hexo.theme.config.code.highlight.prismjs = objUtil.merge({}, hexo.theme.config.code.highlight.prismjs, {
-      light_css: prismCSS(hexo.theme.config.code.highlight.prismjs.style),
-      dark_css : hexo.theme.config.dark_mode.enable && prismCSS(hexo.theme.config.code.highlight.prismjs.style_dark)
+      light: resolvePrism(hexo.theme.config.code.highlight.prismjs.style),
+      dark : hexo.theme.config.dark_mode.enable && resolvePrism(hexo.theme.config.code.highlight.prismjs.style_dark)
     });
 
     hexo.extend.filter.register('after_post_render', (page) => {

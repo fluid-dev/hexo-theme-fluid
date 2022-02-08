@@ -16,8 +16,7 @@ module.exports = (hexo) => {
         enable     : hexo.theme.config.highlight.enable,
         lib        : 'highlightjs',
         highlightjs: {
-          style   : hexo.theme.config.highlight.style,
-          bg_color: hexo.theme.config.highlight.bg_color
+          style: hexo.theme.config.highlight.style
         },
         prismjs: {
           style     : 'default',

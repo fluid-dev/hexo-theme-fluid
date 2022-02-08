@@ -1,6 +1,6 @@
-if (hexo-config('code.highlight.enable'))
-  if hexo-config('code.highlight.highlightjs.light_css')
-    @require hexo-config('code.highlight.highlightjs.light_css')
+if hexo-config('code.highlight.enable')
+  if hexo-config('code.highlight.highlightjs.light.file')
+    @require hexo-config('code.highlight.highlightjs.light.file')
 
-  if hexo-config('code.highlight.prismjs.light_css')
-    @require hexo-config('code.highlight.prismjs.light_css')
+  if hexo-config('code.highlight.prismjs.light.file')
+    @require hexo-config('code.highlight.prismjs.light.file')
