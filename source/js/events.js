@@ -51,15 +51,9 @@ Fluid.events = {
       ph.css({
         transform: 'translate3d(0,' + oVal + 'px,0)'
       });
-      var categoryBar = jQuery('#category-bar');
-      if (categoryBar) {
-        categoryBar.css({
-          'padding-top': oVal + 'px'
-        });
-      }
-      var toc = jQuery('#toc');
-      if (toc) {
-        jQuery('#toc-ctn').css({
+      var sidebar = jQuery('.sidebar');
+      if (sidebar) {
+        sidebar.css({
           'padding-top': oVal + 'px'
         });
       }
