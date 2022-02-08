@@ -92,18 +92,16 @@ About content
 
 ## Features
 
-- [x] Image lazyload
-- [x] Custom code highlighting scheme
-- [x] Internationalization
-- [x] Support for multiple comment plugins
-- [x] Support for storing configuration in [Data Files](https://hexo.io/docs/data-files.html)
-- [x] Custom static resource CDN
 - [x] Detailed [documents](https://hexo.fluid-dev.com/docs/en/)
-- [x] Built-in search plugin
-- [x] Website analysis
+- [x] Widget lazyload
+- [x] Multiple code highlighting schemes
+- [x] Multiple comment plugins
+- [x] Multiple language configurations
+- [x] Multiple website analysis
+- [x] Support for local search
 - [x] Support for footnote
 - [x] Support for LaTeX
-- [x] Support for mermaid
+- [x] Support for Mermaid
 - [x] Dark mode
 
 ## Contributors

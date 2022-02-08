@@ -95,20 +95,25 @@ layout: about
 
 ## 功能特性
 
-- [x] 图片懒加载
-- [x] 自定义代码高亮方案
-- [x] 内置多语言
-- [x] 支持多款评论插件
-- [x] 支持使用[数据文件](https://hexo.io/zh-cn/docs/data-files)存放配置
-- [x] 自定义静态资源 CDN
 - [x] 无比详实的[用户文档](https://hexo.fluid-dev.com/docs/)
-- [x] 内置文章搜索
-- [x] 页脚备案信息
-- [x] 网页访问统计
+- [x] 页面组件懒加载
+- [x] 多种代码高亮方案
+- [x] 多语言配置
+- [x] 内置多款评论插件
+- [x] 内置网页访问统计
+- [x] 内置文章本地搜索
+- [x] 支持暗色模式
 - [x] 支持脚注语法
 - [x] 支持 LaTeX 数学公式
 - [x] 支持 mermaid 流程图
-- [x] 暗色模式
+
+## 支持我们
+
+你可以扫描下方微信赞赏码支持我们的开源创作，让我们可以补贴服务器及域名等日常开销。
+
+<img src="https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/sponsor.png?s=200&v=4" width="200" alt="微信赞赏码">
+
+同时我们正在**寻求商业赞助**，如果贵司想在本页显著位置展示广告位（每月 6K+ Views 定向流量曝光），或者有其他赞助形式，可将联系方式发送邮件至 zkqiang#126.com (#替换为@)。
 
 ## 贡献者
 
@@ -119,14 +124,6 @@ layout: about
 其他贡献：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
 
 如你也想贡献代码，可参照[贡献指南](https://hexo.fluid-dev.com/docs/contribute/)
-
-## 支持
-
-你可以扫描下方微信赞赏码支持我们的开源创作，资金将用于服务器及域名开销以及今后的公共接口服务。
-
-<img src="https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/sponsor.png?s=200&v=4" width="200" alt="微信赞赏码">
-
-同时我们正在寻找商业赞助商，如果贵司想在本页展示广告位（每月 6K+ Views 定向流量曝光），或者有其他赞助形式，可将联系方式发送邮件至 zkqiang#126.com (#替换为@)。
 
 ## 鸣谢
 
