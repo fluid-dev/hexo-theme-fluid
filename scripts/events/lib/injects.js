@@ -50,7 +50,7 @@ class ViewInject {
 
 const points = {
   views: [
-    'head',
+    'headEnd',
     'header',
     'bodyBegin',
     'bodyEnd',
