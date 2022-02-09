@@ -1,8 +1,4 @@
 #toc
-  position -webkit-sticky
-  position sticky
-  top 2rem
-  padding 3rem 0 0 0
   visibility hidden
 
 .toc-header
@@ -69,9 +65,6 @@
     transition height .1s ease-in-out, margin .1s ease-in-out, visibility .1s ease-in-out
 
 .sidebar
-  height 100%
-
-@media (max-width: 1024px)
-  .sidebar
-    padding-left 0
-    padding-right 0
+  position sticky
+  top 2rem
+  padding 3rem 0

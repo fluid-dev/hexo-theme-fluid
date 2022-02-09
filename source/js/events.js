@@ -45,19 +45,19 @@ Fluid.events = {
       return;
     }
     var parallax = function() {
-      var oVal = jQuery(window).scrollTop() / 5;
+      var pxv = jQuery(window).scrollTop() / 5;
       var offset = parseInt(board.css('margin-top'), 10);
       var max = 96 + offset;
-      if (oVal > max) {
-        oVal = max;
+      if (pxv > max) {
+        pxv = max;
       }
       ph.css({
-        transform: 'translate3d(0,' + oVal + 'px,0)'
+        transform: 'translate3d(0,' + pxv + 'px,0)'
       });
-      var sidebar = jQuery('.sidebar');
-      if (sidebar) {
-        sidebar.css({
-          'padding-top': oVal + 'px'
+      var sideCol = jQuery('.side-col');
+      if (sideCol) {
+        sideCol.css({
+          'padding-top': pxv + 'px'
         });
       }
     };
