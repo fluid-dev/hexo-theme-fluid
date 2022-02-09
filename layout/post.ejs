@@ -16,7 +16,7 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none"><%= page.subtitle || page.title %></h1>
-            <% if(theme.post.updated.enable) { %>
+            <% if(theme.post.updated && theme.post.updated.enable) { %>
               <p class="note note-<%= theme.post.updated.note_class || 'info' %>">
                 <% if (theme.post.updated.relative) { %>
                   <% if (theme.post.updated.content) { %>
@@ -109,7 +109,7 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
   <%- partial('_partials/plugins/mermaid.ejs') %>
 <% } %>
 
-<% if(theme.post.custom.enable && theme.post.custom.content && page.custom !== false) { %>
+<% if(theme.post.custom && theme.post.custom.enable && theme.post.custom.content && page.custom !== false) { %>
   <!-- Custom -->
   <div class="col-lg-7 mx-auto nopadding-x-md">
     <div class="container custom post-custom mx-auto">
