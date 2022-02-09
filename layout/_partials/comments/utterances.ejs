@@ -19,7 +19,7 @@
       s.setAttribute('label', '<%= theme.utterances.label %>');
       <% } %>
       s.setAttribute('theme', schema);
-      s.setAttribute('crossorigin', '<%= theme.utterances.crossorigin %>');
+      s.setAttribute('crossorigin', 'anonymous');
       document.getElementById('comments').appendChild(s);
     })
   </script>

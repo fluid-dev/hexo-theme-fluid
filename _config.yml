@@ -642,7 +642,7 @@ post:
   copyright:
     enable: true
 
-    # CC license
+    # CreativeCommons license
     # Options: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND
     license: 'BY'
 
@@ -666,12 +666,6 @@ post:
   # Link to previous/next post
   prev_next:
     enable: true
-
-  # 文章底部自定义区域（位于 footer 上方），支持 HTML，可插入赞赏码、公众号这类内容内容
-  # Custom content at the bottom of the post page (located above the footer)
-  custom:
-    enable: false
-    content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">'
 
   # 文章图片标题
   # Image caption
@@ -750,7 +744,6 @@ utterances:
   label: utterances
   theme: github-light
   theme_dark: github-dark
-  crossorigin: anonymous
 
 # Disqus
 # 基于第三方的服务，国内用户直接使用容易被墙，建议配合 Disqusjs
