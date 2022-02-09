@@ -1,32 +1,18 @@
-<footer>
-  <div class="footer-inner">
-    <% if (theme.footer.content) { %>
-      <div class="footer-content">
-        <%- theme.footer.content %>
-      </div>
-    <% } %>
-    <% if (theme.footer.statistics.enable) { %>
-      <%- partial('_partials/footer/statistics.ejs') %>
-    <% } %>
-    <% if(theme.footer.beian.enable) { %>
-      <!-- 备案信息 ICP for China -->
-      <%- partial('_partials/footer/beian.ejs') %>
-    <% } %>
-    <% if(theme.web_analytics.cnzz) { %>
-      <!-- cnzz Analytics Icon -->
-      <span id="cnzz_stat_icon_<%= theme.web_analytics.cnzz %>" style="display: none"></span>
-    <% } %>
-  </div>
-</footer>
-
-<% if ((theme.footer.statistics.enable && theme.footer.statistics.source === 'busuanzi')
-  || (page.meta !== false && theme.post.meta.views.enable && theme.post.meta.views.source === 'busuanzi')) { %>
-  <% import_js(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
-<% } %>
-<% if (theme.web_analytics.enable && theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key) { %>
-  <% import_js(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
-<% } else if (theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key &&
-  ((theme.footer.statistics.enable && theme.footer.statistics.source === 'leancloud')
-    || (page.meta !== false && theme.post.meta.views.enable && theme.post.meta.views.source === 'leancloud'))) { %>
-  <% import_js(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
-<% } %>
+<div class="footer-inner">
+  <% if (theme.footer.content) { %>
+    <div class="footer-content">
+      <%- theme.footer.content %>
+    </div>
+  <% } %>
+  <% if (theme.footer.statistics.enable) { %>
+    <%- partial('_partials/footer/statistics.ejs') %>
+  <% } %>
+  <% if(theme.footer.beian.enable) { %>
+    <!-- 备案信息 ICP for China -->
+    <%- partial('_partials/footer/beian.ejs') %>
+  <% } %>
+  <% if(theme.web_analytics.cnzz) { %>
+    <!-- cnzz Analytics Icon -->
+    <span id="cnzz_stat_icon_<%= theme.web_analytics.cnzz %>" style="display: none"></span>
+  <% } %>
+</div>

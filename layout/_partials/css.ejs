@@ -1,11 +1,10 @@
 <%- css_ex(theme.static_prefix.bootstrap, 'css/bootstrap.min.css') %>
 
-<% if (page.css_snippets) { %>
-  <% for (var idx = 0; idx < page.css_snippets.length; idx++) { %>
-    <%- page.css_snippets[idx] %>
-  <% } %>
-  <% page.css_snippets = [] %>
+<% var css_snippets = deduplicate(page.css_snippets) %>
+<% for (var idx = 0; idx < css_snippets.length; idx++) { %>
+  <%- css_snippets[idx] %>
 <% } %>
+<% page.css_snippets = [] %>
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 <!-- Do not modify the link that theme dependent icons -->

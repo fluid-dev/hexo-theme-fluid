@@ -17,12 +17,11 @@
 <%- partial('_partials/plugins/typed.ejs') %>
 <%- partial('_partials/plugins/analytics.ejs') %>
 
-<% if (page.script_snippets) { %>
-  <% for (var idx = 0; idx < page.script_snippets.length; idx++) { %>
-    <%- page.script_snippets[idx] %>
-  <% } %>
-  <% page.script_snippets = [] %>
+<% var script_snippets = deduplicate(page.script_snippets) %>
+<% for (var idx = 0; idx < script_snippets.length; idx++) { %>
+  <%- script_snippets[idx] %>
 <% } %>
+<% page.script_snippets = [] %>
 
 <% if (theme.custom_js) { %>
   <%- js(theme.custom_js) %>

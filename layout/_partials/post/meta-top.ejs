@@ -8,11 +8,11 @@
     <% } %>
     <% if (theme.post.meta.date.enable) { %>
       <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="<%= full_date(page.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
-        <%= full_date(page.date, theme.post.meta.date.format) %>
-      </time>
-    </span>
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="<%= full_date(page.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
+          <%= full_date(page.date, theme.post.meta.date.format) %>
+        </time>
+      </span>
     <% } %>
   </div>
 
@@ -50,11 +50,13 @@
           <i class="iconfont icon-eye" aria-hidden="true"></i>
           <%- views_texts[0] %><span id="leancloud-page-views"></span><%- views_texts[1] %>
         </span>
+        <% import_js(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
       <% } else if (theme.post.meta.views.source === 'busuanzi')  { %>
         <span id="busuanzi_container_page_pv" style="display: none">
           <i class="iconfont icon-eye" aria-hidden="true"></i>
           <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
         </span>
+        <% import_js(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
       <% } %>
     <% } %>
   </div>

@@ -17,3 +17,10 @@ hexo.extend.helper.register('require_version', function(current, require) {
   }
   return false;
 });
+
+hexo.extend.helper.register('deduplicate', function(arr) {
+  if (!Array.isArray(arr)) {
+    return [];
+  }
+  return [...new Set(arr)];
+});

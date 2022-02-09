@@ -10,6 +10,9 @@ Fluid.events = {
 
   registerNavbarEvent: function() {
     var navbar = jQuery('#navbar');
+    if (navbar.length === 0) {
+      return;
+    }
     var submenu = jQuery('#navbar .dropdown-menu');
     if (navbar.offset().top > 0) {
       navbar.removeClass('navbar-dark');

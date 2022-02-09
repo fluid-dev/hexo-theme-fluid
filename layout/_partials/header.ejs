@@ -2,9 +2,7 @@
 var banner_img_height = parseInt(page.banner_img_height || theme.index.banner_img_height, 10) || 100
 %>
 
-<header>
-  <div class="header-inner" style="height: <%= banner_img_height %>vh;">
-    <%- partial('_partials/header/navigation') %>
-    <%- partial('_partials/header/banner') %>
-  </div>
-</header>
+<div class="header-inner" style="height: <%= banner_img_height %>vh;">
+  <%- partial('_partials/header/navigation') %>
+  <%- partial('_partials/header/banner') %>
+</div>

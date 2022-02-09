@@ -12,7 +12,9 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 <body>
   <%- inject_point('bodyBegin') %>
 
-  <%- inject_point('header') %>
+  <header>
+    <%- inject_point('header') %>
+  </header>
 
   <main>
     <% if(is_post() || page.layout === '404') { %>
@@ -56,7 +58,9 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
     <% } %>
   </main>
 
-  <%- inject_point('footer') %>
+  <footer>
+    <%- inject_point('footer') %>
+  </footer>
 
   <!-- Scripts -->
   <%- partial('_partials/scripts.ejs') %>

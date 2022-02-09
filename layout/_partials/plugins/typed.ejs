@@ -3,7 +3,11 @@
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var title = subtitle.title;
       <% if (is_home() && theme.index.slogan.api && theme.index.slogan.api.enable) { %>
       jQuery.ajax({
         type: '<%= theme.index.slogan.api.method %>',
