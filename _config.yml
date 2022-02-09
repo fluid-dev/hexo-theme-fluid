@@ -266,6 +266,8 @@ web_analytics:  # 网页访问统计
     # If ture, ignore localhost & 127.0.0.1
     ignore_local: false
 
+  cloudflare:
+  
 # 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
 # Lazy loading of images and comment plugin on the page
 lazyload:

@@ -63,4 +63,10 @@
     <script defer src="//s4.cnzz.com/z_stat.php?id=<%- theme.web_analytics.cnzz %>&show=pic"
             type="text/javascript"></script>
   <% } %>
+
+  <% if(theme.web_analytics.cloudflare) { %>
+    <!--Cloudflare Web Analytics-->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "<%= theme.web_analytics.cloudflare %>"}'></script>
+  <% } %>
+
 <% } %>
