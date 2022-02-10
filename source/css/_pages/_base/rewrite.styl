@@ -183,6 +183,7 @@ label
     font-weight bold
 
   code
+    tab-size 4
     background-color var(--inlinecode-bg-color)
     transition background-color .2s ease-in-out
 
@@ -200,12 +201,6 @@ label
   pre
     font-size $code-font-size !important
 
-    code
-      overflow-x auto
-      line-height 1.5
-      border-radius 3px
-      tab-size 4
-
     .mermaid
       text-align center
 
@@ -217,7 +212,7 @@ label
     margin 1.5rem auto
     display block
     box-shadow $img-shadow
-    border-radius 3px
+    border-radius 4px
     background-color transparent
 
   blockquote
@@ -237,13 +232,6 @@ hr, .markdown-body hr
 // Rewrite highlight
 .markdown-body
 
-  pre
-    border-radius 3px
-
-  .hljs
-    overflow-x initial
-    padding 0
-
   hr
     height 0
     margin 2rem 0
@@ -260,9 +248,14 @@ hr, .markdown-body hr
     padding-bottom 1.45rem
     padding-right 1rem
 
-*:not(td) > .code-wrapper
-  position relative
-  border-radius 3px
+  .code-wrapper
+    position relative
+    border-radius 4px
+
+.markdown-body
+  .hljs, .highlight pre, .code-wrapper pre, figure.highlight td.gutter
+    transition color .2s ease-in-out, background-color .2s ease-in-out
+    background-color var(--highlight-bg-color)
 
 pre[class*=language-].line-numbers
   position initial
@@ -277,7 +270,7 @@ figure.highlight
     border 0
     margin 0
     width auto
-    border-radius 3px
+    border-radius 4px
 
   td
     border 0
@@ -297,11 +290,7 @@ figure.highlight
 
     pre
       text-align right
-      font-size 1px
-      overflow-x none
-      overflow-y none
       padding 0 .75rem
-      line-height 1.5
       border-radius initial
       border-right 1px solid #999
 
@@ -311,11 +300,6 @@ figure.highlight
   td.code > pre
     border-top-left-radius 0
     border-bottom-left-radius 0
-
-.markdown-body
-  .hljs, .highlight pre, pre, figure.highlight td.gutter
-    transition color .2s ease-in-out, background-color .2s ease-in-out
-    background-color var(--highlight-bg-color)
 
 // Rewrite mdb.css
 .list-group-item

@@ -38,7 +38,7 @@ import_script(`<script>
         } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
           $pre.wrap('<div class="code-wrapper"></div>');
         }
-        lang = lang.toUpperCase().replace(/(LIVECODESERVER|NONE)/, CONFIG.code_language.default);
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
       }
       $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
         getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));

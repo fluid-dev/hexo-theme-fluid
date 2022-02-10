@@ -85,17 +85,6 @@ module.exports = (hexo) => {
     });
 
     hexo.extend.filter.register('after_post_render', (page) => {
-      page.content = page.content.replace(/(?<!<td class="code.*?">|<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
-        if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
-          return str.replace(/(class=".*?)hljs(.*?")/gims, '$1$2');
-        }
-        return `<div class="code-wrapper">${p1}</div>`;
-      });
-
-      page.content = page.content.replace(/<pre><code>/gims, (str) => {
-        return '<pre><code class="hljs">';
-      });
-
       if (hexo.config.highlight.line_number) {
         page.content = page.content.replace(/<figure[^>]+?highlight.+?<td[^>]+?code[^>]+?>.*?(<pre.+?<\/pre>).+?<\/figure>/gims, (str, p1) => {
           if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
@@ -103,7 +92,19 @@ module.exports = (hexo) => {
           }
           return str;
         });
+      } else {
+        page.content = page.content.replace(/(?<!<div class="code-wrapper">)<pre.+?<\/pre>/gims, (str) => {
+          if (/<code[^>]+?mermaid[^>]+?>/ims.test(str)) {
+            return str.replace(/(class=".*?)hljs(.*?")/gims, '$1$2');
+          }
+          return `<div class="code-wrapper">${str}</div>`;
+        });
       }
+
+      // 适配缩进型代码块
+      page.content = page.content.replace(/<pre><code>/gims, (str) => {
+        return '<pre><code class="hljs">';
+      });
 
       return page;
     });
@@ -123,8 +124,8 @@ module.exports = (hexo) => {
     });
 
     hexo.extend.filter.register('after_post_render', (page) => {
-      page.content = page.content.replace(/(?<!<div class="code-wrapper">)(<pre.+?<\/pre>)/gims, (str, p1) => {
-        if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
+      page.content = page.content.replace(/(?<!<div class="code-wrapper">)<pre.+?<\/pre>/gims, (str) => {
+        if (/<code[^>]+?mermaid[^>]+?>/ims.test(str)) {
           if (hexo.config.highlight.line_number) {
             str = str.replace(/<span[^>]+?line-numbers-rows[^>]+?>.+?<\/span><\/code>/, '</code>');
           }
@@ -133,9 +134,10 @@ module.exports = (hexo) => {
             .replace(/<span[^>]+?>(.+?)<\/span>/gims, '$1');
           return str;
         }
-        return `<div class="code-wrapper">${p1}</div>`;
+        return `<div class="code-wrapper">${str}</div>`;
       });
 
+      // 适配缩进型代码块
       page.content = page.content.replace(/<pre><code>/gims, (str) => {
         return '<pre class="language-none"><code class="language-none">';
       });
