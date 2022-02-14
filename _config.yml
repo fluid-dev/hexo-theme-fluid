@@ -1035,42 +1035,42 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  anchor: https://cdn.staticfile.org/anchor-js/4.3.1/
+  anchor: https://lib.baomitu.com/anchor-js/4.3.1/
 
-  github_markdown: https://cdn.staticfile.org/github-markdown-css/4.0.0/
+  github_markdown: https://lib.baomitu.com/github-markdown-css/4.0.0/
 
-  jquery: https://cdn.staticfile.org/jquery/3.6.0/
+  jquery: https://lib.baomitu.com/jquery/3.6.0/
 
-  bootstrap: https://cdn.staticfile.org/twitter-bootstrap/4.6.1/
+  bootstrap: https://lib.baomitu.com/twitter-bootstrap/4.6.1/
 
-  prismjs: https://cdn.staticfile.org/prism/1.26.0/
+  prismjs: https://lib.baomitu.com/prism/1.26.0/
 
-  tocbot: https://cdn.staticfile.org/tocbot/4.18.0/
+  tocbot: https://lib.baomitu.com/tocbot/4.18.0/
 
-  typed: https://cdn.staticfile.org/typed.js/2.0.12/
+  typed: https://lib.baomitu.com/typed.js/2.0.12/
 
-  fancybox: https://cdn.staticfile.org/fancybox/3.5.7/
+  fancybox: https://lib.baomitu.com/fancybox/3.5.7/
 
-  nprogress: https://cdn.staticfile.org/nprogress/0.2.0/
+  nprogress: https://lib.baomitu.com/nprogress/0.2.0/
 
-  mathjax: https://cdn.staticfile.org/mathjax/3.2.0/
+  mathjax: https://lib.baomitu.com/mathjax/3.2.0/
 
-  katex: https://cdn.staticfile.org/KaTeX/0.15.2/
+  katex: https://lib.baomitu.com/KaTeX/0.15.2/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-  clipboard: https://cdn.staticfile.org/clipboard.js/2.0.10/
+  clipboard: https://lib.baomitu.com/clipboard.js/2.0.10/
 
-  mermaid: https://cdn.staticfile.org/mermaid/8.13.10/
+  mermaid: https://lib.baomitu.com/mermaid/8.13.10/
 
-  valine: https://cdn.staticfile.org/valine/1.4.16/
+  valine: https://lib.baomitu.com/valine/1.4.16/
 
-  waline: https://cdn.staticfile.org/waline/1.5.2/
+  waline: https://lib.baomitu.com/waline/1.5.2/
 
-  gitalk: https://cdn.staticfile.org/gitalk/1.7.2/
+  gitalk: https://lib.baomitu.com/gitalk/1.7.2/
 
-  disqusjs: https://cdn.staticfile.org/disqusjs/1.3.0/
+  disqusjs: https://lib.baomitu.com/disqusjs/1.3.0/
 
-  twikoo: https://cdn.staticfile.org/twikoo/1.4.17/
+  twikoo: https://lib.baomitu.com/twikoo/1.4.17/
 
-  hint: https://cdn.staticfile.org/hint.css/2.7.0/
+  hint: https://lib.baomitu.com/hint.css/2.7.0/
