@@ -160,11 +160,10 @@ label
 
   h1, h2
     border-bottom-color var(--line-color)
-    transition border-bottom-color .2s ease-in-out
 
   h1, h2, h3, h4, h5, h6
     color var(--post-heading-color)
-    transition color .2s ease-in-out
+    transition color .2s ease-in-out, border-bottom-color 0.2s ease-in-out
     font-weight bold
     margin-bottom .75em
     margin-top 2em
@@ -174,10 +173,6 @@ label
 
   a
     color var(--post-link-color)
-
-  hr
-    height .2em
-    margin 2rem 0
 
   strong
     font-weight bold
@@ -226,19 +221,16 @@ label
 
 // Rewrite hr
 hr, .markdown-body hr
-  border-top-color var(--line-color)
+  background-color initial
+  border-top 1px solid var(--line-color)
   transition border-top-color .2s ease-in-out
+
+.markdown-body hr
+  height 0
+  margin 2rem 0
 
 // Rewrite highlight
 .markdown-body
-
-  hr
-    height 0
-    margin 2rem 0
-    background-color initial
-    border-top-width 2px
-    border-top-style solid
-    border-top-color rgba(0, 0, 0, .1)
 
   .highlight pre, pre
     padding 1.45rem 1rem
