@@ -599,7 +599,7 @@ post:
   prev_next:
     enable: true
 
-  # 文章底部自定义区域（位于 footer 上方），支持 HTML，可插入赞赏码、公众号这类内容内容
+  # 文章底部自定义区域（位于 footer 上方），支持 HTML，可插入赞赏码、公众号这类内容
   # Custom content at the bottom of the post page (located above the footer)
   custom:
     enable: false
