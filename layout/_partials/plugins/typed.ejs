@@ -7,41 +7,41 @@
       if (!subtitle || !typing) {
         return;
       }
-      var title = subtitle.title;
+      var text = subtitle.getAttribute('data-typed-text');
       <% if (is_home() && theme.index.slogan.api && theme.index.slogan.api.enable) { %>
-      jQuery.ajax({
-        type: '<%= theme.index.slogan.api.method %>',
-        url: '<%= theme.index.slogan.api.url %>',
-        headers: <%- JSON.stringify(theme.index.slogan.api.headers || {}) %>,
-        dataType: 'json',
-        success: function(result) {
-          var text;
-          if (result) {
-            var keys = '<%= theme.index.slogan.api.keys %>'.split(',');
-            if (result instanceof Array) {
-              result = result[0];
-            }
-            for (const k of keys) {
-              var value = result[k];
-              if (typeof value === 'string') {
-                text = value;
-                break;
-              } else if (value instanceof Object) {
-                result = value;
+        jQuery.ajax({
+          type: '<%= theme.index.slogan.api.method %>',
+          url: '<%= theme.index.slogan.api.url %>',
+          headers: <%- JSON.stringify(theme.index.slogan.api.headers || {}) %>,
+          dataType: 'json',
+          success: function(result) {
+            var apiText;
+            if (result) {
+              var keys = '<%= theme.index.slogan.api.keys %>'.split(',');
+              if (result instanceof Array) {
+                result = result[0];
+              }
+              for (const k of keys) {
+                var value = result[k];
+                if (typeof value === 'string') {
+                  apiText = value;
+                  break;
+                } else if (value instanceof Object) {
+                  result = value;
+                }
               }
             }
+            apiText ? typing(apiText) : typing(text);
+          },
+          error: function(xhr, status, error) {
+            if (error) {
+              console.error('Failed to request <%= theme.index.slogan.api.url %>:', error);
+            }
+            typing(text);
           }
-          text ? typing(text) : typing(title);
-        },
-        error: function(xhr, status, error) {
-          if (error) {
-            console.error('Failed to request <%= theme.index.slogan.api.url %>:', error);
-          }
-          typing(title);
-        }
-      })
+        })
       <% } else { %>
-        typing(title);
+        typing(text);
       <% } %>
     })(window, document);
   </script>

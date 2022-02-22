@@ -10,11 +10,11 @@ var banner_mask_alpha = parseInt(page.banner_mask_alpha || theme.index.banner_ma
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
-          <span id="subtitle" title="<%= subtitle %>">
-            <% if(!theme.fun_features.typing.enable || !in_scope(theme.fun_features.typing.scope)) { %>
-              <%- subtitle %>
-            <% } %>
-          </span>
+          <% if(theme.fun_features.typing.enable && in_scope(theme.fun_features.typing.scope)) { %>
+            <span id="subtitle" data-typed-text="<%= subtitle %>"></span>
+          <% } else { %>
+            <span id="subtitle"><%- subtitle %></span>
+          <% } %>
         </div>
 
         <% if (is_post()) { %>
