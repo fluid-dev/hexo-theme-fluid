@@ -41,16 +41,15 @@
 
 .index-excerpt
   color var(--sec-text-color)
-
   margin 0.5rem 0 0.5rem 0
-  max-height calc(1.4rem * 3)
-  line-height 1.4rem
+  height calc(1.4rem * 3)
   overflow hidden
+  display flex
+  align-items center
 
   & > div
-    float right
-    margin-left -0.25rem
     width 100%
+    line-height 1.4rem
     word-break break-word
     display -webkit-box
     -webkit-box-orient vertical

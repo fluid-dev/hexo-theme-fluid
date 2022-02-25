@@ -27,12 +27,12 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
+      <a class="index-excerpt" href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
+        <div>
           <% var excerpt = post.description || post.excerpt || (theme.index.auto_excerpt.enable && post.content) %>
           <%- escape_html(strip_html(excerpt).substring(0, 200).trim()).replace(/\n/g, ' ') %>
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         <% if(theme.index.post_meta.date ) { %>
