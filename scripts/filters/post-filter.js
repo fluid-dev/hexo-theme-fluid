@@ -42,3 +42,10 @@ hexo.extend.generator.register('post', function(locals) {
     )
   });
 });
+
+// 渲染文章后的过滤
+hexo.extend.filter.register('after_post_render', (page) => {
+  // 移除 hexo-renderer-pandoc 生成的 <colgroup>
+  page.content = page.content.replace(/<colgroup>.+?<\/colgroup>/gims, '');
+  return page;
+});
