@@ -1,0 +1,44 @@
+search:
+  title: Buscar
+  keyword: Palabra clave
+  status:
+    success: v
+    error: x
+
+postTotal: "%d artículos en total."
+
+paginator:
+  pre: Anterior
+  next: Siguiente
+
+post:
+  toc: TDC
+  pre: Anterior
+  next: Siguiente
+
+home:
+  title: Inicio
+
+archive:
+  title: Archivos
+  subtitle: Archivo
+
+tag:
+  title: Etiquetas
+  subtitle: Etiqueta
+
+category:
+  title: Categorías
+  subtitle: Categoría
+
+about:
+  title: Acerca
+  subtitle: Acerca
+
+page404:
+  title: Página no encontrada
+  subtitle: ¡Ups!, Página no encontrada...
+
+links:
+  title: Enlaces
+  subtitle: Enlaces
