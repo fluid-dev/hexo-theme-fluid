@@ -1,0 +1,69 @@
+name: 'Español'
+
+home:
+  menu: 'Inicio'
+  title: 'Inicio'
+
+archive:
+  menu: 'Archivo'
+  title: 'Archivo'
+  subtitle: 'Archivo'
+  post_total: '%d artículos en total'
+
+category:
+  menu: 'Categorías'
+  title: 'Categorías'
+  subtitle: 'Categorías'
+  post_total: '%d artículos en total'
+  more: 'Más...'
+
+tag:
+  menu: 'Etiquetas'
+  title: 'Etiquetas'
+  subtitle: 'Etiquetas'
+  post_total: '%d artículos en total'
+
+about:
+  menu: 'Acerca'
+  title: 'Acerca'
+  subtitle: 'Acerca'
+
+links:
+  menu: 'Enlaces'
+  title: 'Enlaces'
+  subtitle: 'Enlaces'
+
+page404:
+  menu: 'Página no encontrada'
+  title: 'Página no encontrada'
+  subtitle: 'Página no encontrada'
+
+post:
+  toc: 'Tabla de Contenidos'
+  prev_post: 'Anterior'
+  next_post: 'Siguiente'
+  updated: 'Última actualización el %s'
+  meta:
+    wordcount: '%s palabras'
+    min2read: '%s minutos'
+    views: '{} vistas'
+  copyright:
+    author: 'Autor'
+    posted: 'Publicado el'
+    updated: 'Actualizado el'
+    licensed: 'Licencia bajo'
+    CC: 'CC - Licencia Creative Commons'
+    BY: 'BY - Atribución'
+    SA: 'SA - Compartir igual'
+    NC: 'NC - No comercial'
+    ND: 'ND - Sin obras derivadas'
+
+footer:
+  pv: 'Vistas: {}'
+  uv: 'Visitantes: {}'
+
+search:
+  title: 'Buscar'
+  keyword: 'Palabra clave'
+
+noscript_warning: 'El blog funciona mejor con JavaScript habilitado'
