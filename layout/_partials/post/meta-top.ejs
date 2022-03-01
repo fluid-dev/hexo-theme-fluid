@@ -57,6 +57,12 @@
           <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
         </span>
         <% import_js(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
+      <% } else if (theme.post.meta.views.source === 'qieziStatistics') { %>
+        <span id="qieziStatisticHtmlPost" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <%- views_texts[0] %><span id="qieziStatisticHtmlPostPv"></span><%- views_texts[1] %>
+        </span>
+        <% import_js(theme.static_prefix.qieziStatistics, 'qiezi_statistic_v1.min.js', 'defer') %>
       <% } %>
     <% } %>
   </div>

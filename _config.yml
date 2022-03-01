@@ -289,6 +289,21 @@ web_analytics:  # 网页访问统计
     # If ture, ignore localhost & 127.0.0.1
     ignore_local: false
 
+  # 茄子统计计数，可用于PV UV展示
+  # 开源程序，也可自行部署。详细介绍见：https://qiezi.fleyx.com
+  # qieziStatistics,which can be used for PV UV display.
+  #  qieziStatistics is a open source program.You can see detail document at "https://qiezi.fleyx.com"
+  qieziStatistics:
+    # 应用key,在https://qiezi.fleyx.com申请
+    # application key,you can sign at "https://qiezi.fleyx.com"
+    app_key:
+    # 自行部署qieziStatistics后台服务时才需设置此项
+    # If you deploy the program on you own server,you need to set this value.
+    app_host:
+    # 开启后不统计本地路径( localhost 与 127.0.0.1 )
+    # If ture, ignore localhost & 127.0.0.1
+    ignore_local: false
+
 # 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
 # Lazy loading of images and comment plugin on the page
 lazyload:
@@ -429,9 +444,13 @@ footer:
   statistics:
     enable: false
 
-    # 统计数据来源，使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；使用 busuanzi 不需要额外设置，但是有时不稳定，另外本地运行时 busuanzi 显示统计数据很大属于正常现象，部署后会正常
-    # Data source. If use leancloud, you need to set the parameter in `web_analytics: leancloud`
-    # Options: busuanzi | leancloud
+    # 统计数据来源
+    # 使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；
+    # 使用 busuanzi 不需要额外设置，但是有时不稳定，另外本地运行时 busuanzi 显示统计数据很大属于正常现象，部署后会正常
+    # 使用 qieziStatistics 需要设置 `web_analytics: qieziStatistics` 中的参数.国内访问速度较快
+    # Data source. If use leancloud, you need to set the parameter in `web_analytics: leancloud`;
+    #              If use qieziStatistics, you need to set the parameter in `web_analytics: qieziStatistics`
+    # Options: busuanzi | leancloud | qieziStatistics
     source: "busuanzi"
 
   # 国内大陆服务器的备案信息
@@ -574,7 +593,7 @@ post:
       enable: false
       # 统计数据来源
       # Data Source
-      # Options: busuanzi | leancloud
+      # Options: busuanzi | leancloud | qieziStatistics
       source: "busuanzi"
 
   # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
@@ -1074,3 +1093,5 @@ static_prefix:
   twikoo: https://lib.baomitu.com/twikoo/1.4.17/
 
   hint: https://lib.baomitu.com/hint.css/2.7.0/
+
+  qieziStatistics: https://qiezi.fleyx.com/qiezijs/1.0/

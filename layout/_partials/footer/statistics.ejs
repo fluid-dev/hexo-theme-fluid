@@ -35,5 +35,21 @@
       </span>
     <% } %>
     <% import_js(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
+  <% } else if (theme.footer.statistics.source === 'qieziStatistics') { %>
+    <% if (pv_texts.length >= 2) { %>
+      <span id="qieziStatisticHtmlHostPv" style="display: none">
+        <%- pv_texts[0] %>
+        <span id="qieziStatisticHtmlHostPvValue"></span>
+        <%- pv_texts[1] %>
+      </span>
+    <% } %>
+    <% if (uv_texts.length >= 2) { %>
+      <span id="qieziStatisticHtmlHostUv" style="display: none">
+        <%- uv_texts[0] %>
+        <span id="qieziStatisticHtmlHostUvValue"></span>
+        <%- uv_texts[1] %>
+      </span>
+    <% } %>
+    <% import_js(theme.static_prefix.qieziStatistics, 'qiezi_statistic_v1.min.js', 'defer') %>
   <% } %>
 </div>
