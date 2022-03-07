@@ -11,7 +11,7 @@ module.exports = (hexo) => {
   }
 
   /**
-   * Modify by https://github.com/kchen0x/hexo-reference
+   * Modified from https://github.com/kchen0x/hexo-reference
    *
    * Render markdown footnotes
    * @param {String} text

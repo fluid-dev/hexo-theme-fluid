@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Modify by https://github.com/next-theme/hexo-theme-next/blob/master/scripts/events/lib/injects.js
+ * Modified from https://github.com/next-theme/hexo-theme-next/blob/master/scripts/events/lib/injects.js
  */
 
 const fs = require('fs');

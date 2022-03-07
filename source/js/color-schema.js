@@ -1,7 +1,7 @@
 /* global Fluid */
 
 /**
- * Modify by https://blog.skk.moe/post/hello-darkmode-my-old-friend/
+ * Modified from https://blog.skk.moe/post/hello-darkmode-my-old-friend/
  */
 (function(window, document) {
   var rootElement = document.documentElement;
