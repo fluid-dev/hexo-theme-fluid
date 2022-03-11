@@ -1,0 +1,93 @@
+// Rewrite modal
+.modal-dialog .modal-content
+  background-color var(--board-bg-color)
+  border 0
+  border-radius .125rem
+  -webkit-box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
+  box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
+
+.modal-dialog .modal-content .modal-header
+  border-bottom-color var(--line-color)
+  transition border-bottom-color .2s ease-in-out
+
+.close
+  color var(--text-color)
+
+  &:hover
+    color var(--link-hover-color)
+
+  &:focus
+    outline 0
+
+.modal-dialog .modal-content .modal-header
+  border-top-left-radius .125rem
+  border-top-right-radius .125rem
+  border-bottom 1px solid #dee2e6
+
+.md-form
+  position relative
+  margin-top 1.5rem
+  margin-bottom 1.5rem
+
+.md-form
+  input[type]
+    -webkit-box-sizing content-box
+    box-sizing content-box
+    background-color transparent
+    border none
+    border-bottom 1px solid #ced4da
+    border-radius 0
+    outline none
+    -webkit-box-shadow none
+    box-shadow none
+    transition border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out
+
+    $normal = #4285f4
+
+    &:focus:not([readonly])
+      border-bottom 1px solid $normal
+      -webkit-box-shadow 0 1px 0 0 $normal
+      box-shadow 0 1px 0 0 $normal
+
+      & + label
+        color: $normal
+
+    $valid = #00c851
+
+    &.valid, &:focus.valid
+      border-bottom 1px solid $valid
+      -webkit-box-shadow 0 1px 0 0 $valid
+      box-shadow 0 1px 0 0 $valid
+
+      & + label
+        color: $valid
+
+    $invalid = #f44336
+
+    &.invalid, &:focus.invalid
+      border-bottom 1px solid $invalid
+      -webkit-box-shadow 0 1px 0 0 $invalid
+      box-shadow 0 1px 0 0 $invalid
+
+      & + label
+        color $invalid
+
+    &.validate
+      margin-bottom 2.5rem
+
+    &.form-control
+      height auto
+      padding .6rem 0 .4rem 0
+      margin 0 0 .5rem 0
+      color var(--text-color)
+      background-color transparent
+      border-radius 0
+
+  label
+    font-size 0.8rem
+    position absolute
+    top -1rem
+    left 0
+    color #757575
+    cursor text
+    transition color .2s ease-out

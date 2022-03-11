@@ -1,0 +1,91 @@
+// Rewrite github-markdown.css
+.markdown-body
+  font-size 1rem
+  line-height 1.6
+  font-family $font-family
+  margin-bottom 2rem
+  color var(--post-text-color)
+
+  h1, h2
+    border-bottom-color var(--line-color)
+
+  h1, h2, h3, h4, h5, h6
+    color var(--post-heading-color)
+    transition color .2s ease-in-out, border-bottom-color 0.2s ease-in-out
+    font-weight bold
+    margin-bottom .75em
+    margin-top 2em
+
+    &:focus
+      outline none
+
+  a
+    color var(--post-link-color)
+
+  strong
+    font-weight bold
+
+  code
+    tab-size 4
+    background-color var(--inlinecode-bg-color)
+    transition background-color .2s ease-in-out
+
+  table
+    tr
+      background-color var(--board-bg-color)
+      transition background-color .2s ease-in-out
+    tr:nth-child(2n)
+      background-color var(--board-bg-color)
+      transition background-color .2s ease-in-out
+    th, td
+      border-color var(--line-color)
+      transition border-color .2s ease-in-out
+
+  pre
+    font-size $code-font-size !important
+
+    .mermaid
+      text-align center
+
+      & > svg
+        min-width 100%
+
+  p > img, p > a > img, figure > img, figure > a > img
+    max-width 90%
+    margin 1.5rem auto
+    display block
+    box-shadow $img-shadow
+    border-radius 4px
+    background-color transparent
+
+  blockquote
+    color var(--sec-text-color)
+
+  details
+    cursor pointer
+
+    summary
+      outline none
+
+// Rewrite hr
+hr, .markdown-body hr
+  background-color initial
+  border-top 1px solid var(--line-color)
+  transition border-top-color .2s ease-in-out
+
+.markdown-body hr
+  height 0
+  margin 2rem 0
+
+// Rewrite figcaption
+.markdown-body
+  figcaption.image-caption
+    font-size .8rem
+    color var(--post-text-color)
+    opacity 0.65
+    line-height 1
+    margin -0.75rem auto 2rem
+    text-align center
+
+  figcaption:not(.image-caption)
+    display none

@@ -1,0 +1,8 @@
+// Rewrite anchorjs
+.anchorjs-link
+  text-decoration none !important
+  transition opacity .2s ease-in-out
+
+.markdown-body h1, h2, h3, h4, h5, h6
+  &:hover > .anchorjs-link
+    opacity 1

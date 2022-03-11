@@ -1,0 +1,12 @@
+// Rewrite nprogress
+$npColor = theme-config("fun_features.progressbar.color", "#29d")
+#nprogress
+  .bar
+    height theme-config-unit("fun_features.progressbar.height_px", 3, "px") !important
+    background-color $npColor !important
+  .peg
+    box-shadow 0 0 14px $npColor, 0 0 8px $npColor !important
+
+  @media (max-width: 575px)
+    .bar
+      display none

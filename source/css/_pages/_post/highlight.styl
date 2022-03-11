@@ -1,0 +1,64 @@
+.markdown-body
+  .highlight pre, pre
+    padding 1.45rem 1rem
+
+  pre code.hljs
+    padding 0
+
+  pre[class*="language-"]
+    padding-top 1.45rem
+    padding-bottom 1.45rem
+    padding-right 1rem
+
+  .code-wrapper
+    position relative
+    border-radius 4px
+
+  .hljs, .highlight pre, .code-wrapper pre, figure.highlight td.gutter
+    transition color .2s ease-in-out, background-color .2s ease-in-out
+    background-color var(--highlight-bg-color)
+
+pre[class*=language-].line-numbers
+  position initial
+
+figure
+  margin 1rem 0
+
+figure.highlight
+  position relative
+
+  table
+    border 0
+    margin 0
+    width auto
+    border-radius 4px
+
+  td
+    border 0
+    padding 0
+
+  tr
+    border 0
+
+  td.code
+    width 100%
+
+  td.gutter
+    display table-cell
+    position -webkit-sticky
+    position sticky
+    left 0
+    z-index 1
+
+    pre
+      text-align right
+      padding 0 .75rem
+      border-radius initial
+      border-right 1px solid #999
+
+      span.line
+        color #999
+
+  td.code > pre
+    border-top-left-radius 0
+    border-bottom-left-radius 0

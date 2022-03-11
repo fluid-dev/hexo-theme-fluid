@@ -1,3 +1,31 @@
 .list-group
   a ~ p.h5
     margin-top 1rem
+
+.list-group-item
+  display flex
+  background-color transparent
+  border 0
+
+  time
+    flex 0 0 5rem
+
+  .list-group-item-title
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+
+@media (max-width: 575px)
+  .list-group-item
+    font-size .95rem
+    padding 0.5rem 0.75rem
+
+    time
+      flex 0 0 4rem
+
+.list-group-item-action
+  color var(--text-color)
+
+  &:focus, &:hover
+    color var(--link-hover-color)
+    background-color var(--link-hover-bg-color)

@@ -1,0 +1,24 @@
+// Rewrite valine
+.v[data-class=v]
+  .status-bar, .veditor, .vinput, .vbtn, p, pre code
+    color var(--text-color) !important
+
+  .vicon
+    fill var(--text-color) !important
+
+// Rewrite gitalk
+.gt-container
+
+  .gt-comment-content:hover
+    -webkit-box-shadow none
+    box-shadow none
+
+  .gt-comment-body
+    color var(--text-color) !important
+    transition color .2s ease-in-out
+
+// Rewrite remark42
+#remark-km423lmfdslkm34-back
+  z-index 1030
+#remark-km423lmfdslkm34-node
+  z-index 1031

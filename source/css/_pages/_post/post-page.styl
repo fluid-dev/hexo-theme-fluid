@@ -142,3 +142,32 @@
   font-size .8em
   padding .45rem
   float right
+
+a.fancybox:hover
+  text-decoration none
+
+// Rewrite mathjax
+mjx-container, .mjx-container
+  overflow-x auto
+  overflow-y hidden !important
+  padding .5em 0
+
+  &:focus, svg:focus
+    outline none
+
+.mjx-char
+  line-height 1
+
+// Rewrite katex
+.katex-block
+  overflow-x auto
+
+.katex, .mjx-mrow
+  white-space pre-wrap !important
+
+// Rewrite hint
+.footnote-ref [class*=hint--][aria-label]:after
+  max-width 12rem
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis

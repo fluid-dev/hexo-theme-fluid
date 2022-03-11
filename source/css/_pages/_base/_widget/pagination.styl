@@ -1,0 +1,20 @@
+// Rewrite pagination
+.pagination
+  margin-top 3rem
+  justify-content center
+
+  .space
+    align-self flex-end
+
+  a, .current
+    outline 0
+    border 0
+    background-color transparent
+    font-size .9rem
+    padding .5rem .75rem
+    line-height 1.25
+    border-radius .125rem
+    transition background-color .2s ease-in-out
+
+  a:hover, .current
+    background-color var(--link-hover-bg-color)
