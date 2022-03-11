@@ -4,16 +4,16 @@
 // --------------------------------------
 
 @import "_variables/base"
-for $inject_variable in hexo-config('injects.variable')
+for $inject_variable in hexo-config("injects.variable")
   @import $inject_variable;
 
 @import "_functions/base"
 
 @import "_mixins/base"
-for $inject_mixin in hexo-config('injects.mixin')
+for $inject_mixin in hexo-config("injects.mixin")
   @import $inject_mixin;
 
 @import "_pages/pages"
 
-for $inject_style in hexo-config('injects.style')
+for $inject_style in hexo-config("injects.style")
   @import $inject_style;

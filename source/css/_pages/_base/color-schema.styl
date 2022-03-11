@@ -1,5 +1,5 @@
 :root
-  --color-mode 'light'
+  --color-mode "light"
   --body-bg-color $body-bg-color
   --board-bg-color $board-bg-color
   --text-color $text-color
@@ -58,13 +58,13 @@ dark-colors()
     background-color transparent
     transition background-color .2s ease-in-out
 
-if (hexo-config('dark_mode.enable'))
+if (hexo-config("dark_mode.enable"))
   @media (prefers-color-scheme: dark)
     :root
-      --color-mode 'dark'
+      --color-mode "dark"
 
     :root:not([data-user-color-scheme])
       dark-colors()
 
-  [data-user-color-scheme='dark']
+  [data-user-color-scheme="dark"]
     dark-colors()
