@@ -12,7 +12,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div><%= page.title %></div>
-      <div><%= page.permalink %></div>
+      <div><%= decode_url(page.permalink) %></div>
     </div>
     <div class="license-meta">
       <% if (theme.post.copyright.author.enable && (page.author || config.author)) { %>

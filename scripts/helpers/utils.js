@@ -3,6 +3,7 @@
 'use strict';
 
 const crypto = require('crypto');
+const { decodeURL } = require('hexo-util');
 const compareVersions = require('../../scripts/utils/compare-versions');
 
 hexo.extend.helper.register('md5', function(string) {
@@ -24,3 +25,5 @@ hexo.extend.helper.register('deduplicate', function(arr) {
   }
   return [...new Set(arr)];
 });
+
+hexo.extend.helper.register('decode_url', decodeURL);
