@@ -452,6 +452,19 @@ figure.highlight
   &:hover > .anchorjs-link
     opacity 1
 
+// Rewrite figcaption
+.markdown-body
+  figcaption.image-caption
+    font-size .8rem
+    color var(--post-text-color)
+    opacity 0.65
+    line-height 1
+    margin -0.75rem auto 2rem
+    text-align center
+
+  figcaption:not(.image-caption)
+    display none
+
 // Rewrite iconfont
 i.iconfont
   font-size 1em
