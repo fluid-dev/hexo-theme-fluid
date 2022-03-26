@@ -1,8 +1,11 @@
 'use strict';
 
 module.exports = (hexo) => {
-  const isZh = hexo.theme.i18n.languages[0].search(/zh-CN/i) !== -1;
-  if (isZh) {
+  if (hexo.theme.has_hello) {
+    return;
+  }
+
+  if (hexo.theme.i18n.languages[0].search(/zh-CN/i) !== -1) {
     hexo.log.info(`
 ------------------------------------------------
 |                                              |
@@ -36,4 +39,5 @@ module.exports = (hexo) => {
 `);
   }
 
+  hexo.theme.has_hello = true;
 };
