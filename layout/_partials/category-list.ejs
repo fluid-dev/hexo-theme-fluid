@@ -1,5 +1,4 @@
-<% function render_categories(curCats, params = {}) { %>
-  <% var depth = params.depth || 0 %>
+<% function render_categories(curCats, params = {}, depth = 0) { %>
   <% return curCats.each((cat) => { %>
     <% var subCats = site.categories.find({ parent: cat._id }).sort(params.orderBy || 'name').filter(cat => cat.length) %>
     <% var collapsed = subCats.length === 0 || depth >= theme.category.collapse_depth %>
@@ -28,8 +27,7 @@
             return p.categories.filter(catOnPost => catOnPost.parent === cat._id).length === 0;
           }) %>
           <%- render_posts(filteredPosts, cat, params) %>
-          <% params.depth++ %>
-          <%- render_categories(subCats, params) %>
+          <%- render_categories(subCats, params, depth + 1) %>
         <% } else { %>
           <%- render_posts(posts, cat, params) %>
         <% } %>
