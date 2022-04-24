@@ -178,7 +178,7 @@
     addCount(Counter);
   }
 
-  var apiServer = appId.slice(-9) !== '-MdYXbMMI' ? serverUrl : `https://${appId.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+  var apiServer = serverUrl || `https://${appId.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
 
   if (apiServer) {
     fetchData(apiServer);
