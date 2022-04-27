@@ -28,6 +28,12 @@ hexo.extend.helper.register('export_config', function() {
   };
   return `<script id="fluid-configs">
     var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
     var CONFIG = ${JSON.stringify(exportConfig)};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>`;
 });

@@ -94,7 +94,7 @@
   }
 
   function addCount(Counter) {
-    var enableIncr = CONFIG.web_analytics.enable && validHost();
+    var enableIncr = CONFIG.web_analytics.enable && !Fluid.ctx.dnt && validHost();
     var getterArr = [];
     var incrArr = [];
 
