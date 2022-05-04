@@ -80,7 +80,8 @@ fun_features:
   # Typing animation for subtitle
   typing:
     enable: true
-
+    # 仅为主页 subtitle 添加打字机效果
+    only_home: true
     # 打印速度，数字越大越慢
     # Typing speed, the larger the number, the slower
     typeSpeed: 70

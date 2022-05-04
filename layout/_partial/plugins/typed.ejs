@@ -33,7 +33,9 @@
           typing(title);
         }
       })
-      <% } else { %>
+      <% } else if(theme.fun_features.typing.only_home && is_home()){ %>
+        typing(title);
+      <% } else if(!theme.fun_features.typing.only_home){%>
         typing(title);
       <% } %>
     })(window, document);
