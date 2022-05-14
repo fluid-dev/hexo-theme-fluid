@@ -2,22 +2,35 @@
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'Waline.min.js') %>', function() {
-        var options = Object.assign(
+      var static_prefix = Object.assign(
+          <%- JSON.stringify(theme.static_prefix || {}) %>
+        );
+      var waline_prefix=static_prefix.waline||'';
+      var options = Object.assign(
           <%- JSON.stringify(theme.waline || {}) %>,
           {
             el: '#waline',
             path: <%= theme.waline.path %>
           }
-        )
-        new Waline(options);
-        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
-          var imgSelector = '#waline .vcontent img:not(.vemoji)';
-          Fluid.plugins.imageCaption(imgSelector);
-          Fluid.plugins.fancyBox(imgSelector);
+          )
+      if(waline_prefix.includes('@waline/client@0.')||waline_prefix.includes('@waline/client@1.')){
+        Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'Waline.min.js') %>', function() {
+          new Waline(options);
+          Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+            Fluid.plugins.initFancyBox('#waline .vcontent img:not(.vemoji)');
+          })
         })
-      });
+      }else{
+        Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.waline, 'waline.css') %>')
+        Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'waline.js') %>', function() {
+          Waline.init(options);
+          Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+            Fluid.plugins.initFancyBox('#waline .vcontent img:not(.vemoji)');
+          })
+        });
+      }
     });
   </script>
   <noscript>Please enable JavaScript to view the comments</noscript>
-<% } %>
+  <% } %>
+  
