@@ -23,6 +23,7 @@
       }else{
         Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.waline, 'waline.css') %>')
         Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'waline.js') %>', function() {
+          options.locale={placeholder: options.placeholder};
           Waline.init(options);
           Fluid.utils.waitElementVisible('#waline .vcontent', () => {
             Fluid.plugins.initFancyBox('#waline .vcontent img:not(.vemoji)');
