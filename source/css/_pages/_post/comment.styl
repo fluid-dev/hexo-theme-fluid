@@ -1,10 +1,13 @@
 // Rewrite valine
-.v[data-class=v]
+#valine.v[data-class=v]
   .status-bar, .veditor, .vinput, .vbtn, p, pre code
-    color var(--text-color) !important
+    color var(--text-color)
+
+  .vinput::placeholder
+    color var(--sec-text-color)
 
   .vicon
-    fill var(--text-color) !important
+    fill var(--text-color)
 
 // Rewrite gitalk
 .gt-container

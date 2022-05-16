@@ -812,18 +812,13 @@ valine:
 waline:
   serverURL: ''
   path: window.location.pathname
-  placeholder:
   meta: ['nick', 'mail', 'link']
   requiredMeta: ['nick']
   lang: 'zh-CN'
   emoji: ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
   dark: 'html[data-user-color-scheme="dark"]'
-  avatar: 'retro'
-  avatarCDN: 'https://seccdn.libravatar.org/avatar/'
-  avatarForce: false
   wordLimit: 0
   pageSize: 10
-  highlight: true
 
 # 畅言 Changyan
 # 基于第三方的服务
@@ -1070,7 +1065,7 @@ static_prefix:
 
   valine: https://lib.baomitu.com/valine/1.4.16/
 
-  waline: https://lib.baomitu.com/waline/1.5.2/
+  waline: https://lib.baomitu.com/waline/2.3.2/
 
   gitalk: https://lib.baomitu.com/gitalk/1.7.2/
 

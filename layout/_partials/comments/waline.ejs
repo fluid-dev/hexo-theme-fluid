@@ -2,7 +2,8 @@
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'Waline.min.js') %>', function() {
+      Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.waline, 'waline.min.css') %>')
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'waline.min.js') %>', function() {
         var options = Object.assign(
           <%- JSON.stringify(theme.waline || {}) %>,
           {
@@ -10,7 +11,7 @@
             path: <%= theme.waline.path %>
           }
         )
-        new Waline(options);
+        Waline.init(options);
         Fluid.utils.waitElementVisible('#waline .vcontent', () => {
           var imgSelector = '#waline .vcontent img:not(.vemoji)';
           Fluid.plugins.imageCaption(imgSelector);
