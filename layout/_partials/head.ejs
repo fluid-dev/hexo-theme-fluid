@@ -30,6 +30,10 @@ var ogConfig = Object.assign({ image: ogImage && url_for(ogImage) }, theme.open_
   <% } else { %>
     <meta name="description" content="<%= description %>">
   <% } %>
+  <% if ((theme.post.meta.views.enable && theme.post.meta.views.source === 'busuanzi')
+    || (theme.footer.statistics.enable && theme.footer.statistics.source === 'busuanzi')) { %>
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  <% } %>
   <% if (theme.custom_head) { %>
     <%- theme.custom_head %>
   <% } %>
