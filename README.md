@@ -28,12 +28,25 @@
   <a href="https://hexo.fluid-dev.com/docs/guide/">主题配置</a> | 
   <a href="https://hexo.io/zh-cn/docs/front-matter">文章配置</a>
 </p>
-
 <p align="center">
   <span>预览：</span>
-  <a href="https://hexo.fluid-dev.com/">Fluid's blog</a> | 
-  <a href="https://zkqiang.cn">zkqiang's blog</a>
+  <a href="https://www.mofan.life/">Mofan's blog</a>
 </p>
+
+## 重要说明
+
+首先感谢【fluid-dev/hexo-theme-fluid】推出这样一款优秀的 Hexo 主题！
+
+此仓库代码 Fork 自 [fluid-dev/hexo-theme-fluid 的 master 分支 fffe6fd，即最新版本 1.9.0](https://github.com/fluid-dev/hexo-theme-fluid)，并基于此开辟新分支 `self` 对样式做了一些微调，预览[移步](https://mofan.life/)。
+
+### 微调的项目
+
+* 文章中代码区域的样式
+* 首页文章列表中文章间隔
+
+
+
+如果你喜欢此主题，可 clone 到本地，然后 `git checkout self` 切换到 `self` 分支使用。
 
 ## 快速开始
 
@@ -87,49 +100,3 @@ layout: about
 
 这里写关于页的正文，支持 Markdown, HTML
 ```
-
-## 更新主题
-
-更新主题的方式[参照这里](https://hexo.fluid-dev.com/docs/start/#更新主题)。
-
-## 功能特性
-
-- [x] 无比详实的[用户文档](https://hexo.fluid-dev.com/docs/)
-- [x] 页面组件懒加载
-- [x] 多种代码高亮方案
-- [x] 多语言配置
-- [x] 内置多款评论插件
-- [x] 内置网页访问统计
-- [x] 内置文章本地搜索
-- [x] 支持暗色模式
-- [x] 支持脚注语法
-- [x] 支持 LaTeX 数学公式
-- [x] 支持 mermaid 流程图
-
-## 支持我们
-
-你可以扫描下方微信赞赏码支持我们的开源创作，让我们可以补贴服务器及域名等日常开销。
-
-<img src="https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/sponsor.png?s=200&v=4" width="200" alt="微信赞赏码">
-
-同时我们正在**寻求商业赞助**，如果贵司想在本页显著位置展示广告位（每月 6K+ Views 定向流量曝光），或者有其他赞助形式，可将联系方式发送邮件至 zkqiang#126.com (#替换为@)。
-
-## 贡献者
-
-[![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
-
-英文文档翻译：[@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top)
-
-其他贡献：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
-
-如你也想贡献代码，可参照[贡献指南](https://hexo.fluid-dev.com/docs/contribute/)
-
-## 鸣谢
-
-<a title="鸣谢 JetBrains 免费授权开发工具" href="https://www.jetbrains.com/?from=hexo-theme-fluid" target="_blank">
-  <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" width="150" alt="JetBrains">
-</a>
-
-## Star 趋势
-
-[![Stargazers over time](https://starchart.cc/fluid-dev/hexo-theme-fluid.svg)](https://starchart.cc/fluid-dev/hexo-theme-fluid)
