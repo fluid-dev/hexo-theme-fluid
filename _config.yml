@@ -727,7 +727,7 @@ post:
     enable: false
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
-    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus
     type: disqus
 
 
@@ -863,6 +863,25 @@ cusdis:
   host:
   app_id:
   lang: zh-cn
+
+# Giscus
+# 由 GitHub Discussions 驱动的评论系统
+# A comments system powered by GitHub Discussions
+# See: https://giscus.app/
+# See: https://github.com/giscus/giscus
+giscus:
+  repo:
+  repo-id:
+  category:
+  category-id:
+  theme-light: "light"
+  theme-dark: "dark"
+  mapping: "pathname"
+  reactions-enabled: "1"
+  emit-metadata: "0"
+  input-position: "top"
+  loading:
+  lang: "zh-CN"
 
 #---------------------------
 # 归档页

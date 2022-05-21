@@ -1,0 +1,38 @@
+<% if(theme.giscus
+        && theme.giscus.repo
+        && theme.giscus['repo-id']
+        && theme.giscus.category
+        && theme.giscus['category-id']
+        && theme.giscus['theme-light']
+        && theme.giscus['theme-dark']){ %>
+    <div class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('.giscus', function() {
+        var schema = document.documentElement.getAttribute('data-user-color-scheme');
+        var options = <%- JSON.stringify(theme.giscus || {}) %>;
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            attributes['data-' + option] = options[option];
+          }
+        }
+        attributes['data-theme'] = schema === 'dark' ? '<%= theme.giscus['theme-dark'] %>' : '<%= theme.giscus['theme-light'] %>';
+        for (let attribute in attributes) {
+          let value = attributes[attribute];
+          if (value == null || value == '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+<% } %>
