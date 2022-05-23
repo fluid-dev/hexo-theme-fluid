@@ -134,7 +134,7 @@ module.exports = (hexo) => {
             .replace(/<span[^>]+?>(.+?)<\/span>/gims, '$1');
           return str;
         }
-        return `<div class="code-wrapper">${str}</div>`;
+        return `<figure><div class="code-wrapper">${str}</div></figure>`;
       });
 
       // 适配缩进型代码块
