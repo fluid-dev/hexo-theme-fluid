@@ -10,7 +10,7 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
 <% page.posts.each(function (post) { %>
   <div class="row mx-auto index-card">
     <% var post_url = url_for(post.path), index_img = post.index_img || theme.post.default_index_img %>
-    <% if(index_img) { %>
+    <% if (index_img) { %>
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
           <img src="<%= url_for(index_img) %>" alt="<%= post.title %>">
@@ -27,15 +27,15 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
         </a>
       </h1>
 
-      <a class="index-excerpt" href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
+      <% var excerpt = post.description || post.excerpt || (theme.index.auto_excerpt.enable && post.content) %>
+      <a class="index-excerpt <%= index_img ? '' : 'index-excerpt__noimg' %>" href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
         <div>
-          <% var excerpt = post.description || post.excerpt || (theme.index.auto_excerpt.enable && post.content) %>
           <%- escape_html(strip_html(excerpt).substring(0, 200).trim()).replace(/\n/g, ' ') %>
         </div>
       </a>
 
       <div class="index-btm post-metas">
-        <% if(theme.index.post_meta.date ) { %>
+        <% if (theme.index.post_meta.date) { %>
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="<%= full_date(post.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
@@ -43,13 +43,13 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
             </time>
           </div>
         <% } %>
-        <% if(theme.index.post_meta.category && post.categories.length > 0) { %>
+        <% if (theme.index.post_meta.category && post.categories.length > 0) { %>
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             <%- partial('_partials/category-chains', { categories: post.categories, limit: 1 }) %>
           </div>
         <% } %>
-        <% if(theme.index.post_meta.tag && post.tags.length > 0) { %>
+        <% if (theme.index.post_meta.tag && post.tags.length > 0) { %>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             <% post.tags.each(function(tag){ %>
