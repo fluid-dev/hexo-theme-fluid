@@ -1,5 +1,5 @@
 <%
-var banner_img_height = parseInt(page.banner_img_height || theme.index.banner_img_height, 10) || 100
+var banner_img_height = parseFloat(page.banner_img_height || theme.index.banner_img_height)
 %>
 
 <div class="header-inner" style="height: <%= banner_img_height %>vh;">
