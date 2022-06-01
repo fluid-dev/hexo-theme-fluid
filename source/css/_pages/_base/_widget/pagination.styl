@@ -6,7 +6,7 @@
   .space
     align-self flex-end
 
-  a, .current
+  .page-number, .current, .extend
     outline 0
     border 0
     background-color transparent
@@ -14,7 +14,10 @@
     padding .5rem .75rem
     line-height 1.25
     border-radius .125rem
-    transition background-color .2s ease-in-out
 
-  a:hover, .current
+  .page-number
+    margin 0 .05rem
+
+  .page-number:hover, .current
+    transition background-color .2s ease-in-out
     background-color var(--link-hover-bg-color)
