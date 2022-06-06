@@ -291,7 +291,7 @@ web_analytics:  # 网页访问统计
     # Get the attribute of the page path during statistics
     path: window.location.pathname
     # 开启后不统计本地路径( localhost 与 127.0.0.1 )
-    # If ture, ignore localhost & 127.0.0.1
+    # If true, ignore localhost & 127.0.0.1
     ignore_local: false
 
 # 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
@@ -1037,7 +1037,7 @@ links:
 
 #---------------------------
 # 以下是配置 JS CSS 等静态资源的 URL 前缀，可以自定义成 CDN 地址，
-# 默认的 jsDelivr CDN 可能在部分地区无法访问，如果需要修改，最好使用与默认配置相同的版本，以避免潜在的问题，
+# 如果需要修改，最好使用与默认配置相同的版本，以避免潜在的问题，
 # ** 如果你不知道如何设置，请不要做任何改动 **
 #
 # Here is the url prefix to configure the static assets. Set CDN addresses you want to customize.
