@@ -1,0 +1,24 @@
+<% import_css(theme.static_prefix.github_markdown, 'github-markdown.min.css') %>
+<% import_css(theme.static_prefix.hint, 'hint.min.css') %>
+
+<% if (theme.code.highlight.enable) { %>
+  <%- partial('_partials/plugins/highlight.ejs') %>
+<% } %>
+<% if ((theme.code.language.enable && theme.code.language.default) || theme.code.copy_btn) { %>
+  <%- partial('_partials/plugins/code-widget.ejs') %>
+<% } %>
+<% if (theme.fun_features.anchorjs.enable && page.anchorjs !== false) { %>
+  <%- partial('_partials/plugins/anchorjs.ejs') %>
+<% } %>
+<% if (theme.post.image_zoom.enable && page.image_zoom !== false) { %>
+  <%- partial('_partials/plugins/fancybox.ejs') %>
+<% } %>
+<% if (theme.post.image_caption.enable) { %>
+  <% import_script('<script>Fluid.plugins.imageCaption();</script>') %>
+<% } %>
+<% if (theme.post.math.enable && (!theme.post.math.specific || (theme.post.math.specific && page.math))) { %>
+  <%- partial('_partials/plugins/math.ejs') %>
+<% } %>
+<% if (theme.post.mermaid.enable && (!theme.post.mermaid.specific || (theme.post.mermaid.specific && page.mermaid))) { %>
+  <%- partial('_partials/plugins/mermaid.ejs') %>
+<% } %>
