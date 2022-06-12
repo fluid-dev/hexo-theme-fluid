@@ -6,10 +6,11 @@
   margin-bottom 2rem
   color var(--post-text-color)
 
-  h1, h2
+  & > h1, h2
     border-bottom-color var(--line-color)
 
-  h1, h2, h3, h4, h5, h6
+  & > h1, h2, h3, h4, h5, h6
+    anchor-offset()
     color var(--post-heading-color)
     transition color .2s ease-in-out, border-bottom-color 0.2s ease-in-out
     font-weight bold
