@@ -1,5 +1,7 @@
 'use strict';
 
+const { stripHTML } = require('hexo-util');
+
 // Register footnotes filter
 module.exports = (hexo) => {
   const config = hexo.theme.config;
@@ -29,7 +31,7 @@ module.exports = (hexo) => {
     text = text.replace(reInlineFootnote, function(match, index, content) {
       footnotes.push({
         index  : index,
-        content: content
+        content: content ? content.trim() : ''
       });
       // remove content of inline footnote
       return '[^' + index + ']';
@@ -39,7 +41,7 @@ module.exports = (hexo) => {
     text = text.replace(reFootnoteContent, function(match, index, content) {
       footnotes.push({
         index  : index,
-        content: content
+        content: content ? content.trim() : ''
       });
       // remove footnote content
       return '';
@@ -63,13 +65,11 @@ module.exports = (hexo) => {
         if (!indexMap[index]) {
           return match;
         }
-        let tooltip = indexMap[index].content;
-        tooltip = hexo.render.renderSync({ text: tooltip, engine: 'markdown' });
-        tooltip = tooltip.replace(/(<.+?>)/g, '');
+        const tooltip = indexMap[index].content;
         return '<sup id="fnref:' + index + '" class="footnote-ref">'
           + '<a href="#fn:' + index + '" rel="footnote">'
           + '<span class="hint--top hint--rounded" aria-label="'
-          + tooltip
+          + stripHTML(tooltip)
           + '">[' + index + ']</span></a></sup>';
       });
 
@@ -79,12 +79,12 @@ module.exports = (hexo) => {
     });
 
     // render footnotes (HTML)
-    footnotes.forEach(function(footNote) {
-      html += '<li><span id="fn:' + footNote.index + '" class="footnote-text">';
+    footnotes.forEach(function(item) {
+      html += '<li><span id="fn:' + item.index + '" class="footnote-text">';
       html += '<span>';
-      const fn = hexo.render.renderSync({ text: footNote.content.trim(), engine: 'markdown' });
+      const fn = hexo.render.renderSync({ text: item.content, engine: 'markdown' });
       html += fn.replace(/(<p>)|(<\/p>)/g, '');
-      html += '<a href="#fnref:' + footNote.index + '" rev="footnote" class="footnote-backref"> ↩</a></span></span></li>';
+      html += '<a href="#fnref:' + item.index + '" rev="footnote" class="footnote-backref"> ↩</a></span></span></li>';
     });
 
     // add footnotes at the end of the content
