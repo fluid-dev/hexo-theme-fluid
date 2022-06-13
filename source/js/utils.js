@@ -174,7 +174,19 @@ Fluid.utils = {
     }
     var colorCast = (0.213 * rgbArr[0]) + (0.715 * rgbArr[1]) + (0.072 * rgbArr[2]);
     return colorCast === 0 || colorCast > 255 / 2 ? 1 : -1;
-  }
+  },
+
+  retry(handler, interval, times) {
+    if (times <= 0) {
+      return;
+    }
+    var next = function() {
+      if (--times >= 0 && !handler()) {
+        setTimeout(next, interval);
+      }
+    };
+    setTimeout(next, interval);
+  },
 
 };
 

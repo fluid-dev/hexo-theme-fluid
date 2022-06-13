@@ -35,18 +35,25 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
                 <% } %>
               </p>
             <% } %>
-            <div class="markdown-body">
+            <% if (page.encrypt === true) { %>
               <%- inject_point('postMarkdownBegin') %>
               <%- page.content %>
+              <%- partial('_partials/plugins/encrypt') %>
               <%- inject_point('postMarkdownEnd') %>
-            </div>
+            <% } else { %>
+              <div class="markdown-body">
+                <%- inject_point('postMarkdownBegin') %>
+                <%- page.content %>
+                <%- inject_point('postMarkdownEnd') %>
+              </div>
+            <% } %>
             <hr/>
             <div>
               <%- inject_point('postMetaBottom') %>
 
               <%- inject_point('postCopyright') %>
 
-              <% if(theme.post.prev_next.enable && !page.hide) { %>
+              <% if (theme.post.prev_next.enable && !page.hide) { %>
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     <% const prev = prev_post(page) %>
