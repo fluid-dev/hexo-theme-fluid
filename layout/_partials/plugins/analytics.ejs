@@ -2,7 +2,7 @@
 
   <% if(theme.web_analytics.baidu) { %>
     <!-- Baidu Analytics -->
-    <script defer>
+    <script async>
       if (!Fluid.ctx.dnt) {
         var _hmt = _hmt || [];
         (function() {
@@ -17,7 +17,7 @@
 
   <% if (theme.web_analytics.google){ %>
     <!-- Google Analytics -->
-    <script defer>
+    <script async>
       if (!Fluid.ctx.dnt) {
         Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
           window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
@@ -31,7 +31,7 @@
 
   <% if (theme.web_analytics.gtag){ %>
     <!-- Google gtag.js -->
-    <script defer>
+    <script async>
       if (!Fluid.ctx.dnt) {
         Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=<%= theme.web_analytics.gtag %>', function() {
           window.dataLayer = window.dataLayer || [];
@@ -45,7 +45,7 @@
 
   <% if(theme.web_analytics.tencent && theme.web_analytics.tencent.sid && theme.web_analytics.tencent.cid) { %>
     <!-- Tencent Analytics -->
-    <script defer>
+    <script async>
       if (!Fluid.ctx.dnt) {
         var _mtac = {};
         (function() {
@@ -65,7 +65,7 @@
 
   <% if(theme.web_analytics.woyaola) { %>
     <!-- 51.la Analytics -->
-    <script defer>
+    <script async>
       if (!Fluid.ctx.dnt) {
         Fluid.utils.createScript('//js.users.51.la/<%= theme.web_analytics.woyaola %>.js');
       }
@@ -74,7 +74,7 @@
 
   <% if(theme.web_analytics.cnzz) { %>
     <!-- cnzz Analytics -->
-    <script defer>
+    <script async>
       if (!Fluid.ctx.dnt) {
         Fluid.utils.createScript('//s4.cnzz.com/z_stat.php?id=<%= theme.web_analytics.cnzz %>&show=pic');
       }
