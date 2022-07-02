@@ -7,20 +7,26 @@ const pageInScope = (page, scope) => {
     case 'home':
       return Boolean(page.__index);
     case 'post':
+    case 'posts':
       return Boolean(page.__post);
-    case 'archives' || 'archive':
+    case 'archives':
+    case 'archive':
       return Boolean(page.archive);
-    case 'categories' || 'category':
+    case 'categories':
+    case 'category':
       return page.layout === 'categories' || page.layout === 'category';
-    case 'tags' || 'tag':
+    case 'tags':
+    case 'tag':
       return page.layout === 'tags' || page.layout === 'tag';
     case 'about':
       return page.layout === 'about';
-    case 'links' || 'link':
+    case 'links':
+    case 'link':
       return page.layout === 'links';
     case '404':
       return page.layout === '404';
-    case 'page' || 'custom':
+    case 'page':
+    case 'custom':
       return Boolean(page.__page);
   }
 };
