@@ -101,6 +101,10 @@ fun_features:
     # Enable in specified page, all pages by default
     # Options: home | post | tag | category | about | links | page | 404
     scope: []
+    
+    # 使typed.js自动插入CSS，关闭可以关闭光标的闪烁效果
+    # Let typed.js insert CSS automatically, turning this off turns off the blinking effect of the cursor
+    autoInsertCss: true
 
   # 为文章内容中的标题添加锚图标
   # Add an anchor icon to the title on the post page
