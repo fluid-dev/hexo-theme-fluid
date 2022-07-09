@@ -328,6 +328,23 @@ iconfont: //at.alicdn.com/t/font_1736178_lbnruvf0jn.css
 # 导航栏的相关配置
 # Navigation bar
 navbar:
+  # 显示导航栏 logo
+  # Displays a logo on the navbar
+  logo:
+    enable: true
+
+    # logo 图片的路径
+    # Path of the logo image
+    file: "/img/fluid.png"
+
+    # logo 图片的大小(单位自带)
+    # Size of the logo image(unit needed)
+    size: "2rem"
+
+    # logo 图片距离文字的边距(单位自带)
+    # CSS padding-right of the logo image(unit needed)
+    padding_right: "0.5rem"
+
   # 导航栏左侧的标题，为空则按 hexo config 中 `title` 显示
   # The title on the left side of the navigation bar. If empty, it is based on `title` in hexo config
   blog_title: "Fluid"
