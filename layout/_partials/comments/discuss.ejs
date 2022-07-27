@@ -1,0 +1,17 @@
+<% if (theme.discuss && theme.discuss.serverURLs) { %>
+  <div id="discuss-comments"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.discuss, 'discuss.js') %>', function() {
+        var options = Object.assign(
+          <%- JSON.stringify(theme.discuss || {}) %>,
+          { el: '#discuss-comments',
+            path: <%= theme.discuss.path %>
+          }
+        )
+        discuss.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+<% } %>
