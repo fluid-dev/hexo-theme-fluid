@@ -723,7 +723,7 @@ post:
     enable: false
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
-    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
     type: disqus
 
 
@@ -877,6 +877,15 @@ giscus:
   input-position: top
   lang: zh-CN
 
+# Discuss
+# 多平台、多数据库、自托管、免费开源评论系统
+# Self-hosted, small size, multi-platform, multi-database, free and open source commenting system
+# See: https://discuss.js.org
+discuss:
+  serverURLs:
+  path: window.location.pathname
+
+
 #---------------------------
 # 归档页
 # Archive Page
@@ -1027,7 +1036,7 @@ links:
     enable: false
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
-    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
     type: disqus
 
 
@@ -1085,5 +1094,7 @@ static_prefix:
   disqusjs: https://lib.baomitu.com/disqusjs/1.3.0/
 
   twikoo: https://lib.baomitu.com/twikoo/1.6.8/
+
+  discuss: https://lib.baomitu.com/discuss/1.2.1/
 
   hint: https://lib.baomitu.com/hint.css/2.7.0/
