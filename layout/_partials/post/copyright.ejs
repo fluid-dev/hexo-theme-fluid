@@ -1,6 +1,6 @@
 <% if (theme.post.copyright.enable && page.copyright !== false) { %>
   <%
-    var license = theme.post.copyright.license
+    var license = theme.post.copyright.license || ''
     if (typeof page.copyright === 'string') {
       license = page.copyright
     } else if (typeof page.license === 'string') {
@@ -33,23 +33,25 @@
           <div><%= full_date(page.updated, theme.post.copyright.update_date.format || 'LL') %></div>
         </div>
       <% } %>
-      <div class="license-meta-item">
-        <div><%- __('post.copyright.licensed') %></div>
-        <div>
-          <% if (['BY', 'BY-SA', 'BY-ND', 'BY-NC', 'BY-NC-SA', 'BY-NC-ND'].indexOf(license) !== -1) { %>
-            <% var items = license.split('-') %>
-            <% for (var idx = 0; idx < items.length; idx++) { %>
-              <a target="_blank" href="https://creativecommons.org/licenses/<%= license.toLowerCase() %>/4.0/">
-              <span class="hint--top hint--rounded" aria-label="<%- __('post.copyright.' + items[idx]) %>">
-                <i class="iconfont icon-<%= items[idx].toLowerCase() %>"></i>
-              </span>
-              </a>
+      <% if (license) { %>
+        <div class="license-meta-item">
+          <div><%- __('post.copyright.licensed') %></div>
+          <div>
+            <% if (['BY', 'BY-SA', 'BY-ND', 'BY-NC', 'BY-NC-SA', 'BY-NC-ND'].indexOf(license) !== -1) { %>
+              <% var items = license.split('-') %>
+              <% for (var idx = 0; idx < items.length; idx++) { %>
+                <a target="_blank" href="https://creativecommons.org/licenses/<%= license.toLowerCase() %>/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="<%- __('post.copyright.' + items[idx]) %>">
+                    <i class="iconfont icon-<%= items[idx].toLowerCase() %>"></i>
+                  </span>
+                </a>
+              <% } %>
+            <% } else { %>
+              <%- license %>
             <% } %>
-          <% } else { %>
-            <%- license %>
-          <% } %>
+          </div>
         </div>
-      </div>
+      <% } %>
     </div>
     <div class="license-icon iconfont"></div>
   </div>
