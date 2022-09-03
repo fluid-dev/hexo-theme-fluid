@@ -1060,7 +1060,7 @@ static_prefix:
 
   bootstrap: https://lib.baomitu.com/twitter-bootstrap/4.6.1/
 
-  prismjs: https://lib.baomitu.com/prism/1.27.0/
+  prismjs: https://lib.baomitu.com/prism/1.28.0/
 
   tocbot: https://lib.baomitu.com/tocbot/4.18.2/
 
@@ -1070,24 +1070,24 @@ static_prefix:
 
   nprogress: https://lib.baomitu.com/nprogress/0.2.0/
 
-  mathjax: https://lib.baomitu.com/mathjax/3.2.1/
+  mathjax: https://lib.baomitu.com/mathjax/3.2.2/
 
-  katex: https://lib.baomitu.com/KaTeX/0.15.6/
+  katex: https://lib.baomitu.com/KaTeX/0.16.2/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-  clipboard: https://lib.baomitu.com/clipboard.js/2.0.10/
+  clipboard: https://lib.baomitu.com/clipboard.js/2.0.11/
 
   mermaid: https://lib.baomitu.com/mermaid/8.14.0/
 
-  valine: https://lib.baomitu.com/valine/1.4.17/
+  valine: https://lib.baomitu.com/valine/1.5.1/
 
-  waline: https://lib.baomitu.com/waline/2.5.1/
+  waline: https://lib.baomitu.com/waline/2.6.3/
 
-  gitalk: https://lib.baomitu.com/gitalk/1.7.2/
+  gitalk: https://lib.baomitu.com/gitalk/1.8.0/
 
   disqusjs: https://lib.baomitu.com/disqusjs/1.3.0/
 
-  twikoo: https://lib.baomitu.com/twikoo/1.5.11/
+  twikoo: https://lib.baomitu.com/twikoo/1.6.7/
 
   hint: https://lib.baomitu.com/hint.css/2.7.0/
