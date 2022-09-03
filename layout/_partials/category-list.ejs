@@ -2,7 +2,7 @@
   <% return curCats.each((cat) => { %>
     <% var subCats = site.categories.find({ parent: cat._id }).sort(params.orderBy || 'name').filter(cat => cat.length) %>
     <% var collapsed = subCats.length === 0 || depth >= theme.category.collapse_depth %>
-    <% if ((params.activeIds || []).includes(cat._id)) collapsed = false %>
+    <% if ((params.filterIds || []).includes(cat._id)) collapsed = false %>
     <div class="<%= depth <= 0 ? 'category' : 'category-sub' %> row nomargin-x">
       <a class="<%= depth <= 0 ? 'category-item' : 'category-subitem' %> <%= collapsed ? 'collapsed' : '' %>
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="<%= cat.name.trim() %>"
@@ -49,7 +49,7 @@
       <% } else { %>
         <a href="<%= url_for(post.path) %>" title="<%= post.title %>"
            class="list-group-item list-group-item-action
-           <%= (params.activeIds || []).includes(post._id) ? 'active' : ''  %>">
+           <%= (params.filterIds || []).includes(post._id) ? 'active' : ''  %>">
           <span class="category-post"><%= post.title %></span>
         </a>
       <% } %>

@@ -1,17 +1,17 @@
 <%
-var parent = page.categories
+var parent = page.categories.filter(c => !c.parent)
 if (Array.isArray(page.category_bar)) {
-  parent = parent.filter(cat => page.category_bar.indexOf(cat.name) !== -1)
+  parent = page.categories.filter(cat => page.category_bar.indexOf(cat.name) !== -1)
 }
-var activeIds = page.categories.map(c => c._id)
-activeIds.push(page._id)
+var filterIds = page.categories.map(c => c._id)
+filterIds.push(page._id)
 %>
 
 <%- partial('_partials/category-list', {
   curCats  : parent,
   params: {
     type     : 'post',
-    activeIds: activeIds,
+    filterIds: filterIds,
     postLimit: theme.post.category_bar.post_limit,
     postOrderBy: theme.post.category_bar.post_order_by || config.index_generator.order_by
   }
