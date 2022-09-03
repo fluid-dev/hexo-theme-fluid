@@ -30,7 +30,7 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
       <% var excerpt = post.description || post.excerpt || (theme.index.auto_excerpt.enable && post.content) %>
       <a class="index-excerpt <%= index_img ? '' : 'index-excerpt__noimg' %>" href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
         <div>
-          <%- escape_html(strip_html(excerpt).substring(0, 200).trim()).replace(/\n/g, ' ') %>
+          <%- strip_html(excerpt).substring(0, 200).trim().replace(/\n/g, ' ') %>
         </div>
       </a>
 

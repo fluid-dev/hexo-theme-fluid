@@ -7,7 +7,7 @@ if (keywords instanceof Array) {
 }
 var description = page.description || page.excerpt || (is_post() && page.content) || config.description
 if (description) {
-  description = escape_html(strip_html(description).substring(0, 200).trim()).replace(/\n/g, ' ')
+  description = strip_html(description).substring(0, 200).trim().replace(/\n/g, ' ')
 }
 var ogImage = page.og_img || page.index_img
 var ogConfig = Object.assign({ image: ogImage && url_for(ogImage) }, theme.open_graph)
