@@ -143,6 +143,23 @@ Fluid.events = {
     }
   },
 
+  registerRefreshCallback: function(callback) {
+    if (!Array.isArray(Fluid.events._refreshCallbacks)) {
+      Fluid.events._refreshCallbacks = [];
+    }
+    Fluid.events._refreshCallbacks.push(callback);
+  },
+
+  refresh: function() {
+    if (Array.isArray(Fluid.events._refreshCallbacks)) {
+      for (var callback of Fluid.events._refreshCallbacks) {
+        if (callback instanceof Function) {
+          callback();
+        }
+      }
+    }
+  },
+
   billboard: function() {
     if (!('console' in window)) {
       return;

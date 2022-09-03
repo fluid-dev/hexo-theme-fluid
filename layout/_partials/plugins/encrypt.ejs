@@ -6,8 +6,8 @@ import_script(`
         var hbePrefix = document.querySelector('hbe-prefix');
         hbePrefix.parentElement.classList.add('markdown-body');
         Fluid.utils.retry(function() {
-          if (Fluid.boot && Fluid.boot.refreshPlugins) {
-            Fluid.boot.refreshPlugins();
+          if (Fluid.boot && Fluid.boot.refresh) {
+            Fluid.boot.refresh();
             return true;
           }
         }, 100, 10);
