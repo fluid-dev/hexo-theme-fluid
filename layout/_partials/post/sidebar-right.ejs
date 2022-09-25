@@ -1,10 +1,10 @@
 <% if(theme.post.toc.enable && theme.post.toc.placement !== 'left' && page.toc !== false){ %>
-  <aside class="sidebar" style="margin-left: -1rem">
+  <aside class="" style="margin-left: -1rem;top: 2rem;padding-top: 3rem">
     <%- partial('_partials/post/toc') %>
   </aside>
-<% } else if (theme.post.category_bar.enable && theme.post.category_bar.placement === 'right' && !page.hide &&
+<% } if (theme.post.category_bar.enable && theme.post.category_bar.placement === 'right' && !page.hide &&
   (!theme.post.category_bar.specific || (theme.post.category_bar.specific && page.category_bar))) { %>
-  <aside class="sidebar category-bar" style="margin-left: -1rem">
+  <aside class="category-bar" style="margin-left: -1rem;top: 2rem;padding-top: 3rem">
     <%- partial('_partials/post/category-bar') %>
   </aside>
 <% } %>

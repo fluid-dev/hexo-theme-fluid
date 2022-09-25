@@ -40,6 +40,7 @@ page404:
 
 post:
   toc: '目錄'
+  category: '分類'
   prev_post: '上一篇'
   next_post: '下一篇'
   updated: '本文最後更新於：%s'

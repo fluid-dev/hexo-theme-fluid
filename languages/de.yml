@@ -40,6 +40,7 @@ page404:
 
 post:
   toc: 'Inhaltsverzeichnis'
+  category: 'Kategorien'
   prev_post: 'Vorheriger'
   next_post: 'Nächster'
   updated: 'Geändert am %s'

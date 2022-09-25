@@ -40,6 +40,7 @@ page404:
 
 post:
   toc: 'Table of Contents'
+  category: 'Categories'
   prev_post: 'Previous'
   next_post: 'Next'
   updated: 'Last updated on %s'

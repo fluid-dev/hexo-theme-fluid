@@ -22,7 +22,7 @@ tag:
   title: 'Теги'
   subtitle: 'Теги'
   post_total: '%d сообщений всего'
-  
+
 about:
   menu: 'О'
   title: 'О'
@@ -40,6 +40,7 @@ page404:
 
 post:
   toc: 'Оглавление'
+  category: 'Категории'
   prev_post: 'Предыдущий'
   next_post: 'Следующий'
   updated: 'Последнее обновление %s'

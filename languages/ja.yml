@@ -40,6 +40,7 @@ page404:
 
 post:
   toc: '見出し'
+  category: 'カテゴリ'
   prev_post: '前の記事'
   next_post: '次の記事'
   updated: '最終更新日：%s'
