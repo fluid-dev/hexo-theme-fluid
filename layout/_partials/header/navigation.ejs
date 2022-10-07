@@ -24,7 +24,7 @@
               <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%- each.icon ? '<i class="' + each.icon + '"></i>' : '' %>
-                <%- text %>
+                <span><%- text %></span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <% for(const subEach of each.submenu || []) { %>
@@ -35,7 +35,7 @@
                   } %>
                   <a class="dropdown-item" href="<%= url_for(subEach.link) %>">
                     <%- subEach.icon ? '<i class="' + subEach.icon + '"></i>' : '' %>
-                    <%- subText %>
+                    <span><%- subText %></span>
                   </a>
                 <% } %>
               </div>
@@ -44,7 +44,7 @@
             <li class="nav-item">
               <a class="nav-link" href="<%= url_for(each.link) %>">
                 <%- each.icon ? '<i class="' + each.icon + '"></i>' : '' %>
-                <%- text %>
+                <span><%- text %></span>
               </a>
             </li>
           <% } %>
@@ -52,15 +52,16 @@
         <% if(theme.search.enable) { %>
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           <% import_js(theme.static_prefix.internal_js, 'local-search.js') %>
         <% } %>
         <% if(theme.dark_mode && theme.dark_mode.enable) { %>
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         <% } %>
       </ul>

@@ -14,7 +14,7 @@ Fluid.plugins = {
     var typed = new window.Typed('#subtitle', {
       strings: [
         '  ',
-        text + '&nbsp;'
+        text
       ],
       cursorChar: CONFIG.typing.cursorChar,
       typeSpeed : CONFIG.typing.typeSpeed,
