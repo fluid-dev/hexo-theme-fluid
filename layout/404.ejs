@@ -9,7 +9,7 @@ page.banner_mask_alpha = theme.page404.banner_mask_alpha
 
 <script>
   function redirect() {
-    location.href = "/";
+    location.href = "<%- url_for('/') %>";
   }
 
   <% if (theme.page404.redirect_delay) { %>
