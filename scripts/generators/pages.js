@@ -50,3 +50,5 @@ hexo.extend.generator.register('_links', function(locals) {
     };
   }
 });
+
+hexo.extend.generator.register('index', require('./index-generator'));
