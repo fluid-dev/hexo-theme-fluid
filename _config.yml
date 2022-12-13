@@ -1060,7 +1060,7 @@ static_prefix:
 
   bootstrap: https://lib.baomitu.com/twitter-bootstrap/4.6.1/
 
-  prismjs: https://lib.baomitu.com/prism/1.28.0/
+  prismjs: https://lib.baomitu.com/prism/1.29.0/
 
   tocbot: https://lib.baomitu.com/tocbot/4.18.2/
 
@@ -1082,12 +1082,12 @@ static_prefix:
 
   valine: https://lib.baomitu.com/valine/1.5.1/
 
-  waline: https://lib.baomitu.com/waline/2.6.3/
+  waline: https://lib.baomitu.com/waline/2.14.1/
 
   gitalk: https://lib.baomitu.com/gitalk/1.8.0/
 
   disqusjs: https://lib.baomitu.com/disqusjs/1.3.0/
 
-  twikoo: https://lib.baomitu.com/twikoo/1.6.7/
+  twikoo: https://lib.baomitu.com/twikoo/1.6.8/
 
   hint: https://lib.baomitu.com/hint.css/2.7.0/
