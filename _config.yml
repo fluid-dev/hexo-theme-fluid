@@ -252,15 +252,11 @@ web_analytics:  # 网页访问统计
   # See: https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376
   baidu:
 
-  # Google 统计的 Tracking ID
-  # Google analytics, set Tracking ID
-  # See: https://developers.google.com/analytics/devguides/collection/analyticsjs
+  # Google Analytics 4 的媒体资源 ID
+  # Google Analytics 4 MEASUREMENT_ID
+  # See: https://support.google.com/analytics/answer/9744165#zippy=%2Cin-this-article
   google:
-
-  # Google gtag.js 的媒体资源 ID
-  # Google gtag.js GA_MEASUREMENT_ID
-  # See: https://developers.google.com/analytics/devguides/collection/gtagjs/
-  gtag:
+    measurement_id:
 
   # 腾讯统计的 H5 App ID，开启高级功能才有cid
   # Tencent analytics, set APP ID

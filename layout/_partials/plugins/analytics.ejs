@@ -16,28 +16,16 @@
   <% } %>
 
   <% if (theme.web_analytics.google){ %>
-    <!-- Google Analytics -->
+    <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
-          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
-          ga.l = +new Date;
-          ga('create', '<%= theme.web_analytics.google %>', 'auto');
-          ga('send', 'pageview');
-        });
-      }
-    </script>
-  <% } %>
-
-  <% if (theme.web_analytics.gtag){ %>
-    <!-- Google gtag.js -->
-    <script async>
-      if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=<%= theme.web_analytics.gtag %>', function() {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=<%= theme.web_analytics.google.measurement_id %>", function() {
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag() {
+            dataLayer.push(arguments);
+          }
           gtag('js', new Date());
-          gtag('config', '<%- theme.web_analytics.gtag %>');
+          gtag('config', '<%- theme.web_analytics.google.measurement_id %>');
         });
       }
     </script>
