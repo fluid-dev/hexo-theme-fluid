@@ -35,7 +35,7 @@ hexo.extend.generator.register('_hexo_generator_search', function(locals) {
 
   const searchConfig = config.search;
   let searchField = searchConfig.field;
-  const content = searchConfig.content || true;
+  const content = searchConfig.content && true;
 
   let posts, pages;
 
