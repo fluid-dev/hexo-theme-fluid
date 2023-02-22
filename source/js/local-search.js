@@ -62,9 +62,11 @@
             var index_title = -1;
             var index_content = -1;
             var first_occur = -1;
-            // only match articles with not empty contents
-            if (data_content !== '') {
-              keywords.forEach(function(keyword, i) {
+            // Skip matching when content is included in search and content is empty
+            if (CONFIG.include_content_in_search && data_content === '') {
+              isMatch = false;
+            } else {
+              keywords.forEach(function (keyword, i) {
                 index_title = data_title.indexOf(keyword);
                 index_content = data_content.indexOf(keyword);
 
@@ -77,11 +79,8 @@
                   if (i === 0) {
                     first_occur = index_content;
                   }
-                  //content_index.push({index_content:index_content, keyword_len:keyword_len});
                 }
               });
-            } else {
-              isMatch = false;
             }
             // 0x05. show search results
             if (isMatch) {
