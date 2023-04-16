@@ -1,7 +1,7 @@
 <%
 import_script(`
   <script defer>
-    if (document.getElementById('hbePass')) {
+    if (document.getElementById('hbePass') || document.querySelector('hbe-prefix')) {
       Fluid.utils.waitElementLoaded('hbe-prefix', function() {
         var hbePrefix = document.querySelector('hbe-prefix');
         hbePrefix.parentElement.classList.add('markdown-body');
