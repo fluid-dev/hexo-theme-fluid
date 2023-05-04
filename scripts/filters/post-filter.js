@@ -26,7 +26,7 @@ hexo.extend.filter.register('before_generate', function() {
   });
   const hidePosts = allPosts.filter(post => post.hide);
   const normalPosts = allPosts.filter(post => !post.hide);
-  const indexPost = allPosts.filter(post => !post.archive)
+  const indexPost = allPosts.filter(post => !post.hide && !post.archive)
 
   this.locals.set('all_posts', allPosts);
   this.locals.set('hide_posts', hidePosts);
