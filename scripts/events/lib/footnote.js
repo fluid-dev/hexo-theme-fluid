@@ -1,12 +1,12 @@
 'use strict';
 
-const { stripHTML } = require('hexo-util');
+const {stripHTML} = require('hexo-util');
 
 // Register footnotes filter
 module.exports = (hexo) => {
   const config = hexo.theme.config;
   if (config.post.footnote.enable) {
-    hexo.extend.filter.register('before_post_render', function(page) {
+    hexo.extend.filter.register('before_post_render', function (page) {
       page.content = renderFootnotes(page.content, page.footnote);
       return page;
     });
@@ -21,74 +21,55 @@ module.exports = (hexo) => {
    * @returns {String} text
    */
   function renderFootnotes(text, header) {
-    const reFootnoteContent = /\[\^(\d+)]: ?([\S\s]+?)(?=\[\^(?:\d+)]|\n\n|$)/g;
-    const reInlineFootnote = /\[\^(\d+)]\((.+?)\)/g;
-    const reFootnoteIndex = /\[\^(\d+)]/g;
-    let footnotes = [];
+    const reFootnoteContent = /\[\^([a-zA-Z\d\u4e00-\u9fa5]+)]: ?([\S\s]+?)(?=\[\^(?:[a-zA-Z\d\u4e00-\u9fa5]+)]|\n\n|$)/g;
+    const reInlineFootnote = /\[\^([a-zA-Z\d\u4e00-\u9fa5]+)]\((.+?)\)/g;
+    const reFootnoteIndex = /\[\^([a-zA-Z\d\u4e00-\u9fa5]+)]/g;
+    let footnotesMap = new Map();
     let html = '';
 
     // threat all inline footnotes
-    text = text.replace(reInlineFootnote, function(match, index, content) {
-      footnotes.push({
-        index  : index,
-        content: content ? content.trim() : ''
-      });
+    text = text.replace(reInlineFootnote, function (match, index, content) {
+      footnotesMap.set(index, content ? content.trim() : '');
       // remove content of inline footnote
       return '[^' + index + ']';
     });
 
     // threat all footnote contents
-    text = text.replace(reFootnoteContent, function(match, index, content) {
-      footnotes.push({
-        index  : index,
-        content: content ? content.trim() : ''
-      });
+    text = text.replace(reFootnoteContent, function (match, index, content) {
+      footnotesMap.set(index, content ? content.trim() : '');
       // remove footnote content
       return '';
     });
 
-    // create map for looking footnotes array
-    function createLookMap(field) {
-      let map = {};
-      for (let i = 0; i < footnotes.length; i++) {
-        const item = footnotes[i];
-        const key = item[field];
-        map[key] = item;
-      }
-      return map;
-    }
-    const indexMap = createLookMap('index');
-
     // render (HTML) footnotes reference
     text = text.replace(reFootnoteIndex,
-      function(match, index) {
-        if (!indexMap[index]) {
+      function (match, index) {
+        if (footnotesMap[index]) {
           return match;
         }
-        const tooltip = indexMap[index].content;
         return '<sup id="fnref:' + index + '" class="footnote-ref">'
           + '<a href="#fn:' + index + '" rel="footnote">'
           + '<span class="hint--top hint--rounded" aria-label="'
-          + stripHTML(tooltip)
+          + stripHTML(footnotesMap.get(index))
           + '">[' + index + ']</span></a></sup>';
       });
 
     // sort footnotes by their index
-    footnotes.sort(function(a, b) {
-      return a.index - b.index;
-    });
+    // footnotes.sort(function(a, b) {
+    //   return a.index - b.index;
+    // });
 
     // render footnotes (HTML)
-    footnotes.forEach(function(item) {
-      html += '<li><span id="fn:' + item.index + '" class="footnote-text">';
-      html += '<span>';
-      const fn = hexo.render.renderSync({ text: item.content, engine: 'markdown' });
+    for (let key of footnotesMap.keys()) {
+      html += '<li><span id="fn:' + key + '" class="footnote-text">';
+      html += '<span><span style="font-weight: bold;font-style:italic;">' + key + '：</span>';
+      const fn = hexo.render.renderSync({text: footnotesMap.get(key), engine: 'markdown'});
       html += fn.replace(/(<p>)|(<\/p>)/g, '');
-      html += '<a href="#fnref:' + item.index + '" rev="footnote" class="footnote-backref"> ↩</a></span></span></li>';
-    });
+      html += '<a href="#fnref:' + key + '" rev="footnote" class="footnote-backref">↩</a></span></span></li>';
+    }
 
     // add footnotes at the end of the content
-    if (footnotes.length) {
+    if (footnotesMap.size) {
       text += '<section class="footnotes">';
       text += header || config.post.footnote.header || '';
       text += '<div class="footnote-list">';
