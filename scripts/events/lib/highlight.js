@@ -1,7 +1,17 @@
 'use strict';
 
+let css;
+try {
+  css = require('css');
+} catch (error) {
+  if (error.code === 'MODULE_NOT_FOUND') {
+    css = require('@adobe/css-tools');
+  } else {
+    throw error;
+  }
+}
+
 const fs = require('fs');
-const css = require('css');
 const objUtil = require('../../utils/object');
 const resolveModule = require('../../utils/resolve');
 
