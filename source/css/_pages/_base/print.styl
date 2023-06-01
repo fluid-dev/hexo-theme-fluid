@@ -1,0 +1,15 @@
+@media print
+  a:not([href^='#']):not([href^='javascript:']):not(.print-no-link)::after
+    content ' (' attr(href) ')'
+    font-size 80%
+    color #57606a
+
+  .print-hide
+    display: none !important
+
+
+  .print-show
+    display: flex !important
+
+.print-show
+  display none

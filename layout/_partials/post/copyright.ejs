@@ -40,7 +40,7 @@
             <% if (['BY', 'BY-SA', 'BY-ND', 'BY-NC', 'BY-NC-SA', 'BY-NC-ND'].indexOf(license) !== -1) { %>
               <% var items = license.split('-') %>
               <% for (var idx = 0; idx < items.length; idx++) { %>
-                <a target="_blank" href="https://creativecommons.org/licenses/<%= license.toLowerCase() %>/4.0/">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/<%= license.toLowerCase() %>/4.0/">
                   <span class="hint--top hint--rounded" aria-label="<%- __('post.copyright.' + items[idx]) %>">
                     <i class="iconfont icon-<%= items[idx].toLowerCase() %>"></i>
                   </span>
