@@ -9,7 +9,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       <% page.tags.each(function(tag) { %>
-        <a href="<%= url_for(tag.path) %>">#<%- tag.name %></a>
+        <a href="<%= url_for(tag.path) %>" class="print-no-link">#<%- tag.name %></a>
       <% }) %>
     </div>
   <% } %>

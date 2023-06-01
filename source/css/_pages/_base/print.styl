@@ -1,0 +1,38 @@
+@media print
+  header, footer, .side-col, #scroll-top-button, .post-prevnext, #comments
+    display none !important
+
+  .markdown-body
+    a:not([href^='#']):not([href^='javascript:']):not(.print-no-link)::after
+      content ' (' attr(href) ')'
+      font-size 0.8rem
+      color var(--post-text-color)
+      opacity 0.8
+
+    & > h1, h2
+      border-bottom-color transparent !important
+
+    & > h1, h2, h3, h4, h5, h6
+      margin-top 1.25em !important
+      margin-bottom 0.25em !important
+
+    [data-anchorjs-icon]::after
+      display none
+
+    figure.highlight
+      table, tbody, tr, td.code, td.code pre
+        width 100% !important
+        display block !important
+
+      pre > code
+        white-space pre-wrap
+
+      .gutter, .code-widget
+        display none !important
+
+  .post-metas a
+    text-decoration none
+
+@media not print
+  #seo-header
+    display none
