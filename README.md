@@ -106,13 +106,28 @@ layout: about
 - [x] 支持 LaTeX 数学公式
 - [x] 支持 mermaid 流程图
 
-## 支持我们
+## 鸣谢
 
-你可以扫描下方微信赞赏码支持我们的开源创作，让我们可以补贴服务器及域名等日常开销。
-
-<img src="https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/sponsor.png?s=200&v=4" width="200" alt="微信赞赏码">
-
-同时我们正在**寻求商业赞助**，如果贵司想在本页显著位置展示广告位（每月 6K+ Views 定向流量曝光），或者有其他赞助形式，可将联系方式发送邮件至 zkqiang#126.com (#替换为@)。
+<table>
+  <thead>
+    <tr>
+      <th align="center" style="width: 240px;">
+        <a href="https://flowus.cn/share/eebf2144-8db7-4d68-b31e-bc2c116871de">
+          <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/32983588/243899272-092eeb46-9172-4c10-9e72-53561ff37a00.png" height="200px"><br>
+          <sub>首席赞助商 ORENCEAI</sub><br>
+          <sub>全新的 ChatGPT 人工智能对话平台</sub>
+        </a>
+      </th>
+      <th align="center" style="width: 240px;">
+        <a href="https://www.jetbrains.com/?from=hexo-theme-fluid">
+          <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" height="200px"><br>
+          <sub>免费开发工具提供方 JetBrains</sub><br>
+          <sub>专注于创建智能开发工具</sub>
+        </a>
+      </th>
+    </tr>
+  </thead>
+</table>
 
 ## 贡献者
 
@@ -124,11 +139,13 @@ layout: about
 
 如你也想贡献代码，可参照[贡献指南](https://hexo.fluid-dev.com/docs/contribute/)
 
-## 鸣谢
+## 支持我们
 
-<a title="鸣谢 JetBrains 免费授权开发工具" href="https://www.jetbrains.com/?from=hexo-theme-fluid" target="_blank">
-  <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" width="150" alt="JetBrains">
-</a>
+你可以扫描下方微信赞赏码支持我们的开源创作，让我们可以补贴服务器及域名等日常开销。
+
+<img src="https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/sponsor.png?s=200&v=4" width="200" alt="微信赞赏码">
+
+同时我们正在**寻求商业赞助**，如果贵司想在本页显著位置展示广告位（每月 6K+ Views 定向流量曝光），或者有其他赞助形式，可将联系方式发送邮件至 zkqiang#126.com (#替换为@)。
 
 ## Star 趋势
 
