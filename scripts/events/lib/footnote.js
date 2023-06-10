@@ -24,8 +24,17 @@ module.exports = (hexo) => {
     const reFootnoteContent = /\[\^(\d+)]: ?([\S\s]+?)(?=\[\^(?:\d+)]|\n\n|$)/g;
     const reInlineFootnote = /\[\^(\d+)]\((.+?)\)/g;
     const reFootnoteIndex = /\[\^(\d+)]/g;
+    const reCodeBlock = /<pre>[\s\S]*?<\/pre>/g;
+
     let footnotes = [];
     let html = '';
+    let codeBlocks = [];
+
+    // extract code block
+    text = text.replace(reCodeBlock, function(match) {
+      codeBlocks.push(match);
+      return 'CODE_BLOCK_PLACEHOLDER';
+    });
 
     // threat all inline footnotes
     text = text.replace(reInlineFootnote, function(match, index, content) {
@@ -95,6 +104,12 @@ module.exports = (hexo) => {
       text += '<ol>' + html + '</ol>';
       text += '</div></section>';
     }
+
+    // restore code block
+    text = text.replace(/CODE_BLOCK_PLACEHOLDER/g, function() {
+      return codeBlocks.shift();
+    });
+
     return text;
   }
 };
