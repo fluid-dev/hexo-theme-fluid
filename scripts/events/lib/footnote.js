@@ -6,8 +6,10 @@ const { stripHTML } = require('hexo-util');
 module.exports = (hexo) => {
   const config = hexo.theme.config;
   if (config.post.footnote.enable) {
-    hexo.extend.filter.register('before_post_render', function(page) {
-      page.content = renderFootnotes(page.content, page.footnote);
+    hexo.extend.filter.register('before_post_render', (page) => {
+      if (page.footnote !== false) {
+        page.content = renderFootnotes(page.content, page.footnote);
+      }
       return page;
     });
   }
