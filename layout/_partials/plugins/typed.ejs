@@ -11,7 +11,7 @@
       <% if (is_home() && theme.index.slogan.api && theme.index.slogan.api.enable) { %>
         jQuery.ajax({
           type: '<%= theme.index.slogan.api.method %>',
-          url: '<%= theme.index.slogan.api.url %>',
+          url: '<%- theme.index.slogan.api.url %>',
           headers: <%- JSON.stringify(theme.index.slogan.api.headers || {}) %>,
           dataType: 'json',
           success: function(result) {
