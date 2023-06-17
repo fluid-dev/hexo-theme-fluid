@@ -15,7 +15,8 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"><%= page.subtitle || page.title %></h1>
+            <h1 class="print-show" id="seo-header"><%= page.subtitle || page.title %></h1>
+            <hr class="print-show">
             <% if (theme.post.updated.enable && theme.post.updated && compare_date(page.date, page.updated)) { %>
               <p class="note note-<%= theme.post.updated.note_class || 'info' %>">
                 <% if (theme.post.updated.relative) { %>
