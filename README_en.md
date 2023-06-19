@@ -103,19 +103,39 @@ About content
 - [x] Support for Mermaid
 - [x] Dark mode
 
-## Contributors
-
-[![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
-
-English docs translator: [@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top)
-
-Contributors outside PR: [@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
-
 ## Thanks
 
 <a title="Thanks to JetBrains for providing the license" href="https://www.jetbrains.com/?from=hexo-theme-fluid" target="_blank">
   <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" width="150" alt="JetBrains">
 </a>
+
+## Contributors
+
+[![contributors](https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false)](https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors)
+
+English docs translator: [@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top) [@Sinetian](https://sinetian.github.io/)
+
+Contributors outside PR: [@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
+
+## Support
+
+If you find this project helpful and would like to support its development, please consider making a financial contribution.
+
+<table>
+  <thead>
+    <tr>
+      <th align="center" style="width: 240px;">
+        <div>
+          <a href="https://etherscan.io/address/0x0021395954710be29c0BFDCB3f98f4D2fa5A1448">
+            <img src="https://avatars.githubusercontent.com/u/6250754?s=200&v=4" height="200px" alt="ERC20 Token">
+          </a>
+          <br>
+          <sub>ERC20 Token: 0x0021395954710<br>be29c0BFDCB3f98f4D2fa5A1448</sub>
+        </div>
+      </th>
+    </tr>
+  </thead>
+</table>
 
 ## Star Trending
 
