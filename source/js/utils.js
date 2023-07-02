@@ -15,6 +15,16 @@ Fluid.utils = {
     window.removeEventListener('scroll', callback);
   },
 
+  listenDOMLoaded(callback) {
+    if (document.readyState !== 'loading') {
+      callback();
+    } else {
+      document.addEventListener('DOMContentLoaded', function () {
+        callback();
+      });
+    }
+  },
+
   scrollToElement: function(target, offset) {
     var of = jQuery(target).offset();
     if (of) {
@@ -46,7 +56,7 @@ Fluid.utils = {
     offsetFactor = offsetFactor && offsetFactor >= 0 ? offsetFactor : 0;
 
     function waitInViewport(element) {
-      document.addEventListener('DOMContentLoaded', function() {
+      Fluid.utils.listenDOMLoaded(function() {
         if (Fluid.utils.elementVisible(element, offsetFactor)) {
           callback();
           return;
@@ -100,7 +110,7 @@ Fluid.utils = {
       });
       mo.observe(document, { childList: true, subtree: true });
     } else {
-      document.addEventListener('DOMContentLoaded', function() {
+      Fluid.utils.listenDOMLoaded(function() {
         var waitLoop = function() {
           var ele = document.querySelector(selector);
           if (ele) {

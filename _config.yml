@@ -843,7 +843,7 @@ remark42:
   components: ['embed']
 
 # Twikoo
-# 基于腾讯云开发
+# 支持腾讯云、Vercel、Railway 等多种平台部署
 # Based on Tencent CloudBase
 # See: https://twikoo.js.org
 twikoo:
