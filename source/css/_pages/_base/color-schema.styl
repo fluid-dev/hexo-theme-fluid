@@ -59,7 +59,7 @@ dark-colors()
     transition background-color .2s ease-in-out
 
 if (hexo-config("dark_mode.enable"))
-  @media not print and (prefers-color-scheme: dark)
+  @media (prefers-color-scheme: dark)
     :root
       --color-mode "dark"
 
@@ -69,3 +69,7 @@ if (hexo-config("dark_mode.enable"))
   @media not print
     [data-user-color-scheme="dark"]
       dark-colors()
+
+  @media print
+    :root
+      --color-mode "light"
