@@ -94,7 +94,7 @@ module.exports = (hexo) => {
       html += '<li><span id="fn:' + item.index + '" class="footnote-text">';
       html += '<span>';
       const fn = hexo.render.renderSync({ text: item.content, engine: 'markdown' });
-      html += fn.replace(/(<p>)|(<\/p>)/g, '');
+      html += fn.replace(/(<p>)|(<\/p>)/g, '').replace(/<br>/g, '');
       html += '<a href="#fnref:' + item.index + '" rev="footnote" class="footnote-backref"> ↩</a></span></span></li>';
     });
 
