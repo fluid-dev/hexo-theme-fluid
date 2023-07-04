@@ -33,7 +33,7 @@
                   <% if (subText.indexOf('.title') !== -1) {
                     subText = subEach.key
                   } %>
-                  <a class="dropdown-item" href="<%= url_for(subEach.link) %>">
+                  <a class="dropdown-item" href="<%= url_for(subEach.link) %>" target="<%= subEach.target || '_self' %>">
                     <%- subEach.icon ? '<i class="' + subEach.icon + '"></i>' : '' %>
                     <span><%- subText %></span>
                   </a>
@@ -42,7 +42,7 @@
             </li>
           <% } else { %>
             <li class="nav-item">
-              <a class="nav-link" href="<%= url_for(each.link) %>">
+              <a class="nav-link" href="<%= url_for(each.link) %>" target="<%= each.target || '_self' %>">
                 <%- each.icon ? '<i class="' + each.icon + '"></i>' : '' %>
                 <span><%- text %></span>
               </a>
