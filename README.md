@@ -112,13 +112,6 @@ layout: about
   <thead>
     <tr>
       <th align="center" style="width: 240px;">
-        <a href="https://flowus.cn/share/eebf2144-8db7-4d68-b31e-bc2c116871de">
-          <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/32983588/243899272-092eeb46-9172-4c10-9e72-53561ff37a00.png" height="200px"><br>
-          <sub>首席赞助商 ORENCEAI</sub><br>
-          <sub>全新的 ChatGPT 人工智能对话平台</sub>
-        </a>
-      </th>
-      <th align="center" style="width: 240px;">
         <a href="https://www.jetbrains.com/?from=hexo-theme-fluid">
           <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" height="200px"><br>
           <sub>免费开发工具提供方 JetBrains</sub><br>
