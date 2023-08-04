@@ -19,13 +19,13 @@
     <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=<%= theme.web_analytics.google.measurement_id %>", function() {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=<%= theme.web_analytics.gtag %>", function() {
           window.dataLayer = window.dataLayer || [];
           function gtag() {
             dataLayer.push(arguments);
           }
           gtag('js', new Date());
-          gtag('config', '<%- theme.web_analytics.google.measurement_id %>');
+          gtag('config', '<%- theme.web_analytics.gtag %>');
         });
       }
     </script>
