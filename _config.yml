@@ -221,6 +221,19 @@ color:
   button_hover_bg_color: "#f2f3f5"
   button_hover_bg_color_dark: "#46647e"
 
+  # 折叠块标题文字的颜色
+  # Color of the text for the folding block title
+  fold_title_color: "#3c4858"
+  fold_title_color_dark: "#c4c6c9"
+  # 折叠块背景色
+  # Background color of the folding block
+  fold_bg_color: "#e5efe7"
+  fold_bg_color_dark: "#4f665b"
+  # 折叠块边框的颜色
+  # Color of the folding block border.
+  fold_board_color: "#e5efe7b8"
+  fold_board_color_dark: "#4f665bb8"
+
 # 主题字体配置
 # Font
 font:

@@ -1,3 +1,66 @@
+// fold
+.fold {
+    margin: 5px 0;
+    padding: 0 15px;
+    border: 0.5px solid var(--fold-board-color);
+    position: relative;
+    clear: both;
+    border-radius: 4px;
+}
+
+.fold .fold-title {
+    background: var(--fold-bg-color);
+    color: var(--fold-title-color);
+    margin: 0 -15px;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.fold .fold-title:before {
+    font-weight: bold;
+}
+
+.fold.collapsed .fold-title:before {
+    content: "▶ ";
+}
+
+.fold.expanded .fold-title:before {
+    content: "▼ ";
+}
+
+.fold .fold-content {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    -moz-transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -moz-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+.fold.collapsed .fold-content {
+    overflow: hidden;
+    max-height: 0;
+}
+
+.fold.expanded .fold-content {
+    max-height: 3000px;
+    overflow: auto;
+}
+
+.fold .fold-content p:first-child {
+    margin-top: 0 !important;
+}
+
 // note
 .note
   padding 0.75rem
