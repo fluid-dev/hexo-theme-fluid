@@ -2,12 +2,12 @@
 
 'use strict';
 
-const crypto = require('crypto');
+const md5 = require('../utils/crypto');
 const { decodeURL } = require('hexo-util');
 const compareVersions = require('../../scripts/utils/compare-versions');
 
 hexo.extend.helper.register('md5', function(string) {
-  return crypto.createHash('md5').update(string).digest('hex');
+  return md5(string);
 });
 
 hexo.extend.helper.register('require_version', function(current, require) {
