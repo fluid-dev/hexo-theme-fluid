@@ -85,6 +85,7 @@ module.exports = (hexo) => {
       auto_detect: true,
       line_number: config.code.highlight.line_number || false
     });
+    hexo.config.syntax_highlighter = 'highlight.js';  // hexo v7.0.0+ config
     hexo.theme.config.code.highlight.highlightjs = objUtil.merge({}, hexo.theme.config.code.highlight.highlightjs, {
       light: resolveHighlight(hexo.theme.config.code.highlight.highlightjs.style),
       dark : hexo.theme.config.dark_mode.enable && resolveHighlight(hexo.theme.config.code.highlight.highlightjs.style_dark)
@@ -124,6 +125,7 @@ module.exports = (hexo) => {
       preprocess : config.code.highlight.prismjs.preprocess || false,
       line_number: config.code.highlight.line_number || false
     });
+    hexo.config.syntax_highlighter = 'prismjs';  // hexo v7.0.0+ config
     hexo.theme.config.code.highlight.prismjs = objUtil.merge({}, hexo.theme.config.code.highlight.prismjs, {
       light: resolvePrism(hexo.theme.config.code.highlight.prismjs.style),
       dark : hexo.theme.config.dark_mode.enable && resolvePrism(hexo.theme.config.code.highlight.prismjs.style_dark)
