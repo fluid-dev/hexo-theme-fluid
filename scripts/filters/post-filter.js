@@ -49,5 +49,7 @@ hexo.extend.generator.register('post', function(locals) {
 hexo.extend.filter.register('after_post_render', (page) => {
   // 移除 hexo-renderer-pandoc 生成的 <colgroup>
   page.content = page.content.replace(/<colgroup>.+?<\/colgroup>/gims, '');
+  // 移除 hexo-renderer-pandoc 生成的 <span class="footnote-text">...<br>...</span>
+  page.content = page.content.replace(/(class="footnote-text".+?)<br.+?>(.+?rev="footnote")/gims, '$1$2');
   return page;
 });
