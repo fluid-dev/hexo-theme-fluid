@@ -42,7 +42,7 @@ post:
   toc: '目录'
   prev_post: '上一篇'
   next_post: '下一篇'
-  updated: '本文最后更新于：%s'
+  updated: '本文最后更新于 %s'
   meta:
     wordcount: '%s 字'
     min2read: '%s 分钟'

@@ -1,0 +1,30 @@
+<%
+var lang = (config.language || 'zh-cn').toLowerCase();
+
+import_script(`
+<script>
+  var relativeDate = function() {
+    var updatedTime = document.getElementById('updated-time');
+    if (updatedTime) {
+      var text = updatedTime.textContent;
+      var reg = /\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:Z|[+-]\\d{2}:\\d{2})/;
+      var matchs = text.match(reg);
+      if (matchs) {
+        var relativeTime = moment(matchs[0]).fromNow();
+        updatedTime.textContent = text.replace(reg, relativeTime);
+      }
+      updatedTime.style.display = '';
+    }
+  };
+  Fluid.utils.createScript('${url_join(theme.static_prefix.moment, 'moment.min.js')}', function() {
+    if (!'${lang}'.startsWith('en')) {
+      Fluid.utils.createScript('${url_join(theme.static_prefix.moment, 'locale/' + lang + '.min.js')}', function() {
+        relativeDate();
+      });
+    } else {
+      relativeDate();
+    }
+  });
+</script>
+`)
+%>

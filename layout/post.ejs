@@ -16,14 +16,15 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
           <article class="post-content mx-auto">
             <h1 id="seo-header"><%= page.subtitle || page.title %></h1>
             <% if (theme.post.updated.enable && theme.post.updated && compare_date(page.date, page.updated)) { %>
-              <p class="note note-<%= theme.post.updated.note_class || 'info' %>">
+              <p id="updated-time" class="note note-<%= theme.post.updated.note_class || 'info' %>" style="<%= theme.post.updated.relative ? 'display: none' : '' %>">
                 <% if (theme.post.updated.relative) { %>
                   <% if (theme.post.updated.content) { %>
                     <!-- compatible with older versions-->
-                    <%- theme.post.updated.content %><%- relative_date(page.updated, theme.post.updated.date_format) %>
+                    <%- theme.post.updated.content %><%- date(page.updated, 'YYYY-MM-DDTHH:mm:ssZ') %>
                   <% } else { %>
-                    <%- __('post.updated', relative_date(page.updated, theme.post.updated.date_format)) %>
+                    <%- __('post.updated', date(page.updated, 'YYYY-MM-DDTHH:mm:ssZ')) %>
                   <% } %>
+                  <%- partial('_partials/plugins/moment.ejs') %>
                 <% } else { %>
                   <% if (theme.post.updated.content) { %>
                     <!-- compatible with older versions-->
