@@ -19,13 +19,13 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
             <% if (theme.post.outdate.enable) { %>
               <% if (interval > theme.post.outdate.warning_day * 3600 * 24 * 1000 && interval < theme.post.outdate.error_day * 3600 * 24 * 1000) { %>
                 <div class="note note-warning">
-                  <h5>文章时效性提示</h5>
-                  <p>这是一篇发布于 <%- parseInt(interval / 86400000) %> 天前的文章，部分信息可能已发生改变，请注意甄别。</p>
+                  <h5><%- __('post.outdate.title') %></h5>
+                  <p><%- __('post.outdate.content', parseInt(interval / 86400000)) %></p>
                 </div>
               <% } else if(interval > theme.post.outdate.error_day * 3600 * 24 * 1000) { %>
                 <div class="note note-danger">
-                  <h5>文章时效性提示</h5>
-                  <p>这是一篇发布于 <%- parseInt(interval / 86400000) %> 天前的文章，部分信息可能已发生改变，请注意甄别。</p>
+                  <h5><%- __('post.outdate.title') %></h5>
+                  <p><%- __('post.outdate.content', parseInt(interval / 86400000)) %></p>
                 </div>
               <% } %>
             <% } %>
