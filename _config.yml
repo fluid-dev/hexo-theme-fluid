@@ -578,6 +578,17 @@ post:
       # Options: busuanzi | leancloud
       source: "busuanzi"
 
+  # 在文章开头显示文章过期/时效提示
+  # Display expiration/expiration notification at the beginning of the article
+  outdate: 
+    enable: false
+    # 文章时效提示使用警告样式的天数，超过此天数显示警告样式的note
+    # The number of days for the article's timeliness prompt to use warning style, exceeding this number of days will display warning style notes
+    warning_day: 200
+    # 文章时效提示使用错误样式的天数，超过此天数显示错误样式的note
+    # The number of days for the article's timeliness prompt to use the wrong style. If this number is exceeded, a note with the wrong style will be displayed
+    error_day: 400
+    
   # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
   # Update date is displayed at the beginning of the post. The default date is the update date of the md file, which can be manually specified by `updated` in front-matter (same format as date)
   updated:

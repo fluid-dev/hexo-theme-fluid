@@ -15,6 +15,20 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
         <div id="board">
           <article class="post-content mx-auto">
             <h1 id="seo-header"><%= page.subtitle || page.title %></h1>
+            <% let interval = parseInt(Date.now() - new Date(page.date)) %>
+            <% if (theme.post.outdate.enable) { %>
+              <% if (interval > theme.post.outdate.warning_day * 3600 * 24 * 1000 && interval < theme.post.outdate.error_day * 3600 * 24 * 1000) { %>
+                <div class="note note-warning">
+                  <h5>文章时效性提示</h5>
+                  <p>这是一篇发布于 <%- parseInt(interval / 86400000) %> 天前的文章，部分信息可能已发生改变，请注意甄别。</p>
+                </div>
+              <% } else if(interval > theme.post.outdate.error_day * 3600 * 24 * 1000) { %>
+                <div class="note note-danger">
+                  <h5>文章时效性提示</h5>
+                  <p>这是一篇发布于 <%- parseInt(interval / 86400000) %> 天前的文章，部分信息可能已发生改变，请注意甄别。</p>
+                </div>
+              <% } %>
+            <% } %>
             <% if (theme.post.updated.enable && theme.post.updated && compare_date(page.date, page.updated)) { %>
               <p id="updated-time" class="note note-<%= theme.post.updated.note_class || 'info' %>" style="<%= theme.post.updated.relative ? 'display: none' : '' %>">
                 <% if (theme.post.updated.relative) { %>
