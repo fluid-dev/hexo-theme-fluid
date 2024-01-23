@@ -57,6 +57,7 @@ post:
     SA: 'SA - Compartir igual'
     NC: 'NC - No comercial'
     ND: 'ND - Sin obras derivadas'
+    ZERO: 'CC0 - Sin derechos autorales'
 
 footer:
   pv: 'Vistas: {}'

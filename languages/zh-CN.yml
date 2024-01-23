@@ -57,6 +57,7 @@ post:
     SA: 'SA - 相同方式共享'
     NC: 'NC - 非商业性使用'
     ND: 'ND - 禁止演绎'
+    ZERO: 'CC0 - 无版权'
 
 footer:
   pv: '总访问量 {} 次'

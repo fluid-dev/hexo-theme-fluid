@@ -644,7 +644,8 @@ post:
     enable: true
 
     # CreativeCommons license
-    # Options: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND
+    # See: https://creativecommons.org/share-your-work/cclicenses/
+    # Options: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND | ZERO
     license: 'BY'
 
     # 显示作者

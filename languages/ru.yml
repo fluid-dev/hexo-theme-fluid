@@ -22,7 +22,7 @@ tag:
   title: 'Теги'
   subtitle: 'Теги'
   post_total: '%d сообщений всего'
-  
+
 about:
   menu: 'О'
   title: 'О'
@@ -57,6 +57,7 @@ post:
     SA: 'SA - Share-alike'
     NC: 'NC - Non-commercial'
     ND: 'ND - No derivative works'
+    ZERO: 'CC0 - No Copyright'
 
 footer:
   pv: 'Просмотров: {}'

@@ -42,10 +42,16 @@
               <% for (var idx = 0; idx < items.length; idx++) { %>
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/<%= license.toLowerCase() %>/4.0/">
                   <span class="hint--top hint--rounded" aria-label="<%- __('post.copyright.' + items[idx]) %>">
-                    <i class="iconfont icon-<%= items[idx].toLowerCase() %>"></i>
+                    <i class="iconfont icon-cc-<%= items[idx].toLowerCase() %>"></i>
                   </span>
                 </a>
               <% } %>
+            <% } else if (license === 'ZERO') {  %>
+              <a class="print-no-link" target="_blank" href="https://creativecommons.org/publicdomain/zero/1.0/">
+                <span class="hint--top hint--rounded" aria-label="<%- __('post.copyright.ZERO') %>">
+                  <i class="iconfont icon-cc-zero"></i>
+                </span>
+              </a>
             <% } else { %>
               <%- license %>
             <% } %>
