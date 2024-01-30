@@ -15,7 +15,7 @@
     </script>
   <% } %>
 
-  <% if (theme.web_analytics.google){ %>
+  <% if (theme.web_analytics.google && theme.web_analytics.google.measurement_id){ %>
     <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
