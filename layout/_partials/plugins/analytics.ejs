@@ -15,7 +15,7 @@
     </script>
   <% } %>
 
-  <% if (theme.web_analytics.google){ %>
+  <% if (theme.web_analytics.google && theme.web_analytics.google.measurement_id){ %>
     <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
@@ -25,7 +25,7 @@
             dataLayer.push(arguments);
           }
           gtag('js', new Date());
-          gtag('config', '<%- theme.web_analytics.google.measurement_id %>');
+          gtag('config', '<%= theme.web_analytics.google.measurement_id %>');
         });
       }
     </script>
