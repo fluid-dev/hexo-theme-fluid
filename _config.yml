@@ -305,6 +305,12 @@ web_analytics:  # 网页访问统计
     # If true, ignore localhost & 127.0.0.1
     ignore_local: false
 
+# Canonical 用于向 Google 搜索指定规范网址，开启前确保 hexo _config.yml 中配置 `url: http://yourdomain.com`
+# Canonical, to specify a canonical URL for Google Search, need to set up `url: http://yourdomain.com` in hexo _config.yml
+# See: https://support.google.com/webmasters/answer/139066
+canonical:
+  enable: false
+
 # 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
 # Lazy loading of images and comment plugin on the page
 lazyload:
