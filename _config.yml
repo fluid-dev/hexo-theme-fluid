@@ -258,6 +258,21 @@ web_analytics:  # 网页访问统计
   google:
     measurement_id:
 
+  # Umami Analytics，src 和 data-website-id 是必填项，其他可选
+  # Umami Analytics, src and data-website-id are required, others are optional
+  umami:
+    # umami js 文件地址，需要在 umami 后台创建站点后获取
+    # umami js file url, get after create website in umami
+    src:
+    # umami 的 website id，需要在 umami 后台创建站点后获取
+    # umami website id, get after create website in umami
+    data_website_id:
+    # 如果你只想跟踪器跟踪特定的域名，你可以将它们添加到你的跟踪器脚本中。这是一个逗号分隔的域名列表。
+    # 如果你在一个分阶段、开发的环境中工作，这会很有帮助。避免统计 localhost。
+    # If you want the tracker to only run on specific domains, you can add them to your tracker script. This is a comma delimited list of domain names.
+    # Helps if you are working in a staging/development environment. Avoids tracking localhost.
+    data_domains:
+
   # 腾讯统计的 H5 App ID，开启高级功能才有cid
   # Tencent analytics, set APP ID
   # See: https://mta.qq.com/h5/manage/ctr_app_manage

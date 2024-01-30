@@ -31,6 +31,14 @@
     </script>
   <% } %>
 
+  <% if(theme.web_analytics.umami && theme.web_analytics.umami.src && theme.web_analytics.umami.data_website_id) { %>
+    <!-- Umami Analytics -->
+    <script async defer src="<%= theme.web_analytics.umami.src %>" data-website-id="<%= theme.web_analytics.umami.data_website_id %>"
+    <% if (theme.web_analytics.umami.data_domains) { %> data-domains="<%= theme.web_analytics.umami.data_domains %>" <% } %>
+    <% if (theme.web_analytics.follow_dnt) { %> data-do-not-track="<%= theme.web_analytics.follow_dnt %>" <% } %>
+    ></script>
+  <% } %>
+
   <% if(theme.web_analytics.tencent && theme.web_analytics.tencent.sid && theme.web_analytics.tencent.cid) { %>
     <!-- Tencent Analytics -->
     <script async>
