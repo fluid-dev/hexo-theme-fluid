@@ -110,12 +110,6 @@ fun_features:
     # Options: left | right
     placement: left
 
-    # `touch` 在 anchorjs 5.0.0 版本后被移除。visibility 设置的 `touch` 选项被移除，现在只有 `hover` 和 `always` 两个可选项
-    # 使用 `touch` 的站点会回退到 `hover` 的行为
-    # `touch` was removed after version 5.0.0 of anchorjs.
-    # The `touch` option on the visibility setting has been removed. Now the only visibility settings are `hover` and `always`. 
-    # Sites currently using `touch` (or any other unsupported visibility option) will fall back to the behavior for `hover`.
-
     # Options: hover | always
     visible: hover
 
