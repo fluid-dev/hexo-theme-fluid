@@ -51,12 +51,20 @@
           <%- views_texts[0] %><span id="leancloud-page-views"></span><%- views_texts[1] %>
         </span>
         <% import_js(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
+      
       <% } else if (theme.post.meta.views.source === 'busuanzi')  { %>
         <span id="busuanzi_container_page_pv" style="display: none">
           <i class="iconfont icon-eye" aria-hidden="true"></i>
           <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
         </span>
         <% import_js(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
+
+      <% } else if (theme.post.meta.views.source === 'umami')  { %>
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <%- views_texts[0] %><span id="umami-page-views"></span><%- views_texts[1] %>
+        </span>
+        <% import_js(theme.static_prefix.internal_js, 'umami-view.js', 'defer') %>
       <% } %>
     <% } %>
   </div>

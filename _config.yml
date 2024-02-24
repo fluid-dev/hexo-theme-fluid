@@ -260,21 +260,6 @@ web_analytics:
   google:
     measurement_id:
 
-  # Umami Analytics，src 和 data-website-id 是必填项，其他可选
-  # Umami Analytics, src and data-website-id are required, others are optional
-  umami:
-    # umami js 文件地址，需要在 umami 后台创建站点后获取
-    # umami js file url, get after create website in umami
-    src:
-    # umami 的 website id，需要在 umami 后台创建站点后获取
-    # umami website id, get after create website in umami
-    data_website_id:
-    # 如果你只想跟踪器跟踪特定的域名，你可以将它们添加到你的跟踪器脚本中。这是一个逗号分隔的域名列表。
-    # 如果你在一个分阶段、开发的环境中工作，这会很有帮助。避免统计 localhost。
-    # If you want the tracker to only run on specific domains, you can add them to your tracker script. This is a comma delimited list of domain names.
-    # Helps if you are working in a staging/development environment. Avoids tracking localhost.
-    data_domains:
-
   # 腾讯统计的 H5 App ID，开启高级功能才有cid
   # Tencent analytics, set APP ID
   # See: https://mta.qq.com/h5/manage/ctr_app_manage
@@ -306,6 +291,34 @@ web_analytics:
     # 开启后不统计本地路径( localhost 与 127.0.0.1 )
     # If true, ignore localhost & 127.0.0.1
     ignore_local: false
+
+  # Umami Analytics，仅支持自部署。如果要展示 PV UV 需要填写所有配置项，否则只填写 `src` 和 `website_id` 即可
+  # Umami Analytics, only Self-host support. If you want to display PV UV need to set all config items, otherwise only set 'src' and 'website_id'
+  # See: https://umami.is/docs/authentication
+  umami:
+    # umami js 文件地址，需要在 umami 后台创建站点后获取
+    # umami js file url, get after create website in umami
+    src:
+
+    # umami 的 website id，需要在 umami 后台创建站点后获取
+    # umami website id, get after create website in umami
+    website_id:
+
+    # 如果你只想统计特定的域名可以填入此字段，多个域名通过逗号分隔，这可以避免统计 localhost。
+    # If you only want to tracker to specific domains you can fill in this field, multiple domain names are separated by commas, which can avoid tracker localhost
+    domains:
+
+    # 用于统计 PV UV 的开始时间，格式为 "YYYY-MM-DD"
+    # statistics on the start time, the format is "YYYY-MM-DD"
+    start_time: 2024-01-01
+
+    # 新建一个 umami viewOnly 用户，然后通过 login api 获取该用户 token
+    # create an umami viewOnly user, and then get user token through the login api
+    token:
+
+    # 填写 umami 部署的服务器地址，如 "https://umami.example.com"
+    # server url of umami deployment, such as "https://umami.example.com"
+    api_server:
 
 # Canonical 用于向 Google 搜索指定规范网址，开启前确保 hexo _config.yml 中配置 `url: http://yourdomain.com`
 # Canonical, to specify a canonical URL for Google Search, need to set up `url: http://yourdomain.com` in hexo _config.yml
@@ -453,9 +466,9 @@ footer:
   statistics:
     enable: false
 
-    # 统计数据来源，使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；使用 busuanzi 不需要额外设置，但是有时不稳定，另外本地运行时 busuanzi 显示统计数据很大属于正常现象，部署后会正常
-    # Data source. If use leancloud, you need to set the parameter in `web_analytics: leancloud`
-    # Options: busuanzi | leancloud
+    # 统计数据来源，使用 leancloud, umami 需要设置 `web_analytics` 中对应的参数；使用 busuanzi 不需要额外设置，但是有时不稳定，另外本地运行时 busuanzi 显示统计数据很大属于正常现象，部署后会正常
+    # Data source. If use leancloud, umami, you need to set the parameter in `web_analytics`
+    # Options: busuanzi | leancloud | umami
     source: "busuanzi"
 
   # 国内大陆服务器的备案信息
@@ -598,7 +611,7 @@ post:
       enable: false
       # 统计数据来源
       # Data Source
-      # Options: busuanzi | leancloud
+      # Options: busuanzi | leancloud | umami
       source: "busuanzi"
 
   # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
