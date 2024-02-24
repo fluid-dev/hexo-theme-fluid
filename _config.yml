@@ -273,6 +273,20 @@ web_analytics:  # 网页访问统计
     # Helps if you are working in a staging/development environment. Avoids tracking localhost.
     data_domains:
 
+    # 以下为 PV UV 统计的高级功能，需要获取相关参数，参考 umami 官方文档：https://umami.is/docs/authentication
+    # Advanced features of PV UV statistics, need to get the relevant parameters
+
+    # 开始时间，用于统计 PV UV 的开始时间，填写在 umami 创建站点的时间即可，格式为 "YYYY-MM-DD"，如 "2024-01-01"，end_time 默认为当前时间
+    # Start time, used to start the statistics of PV UV, fill in the time when the umami site is created, the format is "YYYY-MM-DD", such as "2024-01-01", end_time is the current time by default
+    start_time:
+    # token，用于获取统计数据，新建一个 umami viewOnly 用户，然后获取该用户 token
+    # token, used to get statistics data, create a umami viewOnly user, and then get his token
+    token:
+
+    # umami 服务器地址，填写 umami 部署的服务器地址，如 "https://umami.example.com"
+    # umami server address, fill in the server address of umami deployment, such as "https://umami.example.com"
+    api_server:
+
   # 腾讯统计的 H5 App ID，开启高级功能才有cid
   # Tencent analytics, set APP ID
   # See: https://mta.qq.com/h5/manage/ctr_app_manage
@@ -451,10 +465,10 @@ footer:
   statistics:
     enable: false
 
-    # 统计数据来源，使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；使用 busuanzi 不需要额外设置，但是有时不稳定，另外本地运行时 busuanzi 显示统计数据很大属于正常现象，部署后会正常
-    # Data source. If use leancloud, you need to set the parameter in `web_analytics: leancloud`
-    # Options: busuanzi | leancloud
-    source: "busuanzi"
+    # 统计数据来源，使用 leancloud, umami 需要设置 `web_analytics` 中对应的参数；使用 busuanzi 不需要额外设置，但是有时不稳定，另外本地运行时 busuanzi 显示统计数据很大属于正常现象，部署后会正常
+    # Data source. If use leancloud, umami, you need to set the parameter in `web_analytics`
+    # Options: busuanzi | leancloud | umami
+    source: "umami"
 
   # 国内大陆服务器的备案信息
   # For Chinese mainland website policy, other areas keep disable
