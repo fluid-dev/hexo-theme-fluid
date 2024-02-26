@@ -35,11 +35,10 @@ const request_header = {
   headers: {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + token,
-    'Access-Control-Allow-Origin': '*' // 允许跨域
   },
 };
 
-async function allStats() {
+async function siteStats() {
   try {
     const response = await fetch(`${request_url}?${params}`, request_header);
     const data = await response.json();
@@ -69,4 +68,33 @@ async function allStats() {
   }
 }
 
-allStats();
+async function pageStats(path) {
+  try {
+    const response = await fetch(`${request_url}?${params}&url=${path}`, request_header);
+    const data = await response.json();
+    const pageViews = data.pageviews.value;
+
+    console.log(data)
+
+    let viewCtn = document.querySelector("#umami-page-views-container");
+    if (viewCtn) {
+      let ele = document.querySelector("#umami-page-views");
+      if (ele) {
+        ele.textContent = pageViews;
+        viewCtn.style.display = "inline";
+      }
+    }
+  } catch (error) {
+    console.error(error);
+    return "-1";
+  }
+}
+
+siteStats();
+
+let viewCtn = document.querySelector("#umami-page-views-container");
+if (viewCtn) {
+  let path = window.location.pathname;
+  let target = decodeURI(path.replace(/\/*(index.html)?$/, "/"));
+  pageStats(target);
+}

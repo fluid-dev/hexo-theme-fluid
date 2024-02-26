@@ -610,7 +610,7 @@ post:
       enable: false
       # 统计数据来源
       # Data Source
-      # Options: busuanzi | leancloud
+      # Options: busuanzi | leancloud | umami
       source: "busuanzi"
 
   # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
