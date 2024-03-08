@@ -43,6 +43,9 @@ post:
   prev_post: 'Antaŭa afiŝo'
   next_post: 'Sekva afiŝo'
   updated: 'Aktualizita: %s'
+  outdate:
+    title: '@ info: whatsthis'
+    content: 'Tio estas artiklo publikigita antaŭ la %s tagoj, kaj kelkaj informoj eble ŝan ĝiĝis. Bonvolu atenti la malprudentecon.'
   meta:
     wordcount: '%s vortoj'
     min2read: '%s minutoj'
