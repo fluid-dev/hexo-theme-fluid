@@ -109,8 +109,10 @@ fun_features:
     element: h1,h2,h3,h4,h5,h6
     # Options: left | right
     placement: left
-    # Options: hover | always | touch
+
+    # Options: hover | always
     visible: hover
+
     # Options: § | # | ❡
     icon: ""
 
@@ -1079,7 +1081,7 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  anchor: https://lib.baomitu.com/anchor-js/4.3.1/
+  anchor: https://lib.baomitu.com/anchor-js/5.0.0/
 
   github_markdown: https://lib.baomitu.com/github-markdown-css/4.0.0/
 
