@@ -1,6 +1,6 @@
 <div class="statistics">
-  <% var pv_texts = (theme.footer.statistics.pv_format || __('footer.pv')).split('{}') %>
-  <% var uv_texts = (theme.footer.statistics.uv_format || __('footer.uv')).split('{}') %>
+  <% let pv_texts = (theme.footer.statistics.pv_format || __('footer.pv')).split('{}') %>
+  <% let uv_texts = (theme.footer.statistics.uv_format || __('footer.uv')).split('{}') %>
 
   <% if (theme.footer.statistics.source === 'leancloud') { %>
     <% if (pv_texts.length >= 2) { %>
@@ -35,5 +35,23 @@
       </span>
     <% } %>
     <% import_js(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
+
+  <% } else if (theme.footer.statistics.source === 'umami') { %>
+    <% if (pv_texts.length >= 2) { %>
+      <span id="umami-site-pv-container" style="display: none">
+        <%- pv_texts[0] %>
+        <span id="umami-site-pv"></span>
+        <%- pv_texts[1] %>
+      </span>
+    <% } %>
+    <% if (uv_texts.length >= 2) { %>
+      <span id="umami-site-uv-container" style="display: none">
+        <%- uv_texts[0] %>
+        <span id="umami-site-uv"></span>
+        <%- uv_texts[1] %>
+      </span>
+    <% } %>
+    <% import_js(theme.static_prefix.internal_js, 'umami-view.js', 'defer') %>
   <% } %>
+
 </div>
