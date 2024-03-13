@@ -32,10 +32,16 @@
   <% } %>
 
   <% if(theme.web_analytics.umami && theme.web_analytics.umami.src && theme.web_analytics.umami.data_website_id) { %>
-    <script async defer src="<%= theme.web_analytics.umami.src %>" data-website-id="<%= theme.web_analytics.umami.data_website_id %>"
-    <% if (theme.web_analytics.umami.data_domains) { %> data-domains="<%= theme.web_analytics.umami.data_domains %>" <% } %>
-    <% if (theme.web_analytics.follow_dnt) { %> data-do-not-track="<%= theme.web_analytics.follow_dnt %>" <% } %>
-    ></script>
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "<%= theme.web_analytics.umami.src %>";
+        umami.setAttribute("data-website-id", "<%= theme.web_analytics.umami.data_website_id %>");
+        umami.setAttribute("data-domains", "<%= theme.web_analytics.umami.data_domains %>");
+        document.head.appendChild(umami);
+      }
+    </script>
   <% } %>
 
   <% if(theme.web_analytics.tencent && theme.web_analytics.tencent.sid && theme.web_analytics.tencent.cid) { %>
