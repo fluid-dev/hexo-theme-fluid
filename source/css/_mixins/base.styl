@@ -21,3 +21,26 @@ ground-glass($px, $bg-color, $alpha)
   @supports not ((-webkit-backdrop-filter: blur($px)) or (backdrop-filter: blur($px)))
     &
       background rgb(convert($bg-color))
+
+/* iPad Pro 会显示目录
+ * 4K 等高分屏情况下目录过宽等问题
+ */
+@media (min-width: 2000px)
+  .col-lg-2
+      -ms-flex: 1.1;
+      flex: 1.1;
+      max-width: 100%;
+  .col-lg-8
+      -ms-flex: 2;
+      flex: 2;
+      max-width: 66.666667%;
+/* iPad Pro 为 1024
+ * 这是针对 iPad Pro 而设置的
+ * 这里的 col-lg-2 权重会大于 d-lg-block
+ */
+@media (width: 1024px)
+  .col-lg-8
+      flex: 1
+      max-width: 100%;
+  .col-lg-2
+      display: none !important;
