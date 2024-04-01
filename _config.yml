@@ -24,7 +24,7 @@ favicon: /img/fluid.png
 # Icon for Apple touch
 apple_touch_icon: /img/fluid.png
 
-# 浏览器标签页中的标题分隔符，效果： 文章名 - 站点名
+# 浏览器标签页中的标题分隔符，效果：文章名 - 站点名
 # Title separator in browser tab, eg: article - site
 tab_title_separator: " - "
 
@@ -128,7 +128,7 @@ fun_features:
 dark_mode:
   enable: true
   # 默认的选项（当用户手动切换后则不再按照默认模式），选择 `auto` 会优先遵循 prefers-color-scheme，其次按用户本地时间 18 点到次日 6 点之间进入暗色模式
-  # Default option (when the visitor switches manually, the default mode is no longer followed), choosing `auto` will give priority to prefers-color-scheme, and then enter the dark mode from 18:00 to 6:00 in the visitor’s local time
+  # Default option (when the visitor switches manually, the default mode is no longer followed), choosing `auto` will give priority to prefers-color-scheme, and then enter the dark mode from 18:00 to 6:00 in the visitor's local time
   # Options: auto | light | dark
   default: auto
 
@@ -239,7 +239,7 @@ custom_css:
 
 # 网页访问统计
 # Analysis of website visitors
-web_analytics:  # 网页访问统计
+web_analytics:
   enable: false
 
   # 遵循访客浏览器"请勿追踪"的设置，如果开启则不统计其访问
@@ -268,7 +268,7 @@ web_analytics:  # 网页访问统计
   # 51.la 站点统计 ID
   # 51.la analytics
   # See: https://www.51.la/user/site/index
-  woyaola:  # 51.la 站点统计 ID，参见
+  woyaola:
 
   # 友盟/cnzz 站点统计 web_id
   # cnzz analytics
@@ -463,7 +463,7 @@ index:
   # Available: 0 - 100
   banner_img_height: 100
 
-  # 头图黑色蒙版的不透明度，available: 0 - 1.0， 1 是完全不透明
+  # 头图黑色蒙版的不透明度，available: 0 - 1.0，1 是完全不透明
   # Opacity of the banner mask, 1.0 is completely opaque
   # Available: 0 - 1.0
   banner_mask_alpha: 0.3
