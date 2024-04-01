@@ -38,6 +38,7 @@ const request_header = {
   },
 };
 
+// 获取站点统计数据
 async function siteStats() {
   try {
     const response = await fetch(`${request_url}?${params}`, request_header);
@@ -68,13 +69,12 @@ async function siteStats() {
   }
 }
 
+// 获取页面浏览量
 async function pageStats(path) {
   try {
     const response = await fetch(`${request_url}?${params}&url=${path}`, request_header);
     const data = await response.json();
     const pageViews = data.pageviews.value;
-
-    console.log(data)
 
     let viewCtn = document.querySelector("#umami-page-views-container");
     if (viewCtn) {
@@ -92,7 +92,9 @@ async function pageStats(path) {
 
 siteStats();
 
+// 获取页面容器
 let viewCtn = document.querySelector("#umami-page-views-container");
+// 如果页面容器存在，则获取页面浏览量
 if (viewCtn) {
   let path = window.location.pathname;
   let target = decodeURI(path.replace(/\/*(index.html)?$/, "/"));

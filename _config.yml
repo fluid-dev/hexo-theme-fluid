@@ -260,8 +260,8 @@ web_analytics:  # 网页访问统计
   google:
     measurement_id:
 
-  # Umami Analytics，src 和 data-website-id 是必填项，其他可选
-  # Umami Analytics, src and data-website-id are required, others are optional
+  # Umami Analytics 仅支持自部署。src 和 data-website-id 是必填项，其他可选
+  # Umami Analytics, only Self-host support, src and data-website-id are required, others are optional
   umami:
     # umami js 文件地址，需要在 umami 后台创建站点后获取
     # umami js file url, get after create website in umami
