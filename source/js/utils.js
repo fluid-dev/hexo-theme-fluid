@@ -39,10 +39,16 @@ Fluid.utils = {
     offsetFactor = offsetFactor && offsetFactor >= 0 ? offsetFactor : 0;
     var rect = element.getBoundingClientRect();
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    return (
-      (rect.top >= 0 && rect.top <= viewportHeight * (1 + offsetFactor) + rect.height / 2) ||
-      (rect.bottom >= 0 && rect.bottom <= viewportHeight * (1 + offsetFactor) + rect.height / 2)
-    );
+    const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+    // 元素顶部和底部是否在可见区域内
+    const verticallyVisible = rect.top + offsetFactor < viewportHeight && rect.bottom - offsetFactor > 0;
+
+    // 元素左侧和右侧是否在可见区域内
+    const horizontallyVisible = rect.left + offsetFactor < viewportWidth && rect.right - offsetFactor > 0;
+
+    // 元素整体是否可见
+    return verticallyVisible && horizontallyVisible;
   },
 
   waitElementVisible: function(selectorOrElement, callback, offsetFactor) {
