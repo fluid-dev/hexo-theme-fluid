@@ -42,13 +42,14 @@ Fluid.utils = {
     const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
 
     // 元素顶部和底部是否在可见区域内
-    const verticallyVisible = rect.top + offsetFactor < viewportHeight && rect.bottom - offsetFactor > 0;
+    const verticallyVisible = rect.top + (viewportHeight * offsetFactor) < viewportHeight || rect.bottom - (viewportHeight * offsetFactor) > 0;
 
     // 元素左侧和右侧是否在可见区域内
-    const horizontallyVisible = rect.left + offsetFactor < viewportWidth && rect.right - offsetFactor > 0;
+    const horizontallyVisible = rect.left + (viewportWidth * offsetFactor) < viewportWidth || rect.right - (viewportWidth * offsetFactor) > 0;
 
-    // 元素整体是否可见
-    return verticallyVisible && horizontallyVisible;
+    // 判断元素的顶部、底部、左侧或右侧是否在视口内
+    // 如果有一个在视口内,则认为元素可见
+    return verticallyVisible || horizontallyVisible;
   },
 
   waitElementVisible: function(selectorOrElement, callback, offsetFactor) {
