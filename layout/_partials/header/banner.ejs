@@ -3,6 +3,10 @@ var banner_img = page.banner_img || theme.index.banner_img
 var banner_img_height = parseFloat(page.banner_img_height || theme.index.banner_img_height)
 var banner_mask_alpha = parseFloat(page.banner_mask_alpha || theme.index.banner_mask_alpha)
 var subtitle = page.subtitle || page.title
+// 如果subtitle是数组，就将其自己赋值为其自己的其中随机一个元素
+if (Array.isArray(subtitle)) {
+  subtitle = subtitle[Math.floor(Math.random() * subtitle.length)]
+}
 %>
 
 <div id="banner" class="banner" <%- theme.banner && theme.banner.parallax && 'parallax=true' %>
