@@ -1124,7 +1124,7 @@ static_prefix:
 
   valine: https://lib.baomitu.com/valine/1.5.1/
 
-  waline: https://cdn.staticfile.org/waline/2.15.5/
+  waline: https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/
 
   gitalk: https://lib.baomitu.com/gitalk/1.8.0/
 

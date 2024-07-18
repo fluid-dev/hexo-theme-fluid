@@ -2,8 +2,8 @@
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.waline, 'waline.min.css') %>')
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'waline.min.js') %>', function() {
+      Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.waline, 'waline.css') %>')
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'waline.js') %>', function() {
         var options = Object.assign(
           <%- JSON.stringify(theme.waline || {}) %>,
           {
