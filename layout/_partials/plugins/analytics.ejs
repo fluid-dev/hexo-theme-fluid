@@ -64,24 +64,6 @@
     </script>
   <% } %>
 
-  <% if(theme.web_analytics.woyaola) { %>
-    <!-- 51.la Analytics -->
-    <script async>
-      if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript('//js.users.51.la/<%= theme.web_analytics.woyaola %>.js');
-      }
-    </script>
-  <% } %>
-
-  <% if(theme.web_analytics.cnzz) { %>
-    <!-- cnzz Analytics -->
-    <script async>
-      if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript('//s4.cnzz.com/z_stat.php?id=<%= theme.web_analytics.cnzz %>&show=pic');
-      }
-    </script>
-  <% } %>
-
   <% if(theme.web_analytics.leancloud && theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key) { %>
     <% import_js(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
   <% } %>

@@ -267,16 +267,6 @@ web_analytics:
     sid:
     cid:
 
-  # 51.la 站点统计 ID
-  # 51.la analytics
-  # See: https://www.51.la/user/site/index
-  woyaola:
-
-  # 友盟/cnzz 站点统计 web_id
-  # cnzz analytics
-  # See: https://web.umeng.com/main.php?c=site&a=show
-  cnzz:
-
   # LeanCloud 计数统计，可用于 PV UV 展示，如果 `web_analytics: enable` 没有开启，PV UV 展示只会查询不会增加
   # LeanCloud count statistics, which can be used for PV UV display. If `web_analytics: enable` is false, PV UV display will only query and not increase
   leancloud:
