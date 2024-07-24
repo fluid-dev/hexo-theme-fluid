@@ -284,7 +284,7 @@ web_analytics:
 
   # Umami Analytics，仅支持自部署。如果要展示 PV UV 需要填写所有配置项，否则只填写 `src` 和 `website_id` 即可
   # Umami Analytics, only Self-host support. If you want to display PV UV need to set all config items, otherwise only set 'src' and 'website_id'
-  # See: https://umami.is/docs/authentication
+  # See: https://umami.is/docs
   umami:
     # umami js 文件地址，需要在 umami 后台创建站点后获取
     # umami js file url, get after create website in umami
