@@ -101,6 +101,10 @@ fun_features:
     # Enable in specified page, all pages by default
     # Options: home | post | tag | category | about | links | page | 404
     scope: []
+    
+    # 使typed.js自动插入CSS，关闭可以关闭光标的闪烁效果
+    # Let typed.js insert CSS automatically, turning this off turns off the blinking effect of the cursor
+    autoInsertCss: true
 
   # 为文章内容中的标题添加锚图标
   # Add an anchor icon to the title on the post page
@@ -346,6 +350,23 @@ iconfont: //at.alicdn.com/t/c/font_1736178_k526ubmyhba.css
 # 导航栏的相关配置
 # Navigation bar
 navbar:
+  # 显示导航栏 logo
+  # Displays a logo on the navbar
+  logo:
+    enable: true
+
+    # logo 图片的路径
+    # Path of the logo image
+    file: "/img/fluid.png"
+
+    # logo 图片的大小(单位自带)
+    # Size of the logo image(unit needed)
+    size: "2rem"
+
+    # logo 图片距离文字的边距(单位自带)
+    # CSS padding-right of the logo image(unit needed)
+    padding_right: "0.5rem"
+
   # 导航栏左侧的标题，为空则按 hexo config 中 `title` 显示
   # The title on the left side of the navigation bar. If empty, it is based on `title` in hexo config
   blog_title: "Fluid"
