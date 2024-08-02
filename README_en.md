@@ -30,7 +30,8 @@
 
 <p align="center">
   <span>Preview: </span>
-  <a href="https://hexo.fluid-dev.com/">Fluid's blog</a>
+  <a href="https://hexo.fluid-dev.com/">Fluid's blog</a> | 
+  <a href="https://zkqiang.cn">zkqiang's blog</a>
 </p>
 
 ## Quick Start
