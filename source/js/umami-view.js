@@ -1,7 +1,7 @@
 // 从配置文件中获取 umami 的配置
 const website_id = CONFIG.web_analytics.umami.website_id;
 // 拼接请求地址
-const request_url = `${CONFIG.web_analytics.umami.api_server}/websites/${website_id}/stats`;
+const request_url = `${CONFIG.web_analytics.umami.api_server}/api/websites/${website_id}/stats`;
 
 const start_time = new Date(CONFIG.web_analytics.umami.start_time).getTime();
 const end_time = new Date().getTime();
@@ -31,7 +31,7 @@ const request_header = {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
-    "x-umami-api-key": "oZKCH3msvqt10VlXKwoJvHclmaS4bVx0",
+    "Authorization": "Bearer " + token,
   },
 };
 
