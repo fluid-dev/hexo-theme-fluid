@@ -6,7 +6,7 @@ const { stripHTML } = require('hexo-util');
 
 const getWordCount = (post) => {
   // post.origin is the original post content of hexo-blog-encrypt
-  const content = stripHTML(post.origin || post.content).replace(/\r?\n|\r/g, '').replace(/\s+/g, '');
+  const content = stripHTML(post.origin || post.content).replace(/\r?\n|\r/g, '').trim();
 
   if (!post.wordcount) {
     const zhCount = (content.match(/[\u4E00-\u9FA5]/g) || []).length;
