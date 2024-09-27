@@ -302,12 +302,12 @@ web_analytics:
     # statistics on the start time, the format is "YYYY-MM-DD"
     start_time: 2024-01-01
 
-    # 新建一个 umami viewOnly 用户，然后通过 login api 获取该用户 token
-    # create an umami viewOnly user, and then get user token through the login api
+    # 新建一个 umami viewOnly 用户，且有权限获取访问数据（通过团队），然后通过 login api 获取该用户 token
+    # create an umami viewOnly user with permission to access data (through the team), and then get user token through the login api
     token:
 
-    # 填写 umami 部署的服务器地址，如 "https://umami.example.com"
-    # server url of umami deployment, such as "https://umami.example.com"
+    # 填写 umami 的 api 链接前缀，如 "https://umami.example.com/api"
+    # server url of umami API link prefix, such as "https://umami.example.com/api"
     api_server:
 
 # Canonical 用于向 Google 搜索指定规范网址，开启前确保 hexo _config.yml 中配置 `url: http://yourdomain.com`

@@ -26,12 +26,12 @@ const params = new URLSearchParams({
   startAt: start_time,
   endAt: end_time,
 });
-// 构造请求头
+// 构造请求头，参见https://umami.is/docs/api/authentication
 const request_header = {
   method: "GET",
   headers: {
-    "Content-Type": "application/json",
-    "x-umami-api-key": "oZKCH3msvqt10VlXKwoJvHclmaS4bVx0",
+    "Accept": "application/json",
+    "Authorization": `Bearer ${token}`,
   },
 };
 
