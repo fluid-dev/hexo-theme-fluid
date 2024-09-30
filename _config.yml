@@ -484,6 +484,11 @@ index:
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
   banner_img: /img/default.png
 
+  # 头图中心位置，两个百分比，从左到右，从上到下
+  # Center of banner image，two percentages, left to right, top to bottom
+  # Available: 0% - 100% or a description of the location, such as "center top"
+  banner_img_center: 50% 50%
+  
   # 头图高度，屏幕百分比
   # Height ratio of banner image
   # Available: 0 - 100
@@ -555,6 +560,7 @@ index:
 #---------------------------
 post:
   banner_img: /img/default.png
+  banner_img_center:
   banner_img_height: 70
   banner_mask_alpha: 0.3
 
@@ -919,6 +925,7 @@ discuss:
 #---------------------------
 archive:
   banner_img: /img/default.png
+  banner_img_center:
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -930,6 +937,7 @@ archive:
 category:
   enable: true
   banner_img: /img/default.png
+  banner_img_center:
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -959,6 +967,7 @@ category:
 tag:
   enable: true
   banner_img: /img/default.png
+  banner_img_center:
   banner_img_height: 80
   banner_mask_alpha: 0.3
   tagcloud:
@@ -976,6 +985,7 @@ tag:
 about:
   enable: true
   banner_img: /img/default.png
+  banner_img_center:
   banner_img_height: 60
   banner_mask_alpha: 0.3
   avatar: /img/avatar.png
@@ -998,6 +1008,7 @@ about:
 #---------------------------
 page:
   banner_img: /img/default.png
+  banner_img_center:
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -1009,6 +1020,7 @@ page:
 page404:
   enable: true
   banner_img: /img/default.png
+  banner_img_center:
   banner_img_height: 85
   banner_mask_alpha: 0.3
   # 重定向到首页的延迟(毫秒)
@@ -1023,6 +1035,7 @@ page404:
 links:
   enable: true
   banner_img: /img/default.png
+  banner_img_center:
   banner_img_height: 60
   banner_mask_alpha: 0.3
   # 友链的成员项

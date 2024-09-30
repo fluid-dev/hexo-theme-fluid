@@ -1,12 +1,13 @@
 <%
 var banner_img = page.banner_img || theme.index.banner_img
+var banner_img_center = page.banner_img_center || theme.index.banner_img_center
 var banner_img_height = parseFloat(page.banner_img_height || theme.index.banner_img_height)
 var banner_mask_alpha = parseFloat(page.banner_mask_alpha || theme.index.banner_mask_alpha)
 var subtitle = page.subtitle || page.title
 %>
 
 <div id="banner" class="banner" <%- theme.banner && theme.banner.parallax && 'parallax=true' %>
-     style="background: url('<%- url_for(banner_img) %>') no-repeat center center; background-size: cover;">
+     style="background: url('<%- url_for(banner_img) %>') no-repeat <%= banner_img_center %>; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
       <div class="banner-text text-center fade-in-up">
