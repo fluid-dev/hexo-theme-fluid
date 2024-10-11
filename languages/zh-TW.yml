@@ -47,6 +47,7 @@ post:
     wordcount: '%s 字'
     min2read: '%s 分鐘'
     views: '{} 次'
+    comments: '{} 條'
   copyright:
     author: '作者'
     posted: '發布於'

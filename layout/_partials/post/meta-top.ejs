@@ -46,25 +46,36 @@
     <% var views_texts = (theme.post.meta.views.format || __('post.meta.views')).split('{}') %>
     <% if (theme.post.meta.views.enable && views_texts.length >= 2) { %>
       <% if (theme.post.meta.views.source === 'leancloud') { %>
-        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <span id="leancloud-page-views-container" class="post-meta mr-2" style="display: none">
           <i class="iconfont icon-eye" aria-hidden="true"></i>
           <%- views_texts[0] %><span id="leancloud-page-views"></span><%- views_texts[1] %>
         </span>
         <% import_js(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
-      
+
       <% } else if (theme.post.meta.views.source === 'busuanzi')  { %>
-        <span id="busuanzi_container_page_pv" style="display: none">
+        <span id="busuanzi_container_page_pv" class="post-meta mr-2" style="display: none">
           <i class="iconfont icon-eye" aria-hidden="true"></i>
           <%- views_texts[0] %><span id="busuanzi_value_page_pv"></span><%- views_texts[1] %>
         </span>
         <% import_js(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
 
       <% } else if (theme.post.meta.views.source === 'umami')  { %>
-        <span id="umami-page-views-container" class="post-meta" style="display: none">
+        <span id="umami-page-views-container" class="post-meta mr-2" style="display: none">
           <i class="iconfont icon-eye" aria-hidden="true"></i>
           <%- views_texts[0] %><span id="umami-page-views"></span><%- views_texts[1] %>
         </span>
         <% import_js(theme.static_prefix.internal_js, 'umami-view.js', 'defer') %>
+      <% } %>
+    <% } %>
+
+    <% var comments_texts = (theme.post.meta.comments.format || __('post.meta.comments')).split('{}') %>
+    <% if (theme.post.meta.comments.enable && comments_texts.length >= 2) { %>
+      <% if (theme.post.meta.comments.source === 'twikoo') { %>
+        <span id="twikoo-comment-number-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-comment" aria-hidden="true"></i>
+          <%- comments_texts[0] %><span id="twikoo-comment-number"></span><%- comments_texts[1] %>
+        </span>
+        <% import_js(theme.static_prefix.internal_js, 'twikoo.js', 'defer') %>
       <% } %>
     <% } %>
   </div>
