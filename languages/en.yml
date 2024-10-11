@@ -47,6 +47,7 @@ post:
     wordcount: '%s words'
     min2read: '%s mins'
     views: '{} views'
+    comments: '{} comments'
   copyright:
     author: 'Author'
     posted: 'Posted on'
