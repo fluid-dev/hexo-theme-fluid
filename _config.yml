@@ -750,7 +750,7 @@ post:
     enable: false
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
-    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss | artalk
     type: disqus
 
 
@@ -912,6 +912,13 @@ discuss:
   serverURLs:
   path: window.location.pathname
 
+# Artalk
+# 由 Golang 驱动的自托管评论系统
+# Self-hosted commenting system driven by Golang
+# See: https://artalk.js.org
+artalk:
+  server:
+  site:
 
 #---------------------------
 # 归档页
@@ -1123,6 +1130,8 @@ static_prefix:
   twikoo: https://lib.baomitu.com/twikoo/1.6.8/
 
   discuss: https://lib.baomitu.com/discuss/1.2.1/
+
+  artalk: https://lib.baomitu.com/artalk/2.9.0/
 
   hint: https://lib.baomitu.com/hint.css/2.7.0/
 
