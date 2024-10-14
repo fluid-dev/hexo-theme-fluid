@@ -1,0 +1,45 @@
+<% if (theme.artalk && theme.artalk.server) { %>
+  <div id="artalk"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.artalk, 'Artalk.min.css') %>');
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.artalk, 'Artalk.min.js') %>', function() {
+        var schema = document.documentElement.getAttribute('data-user-color-scheme');
+        if (schema !== 'light' && schema !== 'dark') {
+          schema = 'light';
+        }
+        var options = Object.assign(
+          <%- JSON.stringify(theme.artalk || {}) %>,
+          {
+            el: document.querySelector('#artalk'),
+            pageKey: '',
+            pageTitle: '<%= page.title %>',
+            server: '<%= theme.artalk.server %>',
+            site: '<%= theme.artalk.site %>',
+            darkMode: schema === 'dark'
+          }
+        );
+        Artalk.init(options);
+
+        // watch for user color scheme change
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            if (mutation.attributeName === 'data-user-color-scheme') {
+              var schema = document.documentElement.getAttribute('data-user-color-scheme');
+              if (schema === 'dark') {
+                Artalk.setDarkMode(true);
+              } else {
+                Artalk.setDarkMode(false);
+              }
+            }
+          });
+        });
+
+        observer.observe(document.documentElement, {
+          attributes: true
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+<% } %>
