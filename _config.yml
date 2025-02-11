@@ -302,8 +302,10 @@ web_analytics:
     # statistics on the start time, the format is "YYYY-MM-DD"
     start_time: 2024-01-01
 
-    # 新建一个 umami viewOnly 用户，然后通过 login api 获取该用户 token
-    # create an umami viewOnly user, and then get user token through the login api
+    # 新建一个 umami 管理员用户，然后通过认证接口获取该用户 token
+    # create an umami Administrator user, and then get user token through the Authentication login
+    # See: https://umami.is/docs/api/authentication
+    # POST /api/auth/login
     token:
 
     # 填写 umami 部署的服务器地址，如 "https://umami.example.com"
