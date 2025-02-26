@@ -437,6 +437,10 @@ open_graph:
   fb_admins:
   fb_app_id:
 
+# 背景的TrymenT时钟特效，如果需要切换背景图片请在主题目录下替换 /source/img/img.png
+# See: https://github.com/Tokisaki-Galaxy/TrymenT-ClocK
+background_trymentclock:
+  enable: false
 
 #---------------------------
 # 页脚

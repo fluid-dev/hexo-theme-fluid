@@ -9,6 +9,10 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 <%- partial('_partials/head.ejs') %>
 
 <body>
+  <% if (theme.background_trymentclock.enable) { %>
+  <%- css_ex(theme.static_prefix.internal_css, 'TrymenT-ClocK.min.css') %>
+  <%- js_ex(theme.static_prefix.internal_js, 'TrymenT-ClocK.min.js') %>
+  <% } %>
   <%- inject_point('bodyBegin') %>
 
   <header>
