@@ -779,11 +779,16 @@ utterances:
 # See: https://disqus.com
 disqus:
   shortname:
-  # 以下为 Disqusjs 支持, 国内用户如果想使用 Disqus 建议配合使用
-  # The following are Disqusjs configurations, please ignore if DisqusJS is not required
+  # 以下为 Disqusjs 支持, 国内用户如果想使用 Disqus 建议配合使用，支持填入多个 apikey，建议自行搭建 api 端点
+  # The following are Disqusjs configurations, please ignore if DisqusJS is not required, it supports filling in multiple apikeys, it is recommended to build the API endpoint by yourself
   # See: https://github.com/SukkaW/DisqusJS
   disqusjs: false
-  apikey:
+  apikey: 
+    - 'KEY1'
+    #- 'KEY2'
+  api: https://disqus.skk.moe/disqus/
+  admin: 
+  adminLabel: 
 
 # Gitalk
 # 基于 GitHub Issues
