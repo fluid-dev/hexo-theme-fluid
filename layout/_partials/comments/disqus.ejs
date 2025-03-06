@@ -8,7 +8,10 @@
           Fluid.utils.createScript('<%= url_join(theme.static_prefix.disqusjs, 'disqus.js') %>', function() {
             new DisqusJS({
               shortname: '<%= theme.disqus.shortname %>',
-              apikey: '<%= theme.disqus.apikey %>'
+              apikey: <%- JSON.stringify(theme.disqus.apikey) %>,
+              api: '<%= theme.disqus.api %>',
+              admin: '<%= theme.disqus.admin %>',
+              adminLabel: '<%= theme.disqus.adminLabel %>'
             });
           });
         });
