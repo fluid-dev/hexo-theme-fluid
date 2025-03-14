@@ -11,7 +11,8 @@
               apikey: <%- JSON.stringify(theme.disqus.apikey) %>,
               api: '<%= theme.disqus.api %>',
               admin: '<%= theme.disqus.admin %>',
-              adminLabel: '<%= theme.disqus.adminLabel %>'
+              adminLabel: '<%= theme.disqus.adminLabel %>',
+              identifier: document.location.origin + document.location.pathname,
             });
           });
         });
