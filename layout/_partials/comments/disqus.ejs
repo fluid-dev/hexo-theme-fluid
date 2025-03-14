@@ -8,7 +8,8 @@
           Fluid.utils.createScript('<%= url_join(theme.static_prefix.disqusjs, 'disqus.js') %>', function() {
             new DisqusJS({
               shortname: '<%= theme.disqus.shortname %>',
-              apikey: '<%= theme.disqus.apikey %>'
+              apikey: '<%= theme.disqus.apikey %>',
+              api: '<%= theme.disqus.api %>',
             });
           });
         });

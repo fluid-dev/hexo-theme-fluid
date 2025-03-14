@@ -784,6 +784,7 @@ disqus:
   # See: https://github.com/SukkaW/DisqusJS
   disqusjs: false
   apikey:
+  api:
 
 # Gitalk
 # 基于 GitHub Issues
