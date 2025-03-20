@@ -10,6 +10,8 @@
               shortname: '<%= theme.disqus.shortname %>',
               apikey: <%- JSON.stringify(theme.disqus.apikey) %>,
               api: '<%= theme.disqus.api %>',
+              url: '<%= page.permalink %>',
+              identifier: '<%= url_for(page.path) %>',
               admin: '<%= theme.disqus.admin %>',
               adminLabel: '<%= theme.disqus.adminLabel %>'
             });
