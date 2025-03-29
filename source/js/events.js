@@ -30,8 +30,16 @@ Fluid.events = {
       }
     });
     jQuery('#navbar-toggler-btn').on('click', function() {
+      var $this = jQuery(this);
+      if ($this.data('animating')) {
+        return;
+      }
+      $this.data('animating', true);
       jQuery('.animated-icon').toggleClass('open');
       jQuery('#navbar').toggleClass('navbar-col-show');
+      setTimeout(function() {
+        $this.data('animating', false);
+      }, 300);
     });
   },
 
