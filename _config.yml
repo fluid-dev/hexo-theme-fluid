@@ -499,8 +499,8 @@ index:
   slogan:
     enable: true
 
-    # 为空则按 hexo config.subtitle 显示
-    # If empty, text based on `subtitle` in hexo config
+    # 为空则按 hexo config.subtitle 显示，支持列表格式来实现随机选择一行文字显示
+    # If empty, text based on `subtitle` in hexo config, support list format to random selection of a row for display
     text: "An elegant Material-Design theme for Hexo"
 
     # 通过 API 接口作为首页副标题的内容，必须返回的是 JSON 格式，如果请求失败则按 text 字段显示，该功能必须先开启 typing 打字机功能
