@@ -40,6 +40,10 @@
             typing(text);
           }
         })
+      <% } else if (is_home() && theme.index.slogan.random_texts && theme.index.slogan.random_texts.length) { %>
+        var texts = <%- JSON.stringify(theme.index.slogan.random_texts) %>;
+        var i = Math.floor(Math.random() * texts.length);
+        typing(texts[i]);
       <% } else { %>
         typing(text);
       <% } %>

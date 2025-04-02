@@ -503,6 +503,12 @@ index:
     # If empty, text based on `subtitle` in hexo config
     text: "An elegant Material-Design theme for Hexo"
 
+    # 随机 slogan，为空则按 text 显示。该功能必须先开启 typing 打字机功能
+    # random slogan texts, if empty then display `text`. To enable this feature, you must enable the typing animation beforehand.
+    random_texts:
+      - "An elegant Material-Design theme for Hexo"
+      - "Less is More"
+
     # 通过 API 接口作为首页副标题的内容，必须返回的是 JSON 格式，如果请求失败则按 text 字段显示，该功能必须先开启 typing 打字机功能
     # Subtitle of the homepage through the API, must be returned a JSON. If the request fails, it will be displayed in `text` value. This feature must first enable the typing animation
     api:
