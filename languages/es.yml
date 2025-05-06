@@ -43,6 +43,9 @@ post:
   prev_post: 'Anterior'
   next_post: 'Siguiente'
   updated: 'Última actualización el %s'
+  outdate:
+    title: 'Consejos de puntualidad del artículo'
+    content: 'Este es un artículo publicado hace %s días, y parte de la información puede haber cambiado, preste atención a la selección.'
   meta:
     wordcount: '%s palabras'
     min2read: '%s minutos'
