@@ -38,11 +38,12 @@ Fluid.utils = {
   elementVisible: function(element, offsetFactor) {
     offsetFactor = offsetFactor && offsetFactor >= 0 ? offsetFactor : 0;
     var rect = element.getBoundingClientRect();
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    return (
-      (rect.top >= 0 && rect.top <= viewportHeight * (1 + offsetFactor) + rect.height / 2) ||
-      (rect.bottom >= 0 && rect.bottom <= viewportHeight * (1 + offsetFactor) + rect.height / 2)
-    );
+    const viewportHeight = (window.innerHeight || document.documentElement.clientHeight) * (1 + offsetFactor);
+    const viewportWidth = (window.innerWidth || document.documentElement.clientWidth) * (1 + offsetFactor);
+
+    // 判断元素的顶部、底部、左侧或右侧是否在视口内
+    // 如果有一个在视口内,则认为元素可见
+    return rect.top < viewportHeight || rect.bottom > 0 || rect.left < viewportWidth || rect.right > 0;
   },
 
   waitElementVisible: function(selectorOrElement, callback, offsetFactor) {
