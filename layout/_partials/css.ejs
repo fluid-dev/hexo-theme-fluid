@@ -2,7 +2,7 @@
 
 <% var css_snippets = deduplicate(page.css_snippets) %>
 <% for (var idx = 0; idx < css_snippets.length; idx++) { %>
-  <%- css_snippets[idx] %>
+<%- css_snippets[idx] %>
 <% } %>
 <% page.css_snippets = [] %>
 
@@ -15,12 +15,26 @@
 <%- css_ex(theme.static_prefix.internal_css, 'main.css') %>
 
 <% if (theme.code.highlight.enable) { %>
-  <%- css_ex(theme.static_prefix.internal_css, 'highlight.css', 'id="highlight-css"') %>
-  <% if (theme.dark_mode.enable) { %>
-    <%- css_ex(theme.static_prefix.internal_css, 'highlight-dark.css', 'id="highlight-css-dark"') %>
-  <% } %>
+<%- css_ex(theme.static_prefix.internal_css, 'highlight.css', 'id="highlight-css"') %>
+<% if (theme.dark_mode.enable) { %>
+<%- css_ex(theme.static_prefix.internal_css, 'highlight-dark.css', 'id="highlight-css-dark"') %>
+<% } %>
 <% } %>
 
 <% if (theme.custom_css) { %>
-  <%- css(theme.custom_css) %>
+<%- css(theme.custom_css) %>
+<% } %>
+
+<% 
+function toCamelCase(str) {
+    return str
+        .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) => 
+            index === 0 ? match.toLowerCase() : match.toUpperCase()
+        )
+        .replace(/\s+/g, ''); // 去掉空格
+} 
+%>
+
+<% if (page.css) { %>
+<%- css_ex(theme.static_prefix.internal_css, `${toCamelCase(page.css)}.css` ) %>
 <% } %>
