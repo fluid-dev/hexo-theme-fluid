@@ -5,16 +5,17 @@
 const { stripHTML } = require('hexo-util');
 
 const getWordCount = (post) => {
-  // post.origin is the original post content of hexo-blog-encrypt
-  const content = stripHTML(post.origin || post.content).replace(/\r?\n|\r/g, '').replace(/\s+/g, '');
-
+  const content = stripHTML(post.origin || post.content).replace(/\r?\n|\r/g, ' ').trim();
+  
   if (!post.wordcount) {
+    // Match words and characters more accurately
     const zhCount = (content.match(/[\u4E00-\u9FA5]/g) || []).length;
-    const enCount = (content.replace(/[\u4E00-\u9FA5]/g, '').match(/[a-zA-Z0-9_\u0392-\u03c9\u0400-\u04FF]+|[\u4E00-\u9FFF\u3400-\u4dbf\uf900-\ufaff\u3040-\u309f\uac00-\ud7af\u0400-\u04FF]+|[\u00E4\u00C4\u00E5\u00C5\u00F6\u00D6]+|\w+/g) || []).length;
-    post.wordcount = zhCount + enCount
+    const enCount = (content.match(/[a-zA-Z0-9]+/g) || []).length;
+    post.wordcount = zhCount + enCount;
   }
   return post.wordcount;
 };
+
 
 const symbolsCount = (count) => {
   if (count > 9999) {
