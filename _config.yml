@@ -608,6 +608,10 @@ post:
   # Update date is displayed at the beginning of the post. The default date is the update date of the md file, which can be manually specified by `updated` in front-matter (same format as date)
   updated:
     enable: false
+    
+    # 是否永久显示更新时间横幅，如为false则仅修改文章后才显示
+    # Whether to permanently display the update-time banner. If set to false then it will only be displayed after modifying the article
+    always_show: false
 
     # 格式参照 ISO-8601 日期格式化
     # ISO-8601 date format
