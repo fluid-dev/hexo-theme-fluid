@@ -13,7 +13,7 @@ hexo.extend.tag.register('fold', (args, content) => {
       </div>
       <div class="fold-collapse collapse" id="${id}">
         <div class="fold-content">
-          ${hexo.render.renderSync({ text: content, engine: 'markdown' }).split('\n').join('')}
+          ${hexo.render.renderSync({ text: content, engine: 'markdown' }).split('\n').join(' ')}
         </div>
       </div>
     </div>`;

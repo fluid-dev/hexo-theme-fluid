@@ -7,7 +7,7 @@ const note = (args, content) => {
     args = [ hexo.theme.config.post.updated.note_class || "info"];
   }
   return `<div class="note note-${args.join(' ')}">
-            ${hexo.render.renderSync({ text: content, engine: 'markdown' }).split('\n').join('')}
+            ${hexo.render.renderSync({ text: content, engine: 'markdown' }).split('\n').join(' ')}
           </div>`;
 };
 
