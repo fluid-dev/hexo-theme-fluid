@@ -43,6 +43,9 @@ post:
   prev_post: '上一篇'
   next_post: '下一篇'
   updated: '本文最後更新於：%s'
+  outdate:
+    title: '文章時效性提示'
+    content: '這是一篇發佈於%s天前的文章，部分資訊可能已發生改變，請注意甄別。'
   meta:
     wordcount: '%s 字'
     min2read: '%s 分鐘'

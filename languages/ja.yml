@@ -43,6 +43,9 @@ post:
   prev_post: '前の記事'
   next_post: '次の記事'
   updated: '最終更新日：%s'
+  outdate:
+    title: '記事の有効性のヒント'
+    content: 'これは%sに掲載される前の記事で、一部の情報が変更されている可能性がありますので、識別に注意してください。'
   meta:
     wordcount: '%s 単語'
     min2read: '%s 分'
