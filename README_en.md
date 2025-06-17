@@ -105,9 +105,24 @@ About content
 
 ## Thanks
 
-<a title="Thanks to JetBrains for providing the license" href="https://www.jetbrains.com/?from=hexo-theme-fluid" target="_blank">
-  <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" width="150" alt="JetBrains">
-</a>
+<table>
+  <thead>
+    <tr>
+      <th align="center" style="width: 240px;">
+        <a href="https://www.jetbrains.com/?from=hexo-theme-fluid">
+          <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" height="200px"><br>
+          <sub>Powered by JetBrains</sub><br>
+        </a>
+      </th>
+      <th align="center" style="width: 240px;">
+        <a href="https://dartnode.com">
+          <img src="https://dartnode.com/branding/DN-Open-Source-sm.png" height="200px"><br>
+          <sub>Powered by DartNode - Free VPS for Open Source</sub><br>
+        </a>
+      </th>
+    </tr>
+  </thead>
+</table>
 
 ## Contributors
 
@@ -116,26 +131,6 @@ About content
 English docs translator: [@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top) [@Sinetian](https://sinetian.github.io/)
 
 Contributors outside PR: [@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate) [@xiyuvi](https://xiyu.pro/)
-
-## Support
-
-If you find this project helpful and would like to support its development, please consider making a financial contribution.
-
-<table>
-  <thead>
-    <tr>
-      <th align="center" style="width: 240px;">
-        <div>
-          <a href="https://etherscan.io/address/0x0021395954710be29c0BFDCB3f98f4D2fa5A1448">
-            <img src="https://avatars.githubusercontent.com/u/6250754?s=200&v=4" height="200px" alt="Ethereum">
-          </a>
-          <br>
-          <sub>Ethereum: 0x0021395954710<br>be29c0BFDCB3f98f4D2fa5A1448</sub>
-        </div>
-      </th>
-    </tr>
-  </thead>
-</table>
 
 ## Star Trending
 

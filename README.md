@@ -115,7 +115,12 @@ layout: about
         <a href="https://www.jetbrains.com/?from=hexo-theme-fluid">
           <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" height="200px"><br>
           <sub>免费开发工具提供方 JetBrains</sub><br>
-          <sub>专注于创建智能开发工具</sub>
+        </a>
+      </th>
+      <th align="center" style="width: 240px;">
+        <a href="https://dartnode.com">
+          <img src="https://dartnode.com/branding/DN-Open-Source-sm.png" height="200px"><br>
+          <sub>免费 VPS 提供方 DartNode</sub><br>
         </a>
       </th>
     </tr>
