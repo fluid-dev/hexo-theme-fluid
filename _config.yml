@@ -730,6 +730,9 @@ post:
     # Options: mathjax | katex
     engine: mathjax
 
+    # 指定mathjax的渲染方式，默认通过'es5/tex-svg.js'进行渲染
+    render: 'es5/tex-svg.js'
+
   # 流程图，基于 mermaid-js，具体请见：https://hexo.fluid-dev.com/docs/guide/#mermaid-流程图
   # Flow chart, based on mermaid-js, see: https://hexo.fluid-dev.com/docs/en/guide/#mermaid
   mermaid:
