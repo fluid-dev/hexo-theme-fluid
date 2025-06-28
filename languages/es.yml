@@ -32,6 +32,9 @@ links:
   menu: 'Enlaces'
   title: 'Enlaces'
   subtitle: 'Enlaces'
+  inactive:
+    collapsed: 'Expandir'
+    expanded: 'Contraer'
 
 page404:
   menu: 'Página no encontrada'

@@ -1052,6 +1052,18 @@ links:
       avatar: "/img/favicon.png"
     }
 
+  # 失效/未激活的友链Add commentMore actions
+  inactive:
+    enable: false
+    label: "异常友链 | 长时间不可访问站点"
+    inactiveItems:
+        - {
+          title: "404 Links",
+          intro: "404 Links",
+          link: "https://hexo.fluid-dev.com/404",
+          avatar: "/img/favicon.png"
+        }
+
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
   onerror_avatar: /img/avatar.png

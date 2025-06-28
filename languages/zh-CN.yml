@@ -32,6 +32,9 @@ links:
   menu: '友链'
   title: '友链'
   subtitle: '友情链接'
+  inactive:
+    collapsed: '展开内容'
+    expanded: '收起内容'
 
 page404:
   menu: '页面不存在'

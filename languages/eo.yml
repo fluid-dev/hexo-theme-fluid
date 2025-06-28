@@ -32,6 +32,9 @@ links:
   menu: 'Ligoj'
   title: 'Ligoj'
   subtitle: 'Ligoj'
+  inactive:
+    collapsed: 'Malfermi'
+    expanded: 'Fermi'
 
 page404:
   menu: 'Paĝo ne trovita'

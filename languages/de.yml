@@ -32,6 +32,9 @@ links:
   menu: 'Weblinks'
   title: 'Weblinks'
   subtitle: 'Weblinks'
+  inactive:
+    collapsed: 'Erweitern'
+    expanded: 'Reduzieren'
 
 page404:
   menu: 'Die Seite wurde nicht gefunden'
