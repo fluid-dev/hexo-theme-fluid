@@ -12,11 +12,12 @@ page.comment = theme.links.comments.type
   <% for(const each of theme.links.items || []) { %>
     <% if (!each.title || !each.link) continue %>
     <div class="card col-lg-4 col-md-6 col-sm-12">
-      <a href="<%= url_for(each.link) %>" class="card-body hover-with-bg" target="_blank" rel="noopener">
+      <a href="<%= url_for(each.link) %>" class="card-body hover-with-bg" target="_blank" rel="noopener" aria-label="<%= `访问 ${each.title}` %>">
         <div class="card-content">
           <% if (each.avatar || each.image) { %>
             <div class="link-avatar my-auto">
               <img src="<%= url_for(each.avatar || each.image) %>" alt="<%= each.title %>"
+                   loading="lazy"
                    onerror="this.onerror=null; this.src=this.srcset='<%= url_for(theme.links.onerror_avatar) %>'"/>
             </div>
           <% } %>
@@ -29,6 +30,37 @@ page.comment = theme.links.comments.type
     </div>
   <% } %>
 </div>
+
+<% if (theme.links.inactive && theme.links.inactive.enable && theme.links.inactive.inactiveItems) { %>
+  <hr/>
+  <% if (theme.links.inactive.label) { %>
+    <p class="inactive-label"><%- theme.links.inactive.label %></p>
+  <% } %>
+
+  <div class="row links">
+    <% for(const item of theme.links.inactive.inactiveItems || []) { %>
+      <% if (!item.title || !item.link) continue %>
+      <div class="card col-lg-4 col-md-6 col-sm-12">
+        <a href="<%= url_for(item.link) %>" class="card-body hover-with-bg" target="_blank" rel="noopener" aria-label="<%= `访问 ${item.title}` %>">
+          <div class="card-content">
+            <% if (item.avatar || item.image) { %>
+              <div class="link-avatar my-auto">
+                <img src="<%= url_for(item.avatar || item.image) %>" alt="<%= item.title %>"
+                      loading="lazy"
+                      onerror="this.onerror=null; this.src=this.srcset='<%= url_for(theme.links.onerror_avatar) %>'"/>
+              </div>
+            <% } %>
+            <div class="link-text">
+              <div class="link-title"><%- item.title %></div>
+              <div class="link-intro"><%- item.intro || '' %></div>
+            </div>
+          </div>
+        </a>
+      </div>
+    <% } %>
+  </div>
+<% } %>
+
 
 <% if(theme.links.custom && theme.links.custom.enable && theme.links.custom.content) { %>
   <!-- Custom -->
