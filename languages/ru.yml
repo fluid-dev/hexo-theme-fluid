@@ -32,6 +32,9 @@ links:
   menu: 'Ссылки'
   title: 'Ссылки'
   subtitle: 'Ссылки'
+  inactive:
+    collapsed: 'Открыть'
+    expanded: 'Закрыть'
 
 page404:
   menu: 'Страница не найдена'

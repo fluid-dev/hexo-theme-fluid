@@ -32,6 +32,9 @@ links:
   menu: '連結'
   title: '交換連結'
   subtitle: '交換連結'
+  inactive:
+    collapsed: '展開內容'
+    expanded: '收起內容'
 
 page404:
   menu: '頁面不存在'

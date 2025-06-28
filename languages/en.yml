@@ -32,6 +32,9 @@ links:
   menu: 'Links'
   title: 'Links'
   subtitle: 'Links'
+  inactive:
+    collapsed: 'Expand'
+    expanded: 'Collapse'
 
 page404:
   menu: 'Page not found'

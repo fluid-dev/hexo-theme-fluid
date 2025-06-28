@@ -32,6 +32,9 @@ links:
   menu: 'リンク'
   title: 'リンク'
   subtitle: 'リンク'
+  inactive:
+    collapsed: '開く'
+    expanded: '閉じる'
 
 page404:
   menu: 'ページが見つかりませんでした'
