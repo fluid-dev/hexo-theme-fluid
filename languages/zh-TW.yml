@@ -52,12 +52,12 @@ post:
     posted: '發布於'
     updated: '更新於'
     licensed: '許可協議'
-    CC: 'CC - 知識共享許可協議'
-    BY: 'BY - 署名'
-    SA: 'SA - 相同方式共享'
-    NC: 'NC - 非商業性使用'
-    ND: 'ND - 禁止演繹'
-    ZERO: 'CC0 - 無著作權'
+    CC: 'CC - 創用 CC 授權'
+    BY: 'BY - 姓名標示'
+    SA: 'SA - 相同方式分享'
+    NC: 'NC - 非商業性'
+    ND: 'ND - 禁止改作'
+    ZERO: 'CC0 - 公眾領域貢獻宣告'
 
 footer:
   pv: '總訪問量 {} 次'
@@ -67,4 +67,4 @@ search:
   title: '搜尋'
   keyword: '關鍵字'
 
-noscript_warning: '博客在允許 JavaScript 運行的環境下瀏覽效果更佳'
+noscript_warning: '部落格在允許 JavaScript 執行的環境下瀏覽效果更佳'
