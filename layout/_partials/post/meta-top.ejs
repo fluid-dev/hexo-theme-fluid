@@ -65,6 +65,13 @@
           <%- views_texts[0] %><span id="umami-page-views"></span><%- views_texts[1] %>
         </span>
         <% import_js(theme.static_prefix.internal_js, 'umami-view.js', 'defer') %>
+
+      <% } else if (theme.post.meta.views.source === 'supabase')  { %>
+        <span id="supabase-page-views-container" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <%- views_texts[0] %><span id="supabase-page-views"></span><%- views_texts[1] %>
+        </span>
+        <% import_js(theme.static_prefix.internal_js, 'supabase.js', 'defer') %>
       <% } %>
     <% } %>
   </div>

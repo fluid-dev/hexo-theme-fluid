@@ -52,6 +52,23 @@
       </span>
     <% } %>
     <% import_js(theme.static_prefix.internal_js, 'umami-view.js', 'defer') %>
+
+  <% } else if (theme.footer.statistics.source === 'supabase') { %>
+    <% if (pv_texts.length >= 2) { %>
+      <span id="supabase-site-pv-container" style="display: none">
+        <%- pv_texts[0] %>
+        <span id="supabase-site-pv"></span>
+        <%- pv_texts[1] %>
+      </span>
+    <% } %>
+    <% if (uv_texts.length >= 2) { %>
+      <span id="supabase-site-uv-container" style="display: none">
+        <%- uv_texts[0] %>
+        <span id="supabase-site-uv"></span>
+        <%- uv_texts[1] %>
+      </span>
+    <% } %>
+    <% import_js(theme.static_prefix.internal_js, 'supabase.js', 'defer') %>
   <% } %>
 
 </div>
