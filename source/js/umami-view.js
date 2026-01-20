@@ -94,6 +94,8 @@ let viewCtn = document.querySelector("#umami-page-views-container");
 // 如果页面容器存在，则获取页面浏览量
 if (viewCtn) {
   let path = window.location.pathname;
-  let target = decodeURI(path.replace(/\/*(index.html)?$/, "/"));
+  let target = path
+    .replace(/(\/[^/]+\.html)\/$/, "$1")  // 如果是 '/xxxx.html/' 格式的路径，则去掉最后那个 '/'
+    .replace(/\/index\.html$/, "/");      // 如果是 '/index.html' 格式，则合并成 '/'
   pageStats(target);
 }
