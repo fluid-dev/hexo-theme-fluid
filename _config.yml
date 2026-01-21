@@ -413,6 +413,10 @@ search:
 # 首屏图片的相关配置
 # Config of the big image on the first screen
 banner:
+  # 是否开启所有页面的随机头图，仅在页面对应 banner_img 为空时生效，将图片放在 source/img/random/ 目录下
+  # Enable random banner for all pages, only works when banner_img is empty, put images in the directory `source/img/random/`
+  random_img: false
+
   # 视差滚动，图片与板块会随着屏幕滚动产生视差效果
   # Scrolling parallax
   parallax: true

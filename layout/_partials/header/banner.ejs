@@ -1,14 +1,35 @@
 <%
-var banner_img = page.banner_img || theme.index.banner_img
+var banner_img = page.banner_img || (is_post() && theme.post ? theme.post.banner_img : theme.index.banner_img)
+var random_enabled = theme.banner && typeof theme.banner.random_img === 'boolean'
+  ? theme.banner.random_img
+  : false
+var random_banner_list = []
+if (!banner_img && random_enabled && Array.isArray(theme.banner_img_list) && theme.banner_img_list.length > 0) {
+  for (var i = 0; i < theme.banner_img_list.length; i++) {
+    random_banner_list.push(url_for(theme.banner_img_list[i]))
+  }
+  banner_img = random_banner_list[0]
+}
+var random_banner_attr = ''
+if (random_banner_list.length > 0) {
+  random_banner_attr = "data-random-banner='" + random_banner_list.join(',') + "'"
+}
+var banner_attrs = ''
+if (theme.banner && theme.banner.parallax) {
+  banner_attrs += ' parallax=true'
+}
+if (random_banner_attr) {
+  banner_attrs += ' ' + random_banner_attr
+}
 var banner_img_height = parseFloat(page.banner_img_height || theme.index.banner_img_height)
 var banner_mask_alpha = parseFloat(page.banner_mask_alpha || theme.index.banner_mask_alpha)
 var subtitle = page.subtitle || page.title
 %>
 
-<div id="banner" class="banner" <%- theme.banner && theme.banner.parallax && 'parallax=true' %>
+<div id="banner" class="banner"<%- banner_attrs %>
      style="background: url('<%- url_for(banner_img) %>') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= parseFloat(banner_mask_alpha) %>)">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, <%= banner_mask_alpha %>)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           <% if(theme.fun_features.typing.enable && in_scope(theme.fun_features.typing.scope)) { %>
@@ -31,3 +52,18 @@ var subtitle = page.subtitle || page.title
     </div>
   </div>
 </div>
+
+<% if (random_banner_list.length > 0) { %>
+  <script>
+    (function() {
+      var banner = document.getElementById('banner');
+      if (!banner) return;
+      var list = banner.getAttribute('data-random-banner');
+      if (!list) return;
+      list = list.split(',').filter(Boolean);
+      if (list.length === 0) return;
+      var pick = list[Math.floor(Math.random() * list.length)];
+      banner.style.backgroundImage = "url('" + pick + "')";
+    })();
+  </script>
+<% } %>
