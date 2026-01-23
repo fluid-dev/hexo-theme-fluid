@@ -35,6 +35,31 @@
 .tocbot-link
   color var(--text-color)
 
+.toc-toggle
+  display inline-block
+  width 1rem
+  text-align center
+  margin-right .25rem
+  cursor pointer
+  user-select none
+  color var(--text-color)
+  font-size .75rem
+  line-height 1
+  transition transform .2s ease-in-out
+
+  &.toc-toggle-collapsed
+    transform rotate(0deg)
+
+  &.toc-toggle-expanded
+    transform rotate(90deg)
+
+  # 仅占位用于对齐缩进，不参与交互
+  &.toc-toggle-placeholder
+    visibility hidden
+    pointer-events none
+    cursor default
+    transform none
+
 .tocbot-active-link
   font-weight bold
   color var(--link-hover-color)
