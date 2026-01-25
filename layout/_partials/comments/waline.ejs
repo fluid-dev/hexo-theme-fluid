@@ -1,9 +1,9 @@
 <% if (theme.waline.serverURL) { %>
   <div id="waline"></div>
-  <script type="text/javascript">
+  <script type="module">
     Fluid.utils.loadComments('#waline', function() {
       Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.waline, 'waline.css') %>')
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.waline, 'waline.js') %>', function() {
+      import('<%= url_join(theme.static_prefix.waline, 'waline.js') %>').then(({ init }) => {
         var options = Object.assign(
           <%- JSON.stringify(theme.waline || {}) %>,
           {
@@ -11,7 +11,7 @@
             path: <%= theme.waline.path %>
           }
         )
-        Waline.init(options);
+        init(options);
         Fluid.utils.waitElementVisible('#waline .vcontent', () => {
           var imgSelector = '#waline .vcontent img:not(.vemoji)';
           Fluid.plugins.imageCaption(imgSelector);
