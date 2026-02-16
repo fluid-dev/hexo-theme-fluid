@@ -19,6 +19,23 @@
     <% } %>
     <% import_js(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
 
+  <% } else if (theme.footer.statistics.source === 'openkounter') { %>
+    <% if (pv_texts.length >= 2) { %>
+      <span id="openkounter-site-pv-container" style="display: none">
+        <%- pv_texts[0] %>
+        <span id="openkounter-site-pv"></span>
+        <%- pv_texts[1] %>
+      </span>
+    <% } %>
+    <% if (uv_texts.length >= 2) { %>
+      <span id="openkounter-site-uv-container" style="display: none">
+        <%- uv_texts[0] %>
+        <span id="openkounter-site-uv"></span>
+        <%- uv_texts[1] %>
+      </span>
+    <% } %>
+    <% import_js(theme.static_prefix.internal_js, 'openkounter.js', 'defer') %>
+
   <% } else if (theme.footer.statistics.source === 'busuanzi') { %>
     <% if (pv_texts.length >= 2) { %>
       <span id="busuanzi_container_site_pv" style="display: none">

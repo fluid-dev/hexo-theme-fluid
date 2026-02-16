@@ -67,4 +67,9 @@
   <% if(theme.web_analytics.leancloud && theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key) { %>
     <% import_js(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
   <% } %>
+
+  <% if(theme.web_analytics.openkounter && theme.web_analytics.openkounter.server_url) { %>
+    <% import_js(theme.static_prefix.internal_js, 'openkounter.js', 'defer') %>
+  <% } %>
+
 <% } %>
