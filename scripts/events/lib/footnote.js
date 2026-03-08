@@ -2,6 +2,15 @@
 
 const { stripHTML } = require('hexo-util');
 
+function escapeAttr(text) {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 // Register footnotes filter
 module.exports = (hexo) => {
   const config = hexo.theme.config;
@@ -76,11 +85,11 @@ module.exports = (hexo) => {
         if (!indexMap[index]) {
           return match;
         }
-        const tooltip = indexMap[index].content;
+        const tooltip = escapeAttr(stripHTML(indexMap[index].content));
         return '<sup id="fnref:' + index + '" class="footnote-ref">'
           + '<a href="#fn:' + index + '" rel="footnote">'
           + '<span class="hint--top hint--rounded" aria-label="'
-          + stripHTML(tooltip)
+          + tooltip
           + '">[' + index + ']</span></a></sup>';
       });
 
