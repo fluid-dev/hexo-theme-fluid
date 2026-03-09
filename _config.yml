@@ -282,8 +282,8 @@ web_analytics:
     # If true, ignore localhost & 127.0.0.1
     ignore_local: false
 
-  # OpenKounter 计数统计（基于 EdgeOne/Cloudflare Workers），可用于 PV UV 展示
-  # OpenKounter count statistics (based on EdgeOne/Cloudflare Workers), which can be used for PV UV display
+  # OpenKounter 计数统计（基于 EdgeOne Pages），可用于 PV UV 展示
+  # OpenKounter count statistics (based on EdgeOne Pages), which can be used for PV UV display
   openkounter:
     # OpenKounter API 服务器地址
     # OpenKounter API server URL
