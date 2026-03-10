@@ -68,3 +68,7 @@ search:
   keyword: 'Palabra clave'
 
 noscript_warning: 'El blog funciona mejor con JavaScript habilitado'
+
+darkmode:
+  light: 'Claro'
+  dark: 'Oscuro'

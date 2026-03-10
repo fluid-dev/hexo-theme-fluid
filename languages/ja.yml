@@ -68,3 +68,7 @@ search:
   keyword: 'キーワード'
 
 noscript_warning: 'ブログは JavaScript を有効にすると最適に機能します'
+
+darkmode:
+  light: 'ライト'
+  dark: 'ダーク'

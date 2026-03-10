@@ -68,3 +68,7 @@ search:
   keyword: 'Ключевое слово'
 
 noscript_warning: 'Блог лучше всего работает с включенным JavaScript'
+
+darkmode:
+  light: 'Светлая'
+  dark: 'Тёмная'

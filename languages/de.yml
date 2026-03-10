@@ -68,3 +68,7 @@ search:
   keyword: 'Stichwort'
 
 noscript_warning: 'Blog funktioniert am besten mit aktiviertem JavaScript'
+
+darkmode:
+  light: 'Hell'
+  dark: 'Dunkel'

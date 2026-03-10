@@ -10,7 +10,7 @@
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- Collapsible content (desktop) -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         <% for(const each of theme.navbar.menu || []) { %>
@@ -68,3 +68,76 @@
     </div>
   </div>
 </nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        <% for(const each of theme.navbar.menu || []) { %>
+          <% if (!each.submenu && !each.link) continue %>
+          <% var gridText = each.name || __(each.key + '.menu') || __(each.key + '.title') %>
+          <% if (gridText.indexOf('.menu') !== -1 || gridText.indexOf('.title') !== -1) {
+            gridText = each.key
+          } %>
+          <% if (each.submenu) { %>
+            <%
+              // Flatten submenu items as grid cells grouped under a header
+              // First render the parent as a header row, then sub items
+            %>
+            <div class="col-12 mobile-grid-group-header">
+              <%- each.icon ? '<i class="' + each.icon + '"></i>' : '' %>
+              <span><%- gridText %></span>
+            </div>
+            <% for(const subEach of each.submenu || []) { %>
+              <% if (!subEach.link) continue %>
+              <% var subGridText = subEach.name || __(subEach.key + '.title') %>
+              <% if (subGridText.indexOf('.title') !== -1) {
+                subGridText = subEach.key
+              } %>
+              <div class="col-4 mobile-grid-cell">
+                <a href="<%= url_for(subEach.link) %>" target="<%= subEach.target || '_self' %>">
+                  <div class="mobile-grid-item">
+                    <%- subEach.icon ? '<i class="' + subEach.icon + '"></i>' : '<i class="iconfont icon-link-fill"></i>' %>
+                    <span><%- subGridText %></span>
+                  </div>
+                </a>
+              </div>
+            <% } %>
+          <% } else { %>
+            <div class="col-4 mobile-grid-cell">
+              <a href="<%= url_for(each.link) %>" target="<%= each.target || '_self' %>">
+                <div class="mobile-grid-item">
+                  <%- each.icon ? '<i class="' + each.icon + '"></i>' : '<i class="iconfont icon-link-fill"></i>' %>
+                  <span><%- gridText %></span>
+                </div>
+              </a>
+            </div>
+          <% } %>
+        <% } %>
+        <% if(theme.search.enable) { %>
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span><%= __('search.title') !== 'search.title' ? __('search.title') : 'Search' %></span>
+              </div>
+            </a>
+          </div>
+        <% } %>
+        <% if(theme.dark_mode && theme.dark_mode.enable) { %>
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="<%= __('darkmode.light') %>"
+               data-label-dark="<%= __('darkmode.dark') %>">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label"><%= __('darkmode.dark') %></span>
+              </div>
+            </a>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -68,3 +68,7 @@ search:
   keyword: '關鍵字'
 
 noscript_warning: '博客在允許 JavaScript 運行的環境下瀏覽效果更佳'
+
+darkmode:
+  light: '開燈'
+  dark: '關燈'

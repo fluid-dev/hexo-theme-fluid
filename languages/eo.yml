@@ -68,3 +68,7 @@ search:
   keyword: 'ŝlosivorto'
 
 noscript_warning: 'Blogo funkcias plej bone kun JavaScript ebligita'
+
+darkmode:
+  light: 'Hela'
+  dark: 'Malhela'

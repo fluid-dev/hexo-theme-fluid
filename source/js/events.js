@@ -29,6 +29,9 @@ Fluid.events = {
         submenu.removeClass('navbar-dark');
       }
     });
+
+    var mobileGridMenu = jQuery('#mobile-grid-menu');
+
     jQuery('#navbar-toggler-btn').on('click', function() {
       var $this = jQuery(this);
       if ($this.data('animating')) {
@@ -36,10 +39,44 @@ Fluid.events = {
       }
       $this.data('animating', true);
       jQuery('.animated-icon').toggleClass('open');
-      jQuery('#navbar').toggleClass('navbar-col-show');
+
+      // On mobile use grid menu; on desktop keep original collapse behavior
+      if (window.innerWidth < 992) {
+        navbar.addClass('top-nav-collapse');
+        mobileGridMenu.toggleClass('show');
+        // Apply staggered animation delays when opening
+        if (mobileGridMenu.hasClass('show')) {
+          mobileGridMenu.find('.mobile-grid-cell, .mobile-grid-group-header').each(function(i, el) {
+            el.style.animationDelay = (i * 20) + 'ms';
+          });
+        }
+        // Prevent body scroll when menu is open
+        jQuery('body').toggleClass('mobile-menu-open', mobileGridMenu.hasClass('show'));
+      } else {
+        jQuery('#navbar').toggleClass('navbar-col-show');
+      }
+
       setTimeout(function() {
         $this.data('animating', false);
       }, 300);
+    });
+
+    // Close grid menu when a link inside it is clicked
+    mobileGridMenu.on('click', 'a[href]:not([href="javascript:;"])', function() {
+      mobileGridMenu.removeClass('show');
+      jQuery('.animated-icon').removeClass('open');
+      jQuery('body').removeClass('mobile-menu-open');
+      navbar.removeClass('top-nav-collapse');
+      jQuery('#navbar-toggler-btn').data('animating', false);
+    });
+
+    // Close grid menu on resize to desktop
+    jQuery(window).on('resize', function() {
+      if (window.innerWidth >= 992 && mobileGridMenu.hasClass('show')) {
+        mobileGridMenu.removeClass('show');
+        jQuery('.animated-icon').removeClass('open');
+        jQuery('body').removeClass('mobile-menu-open');
+      }
     });
   },
 

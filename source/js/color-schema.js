@@ -153,33 +153,38 @@
       }
       var iconElement = document.querySelector(colorToggleIconSelector);
       if (iconElement) {
-        iconElement.setAttribute(
-          'class',
-          'iconfont ' + icon
-        );
-        iconElement.setAttribute(
-          'data',
-          invertColorSchemaObj[schema]
-        );
+        iconElement.setAttribute('class', 'iconfont ' + icon);
+        iconElement.setAttribute('data', invertColorSchemaObj[schema]);
       } else {
-        // 如果图标不存在则说明图标还没加载出来，等到页面全部加载再尝试切换
         Fluid.utils.waitElementLoaded(colorToggleIconSelector, function() {
           var iconElement = document.querySelector(colorToggleIconSelector);
           if (iconElement) {
-            iconElement.setAttribute(
-              'class',
-              'iconfont ' + icon
-            );
-            iconElement.setAttribute(
-              'data',
-              invertColorSchemaObj[schema]
-            );
+            iconElement.setAttribute('class', 'iconfont ' + icon);
+            iconElement.setAttribute('data', invertColorSchemaObj[schema]);
           }
         });
       }
+
+      // 同步更新移动端按钮文字：light 状态显示"关灯"，dark 状态显示"开灯"
+      var mobileBtn = document.querySelector('#mobile-color-toggle-btn');
+      if (mobileBtn) {
+        var label = document.querySelector('#mobile-color-toggle-label');
+        if (label) {
+          // schema 是当前模式：light→显示 dark 标签（关灯），dark→显示 light 标签（开灯）
+          label.textContent = schema === 'dark'
+            ? (mobileBtn.getAttribute('data-label-light') || '')
+            : (mobileBtn.getAttribute('data-label-dark') || '');
+        }
+        // 同步图标
+        var mobileIcon = document.querySelector('#mobile-color-toggle-icon');
+        if (mobileIcon) {
+          mobileIcon.setAttribute('class', 'iconfont ' + icon);
+        }
+      }
+
       if (document.documentElement.getAttribute('data-user-color-scheme')) {
-        var color = getComputedStyle(document.documentElement).getPropertyValue('--navbar-bg-color').trim()
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', color)
+        var color = getComputedStyle(document.documentElement).getPropertyValue('--navbar-bg-color').trim();
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', color);
       }
     }
   }
@@ -277,10 +282,18 @@
         });
       }
     }
+
+    // 绑定移动端菜单按钮的事件
+    var mobileButton = document.querySelector('#mobile-color-toggle-btn');
+    if (mobileButton) {
+      mobileButton.addEventListener('click', function() {
+        applyCustomColorSchemaSettings(toggleCustomColorSchema());
+      });
+    }
   });
 
   Fluid.utils.waitElementLoaded(iframeSelector, function() {
     applyCustomColorSchemaSettings();
   });
-  
+
 })(window, document);

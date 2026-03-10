@@ -172,3 +172,100 @@
 
   #subtitle, .typed-cursor
     font-size 1.35rem
+
+// Mobile grid menu (九宫格)
+#mobile-grid-menu
+  display block
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  z-index 1029
+  overflow-y auto
+  -webkit-overflow-scrolling touch
+  pointer-events none
+  opacity 0
+  transform translateY(-12px)
+  transition opacity .18s ease, transform .18s ease
+  will-change opacity, transform
+
+  if $navbar-glass-enable
+    ground-glass($navbar-glass-px, $navbar-bg-color, $navbar-glass-alpha)
+  else
+    background-color var(--navbar-bg-color)
+
+  &.show
+    pointer-events auto
+    opacity 1
+    transform translateY(0)
+
+    // Staggered cell pop-in — delays are set via JS
+    .mobile-grid-cell, .mobile-grid-group-header
+      animation mobile-grid-cell-in .18s ease both
+
+  .mobile-grid-menu-inner
+    padding-top 70px
+    padding-bottom 2rem
+
+  .mobile-grid-group-header
+    color var(--navbar-text-color)
+    font-size 0.8rem
+    opacity 0.6
+    text-transform uppercase
+    letter-spacing 0.05em
+    padding 1rem 15px 0.4rem
+    border-top 1px solid rgba(255, 255, 255, 0.1)
+    margin-top 0.5rem
+
+    &:first-child
+      border-top none
+      margin-top 0
+
+    i
+      margin-right 0.3rem
+      font-size 0.8rem
+
+  .mobile-grid-cell
+    padding 0.5rem
+
+  .mobile-grid-item
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+    padding 1rem 0.5rem
+    border-radius 12px
+    background-color rgba(255, 255, 255, 0.08)
+    transition background-color .2s ease-in-out, transform .15s ease-in-out
+    cursor pointer
+    min-height 80px
+
+    &:hover, &:active
+      background-color rgba(255, 255, 255, 0.18)
+      transform scale(0.96)
+
+    i
+      font-size 1.6rem
+      color var(--navbar-text-color)
+      margin-bottom 0.4rem
+      line-height 1
+
+    span
+      font-size 0.78rem
+      color var(--navbar-text-color)
+      text-align center
+      line-height 1.2
+      word-break break-word
+
+  a
+    text-decoration none
+    color var(--navbar-text-color)
+
+    &:hover
+      color var(--navbar-text-color)
+
+// On mobile, suppress the original collapse list — grid menu takes over
+@media (max-width: 991.98px)
+  #navbarSupportedContent
+    display none !important

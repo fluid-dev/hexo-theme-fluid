@@ -68,3 +68,7 @@ search:
   keyword: 'Keyword'
 
 noscript_warning: 'Blog works best with JavaScript enabled'
+
+darkmode:
+  light: 'Light'
+  dark: 'Dark'
