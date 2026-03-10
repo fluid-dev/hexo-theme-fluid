@@ -26,7 +26,7 @@ hexo.extend.filter.register('before_generate', function() {
   });
   const hidePosts = allPosts.filter(post => post.hide);
   const normalPosts = allPosts.filter(post => !post.hide);
-  const indexPost = allPosts.filter(post => !post.hide && !post.archive)
+  const indexPost = allPosts.filter(post => !post.hide && !post.archive);
 
   this.locals.set('all_posts', allPosts);
   this.locals.set('hide_posts', hidePosts);
@@ -51,5 +51,28 @@ hexo.extend.filter.register('after_post_render', (page) => {
   page.content = page.content.replace(/<colgroup>.+?<\/colgroup>/gims, '');
   // 移除 hexo-renderer-pandoc 生成的 <span class="footnote-text">...<br>...</span>
   page.content = page.content.replace(/(class="footnote-text".+?)<br.+?>(.+?rev="footnote")/gims, '$1$2');
+
+  // 为文章中 <h1> 添加默认 id 属性，方便锚点链接
+  if (page.content) {
+    const uniqueIdStore = {};
+    page.content = page.content.replace(/<h1>(.*?)<\/h1>/g, function(match, p1) {
+      const cleanId = p1.trim().toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[?#&]/g, '');
+
+      let uniqueId = cleanId;
+      if (cleanId === '') {
+        uniqueId = 'default';
+      }
+      if (uniqueIdStore[cleanId]) {
+        uniqueId = `${cleanId}-${uniqueIdStore[cleanId]}`;
+        uniqueIdStore[cleanId] += 1;
+      } else {
+        uniqueIdStore[cleanId] = 1;
+      }
+      return `<h1 id="${uniqueId}">${p1}</h1>`;
+    });
+  }
+
   return page;
 });
