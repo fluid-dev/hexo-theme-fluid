@@ -8,3 +8,18 @@
   z-index 3
   -webkit-box-shadow 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)
   box-shadow 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)
+
+.board > .container
+  overflow-x hidden
+
+// 当没有侧边栏时，board 占满整个宽度
+@media (min-width: 992px)
+  #board-ctn:not(:has(.has-sidebar)) > .row
+    > .side-col
+      flex 0 0 0
+      max-width 0
+      padding 0
+
+    > .col-lg-8
+      flex: 0 0 100%;
+      max-width: 100%;

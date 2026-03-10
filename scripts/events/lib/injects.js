@@ -59,6 +59,8 @@ const points = {
     'postMetaBottom',
     'postMarkdownBegin',
     'postMarkdownEnd',
+    'boardLeft',
+    'boardRight',
     'postLeft',
     'postRight',
     'postCopyright',
