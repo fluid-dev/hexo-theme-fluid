@@ -32,18 +32,21 @@
   a
     font-size 0.95rem
 
+  ol a
+    font-size 0.85rem
+
 .tocbot-link
   color var(--text-color)
 
 .toc-toggle
   display inline-block
-  width 1rem
+  width .7rem
   text-align center
-  margin-right .25rem
+  margin-right .15rem
   cursor pointer
   user-select none
   color var(--text-color)
-  font-size .75rem
+  font-size .9rem
   line-height 1
   transition transform .2s ease-in-out
 
@@ -53,12 +56,12 @@
   &.toc-toggle-expanded
     transform rotate(90deg)
 
-  # 仅占位用于对齐缩进，不参与交互
   &.toc-toggle-placeholder
     visibility hidden
     pointer-events none
     cursor default
     transform none
+
 
 .tocbot-active-link
   font-weight bold
@@ -72,7 +75,10 @@
   transition all .3s ease-in-out
 
 .toc-list-item
-  white-space nowrap
+  padding .1rem 0
+  display -webkit-box
+  -webkit-box-orient vertical
+  -webkit-line-clamp 2
   overflow hidden
   text-overflow ellipsis
 

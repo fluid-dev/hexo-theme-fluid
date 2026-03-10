@@ -26,7 +26,6 @@ import_script(`
       var $toggle = $li.children('.toc-toggle');
       if ($toggle.length === 0) { return; }
       var collapsed = $childList.hasClass('tocbot-is-collapsed');
-      // 统一使用 ▶ 字符，通过旋转控制方向
       $toggle
         .toggleClass('toc-toggle-collapsed', collapsed)
         .toggleClass('toc-toggle-expanded', !collapsed);
@@ -36,17 +35,15 @@ import_script(`
       jQuery('#toc-body .toc-list-item').each(function() {
         var $li = jQuery(this);
         var $childList = $li.children('ol');
-        // 没有子目录的条目也需要占位，保证缩进对齐
         if ($childList.length === 0) {
           if ($li.children('.toc-toggle').length === 0) {
-            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">▶</span>');
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
           }
           return;
         }
 
         if ($li.children('.toc-toggle').length === 0) {
-          // 统一使用 ▶ 字符，后续通过 CSS 旋转控制展开/折叠方向
-          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">▶</span>');
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
         }
         updateTocToggle($li, $childList);
       });
