@@ -32,12 +32,22 @@ module.exports = (hexo) => {
 };
 
 const lazyImages = (htmlContent, loadingImage) => {
-  return htmlContent.replace(/<img[^>]+?src=(".*?")[^>]*?>/gims, (str, p1) => {
+  // Protect <script> blocks so template strings containing <img> are not affected
+  const scriptBlocks = [];
+  const protected_html = htmlContent.replace(/<script[\s\S]*?<\/script>/gim, (match) => {
+    scriptBlocks.push(match);
+    return `<!--__FLUID_SCRIPT_${scriptBlocks.length - 1}__-->`;
+  });
+
+  const result = protected_html.replace(/<img[^>]+?src=(".*?")[^>]*?>/gims, (str, p1) => {
     if (/lazyload/i.test(str)) {
       return str;
     }
     return str.replace(p1, `${p1} srcset="${loadingImage}" lazyload`);
   });
+
+  // Restore <script> blocks
+  return result.replace(/<!--__FLUID_SCRIPT_(\d+)__-->/g, (_, i) => scriptBlocks[parseInt(i)]);
 };
 
 const lazyComments = (htmlContent) => {
