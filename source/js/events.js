@@ -8,15 +8,18 @@ HTMLElement.prototype.wrap = function(wrapper) {
 
 Fluid.events = {
 
-  registerNavbarEvent: function() {
+  registerNavbarScrollEvent: function() {
     var navbar = jQuery('#navbar');
     if (navbar.length === 0) {
       return;
     }
     var submenu = jQuery('#navbar .dropdown-menu');
+    // Set initial state based on current scroll position
     if (navbar.offset().top > 0) {
       navbar.removeClass('navbar-dark');
       submenu.removeClass('navbar-dark');
+    } else {
+      navbar.addClass('navbar-dark');
     }
     Fluid.utils.listenScroll(function() {
       navbar[navbar.offset().top > 50 ? 'addClass' : 'removeClass']('top-nav-collapse');
@@ -29,6 +32,16 @@ Fluid.events = {
         submenu.removeClass('navbar-dark');
       }
     });
+  },
+
+  registerNavbarEvent: function() {
+    var navbar = jQuery('#navbar');
+    if (navbar.length === 0) {
+      return;
+    }
+
+    // Register scroll-driven state (also called on pjax navigation)
+    Fluid.events.registerNavbarScrollEvent();
 
     var mobileGridMenu = jQuery('#mobile-grid-menu');
 
@@ -142,7 +155,8 @@ Fluid.events = {
       });
     };
     setTopArrowPos();
-    jQuery(window).resize(setTopArrowPos);
+    // Use namespaced event so re-binding on pjax doesn't accumulate
+    jQuery(window).off('resize.scrollTopArrow').on('resize.scrollTopArrow', setTopArrowPos);
     // Display
     var headerHeight = board.offset().top;
     Fluid.utils.listenScroll(function() {

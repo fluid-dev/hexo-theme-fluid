@@ -125,6 +125,14 @@ fun_features:
     # See: https://github.com/rstacruz/nprogress
     options: { showSpinner: false, trickleSpeed: 100 }
 
+# Pjax 无刷新加载，开启后页面跳转将使用 ajax 局部刷新，不再整页重载
+# Pjax reload. After enabling, page navigation will use Ajax for partial refresh instead of full page reload
+pjax:
+  enable: true
+  # 不触发 pjax 跳转的链接选择器，外部链接、下载链接等建议加入
+  # Selector for links that should not trigger pjax navigation
+  exclude: []
+
 # 主题暗色模式，开启后菜单中会出现切换按钮，用户浏览器会存储切换选项，并且会遵循 prefers-color-scheme 自动切换
 # Theme dark mode. If enable, a switch button will appear on the menu, each of the visitor's browser will store his switch option
 dark_mode:
@@ -1153,3 +1161,5 @@ static_prefix:
   hint: https://lib.baomitu.com/hint.css/2.7.0/
 
   moment: https://lib.baomitu.com/moment.js/2.29.4/
+
+  pjax: https://lib.baomitu.com/jquery.pjax/2.0.1/

@@ -13,9 +13,15 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 
   <header>
     <%- inject_point('header') %>
+    <%- partial('_partials/header/navigation.ejs') %>
   </header>
 
   <main>
+    <div id="pjax-wrapper">
+      <div class="header-inner" style="height: <%= banner_img_height %>vh;">
+        <%- partial('_partials/header/banner.ejs') %>
+      </div>
+      <%- inject_point('header') %>
     <% if(page.layout === '404') { %>
       <%- body %>
     <% } else { %>
@@ -51,6 +57,12 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
         </div>
       </div>
     <% } %>
+      <% var script_snippets = deduplicate(page.script_snippets) %>
+      <% for (var idx = 0; idx < script_snippets.length; idx++) { %>
+        <%- script_snippets[idx] %>
+      <% } %>
+      <% page.script_snippets = [] %>
+    </div>
 
     <% if (theme.scroll_top_arrow.enable) { %>
       <a id="scroll-top-button" aria-label="TOP" href="#" role="button">

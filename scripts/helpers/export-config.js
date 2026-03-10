@@ -26,6 +26,7 @@ hexo.extend.helper.register('export_config', function () {
     web_analytics: theme.web_analytics,
     search_path: urlJoin(config.root, theme.search.path),
     include_content_in_search: theme.search.content,
+    pjax: theme.pjax,
   };
   return `<script id="fluid-configs">
     var Fluid = window.Fluid || {};

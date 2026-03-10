@@ -1,4 +1,4 @@
-/* global Fluid */
+/* global Fluid, CONFIG */
 
 Fluid.boot = {};
 
@@ -11,10 +11,21 @@ Fluid.boot.registerEvents = function() {
   Fluid.events.registerImageLoadedEvent();
 };
 
+Fluid.boot.initLazyload = function() {
+  if (!CONFIG.lazyload || !CONFIG.lazyload.enable) { return; }
+  for (const each of document.querySelectorAll('img[lazyload]')) {
+    Fluid.utils.waitElementVisible(each, function() {
+      each.removeAttribute('srcset');
+      each.removeAttribute('lazyload');
+    }, CONFIG.lazyload.offset_factor);
+  }
+};
+
 Fluid.boot.refresh = function() {
   Fluid.plugins.fancyBox();
   Fluid.plugins.codeWidget();
   Fluid.events.refresh();
+  Fluid.boot.initLazyload();
 };
 
 document.addEventListener('DOMContentLoaded', function() {

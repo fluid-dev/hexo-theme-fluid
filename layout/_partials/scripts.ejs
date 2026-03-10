@@ -4,11 +4,20 @@
 <%- js_ex(theme.static_prefix.internal_js, 'events.js') %>
 <%- js_ex(theme.static_prefix.internal_js, 'plugins.js') %>
 
+<% if (theme.pjax && theme.pjax.enable) { %>
+  <%- js_ex(theme.static_prefix.pjax, 'jquery.pjax.min.js') %>
+  <%- js_ex(theme.static_prefix.internal_js, 'pjax.js') %>
+<% } %>
+
 <%- partial('_partials/plugins/typed.ejs') %>
 
 <% if (theme.lazyload.enable){ %>
-  <% if (theme.lazyload.onlypost) { %>
-    <% if (is_post() || is_page()) { %>
+  <% if (!theme.pjax || !theme.pjax.enable) { %>
+    <% if (theme.lazyload.onlypost) { %>
+      <% if (is_post() || is_page()) { %>
+        <%- js_ex(theme.static_prefix.internal_js, 'img-lazyload.js') %>
+      <% } %>
+    <% } else { %>
       <%- js_ex(theme.static_prefix.internal_js, 'img-lazyload.js') %>
     <% } %>
   <% } else { %>
@@ -16,11 +25,6 @@
   <% } %>
 <% } %>
 
-<% var script_snippets = deduplicate(page.script_snippets) %>
-<% for (var idx = 0; idx < script_snippets.length; idx++) { %>
-  <%- script_snippets[idx] %>
-<% } %>
-<% page.script_snippets = [] %>
 
 <% if (theme.custom_js) { %>
   <%- js(theme.custom_js) %>
