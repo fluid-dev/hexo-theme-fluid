@@ -37,6 +37,23 @@ tab_title_separator: " - "
 # Force all links to be HTTPS (applicable to HTTP mixed error)
 force_https: false
 
+# Pjax 无刷新加载，开启后页面跳转将使用 ajax 局部刷新，不再整页重载
+# Pjax reload. After enabling, page navigation will use Ajax for partial refresh instead of full page reload
+pjax:
+  enable: true
+  # 不触发 pjax 跳转的链接选择器，外部链接、下载链接等建议加入
+  # Selector for links that should not trigger pjax navigation
+  exclude: []
+
+# 主题暗色模式，开启后菜单中会出现切换按钮，用户浏览器会存储切换选项，并且会遵循 prefers-color-scheme 自动切换
+# Theme dark mode. If enable, a switch button will appear on the menu, each of the visitor's browser will store his switch option
+dark_mode:
+  enable: true
+  # 默认的选项（当用户手动切换后则不再按照默认模式），选择 `auto` 会优先遵循 prefers-color-scheme，其次按用户本地时间 18 点到次日 6 点之间进入暗色模式
+  # Default option (when the visitor switches manually, the default mode is no longer followed), choosing `auto` will give priority to prefers-color-scheme, and then enter the dark mode from 18:00 to 6:00 in the visitor's local time
+  # Options: auto | light | dark
+  default: auto
+
 # 代码块的增强配置
 # Enhancements to code blocks
 code:
@@ -82,70 +99,50 @@ code:
       # If true, it will be generated locally (but some prismjs plugins are not supported). If false, it will be generated via JS in the browser
       preprocess: true
 
-# 一些好玩的功能
-# Some fun features
-fun_features:
-  # 为 subtitle 添加打字机效果
-  # Typing animation for subtitle
-  typing:
-    enable: true
-
-    # 打印速度，数字越大越慢
-    # Typing speed, the larger the number, the slower
-    typeSpeed: 70
-
-    # 游标字符
-    # Cursor character
-    cursorChar: "_"
-
-    # 是否循环播放效果
-    # If true, loop animation
-    loop: false
-
-    # 在指定页面开启，不填则在所有页面开启
-    # Enable in specified page, all pages by default
-    # Options: home | post | tag | category | about | links | page | 404
-    scope: []
-
-  # 为文章内容中的标题添加锚图标
-  # Add an anchor icon to the title on the post page
-  anchorjs:
-    enable: true
-    element: h1,h2,h3,h4,h5,h6
-    # Options: left | right
-    placement: left
-
-    # Options: hover | always
-    visible: hover
-
-    # Options: § | # | ❡
-    icon: ""
-
-  # 加载进度条
-  # Progress bar when loading
-  progressbar:
-    enable: true
-    height_px: 3
-    color: "#29d"
-    # See: https://github.com/rstacruz/nprogress
-    options: { showSpinner: false, trickleSpeed: 100 }
-
-# Pjax 无刷新加载，开启后页面跳转将使用 ajax 局部刷新，不再整页重载
-# Pjax reload. After enabling, page navigation will use Ajax for partial refresh instead of full page reload
-pjax:
+# 为 subtitle 添加打字机效果
+# Typing animation for subtitle
+typing:
   enable: true
-  # 不触发 pjax 跳转的链接选择器，外部链接、下载链接等建议加入
-  # Selector for links that should not trigger pjax navigation
-  exclude: []
 
-# 主题暗色模式，开启后菜单中会出现切换按钮，用户浏览器会存储切换选项，并且会遵循 prefers-color-scheme 自动切换
-# Theme dark mode. If enable, a switch button will appear on the menu, each of the visitor's browser will store his switch option
-dark_mode:
+  # 打印速度，数字越大越慢
+  # Typing speed, the larger the number, the slower
+  typeSpeed: 70
+
+  # 游标字符
+  # Cursor character
+  cursorChar: "_"
+
+  # 是否循环播放效果
+  # If true, loop animation
+  loop: false
+
+  # 在指定页面开启，不填则在所有页面开启
+  # Enable in specified page, all pages by default
+  # Options: home | post | tag | category | about | links | page | 404
+  scope: []
+
+# 为文章内容中的标题添加锚图标
+# Add an anchor icon to the title on the post page
+anchorjs:
   enable: true
-  # 默认的选项（当用户手动切换后则不再按照默认模式），选择 `auto` 会优先遵循 prefers-color-scheme，其次按用户本地时间 18 点到次日 6 点之间进入暗色模式
-  # Default option (when the visitor switches manually, the default mode is no longer followed), choosing `auto` will give priority to prefers-color-scheme, and then enter the dark mode from 18:00 to 6:00 in the visitor's local time
-  # Options: auto | light | dark
-  default: auto
+  element: h1,h2,h3,h4,h5,h6
+  # Options: left | right
+  placement: left
+
+  # Options: hover | always
+  visible: hover
+
+  # Options: § | # | ❡
+  icon: ""
+
+# 加载进度条
+# Progress bar when loading
+progressbar:
+  enable: true
+  height_px: 3
+  color: "#29d"
+  # See: https://github.com/rstacruz/nprogress
+  options: { showSpinner: false, trickleSpeed: 100 }
 
 # 主题颜色配置，其他不生效的地方请使用自定义 css 解决，配色可以在下方链接中获得启发
 # Theme color, please use custom CSS to solve other colors, color schema can be inspired by the links below
