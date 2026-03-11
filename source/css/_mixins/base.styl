@@ -13,11 +13,11 @@ ground-glass($px, $bg-color, $alpha)
   /* 若浏览器支持 backdrop-filter，则启用毛玻璃 */
   @supports (-webkit-backdrop-filter: blur($px)) or (backdrop-filter: blur($px))
     &
-      background rgba(convert($bg-color), $alpha)
+      background rgba($bg-color, $alpha)
       -webkit-backdrop-filter blur($px)
       backdrop-filter blur($px)
 
   /* 若浏览器器不支持，则使用透明 */
   @supports not ((-webkit-backdrop-filter: blur($px)) or (backdrop-filter: blur($px)))
     &
-      background rgb(convert($bg-color))
+      background $bg-color

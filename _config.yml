@@ -16,6 +16,11 @@
 # Global
 #---------------------------
 
+# 主题风格预设，flat 为扁平风格，classic 为 v1 版本经典风格
+# Theme style preset
+# Options: flat | classic
+fluid_style: flat
+
 # 用于浏览器标签的图标
 # Icon for browser tab
 favicon: /img/fluid.png
@@ -64,7 +69,7 @@ code:
       # Select a style in the link
       # See: https://highlightjs.org/demo/
       style: "github gist"
-      style_dark: "dark"
+      style_dark: "github dark"
 
     prismjs:
       # 在下方链接页面右侧的圆形按钮挑选 style 填入，也可以直接填入 css 链接
@@ -148,88 +153,88 @@ dark_mode:
 color:
   # body 背景色
   # Color of body background
-  body_bg_color: "#eee"
+  body_bg_color:
   # 暗色模式下的 body 背景色，下同
   # Color in dark mode, the same below
-  body_bg_color_dark: "#181c27"
+  body_bg_color_dark:
 
   # 顶部菜单背景色
   # Color of navigation bar background
-  navbar_bg_color: "#2f4154"
-  navbar_bg_color_dark: "#1f3144"
+  navbar_bg_color:
+  navbar_bg_color_dark:
 
   # 顶部菜单字体色
   # Color of navigation bar text
-  navbar_text_color: "#fff"
-  navbar_text_color_dark: "#d0d0d0"
+  navbar_text_color:
+  navbar_text_color_dark:
 
   # 副标题字体色
   # Color of subtitle text
-  subtitle_color: "#fff"
-  subtitle_color_dark: "#d0d0d0"
+  subtitle_color:
+  subtitle_color_dark:
 
   # 全局字体色
   # Color of global text
-  text_color: "#3c4858"
-  text_color_dark: "#c4c6c9"
+  text_color:
+  text_color_dark:
 
   # 全局次级字体色（摘要、简介等位置）
   # Color of global secondary text (excerpt, introduction, etc.)
-  sec_text_color: "#718096"
-  sec_text_color_dark: "#a7a9ad"
+  sec_text_color:
+  sec_text_color_dark:
 
   # 主面板背景色
   # Color of main board
-  board_color: "#fff"
-  board_color_dark: "#252d38"
+  board_color:
+  board_color_dark:
 
   # 文章正文字体色
   # Color of post text
-  post_text_color: "#2c3e50"
-  post_text_color_dark: "#c4c6c9"
+  post_text_color:
+  post_text_color_dark:
 
   # 文章正文字体色（h1 h2 h3...）
   # Color of Article heading (h1 h2 h3...)
-  post_heading_color: "#1a202c"
-  post_heading_color_dark: "#c4c6c9"
+  post_heading_color:
+  post_heading_color_dark:
 
   # 文章超链接字体色
   # Color of post link
-  post_link_color: "#0366d6"
-  post_link_color_dark: "#1589e9"
+  post_link_color:
+  post_link_color_dark:
 
   # 超链接悬浮时字体色
   # Color of link when hovering
-  link_hover_color: "#30a9de"
-  link_hover_color_dark: "#30a9de"
+  link_hover_color:
+  link_hover_color_dark:
 
   # 超链接悬浮背景色
   # Color of link background when hovering
-  link_hover_bg_color: "#f8f9fa"
-  link_hover_bg_color_dark: "#364151"
+  link_hover_bg_color:
+  link_hover_bg_color_dark:
 
   # 分隔线和表格边线的颜色
   # Color of horizontal rule and table border
-  line_color: "#eaecef"
-  line_color_dark: "#435266"
+  line_color:
+  line_color_dark:
 
   # 滚动条颜色
   # Color of scrollbar
-  scrollbar_color: "#c4c6c9"
-  scrollbar_color_dark: "#687582"
+  scrollbar_color:
+  scrollbar_color_dark:
   # 滚动条悬浮颜色
   # Color of scrollbar when hovering
-  scrollbar_hover_color: "#a6a6a6"
-  scrollbar_hover_color_dark: "#9da8b3"
+  scrollbar_hover_color:
+  scrollbar_hover_color_dark:
 
   # 按钮背景色
   # Color of button
-  button_bg_color: "transparent"
-  button_bg_color_dark: "transparent"
+  button_bg_color:
+  button_bg_color_dark:
   # 按钮悬浮背景色
   # Color of button when hovering
-  button_hover_bg_color: "#f2f3f5"
-  button_hover_bg_color_dark: "#46647e"
+  button_hover_bg_color:
+  button_hover_bg_color_dark:
 
 # 主题字体配置
 # Font
@@ -372,19 +377,10 @@ navbar:
   # The title on the left side of the navigation bar. If empty, it is based on `title` in hexo config
   blog_title: "Fluid"
 
-  # 导航栏毛玻璃特效，实验性功能，可能会造成页面滚动掉帧和抖动，部分浏览器不支持会自动不生效
+  # 导航栏毛玻璃特效
   # Navigation bar frosted glass special animation. It is an experimental feature
   ground_glass:
-    enable: false
-
-    # 模糊像素，只能为数字，数字越大模糊度越高
-    # Number of blurred pixel. the larger the number, the higher the blur
-    px: 3
-
-    # 不透明度，数字越大透明度越低，注意透明过度可能看不清菜单字体
-    # Ratio of opacity, 1.0 is completely opaque
-    # available: 0 - 1.0
-    alpha: 0.7
+    enable: true
 
   # 导航栏菜单，可自行增减，key 用来关联 languages/*.yml，如不存在关联则显示 key 本身的值；icon 是 css class，可以省略；增加 name 可以强制显示指定名称
   # Navigation bar menu. `key` is used to associate languages/*.yml. If there is no association, the value of `key` itself will be displayed; if `icon` is a css class, it can be omitted; adding `name` can force the display of the specified name

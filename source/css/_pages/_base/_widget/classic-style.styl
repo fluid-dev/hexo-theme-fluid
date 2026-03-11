@@ -1,0 +1,55 @@
+// Classic style preset — activated when fluid_style = "classic"
+// Restores the original visual parameters that were the defaults before flat became the baseline.
+
+if $fluid-style == "classic"
+
+  // ─── Board ───────────────────────────────────────────────────────────────
+
+  #board
+    border none
+    border-radius 0.5rem
+    -webkit-box-shadow 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)
+    box-shadow 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)
+
+  // ─── Navbar ──────────────────────────────────────────────────────────────
+
+  .navbar
+    box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+    -webkit-box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+    border-bottom none
+
+  // ─── Code blocks ─────────────────────────────────────────────────────────
+
+  .markdown-body .code-wrapper
+    border-radius 4px
+    overflow visible
+
+    > pre
+      border-radius 4px
+
+  .markdown-body figure.highlight
+    border-radius 0
+    overflow visible
+
+    table
+      border-radius 4px
+
+  .markdown-body pre[class*="language-"]
+    border-radius 0
+
+  // ─── Scroll-top button ───────────────────────────────────────────────────
+
+  #scroll-top-button
+    border none
+    border-radius 4px
+    box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+
+  // ─── Modal ───────────────────────────────────────────────────────────────
+
+  .modal-dialog .modal-content
+    border-radius .125rem
+
+  // ─── License box ─────────────────────────────────────────────────────────
+
+  .license-box
+    border-radius 4px

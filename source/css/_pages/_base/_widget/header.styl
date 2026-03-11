@@ -2,8 +2,9 @@
 .navbar
   background-color transparent
   font-size 0.875rem
-  box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
-  -webkit-box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+  box-shadow none
+  -webkit-box-shadow none
+  border-bottom 1px solid rgba(0, 0, 0, 0.10)
 
   .navbar-brand
     color var(--navbar-text-color)
@@ -191,7 +192,7 @@
   will-change opacity, transform
 
   if $navbar-glass-enable
-    ground-glass($navbar-glass-px, $navbar-bg-color, $navbar-glass-alpha)
+    ground-glass($navbar-glass-px, $navbar-bg-color, max($navbar-glass-alpha, 0.9))
   else
     background-color var(--navbar-bg-color)
 

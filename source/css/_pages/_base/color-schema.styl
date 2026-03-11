@@ -70,9 +70,21 @@ if (hexo-config("dark_mode.enable"))
     :root:not([data-user-color-scheme])
       dark-colors()
 
+      .navbar
+        border-bottom-color rgba(255, 255, 255, 0.08)
+
+      #board
+        border-color rgba(255, 255, 255, 0.06)
+
   @media not print
     [data-user-color-scheme="dark"]
       dark-colors()
+
+      .navbar
+        border-bottom-color rgba(255, 255, 255, 0.08)
+
+      #board
+        border-color rgba(255, 255, 255, 0.06)
 
   @media print
     :root

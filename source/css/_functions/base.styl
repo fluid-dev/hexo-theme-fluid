@@ -6,3 +6,7 @@ theme-config-unit(config, predef, unit)
 
 theme-config-origin(config, predef)
   (hexo-config(config) ? hexo-config(config):predef)
+
+color-config(config, predef)
+  $val = hexo-config(config)
+  $val ? unquote($val) : predef
