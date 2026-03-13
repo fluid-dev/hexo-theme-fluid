@@ -110,14 +110,8 @@ About content
     <tr>
       <th align="center" style="width: 240px;">
         <a href="https://www.jetbrains.com/?from=hexo-theme-fluid">
-          <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" height="200px"><br>
+          <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" width="100%" height="200px" style="object-fit: contain;"><br>
           <sub>Powered by JetBrains</sub><br>
-        </a>
-      </th>
-      <th align="center" style="width: 240px;">
-        <a href="https://dartnode.com">
-          <img src="https://dartnode.com/branding/DN-Open-Source-sm.png" height="200px"><br>
-          <sub>Powered by DartNode - Free VPS for Open Source</sub><br>
         </a>
       </th>
     </tr>
