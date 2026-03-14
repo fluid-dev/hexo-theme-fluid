@@ -1,7 +1,7 @@
 <%
 import_script(`
 <script>
-  Fluid.utils.createScript('${ url_join(theme.static_prefix.anchor, 'anchor.min.js') }', function() {
+  Fluid.utils.createScript('${ url_join(theme.static_prefix.anchor, theme.static_suffix.js.anchor) }', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible

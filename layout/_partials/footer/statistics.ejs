@@ -17,7 +17,7 @@
         <%- uv_texts[1] %>
       </span>
     <% } %>
-    <% import_js(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
+    <% import_js(theme.static_prefix.internal_js, theme.static_suffix.js.internal.leancloud, 'defer') %>
 
   <% } else if (theme.footer.statistics.source === 'openkounter') { %>
     <% if (pv_texts.length >= 2) { %>
@@ -34,7 +34,7 @@
         <%- uv_texts[1] %>
       </span>
     <% } %>
-    <% import_js(theme.static_prefix.internal_js, 'openkounter.js', 'defer') %>
+    <% import_js(theme.static_prefix.internal_js, theme.static_suffix.js.internal.openkounter, 'defer') %>
 
   <% } else if (theme.footer.statistics.source === 'busuanzi') { %>
     <% if (pv_texts.length >= 2) { %>
@@ -51,7 +51,7 @@
         <%- uv_texts[1] %>
       </span>
     <% } %>
-    <% import_js(theme.static_prefix.busuanzi, 'busuanzi.pure.mini.js', 'defer') %>
+    <% import_js(theme.static_prefix.busuanzi, theme.static_suffix.js.busuanzi, 'defer') %>
 
   <% } else if (theme.footer.statistics.source === 'umami') { %>
     <% if (pv_texts.length >= 2) { %>
@@ -68,7 +68,7 @@
         <%- uv_texts[1] %>
       </span>
     <% } %>
-    <% import_js(theme.static_prefix.internal_js, 'umami-view.js', 'defer') %>
+    <% import_js(theme.static_prefix.internal_js, theme.static_suffix.js.internal.umami, 'defer') %>
   <% } %>
 
 </div>

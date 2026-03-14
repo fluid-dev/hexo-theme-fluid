@@ -2,8 +2,8 @@
   <div id="gitalk-container"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#gitalk-container', function() {
-      Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.internal_css, 'gitalk.css') %>')
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.gitalk, 'gitalk.min.js') %>', function() {
+      Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.internal_css, theme.static_suffix.css.internal.gitalk) %>')
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.gitalk, theme.static_suffix.js.gitalk) %>', function() {
         var options = Object.assign(
           <%- JSON.stringify(theme.gitalk || {}) %>,
           {

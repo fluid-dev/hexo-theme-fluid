@@ -4,8 +4,8 @@
     <% if (theme.disqus.disqusjs) { %>
       <script>
         Fluid.utils.loadComments('#disqus_thread', function() {
-          Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.disqusjs, 'disqusjs.css') %>');
-          Fluid.utils.createScript('<%= url_join(theme.static_prefix.disqusjs, 'disqus.js') %>', function() {
+          Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.disqusjs, theme.static_suffix.js.disqusjs) %>');
+          Fluid.utils.createScript('<%= url_join(theme.static_prefix.disqusjs, theme.static_suffix.css.disqusjs) %>', function() {
             new DisqusJS({
               shortname: '<%= theme.disqus.shortname %>',
               apikey: <%- JSON.stringify(theme.disqus.apikey) %>,

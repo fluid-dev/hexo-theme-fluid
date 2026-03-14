@@ -9,7 +9,7 @@
 <%
 import_script(`
 <script>
-  Fluid.utils.createScript('${url_join(theme.static_prefix.tocbot, 'tocbot.min.js')}', function() {
+  Fluid.utils.createScript('${url_join(theme.static_prefix.tocbot, theme.static_suffix.js.tocbot)}', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
