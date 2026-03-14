@@ -1,13 +1,13 @@
 <%
 if (theme.code.highlight.lib === 'prismjs') {
   if (!theme.code.highlight.prismjs.preprocess) {
-    import_js(theme.static_prefix.prismjs, 'components/prism-core.min.js')
-    import_js(theme.static_prefix.prismjs, 'plugins/autoloader/prism-autoloader.min.js')
+    import_js(theme.static_prefix.prismjs, theme.static_suffix.js.prismjs.core)
+    import_js(theme.static_prefix.prismjs, theme.static_suffix.js.prismjs.autoloader)
   }
 
   if (theme.code.highlight.line_number) {
-    import_css(theme.static_prefix.prismjs, '/plugins/line-numbers/prism-line-numbers.min.css')
-    import_js(theme.static_prefix.prismjs, '/plugins/line-numbers/prism-line-numbers.min.js')
+    import_css(theme.static_prefix.prismjs, theme.static_suffix.css.prismjs.line_numbers)
+    import_js(theme.static_prefix.prismjs, theme.static_suffix.js.prismjs.line_numbers)
   }
 }
 %>

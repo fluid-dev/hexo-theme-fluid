@@ -2,7 +2,7 @@
   <div id="discuss-comments"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.discuss, 'discuss.js') %>', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.discuss, theme.static_suffix.js.discuss) %>', function() {
         var options = Object.assign(
           <%- JSON.stringify(theme.discuss || {}) %>,
           { el: '#discuss-comments',

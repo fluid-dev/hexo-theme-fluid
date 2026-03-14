@@ -1153,3 +1153,98 @@ static_prefix:
   hint: https://lib.baomitu.com/hint.css/2.7.0/
 
   moment: https://lib.baomitu.com/moment.js/2.29.4/
+
+#---------------------------
+# 以下是静态资源的 URL 后缀，用于指定文件名等，应配合 URL 前缀使用，
+# 除非修改了 URL 前缀并需要相关改动，否则这里无需任何修改，
+# ** 如果你不知道如何设置，请不要做任何改动 **
+#
+# Here is the url suffix to configure the static assets. Working together with url prefix.
+# Modify it only when url prefix is modified and related changes are needed.
+# DO NOT EDIT THE FOLLOWING SETTINGS UNLESS YOU KNOW WHAT YOU ARE DOING
+#---------------------------
+
+static_suffix:
+  js:
+    # 内部静态 JS 文件，不要修改
+    # Internal static js file, DO NOT EDIT
+    internal:
+      boot: boot.js
+      utils: utils.js
+      color_schema: color-schema.js
+      events: events.js
+      plugins: plugins.js
+      img_lazyload: img-lazyload.js
+      leancloud: leancloud.js
+      openkounter: openkounter.js
+      umami: umami-view.js
+      local_search: local-search.js
+    
+    anchor: anchor.min.js
+
+    jquery: jquery.min.js
+
+    bootstrap: js/bootstrap.min.js
+
+    prismjs:
+      core: components/prism-core.min.js
+      autoloader: plugins/autoloader/prism-autoloader.min.js
+      line_numbers: /plugins/line-numbers/prism-line-numbers.min.js
+
+    tocbot: tocbot.min.js
+
+    typed: /typed.min.js
+
+    fancybox: jquery.fancybox.min.js
+
+    nprogress: nprogress.min.js
+
+    mathjax: es5/tex-mml-chtml.js
+
+    busuanzi: busuanzi.pure.mini.js
+
+    clipboard: clipboard.min.js
+
+    mermaid: mermaid.min.js
+
+    valine: Valine.min.js
+
+    waline: waline.js
+
+    gitalk: gitalk.min.js
+
+    disqusjs: disqus.js
+
+    twikoo: twikoo.all.min.js
+
+    discuss: discuss.js
+
+    moment: moment.min.js
+  
+  css:
+    # 内部静态 CSS 文件，不要修改
+    # Internal static CSS file, DO NOT EDIT
+    internal:
+      main: main.css
+      highlight: highlight.css
+      highlight_dark: highlight-dark.css
+      gitalk: gitalk.css
+
+    github_markdown: github-markdown.min.css
+
+    bootstrap: css/bootstrap.min.css
+
+    prismjs:
+      line_numbers: /plugins/line-numbers/prism-line-numbers.min.css
+
+    fancybox: jquery.fancybox.min.css
+
+    nprogress: nprogress.min.css
+
+    katex: katex.min.css
+
+    waline: waline.css
+
+    disqusjs: disqusjs.css
+
+    hint: hint.min.css

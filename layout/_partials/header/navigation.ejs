@@ -55,7 +55,7 @@
               <i class="iconfont icon-search"></i>
             </a>
           </li>
-          <% import_js(theme.static_prefix.internal_js, 'local-search.js') %>
+          <% import_js(theme.static_prefix.internal_js, theme.static_suffix.js.internal.local_search) %>
         <% } %>
         <% if(theme.dark_mode && theme.dark_mode.enable) { %>
           <li class="nav-item" id="color-toggle-btn">

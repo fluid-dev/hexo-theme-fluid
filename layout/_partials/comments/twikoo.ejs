@@ -2,7 +2,7 @@
   <div id="twikoo"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.twikoo, 'twikoo.all.min.js') %>', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.twikoo, theme.static_suffix.js.twikoo) %>', function() {
         var options = Object.assign(
           <%- JSON.stringify(theme.twikoo || {}) %>,
           {

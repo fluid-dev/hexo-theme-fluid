@@ -2,7 +2,7 @@
   <div id="valine"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#valine', function() {
-      Fluid.utils.createScript('<%= url_join(theme.static_prefix.valine, 'Valine.min.js') %>', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.valine, theme.static_suffix.js.valine) %>', function() {
         var options = Object.assign(
           <%- JSON.stringify(theme.valine || {}) %>,
           {

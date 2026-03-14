@@ -1,9 +1,9 @@
 <%
-import_css(theme.static_prefix.fancybox, 'jquery.fancybox.min.css')
+import_css(theme.static_prefix.fancybox, theme.static_suffix.css.fancybox)
 
 import_script(`
 <script>
-  Fluid.utils.createScript('${url_join(theme.static_prefix.fancybox, 'jquery.fancybox.min.js')}', function() {
+  Fluid.utils.createScript('${url_join(theme.static_prefix.fancybox, theme.static_suffix.js.fancybox)}', function() {
     Fluid.plugins.fancyBox();
   });
 </script>

@@ -1,5 +1,5 @@
-<% import_css(theme.static_prefix.github_markdown, 'github-markdown.min.css') %>
-<% import_css(theme.static_prefix.hint, 'hint.min.css') %>
+<% import_css(theme.static_prefix.github_markdown, theme.static_suffix.css.github_markdown) %>
+<% import_css(theme.static_prefix.hint, theme.static_suffix.css.hint) %>
 
 <% if (theme.code.highlight.enable) { %>
   <%- partial('_partials/plugins/highlight.ejs') %>

@@ -16,7 +16,7 @@ import_script(`
       updatedTime.style.display = '';
     }
   };
-  Fluid.utils.createScript('${url_join(theme.static_prefix.moment, 'moment.min.js')}', function() {
+  Fluid.utils.createScript('${url_join(theme.static_prefix.moment, theme.static_suffix.js.moment)}', function() {
     if (!'${lang}'.startsWith('en')) {
       Fluid.utils.createScript('${url_join(theme.static_prefix.moment, 'locale/' + lang + '.min.js')}', function() {
         relativeDate();
@@ -26,5 +26,5 @@ import_script(`
     }
   });
 </script>
-`)
+`) // Shall introduce more custom suffix support of the language url
 %>

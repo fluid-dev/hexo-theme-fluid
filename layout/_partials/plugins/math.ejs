@@ -43,9 +43,9 @@
       </script>
     `)
 
-    import_js(theme.static_prefix.mathjax.replace('es5/', ''), 'es5/tex-mml-chtml.js')
+    import_js(theme.static_prefix.mathjax.replace('es5/', ''), theme.static_suffix.js.mathjax)
   %>
 
 <% } else if (theme.post.math.engine === 'katex') { %>
-  <% import_css(theme.static_prefix.katex, 'katex.min.css') %>
+  <% import_css(theme.static_prefix.katex, theme.static_suffix.css.katex) %>
 <% } %>

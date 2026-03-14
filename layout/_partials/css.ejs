@@ -1,4 +1,4 @@
-<%- css_ex(theme.static_prefix.bootstrap, 'css/bootstrap.min.css') %>
+<%- css_ex(theme.static_prefix.bootstrap, theme.static_suffix.css.bootstrap) %>
 
 <% var css_snippets = deduplicate(page.css_snippets) %>
 <% for (var idx = 0; idx < css_snippets.length; idx++) { %>
@@ -12,12 +12,12 @@
 
 <%- css(theme.static_prefix.iconfont || theme.iconfont) %>
 
-<%- css_ex(theme.static_prefix.internal_css, 'main.css') %>
+<%- css_ex(theme.static_prefix.internal_css, theme.static_suffix.css.internal.main) %>
 
 <% if (theme.code.highlight.enable) { %>
-  <%- css_ex(theme.static_prefix.internal_css, 'highlight.css', 'id="highlight-css"') %>
+  <%- css_ex(theme.static_prefix.internal_css, theme.static_suffix.css.internal.highlight, 'id="highlight-css"') %>
   <% if (theme.dark_mode.enable) { %>
-    <%- css_ex(theme.static_prefix.internal_css, 'highlight-dark.css', 'id="highlight-css-dark"') %>
+    <%- css_ex(theme.static_prefix.internal_css, theme.static_suffix.css.internal.highlight_dark, 'id="highlight-css-dark"') %>
   <% } %>
 <% } %>
 
