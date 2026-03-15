@@ -12,8 +12,8 @@
           }
         )
         init(options);
-        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
-          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+        Fluid.utils.waitElementVisible('#waline .wl-content', () => {
+          var imgSelector = '#waline .wl-content img:not(.wl-emoji)';
           Fluid.plugins.imageCaption(imgSelector);
           Fluid.plugins.fancyBox(imgSelector);
         })
