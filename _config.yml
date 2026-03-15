@@ -1140,7 +1140,7 @@ static_prefix:
 
   valine: https://lib.baomitu.com/valine/1.5.1/
 
-  waline: https://lib.baomitu.com/waline/3.6.0/
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/
 
   gitalk: https://lib.baomitu.com/gitalk/1.8.0/
 
