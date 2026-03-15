@@ -43,6 +43,9 @@ post:
   prev_post: '上一篇'
   next_post: '下一篇'
   updated: '本文最后更新于 %s'
+  outdate:
+    title: '文章时效性提示'
+    content: '这是一篇发布于%s天前的文章，部分信息可能已发生改变，请注意甄别。'
   meta:
     wordcount: '%s 字'
     min2read: '%s 分钟'
