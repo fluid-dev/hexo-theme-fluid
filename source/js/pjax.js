@@ -1,45 +1,47 @@
-/* global Fluid, CONFIG, jQuery, NProgress */
+/* global Fluid, CONFIG, NProgress, Swup */
 
 (function() {
   if (!CONFIG.pjax || !CONFIG.pjax.enable) { return; }
-  if (!('pjax' in jQuery)) { return; }
+  if (typeof Swup === 'undefined') { return; }
 
   var pjaxContainer = '#pjax-wrapper';
 
   // ─── Exclusion selectors ────────────────────────────────────────────────────
-  var defaultExcludes = [
-    'a[target="_blank"]',
-    'a[download]',
-    'a[href^="javascript"]',
-    'a[href^="mailto"]',
-    'a[href^="tel"]',
-    'a[data-no-pjax]'
-  ];
+  // swup automatically excludes: target="_blank", download, cross-origin, javascript:, mailto:, tel:
+  // We only need to handle data-no-pjax and user-configured selectors
   var userExcludes = (CONFIG.pjax.exclude || []).map(function(s) { return s.trim(); }).filter(Boolean);
-  var excludeSelector = defaultExcludes.concat(userExcludes).join(', ');
 
-  // ─── Init pjax ──────────────────────────────────────────────────────────────
-  jQuery(document).pjax('a:not(' + excludeSelector + ')', {
-    container : pjaxContainer,
-    fragment  : pjaxContainer,
-    timeout   : 8000,
-    scrollTo  : false
+  // ─── Init swup ──────────────────────────────────────────────────────────────
+  var swup = new Swup({
+    containers       : [pjaxContainer],
+    animationSelector: false,
+    cache            : false,
+    timeout          : 8000,
+    ignoreVisit      : function(url, ref) {
+      var el = ref && ref.el;
+      if (!el) { return false; }
+      if (el.closest('[data-no-pjax]')) { return true; }
+      return userExcludes.some(function(sel) {
+        try { return el.matches(sel); } catch(e) { return false; }
+      });
+    }
   });
 
   // ─── Scroll position management ──────────────────────────────────────────────
   // Save scroll position of every page before leaving, keyed by URL.
   var _scrollMap = {};
 
-  // Before leaving current page, save its scroll position (must use beforeSend so URL hasn't changed yet)
-  jQuery(document).on('pjax:beforeSend', function() {
+  // Before leaving current page, save its scroll position.
+  // link:click fires before history.pushState, so window.location.href is still the current page.
+  swup.hooks.on('link:click', function() {
     _scrollMap[window.location.href] = document.documentElement.scrollTop || document.body.scrollTop;
   });
 
-  jQuery(document).on('pjax:send', function() {
+  swup.hooks.on('visit:start', function() {
     window.NProgress && NProgress.start();
   });
 
-  jQuery(document).on('pjax:complete', function() {
+  swup.hooks.on('visit:end', function() {
     window.NProgress && NProgress.done();
   });
 
@@ -61,7 +63,34 @@
   };
 
   // ─── After navigation ────────────────────────────────────────────────────────
-  jQuery(document).on('pjax:success', function() {
+  // page:view fires after new content is inserted and visible — correct hook for DOM re-init
+  swup.hooks.on('page:view', function() {
+    // 0a. Destroy any existing Typed instance.
+    //    typed.ejs IIFE lives in scripts.ejs (outside #pjax-wrapper) and runs ONCE on the
+    //    initial page load. On every PJAX swap, #pjax-wrapper is replaced, so #subtitle is a
+    //    brand-new DOM node. The old Typed instance still holds a reference to the previous
+    //    (now-detached) #subtitle; keeping it alive wastes CPU and blocks re-init on return.
+    if (window._fluidTypedInstance) {
+      try { window._fluidTypedInstance.destroy(); } catch(e) { /* noop */ }
+      window._fluidTypedInstance = null;
+    }
+
+    // 0b. Reset per-page refresh callbacks before re-executing scripts.
+    //    Each page load re-registers callbacks like tocbot.refresh(); without clearing first,
+    //    the array grows on every navigation and each callback fires multiple times.
+    Fluid.events._refreshCallbacks = [];
+
+    // Re-execute inline script snippets injected inside #pjax-wrapper.
+    //    swup does NOT execute <script> tags when replacing DOM content (browser security model).
+    //    For external scripts, createScript() will detect they are already loaded and call onload
+    //    synchronously instead of re-adding a duplicate <script src> tag.
+    document.querySelectorAll(pjaxContainer + ' script:not([src])').forEach(function(original) {
+      var s = document.createElement('script');
+      s.textContent = original.textContent;
+      document.head.appendChild(s);
+      document.head.removeChild(s);
+    });
+
     var currentHref = window.location.href;
 
     // 1. Restore scroll position for this URL (0 if never visited before)
@@ -80,43 +109,42 @@
     // 4. Re-run plugins
     Fluid.boot.refresh();
 
-    // 5. Re-init typed subtitle
-    var subtitle = document.getElementById('subtitle');
-    if (subtitle && 'Typed' in window && CONFIG.typing && CONFIG.typing.enable) {
-      var text = subtitle.getAttribute('data-typed-text');
-      if (text) {
-        Fluid.plugins.typing(text);
-      }
-    }
-
-    // 6. Update navbar active state
+    // 5. Update navbar active state
     var currentPath = window.location.pathname;
-    jQuery('#navbar .nav-link').each(function() {
-      var $a = jQuery(this);
-      var href = $a.attr('href') || '';
-      try { href = new URL(href, window.location.origin).pathname; } catch (e) { /* noop */ }
-      $a.toggleClass('active-nav', href !== '/' && currentPath.indexOf(href) === 0);
+    document.querySelectorAll('#navbar .nav-link').forEach(function(a) {
+      var href = a.getAttribute('href') || '';
+      try { href = new URL(href, window.location.origin).pathname; } catch(e) { /* noop */ }
+      a.classList.toggle('active-nav', href !== '/' && currentPath.indexOf(href) === 0);
     });
 
-    // 7. Re-trigger img-lazyload
+    // 6. Re-trigger img-lazyload
     if ('LazyLoad' in window) {
       new window.LazyLoad({ elements_selector: 'img[lazyload]' });
     } else {
-      jQuery(pjaxContainer + ' img[lazyload]').each(function() {
-        var $img = jQuery(this);
-        var src = $img.attr('data-src') || $img.attr('data-original');
-        if (src) { $img.attr('src', src).removeAttr('lazyload'); }
+      document.querySelectorAll(pjaxContainer + ' img[lazyload]').forEach(function(img) {
+        var src = img.getAttribute('data-src') || img.getAttribute('data-original');
+        if (src) { img.setAttribute('src', src); img.removeAttribute('lazyload'); }
+      });
+    }
+
+    // 7. Re-initialize typing animation.
+    //    The typed.ejs IIFE (in scripts.ejs, outside #pjax-wrapper) only fires on the very
+    //    first page load. After every PJAX swap we must re-init manually for pages that carry
+    //    a typed subtitle (banner.ejs renders #subtitle[data-typed-text] only when in-scope).
+    var typedEl = document.querySelector('#subtitle[data-typed-text]');
+    if (typedEl && CONFIG.typing && CONFIG.typing.enable) {
+      var typedText = typedEl.getAttribute('data-typed-text');
+      Fluid.utils.createScript(CONFIG.typing.src, function() {
+        Fluid.plugins.typing(typedText);
       });
     }
   });
 
-  // ─── Handle pjax errors gracefully ──────────────────────────────────────────
-  jQuery(document).on('pjax:error', function(e, xhr, textStatus) {
-    if (textStatus !== 'abort') {
-      window.location.href = jQuery.pjax.state && jQuery.pjax.state.url
-        ? jQuery.pjax.state.url
-        : window.location.href;
-    }
+  // ─── Handle errors gracefully ──────────────────────────────────────────────
+  swup.hooks.on('fetch:error', function(visit) {
+    window.location.assign(visit && visit.to && visit.to.url
+      ? visit.to.url
+      : window.location.href);
   });
 
 })();

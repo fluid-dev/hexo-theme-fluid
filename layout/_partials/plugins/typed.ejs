@@ -4,17 +4,18 @@
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
+      if (!subtitle || !typing) { return; }
       var text = subtitle.getAttribute('data-typed-text');
       <% if (is_home() && theme.index.slogan.api && theme.index.slogan.api.enable) { %>
-        jQuery.ajax({
-          type: '<%= theme.index.slogan.api.method %>',
-          url: '<%- theme.index.slogan.api.url %>',
-          headers: <%- JSON.stringify(theme.index.slogan.api.headers || {}) %>,
-          dataType: 'json',
-          success: function(result) {
+        fetch('<%- theme.index.slogan.api.url %>', {
+          method: '<%= theme.index.slogan.api.method %>',
+          headers: <%- JSON.stringify(theme.index.slogan.api.headers || {}) %>
+        })
+          .then(function(res) {
+            if (!res.ok) { throw new Error('HTTP ' + res.status); }
+            return res.json();
+          })
+          .then(function(result) {
             var apiText;
             if (result) {
               var keys = '<%= theme.index.slogan.api.keys %>'.split(',');
@@ -32,14 +33,14 @@
               }
             }
             apiText ? typing(apiText) : typing(text);
-          },
-          error: function(xhr, status, error) {
+          })
+          .catch(function(error) {
             if (error) {
+              // eslint-disable-next-line no-console
               console.error('Failed to request <%= theme.index.slogan.api.url %>:', error);
             }
             typing(text);
-          }
-        })
+          });
       <% } else if (is_home() && Array.isArray(theme.index.slogan.text) && theme.index.slogan.text.length > 0) { %>
         var texts = <%- JSON.stringify(theme.index.slogan.text) %>;
         var idx = Math.floor(Math.random() * texts.length);

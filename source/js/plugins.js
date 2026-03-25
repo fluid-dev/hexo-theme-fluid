@@ -11,31 +11,33 @@ Fluid.plugins = {
   typing: function(text) {
     if (!('Typed' in window)) { return; }
 
+    if (window._fluidTypedInstance) {
+      try { window._fluidTypedInstance.destroy(); } catch(e) { /* noop */ }
+      window._fluidTypedInstance = null;
+    }
+
+    // Clear the element BEFORE constructing Typed so it sees empty content
+    // and starts typing immediately (no backspace of existing text).
+    // This also prevents the stop()/start() workaround which creates
+    // orphaned setTimeout chains that cannot be cancelled by destroy().
+    var subtitle = document.getElementById('subtitle');
+    if (!subtitle) { return; }
+    subtitle.textContent = '';
+
     var typed = new window.Typed('#subtitle', {
-      strings: [
-        '  ',
-        text
-      ],
+      strings   : [text],
       cursorChar: CONFIG.typing.cursorChar,
       typeSpeed : CONFIG.typing.typeSpeed,
       loop      : CONFIG.typing.loop
     });
-    typed.stop();
-    var subtitle = document.getElementById('subtitle');
-    if (subtitle) {
-      subtitle.innerText = '';
-    }
-    jQuery(document).ready(function() {
-      typed.start();
-    });
+    window._fluidTypedInstance = typed;
   },
 
   fancyBox: function(selector) {
-    if (!CONFIG.image_zoom.enable || !('fancybox' in jQuery)) { return; }
+    if (!CONFIG.image_zoom.enable || typeof Fancybox === 'undefined') { return; }
 
-    jQuery(selector || '.markdown-body :not(a) > img, .markdown-body > img').each(function() {
-      var $image = jQuery(this);
-      var imageUrl = $image.attr('data-src') || $image.attr('src') || '';
+    document.querySelectorAll(selector || '.markdown-body :not(a) > img, .markdown-body > img').forEach(function(image) {
+      var imageUrl = image.getAttribute('data-src') || image.getAttribute('src') || '';
       if (CONFIG.image_zoom.img_url_replace) {
         var rep = CONFIG.image_zoom.img_url_replace;
         var r1 = rep[0] || '';
@@ -50,54 +52,52 @@ Fluid.plugins = {
           }
         }
       }
-      var $imageWrap = $image.wrap(`
-        <a class="fancybox fancybox.image" href="${imageUrl}"
-          itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`
-      ).parent('a');
-      if ($imageWrap.length !== 0) {
-        if ($image.is('.group-image-container img')) {
-          $imageWrap.attr('data-fancybox', 'group').attr('rel', 'group');
-        } else {
-          $imageWrap.attr('data-fancybox', 'default').attr('rel', 'default');
-        }
-
-        var imageTitle = $image.attr('title') || $image.attr('alt');
-        if (imageTitle) {
-          $imageWrap.attr('title', imageTitle).attr('data-caption', imageTitle);
-        }
+      var a = document.createElement('a');
+      a.className = 'fancybox fancybox.image';
+      a.href = imageUrl;
+      a.setAttribute('itemscope', '');
+      a.setAttribute('itemtype', 'http://schema.org/ImageObject');
+      a.setAttribute('itemprop', 'url');
+      image.wrap(a);
+      if (image.closest('.group-image-container')) {
+        a.setAttribute('data-fancybox', 'group');
+        a.setAttribute('rel', 'group');
+      } else {
+        a.setAttribute('data-fancybox', 'default');
+        a.setAttribute('rel', 'default');
+      }
+      var imageTitle = image.getAttribute('title') || image.getAttribute('alt');
+      if (imageTitle) {
+        a.setAttribute('title', imageTitle);
+        a.setAttribute('data-caption', imageTitle);
       }
     });
 
-    jQuery.fancybox.defaults.hash = false;
-    jQuery('.fancybox').fancybox({
-      loop   : true,
-      helpers: {
-        overlay: {
-          locked: false
-        }
-      }
+    Fancybox.bind('[data-fancybox]', {
+      Hash    : false,
+      Carousel: { infinite: true }
     });
   },
 
   imageCaption: function(selector) {
     if (!CONFIG.image_caption.enable) { return; }
 
-    jQuery(selector || `.markdown-body > p > img, .markdown-body > figure > img,
-      .markdown-body > p > a.fancybox, .markdown-body > figure > a.fancybox`).each(function() {
-      var $target = jQuery(this);
-      var $figcaption = $target.next('figcaption');
-      if ($figcaption.length !== 0) {
-        $figcaption.addClass('image-caption');
+    var defaultSelector = '.markdown-body > p > img, .markdown-body > figure > img,'
+      + ' .markdown-body > p > a.fancybox, .markdown-body > figure > a.fancybox';
+    document.querySelectorAll(selector || defaultSelector).forEach(function(target) {
+      var nextSib = target.nextElementSibling;
+      if (nextSib && nextSib.tagName === 'FIGCAPTION') {
+        nextSib.classList.add('image-caption');
       } else {
-        var imageTitle = $target.attr('title') || $target.attr('alt');
+        var imageTitle = target.getAttribute('title') || target.getAttribute('alt');
         if (imageTitle) {
-          $target.after(`<figcaption aria-hidden="true" class="image-caption">${imageTitle}</figcaption>`);
+          target.insertAdjacentHTML('afterend', '<figcaption aria-hidden="true" class="image-caption">' + imageTitle + '</figcaption>');
         }
       }
     });
   },
 
-  codeWidget() {
+  codeWidget: function() {
     var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
     var enableCopy = CONFIG.copy_btn && 'ClipboardJS' in window;
     if (!enableLang && !enableCopy) {
@@ -112,12 +112,11 @@ Fluid.plugins = {
     copyTmpl += '<div class="code-widget">';
     copyTmpl += 'LANG';
     copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
+    document.querySelectorAll('.markdown-body pre').forEach(function(pre) {
+      if (pre.querySelector('code.mermaid')) {
         return;
       }
-      if ($pre.find('span.line').length > 0) {
+      if (pre.querySelector('span.line')) {
         return;
       }
 
@@ -125,20 +124,23 @@ Fluid.plugins = {
 
       if (enableLang) {
         lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
+        if (pre.children.length > 0 && pre.children[0].classList.length >= 2
+            && Array.from(pre.children).some(function(c) { return c.classList.contains('hljs'); })) {
+          lang = pre.children[0].classList[1];
+        } else if (pre.getAttribute('data-language')) {
+          lang = pre.getAttribute('data-language');
+        } else if (pre.parentElement.classList.contains('sourceCode') && pre.children.length > 0 && pre.children[0].classList.length >= 2) {
+          lang = pre.children[0].classList[1];
+          pre.parentElement.classList.add('code-wrapper');
+        } else if (pre.parentElement.classList.contains('markdown-body') && pre.classList.length === 0) {
+          var wrapper = document.createElement('div');
+          wrapper.className = 'code-wrapper';
+          pre.wrap(wrapper);
         }
         lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
       }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+      pre.insertAdjacentHTML('beforeend', copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass(pre) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
 
       if (enableCopy) {
         var clipboard = new ClipboardJS('.copy-btn', {

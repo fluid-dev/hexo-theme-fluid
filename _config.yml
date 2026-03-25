@@ -1115,8 +1115,6 @@ static_prefix:
 
   github_markdown: https://lib.baomitu.com/github-markdown-css/4.0.0/
 
-  jquery: https://lib.baomitu.com/jquery/3.6.4/
-
   bootstrap: https://lib.baomitu.com/twitter-bootstrap/4.6.1/
 
   prismjs: https://lib.baomitu.com/prism/1.29.0/
@@ -1125,7 +1123,7 @@ static_prefix:
 
   typed: https://lib.baomitu.com/typed.js/2.0.12/
 
-  fancybox: https://lib.baomitu.com/fancybox/3.5.7/
+  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox/
 
   nprogress: https://lib.baomitu.com/nprogress/0.2.0/
 
@@ -1153,6 +1151,8 @@ static_prefix:
 
   hint: https://lib.baomitu.com/hint.css/2.7.0/
 
-  moment: https://lib.baomitu.com/moment.js/2.29.4/
+  dayjs: https://lib.baomitu.com/dayjs/1.11.10/
 
-  pjax: https://lib.baomitu.com/jquery.pjax/2.0.1/
+  dayjs_relativeTime: https://lib.baomitu.com/dayjs/1.11.10/plugin/
+
+  swup: https://cdn.jsdelivr.net/npm/swup@4.8.3/dist/

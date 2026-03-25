@@ -15,7 +15,7 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
         <% } else { %>
           <%- __('post.updated', date(page.updated, 'YYYY-MM-DDTHH:mm:ssZ')) %>
         <% } %>
-        <%- partial('_partials/plugins/moment.ejs') %>
+        <%- partial('_partials/plugins/dayjs.ejs') %>
       <% } else { %>
         <% if (theme.post.updated.content) { %>
           <!-- compatible with older versions-->

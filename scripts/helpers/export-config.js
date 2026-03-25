@@ -14,7 +14,7 @@ hexo.extend.helper.register('export_config', function () {
     hostname: url.parse(config.url).hostname || config.url,
     root: config.root,
     version: fluid_version,
-    typing: theme.typing,
+    typing: Object.assign({}, theme.typing, { src: urlJoin(theme.static_prefix.typed, 'typed.min.js') }),
     anchorjs: theme.anchorjs,
     progressbar: theme.progressbar,
     code_language: theme.code.language,

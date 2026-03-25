@@ -68,4 +68,33 @@ module.exports = (hexo) => {
   if (hexo.theme.config.valine.appkey) {
     hexo.theme.config.valine.appKey = hexo.theme.config.valine.appkey;
   }
+
+  // Removed in v2.0.0: static_prefix.jquery, static_prefix.pjax, static_prefix.moment
+  if (hexo.theme.config.static_prefix) {
+    const sp = hexo.theme.config.static_prefix;
+    if (sp.jquery) {
+      if (isZh) {
+        hexo.log.warn('[Fluid] 检测到弃用的配置项: "static_prefix.jquery" 已在 v2.0 中移除（不再依赖 jQuery），请从配置文件中删除该项');
+      } else {
+        hexo.log.warn('[Fluid] Deprecated config detected: "static_prefix.jquery" has been removed in v2.0 (jQuery dependency dropped). Please remove it from your config.');
+      }
+    }
+    if (sp.pjax) {
+      if (isZh) {
+        hexo.log.warn('[Fluid] 检测到弃用的配置项: "static_prefix.pjax" 已重命名为 "static_prefix.swup"，请更新配置文件');
+      } else {
+        hexo.log.warn('[Fluid] Deprecated config detected: "static_prefix.pjax" has been renamed to "static_prefix.swup". Please update your config.');
+      }
+      if (!sp.swup) {
+        sp.swup = sp.pjax;
+      }
+    }
+    if (sp.moment) {
+      if (isZh) {
+        hexo.log.warn('[Fluid] 检测到弃用的配置项: "static_prefix.moment" 已在 v2.0 中移除（已替换为 day.js），请从配置文件中删除该项');
+      } else {
+        hexo.log.warn('[Fluid] Deprecated config detected: "static_prefix.moment" has been removed in v2.0 (replaced by day.js). Please remove it from your config.');
+      }
+    }
+  }
 };

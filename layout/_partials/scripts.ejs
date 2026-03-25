@@ -1,11 +1,9 @@
 <%- partial('_partials/plugins/nprogress.ejs') %>
-<%- js_ex(theme.static_prefix.jquery, 'jquery.min.js') %>
-<%- js_ex(theme.static_prefix.bootstrap, 'js/bootstrap.min.js') %>
 <%- js_ex(theme.static_prefix.internal_js, 'events.js') %>
 <%- js_ex(theme.static_prefix.internal_js, 'plugins.js') %>
 
 <% if (theme.pjax && theme.pjax.enable) { %>
-  <%- js_ex(theme.static_prefix.pjax, 'jquery.pjax.min.js') %>
+  <%- js_ex(theme.static_prefix.swup, 'Swup.umd.js') %>
   <%- js_ex(theme.static_prefix.internal_js, 'pjax.js') %>
 <% } %>
 

@@ -10,64 +10,70 @@
 import_script(`
 <script>
   Fluid.utils.createScript('${url_join(theme.static_prefix.tocbot, 'tocbot.min.js')}', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
+    var toc = document.getElementById('toc');
+    if (!toc || !window.tocbot) { return; }
+    var boardCtn = document.getElementById('board-ctn');
+    var boardTop = boardCtn ? boardCtn.getBoundingClientRect().top + window.scrollY : 0;
 
     function isExpandAllEnabled() {
       return CONFIG.toc && CONFIG.toc.expand_all === true;
     }
     function expandAllToc() {
       if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+      document.querySelectorAll('#toc-body .tocbot-is-collapsed').forEach(function(el) {
+        el.classList.remove('tocbot-is-collapsed');
+      });
     }
-    function updateTocToggle($li, $childList) {
-      var $toggle = $li.children('.toc-toggle');
-      if ($toggle.length === 0) { return; }
-      var collapsed = $childList.hasClass('tocbot-is-collapsed');
-      $toggle
-        .toggleClass('toc-toggle-collapsed', collapsed)
-        .toggleClass('toc-toggle-expanded', !collapsed);
+    function updateTocToggle(li, childList) {
+      var toggle = li.querySelector(':scope > .toc-toggle');
+      if (!toggle) { return; }
+      var collapsed = childList.classList.contains('tocbot-is-collapsed');
+      toggle.classList.toggle('toc-toggle-collapsed', collapsed);
+      toggle.classList.toggle('toc-toggle-expanded', !collapsed);
     }
     function bindTocToggle() {
       if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .toc-list-item').each(function() {
-        var $li = jQuery(this);
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) {
-          if ($li.children('.toc-toggle').length === 0) {
-            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+      document.querySelectorAll('#toc-body .toc-list-item').forEach(function(li) {
+        var childList = li.querySelector(':scope > ol');
+        if (!childList) {
+          if (!li.querySelector(':scope > .toc-toggle')) {
+            li.insertAdjacentHTML('afterbegin', '<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
           }
           return;
         }
-
-        if ($li.children('.toc-toggle').length === 0) {
-          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        if (!li.querySelector(':scope > .toc-toggle')) {
+          li.insertAdjacentHTML('afterbegin', '<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
         }
-        updateTocToggle($li, $childList);
+        updateTocToggle(li, childList);
       });
-      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+      var tocBody = document.getElementById('toc-body');
+      if (tocBody._tocToggleHandler) {
+        tocBody.removeEventListener('click', tocBody._tocToggleHandler);
+      }
+      tocBody._tocToggleHandler = function(e) {
+        var toggle = e.target.closest('.toc-toggle');
+        if (!toggle) { return; }
         e.preventDefault();
         e.stopPropagation();
-        var $li = jQuery(this).parent('.toc-list-item');
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) { return; }
-        $childList.toggleClass('tocbot-is-collapsed');
-        updateTocToggle($li, $childList);
-      });
+        var li = toggle.closest('.toc-list-item');
+        var childList = li ? li.querySelector(':scope > ol') : null;
+        if (!childList) { return; }
+        childList.classList.toggle('tocbot-is-collapsed');
+        updateTocToggle(li, childList);
+      };
+      tocBody.addEventListener('click', tocBody._tocToggleHandler);
       if (!window.__tocToggleObserver) {
         window.__tocToggleObserver = new MutationObserver(function(mutations) {
           mutations.forEach(function(mutation) {
             if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
-            var $list = jQuery(mutation.target);
-            var $li = $list.parent('.toc-list-item');
-            if ($li.length === 0) { return; }
-            updateTocToggle($li, $list);
+            var list = mutation.target;
+            var li = list.closest('.toc-list-item');
+            if (!li) { return; }
+            updateTocToggle(li, list);
           });
         });
-        jQuery('#toc-body ol').each(function() {
-          window.__tocToggleObserver.observe(this, { attributes: true });
+        document.querySelectorAll('#toc-body ol').forEach(function(ol) {
+          window.__tocToggleObserver.observe(ol, { attributes: true });
         });
       }
     }
@@ -87,8 +93,8 @@ import_script(`
       tocConfig.collapseDepth = 6;
     }
     window.tocbot.init(tocConfig);
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
+    if (toc.querySelector('.toc-list-item')) {
+      toc.style.visibility = 'visible';
     }
     expandAllToc();
     bindTocToggle();
@@ -96,12 +102,12 @@ import_script(`
     Fluid.events.registerRefreshCallback(function() {
       if ('tocbot' in window) {
         tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
+        var toc = document.getElementById('toc');
+        if (!toc || !tocbot) {
           return;
         }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
+        if (toc.querySelector('.toc-list-item')) {
+          toc.style.visibility = 'visible';
         }
         expandAllToc();
         bindTocToggle();

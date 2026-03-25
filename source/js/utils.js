@@ -26,12 +26,10 @@ Fluid.utils = {
   },
 
   scrollToElement: function(target, offset) {
-    var of = jQuery(target).offset();
-    if (of) {
-      jQuery('html,body').animate({
-        scrollTop: of.top + (offset || 0),
-        easing   : 'swing'
-      });
+    var el = typeof target === 'string' ? document.querySelector(target) : target;
+    if (el) {
+      var top = el.getBoundingClientRect().top + window.scrollY + (offset || 0);
+      window.scrollTo({ top: top, behavior: 'smooth' });
     }
   },
 
@@ -130,6 +128,11 @@ Fluid.utils = {
   },
 
   createScript: function(url, onload) {
+    // If the script is already in the DOM, call onload immediately without re-adding
+    if (document.querySelector('script[src="' + url + '"]')) {
+      onload && onload();
+      return;
+    }
     var s = document.createElement('script');
     s.setAttribute('src', url);
     s.setAttribute('type', 'text/javascript');
