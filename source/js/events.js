@@ -137,15 +137,20 @@ Fluid.events = {
     if (!board) {
       return;
     }
+    // Cache layout-triggering reads once at init, not per-frame
+    var offset = parseInt(getComputedStyle(board).marginTop, 10);
+    // Select the side-col that actually contains the sidebar (TOC),
+    // not the first .side-col (which is the empty left column)
+    var sidebar = document.querySelector('.sidebar');
+    var sideCol = sidebar ? sidebar.closest('.side-col') : null;
     var parallax = function() {
       var pxv = window.scrollY / 5;
-      var offset = parseInt(getComputedStyle(board).marginTop, 10);
       var max = 96 + offset;
       if (pxv > max) {
         pxv = max;
       }
       ph.style.transform = 'translate3d(0,' + pxv + 'px,0)';
-      var sideCol = document.querySelector('.side-col');
+      // Use paddingTop (not transform) to preserve position:sticky on .sidebar
       if (sideCol) {
         sideCol.style.paddingTop = pxv + 'px';
       }
@@ -175,13 +180,17 @@ Fluid.events = {
     }
     var posDisplay = false;
     var scrollDisplay = false;
+    // Use transform for show/hide to avoid layout thrashing (bottom is a layout property)
+    var updateArrowVisibility = function() {
+      topArrow.style.transform = posDisplay && scrollDisplay ? 'translateY(0)' : 'translateY(80px)';
+    };
     // Position
     var setTopArrowPos = function() {
       var boardRight = board.getClientRects()[0].right;
       var bodyWidth = document.body.offsetWidth;
       var right = bodyWidth - boardRight;
       posDisplay = right >= 50;
-      topArrow.style.bottom = posDisplay && scrollDisplay ? '20px' : '-60px';
+      updateArrowVisibility();
       topArrow.style.right = (right - 64) + 'px';
     };
     setTopArrowPos();
@@ -196,7 +205,7 @@ Fluid.events = {
     Fluid.utils.listenScroll(function() {
       var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
       scrollDisplay = scrollHeight >= headerHeight;
-      topArrow.style.bottom = posDisplay && scrollDisplay ? '20px' : '-60px';
+      updateArrowVisibility();
     });
     // Click (D-03: window.scrollTo smooth)
     // Guard: #scroll-top-button is outside #pjax-wrapper and persists across PJAX navigation.

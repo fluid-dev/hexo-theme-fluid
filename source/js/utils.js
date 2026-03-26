@@ -6,7 +6,7 @@ Fluid.utils = {
 
   listenScroll: function(callback) {
     var dbc = new Debouncer(callback);
-    window.addEventListener('scroll', dbc, false);
+    window.addEventListener('scroll', dbc, { passive: true });
     dbc.handleEvent();
     return dbc;
   },

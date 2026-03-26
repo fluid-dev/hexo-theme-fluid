@@ -28,6 +28,17 @@
 - Scripts inside swapped HTML do **not** auto-run; `source/js/pjax.js` manually replays inline scripts, clears tracked scroll listeners, resets `Fluid.events._refreshCallbacks`, restores scroll position, and calls `Fluid.boot.refresh()`.
 - If a feature must re-run after PJAX, register it with `Fluid.events.registerRefreshCallback(...)` as seen in `layout/_partials/plugins/anchorjs.ejs` and `layout/_partials/post/toc.ejs`.
 - Avoid duplicate listeners on persistent nodes (navbar, scroll-top button, document-level handlers). Existing code uses dataset flags and module-level variables for that reason.
+- Scroll-bound behavior is concentrated in `source/js/utils.js#listenScroll` and `source/js/events.js`; keep PJAX cleanup compatible with `Fluid.utils.unlistenScroll(...)` when changing scroll internals.
+- The heaviest scroll-path hotspot is banner parallax in `source/js/events.js`: avoid per-frame `getComputedStyle()` / layout writes there and prefer `transform`-only updates.
+
+## Scroll performance rules
+- **Never read layout-triggering properties (`getComputedStyle`, `offsetHeight`, `getBoundingClientRect`) inside per-frame scroll callbacks.** Cache them at init time or in a `resize` handler.
+- **Never write layout properties (`paddingTop`, `marginTop`, `bottom`, `top`, `height`, `width`) in scroll callbacks.** Use `transform` (only triggers Composite) instead.
+- **Do not put CSS `transition` on properties driven by JS every frame** (e.g. banner parallax `transform`). The transition fights the JS update and reduces perceived responsiveness.
+- Scroll listeners registered via `Fluid.utils.listenScroll()` are RAF-debounced and `{ passive: true }`. Keep new scroll code on the same path.
+- For show/hide toggles on scroll (like `#scroll-top-button`), prefer `transform: translateY(...)` with a CSS `transition: transform` over toggling `bottom`/`top`.
+- `will-change` only helps composite-friendly properties (`transform`, `opacity`). Declaring `will-change: padding` is counterproductive—remove it.
+- When a scroll handler references DOM elements that don't change per-frame, cache the reference at registration time (e.g. `document.querySelector('.side-col')` once, not per callback).
 
 ## Config and compatibility rules
 - Effective config precedence is: theme `_config.yml` → site `_config.yml` `theme_config` → `source/_data/fluid_static_prefix.yml` → `source/_data/fluid_config.yml`; language overrides come from `source/_data/languages/*.yml`.
