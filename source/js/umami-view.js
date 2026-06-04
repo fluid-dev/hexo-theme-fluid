@@ -35,13 +35,60 @@ const request_header = {
   },
 };
 
+// 兼容 Umami v2 的 { value } 和 v3 的数字返回格式
+function getStatValue(data, key) {
+  const value = data && data[key];
+
+  if (typeof value === "number") {
+    return value;
+  }
+
+  if (value && typeof value.value === "number") {
+    return value.value;
+  }
+
+  return 0;
+}
+
+async function requestStats(queryParams) {
+  const response = await fetch(`${request_url}?${queryParams}`, request_header);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(`Umami API error ${response.status}: ${JSON.stringify(data)}`);
+  }
+
+  if (!data || typeof data.pageviews === "undefined") {
+    throw new Error(`Invalid Umami stats response: ${JSON.stringify(data)}`);
+  }
+
+  return data;
+}
+
+async function requestPageStats(path) {
+  const v3Params = new URLSearchParams(params);
+  v3Params.set("path", path);
+
+  try {
+    const data = await requestStats(v3Params);
+    if (typeof data.pageviews === "number") {
+      return data;
+    }
+  } catch (error) {
+    console.warn("Failed to fetch Umami stats with v3 path filter, fallback to v2 url filter.", error);
+  }
+
+  const v2Params = new URLSearchParams(params);
+  v2Params.set("url", path);
+  return requestStats(v2Params);
+}
+
 // 获取站点统计数据
 async function siteStats() {
   try {
-    const response = await fetch(`${request_url}?${params}`, request_header);
-    const data = await response.json();
-    const uniqueVisitors = data.visitors.value; // 获取独立访客数
-    const pageViews = data.pageviews.value; // 获取页面浏览量
+    const data = await requestStats(params);
+    const uniqueVisitors = getStatValue(data, "visitors"); // 获取独立访客数
+    const pageViews = getStatValue(data, "pageviews"); // 获取页面浏览量
 
     let pvCtn = document.querySelector("#umami-site-pv-container");
     if (pvCtn) {
@@ -69,9 +116,8 @@ async function siteStats() {
 // 获取页面浏览量
 async function pageStats(path) {
   try {
-    const response = await fetch(`${request_url}?${params}&url=${path}`, request_header);
-    const data = await response.json();
-    const pageViews = data.pageviews.value;
+    const data = await requestPageStats(path);
+    const pageViews = getStatValue(data, "pageviews");
 
     let viewCtn = document.querySelector("#umami-page-views-container");
     if (viewCtn) {
