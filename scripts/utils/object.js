@@ -8,10 +8,6 @@ const isNotEmptyObject = (obj) => {
   return obj && typeof obj === 'object' && Object.getOwnPropertyNames(obj).length !== 0;
 };
 
-const isEmptyObject = (obj) => {
-  return !isNotEmptyObject(obj);
-};
-
 const merge = (target, ...sources) => {
   for (const source of sources) {
     for (const key in source) {
@@ -31,6 +27,5 @@ const merge = (target, ...sources) => {
 module.exports = {
   isObject,
   isNotEmptyObject,
-  isEmptyObject,
   merge
 };

@@ -101,10 +101,7 @@
 
     // 3. Re-bind per-page events
     Fluid.events.registerNavbarScrollEvent();
-    Fluid.events.registerParallaxEvent();
-    Fluid.events.registerScrollDownArrowEvent();
-    Fluid.events.registerScrollTopArrowEvent();
-    Fluid.events.registerImageLoadedEvent();
+    Fluid.boot.registerPageEvents();
 
     // 4. Re-run plugins
     Fluid.boot.refresh();

@@ -2,23 +2,21 @@
 
 'use strict';
 
-hexo.extend.helper.register('import_js', function(base, relative, ex = '') {
-  if (!Array.isArray(this.page.script_snippets)) {
-    this.page.script_snippets = [];
+function pushPageSnippet(page, type, snippet) {
+  if (!Array.isArray(page[type])) {
+    page[type] = [];
   }
-  this.page.script_snippets.push(this.js_ex(base, relative, ex));
+  page[type].push(snippet);
+}
+
+hexo.extend.helper.register('import_js', function(base, relative, ex = '') {
+  pushPageSnippet(this.page, 'script_snippets', this.js_ex(base, relative, ex));
 });
 
 hexo.extend.helper.register('import_script', function(snippet) {
-  if (!Array.isArray(this.page.script_snippets)) {
-    this.page.script_snippets = [];
-  }
-  this.page.script_snippets.push(snippet);
+  pushPageSnippet(this.page, 'script_snippets', snippet);
 });
 
 hexo.extend.helper.register('import_css', function(base, relative, ex = '') {
-  if (!Array.isArray(this.page.css_snippets)) {
-    this.page.css_snippets = [];
-  }
-  this.page.css_snippets.push(this.css_ex(base, relative, ex));
+  pushPageSnippet(this.page, 'css_snippets', this.css_ex(base, relative, ex));
 });

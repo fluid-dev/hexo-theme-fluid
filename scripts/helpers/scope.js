@@ -36,15 +36,7 @@ hexo.extend.helper.register('in_scope', function(scope) {
     return true;
   }
 
-  if (Array.isArray(scope)) {
-    for (const each of scope) {
-      if (pageInScope(this.page, each)) {
-        return true;
-      }
-    }
-  } else {
-    return pageInScope(this.page, scope);
-  }
-
-  return false;
+  return Array.isArray(scope)
+    ? scope.some(each => pageInScope(this.page, each))
+    : pageInScope(this.page, scope);
 });

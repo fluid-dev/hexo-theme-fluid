@@ -4,11 +4,9 @@
 
 const md5 = require('../utils/crypto');
 const { decodeURL } = require('hexo-util');
-const compareVersions = require('../../scripts/utils/compare-versions');
+const compareVersions = require('../utils/compare-versions');
 
-hexo.extend.helper.register('md5', function(string) {
-  return md5(string);
-});
+hexo.extend.helper.register('md5', md5);
 
 hexo.extend.helper.register('require_version', function(current, require) {
   const verRe = current.match(/[@/](\d{1,2})\.?(\d{0,2})\.?(\d{0,2})/);

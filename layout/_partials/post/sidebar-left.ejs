@@ -4,7 +4,7 @@
     <%- partial('_partials/post/toc') %>
   </aside>
 <% } else if (theme.post.category_bar.enable && theme.post.category_bar.placement !== 'right' && !page.hide &&
-  (!theme.post.category_bar.specific || (theme.post.category_bar.specific && page.category_bar))) { %>
+  (!theme.post.category_bar.specific || page.category_bar)) { %>
   <aside class="sidebar category-bar has-sidebar" style="margin-right: -1rem">
     <%- partial('_partials/post/category-bar') %>
   </aside>

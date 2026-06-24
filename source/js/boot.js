@@ -5,6 +5,11 @@ Fluid.boot = {};
 Fluid.boot.registerEvents = function() {
   Fluid.events.billboard();
   Fluid.events.registerNavbarEvent();
+  Fluid.boot.registerPageEvents();
+  Fluid.events.registerCategoryCollapseEvent();
+};
+
+Fluid.boot.registerPageEvents = function() {
   Fluid.events.registerParallaxEvent();
   Fluid.events.registerScrollDownArrowEvent();
   Fluid.events.registerScrollTopArrowEvent();
@@ -25,6 +30,7 @@ Fluid.boot.refresh = function() {
   Fluid.plugins.fancyBox();
   Fluid.plugins.codeWidget();
   Fluid.events.refresh();
+  Fluid.events.registerCategoryCollapseEvent();
   Fluid.boot.initLazyload();
 };
 

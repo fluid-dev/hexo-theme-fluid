@@ -1,10 +1,10 @@
 /* global Fluid, CONFIG */
 
-HTMLElement.prototype.wrap = function(wrapper) {
-  this.parentNode.insertBefore(wrapper, this);
-  this.parentNode.removeChild(this);
-  wrapper.appendChild(this);
-};
+function wrapElement(element, wrapper) {
+  element.parentNode.insertBefore(wrapper, element);
+  element.parentNode.removeChild(element);
+  wrapper.appendChild(element);
+}
 
 Fluid.plugins = {
 
@@ -58,7 +58,7 @@ Fluid.plugins = {
       a.setAttribute('itemscope', '');
       a.setAttribute('itemtype', 'http://schema.org/ImageObject');
       a.setAttribute('itemprop', 'url');
-      image.wrap(a);
+      wrapElement(image, a);
       if (image.closest('.group-image-container')) {
         a.setAttribute('data-fancybox', 'group');
         a.setAttribute('rel', 'group');
@@ -135,7 +135,7 @@ Fluid.plugins = {
         } else if (pre.parentElement.classList.contains('markdown-body') && pre.classList.length === 0) {
           var wrapper = document.createElement('div');
           wrapper.className = 'code-wrapper';
-          pre.wrap(wrapper);
+          wrapElement(pre, wrapper);
         }
         lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
       }
