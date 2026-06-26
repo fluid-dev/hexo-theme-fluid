@@ -43,6 +43,9 @@ post:
   prev_post: 'Vorheriger'
   next_post: 'Nächster'
   updated: 'Geändert am %s'
+  outdate:
+    title: 'Rechtzeitigkeitserinnerung für Artikel'
+    content: 'Dies ist ein Artikel, der vor %s Tagen veröffentlicht wurde, und einige Informationen könnten sich geändert haben.'
   meta:
     wordcount: '%s wörter'
     min2read: '%s minuten'

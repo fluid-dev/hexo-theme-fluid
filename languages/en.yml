@@ -43,6 +43,9 @@ post:
   prev_post: 'Previous'
   next_post: 'Next'
   updated: 'Last updated on %s'
+  outdate:
+    title: 'Timeliness reminder for articles'
+    content: 'This is an article published %s days ago, and some information may have changed. Please pay attention to discernment.'
   meta:
     wordcount: '%s words'
     min2read: '%s mins'
