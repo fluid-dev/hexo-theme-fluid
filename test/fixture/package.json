@@ -1,0 +1,14 @@
+{
+  "name": "fluid-mermaid-test-site",
+  "private": true,
+  "hexo": {
+    "version": "8.1.2"
+  },
+  "dependencies": {
+    "hexo": "^8.0.0",
+    "hexo-pagination": "^3.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.0",
+    "hexo-renderer-stylus": "^3.0.0"
+  }
+}
