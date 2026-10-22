@@ -8,6 +8,7 @@ hexo.on('generateBefore', () => {
   require('./lib/compatible-configs')(hexo);
   require('./lib/injects')(hexo);
   require('./lib/highlight')(hexo);
+  require('./lib/mermaid')(hexo);
   require('./lib/lazyload')(hexo);
   require('./lib/footnote')(hexo);
 });

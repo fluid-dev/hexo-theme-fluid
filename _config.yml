@@ -758,8 +758,10 @@ post:
     # If you want to use mermaid on the custom page, you need to set `mermaid: true` in Front-matter
     enable: false
 
-    # 开启后，只有在文章 Front-matter 里指定 `mermaid: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
-    # If true, only set `mermaid: true` in Front-matter will enable mermaid, to load faster when the page does not contain mermaid
+    # 开启后，只有当页面包含 mermaid 图表或 Front-matter 指定 `mermaid: true` 时才加载脚本，以便在页面不包含图表时提高加载速度
+    # 指定 `mermaid: false` 可强制关闭
+    # If true, the script is only loaded when the page contains mermaid diagrams or `mermaid: true` is set in Front-matter, saving the load on pages without diagrams
+    # Set `mermaid: false` to opt out explicitly
     specific: false
 
     # 配置项与 mermaid 版本保持一致，可参考：https://mermaid.js.org/config/schema-docs/config.html

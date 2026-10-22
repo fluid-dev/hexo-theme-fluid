@@ -1,16 +1,23 @@
 <script>
   Fluid.utils.createScript('<%= url_join(theme.static_prefix.mermaid, 'mermaid.min.js') %>', function() {
-    mermaid.initialize(<%- JSON.stringify(theme.post.mermaid.options || {}) %>);
+    // 关闭 mermaid 的自动渲染，统一由 renderMermaid 控制渲染时机，
+    // 避免自动渲染发生在 initialize 应用配置之前
+    // Disable mermaid's automatic rendering so that the configuration is
+    // always applied before the first render
+    var options = Object.assign({}, <%- JSON.stringify(theme.post.mermaid.options || {}) %>, { startOnLoad: false });
+    mermaid.initialize(options);
 
     var renderMermaid = function() {
       if (!('mermaid' in window)) {
         return;
       }
-      // mermaid 10+ 移除了 mermaid.init()，改用 mermaid.run()
-      // mermaid 10+ removed mermaid.init(), use mermaid.run() instead
-      mermaid.run().catch(function(err) {
-        // 单个图表语法错误不应中断整页渲染
-        // A syntax error in one diagram should not break the whole page
+      // mermaid 10+ 移除了 mermaid.init，改用 mermaid.run
+      // mermaid 10+ removed mermaid.init, use mermaid.run instead
+      // suppressErrors：单个图表的语法错误不会中断同页其他图表
+      // suppressErrors: a syntax error in one diagram must not break the others
+      // 传入 options 会覆盖默认的 querySelector，必须显式指定
+      // Passing options replaces the default querySelector, so set it explicitly
+      mermaid.run({ querySelector: '.mermaid', suppressErrors: true }).catch(function(err) {
         console.error('[Fluid] Mermaid render failed:', err);
       });
     };
