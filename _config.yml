@@ -762,7 +762,8 @@ post:
     # If true, only set `mermaid: true` in Front-matter will enable mermaid, to load faster when the page does not contain mermaid
     specific: false
 
-    # See: http://mermaid-js.github.io/mermaid/
+    # 配置项与 mermaid 版本保持一致，可参考：https://mermaid.js.org/config/schema-docs/config.html
+    # Options follow the mermaid version schema, see: https://mermaid.js.org/config/schema-docs/config.html
     options: { theme: 'default' }
 
   # 评论插件
@@ -1136,7 +1137,7 @@ static_prefix:
 
   clipboard: https://lib.baomitu.com/clipboard.js/2.0.11/
 
-  mermaid: https://lib.baomitu.com/mermaid/8.14.0/
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/
 
   valine: https://lib.baomitu.com/valine/1.5.1/
 

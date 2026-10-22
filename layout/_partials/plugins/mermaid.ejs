@@ -2,12 +2,20 @@
   Fluid.utils.createScript('<%= url_join(theme.static_prefix.mermaid, 'mermaid.min.js') %>', function() {
     mermaid.initialize(<%- JSON.stringify(theme.post.mermaid.options || {}) %>);
 
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
+    var renderMermaid = function() {
+      if (!('mermaid' in window)) {
+        return;
+      }
+      // mermaid 10+ 移除了 mermaid.init()，改用 mermaid.run()
+      // mermaid 10+ removed mermaid.init(), use mermaid.run() instead
+      mermaid.run().catch(function(err) {
+        // 单个图表语法错误不应中断整页渲染
+        // A syntax error in one diagram should not break the whole page
+        console.error('[Fluid] Mermaid render failed:', err);
       });
-    });
+    };
+
+    Fluid.utils.listenDOMLoaded(renderMermaid);
+    Fluid.events.registerRefreshCallback(renderMermaid);
   });
 </script>
