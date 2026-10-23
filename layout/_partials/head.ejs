@@ -5,12 +5,20 @@ var keywords = page.keywords || config.keywords
 if (keywords instanceof Array) {
   keywords = keywords.join(',')
 }
-var description = page.description || page.excerpt || (is_post() && page.content) || config.description
+var description = page.description || page.excerpt || page.content || config.description
 if (description) {
-  description = strip_html(description).substring(0, 200).trim().replace(/\n/g, ' ')
+  // 先剥标签再去实体，避免 "&amp;" 这类转义原样进入 meta 和 JSON-LD
+  // Strip tags first, then decode entities so escaped text stays readable in metadata
+  // 代码块内容不参与摘要，避免 meta 里出现整段源码
+  // Code blocks never belong in a summary
+  description = unescape_html(strip_html(strip_mermaid(description).replace(/<pre[\s\S]*?<\/pre>/gi, ' '))).substring(0, 200).trim().replace(/\n/g, ' ')
 }
-var ogImage = page.og_img || page.index_img
-var ogConfig = Object.assign({ image: ogImage && url_for(ogImage) }, theme.open_graph)
+// 正文首图优先于站点默认图，避免分享卡片千篇一律；只取绝对地址，
+// 相对路径可能指向未提交的图片，分享卡片会从默认图退化成 404
+// Only absolute content images: a broken relative path would replace the default card with a 404
+var contentImage = ((page.content || '').match(/<img[^>]*\ssrc=["']((?:https?:)?\/\/[^"']+)["']/i) || [])[1]
+var ogImage = page.og_img || page.index_img || contentImage || theme.open_graph.image
+var ogConfig = Object.assign({ description: description }, theme.open_graph, { image: ogImage && url_for(ogImage) })
 %>
 
 <head>
@@ -34,6 +42,41 @@ var ogConfig = Object.assign({ image: ogImage && url_for(ogImage) }, theme.open_
     <%- open_graph(ogConfig) %>
   <% } else { %>
     <meta name="description" content="<%= description %>">
+  <% } %>
+  <%
+    // 结构化数据：文章输出 BlogPosting，首页输出 WebSite
+    // Structured data: BlogPosting for posts, WebSite for the home page
+    var jsonLd = null
+    var pageUrl = url_join(config.url, (page.canonical_path || page.path || '').replace('index.html', ''))
+    if (is_post()) {
+      jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: page.title,
+        description: description,
+        url: pageUrl,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+        author: { '@type': 'Person', name: page.author || config.author },
+        publisher: { '@type': 'Organization', name: config.title },
+        inLanguage: config.language
+      }
+      if (page.date) jsonLd.datePublished = page.date.toISOString()
+      if (page.updated || page.date) jsonLd.dateModified = (page.updated || page.date).toISOString()
+      if (ogConfig.image) jsonLd.image = full_url_for(ogConfig.image)
+    } else if (is_home() && page.current === 1) {
+      jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: config.title,
+        url: config.url,
+        description: description,
+        inLanguage: config.language
+      }
+      if (ogConfig.image) jsonLd.image = full_url_for(ogConfig.image)
+    }
+  %>
+  <% if (jsonLd) { %>
+    <%- json_ld(jsonLd) %>
   <% } %>
   <% if ((theme.post.meta.views.enable && theme.post.meta.views.source === 'busuanzi')
     || (theme.footer.statistics.enable && theme.footer.statistics.source === 'busuanzi')) { %>

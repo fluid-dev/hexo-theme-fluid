@@ -754,15 +754,25 @@ post:
   # 流程图，基于 mermaid-js，具体请见：https://fluid.ist/docs/guide/#mermaid-流程图
   # Flow chart, based on mermaid-js, see: https://fluid.ist/docs/en/guide/#mermaid
   mermaid:
-    # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `mermaid: true`
-    # If you want to use mermaid on the custom page, you need to set `mermaid: true` in Front-matter
+    # 开启后文章默认可用；页面会自动检测正文中的 mermaid 图表（代码块、`{% mermaid %}` 标签、
+    # `<div class="mermaid">`），一般无需再写 Front-matter。
+    # 如果图表是运行时注入的（例如加密插件、动态加载的评论内容），或页面未引入 markdown 正文样式，
+    # 仍可在 Front-matter 中指定 `mermaid: true` 强制加载脚本。
+    # Once enabled, posts work out of the box: the theme detects mermaid diagrams in the
+    # content (code fences, the `{% mermaid %}` tag and `<div class="mermaid">`), so the
+    # Front-matter flag is usually unnecessary. Set `mermaid: true` in Front-matter when
+    # diagrams are injected at runtime (encrypted posts, dynamically loaded content) or
+    # when the page does not include the markdown body styles.
     enable: false
 
-    # 开启后，只有在文章 Front-matter 里指定 `mermaid: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
-    # If true, only set `mermaid: true` in Front-matter will enable mermaid, to load faster when the page does not contain mermaid
+    # 开启后，只有当页面包含 mermaid 图表或 Front-matter 指定 `mermaid: true` 时才加载脚本，以便在页面不包含图表时提高加载速度
+    # 指定 `mermaid: false` 可强制关闭
+    # If true, the script is only loaded when the page contains mermaid diagrams or `mermaid: true` is set in Front-matter, saving the load on pages without diagrams
+    # Set `mermaid: false` to opt out explicitly
     specific: false
 
-    # See: http://mermaid-js.github.io/mermaid/
+    # 配置项与 mermaid 版本保持一致，可参考：https://mermaid.js.org/config/schema-docs/config.html
+    # Options follow the mermaid version schema, see: https://mermaid.js.org/config/schema-docs/config.html
     options: { theme: 'default' }
 
   # 评论插件
@@ -1136,7 +1146,7 @@ static_prefix:
 
   clipboard: https://lib.baomitu.com/clipboard.js/2.0.11/
 
-  mermaid: https://lib.baomitu.com/mermaid/8.14.0/
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/
 
   valine: https://lib.baomitu.com/valine/1.5.1/
 

@@ -1,0 +1,5 @@
+post:
+  mermaid:
+    enable: true
+    specific: true
+    options: { theme: 'default' }

@@ -14,6 +14,7 @@ try {
 const fs = require('fs');
 const objUtil = require('../../utils/object');
 const resolveModule = require('../../utils/resolve');
+const { hasMermaidCode, toMermaidClass } = require('../../utils/mermaid');
 
 module.exports = (hexo) => {
 
@@ -94,14 +95,14 @@ module.exports = (hexo) => {
     hexo.extend.filter.register('after_post_render', (page) => {
       if (hexo.config.highlight.line_number) {
         page.content = page.content.replace(/<figure[^>]+?highlight.+?<td[^>]+?code[^>]+?>.*?(<pre.+?<\/pre>).+?<\/figure>/gims, (str, p1) => {
-          if (/<code[^>]+?mermaid[^>]+?>/ims.test(p1)) {
+          if (hasMermaidCode(p1)) {
             return p1.replace(/(class="[^>]*?)hljs([^>]*?")/gims, '$1$2').replace(/<br>/gims, '\n');
           }
           return str;
         });
       } else {
         page.content = page.content.replace(/(?<!<div class="code-wrapper">)<pre.+?<\/pre>/gims, (str) => {
-          if (/<code[^>]+?mermaid[^>]+?>/ims.test(str)) {
+          if (hasMermaidCode(str)) {
             return str.replace(/(class=".*?)hljs(.*?")/gims, '$1$2');
           }
           return `<div class="code-wrapper">${str}</div>`;
@@ -133,12 +134,11 @@ module.exports = (hexo) => {
 
     hexo.extend.filter.register('after_post_render', (page) => {
       page.content = page.content.replace(/(?<!<div class="code-wrapper">)<pre.+?<\/pre>/gims, (str) => {
-        if (/<code[^>]+?mermaid[^>]+?>/ims.test(str)) {
+        if (hasMermaidCode(str)) {
           if (hexo.config.highlight.line_number) {
             str = str.replace(/<span[^>]+?line-numbers-rows[^>]+?>.+?<\/span><\/code>/, '</code>');
           }
-          str = str.replace(/<pre[^>]*?>/gims, '<pre>')
-            .replace(/(class=".*?)language-mermaid(.*?")/gims, '$1mermaid$2')
+          str = toMermaidClass(str.replace(/<pre[^>]*?>/gims, '<pre>'))
             .replace(/<span[^>]+?>(.+?)<\/span>/gims, '$1');
           return str;
         }

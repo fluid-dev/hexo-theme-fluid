@@ -19,6 +19,17 @@
 <% if (theme.post.math.enable && (!theme.post.math.specific || (theme.post.math.specific && page.math))) { %>
   <%- partial('_partials/plugins/math.ejs') %>
 <% } %>
-<% if (theme.post.mermaid.enable && (!theme.post.mermaid.specific || (theme.post.mermaid.specific && page.mermaid))) { %>
+<%
+  // mermaid 块可能来自 ```mermaid 代码块、{% mermaid %} 标签，也可能是正文里的
+  // <div class="mermaid">；检测到页面内确实存在图表元素时才加载脚本，
+  // 特定模式下无需再手动写 Front-matter。
+  // Detect the elements mermaid will render, so that `specific: true` does not
+  // silently skip the script when the Front-matter flag is missing.
+  var hasMermaidBlock = has_mermaid(page.content || '');
+  var needMermaid = theme.post.mermaid.enable
+    && page.mermaid !== false
+    && (!theme.post.mermaid.specific || page.mermaid || hasMermaidBlock);
+%>
+<% if (needMermaid) { %>
   <%- partial('_partials/plugins/mermaid.ejs') %>
 <% } %>
