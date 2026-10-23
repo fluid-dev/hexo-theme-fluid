@@ -27,3 +27,15 @@ hexo.extend.helper.register('deduplicate', function(arr) {
 });
 
 hexo.extend.helper.register('decode_url', decodeURL);
+
+// 移除正文里的 mermaid 源码，避免图表代码进入摘要和 meta description
+// Strip mermaid source so diagram code never leaks into excerpts or meta descriptions
+// 只匹配独立的 mermaid 类名，避免误伤 mermaid-wrapper 之类的复合类名；单双引号都支持
+// Match only the exact `mermaid` class token, so names like mermaid-wrapper survive
+const MERMAID_BLOCK = /<(pre|div|code)\b[^>]*\bclass=(["'])(?:[^"']*\s)?(?:language-)?mermaid(?:\s[^"']*)?\2[^>]*>[\s\S]*?<\/\1>/gi;
+
+hexo.extend.helper.register('strip_mermaid', function(html) {
+  // 第二步清掉只剩空壳的 <pre>，fenced 代码块被剥离后会留下它
+  // Second pass removes the empty <pre> left behind by a fenced block
+  return String(html || '').replace(MERMAID_BLOCK, ' ').replace(/<pre[^>]*>\s*<\/pre>/gi, ' ');
+});
