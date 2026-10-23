@@ -1,5 +1,6 @@
 <script>
-  Fluid.utils.createScript('<%= url_join(theme.static_prefix.mermaid, 'mermaid.min.js') %>', function() {
+  var mermaidUrl = '<%= url_join(theme.static_prefix.mermaid, 'mermaid.min.js') %>';
+  Fluid.utils.createScript(mermaidUrl, function() {
     // 关闭 mermaid 的自动渲染，统一由 renderMermaid 控制渲染时机，
     // 避免自动渲染发生在 initialize 应用配置之前
     // Disable mermaid's automatic rendering so that the configuration is
@@ -11,18 +12,25 @@
       if (!('mermaid' in window)) {
         return;
       }
-      // mermaid 10+ 移除了 mermaid.init，改用 mermaid.run
-      // mermaid 10+ removed mermaid.init, use mermaid.run instead
-      // suppressErrors：单个图表的语法错误不会中断同页其他图表
-      // suppressErrors: a syntax error in one diagram must not break the others
+      // mermaid.init 自 mermaid 10 起已废弃，改用 mermaid.run
+      // mermaid.init is deprecated since mermaid 10, use mermaid.run instead
+      // 不要加 suppressErrors：run() 会逐图捕获错误、继续渲染其他图表，
+      // 最后统一 reject；加上 suppressErrors 会让这里的 catch 永远收不到错误
+      // Do not pass suppressErrors: run() handles errors per diagram, keeps
+      // rendering the others and rejects at the end. With suppressErrors the
+      // rejection is swallowed and this catch never runs.
       // 传入 options 会覆盖默认的 querySelector，必须显式指定
       // Passing options replaces the default querySelector, so set it explicitly
-      mermaid.run({ querySelector: '.mermaid', suppressErrors: true }).catch(function(err) {
+      mermaid.run({ querySelector: '.mermaid' }).catch(function(err) {
         console.error('[Fluid] Mermaid render failed:', err);
       });
     };
 
     Fluid.utils.listenDOMLoaded(renderMermaid);
     Fluid.events.registerRefreshCallback(renderMermaid);
+  }, function() {
+    // 脚本加载失败时图表会保持纯文本，这里给出可排查的提示
+    // Keep a diagnosable message when the script cannot be loaded
+    console.error('[Fluid] Failed to load mermaid from ' + mermaidUrl);
   });
 </script>

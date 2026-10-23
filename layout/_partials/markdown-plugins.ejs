@@ -20,12 +20,12 @@
   <%- partial('_partials/plugins/math.ejs') %>
 <% } %>
 <%
-  // mermaid 块可能来自 ```mermaid 代码块，也可能来自 {% mermaid %} 标签。
-  // 检测到页面内确实存在图表时才加载脚本，特定模式下无需再手动写 Front-matter。
-  // Detect mermaid blocks in the page content, so that `specific: true` does not
+  // mermaid 块可能来自 ```mermaid 代码块、{% mermaid %} 标签，也可能是正文里的
+  // <div class="mermaid">；检测到页面内确实存在图表元素时才加载脚本，
+  // 特定模式下无需再手动写 Front-matter。
+  // Detect the elements mermaid will render, so that `specific: true` does not
   // silently skip the script when the Front-matter flag is missing.
-  // Mermaid blocks may come from a ```mermaid fence or the {% mermaid %} tag.
-  var hasMermaidBlock = /<code[^>]*\bmermaid\b[^>]*>/i.test(page.content || '');
+  var hasMermaidBlock = has_mermaid(page.content || '');
   var needMermaid = theme.post.mermaid.enable
     && page.mermaid !== false
     && (!theme.post.mermaid.specific || page.mermaid || hasMermaidBlock);

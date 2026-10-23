@@ -129,23 +129,30 @@ Fluid.utils = {
     }
   },
 
-  createScript: function(url, onload) {
+  createScript: function(url, onload, onerror) {
     var s = document.createElement('script');
     s.setAttribute('src', url);
     s.setAttribute('type', 'text/javascript');
     s.setAttribute('charset', 'UTF-8');
     s.async = false;
-    if (typeof onload === 'function') {
+    if (typeof onload === 'function' || typeof onerror === 'function') {
       if (window.attachEvent) {
         s.onreadystatechange = function() {
           var e = s.readyState;
           if (e === 'loaded' || e === 'complete') {
             s.onreadystatechange = null;
-            onload();
+            if (typeof onload === 'function') {
+              onload();
+            }
           }
         };
-      } else {
+      } else if (typeof onload === 'function') {
         s.onload = onload;
+      }
+      // 加载失败（如 CDN 不可用）时回调，由调用方决定如何提示
+      // Call back on load errors (e.g. an unreachable CDN) so callers can report it
+      if (typeof onerror === 'function') {
+        s.onerror = onerror;
       }
     }
     var ss = document.getElementsByTagName('script');

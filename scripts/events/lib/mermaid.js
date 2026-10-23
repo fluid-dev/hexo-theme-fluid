@@ -2,7 +2,7 @@
 
 'use strict';
 
-const MERMAID_BLOCK = /<code[^>]*\bmermaid\b[^>]*>/i;
+const { hasMermaidElement } = require('../../utils/mermaid');
 
 module.exports = (hexo) => {
   // 构建期提示：页面里有 mermaid 块，但配置导致脚本不会被加载时给出警告，
@@ -11,7 +11,7 @@ module.exports = (hexo) => {
   // be loaded, so the diagrams would silently show up as plain text
   hexo.extend.filter.register('after_post_render', (page) => {
     const config = hexo.theme.config.post.mermaid;
-    if (!config || !MERMAID_BLOCK.test(page.content || '')) {
+    if (!config || !hasMermaidElement(page.content || '')) {
       return page;
     }
     if (!config.enable) {
